@@ -30,6 +30,7 @@ tokens = [
     { representation: '"' , areInvalidLiterals: true },
     { representation: '\'', areInvalidLiterals: true },
     { representation: "function" , areNonCommands: true, },
+    { representation: "export"   , areNonCommands: true, },
     { representation: "select"   , areNonCommands: true, },
     { representation: "case"     , areNonCommands: true, },
     { representation: "do"       , areNonCommands: true, },
