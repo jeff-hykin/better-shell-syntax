@@ -872,7 +872,7 @@ repository:
         name: variable.other.assignment.shell
       '2':
         name: keyword.operator.assignment.shell
-    end: "(?:(?:(?:(?:(;)|(&&))|(\\|\\|))|(&))|\\n)"
+    end: "(?:(?:(?:(?:(?:(;)|(&&))|(\\|\\|))|(&))|\\n)|(?= ))"
     endCaptures:
       '1':
         name: punctuation.terminator.statement.semicolon.shell

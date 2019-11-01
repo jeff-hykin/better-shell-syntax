@@ -180,7 +180,7 @@ require_relative './tokens.rb'
                 match: /\=/,
                 tag_as: "keyword.operator.assignment",
             ),
-        end_pattern: grammar[:statement_seperator],
+        end_pattern: grammar[:statement_seperator].or(lookAheadFor(/ /)),
         includes: [ :variable_assignment_context ]
     )
     

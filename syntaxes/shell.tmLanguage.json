@@ -1590,7 +1590,7 @@
           "name": "keyword.operator.assignment.shell"
         }
       },
-      "end": "(?:(?:(?:(?:(;)|(&&))|(\\|\\|))|(&))|\\n)",
+      "end": "(?:(?:(?:(?:(?:(;)|(&&))|(\\|\\|))|(&))|\\n)|(?= ))",
       "endCaptures": {
         "1": {
           "name": "punctuation.terminator.statement.semicolon.shell"
