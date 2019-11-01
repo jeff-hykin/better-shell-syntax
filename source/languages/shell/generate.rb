@@ -272,7 +272,7 @@ require_relative './tokens.rb'
                 match: /\$/,
                 tag_as: "punctuation.definition.variable #{tag}"
             ).then(
-                match: regex_after_dollarsign,
+                match: regex_after_dollarsign.lookAheadFor(/\W/),
                 tag_as: tag,
             )
         )

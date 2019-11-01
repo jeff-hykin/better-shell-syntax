@@ -1744,7 +1744,7 @@
     "variable": {
       "patterns": [
         {
-          "match": "(\\$)(\\@)",
+          "match": "(\\$)(\\@(?=\\W))",
           "captures": {
             "1": {
               "name": "punctuation.definition.variable.shell variable.parameter.positional.all.shell"
@@ -1755,7 +1755,7 @@
           }
         },
         {
-          "match": "(\\$)([0-9])",
+          "match": "(\\$)([0-9](?=\\W))",
           "captures": {
             "1": {
               "name": "punctuation.definition.variable.shell variable.parameter.positional.shell"
@@ -1766,7 +1766,7 @@
           }
         },
         {
-          "match": "(\\$)(\\{[0-9]+\\})",
+          "match": "(\\$)(\\{[0-9]+\\}(?=\\W))",
           "captures": {
             "1": {
               "name": "punctuation.definition.variable.shell variable.parameter.positional.shell"
@@ -1777,7 +1777,7 @@
           }
         },
         {
-          "match": "(\\$)([-*#?$!0_])",
+          "match": "(\\$)([-*#?$!0_](?=\\W))",
           "captures": {
             "1": {
               "name": "punctuation.definition.variable.shell variable.language.special.shell"
@@ -1828,7 +1828,7 @@
           ]
         },
         {
-          "match": "(\\$)(\\w+)",
+          "match": "(\\$)(\\w+(?=\\W))",
           "captures": {
             "1": {
               "name": "punctuation.definition.variable.shell variable.other.normal.shell"
