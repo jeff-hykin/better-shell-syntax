@@ -31,6 +31,8 @@ export COLOR_BLUE="$(tput setaf 4)"
 export COLOR_RED="$(tput setaf 1)"
 export COLOR_RESET="$(tput sgr0)"
 
+sed -e 's/a/b/'
+
 read -p "Do you want to save your changes?" -n 1 -r
 echo    # (optional) move to a new line
 if [[ ! $REPLY =~ ^[Yy]$ ]]

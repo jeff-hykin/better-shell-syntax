@@ -854,8 +854,6 @@ repository:
     patterns:
     - match: "(?<=^|;|&|\\s)(?::|\\.)(?=\\s|;|&|$)"
       name: support.function.builtin.shell
-    - match: "(?<=^|;|&|\\s)(?:alias|bg|bind|break|builtin|caller|cd|command|compgen|complete|dirs|disown|echo|enable|eval|exec|exit|false|fc|fg|getopts|hash|help|history|jobs|kill|let|logout|popd|printf|pushd|pwd|read|readonly|set|shift|shopt|source|suspend|test|times|trap|true|type|ulimit|umask|unalias|unset|wait)(?=\\s|;|&|$)"
-      name: support.function.builtin.shell
   statement_seperator:
     match: "(?:(?:(?:(?:(;)|(&&))|(\\|\\|))|(&))|\\n)"
     captures:
@@ -892,6 +890,7 @@ repository:
     begin: "\\s*+(?!(?:!|%|&|\\||\\(|\\{|\\[|<|>|#|\\n|$|;))"
     end: "(?:(?=\\s)|(?=;|\\||&|$|\\n|\\)|\\`|\\}|\\{|#|\\])(?<!\\\\))"
     patterns:
+    - include: "#custom_commands"
     - include: "#command_context"
   argument:
     name: meta.argument.shell
@@ -917,15 +916,53 @@ repository:
     end: "(?:(?=\\s)|(?=;|\\||&|$|\\n|\\)|\\`|\\}|\\{|#|\\])(?<!\\\\))"
     patterns:
     - include: "#option_context"
+  simple_options:
+    match: "(?:\\s++(\\-)(\\w+))*"
+    captures:
+      '1':
+        name: string.unquoted.argument.shell constant.other.option.dash.shell
+      '2':
+        name: string.unquoted.argument.shell constant.other.option.shell
   command_call:
     name: meta.statement.shell
-    begin: "(?<=(?:^|;|\\||&|!|\\(|\\{|\\`))\\s*+(?!function\\W|function\\$|export\\W|export\\$|select\\W|select\\$|case\\W|case\\$|do\\W|do\\$|done\\W|done\\$|elif\\W|elif\\$|else\\W|else\\$|esac\\W|esac\\$|fi\\W|fi\\$|for\\W|for\\$|if\\W|if\\$|in\\W|in\\$|then\\W|then\\$|until\\W|until\\$|while\\W|while\\$|alias\\W|alias\\$|bg\\W|bg\\$|command\\W|command\\$|false\\W|false\\$|fc\\W|fc\\$|fg\\W|fg\\$|getopts\\W|getopts\\$|hash\\W|hash\\$|jobs\\W|jobs\\$|kill\\W|kill\\$|newgrp\\W|newgrp\\$|read\\W|read\\$|true\\W|true\\$|umask\\W|umask\\$|unalias\\W|unalias\\$|wait\\W|wait\\$)"
+    begin: "(?<=(?:^|;|\\||&|!|\\(|\\{|\\`))\\s*+(?!function\\W|function\\$|export\\W|export\\$|select\\W|select\\$|case\\W|case\\$|do\\W|do\\$|done\\W|done\\$|elif\\W|elif\\$|else\\W|else\\$|esac\\W|esac\\$|fi\\W|fi\\$|for\\W|for\\$|if\\W|if\\$|in\\W|in\\$|then\\W|then\\$|until\\W|until\\$|while\\W|while\\$)"
     end: "(?=;|\\||&|$|\\n|\\)|\\`|\\}|\\{|#|\\])(?<!\\\\)"
     patterns:
     - include: "#option"
     - include: "#argument"
     - include: "#command_name"
     - include: "#command_context"
+  sed_command:
+    match: "(\\bsed\\b)(?:\\s++(\\-)(\\w+))*\\s+('s\\/)(.*)(\\/)(.*)(\\/\\w{0,4}\\')(.*)"
+    captures:
+      '1':
+        name: support.function.builtin.shell
+      '2':
+        name: string.unquoted.argument.shell constant.other.option.dash.shell
+      '3':
+        name: string.unquoted.argument.shell constant.other.option.shell
+      '4':
+        name: punctuation.section.regexp.shell
+      '5':
+        patterns:
+        - include: "#regexp"
+      '6':
+        name: punctuation.section.regexp.shell
+      '7':
+        patterns:
+        - include: "#string"
+      '8':
+        name: punctuation.section.regexp.shell
+      '9':
+        patterns:
+        - include: "#option"
+        - include: "#argument"
+        - include: "#command_context"
+  custom_commands:
+    patterns:
+    - include: "#sed_command"
+    - match: "(?<=^|;|&|\\s)(?:alias|bg|bind|break|builtin|caller|cd|command|compgen|complete|dirs|disown|echo|enable|eval|exec|exit|false|fc|fg|getopts|hash|help|history|jobs|kill|let|logout|popd|printf|pushd|pwd|read|readonly|set|shift|shopt|source|suspend|test|times|trap|true|type|ulimit|umask|unalias|unset|wait)(?=\\s|;|&|$)"
+      name: support.function.builtin.shell
   logical_expression_single:
     name: meta.scope.logical-expression.shell
     begin: "(\\[)"

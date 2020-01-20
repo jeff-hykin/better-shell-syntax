@@ -200,6 +200,7 @@ require_relative './tokens.rb'
         start_pattern: std_space.then(possible_command_start),
         end_pattern: lookAheadFor(@space).or(command_end),
         includes: [
+            :custom_commands,
             :command_context,
         ]
     )
@@ -238,6 +239,15 @@ require_relative './tokens.rb'
             :option_context,
         ]
     )
+    grammar[:simple_options] = zeroOrMoreOf(
+        /\s++/.then(
+            match: /\-/,
+            tag_as: "string.unquoted.argument constant.other.option.dash"
+        ).then(
+            match: /\w+/,
+            tag_as: "string.unquoted.argument constant.other.option"
+        )
+    )
     keywords = @tokens.representationsThat(:areNonCommands)
     keyword_patterns = /#{keywords.map { |each| each+'\W|'+each+'\$' } .join('|')}/
     grammar[:command_call] = PatternRange.new(
@@ -252,6 +262,50 @@ require_relative './tokens.rb'
             :command_context
         ]
     )
+    grammar[:custom_commands] = [
+        
+        # Note:
+        #   this sed does not cover all possible cases, it only covers the most likely case
+        #   in the event of a more complicated case, it falls back on tradidional command highlighting
+        grammar[:sed_command] = Pattern.new(
+            Pattern.new(
+                match: /\bsed\b/,
+                tag_as: "support.function.builtin",
+            ).then(
+                grammar[:simple_options]
+            ).then(@spaces).then(
+                match: /'s\//,
+                tag_as: "punctuation.section.regexp",
+            ).then(
+                match: /.*/, # find
+                includes: [ :regexp ],
+            ).then(
+                match: /\//,
+                tag_as: "punctuation.section.regexp",
+            ).then(
+                match: /.*/, # replace
+                includes: [ :string ],
+            ).then(
+                match: /\/\w{0,4}\'/,
+                tag_as: "punctuation.section.regexp",
+            ).then(
+                match: /.*/,
+                includes: [
+                    :option,
+                    :argument,
+                    :command_context
+                ]
+            )
+        ),
+        
+        # legacy built-in commands
+        {
+            "match": "(?<=^|;|&|\\s)(?:alias|bg|bind|break|builtin|caller|cd|command|compgen|complete|dirs|disown|echo|enable|eval|exec|exit|false|fc|fg|getopts|hash|help|history|jobs|kill|let|logout|popd|printf|pushd|pwd|read|readonly|set|shift|shopt|source|suspend|test|times|trap|true|type|ulimit|umask|unalias|unset|wait)(?=\\s|;|&|$)",
+            "name": "support.function.builtin.shell"
+        }        
+    ]
+    # remove legacy support to fix pattern priorities
+    grammar[:support]["patterns"].pop()
 
     grammar[:logical_expression_single] = PatternRange.new(
         tag_as: "meta.scope.logical-expression",

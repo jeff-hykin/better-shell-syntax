@@ -107,6 +107,7 @@ punctuation.definition.variable.shell
 punctuation.section.array.shell
 punctuation.section.bracket.curly.variable.begin.shell
 punctuation.section.bracket.curly.variable.end.shell
+punctuation.section.regexp.shell
 punctuation.separator.constant.numeric.shell
 punctuation.separator.pipe-sign.shell
 punctuation.separator.statement.and.shell
