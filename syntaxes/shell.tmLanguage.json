@@ -364,6 +364,12 @@
           "include": "#logical-expression"
         },
         {
+          "include": "#logical_expression_single"
+        },
+        {
+          "include": "#logical_expression_double"
+        },
+        {
           "include": "#comment"
         },
         {
@@ -1682,15 +1688,15 @@
         }
       ]
     },
-    "logical_expression": {
+    "logical_expression_single": {
       "name": "meta.scope.logical-expression.shell",
-      "begin": "(\\[{1,2})",
+      "begin": "(\\[)",
       "beginCaptures": {
         "1": {
           "name": "punctuation.definition.logical-expression.shell"
         }
       },
-      "end": "(\\]{1,2})",
+      "end": "(\\])",
       "endCaptures": {
         "1": {
           "name": "punctuation.definition.logical-expression.shell"
@@ -1699,6 +1705,77 @@
       "patterns": [
         {
           "include": "#logical-expression"
+        },
+        {
+          "include": "#logical_expression_single"
+        },
+        {
+          "include": "#logical_expression_double"
+        },
+        {
+          "include": "#comment"
+        },
+        {
+          "include": "#boolean"
+        },
+        {
+          "include": "#numeric_constant"
+        },
+        {
+          "include": "#pipeline"
+        },
+        {
+          "include": "#statement_seperator"
+        },
+        {
+          "include": "#string"
+        },
+        {
+          "include": "#variable"
+        },
+        {
+          "include": "#interpolation"
+        },
+        {
+          "include": "#heredoc"
+        },
+        {
+          "include": "#herestring"
+        },
+        {
+          "include": "#pathname"
+        },
+        {
+          "include": "#keyword"
+        },
+        {
+          "include": "#support"
+        }
+      ]
+    },
+    "logical_expression_double": {
+      "name": "meta.scope.logical-expression.shell",
+      "begin": "(\\[\\[)",
+      "beginCaptures": {
+        "1": {
+          "name": "punctuation.definition.logical-expression.shell"
+        }
+      },
+      "end": "((?:\\]\\]){1,2})",
+      "endCaptures": {
+        "1": {
+          "name": "punctuation.definition.logical-expression.shell"
+        }
+      },
+      "patterns": [
+        {
+          "include": "#logical-expression"
+        },
+        {
+          "include": "#logical_expression_single"
+        },
+        {
+          "include": "#logical_expression_double"
         },
         {
           "include": "#comment"
@@ -1858,7 +1935,10 @@
           "include": "#statement_seperator"
         },
         {
-          "include": "#logical_expression"
+          "include": "#logical_expression_double"
+        },
+        {
+          "include": "#logical_expression_single"
         },
         {
           "include": "#compound-command"

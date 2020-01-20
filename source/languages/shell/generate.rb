@@ -37,7 +37,8 @@ require_relative './tokens.rb'
             :numeric_constant,
             :pipeline,
             :statement_seperator,
-            :logical_expression,
+            :logical_expression_double,
+            :logical_expression_single,
             :'compound-command',
             :loop,
             :string,
@@ -88,6 +89,8 @@ require_relative './tokens.rb'
         ]
     grammar[:logical_expression_context] = [
             :'logical-expression',
+            :logical_expression_single,
+            :logical_expression_double,
             :comment,
             :boolean,
             :numeric_constant,
@@ -249,16 +252,26 @@ require_relative './tokens.rb'
         ]
     )
 
-    grammar[:logical_expression] = PatternRange.new(
+    grammar[:logical_expression_single] = PatternRange.new(
         tag_as: "meta.scope.logical-expression",
         start_pattern: newPattern(
                 match: /\[/,
                 tag_as: "punctuation.definition.logical-expression",
-                at_least: 1.times,
-                at_most: 2.times,
             ),
         end_pattern: newPattern(
                 match: /\]/,
+                tag_as: "punctuation.definition.logical-expression"
+            ),
+        includes: grammar[:logical_expression_context]
+    )
+    grammar[:logical_expression_double] = PatternRange.new(
+        tag_as: "meta.scope.logical-expression",
+        start_pattern: newPattern(
+                match: /\[\[/,
+                tag_as: "punctuation.definition.logical-expression",
+            ),
+        end_pattern: newPattern(
+                match: /\]\]/,
                 at_least: 1.times,
                 at_most: 2.times,
                 tag_as: "punctuation.definition.logical-expression"
