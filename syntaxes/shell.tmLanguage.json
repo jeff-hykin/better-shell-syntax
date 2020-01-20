@@ -361,6 +361,9 @@
     "logical_expression_context": {
       "patterns": [
         {
+          "include": "#regex_comparison"
+        },
+        {
           "include": "#logical-expression"
         },
         {
@@ -1704,6 +1707,9 @@
       },
       "patterns": [
         {
+          "include": "#regex_comparison"
+        },
+        {
           "include": "#logical-expression"
         },
         {
@@ -1769,6 +1775,9 @@
       },
       "patterns": [
         {
+          "include": "#regex_comparison"
+        },
+        {
           "include": "#logical-expression"
         },
         {
@@ -1817,6 +1826,24 @@
           "include": "#support"
         }
       ]
+    },
+    "regex_comparison": {
+      "match": "(\\=~)\\s+([^ ]*)",
+      "captures": {
+        "1": {
+          "name": "keyword.operator.logical.shell"
+        },
+        "2": {
+          "patterns": [
+            {
+              "include": "#variable"
+            },
+            {
+              "include": "#regexp"
+            }
+          ]
+        }
+      }
     },
     "variable": {
       "patterns": [
@@ -1914,6 +1941,164 @@
               "name": "variable.other.normal.shell"
             }
           }
+        }
+      ]
+    },
+    "regexp": {
+      "patterns": [
+        {
+          "name": "keyword.control.anchor.regexp.shell",
+          "match": "\\\\[bB]|\\^|\\$"
+        },
+        {
+          "match": "\\\\[1-9]\\d*|\\\\k<([a-zA-Z_$][\\w$]*)>",
+          "captures": {
+            "0": {
+              "name": "keyword.other.back-reference.regexp.shell"
+            },
+            "1": {
+              "name": "variable.other.regexp.shell"
+            }
+          }
+        },
+        {
+          "name": "keyword.operator.quantifier.regexp.shell",
+          "match": "[?+*]|\\{(\\d+,\\d+|\\d+,|,\\d+|\\d+)\\}\\??"
+        },
+        {
+          "name": "keyword.operator.or.regexp.shell",
+          "match": "\\|"
+        },
+        {
+          "name": "meta.group.assertion.regexp.shell",
+          "begin": "(\\()((\\?=)|(\\?!)|(\\?<=)|(\\?<!))",
+          "beginCaptures": {
+            "1": {
+              "name": "punctuation.definition.group.regexp.shell"
+            },
+            "2": {
+              "name": "punctuation.definition.group.assertion.regexp.shell"
+            },
+            "3": {
+              "name": "meta.assertion.look-ahead.regexp.shell"
+            },
+            "4": {
+              "name": "meta.assertion.negative-look-ahead.regexp.shell"
+            },
+            "5": {
+              "name": "meta.assertion.look-behind.regexp.shell"
+            },
+            "6": {
+              "name": "meta.assertion.negative-look-behind.regexp.shell"
+            }
+          },
+          "end": "(\\))",
+          "endCaptures": {
+            "1": {
+              "name": "punctuation.definition.group.regexp.shell"
+            }
+          },
+          "patterns": [
+            {
+              "include": "#regexp"
+            }
+          ]
+        },
+        {
+          "name": "meta.group.regexp.shell",
+          "begin": "\\((?:(\\?:)|(?:\\?<([a-zA-Z_$][\\w$]*)>))?",
+          "beginCaptures": {
+            "0": {
+              "name": "punctuation.definition.group.regexp.shell"
+            },
+            "1": {
+              "name": "punctuation.definition.group.no-capture.regexp.shell"
+            },
+            "2": {
+              "name": "variable.other.regexp.shell"
+            }
+          },
+          "end": "\\)",
+          "endCaptures": {
+            "0": {
+              "name": "punctuation.definition.group.regexp.shell"
+            }
+          },
+          "patterns": [
+            {
+              "include": "#regexp"
+            }
+          ]
+        },
+        {
+          "name": "constant.other.character-class.set.regexp.shell",
+          "begin": "(\\[)(\\^)?",
+          "beginCaptures": {
+            "1": {
+              "name": "punctuation.definition.character-class.regexp.shell"
+            },
+            "2": {
+              "name": "keyword.operator.negation.regexp.shell"
+            }
+          },
+          "end": "(\\])",
+          "endCaptures": {
+            "1": {
+              "name": "punctuation.definition.character-class.regexp.shell"
+            }
+          },
+          "patterns": [
+            {
+              "name": "constant.other.character-class.range.regexp.shell",
+              "match": "(?:.|(\\\\(?:[0-7]{3}|x[0-9A-Fa-f]{2}|u[0-9A-Fa-f]{4}))|(\\\\c[A-Z])|(\\\\.))\\-(?:[^\\]\\\\]|(\\\\(?:[0-7]{3}|x[0-9A-Fa-f]{2}|u[0-9A-Fa-f]{4}))|(\\\\c[A-Z])|(\\\\.))",
+              "captures": {
+                "1": {
+                  "name": "constant.character.numeric.regexp.shell"
+                },
+                "2": {
+                  "name": "constant.character.control.regexp.shell"
+                },
+                "3": {
+                  "name": "constant.character.escape.backslash.regexp.shell"
+                },
+                "4": {
+                  "name": "constant.character.numeric.regexp.shell"
+                },
+                "5": {
+                  "name": "constant.character.control.regexp.shell"
+                },
+                "6": {
+                  "name": "constant.character.escape.backslash.regexp.shell"
+                }
+              }
+            },
+            {
+              "include": "#regex-character-class"
+            }
+          ]
+        },
+        {
+          "include": "#regex-character-class"
+        }
+      ]
+    },
+    "regex_character_class": {
+      "patterns": [
+        {
+          "name": "constant.other.character-class.regexp.shell",
+          "match": "\\\\[wWsSdDtrnvf]|\\."
+        },
+        {
+          "name": "constant.character.numeric.regexp.shell",
+          "match": "\\\\([0-7]{3}|x[0-9A-Fa-f]{2}|u[0-9A-Fa-f]{4})"
+        },
+        {
+          "name": "constant.character.control.regexp.shell",
+          "match": "\\\\c[A-Z]"
+        },
+        {
+          "name": "constant.character.escape.backslash.regexp.shell",
+          "match": "\\\\."
         }
       ]
     },
