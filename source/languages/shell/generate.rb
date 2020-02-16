@@ -5,9 +5,9 @@ require_relative PathFor[:sharedPattern]["numeric"]
 require_relative PathFor[:sharedPattern]["line_continuation"]
 require_relative './tokens.rb'
 
-# 
+#
 # Setup grammar
-# 
+#
     Dir.chdir __dir__
     # Standard refernce: http://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html
     original_grammar = JSON.parse(IO.read("./original.tmlanguage.json"))
@@ -119,14 +119,14 @@ require_relative './tokens.rb'
     for each_key, each_value in original_grammar["repository"]
         grammar[each_key.to_sym] = each_value
     end
-    
+
     std_space = /\s*+/
     variable_name_no_bounds = /[a-zA-Z_][a-zA-Z0-9_]*/
     variable_name = /(?:^|\b)#{variable_name_no_bounds.without_default_mode_modifiers}+(?:\b|$)/
-    
-    # 
+
+    #
     # punctuation / operators
-    # 
+    #
     # replaces the old list pattern
     grammar[:statement_seperator] = newPattern(
             match: /;/,
@@ -144,7 +144,7 @@ require_relative './tokens.rb'
             /\n/
         )
     statement_end = /[|&;]/
-    
+
     # function thing() {}
     # thing() {}
     function_definition_start_pattern = std_space.then(
@@ -181,20 +181,20 @@ require_relative './tokens.rb'
                 match: variable_name,
                 tag_as: "variable.other.assignment",
             ).then(
-                match: /\=/,
+                match: /\+?\=/,
                 tag_as: "keyword.operator.assignment",
             ),
         end_pattern: grammar[:statement_seperator].or(lookAheadFor(/ /)),
         includes: [ :variable_assignment_context ]
     )
-    
+
     possible_pre_command_characters = /(?:^|;|\||&|!|\(|\{|\`)/
     possible_command_start   = lookAheadToAvoid(/(?:!|%|&|\||\(|\{|\[|<|>|#|\n|$|;)/)
     command_end              = lookAheadFor(/;|\||&|$|\n|\)|\`|\}|\{|#|\]/).lookBehindToAvoid(/\\/)
     unquoted_string_end      = lookAheadFor(/\s|;|\||&|$|\n|\)|\`/)
     invalid_literals         = Regexp.quote(@tokens.representationsThat(:areInvalidLiterals).join(""))
     valid_literal_characters = Regexp.new("[^\s#{invalid_literals}]+")
-    
+
     grammar[:command_name] = PatternRange.new(
         tag_as: "entity.name.command",
         start_pattern: std_space.then(possible_command_start),
@@ -225,7 +225,7 @@ require_relative './tokens.rb'
     )
     grammar[:option] = PatternRange.new(
         tag_content_as: "string.unquoted.argument constant.other.option",
-        start_pattern: newPattern(  
+        start_pattern: newPattern(
             /\s++/.then(
                 match: /-/,
                 tag_as: "string.unquoted.argument constant.other.option.dash"
@@ -263,7 +263,7 @@ require_relative './tokens.rb'
         ]
     )
     grammar[:custom_commands] = [
-        
+
         # Note:
         #   this sed does not cover all possible cases, it only covers the most likely case
         #   in the event of a more complicated case, it falls back on tradidional command highlighting
@@ -297,12 +297,12 @@ require_relative './tokens.rb'
                 ]
             )
         ),
-        
+
         # legacy built-in commands
         {
             "match": "(?<=^|;|&|\\s)(?:alias|bg|bind|break|builtin|caller|cd|command|compgen|complete|dirs|disown|echo|enable|eval|exec|exit|false|fc|fg|getopts|hash|help|history|jobs|kill|let|logout|popd|printf|pushd|pwd|read|readonly|set|shift|shopt|source|suspend|test|times|trap|true|type|ulimit|umask|unalias|unset|wait)(?=\\s|;|&|$)",
             "name": "support.function.builtin.shell"
-        }        
+        }
     ]
     # remove legacy support to fix pattern priorities
     grammar[:support]["patterns"].pop()
@@ -347,7 +347,7 @@ require_relative './tokens.rb'
             ]
         )
     )
-    
+
     def generateVariable(regex_after_dollarsign, tag)
         newPattern(
             match: newPattern(
@@ -359,7 +359,7 @@ require_relative './tokens.rb'
             )
         )
     end
-    
+
     grammar[:variable] = [
         generateVariable(/\@/, "variable.parameter.positional.all"),
         generateVariable(/[0-9]/, "variable.parameter.positional"),
@@ -373,7 +373,7 @@ require_relative './tokens.rb'
                     ).then(
                         match: /\{/,
                         tag_as: "punctuation.section.bracket.curly.variable.begin",
-                        
+
                     )
                 ),
             end_pattern: newPattern(
@@ -403,10 +403,10 @@ require_relative './tokens.rb'
         # normal variables
         generateVariable(/\w+/, "variable.other.normal")
     ]
-    
-    # 
+
+    #
     # regex (legacy format, imported from JavaScript regex)
-    # 
+    #
         grammar[:regexp] = {
             "patterns"=> [
                 {
@@ -565,6 +565,6 @@ require_relative './tokens.rb'
                 }
             ]
         }
- 
+
 # Save
 saveGrammar(grammar)
