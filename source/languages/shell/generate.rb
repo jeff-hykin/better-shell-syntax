@@ -382,7 +382,7 @@ require_relative './tokens.rb'
                 ),
             includes: [
                 {
-                    "match": "!|:[-=?]?|\\*|@|\#{1,2}|%{1,2}|/",
+                    "match": "!|:[-=?]?|\\*|@|\#{1,2}|%{1,2}|\\^{1,2}|,{1,2}|/",
                     "name": "keyword.operator.expansion.shell"
                 },
                 {

@@ -1065,7 +1065,7 @@ repository:
         '1':
           name: punctuation.section.bracket.curly.variable.end.shell
       patterns:
-      - match: "!|:[-=?]?|\\*|@|#{1,2}|%{1,2}|/"
+      - match: "!|:[-=?]?|\\*|@|#{1,2}|%{1,2}|\\^{1,2}|,{1,2}|/"
         name: keyword.operator.expansion.shell
       - captures:
           '1':
