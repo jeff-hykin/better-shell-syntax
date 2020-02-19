@@ -270,11 +270,11 @@ require_relative './tokens.rb'
         grammar[:sed_command] = Pattern.new(
             Pattern.new(
                 match: /\bsed\b/,
-                tag_as: "support.function.builtin",
+                tag_as: "entity.name.command.shell",
             ).then(
                 grammar[:simple_options]
             ).then(@spaces).then(
-                match: /'s\//,
+                match: /['"]s\//,
                 tag_as: "punctuation.section.regexp",
             ).then(
                 match: /.*/, # find
@@ -286,7 +286,7 @@ require_relative './tokens.rb'
                 match: /.*/, # replace
                 includes: [ :string ],
             ).then(
-                match: /\/\w{0,4}\'/,
+                match: /\/\w{0,4}['"]/,
                 tag_as: "punctuation.section.regexp",
             ).then(
                 match: /.*/,

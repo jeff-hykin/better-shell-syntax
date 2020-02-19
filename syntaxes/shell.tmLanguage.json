@@ -1702,10 +1702,10 @@
       ]
     },
     "sed_command": {
-      "match": "(\\bsed\\b)(?:\\s++(\\-)(\\w+))*\\s+('s\\/)(.*)(\\/)(.*)(\\/\\w{0,4}\\')(.*)",
+      "match": "(\\bsed\\b)(?:\\s++(\\-)(\\w+))*\\s+(['\"]s\\/)(.*)(\\/)(.*)(\\/\\w{0,4}['\"])(.*)",
       "captures": {
         "1": {
-          "name": "support.function.builtin.shell"
+          "name": "entity.name.command.shell"
         },
         "2": {
           "name": "string.unquoted.argument.shell constant.other.option.dash.shell"
