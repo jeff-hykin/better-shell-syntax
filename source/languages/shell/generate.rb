@@ -390,9 +390,6 @@ require_relative './tokens.rb'
                         "1": {
                             "name": "punctuation.section.array.shell"
                         },
-                        "2": {
-                            "name": "punctuation.section.array.subscript.shell"
-                        },
                         "3": {
                             "name": "punctuation.section.array.shell"
                         }

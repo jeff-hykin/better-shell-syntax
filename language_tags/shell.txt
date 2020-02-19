@@ -105,7 +105,6 @@ punctuation.definition.string.end.shell
 punctuation.definition.subshell.shell
 punctuation.definition.variable.shell
 punctuation.section.array.shell
-punctuation.section.array.subscript.shell
 punctuation.section.bracket.curly.variable.begin.shell
 punctuation.section.bracket.curly.variable.end.shell
 punctuation.section.regexp.shell
