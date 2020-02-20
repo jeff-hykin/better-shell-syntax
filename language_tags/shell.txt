@@ -161,4 +161,5 @@ variable.other.loop.shell
 variable.other.normal.shell
 variable.other.regexp.shell
 variable.parameter.positional.all.shell
+variable.parameter.positional.number.shell
 variable.parameter.positional.shell

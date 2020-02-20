@@ -382,10 +382,10 @@ require_relative './tokens.rb'
 	)
 
     grammar[:variable] = [
-        generateVariable(/\@/, "variable.parameter.positional.all"),
-        generateVariable(/[0-9]/, "variable.parameter.positional"),
-        generateVariable(/\{[0-9]+\}/, "variable.parameter.positional"),
-		generateVariable(/[-*#?$!0_]/, "variable.language.special"),
+        generateVariable(/(?:[@*]|\{[@*]\})/, "variable.parameter.positional.all"),
+        generateVariable(/(?:#|\{#\})/, 'variable.parameter.positional.number'),
+        generateVariable(/(?:[1-9]|\{[1-9][0-9]*\})/, "variable.parameter.positional"),
+		generateVariable(/(?:[-?$!0_]|\{[-?$!0_]\})/, "variable.language.special"),
 		array,
         PatternRange.new(
             start_pattern: newPattern(

@@ -1030,25 +1030,25 @@ repository:
         - include: "#regexp"
   variable:
     patterns:
-    - match: "(\\$)(\\@(?=\\W))"
+    - match: "(\\$)((?:[@*]|\\{[@*]\\})(?=\\W))"
       captures:
         '1':
           name: punctuation.definition.variable.shell variable.parameter.positional.all.shell
         '2':
           name: variable.parameter.positional.all.shell
-    - match: "(\\$)([0-9](?=\\W))"
+    - match: "(\\$)((?:#|\\{#\\})(?=\\W))"
+      captures:
+        '1':
+          name: punctuation.definition.variable.shell variable.parameter.positional.number.shell
+        '2':
+          name: variable.parameter.positional.number.shell
+    - match: "(\\$)((?:[1-9]|\\{[1-9][0-9]*\\})(?=\\W))"
       captures:
         '1':
           name: punctuation.definition.variable.shell variable.parameter.positional.shell
         '2':
           name: variable.parameter.positional.shell
-    - match: "(\\$)(\\{[0-9]+\\}(?=\\W))"
-      captures:
-        '1':
-          name: punctuation.definition.variable.shell variable.parameter.positional.shell
-        '2':
-          name: variable.parameter.positional.shell
-    - match: "(\\$)([-*#?$!0_](?=\\W))"
+    - match: "(\\$)((?:[-?$!0_]|\\{[-?$!0_]\\})(?=\\W))"
       captures:
         '1':
           name: punctuation.definition.variable.shell variable.language.special.shell
