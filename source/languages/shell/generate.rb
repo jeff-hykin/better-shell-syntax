@@ -361,7 +361,7 @@ require_relative './tokens.rb'
     end
 
 	array = newPattern(
-		match: /\w+/,
+		match: variable_name,
 		tag_as: 'variable.other.array'
 	).then(
 		match: /\[/,
