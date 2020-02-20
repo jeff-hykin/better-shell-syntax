@@ -51,6 +51,7 @@ keyword.operator.redirect.shell
 keyword.operator.tilde.shell
 keyword.other.back-reference.regexp.shell
 keyword.other.shell
+keyword.other.subscript.all.shell
 keyword.other.unit.binary.shell
 keyword.other.unit.exponent.decimal.shell
 keyword.other.unit.exponent.hexadecimal.shell
@@ -154,6 +155,7 @@ text.html.markdown.embedded.shell
 text.html.textile.embedded.shell
 variable.language.special.shell
 variable.language.special.wildcard.shell
+variable.other.array.shell
 variable.other.assignment.shell
 variable.other.loop.shell
 variable.other.normal.shell

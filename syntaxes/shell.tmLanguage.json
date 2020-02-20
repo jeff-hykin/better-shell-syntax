@@ -1963,6 +1963,31 @@
           }
         },
         {
+          "match": "(\\w+)(\\[)(?:([@*])|([^\\]]+))(\\])",
+          "captures": {
+            "1": {
+              "name": "variable.other.array.shell"
+            },
+            "2": {
+              "name": "punctuation.section.array.shell"
+            },
+            "3": {
+              "name": "keyword.other.subscript.all.shell"
+            },
+            "4": {
+              "name": "string.other.math.shell",
+              "patterns": [
+                {
+                  "include": "#math"
+                }
+              ]
+            },
+            "5": {
+              "name": "punctuation.section.array.shell"
+            }
+          }
+        },
+        {
           "begin": "(\\$)(\\{)",
           "beginCaptures": {
             "1": {
@@ -1982,17 +2007,6 @@
             {
               "match": "!|:[-=?]?|\\*|@|#{1,2}|%{1,2}|\\^{1,2}|,{1,2}|/",
               "name": "keyword.operator.expansion.shell"
-            },
-            {
-              "captures": {
-                "1": {
-                  "name": "punctuation.section.array.shell"
-                },
-                "3": {
-                  "name": "punctuation.section.array.shell"
-                }
-              },
-              "match": "(\\[)([^\\]]+)(\\])"
             },
             {
               "include": "#variable"

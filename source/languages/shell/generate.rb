@@ -360,11 +360,33 @@ require_relative './tokens.rb'
         )
     end
 
+	array = newPattern(
+		match: /\w+/,
+		tag_as: 'variable.other.array'
+	).then(
+		match: /\[/,
+		tag_as: 'punctuation.section.array'
+	).then(
+		match: newPattern(
+			match: /[@*]/,
+			tag_as: 'keyword.other.subscript.all'
+		).or(
+			# Treat subscript exactly like the contents of $((...)) and ((...))
+			match: /[^\]]+/,
+			tag_as: 'string.other.math',
+			includes: [ :math ]
+		)
+	).then(
+		match: /\]/,
+		tag_as: 'punctuation.section.array'
+	)
+
     grammar[:variable] = [
         generateVariable(/\@/, "variable.parameter.positional.all"),
         generateVariable(/[0-9]/, "variable.parameter.positional"),
         generateVariable(/\{[0-9]+\}/, "variable.parameter.positional"),
-        generateVariable(/[-*#?$!0_]/, "variable.language.special"),
+		generateVariable(/[-*#?$!0_]/, "variable.language.special"),
+		array,
         PatternRange.new(
             start_pattern: newPattern(
                     match: newPattern(
@@ -384,17 +406,6 @@ require_relative './tokens.rb'
                 {
                     "match": "!|:[-=?]?|\\*|@|\#{1,2}|%{1,2}|\\^{1,2}|,{1,2}|/",
                     "name": "keyword.operator.expansion.shell"
-                },
-                {
-                    "captures": {
-                        "1": {
-                            "name": "punctuation.section.array.shell"
-                        },
-                        "3": {
-                            "name": "punctuation.section.array.shell"
-                        }
-                    },
-                    "match": "(\\[)([^\\]]+)(\\])"
                 },
                 :variable,
                 :string,
