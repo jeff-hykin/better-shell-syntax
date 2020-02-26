@@ -175,36 +175,23 @@ require_relative './tokens.rb'
                 tag_as: "punctuation.definition.arguments",
             )
         )
-    grammar[:assignment] = [
-        
-        # normal assignment
-        PatternRange.new(
-            tag_as: "meta.expression.assignment",
-            start_pattern: std_space.then(
-                    match: variable_name,
-                    tag_as: "variable.other.assignment",
-                ).then(
+    grammar[:assignment] = PatternRange.new(
+        tag_as: "meta.expression.assignment",
+        start_pattern: std_space.then(
+                match: variable_name,
+                tag_as: "variable.other.assignment",
+            ).then(
+                Pattern.new(
                     match: /\=/,
                     tag_as: "keyword.operator.assignment",
-                ),
-            end_pattern: grammar[:statement_seperator].or(lookAheadFor(/ /)),
-            includes: [ :variable_assignment_context ]
-        ),
-        
-        # compound assignment
-        PatternRange.new(
-            tag_as: "meta.expression.assignment",
-            start_pattern: std_space.then(
-                    match: variable_name,
-                    tag_as: "variable.other.assignment",
-                ).then(
+                ).or(
                     match: /\+\=/,
                     tag_as: "keyword.operator.assignment.compound",
-                ),
-            end_pattern: grammar[:statement_seperator].or(lookAheadFor(/ /)),
-            includes: [ :variable_assignment_context ]
-        ),
-    ]
+                )
+            ),
+        end_pattern: grammar[:statement_seperator].or(lookAheadFor(/ /)),
+        includes: [ :variable_assignment_context ]
+    )
     
     possible_pre_command_characters = /(?:^|;|\||&|!|\(|\{|\`)/
     possible_command_start   = lookAheadToAvoid(/(?:!|%|&|\||\(|\{|\[|<|>|#|\n|$|;)/)
