@@ -198,7 +198,7 @@ require_relative './tokens.rb'
                     match: variable_name,
                     tag_as: "variable.other.assignment",
                 ).then(
-                    match: /\=/,
+                    match: /\+\=/,
                     tag_as: "keyword.operator.assignment.compound",
                 ),
             end_pattern: grammar[:statement_seperator].or(lookAheadFor(/ /)),
