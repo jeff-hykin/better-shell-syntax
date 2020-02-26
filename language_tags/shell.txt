@@ -32,6 +32,7 @@ keyword.control.anchor.regexp.shell
 keyword.control.heredoc-token.shell
 keyword.control.shell
 keyword.operator.arithmetic.shell
+keyword.operator.assignment.compound.shell
 keyword.operator.assignment.shell
 keyword.operator.expansion.shell
 keyword.operator.extglob.shell
