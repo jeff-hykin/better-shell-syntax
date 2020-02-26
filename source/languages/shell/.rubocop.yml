@@ -199,3 +199,9 @@ Style/TrailingCommaInHashLiteral:
 # URISchemes: http, https
 Layout/LineLength:
   Max: 340
+
+# Offense count: 1
+# Cop supports --auto-correct.
+# Configuration parameters: IndentationWidth.
+Layout/AssignmentIndentation:
+  Enabled: false
