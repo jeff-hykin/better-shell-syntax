@@ -33,7 +33,6 @@ require_relative './tokens.rb'
 #
     grammar[:$initial_context] = [
             :comment,
-            :boolean,
             :numeric_constant,
             :pipeline,
             :statement_seperator,
@@ -54,10 +53,6 @@ require_relative './tokens.rb'
             :command_call,
             :support,
         ]
-    grammar[:boolean] = newPattern(
-            match: /\b(?:true|false)\b/,
-            tag_as: "constant.language.$match"
-        )
     grammar[:numeric_constant] = numeric_constant()
     grammar[:command_context] = [
             :comment,
@@ -93,7 +88,6 @@ require_relative './tokens.rb'
             :logical_expression_single,
             :logical_expression_double,
             :comment,
-            :boolean,
             :numeric_constant,
             :pipeline,
             :statement_seperator,
