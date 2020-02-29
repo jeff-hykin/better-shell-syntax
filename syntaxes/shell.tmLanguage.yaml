@@ -962,7 +962,7 @@ repository:
         name: string.unquoted.argument.shell constant.other.option.shell
   command_call:
     name: meta.statement.shell
-    begin: "(?<=(?:^|;|\\||&|!|\\(|\\{|\\`))\\s*+(?!function\\W|function\\$|export\\W|export\\$|select\\W|select\\$|case\\W|case\\$|do\\W|do\\$|done\\W|done\\$|elif\\W|elif\\$|else\\W|else\\$|esac\\W|esac\\$|fi\\W|fi\\$|for\\W|for\\$|if\\W|if\\$|in\\W|in\\$|then\\W|then\\$|until\\W|until\\$|while\\W|while\\$)"
+    begin: "(?<=(?:^|;|\\||&|!|\\(|\\{|\\`|if|elsif|then|while|until|do))\\s*+(?!function\\W|function\\$|export\\W|export\\$|select\\W|select\\$|case\\W|case\\$|do\\W|do\\$|done\\W|done\\$|elif\\W|elif\\$|else\\W|else\\$|esac\\W|esac\\$|fi\\W|fi\\$|for\\W|for\\$|if\\W|if\\$|in\\W|in\\$|then\\W|then\\$|until\\W|until\\$|while\\W|while\\$)"
     end: "(?=;|\\||&|$|\\n|\\)|\\`|\\}|\\{|#|\\])(?<!\\\\)"
     patterns:
     - include: "#option"
