@@ -35,7 +35,7 @@ require_relative './tokens.rb'
             :comment,
             :numeric_constant,
             :pipeline,
-            :statement_seperator,
+            :statement_separator,
             :logical_expression_double,
             :logical_expression_single,
             :'compound-command',
@@ -57,7 +57,7 @@ require_relative './tokens.rb'
     grammar[:command_context] = [
             :comment,
             :pipeline,
-            :statement_seperator,
+            :statement_separator,
             :'compound-command',
             :string,
             :variable,
@@ -90,7 +90,7 @@ require_relative './tokens.rb'
             :comment,
             :numeric_constant,
             :pipeline,
-            :statement_seperator,
+            :statement_separator,
             :string,
             :variable,
             :interpolation,
@@ -102,7 +102,15 @@ require_relative './tokens.rb'
         ]
     grammar[:variable_assignment_context] = [
             :$initial_context
-        ]
+		]
+	grammar[:rvalue] = [
+		:string,
+		:numeric_constant,
+		:variable,
+		:interpolation,
+		:pathname,
+	]
+
 #
 #
 # Patterns
@@ -116,13 +124,13 @@ require_relative './tokens.rb'
 
     std_space = /\s*+/
     variable_name_no_bounds = /[a-zA-Z_][a-zA-Z0-9_]*/
-    variable_name = /(?:^|\b)#{variable_name_no_bounds.without_default_mode_modifiers}+(?:\b|$)/
+    $variable_name = /(?:^|\b)#{variable_name_no_bounds.without_default_mode_modifiers}+(?:\b|$)/
 
     #
     # punctuation / operators
     #
     # replaces the old list pattern
-    grammar[:statement_seperator] = newPattern(
+    grammar[:statement_separator] = newPattern(
             match: /;/,
             tag_as: "punctuation.terminator.statement.semicolon"
         ).or(
@@ -147,7 +155,7 @@ require_relative './tokens.rb'
                 match: /\bfunction /,
                 tag_as: "storage.type.function"
             ).then(std_space).then(
-                variable_name
+                $variable_name
             ).maybe(
                 newPattern(
                     match: /\(/,
@@ -159,7 +167,7 @@ require_relative './tokens.rb'
             )
         ).or(
             # no function keyword
-            variable_name.then(
+            $variable_name.then(
                 std_space
             ).then(
                 match: /\(/,
@@ -168,17 +176,94 @@ require_relative './tokens.rb'
                 match: /\)/,
                 tag_as: "punctuation.definition.arguments",
             )
-        )
-    grammar[:assignment] = PatternRange.new(
+		)
+
+		### Assignment ###
+
+		def generateAssignedVariable(type)
+			newPattern(
+				match: $variable_name,
+				tag_as: "variable.other.#{type} variable.other.assignment.#{type}",
+			)
+		end
+
+		assign_op = newPattern(
+			match: newPattern(
+				match: /\+\=/,
+				tag_as: 'keyword.operator.assignment.compound'
+			).or(
+				match: /\=/,
+				tag_as: 'keyword.operator.assignment'
+			)
+		)
+
+		def generateArrayLiteralParen(paren)
+			newPattern(
+				match: /#{'\\' + paren}/,
+				tag_as: 'variable.other.assignment.rvalue punctuation.definition.array-literal'
+			)
+		end
+
+		def generateArraySubscriptBracket(bracket)
+			newPattern(
+				match: /#{'\\' + bracket}/,
+				tag_as: 'punctuation.section.array'
+			)
+		end
+
+		array_subscript_contents_math = newPattern(
+			# Treat subscript exactly like the contents of $((...)) and ((...))
+			match: /[^\]]+/,
+			tag_as: 'string.other.math',
+			includes: [ :math ]
+		)
+
+		grammar[:assignment] = PatternRange.new(
         tag_as: "meta.expression.assignment",
         start_pattern: std_space.then(
-                match: variable_name,
-                tag_as: "variable.other.assignment",
-            ).then(
-                match: /\+?\=/,
-                tag_as: "keyword.operator.assignment",
-            ),
-        end_pattern: grammar[:statement_seperator].or(lookAheadFor(/ /)),
+			match: newPattern(
+				# Assignment to array as a whole
+				match: generateAssignedVariable('array').then(
+					assign_op
+				).then(
+					generateArrayLiteralParen('(')
+				).then(
+					# Since we might have nested parentheses here,
+					# use positive lookahead to match everything but the last closing parenthesis.
+					match: /.*(?=\))/,
+					tag_as: 'variable.other.assignment.rvalue',
+					includes: [ :rvalue ]
+				).then(
+					generateArrayLiteralParen(')')
+				)
+			).or(
+				match: newPattern(
+					match: newPattern(
+						# Assignment to array element
+						match: generateAssignedVariable('array').then(
+							generateArraySubscriptBracket('[')
+						).then(
+							array_subscript_contents_math
+						).then(
+							generateArraySubscriptBracket(']')
+						)
+					).or(
+						# Assignment to normal variable
+						generateAssignedVariable('normal')
+					)
+				).then(
+					assign_op
+				).maybe(
+					# In principle, an rvalue is optional, but you would rather
+					# use unset to clear a variable. However, let's be correct.
+					# Match everything but the end pattern.
+					match: /.*(?=#{grammar[:statement_separator].without_default_mode_modifiers}| )/,
+					tag_as: 'variable.other.assignment.rvalue',
+					includes: [ :rvalue ]
+				)
+			)
+		),
+        end_pattern: grammar[:statement_separator].or(lookAheadFor(/ /)),
         includes: [ :variable_assignment_context ]
     )
 
@@ -355,24 +440,19 @@ require_relative './tokens.rb'
     end
 
 	array = newPattern(
-		match: variable_name,
+		match: $variable_name,
 		tag_as: 'variable.other.array'
 	).then(
-		match: /\[/,
-		tag_as: 'punctuation.section.array'
+		generateArraySubscriptBracket('[')
 	).then(
 		match: newPattern(
 			match: /[@*]/,
 			tag_as: 'keyword.other.subscript.all'
 		).or(
-			# Treat subscript exactly like the contents of $((...)) and ((...))
-			match: /[^\]]+/,
-			tag_as: 'string.other.math',
-			includes: [ :math ]
+			array_subscript_contents_math
 		)
 	).then(
-		match: /\]/,
-		tag_as: 'punctuation.section.array'
+		generateArraySubscriptBracket(']')
 	)
 
     grammar[:variable] = [
@@ -380,29 +460,28 @@ require_relative './tokens.rb'
         generateVariable(/(?:#|\{#\})/, 'variable.parameter.positional.number'),
         generateVariable(/(?:[1-9]|\{[1-9][0-9]*\})/, "variable.parameter.positional"),
 		generateVariable(/(?:[-?$!0_]|\{[-?$!0_]\})/, "variable.language.special"),
-		array,
         PatternRange.new(
             start_pattern: newPattern(
-                    match: newPattern(
-                        match: /\$/,
-                        tag_as: "punctuation.definition.variable punctuation.section.bracket.curly.variable.begin"
-                    ).then(
-                        match: /\{/,
-                        tag_as: "punctuation.section.bracket.curly.variable.begin",
-
-                    )
-                ),
+				match: newPattern(
+					match: /\$/,
+					tag_as: "punctuation.definition.variable punctuation.section.bracket.curly.variable.begin"
+				).then(
+					match: /\{/,
+					tag_as: "punctuation.section.bracket.curly.variable.begin",
+				)
+			),
             end_pattern: newPattern(
-                    match: /\}/,
-                    tag_as: "punctuation.section.bracket.curly.variable.end",
-                ),
+				match: /\}/,
+				tag_as: "punctuation.section.bracket.curly.variable.end",
+			),
             includes: [
                 {
                     "match": "!|:[-=?]?|\\*|@|\#{1,2}|%{1,2}|\\^{1,2}|,{1,2}|/",
                     "name": "keyword.operator.expansion.shell"
                 },
                 :variable,
-                :string,
+				:string,
+				array
             ]
         ),
         # normal variables

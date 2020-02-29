@@ -163,7 +163,7 @@ repository:
     patterns:
     - include: "#comment"
     - include: "#pipeline"
-    - include: "#statement_seperator"
+    - include: "#statement_separator"
     - include: "#compound-command"
     - include: "#string"
     - include: "#variable"
@@ -196,7 +196,7 @@ repository:
     - include: "#comment"
     - include: "#numeric_constant"
     - include: "#pipeline"
-    - include: "#statement_seperator"
+    - include: "#statement_separator"
     - include: "#string"
     - include: "#variable"
     - include: "#interpolation"
@@ -208,6 +208,13 @@ repository:
   variable_assignment_context:
     patterns:
     - include: "#initial_context"
+  rvalue:
+    patterns:
+    - include: "#string"
+    - include: "#numeric_constant"
+    - include: "#variable"
+    - include: "#interpolation"
+    - include: "#pathname"
   line_continuation:
     match: "\\\\(?=\\n)"
     name: constant.character.escape.line-continuation.shell
@@ -850,7 +857,7 @@ repository:
     patterns:
     - match: "(?<=^|;|&|\\s)(?::|\\.)(?=\\s|;|&|$)"
       name: support.function.builtin.shell
-  statement_seperator:
+  statement_separator:
     match: "(?:(?:(?:(?:(;)|(&&))|(\\|\\|))|(&))|\\n)"
     captures:
       '1':
@@ -863,12 +870,43 @@ repository:
         name: punctuation.separator.statement.background.shell
   assignment:
     name: meta.expression.assignment.shell
-    begin: "\\s*+((?:^|\\b)[a-zA-Z_][a-zA-Z0-9_]*+(?:\\b|$))(\\+?\\=)"
+    begin: "\\s*+(?:((?:^|\\b)[a-zA-Z_][a-zA-Z0-9_]*+(?:\\b|$))(?:(\\+\\=)|(\\=))(\\()(.*(?=\\)))(\\))|(?:((?:^|\\b)[a-zA-Z_][a-zA-Z0-9_]*+(?:\\b|$))(\\[)([^\\]]+)(\\])|((?:^|\\b)[a-zA-Z_][a-zA-Z0-9_]*+(?:\\b|$)))(?:(\\+\\=)|(\\=))((?:.*(?=(?:(?:(?:(?:(;)|(&&))|(\\|\\|))|(&))|\\n)|
+      ))?))"
     beginCaptures:
       '1':
-        name: variable.other.assignment.shell
+        name: variable.other.array.shell variable.other.assignment.array.shell
       '2':
+        name: keyword.operator.assignment.compound.shell
+      '3':
         name: keyword.operator.assignment.shell
+      '4':
+        name: variable.other.assignment.rvalue.shell punctuation.definition.array-literal.shell
+      '5':
+        name: variable.other.assignment.rvalue.shell
+        patterns:
+        - include: "#rvalue"
+      '6':
+        name: variable.other.assignment.rvalue.shell punctuation.definition.array-literal.shell
+      '7':
+        name: variable.other.array.shell variable.other.assignment.array.shell
+      '8':
+        name: punctuation.section.array.shell
+      '9':
+        name: string.other.math.shell
+        patterns:
+        - include: "#math"
+      '10':
+        name: punctuation.section.array.shell
+      '11':
+        name: variable.other.normal.shell variable.other.assignment.normal.shell
+      '12':
+        name: keyword.operator.assignment.compound.shell
+      '13':
+        name: keyword.operator.assignment.shell
+      '14':
+        name: variable.other.assignment.rvalue.shell
+        patterns:
+        - include: "#rvalue"
     end: "(?:(?:(?:(?:(?:(;)|(&&))|(\\|\\|))|(&))|\\n)|(?= ))"
     endCaptures:
       '1':
@@ -977,7 +1015,7 @@ repository:
     - include: "#comment"
     - include: "#numeric_constant"
     - include: "#pipeline"
-    - include: "#statement_seperator"
+    - include: "#statement_separator"
     - include: "#string"
     - include: "#variable"
     - include: "#interpolation"
@@ -1004,7 +1042,7 @@ repository:
     - include: "#comment"
     - include: "#numeric_constant"
     - include: "#pipeline"
-    - include: "#statement_seperator"
+    - include: "#statement_separator"
     - include: "#string"
     - include: "#variable"
     - include: "#interpolation"
@@ -1048,20 +1086,6 @@ repository:
           name: punctuation.definition.variable.shell variable.language.special.shell
         '2':
           name: variable.language.special.shell
-    - match: "((?:^|\\b)[a-zA-Z_][a-zA-Z0-9_]*+(?:\\b|$))(\\[)(?:([@*])|([^\\]]+))(\\])"
-      captures:
-        '1':
-          name: variable.other.array.shell
-        '2':
-          name: punctuation.section.array.shell
-        '3':
-          name: keyword.other.subscript.all.shell
-        '4':
-          name: string.other.math.shell
-          patterns:
-          - include: "#math"
-        '5':
-          name: punctuation.section.array.shell
     - begin: "(\\$)(\\{)"
       beginCaptures:
         '1':
@@ -1077,6 +1101,20 @@ repository:
         name: keyword.operator.expansion.shell
       - include: "#variable"
       - include: "#string"
+      - match: "((?:^|\\b)[a-zA-Z_][a-zA-Z0-9_]*+(?:\\b|$))(\\[)(?:([@*])|([^\\]]+))(\\])"
+        captures:
+          '1':
+            name: variable.other.array.shell
+          '2':
+            name: punctuation.section.array.shell
+          '3':
+            name: keyword.other.subscript.all.shell
+          '4':
+            name: string.other.math.shell
+            patterns:
+            - include: "#math"
+          '5':
+            name: punctuation.section.array.shell
     - match: "(\\$)(\\w+(?=\\W))"
       captures:
         '1':
@@ -1177,7 +1215,7 @@ repository:
     - include: "#comment"
     - include: "#numeric_constant"
     - include: "#pipeline"
-    - include: "#statement_seperator"
+    - include: "#statement_separator"
     - include: "#logical_expression_double"
     - include: "#logical_expression_single"
     - include: "#compound-command"
