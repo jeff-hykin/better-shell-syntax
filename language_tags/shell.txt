@@ -9,6 +9,7 @@ constant.character.escape.line-continuation.shell
 constant.character.escape.octal.shell
 constant.character.escape.shell
 constant.character.numeric.regexp.shell
+constant.language.$0.shell
 constant.numeric.binary.shell
 constant.numeric.decimal.point.shell
 constant.numeric.decimal.shell

@@ -13,6 +13,9 @@ patterns:
   patterns:
   - include: "#initial_context"
 repository:
+  boolean:
+    match: "\\b(?:true|false)\\b"
+    name: constant.language.$0.shell
   numeric_constant:
     match: "(?<!\\w)\\.?\\d(?:(?:[0-9a-zA-Z_\\.]|')|(?<=[eEpP])[+-])*"
     captures:
@@ -194,6 +197,7 @@ repository:
     - include: "#logical_expression_single"
     - include: "#logical_expression_double"
     - include: "#comment"
+    - include: "#boolean"
     - include: "#numeric_constant"
     - include: "#pipeline"
     - include: "#statement_separator"
@@ -1013,6 +1017,7 @@ repository:
     - include: "#logical_expression_single"
     - include: "#logical_expression_double"
     - include: "#comment"
+    - include: "#boolean"
     - include: "#numeric_constant"
     - include: "#pipeline"
     - include: "#statement_separator"
@@ -1040,6 +1045,7 @@ repository:
     - include: "#logical_expression_single"
     - include: "#logical_expression_double"
     - include: "#comment"
+    - include: "#boolean"
     - include: "#numeric_constant"
     - include: "#pipeline"
     - include: "#statement_separator"
@@ -1213,6 +1219,7 @@ repository:
   initial_context:
     patterns:
     - include: "#comment"
+    - include: "#boolean"
     - include: "#numeric_constant"
     - include: "#pipeline"
     - include: "#statement_separator"
