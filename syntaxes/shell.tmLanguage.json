@@ -23,7 +23,7 @@
   "repository": {
     "boolean": {
       "match": "\\b(?:true|false)\\b",
-      "name": "constant.language.$0.shell"
+      "name": "support.function.builtin.$0.shell"
     },
     "numeric_constant": {
       "match": "(?<!\\w)\\.?\\d(?:(?:[0-9a-zA-Z_\\.]|')|(?<=[eEpP])[+-])*",
@@ -374,9 +374,6 @@
         },
         {
           "include": "#comment"
-        },
-        {
-          "include": "#boolean"
         },
         {
           "include": "#numeric_constant"
@@ -1863,9 +1860,6 @@
           "include": "#comment"
         },
         {
-          "include": "#boolean"
-        },
-        {
           "include": "#numeric_constant"
         },
         {
@@ -1929,9 +1923,6 @@
         },
         {
           "include": "#comment"
-        },
-        {
-          "include": "#boolean"
         },
         {
           "include": "#numeric_constant"
