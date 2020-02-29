@@ -205,3 +205,8 @@ Layout/LineLength:
 # Configuration parameters: IndentationWidth.
 Layout/AssignmentIndentation:
   Enabled: false
+
+# Offense count: 5
+# Configuration parameters: AllowedVariables.
+Style/GlobalVars:
+  Enabled: false
