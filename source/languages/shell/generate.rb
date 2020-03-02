@@ -128,7 +128,7 @@ require_relative './tokens.rb'
     end
 
     std_space = /\s*+/
-    variable_name_no_bounds = /[a-zA-Z_][a-zA-Z0-9_]*/
+    variable_name_no_bounds = /[a-zA-Z_]\w*/
     $variable_name = /(?:^|\b)#{variable_name_no_bounds.without_default_mode_modifiers}+(?:\b|$)/
 
     #
@@ -411,8 +411,6 @@ require_relative './tokens.rb'
             ),
         end_pattern: newPattern(
                 match: /\]\]/,
-                at_least: 1.times,
-                at_most: 2.times,
                 tag_as: "punctuation.definition.logical-expression"
             ),
         includes: grammar[:logical_expression_context]

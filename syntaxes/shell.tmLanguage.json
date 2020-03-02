@@ -1602,7 +1602,7 @@
     },
     "assignment": {
       "name": "meta.expression.assignment.shell",
-      "begin": "\\s*+(?:((?:^|\\b)[a-zA-Z_][a-zA-Z0-9_]*+(?:\\b|$))(?:(\\+\\=)|(\\=))(\\()(.*(?=\\)))(\\))|(?:((?:^|\\b)[a-zA-Z_][a-zA-Z0-9_]*+(?:\\b|$))(\\[)([^\\]]+)(\\])|((?:^|\\b)[a-zA-Z_][a-zA-Z0-9_]*+(?:\\b|$)))(?:(\\+\\=)|(\\=))((?:.*(?=(?:(?:(?:(?:(;)|(&&))|(\\|\\|))|(&))|\\n)| ))?))",
+      "begin": "\\s*+(?:((?:^|\\b)[a-zA-Z_]\\w*+(?:\\b|$))(?:(\\+\\=)|(\\=))(\\()(.*(?=\\)))(\\))|(?:((?:^|\\b)[a-zA-Z_]\\w*+(?:\\b|$))(\\[)([^\\]]+)(\\])|((?:^|\\b)[a-zA-Z_]\\w*+(?:\\b|$)))(?:(\\+\\=)|(\\=))((?:.*(?=(?:(?:(?:(?:(;)|(&&))|(\\|\\|))|(&))|\\n)| ))?))",
       "beginCaptures": {
         "1": {
           "name": "variable.other.array.shell variable.other.assignment.array.shell"
@@ -1902,7 +1902,7 @@
           "name": "punctuation.definition.logical-expression.shell"
         }
       },
-      "end": "((?:\\]\\]){1,2})",
+      "end": "(\\]\\])",
       "endCaptures": {
         "1": {
           "name": "punctuation.definition.logical-expression.shell"
@@ -2051,7 +2051,7 @@
               "include": "#string"
             },
             {
-              "match": "((?:^|\\b)[a-zA-Z_][a-zA-Z0-9_]*+(?:\\b|$))(\\[)(?:([@*])|([^\\]]+))(\\])",
+              "match": "((?:^|\\b)[a-zA-Z_]\\w*+(?:\\b|$))(\\[)(?:([@*])|([^\\]]+))(\\])",
               "captures": {
                 "1": {
                   "name": "variable.other.array.shell"
