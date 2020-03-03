@@ -210,3 +210,20 @@ Layout/AssignmentIndentation:
 # Configuration parameters: AllowedVariables.
 Style/GlobalVars:
   Enabled: false
+
+# Offense count: 1
+# Configuration parameters: CountComments, ExcludedMethods.
+Metrics/MethodLength: # Method length?! What the heck?
+  Enabled: false
+
+# Offense count: 4
+# Configuration parameters: EnforcedStyle.
+# SupportedStyles: snake_case, camelCase
+Naming/VariableName:
+  Enabled: false
+
+# Offense count: 2
+# Cop supports --auto-correct.
+# Configuration parameters: AllowSafeAssignment, AllowInMultilineConditions.
+Style/ParenthesesAroundCondition: # Sorry, too used to C style ;)
+  Enabled: false
