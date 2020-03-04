@@ -175,13 +175,14 @@ require_relative './tokens.rb'
 		### Assignment ###
 
 		def generateAssignedVariable(type)
-			newPattern(
+			{
 				match: $variable_name,
 				tag_as: "variable.other.#{type} variable.other.assignment.#{type}",
-			)
+			}
 		end
 
-		assign_op = newPattern(
+		assign_op =
+		{
 			match: newPattern(
 				match: /\+\=/,
 				tag_as: 'keyword.operator.assignment.compound'
@@ -189,38 +190,39 @@ require_relative './tokens.rb'
 				match: /\=/,
 				tag_as: 'keyword.operator.assignment'
 			)
-		)
+		}
 
 		def generateArrayLiteralParen(paren)
-			newPattern(
+			{
 				match: /#{'\\' + paren}/,
 				tag_as: 'variable.other.assignment.rvalue punctuation.definition.array-literal'
-			)
+			}
 		end
 
 		def generateArraySubscriptBracket(bracket)
-			newPattern(
+			{
 				match: /#{'\\' + bracket}/,
 				tag_as: 'punctuation.section.array'
-			)
+			}
 		end
 
-		array_subscript_contents_math = newPattern(
+		array_subscript_contents_math =
+		{
 			# Treat subscript exactly like the contents of $((...)) and ((...))
 			match: /[^\]]+/,
 			tag_as: 'string.other.math',
 			includes: [ :math ]
-		)
+		}
 
 		grammar[:assignment] = PatternRange.new(
         tag_as: "meta.expression.assignment",
         start_pattern: std_space.then(
 			match: newPattern(
 				# Assignment to array as a whole
-				match: generateAssignedVariable('array').then(
-					assign_op
+				match: newPattern(**generateAssignedVariable('array')).then(
+					**assign_op
 				).then(
-					generateArrayLiteralParen('(')
+					**generateArrayLiteralParen('(')
 				).then(
 					# Since we might have nested parentheses here,
 					# use positive lookahead to match everything but the last closing parenthesis.
@@ -228,25 +230,25 @@ require_relative './tokens.rb'
 					tag_as: 'variable.other.assignment.rvalue',
 					includes: [ :rvalue ]
 				).then(
-					generateArrayLiteralParen(')')
+					**generateArrayLiteralParen(')')
 				)
 			).or(
 				match: newPattern(
 					match: newPattern(
 						# Assignment to array element
-						match: generateAssignedVariable('array').then(
-							generateArraySubscriptBracket('[')
+						match: newPattern(**generateAssignedVariable('array')).then(
+							**generateArraySubscriptBracket('[')
 						).then(
-							array_subscript_contents_math
+							**array_subscript_contents_math
 						).then(
-							generateArraySubscriptBracket(']')
+							**generateArraySubscriptBracket(']')
 						)
 					).or(
 						# Assignment to normal variable
-						generateAssignedVariable('normal')
+						**generateAssignedVariable('normal')
 					)
 				).then(
-					assign_op
+					**assign_op
 				).maybe(
 					# In principle, an rvalue is optional, but you would rather
 					# use unset to clear a variable. However, let's be correct.
