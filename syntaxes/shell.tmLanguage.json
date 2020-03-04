@@ -361,52 +361,10 @@
     "logical_expression_context": {
       "patterns": [
         {
-          "include": "#regex_comparison"
-        },
-        {
           "include": "#logical-expression"
         },
         {
-          "include": "#logical_expression_single"
-        },
-        {
-          "include": "#logical_expression_double"
-        },
-        {
-          "include": "#comment"
-        },
-        {
-          "include": "#numeric_constant"
-        },
-        {
-          "include": "#pipeline"
-        },
-        {
-          "include": "#statement_separator"
-        },
-        {
-          "include": "#string"
-        },
-        {
-          "include": "#variable"
-        },
-        {
-          "include": "#interpolation"
-        },
-        {
-          "include": "#heredoc"
-        },
-        {
-          "include": "#herestring"
-        },
-        {
-          "include": "#pathname"
-        },
-        {
-          "include": "#keyword"
-        },
-        {
-          "include": "#support"
+          "include": "#rvalue"
         }
       ]
     },
@@ -1831,81 +1789,48 @@
     },
     "logical_expression_single": {
       "name": "meta.scope.logical-expression.shell",
-      "begin": "(\\[)",
+      "begin": "(?:(\\[ )|(\\[))",
       "beginCaptures": {
         "1": {
           "name": "punctuation.definition.logical-expression.shell"
+        },
+        "2": {
+          "name": "punctuation.definition.logical-expression.invalid.shell"
         }
       },
-      "end": "(\\])",
+      "end": "(?:( \\])|(\\]))",
       "endCaptures": {
         "1": {
           "name": "punctuation.definition.logical-expression.shell"
+        },
+        "2": {
+          "name": "punctuation.definition.logical-expression.invalid.shell"
         }
       },
       "patterns": [
         {
-          "include": "#regex_comparison"
-        },
-        {
-          "include": "#logical-expression"
-        },
-        {
-          "include": "#logical_expression_single"
-        },
-        {
-          "include": "#logical_expression_double"
-        },
-        {
-          "include": "#comment"
-        },
-        {
-          "include": "#numeric_constant"
-        },
-        {
-          "include": "#pipeline"
-        },
-        {
-          "include": "#statement_separator"
-        },
-        {
-          "include": "#string"
-        },
-        {
-          "include": "#variable"
-        },
-        {
-          "include": "#interpolation"
-        },
-        {
-          "include": "#heredoc"
-        },
-        {
-          "include": "#herestring"
-        },
-        {
-          "include": "#pathname"
-        },
-        {
-          "include": "#keyword"
-        },
-        {
-          "include": "#support"
+          "include": "#logical_expression_context"
         }
       ]
     },
     "logical_expression_double": {
       "name": "meta.scope.logical-expression.shell",
-      "begin": "(\\[\\[)",
+      "begin": "(?:(\\[\\[ )|(\\[\\[))",
       "beginCaptures": {
         "1": {
           "name": "punctuation.definition.logical-expression.shell"
+        },
+        "2": {
+          "name": "punctuation.definition.logical-expression.invalid.shell"
         }
       },
-      "end": "(\\]\\])",
+      "end": "(?:( \\]\\])|(\\]\\]))",
       "endCaptures": {
         "1": {
           "name": "punctuation.definition.logical-expression.shell"
+        },
+        "2": {
+          "name": "punctuation.definition.logical-expression.invalid.shell"
         }
       },
       "patterns": [
@@ -1913,49 +1838,7 @@
           "include": "#regex_comparison"
         },
         {
-          "include": "#logical-expression"
-        },
-        {
-          "include": "#logical_expression_single"
-        },
-        {
-          "include": "#logical_expression_double"
-        },
-        {
-          "include": "#comment"
-        },
-        {
-          "include": "#numeric_constant"
-        },
-        {
-          "include": "#pipeline"
-        },
-        {
-          "include": "#statement_separator"
-        },
-        {
-          "include": "#string"
-        },
-        {
-          "include": "#variable"
-        },
-        {
-          "include": "#interpolation"
-        },
-        {
-          "include": "#heredoc"
-        },
-        {
-          "include": "#herestring"
-        },
-        {
-          "include": "#pathname"
-        },
-        {
-          "include": "#keyword"
-        },
-        {
-          "include": "#support"
+          "include": "#logical_expression_context"
         }
       ]
     },

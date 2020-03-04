@@ -101,6 +101,7 @@ punctuation.definition.group.assertion.regexp.shell
 punctuation.definition.group.no-capture.regexp.shell
 punctuation.definition.group.regexp.shell
 punctuation.definition.group.shell
+punctuation.definition.logical-expression.invalid.shell
 punctuation.definition.logical-expression.shell
 punctuation.definition.string.begin.shell
 punctuation.definition.string.end.shell

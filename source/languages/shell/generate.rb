@@ -44,7 +44,7 @@ require_relative './tokens.rb'
             :string,
             :'function-definition',
             :variable,
-            :interpolation,
+            :interpolation, # Arithmetic expansion, command substitution
             :heredoc,
             :herestring,
             :redirection,
@@ -88,22 +88,11 @@ require_relative './tokens.rb'
             :support,
         ]
     grammar[:logical_expression_context] = [
-            :regex_comparison,
-            :'logical-expression',
-            :logical_expression_single,
-            :logical_expression_double,
-            :comment,
-            :numeric_constant,
-            :pipeline,
-            :statement_separator,
-            :string,
-            :variable,
-            :interpolation,
-            :heredoc,
-            :herestring,
-            :pathname,
-            :keyword,
-            :support,
+			# Somewhat misleading: These are the usual comparison and logical operators,
+			# as well as =~ and Bash's special file-related operators and the old-fashioned
+			# arithmetic comparison operators like -eq, -lt and so on, all tagged as 'keyword.operator.logical.shell'.
+			:'logical-expression',
+			:rvalue
         ]
     grammar[:variable_assignment_context] = [
             :$initial_context
@@ -389,31 +378,82 @@ require_relative './tokens.rb'
         }
     ]
     # remove legacy support to fix pattern priorities
-    grammar[:support]["patterns"].pop()
+	grammar[:support]["patterns"].pop()
+
+	### :logical_expression_single, :logical_expression_double ###
+
+	# N.B.: * corresponds to JS's rest operator, which enables us to pack
+	# an arbitrary number of arguments into an array, whereas in JS, we need
+	# to pass an object literal to get named parameters.
+	# In Ruby, we can use double splat operator to pack named parameters
+	# and their values into a hash, as we can do in Perl (%args = @_).
+	def generatePatternNeedingSpace(**args)
+		invalidPattern = args[:pattern]
+		validPattern   = ' ' + invalidPattern if (args[:before])
+		validPattern   = invalidPattern + ' ' if (args[:after])
+
+		newPattern(
+			match: /#{validPattern}/,
+			tag_as: args[:tag_as_if_valid]
+		).or(
+			match: /#{invalidPattern}/,
+			tag_as: args[:tag_as_if_invalid]
+		)
+	end
+
+	def generateStartAndEndPatternsNeedingSpace(**args)
+		tagAs =
+		{
+			tag_as_if_valid: args[:tag_as_if_valid],
+			tag_as_if_invalid: args[:tag_as_if_invalid]
+		}
+
+		# N.B.: Merging hashes: In Perl, we can simply put a (direct) hash
+		# into a hash literal (or more precisely, a list), whereas in JS,
+		# we need to use the spread operator to decompose an object to insert
+		# it into an object literal.
+		# What we do with the double splat below is perfectly analogous to that.
+		{
+			start_pattern: generatePatternNeedingSpace(
+				after: true,
+				pattern: args[:start_pattern],
+				**tagAs
+			),
+			end_pattern: generatePatternNeedingSpace(
+				before: true,
+				pattern: args[:end_pattern],
+				**tagAs
+			)
+		}
+	end
 
     grammar[:logical_expression_single] = PatternRange.new(
         tag_as: "meta.scope.logical-expression",
-        start_pattern: newPattern(
-                match: /\[/,
-                tag_as: "punctuation.definition.logical-expression",
-            ),
-        end_pattern: newPattern(
-                match: /\]/,
-                tag_as: "punctuation.definition.logical-expression"
-            ),
-        includes: grammar[:logical_expression_context]
-    )
+		**generateStartAndEndPatternsNeedingSpace(
+			start_pattern: '\[',
+			end_pattern: '\]',
+			tag_as_if_valid: 'punctuation.definition.logical-expression',
+			tag_as_if_invalid: 'punctuation.definition.logical-expression.invalid'
+		),
+        includes: [ :logical_expression_context ]
+	)
+
     grammar[:logical_expression_double] = PatternRange.new(
         tag_as: "meta.scope.logical-expression",
-        start_pattern: newPattern(
-                match: /\[\[/,
-                tag_as: "punctuation.definition.logical-expression",
-            ),
-        end_pattern: newPattern(
-                match: /\]\]/,
-                tag_as: "punctuation.definition.logical-expression"
-            ),
-        includes: grammar[:logical_expression_context]
+		**generateStartAndEndPatternsNeedingSpace(
+			start_pattern: '\[\[',
+			end_pattern: '\]\]',
+			tag_as_if_valid: 'punctuation.definition.logical-expression',
+			tag_as_if_invalid: 'punctuation.definition.logical-expression.invalid'
+		),
+        includes: [
+			# Regex comparison is possible within [[ ... ]] only.
+			# :regex_comparison must be placed before :logical_expression_context
+			# for regex metacharacters to be recognised because the latter contains
+			# :'logical-expression', which in turn contains a pattern that matches =~ too.
+			:regex_comparison,
+			:logical_expression_context
+		]
     )
     grammar[:regex_comparison] = Pattern.new(
         Pattern.new(
