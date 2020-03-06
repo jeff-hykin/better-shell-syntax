@@ -491,85 +491,72 @@
     "compound-command": {
       "patterns": [
         {
-          "begin": "\\[{1,2}",
-          "beginCaptures": {
-            "0": {
-              "name": "punctuation.definition.logical-expression.shell"
-            }
-          },
-          "end": "\\]{1,2}",
-          "endCaptures": {
-            "0": {
-              "name": "punctuation.definition.logical-expression.shell"
-            }
-          },
-          "name": "meta.scope.logical-expression.shell",
+          "include": "#logical_expression_double"
+        },
+        {
+          "include": "#logical_expression_single"
+        },
+        {
           "patterns": [
             {
-              "include": "#logical-expression"
+              "begin": "\\({2}",
+              "beginCaptures": {
+                "0": {
+                  "name": "punctuation.definition.string.begin.shell"
+                }
+              },
+              "end": "\\){2}",
+              "endCaptures": {
+                "0": {
+                  "name": "punctuation.definition.string.end.shell"
+                }
+              },
+              "name": "string.other.math.shell",
+              "patterns": [
+                {
+                  "include": "#math"
+                }
+              ]
             },
             {
-              "include": "#initial_context"
-            }
-          ]
-        },
-        {
-          "begin": "\\({2}",
-          "beginCaptures": {
-            "0": {
-              "name": "punctuation.definition.string.begin.shell"
-            }
-          },
-          "end": "\\){2}",
-          "endCaptures": {
-            "0": {
-              "name": "punctuation.definition.string.end.shell"
-            }
-          },
-          "name": "string.other.math.shell",
-          "patterns": [
+              "begin": "\\(",
+              "beginCaptures": {
+                "0": {
+                  "name": "punctuation.definition.subshell.shell"
+                }
+              },
+              "end": "\\)",
+              "endCaptures": {
+                "0": {
+                  "name": "punctuation.definition.subshell.shell"
+                }
+              },
+              "name": "meta.scope.subshell.shell",
+              "patterns": [
+                {
+                  "include": "#initial_context"
+                }
+              ]
+            },
             {
-              "include": "#math"
-            }
-          ]
-        },
-        {
-          "begin": "\\(",
-          "beginCaptures": {
-            "0": {
-              "name": "punctuation.definition.subshell.shell"
-            }
-          },
-          "end": "\\)",
-          "endCaptures": {
-            "0": {
-              "name": "punctuation.definition.subshell.shell"
-            }
-          },
-          "name": "meta.scope.subshell.shell",
-          "patterns": [
-            {
-              "include": "#initial_context"
-            }
-          ]
-        },
-        {
-          "begin": "(?<=\\s|^){(?=\\s|$)",
-          "beginCaptures": {
-            "0": {
-              "name": "punctuation.definition.group.shell"
-            }
-          },
-          "end": "(?<=^|;)\\s*(})",
-          "endCaptures": {
-            "1": {
-              "name": "punctuation.definition.group.shell"
-            }
-          },
-          "name": "meta.scope.group.shell",
-          "patterns": [
-            {
-              "include": "#initial_context"
+              "begin": "(?<=\\s|^){(?=\\s|$)",
+              "beginCaptures": {
+                "0": {
+                  "name": "punctuation.definition.group.shell"
+                }
+              },
+              "end": "(?<=^|;)\\s*(})",
+              "endCaptures": {
+                "1": {
+                  "name": "punctuation.definition.group.shell"
+                }
+              },
+              "name": "meta.scope.group.shell",
+              "patterns": [
+                {
+                  "include": "#initial_context"
+                }
+              ]
             }
           ]
         }
@@ -2147,12 +2134,6 @@
         },
         {
           "include": "#statement_separator"
-        },
-        {
-          "include": "#logical_expression_double"
-        },
-        {
-          "include": "#logical_expression_single"
         },
         {
           "include": "#compound-command"

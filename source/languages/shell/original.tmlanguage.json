@@ -144,29 +144,49 @@
 		},
 		"compound-command": {
 			"patterns": [
-				{
-					"begin": "\\[{1,2}",
-					"beginCaptures": {
-						"0": {
-							"name": "punctuation.definition.logical-expression.shell"
-						}
-					},
-					"end": "\\]{1,2}",
-					"endCaptures": {
-						"0": {
-							"name": "punctuation.definition.logical-expression.shell"
-						}
-					},
-					"name": "meta.scope.logical-expression.shell",
-					"patterns": [
-						{
-							"include": "#logical-expression"
-						},
-						{
-							"include": "$self"
-						}
-					]
-				},
+				//// The root of evil! ////
+				//
+				// First, we have our own (and better) grammars for this (:logical_expression_double, :logical_expression_single).
+				// Second, and this is really bad, this includes :$initial_context, i. e. everything!
+				// I have tidied up :logical_expression_context, but of course, this has no effect as long as we import this construct.
+				//
+				// Some examples:
+				//
+				// i)  if [[ $1 =~ ^--arg-re=(.*)$ ]]; then echo foo; fi
+				//
+				//     The anchors and the capture group are not recognised. Instead, 're=(.*)' is tagged as assignment to an array,
+				//     due to the inclusion of :assignment.
+				//
+				// ii) ((i > 0)) && [[ -z $foo || -f /foo/bar ]] && echo yo
+				//
+				//     Everything seems fine up to the '||', but due to the inclusion of :command_call, '-f' is tagged as a command
+				//     and '/foo/bar ]]' as its arguments, so the logical expression is not terminated and thus, the last '&&' is
+				//     tagged as 'keyword.operator.logical.shell' instead of 'punctuation.separator.statement.and.shell' as it should be.
+				//     See the commit message for a detailed analysis of the treatment of this expression before and after the fix.
+				//
+				// {
+				// 	"begin": "\\[{1,2}",
+				// 	"beginCaptures": {
+				// 		"0": {
+				// 			"name": "punctuation.definition.logical-expression.shell"
+				// 		}
+				// 	},
+				// 	"end": "\\]{1,2}",
+				// 	"endCaptures": {
+				// 		"0": {
+				// 			"name": "punctuation.definition.logical-expression.shell"
+				// 		}
+				// 	},
+				// 	"name": "meta.scope.logical-expression.shell",
+				// 	"patterns": [
+				// 		{
+				// 			"include": "#logical-expression"
+				// 		},
+				// 		{
+				// 			"include": "$self" // No, no, no!!!
+				// 		}
+				// 	]
+				// },
 				{
 					"begin": "\\({2}",
 					"beginCaptures": {

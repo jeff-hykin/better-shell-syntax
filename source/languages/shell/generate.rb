@@ -37,8 +37,6 @@ require_relative './tokens.rb'
             :numeric_constant,
             :pipeline,
             :statement_separator,
-            :logical_expression_double,
-            :logical_expression_single,
             :'compound-command',
             :loop,
             :string,
@@ -53,7 +51,7 @@ require_relative './tokens.rb'
             :assignment,
             :command_call,
             :support,
-        ]
+		]
     grammar[:boolean] = newPattern(
             match: /\b(?:true|false)\b/,
             tag_as: "support.function.builtin.$match"
@@ -112,11 +110,19 @@ require_relative './tokens.rb'
 #
     grammar[:line_continuation] = line_continuation()
     # copy over all the repos
-    for each_key, each_value in original_grammar["repository"]
-        grammar[each_key.to_sym] = each_value
+    for key, value in original_grammar["repository"]
+		if (key == 'compound-command')
+			grammar[:'compound-command'] = [
+				:logical_expression_double,
+				:logical_expression_single,
+				value
+			]
+		else
+			grammar[key.to_sym] = value
+		end
     end
 
-    std_space = /\s*+/
+	std_space = /\s*+/
     variable_name_no_bounds = /[a-zA-Z_]\w*/
     $variable_name = /(?:^|\b)#{variable_name_no_bounds.without_default_mode_modifiers}+(?:\b|$)/
 
