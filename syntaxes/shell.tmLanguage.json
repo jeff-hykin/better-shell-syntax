@@ -1546,9 +1546,8 @@
       }
     },
     "assignment": {
-      "name": "meta.expression.assignment.shell",
-      "begin": "\\s*+(?:((?:^|\\b)[a-zA-Z_]\\w*+(?:\\b|$))(?:(\\+\\=)|(\\=))(\\()(.*(?=\\)))(\\))|(?:((?:^|\\b)[a-zA-Z_]\\w*+(?:\\b|$))(\\[)([^\\]]+)(\\])|((?:^|\\b)[a-zA-Z_]\\w*+(?:\\b|$)))(?:(\\+\\=)|(\\=))((?:.*(?=(?:(?:(?:(?:(;)|(&&))|(\\|\\|))|(&))|\\n)| ))?))",
-      "beginCaptures": {
+      "match": "\\s*+(?:((?:^|\\b)[a-zA-Z_]\\w*+(?:\\b|$))(?:(\\+\\=)|(\\=))(\\()(.*(?=\\)))(\\))|(?:((?:^|\\b)[a-zA-Z_]\\w*+(?:\\b|$))(\\[)([^\\]]+)(\\])|((?:^|\\b)[a-zA-Z_]\\w*+(?:\\b|$)))(?:(\\+\\=)|(\\=))(.*(?=\\s+(?:;|&&|\\|\\||&))|.*(?=;|&&|\\|\\||&)|.*))",
+      "captures": {
         "1": {
           "name": "variable.other.array.shell variable.other.assignment.array.shell"
         },
@@ -1607,26 +1606,7 @@
           ]
         }
       },
-      "end": "(?:(?:(?:(?:(?:(;)|(&&))|(\\|\\|))|(&))|\\n)|(?= ))",
-      "endCaptures": {
-        "1": {
-          "name": "punctuation.terminator.statement.semicolon.shell"
-        },
-        "2": {
-          "name": "punctuation.separator.statement.and.shell"
-        },
-        "3": {
-          "name": "punctuation.separator.statement.or.shell"
-        },
-        "4": {
-          "name": "punctuation.separator.statement.background.shell"
-        }
-      },
-      "patterns": [
-        {
-          "include": "#variable_assignment_context"
-        }
-      ]
+      "name": "meta.expression.assignment.shell"
     },
     "command_name": {
       "name": "entity.name.command.shell",

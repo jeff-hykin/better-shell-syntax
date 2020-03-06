@@ -220,54 +220,59 @@ require_relative './tokens.rb'
 			includes: [ :math ]
 		}
 
-		grammar[:assignment] = PatternRange.new(
-        tag_as: "meta.expression.assignment",
-        start_pattern: std_space.then(
-			match: newPattern(
-				# Assignment to array as a whole
-				match: newPattern(**generateAssignedVariable('array')).then(
-					**assign_op
-				).then(
-					**generateArrayLiteralParen('(')
-				).then(
-					# Since we might have nested parentheses here,
-					# use positive lookahead to match everything but the last closing parenthesis.
-					match: /.*(?=\))/,
-					tag_as: 'variable.other.assignment.rvalue',
-					includes: [ :rvalue ]
-				).then(
-					**generateArrayLiteralParen(')')
-				)
-			).or(
-				match: newPattern(
-					match: newPattern(
-						# Assignment to array element
-						match: newPattern(**generateAssignedVariable('array')).then(
-							**generateArraySubscriptBracket('[')
-						).then(
-							**array_subscript_contents_math
-						).then(
-							**generateArraySubscriptBracket(']')
-						)
-					).or(
-						# Assignment to normal variable
-						**generateAssignedVariable('normal')
+		# Patterns from grammar[:statement_separator] without newline.
+		# This is used within positive lookahead, and since this obviously
+		# doesn't respect the order of subpatterns in an alternation,
+		# it would match the newline, thus the greedy rvalue matching would
+		# also match the statement separator, if any.
+		assignment_end = ';|&&|\|\||&'
+
+		grammar[:assignment] = newPattern(
+			tag_as: "meta.expression.assignment",
+			match: std_space.then(
+				newPattern(
+					# Assignment to array as a whole
+					newPattern(**generateAssignedVariable('array')).then(
+						**assign_op
+					).then(
+						**generateArrayLiteralParen('(')
+					).then(
+						# Since we might have nested parentheses here,
+						# use positive lookahead to match everything but the last closing parenthesis.
+						match: /.*(?=\))/,
+						tag_as: 'variable.other.assignment.rvalue',
+						includes: [ :rvalue ]
+					).then(
+						**generateArrayLiteralParen(')')
 					)
-				).then(
-					**assign_op
-				).maybe(
-					# In principle, an rvalue is optional, but you would rather
-					# use unset to clear a variable. However, let's be correct.
-					# Match everything but the end pattern.
-					match: /.*(?=#{grammar[:statement_separator].without_default_mode_modifiers}| )/,
-					tag_as: 'variable.other.assignment.rvalue',
-					includes: [ :rvalue ]
+				).or(
+					newPattern(
+						newPattern(
+							# Assignment to array element
+							newPattern(**generateAssignedVariable('array')).then(
+								**generateArraySubscriptBracket('[')
+							).then(
+								**array_subscript_contents_math
+							).then(
+								**generateArraySubscriptBracket(']')
+							)
+						).or(
+							# Assignment to normal variable
+							**generateAssignedVariable('normal')
+						)
+					).then(
+						**assign_op
+					).then(
+						# In principle, an rvalue is optional, but you would rather
+						# use unset to clear a variable. However, let's be correct.
+						# Match everything, if any, but the end pattern, if any.
+						match: /.*(?=\s+(?:#{assignment_end}))|.*(?=#{assignment_end})|.*/,
+						tag_as: 'variable.other.assignment.rvalue',
+						includes: [ :rvalue ]
+					)
 				)
 			)
-		),
-        end_pattern: grammar[:statement_separator].or(lookAheadFor(/ /)),
-        includes: [ :variable_assignment_context ]
-    )
+		)
 
     possible_pre_command_characters = /(?:^|;|\||&|!|\(|\{|\`|if|elsif|then|while|until|do)/
     possible_command_start   = lookAheadToAvoid(/(?:!|%|&|\||\(|\{|\[|<|>|#|\n|$|;)/)
