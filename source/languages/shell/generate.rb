@@ -484,31 +484,29 @@ require_relative './tokens.rb'
     )
 
     def generateVariable(regex_after_dollarsign, tag)
-        newPattern(
-            match: newPattern(
-                match: /\$/,
-                tag_as: "punctuation.definition.variable #{tag}"
-            ).then(
-                match: regex_after_dollarsign.lookAheadFor(/\W/),
-                tag_as: tag,
-            )
-        )
+		newPattern(
+			match: /\$/,
+			tag_as: "punctuation.definition.variable #{tag}"
+		).then(
+			match: regex_after_dollarsign.lookAheadFor(/\W/),
+			tag_as: tag,
+		)
     end
 
 	array = newPattern(
 		match: $variable_name,
 		tag_as: 'variable.other.array'
 	).then(
-		generateArraySubscriptBracket('[')
+		**generateArraySubscriptBracket('[')
 	).then(
-		match: newPattern(
+		newPattern(
 			match: /[@*]/,
 			tag_as: 'keyword.other.subscript.all'
 		).or(
-			array_subscript_contents_math
+			**array_subscript_contents_math
 		)
 	).then(
-		generateArraySubscriptBracket(']')
+		**generateArraySubscriptBracket(']')
 	)
 
     grammar[:variable] = [
@@ -518,13 +516,11 @@ require_relative './tokens.rb'
 		generateVariable(/(?:[-?$!0_]|\{[-?$!0_]\})/, "variable.language.special"),
         PatternRange.new(
             start_pattern: newPattern(
-				match: newPattern(
-					match: /\$/,
-					tag_as: "punctuation.definition.variable punctuation.section.bracket.curly.variable.begin"
-				).then(
-					match: /\{/,
-					tag_as: "punctuation.section.bracket.curly.variable.begin",
-				)
+				match: /\$/,
+				tag_as: "punctuation.definition.variable punctuation.section.bracket.curly.variable.begin"
+			).then(
+				match: /\{/,
+				tag_as: "punctuation.section.bracket.curly.variable.begin",
 			),
             end_pattern: newPattern(
 				match: /\}/,
