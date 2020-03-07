@@ -483,12 +483,14 @@ require_relative './tokens.rb'
         )
     )
 
+	### Variable ###
+
     def generateVariable(regex_after_dollarsign, tag)
 		newPattern(
 			match: /\$/,
 			tag_as: "punctuation.definition.variable #{tag}"
 		).then(
-			match: regex_after_dollarsign.lookAheadFor(/\W/),
+			match: regex_after_dollarsign.then(lookAheadFor(/\W/).or(lookAheadFor(/$/))),
 			tag_as: tag,
 		)
     end
@@ -514,6 +516,7 @@ require_relative './tokens.rb'
         generateVariable(/(?:#|\{#\})/, 'variable.parameter.positional.number'),
         generateVariable(/(?:[1-9]|\{[1-9][0-9]*\})/, "variable.parameter.positional"),
 		generateVariable(/(?:[-?$!0_]|\{[-?$!0_]\})/, "variable.language.special"),
+		# Parameter expansion
         PatternRange.new(
             start_pattern: newPattern(
 				match: /\$/,
