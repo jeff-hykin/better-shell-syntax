@@ -1,0 +1,109 @@
+inherit_from: ~/.rubocop.yml
+
+Layout/ArrayAlignment:
+  Enabled: false
+
+Layout/ClosingParenthesisIndentation:
+  Enabled: false
+
+Layout/CommentIndentation:
+  Enabled: false
+
+Layout/EmptyLines:
+  Enabled: false
+
+Layout/EmptyLinesAroundArguments:
+  Enabled: false
+
+Layout/FirstArgumentIndentation:
+  Enabled: false
+
+Layout/FirstArrayElementIndentation:
+  Enabled: false
+
+Layout/FirstHashElementIndentation:
+  Enabled: false
+
+Layout/HashAlignment:
+  Enabled: false
+
+Layout/IndentationConsistency:
+  Enabled: false
+
+Layout/IndentationWidth:
+  Enabled: false
+
+Layout/SpaceAfterColon:
+  Enabled: false
+
+Layout/SpaceAroundOperators:
+  Enabled: false
+
+Layout/SpaceBeforeComma:
+  Enabled: false
+
+Layout/SpaceInsideArrayLiteralBrackets:
+  Enabled: false
+
+Layout/Tab:
+  Enabled: false
+
+Layout/TrailingEmptyLines:
+  Enabled: false
+
+Layout/TrailingWhitespace:
+  Enabled: false
+
+Naming/MethodName:
+  EnforcedStyle: camelCase
+
+Style/AsciiComments:
+  Enabled: false
+
+Style/For:
+  EnforcedStyle: for
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/MethodCallWithoutArgsParentheses:
+  Enabled: false
+
+Style/RegexpLiteral:
+  Enabled: false
+
+Style/StringLiterals:
+  Enabled: false
+
+Style/SymbolArray:
+  EnforcedStyle: brackets
+
+Style/TrailingCommaInArguments:
+  Enabled: false
+
+Style/TrailingCommaInArrayLiteral:
+  Enabled: false
+
+Style/TrailingCommaInHashLiteral:
+  Enabled: false
+
+Layout/LineLength:
+  Max: 340
+
+Layout/AssignmentIndentation:
+  Enabled: false
+
+Style/GlobalVars:
+  Enabled: false
+
+Metrics/MethodLength: # Method length?! What the heck?
+  Enabled: false
+
+Naming/VariableName:
+  Enabled: false
+
+Style/ParenthesesAroundCondition: # Sorry, too used to C style ;)
+  Enabled: false
+
+Style/ParallelAssignment: # But of course I will use that!
+  Enabled: false
