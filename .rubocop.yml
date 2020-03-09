@@ -1,79 +1,69 @@
 inherit_from: ~/.rubocop.yml
 
-Layout/ArrayAlignment:
-  Enabled: false
-
-Layout/ClosingParenthesisIndentation:
-  Enabled: false
-
 Layout/CommentIndentation:
   Enabled: false
 
-Layout/EmptyLines:
-  Enabled: false
-
-Layout/EmptyLinesAroundArguments:
-  Enabled: false
-
-Layout/FirstArgumentIndentation:
-  Enabled: false
-
-Layout/FirstArrayElementIndentation:
-  Enabled: false
-
-Layout/FirstHashElementIndentation:
-  Enabled: false
-
 Layout/HashAlignment:
-  Enabled: false
-
-Layout/IndentationConsistency:
-  Enabled: false
+  EnforcedHashRocketStyle: [key, table]
+  EnforcedColonStyle: [key, table]
 
 Layout/IndentationWidth:
-  Enabled: false
+  Width: 1 # 1 Tab. I will surely not use spaces.
 
-Layout/SpaceAfterColon:
-  Enabled: false
-
-Layout/SpaceAroundOperators:
-  Enabled: false
-
-Layout/SpaceBeforeComma:
-  Enabled: false
-
-Layout/SpaceInsideArrayLiteralBrackets:
-  Enabled: false
+Layout/LineLength:
+  Max: 340
 
 Layout/Tab:
   Enabled: false
 
-Layout/TrailingEmptyLines:
+
+Metrics/AbcSize:
   Enabled: false
 
-Layout/TrailingWhitespace:
+Metrics/ClassLength: # WTF?!
+  Enabled: false
+
+Metrics/CyclomaticComplexity:
+  Enabled: false
+
+Metrics/MethodLength: # Method length?! What the heck?
+  Enabled: false
+
+Metrics/PerceivedComplexity:
   Enabled: false
 
 Naming/MethodName:
-  EnforcedStyle: camelCase
+  Enabled: false
+
+Naming/VariableName:
+  Enabled: false
 
 Style/AsciiComments:
   Enabled: false
 
+Style/CommentedKeyword:
+  Enabled: false
+
 Style/For:
-  EnforcedStyle: for
+  Enabled: false
 
 Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/GlobalVars:
   Enabled: false
 
 Style/MethodCallWithoutArgsParentheses:
   Enabled: false
 
-Style/RegexpLiteral:
+Style/ParallelAssignment: # But of course I will use that!
   Enabled: false
 
-Style/StringLiterals:
+Style/ParenthesesAroundCondition: # Sorry, too used to C style ;)
   Enabled: false
+
+Style/RegexpLiteral:
+  AllowInnerSlashes: true
 
 Style/SymbolArray:
   EnforcedStyle: brackets
@@ -85,25 +75,4 @@ Style/TrailingCommaInArrayLiteral:
   Enabled: false
 
 Style/TrailingCommaInHashLiteral:
-  Enabled: false
-
-Layout/LineLength:
-  Max: 340
-
-Layout/AssignmentIndentation:
-  Enabled: false
-
-Style/GlobalVars:
-  Enabled: false
-
-Metrics/MethodLength: # Method length?! What the heck?
-  Enabled: false
-
-Naming/VariableName:
-  Enabled: false
-
-Style/ParenthesesAroundCondition: # Sorry, too used to C style ;)
-  Enabled: false
-
-Style/ParallelAssignment: # But of course I will use that!
   Enabled: false
