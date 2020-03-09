@@ -13,6 +13,45 @@ patterns:
   patterns:
   - include: "#initial_context"
 repository:
+  command_context:
+    patterns:
+    - include: "#comment"
+    - include: "#pipeline"
+    - include: "#statement_separator"
+    - include: "#compound-command"
+    - include: "#string"
+    - include: "#variable"
+    - include: "#interpolation"
+    - include: "#heredoc"
+    - include: "#herestring"
+    - include: "#redirection"
+    - include: "#pathname"
+    - include: "#keyword"
+    - include: "#support"
+    - include: "#line_continuation"
+  option_context:
+    patterns:
+    - include: "#compound-command"
+    - include: "#string"
+    - include: "#variable"
+    - include: "#interpolation"
+    - include: "#heredoc"
+    - include: "#herestring"
+    - include: "#redirection"
+    - include: "#pathname"
+    - include: "#keyword"
+    - include: "#support"
+  logical_expression_context:
+    patterns:
+    - include: "#logical-expression"
+    - include: "#rvalue"
+  rvalue:
+    patterns:
+    - include: "#string"
+    - include: "#numeric_constant"
+    - include: "#variable"
+    - include: "#interpolation"
+    - include: "#pathname"
   boolean:
     match: "\\b(?:true|false)\\b"
     name: support.function.builtin.$0.shell
@@ -162,48 +201,6 @@ repository:
                 name: keyword.other.unit.suffix.integer.shell
           - match: "(?:(?:[0-9a-zA-Z_\\.]|')|(?<=[eEpP])[+-])+"
             name: invalid.illegal.constant.numeric.shell
-  command_context:
-    patterns:
-    - include: "#comment"
-    - include: "#pipeline"
-    - include: "#statement_separator"
-    - include: "#compound-command"
-    - include: "#string"
-    - include: "#variable"
-    - include: "#interpolation"
-    - include: "#heredoc"
-    - include: "#herestring"
-    - include: "#redirection"
-    - include: "#pathname"
-    - include: "#keyword"
-    - include: "#support"
-    - include: "#line_continuation"
-  option_context:
-    patterns:
-    - include: "#compound-command"
-    - include: "#string"
-    - include: "#variable"
-    - include: "#interpolation"
-    - include: "#heredoc"
-    - include: "#herestring"
-    - include: "#redirection"
-    - include: "#pathname"
-    - include: "#keyword"
-    - include: "#support"
-  logical_expression_context:
-    patterns:
-    - include: "#logical-expression"
-    - include: "#rvalue"
-  variable_assignment_context:
-    patterns:
-    - include: "#initial_context"
-  rvalue:
-    patterns:
-    - include: "#string"
-    - include: "#numeric_constant"
-    - include: "#variable"
-    - include: "#interpolation"
-    - include: "#pathname"
   line_continuation:
     match: "\\\\(?=\\n)"
     name: constant.character.escape.line-continuation.shell

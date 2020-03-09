@@ -10,9 +10,11 @@ require_relative './tokens.rb'
 #
 
 Dir.chdir __dir__
+
 # Standard refernce: http://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html
 original_grammar = JSON.parse(IO.read('./original.tmlanguage.json'))
 Grammar.convertSpecificIncludes(json_grammar: original_grammar, convert: ['$self', '$base'], into: :$initial_context)
+
 grammar = Grammar.new(
 	name: original_grammar['name'],
 	scope_name: original_grammar['scopeName'],
@@ -55,13 +57,6 @@ grammar[:$initial_context] = [
 	:support,
 ]
 
-grammar[:boolean] = newPattern(
-	match: /\b(?:true|false)\b/,
-	tag_as: 'support.function.builtin.$match'
-)
-
-grammar[:numeric_constant] = numeric_constant()
-
 grammar[:command_context] = [
 	:comment,
 	:pipeline,
@@ -100,10 +95,6 @@ grammar[:logical_expression_context] = [
 	:rvalue
 ]
 
-grammar[:variable_assignment_context] = [
-	:$initial_context
-]
-
 grammar[:rvalue] = [
 	:string,
 	:numeric_constant,
@@ -117,6 +108,13 @@ grammar[:rvalue] = [
 # Patterns
 #
 #
+
+grammar[:boolean] = newPattern(
+	match: /\b(?:true|false)\b/,
+	tag_as: 'support.function.builtin.$match'
+)
+
+grammar[:numeric_constant] = numeric_constant()
 
 grammar[:line_continuation] = line_continuation()
 
@@ -133,9 +131,9 @@ for key, value in original_grammar['repository']
 	end
 end
 
-std_space = /\s*+/
+std_space               = /\s*+/
 variable_name_no_bounds = /[a-zA-Z_]\w*/
-$variable_name = /(?:^|\b)#{variable_name_no_bounds.without_default_mode_modifiers}+(?:\b|$)/
+$variable_name          = /(?:^|\b)#{variable_name_no_bounds.without_default_mode_modifiers}+(?:\b|$)/
 
 #
 # punctuation / operators
@@ -158,7 +156,9 @@ grammar[:statement_separator] = newPattern(
 	/\n/
 )
 
-### Assignment ###
+#
+# Assignment
+#
 
 def generateAssignedVariable(type)
 	{
@@ -254,6 +254,10 @@ grammar[:assignment] = newPattern(
 	)
 )
 
+#
+# Commands
+#
+
 possible_pre_command_characters = /(?:^|;|\||&|!|\(|\{|\`|if|elsif|then|while|until|do)/
 possible_command_start          = lookAheadToAvoid(/(?:!|%|&|\||\(|\{|\[|<|>|#|\n|$|;)/)
 command_end                     = lookAheadFor(/;|\||&|$|\n|\)|\`|\}|\{|#|\]/).lookBehindToAvoid(/\\/)
@@ -270,6 +274,7 @@ grammar[:command_name] = PatternRange.new(
 		:command_context,
 	]
 )
+
 grammar[:argument] = PatternRange.new(
 	tag_as: 'meta.argument',
 	start_pattern: /\s++/.then(possible_command_start),
@@ -289,6 +294,7 @@ grammar[:argument] = PatternRange.new(
 		),
 	]
 )
+
 grammar[:option] = PatternRange.new(
 	tag_content_as: 'string.unquoted.argument constant.other.option',
 	start_pattern: newPattern(
@@ -305,6 +311,7 @@ grammar[:option] = PatternRange.new(
 		:option_context,
 	]
 )
+
 grammar[:simple_options] = zeroOrMoreOf(
 	/\s++/.then(
 		match: /\-/,
@@ -314,8 +321,10 @@ grammar[:simple_options] = zeroOrMoreOf(
 		tag_as: 'string.unquoted.argument constant.other.option'
 	)
 )
-keywords = @tokens.representationsThat(:areNonCommands)
+
+keywords         = @tokens.representationsThat(:areNonCommands)
 keyword_patterns = /#{keywords.map { |keyword| keyword + '\W|' + keyword + '\$' } .join('|')}/
+
 grammar[:command_call] = PatternRange.new(
 	zeroLengthStart?: true,
 	tag_as: 'meta.statement',
@@ -328,6 +337,7 @@ grammar[:command_call] = PatternRange.new(
 		:command_context
 	]
 )
+
 grammar[:custom_commands] = [
 
 	# Note:
@@ -370,10 +380,13 @@ grammar[:custom_commands] = [
 		'name': 'support.function.builtin.shell'
 	}
 ]
+
 # remove legacy support to fix pattern priorities
 grammar[:support]['patterns'].pop()
 
-### :logical_expression_single, :logical_expression_double ###
+#
+# logical_expression_single, logical_expression_double
+#
 
 # N.B.: * corresponds to JS's rest operator, which enables us to pack
 # an arbitrary number of arguments into an array, whereas in JS, we need
@@ -397,7 +410,7 @@ end
 def generateStartAndEndPatternsNeedingSpace(**args)
 	tagAs =
 		{
-			tag_as_if_valid: args[:tag_as_if_valid],
+			tag_as_if_valid:   args[:tag_as_if_valid],
 			tag_as_if_invalid: args[:tag_as_if_invalid]
 		}
 
@@ -448,22 +461,23 @@ grammar[:logical_expression_double] = PatternRange.new(
 		:logical_expression_context
 	]
 )
+
 grammar[:regex_comparison] = Pattern.new(
-	Pattern.new(
-		tag_as: 'keyword.operator.logical',
-		match: /\=~/,
-	).then(
-		@spaces
-	).then(
-		match: /[^ ]*/,
-		includes: [
-			:variable,
-			:regexp
-		]
-	)
+	tag_as: 'keyword.operator.logical',
+	match: /\=~/,
+).then(
+	@spaces
+).then(
+	match: /[^ ]*/,
+	includes: [
+		:variable,
+		:regexp
+	]
 )
 
-### Variable ###
+#
+# Variable
+#
 
 def generateVariable(regex_after_dollarsign, tag)
 	newPattern(
