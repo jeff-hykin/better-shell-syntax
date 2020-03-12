@@ -35,11 +35,17 @@ Metrics/PerceivedComplexity:
 Naming/MethodName:
   Enabled: false
 
+Naming/MethodParameterName:
+  Enabled: false # Has no option to allow camel case.
+
 Naming/VariableName:
   Enabled: false
 
 Style/AsciiComments:
   Enabled: false
+
+Style/ClassVars:
+  Enabled: false # I know how to use class variables...
 
 Style/CommentedKeyword:
   Enabled: false
@@ -52,6 +58,9 @@ Style/FrozenStringLiteralComment:
 
 Style/GlobalVars:
   Enabled: false
+
+Style/IfInsideElse:
+ AllowIfModifier: true
 
 Style/MethodCallWithoutArgsParentheses:
   Enabled: false
