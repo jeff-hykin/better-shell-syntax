@@ -160,6 +160,8 @@ grammar[:statement_separator] = newPattern(
 # Assignment
 #
 
+# @param type [String]
+# @return [Hash]
 def generateAssignedVariable(type)
 	{
 		match: $variable_name,
@@ -167,17 +169,17 @@ def generateAssignedVariable(type)
 	}
 end
 
-assign_op =
-	{
-		match: newPattern(
-			match: /\+\=/,
-			tag_as: 'keyword.operator.assignment.compound'
-		).or(
-			match: /\=/,
-			tag_as: 'keyword.operator.assignment'
-		)
-	}
+# @type [Regexp]
+assign_op = newPattern(
+	match: /\+\=/,
+	tag_as: 'keyword.operator.assignment.compound'
+).or(
+	match: /\=/,
+	tag_as: 'keyword.operator.assignment'
+)
 
+# @param paren [String]
+# @return [Hash]
 def generateArrayLiteralParen(paren)
 	{
 		match: /#{'\\' + paren}/,
@@ -185,6 +187,8 @@ def generateArrayLiteralParen(paren)
 	}
 end
 
+# @param bracket [String]
+# @return [Hash]
 def generateArraySubscriptBracket(bracket)
 	{
 		match: /#{'\\' + bracket}/,
@@ -192,6 +196,7 @@ def generateArraySubscriptBracket(bracket)
 	}
 end
 
+# @type [Hash]
 array_subscript_contents_math =
 	{
 		# Treat subscript exactly like the contents of $((...)) and ((...))
@@ -213,7 +218,7 @@ grammar[:assignment] = newPattern(
 		newPattern(
 			# Assignment to array as a whole
 			newPattern(**generateAssignedVariable('array')).then(
-				**assign_op
+				assign_op
 			).then(
 				**generateArrayLiteralParen('(')
 			).then(
@@ -241,7 +246,7 @@ grammar[:assignment] = newPattern(
 					**generateAssignedVariable('normal')
 				)
 			).then(
-				**assign_op
+				assign_op
 			).then(
 				# In principle, an rvalue is optional, but you would rather
 				# use unset to clear a variable. However, let's be correct.
@@ -393,6 +398,8 @@ grammar[:support]['patterns'].pop()
 # to pass an object literal to get named parameters.
 # In Ruby, we can use double splat operator to pack named parameters
 # and their values into a hash, as we can do in Perl (%args = @_).
+
+# @return [Regexp]
 def generatePatternNeedingSpace(**args)
 	invalidPattern = args[:pattern]
 	validPattern   = ' ' + invalidPattern if (args[:before])
@@ -407,6 +414,7 @@ def generatePatternNeedingSpace(**args)
 	)
 end
 
+# @return [Hash]
 def generateStartAndEndPatternsNeedingSpace(**args)
 	tagAs =
 		{
@@ -479,6 +487,9 @@ grammar[:regex_comparison] = Pattern.new(
 # Variable
 #
 
+# @param regex_after_dollarsign [Regexp]
+# @param tag [String]
+# @return [Regexp]
 def generateVariable(regex_after_dollarsign, tag)
 	newPattern(
 		match: /\$/,
@@ -489,6 +500,7 @@ def generateVariable(regex_after_dollarsign, tag)
 	)
 end
 
+# @type [Regexp]
 array = newPattern(
 	match: $variable_name,
 	tag_as: 'variable.other.array'
