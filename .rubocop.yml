@@ -20,6 +20,9 @@ Layout/Tab:
 Metrics/AbcSize:
   Enabled: false
 
+Metrics/BlockNesting:
+  Enabled: false # Max. 3 levels?! Oh yeah!
+
 Metrics/ClassLength: # WTF?!
   Enabled: false
 
@@ -38,6 +41,9 @@ Naming/MethodName:
 Naming/MethodParameterName:
   Enabled: false # Has no option to allow camel case.
 
+Naming/ConstantName:
+  Enabled: false
+ 
 Naming/VariableName:
   Enabled: false
 
