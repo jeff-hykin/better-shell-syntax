@@ -3,6 +3,15 @@ inherit_from: ~/.rubocop.yml
 Layout/CommentIndentation:
   Enabled: false
 
+Layout/CaseIndentation:
+  IndentOneStep: true
+
+Layout/EmptyLineBetweenDefs:
+  AllowAdjacentOneLineDefs: true
+
+Layout/FirstArrayElementIndentation:
+  EnforcedStyle: consistent
+
 Layout/HashAlignment:
   EnforcedHashRocketStyle: [key, table]
   EnforcedColonStyle: [key, table]
@@ -16,8 +25,10 @@ Layout/LineLength:
 Layout/Tab:
   Enabled: false
 
-
 Metrics/AbcSize:
+  Enabled: false
+
+Metrics/BlockLength:
   Enabled: false
 
 Metrics/BlockNesting:
@@ -32,6 +43,9 @@ Metrics/CyclomaticComplexity:
 Metrics/MethodLength: # Method length?! What the heck?
   Enabled: false
 
+Metrics/ParameterLists: # Pfffff...
+  Enabled: false
+
 Metrics/PerceivedComplexity:
   Enabled: false
 
@@ -43,8 +57,11 @@ Naming/MethodParameterName:
 
 Naming/ConstantName:
   Enabled: false
- 
+
 Naming/VariableName:
+  Enabled: false
+
+Naming/VariableNumber:
   Enabled: false
 
 Style/AsciiComments:
@@ -66,19 +83,37 @@ Style/GlobalVars:
   Enabled: false
 
 Style/IfInsideElse:
- AllowIfModifier: true
+  AllowIfModifier: true
 
+Style/Lambda:
+  Enabled: false
+
+Style/MethodCallWithArgsParentheses:
+  Enabled: true # Disabled by default
+  AllowParenthesesInMultilineCall: true
+  AllowParenthesesInChaining: true
+  AllowParenthesesInCamelCaseMethod: true
+
+# I wish this could be configured to enforce parens for calls without args.
+# Very bad to get used to omitting them: In JS/TS, you end up assigning/passing
+# the function itself instead of the return value. Experienced this right now.
 Style/MethodCallWithoutArgsParentheses:
   Enabled: false
 
-Style/ParallelAssignment: # But of course I will use that!
+Style/ParallelAssignment: # But of course I will use that! Let me guess: It's too "cryptic", right?
   Enabled: false
 
-Style/ParenthesesAroundCondition: # Sorry, too used to C style ;)
+# Some cops are really funny, but this one beats them all:
+# "Don’t use the cryptic Perl-legacy variables denoting last regexp group matches ($1, $2, etc). Use Regexp.last_match(n) instead."
+# Since when has Perl ever been cryptic?! Anyway, I prefer "cryptic" over lengthy.
+Style/PerlBackrefs:
   Enabled: false
 
 Style/RegexpLiteral:
   AllowInnerSlashes: true
+
+Style/SingleLineMethods:
+  Enabled: false
 
 Style/SymbolArray:
   EnforcedStyle: brackets
