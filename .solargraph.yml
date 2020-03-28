@@ -9,7 +9,7 @@ require: []
 domains: []
 reporters:
 - rubocop
-- typecheck
+#- typecheck
 - require_not_found
 - update_errors
 require_paths: []
