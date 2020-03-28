@@ -20,6 +20,22 @@ bar[i + 1]+=${foo#/a}
 bar=(x y z $(echo x) $((i++)) ${foo^^} ${foo#/a});
 bar+=(x y z $(echo x) $((i++))) ;
 
+# Fixme!
+light_salmon='\e[38;2;255;170;120m' # No mechanism to automatically intensify RGB colors
+argType="${BASH_REMATCH[1]}" # Very cool: Perl-Style access to captures after matching: ${BASH_REMATCH[i]} corresponds to Perl's $i.
+{
+	echo "('$(sed -E "s/$regex/' '/g" <<< "$string")')"
+}
+case $ans in
+	[yY])
+		build=1
+		break
+		;;
+	[nN])
+		break
+esac
+
+
 export foo='bar 'baz"${foo#/a}"
 declare foo='bar 'baz"${foo#/a}"
 local foo='bar 'baz"${foo#/a}"
