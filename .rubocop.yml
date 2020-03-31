@@ -86,6 +86,15 @@ Style/FrozenStringLiteralComment:
 Style/GlobalVars:
   Enabled: false
 
+Style/HashEachMethods:
+  Enabled: true
+
+Style/HashTransformKeys:
+  Enabled: true
+
+Style/HashTransformValues:
+  Enabled: true
+
 Style/IfInsideElse:
   AllowIfModifier: true
 
