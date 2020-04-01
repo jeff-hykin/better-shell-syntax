@@ -3,5 +3,23 @@
 	// for the documentation about the extensions.json format
 	"recommendations": [
 		"EditorConfig.EditorConfig",
+
+		// Ruby language server. Provides command completion, go to definition, finding references,
+		// symbol renaming, doc on hover, formatting, folding ranges and linting via rubocop.
+		// Needs gem 'ruby-debug-ide' (see Gemfile).
+		//
+		// Add this to your User/settings.json:
+		// "solargraph.diagnostics": true,
+		// "solargraph.formatting": true,
+		// "solargraph.useBundler": true,
+		// "[ruby]": { "editor.defaultFormatter": "castwide.solargraph" },
+		"castwide.solargraph",
+
+		// Another languager server. Not as good as solargraph (so don't enable any of its features),
+		// but it provides debugging of Ruby scripts. Needs gem 'solargraph' (see Gemfile).
+		//
+		// "ruby.useBundler" has no effect on debugging; instead, you must put '"useBundler": true'
+		// in the respective launch config.
+		"rebornix.ruby"
 	]
 }
