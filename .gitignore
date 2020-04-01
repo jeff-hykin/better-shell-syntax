@@ -4,7 +4,5 @@ node_modules
 **/.vscode/ipch
 **/.vscode/settings.json
 report.json
-node_modules
 **/.cache
 **/dist
-source/languages/shell/format-tmp.rb
