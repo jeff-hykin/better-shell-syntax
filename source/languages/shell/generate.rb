@@ -1,15 +1,15 @@
-require_relative '../../../directory'
-require_relative PathFor[:repo_helper]
-require_relative PathFor[:textmate_tools]
-require_relative PathFor[:sharedPattern]['numeric']
-require_relative PathFor[:sharedPattern]['line_continuation']
-require_relative './tokens.rb'
+require_relative('../../../directory')
+require_relative(PathFor[:repo_helper])
+require_relative(PathFor[:textmate_tools])
+require_relative(PathFor[:sharedPattern]['numeric'])
+require_relative(PathFor[:sharedPattern]['line_continuation'])
+require_relative('./tokens.rb')
 
 #
 # Setup grammar
 #
 
-Dir.chdir __dir__
+Dir.chdir(__dir__)
 
 # Standard refernce: http://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html
 original_grammar = JSON.parse(IO.read('./original.tmlanguage.json'))
@@ -120,7 +120,7 @@ grammar[:line_continuation] = line_continuation()
 
 # copy over all the repos
 for key, value in original_grammar['repository']
-	if (key == 'compound-command')
+	if key == 'compound-command'
 		grammar[:'compound-command'] = [
 			:logical_expression_double,
 			:logical_expression_single,
@@ -402,8 +402,8 @@ grammar[:support]['patterns'].pop()
 # @return [Regexp]
 def generatePatternNeedingSpace(**args)
 	invalidPattern = args[:pattern]
-	validPattern   = ' ' + invalidPattern if (args[:before])
-	validPattern   = invalidPattern + ' ' if (args[:after])
+	validPattern   = ' ' + invalidPattern if args[:before]
+	validPattern   = invalidPattern + ' ' if args[:after]
 
 	newPattern(
 		match: /#{validPattern}/,
