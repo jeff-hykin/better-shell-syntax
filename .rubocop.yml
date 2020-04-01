@@ -139,3 +139,5 @@ Style/TrailingCommaInArrayLiteral:
 
 Style/TrailingCommaInHashLiteral:
   Enabled: false
+
+require: rubocop/require_tools
