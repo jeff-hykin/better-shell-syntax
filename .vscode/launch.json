@@ -1,6 +1,14 @@
 {
     "version": "0.2.0",
     "configurations": [
+
+		{
+			"name": "Debug Current File",
+			"type": "Ruby",
+			"request": "launch",
+			"program": "${file}",
+			"useBundler": true
+		},
         {
             "name": "Launch Extension",
             "type": "extensionHost",
