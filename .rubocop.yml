@@ -53,6 +53,9 @@ Metrics/ParameterLists: # Pfffff...
 Metrics/PerceivedComplexity:
   Enabled: false
 
+Naming/BlockParameterName:
+  Enabled: false
+
 Naming/MethodName:
   Enabled: false
 
@@ -140,4 +143,6 @@ Style/TrailingCommaInArrayLiteral:
 Style/TrailingCommaInHashLiteral:
   Enabled: false
 
-require: rubocop/require_tools
+## Extensions (Custom Cops)
+
+require: rubocop/require_tools # Checks for missing require statements
