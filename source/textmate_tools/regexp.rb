@@ -4,6 +4,32 @@ require 'set'
 require 'deep_clone' # gem install deep_clone
 require 'pathname'
 
+def checkForMatchingOuter(str, start_char, end_char)
+    # must start and end with correct chars
+    if str.length > 2 && str[0] == start_char && str[-1] == end_char
+        # remove the first and last character
+        str = str.chars
+        str.shift()
+        str.pop()
+
+        depth = 0
+        for each in str
+            # for every open brace, 1 closed brace is allowed
+            if each == start_char
+                depth += 1
+            elsif each == end_char
+                depth -= 1
+            end
+            # if theres a closed brace before an open brace, then the outer ones dont match
+            if depth == -1
+                return false
+            end
+        end
+        return true
+    end
+    return false
+end
+
 #
 # extend Regexp to make expressions very readable
 #
