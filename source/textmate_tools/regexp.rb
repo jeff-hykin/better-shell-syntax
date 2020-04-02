@@ -638,3 +638,57 @@ class String
         return self
     end
 end
+
+#
+# Named patterns
+#
+@space = /\s/
+@spaces = /\s+/
+@digit = /\d/
+@digits = /\d+/
+@standard_character = /\w/
+@word = /\w+/
+@word_boundary = /\b/
+@white_space_start_boundary = /(?<=\s)(?=\S)/
+@white_space_end_boundary = /(?<=\S)(?=\s)/
+@start_of_document = /\A/
+@end_of_document = /\Z/
+@start_of_line = /(?:^)/
+@end_of_line = /(?:\n|$)/
+
+#
+# Helper patterns
+#
+    def newPattern(*arguments)
+        return //.then(*arguments)
+    end
+    def lookAheadFor(*arguments)
+        //.lookAheadFor(*arguments)
+    end
+    def lookAheadToAvoid(*arguments)
+        //.lookAheadToAvoid(*arguments)
+    end
+    def lookBehindFor(*arguments)
+        //.lookBehindFor(*arguments)
+    end
+    def lookBehindToAvoid(*arguments)
+        //.lookBehindToAvoid(*arguments)
+    end
+    def wordBounds(regex_pattern)
+        return lookBehindToAvoid(@standard_character).then(regex_pattern).lookAheadToAvoid(@standard_character)
+    end
+    def maybe(*arguments)
+        //.maybe(*arguments)
+    end
+    def oneOrMoreOf(*arguments)
+        //.oneOrMoreOf(*arguments)
+    end
+    def zeroOrMoreOf(*arguments)
+        //.zeroOrMoreOf(*arguments)
+    end
+    def matchResultOf(reference)
+        //.matchResultOf(reference)
+    end
+    def recursivelyMatch(reference)
+        //.recursivelyMatch(reference)
+    end
