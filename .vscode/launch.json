@@ -1,7 +1,13 @@
 {
     "version": "0.2.0",
     "configurations": [
-
+		{
+			"name": "Debug shell/generate.rb",
+			"type": "Ruby",
+			"request": "launch",
+			"program": "source/languages/shell/generate.rb",
+			"useBundler": true
+		},
 		{
 			"name": "Debug Current File",
 			"type": "Ruby",
