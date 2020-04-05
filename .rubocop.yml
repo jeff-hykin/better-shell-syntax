@@ -1,6 +1,12 @@
 AllCops:
   TargetRubyVersion: 2.7
 
+Layout/ArgumentAlignment:
+  EnforcedStyle: with_fixed_indentation
+
+Layout/ClosingParenthesisIndentation:
+  Enabled: false
+
 Layout/CommentIndentation:
   Enabled: false
 
@@ -25,6 +31,9 @@ Layout/IndentationWidth:
 
 Layout/LineLength:
   Max: 340
+
+Layout/MultilineMethodCallBraceLayout:
+  Enabled: false
 
 Layout/Tab:
   Enabled: false
