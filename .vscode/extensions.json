@@ -6,17 +6,24 @@
 
 		// Ruby language server. Provides command completion, go to definition, finding references,
 		// symbol renaming, doc on hover, formatting, folding ranges and linting via rubocop.
-		// Needs gem 'ruby-debug-ide' (see Gemfile).
+		// Needs gem 'solargraph' (see Gemfile for installation instructions).
 		//
 		// Add this to your User/settings.json:
+
 		// "solargraph.diagnostics": true,
 		// "solargraph.formatting": true,
-		// "solargraph.useBundler": true,
 		// "[ruby]": { "editor.defaultFormatter": "castwide.solargraph" },
+		//
+		// ONLY if you installed the dependencies as per section II:
+		//
+		// "solargraph.useBundler": true,
 		"castwide.solargraph",
 
 		// Another languager server. Not as good as solargraph (so don't enable any of its features),
-		// but it provides debugging of Ruby scripts. Needs gem 'solargraph' (see Gemfile).
+		// but it provides debugging of Ruby scripts.
+		// Needs gems 'ruby-debug-ide' and 'debase' (see Gemfile for installation instructions).
+		//
+		// ONLY if you installed the dependencies as per section II:
 		//
 		// "ruby.useBundler" has no effect on debugging; instead, you must put '"useBundler": true'
 		// in the respective launch config.

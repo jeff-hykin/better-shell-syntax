@@ -5,15 +5,15 @@
 			"name": "Debug shell/generate.rb",
 			"type": "Ruby",
 			"request": "launch",
-			"program": "source/languages/shell/generate.rb",
-			"useBundler": true
+			"program": "${workspaceRoot}/source/languages/shell/generate.rb",
+			// "useBundler": true
 		},
 		{
 			"name": "Debug Current File",
 			"type": "Ruby",
 			"request": "launch",
 			"program": "${file}",
-			"useBundler": true
+			// "useBundler": true
 		},
         {
             "name": "Launch Extension",
