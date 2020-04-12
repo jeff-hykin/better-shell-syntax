@@ -1,8 +1,16 @@
+# Merely needed for deep_clone ATM.
 require('rubygems')
-require('bundler/setup')
+require('bundler/setup') # Ignore the warning, it works.
 
-require_relative('./grammar.rb')
-require_relative('./token_helper.rb')
+# All loaded files are available to each other.
+# E. g. Grammar needs Regexp and PatternRange,
+# PatternRange needs Grammar and Regexp,
+# and Regexp needs Grammar, but it is sufficient
+# to require the files here.
+require_relative('grammar.rb')
+require_relative('pattern_range.rb')
+require_relative('regexp.rb')
+require_relative('token_helper.rb')
 
 # TODO
     # use the turnOffNumberedCaptureGroups to disable manual regex groups (which otherwise would completely break the group attributes)
