@@ -1,9 +1,4 @@
-require 'json'
-require 'yaml'
-require 'fileutils'
-require 'pathname'
-
-# rubocop:disable Layout/SpaceBeforeComma, Layout/ExtraSpacing, Layout/SpaceInsideParens, Layout/SpaceAroundBlockParameters
+# rubocop:disable Layout/ExtraSpacing, Layout/SpaceInsideParens, Layout/SpaceAroundBlockParameters
 
 PathFor =
 	{
@@ -12,28 +7,30 @@ PathFor =
 		temp_readme:        File.join(__dir__, 'temp_readme.md'                                                                  ),
 		generic_readme:     File.join(__dir__, 'generic_readme.md'                                                               ),
 		readme:             File.join(__dir__, 'README.md'                                                                       ),
-		repo_helper:        File.join(__dir__, 'source'             , 'repo_specific_helpers.rb'                                 ),
-		textmate_tools:     File.join(__dir__, 'source'             , 'textmate_tools.rb'                                        ),
-		pattern_generators: File.join(__dir__, 'source'             , 'pattern_generators.rb'                                    ),
-		svg_helper:         File.join(__dir__, 'scripts'            , 'helpers'                 , 'convert_svgs.js'              ),
-		languages:          File.join(__dir__, 'source'             , 'languages'                                                ),
-		fixtures:           File.join(__dir__, 'test'               , 'fixtures'                                                 ),
-		report:             File.join(__dir__, 'test'               , 'source'                  , 'commands'        , 'report.js'),
+		repo_helper:        File.join(__dir__, 'source',              'repo_specific_helpers.rb'                                 ),
+		multiline_string:   File.join(__dir__, 'common_helpers',      'multiline_string.rb'                                      ),
+		error_helper:       File.join(__dir__, 'common_helpers',      'error_helper.rb'                                          ),
+		textmate_tools:     File.join(__dir__, 'source',              'textmate_tools.rb'                                        ),
+		pattern_generators: File.join(__dir__, 'source',              'pattern_generators.rb'                                    ),
+		svg_helper:         File.join(__dir__, 'scripts',             'helpers',                  'convert_svgs.js'              ),
+		languages:          File.join(__dir__, 'source',              'languages'                                                ),
+		fixtures:           File.join(__dir__, 'test',                'fixtures'                                                 ),
+		report:             File.join(__dir__, 'test',                'source',                   'commands',         'report.js'),
 		syntaxes:           File.join(__dir__, 'syntaxes'                                                                        ),
-		linter:             File.join(__dir__, 'lint'               , 'index.js'                                                 ),
+		linter:             File.join(__dir__, 'lint',                'index.js'                                                 ),
 
 		relativeIconPng:    ->(lang_extension) { File.join('icons', lang_extension + '.png'                                                           ) },
-		sharedPattern:      ->(pattern_name  ) { File.join(__dir__, 'source'                 , 'shared_patterns'                , pattern_name + '.rb') },
-		svgIcon:            ->(lang_extension) { File.join(__dir__, 'icons'                  , lang_extension + '.svg'                                ) },
-		pngIcon:            ->(lang_extension) { File.join(__dir__, 'icons'                  , lang_extension + '.png'                                ) },
-		languageTag:        ->(lang_extension) { File.join(__dir__, 'language_tags'          , lang_extension + '.txt'                                ) },
-		jsonSyntax:         ->(lang_extension) { File.join(PathFor[:syntaxes]                , lang_extension + '.tmLanguage.json'                    ) },
-		yamlSyntax:         ->(lang_extension) { File.join(PathFor[:syntaxes]                , lang_extension + '.tmLanguage.yaml'                    ) },
-		language:           ->(lang_extension) { File.join(PathFor[:languages]               , lang_extension                                         ) },
+		sharedPattern:      ->(pattern_name  ) { File.join(__dir__, 'source',                  'shared_patterns',                 pattern_name + '.rb') },
+		svgIcon:            ->(lang_extension) { File.join(__dir__, 'icons',                   lang_extension + '.svg'                                ) },
+		pngIcon:            ->(lang_extension) { File.join(__dir__, 'icons',                   lang_extension + '.png'                                ) },
+		languageTag:        ->(lang_extension) { File.join(__dir__, 'language_tags',           lang_extension + '.txt'                                ) },
+		jsonSyntax:         ->(lang_extension) { File.join(PathFor[:syntaxes],                 lang_extension + '.tmLanguage.json'                    ) },
+		yamlSyntax:         ->(lang_extension) { File.join(PathFor[:syntaxes],                 lang_extension + '.tmLanguage.yaml'                    ) },
+		language:           ->(lang_extension) { File.join(PathFor[:languages],                lang_extension                                         ) },
 		localReadMe:        ->(lang_extension) { File.join(PathFor[:language][lang_extension], 'README.md'                                            ) },
 		localPackageJson:   ->(lang_extension) { File.join(PathFor[:language][lang_extension], 'package.json'                                         ) },
 		generator:          ->(lang_extension) { File.join(PathFor[:language][lang_extension], 'generate.rb'                                          ) },
 		macro_generator:    ->(lang_extension) { File.join(PathFor[:language][lang_extension], 'generate_macro_bailout.js'                            ) },
 	}.freeze
 
-# rubocop:enable Layout/SpaceBeforeComma, Layout/ExtraSpacing, Layout/SpaceInsideParens, Layout/SpaceAroundBlockParameters
+# rubocop:enable Layout/ExtraSpacing, Layout/SpaceInsideParens, Layout/SpaceAroundBlockParameters
