@@ -7,10 +7,10 @@ require('bundler/setup') # Ignore the warning, it works.
 # PatternRange needs Grammar and Regexp,
 # and Regexp needs Grammar, but it is sufficient
 # to require the files here.
-require_relative('grammar.rb')
-require_relative('pattern_range.rb')
-require_relative('regexp.rb')
-require_relative('token_helper.rb')
+require_relative('textmate_tools/grammar.rb')
+require_relative('textmate_tools/pattern_range.rb')
+require_relative('textmate_tools/regexp.rb')
+require_relative('textmate_tools/token_helper.rb')
 
 # TODO
     # use the turnOffNumberedCaptureGroups to disable manual regex groups (which otherwise would completely break the group attributes)
