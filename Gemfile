@@ -23,8 +23,6 @@
 
 source('https://rubygems.org')
 
-ruby('2.7.0')
-
 group(:vscode_ext_deps_ruby, optional: true) do
 	gem('solargraph')            # Required by VS Code Extension 'castwide.solargraph'. Includes rubocop. See .vscode/extensions.json.
 	gem('rubocop-require_tools') # Plugin for rubocop, checks for missing requires.
@@ -32,5 +30,4 @@ group(:vscode_ext_deps_ruby, optional: true) do
 	gem('debase')                # Required by ruby-debug-ide.
 end
 
-# Runtime dependencies (:default group; I think you can regard this as bundler's equivalent to npm's "dependencies")
 gem('deep_clone')
