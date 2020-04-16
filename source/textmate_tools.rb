@@ -7,6 +7,7 @@ require('bundler/setup') # Ignore the warning, it works.
 # PatternRange needs Grammar and Regexp,
 # and Regexp needs Grammar, but it is sufficient
 # to require the files here.
+require_relative('textmate_tools/checkers.rb')
 require_relative('textmate_tools/grammar.rb')
 require_relative('textmate_tools/pattern_range.rb')
 require_relative('textmate_tools/regexp.rb')
