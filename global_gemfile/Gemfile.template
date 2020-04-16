@@ -3,89 +3,89 @@
 #
 # This Gemfile defines the bundle of your global gems in ~/.gem and should be placed
 # in your home dir.
-# See section II for the benefits of this approach over doing 'gem install ...'
+# See section II for the benefits of this approach over doing „gem install ...“
 # regarding updating.
 
 # Using Bundler instead of RubyGems for globally installed gems
 #
 # I) Initial setup
 #
-#    1. Add the gems you want to install globally below using the gem() method, if any.
+#    1. Add the gems you want to install globally at the end of this file
+#       using the gem() method, if any.
 #
-#    2. Add the line 'gem: "--user-install"' to your ~/.gemrc if you don't already have it.
+#    2. Add the line „gem: "--user-install"“ to your ~/.gemrc if you don't already have it.
 #       You may add further options separated by spaces, e. g. --no-document.
 #       This causes each gem command to be executed with the specified options.
 #
 #       Reason: By default, gem will install gems to $(ruby -e 'puts(Gem.dir)')
 #               (e. g. /var/lib/gems/2.7.0), which requires root privileges.
 #
-#               As with npm, it is considered bad practice to do 'sudo gem install ...'
+#               As with npm, it is considered bad practice to do „sudo gem install ...“
 #               (I think I don't need to explain why).
 #
-#               --user-install causes 'gem install' to install gems to $(ruby -e 'puts(Gem.user_dir)')
+#               --user-install causes „gem install“ to install gems to $(ruby -e 'puts(Gem.user_dir)')
 #               (e. g. /home/<you>/.gem/ruby/2.7.0).
 #
-#    3. Add the output of
-#       ruby -e 'puts(Gem.user_dir.sub(/.+(?=\/\.gem)/, "$HOME") + "/bin")'
+#    3. Add the output of „ruby -e 'puts(Gem.user_dir.sub(/.+(?=\/\.gem)/, "$HOME") + "/bin")'“
 #       to PATH in your ~/.profile if you don't already have done that.
 #       Example from my ~/.profile:
 #       PATH="$scriptsBaseDir/bin":"$HOME/.npm-global/bin":"$HOME/.gem/ruby/2.7.0/bin":"$PATH"
 #
-#    4. If you have already installed gems to ~/.gem, add them to the bundle (see step 1).
-#       Only add the gems you installed via 'gem install ...', nothing else.
-#       Then delete ~/.gem.
+#    4. If you have already installed gems to ~/.gem you want to keep,
+#       add them to the bundle (see step 1).
+#       Only add the gems you installed yourself, not their dependencies.
 #
-#    5. Execute 'gem install bundler'.
-#       This should be the last time you use 'gem install ...' ;)
+#    5. Execute „gem install bundler“.
+#       This should be the last time you use „gem install ...“ ;)
 #
-#    6. Execute 'bundle config path ~/.gem'.
+#    6. Execute „bundle config path ~/.gem“.
 #       This tells bundler to install gems to the same dir as gem.
 #       Bundler's global config is stored in ~/.bundle/config.
 #
-#    7. Execute 'bundle install' in ~.
+#    7. Execute „bundle install“ in ~.
 #       This will install all the gems from this file to ~/.gem and create a ~/Gemfile.lock.
 #
 # II) Updating the gems
 #
-#    - Only update via 'bundle update --all' in ~.
+#    - Only update via „bundle update --all“ in ~.
 #
-#    - Never (!) use 'gem update', not even 'gem update -g ~/Gemfile --lock'.
+#    - Never (!) use „gem update“, not even „gem update -g ~/Gemfile --lock“.
 #
 #      Reason: While npm places dependencies of globally installed packages in subdirs
-#              of the packages you installed via 'npm -g install ...', gem and bundler use a
-#              flat hierarchy, and since 'gem update' doesn't use a Gemfile,
+#              of the packages you installed via „npm -g install ...“, gem and bundler use a
+#              flat hierarchy, and since „gem update“ doesn't use a Gemfile,
 #              it has no knowledge of which gems YOU installed and which ones are dependencies.
 #
-#              So when you do 'gem update', every gem is updated to the most recent version,
+#              So when you do „gem update“, every gem is updated to the most recent version,
 #              thus you may get newer versions of dependencies that are not used at all.
 #
-#              If you use 'gem update -g ~/Gemfile --lock', you would think that now gem knows
+#              If you use „gem update -g ~/Gemfile --lock“, you would think that now gem knows
 #              which gems are "primary" and which ones are dependencies,
 #              But obviously, gem's update command doesn't respect this distinction,
-#              giving you the same result as 'gem update'.
+#              giving you the same result as „gem update“.
 #
 #              This is the reason why we use bundler for global gems: bundler updates
 #              "primary" gems; dependencies will be updated only up to the max versions as per
-#              version ranges specified by the requiring gems, just as 'npm -g update' does.
+#              version ranges specified by the requiring gems, just as „npm -g update“ does.
 #
 # III) Adding gems
 #
-#    - Either add the desired gems to this file and execute 'bundle install' in ~,
+#    - Either add the desired gems to this file and execute „bundle install“ in ~,
 #
-#    - or just execute 'bundle add ... -v ''' in ~.
+#    - or just execute „bundle add ... -v ''“ in ~.
 #      This will add the specified gems to this file and install them.
 #      The empty version argument is important if you don't want bundler to automatically
 #      impose version constraints on the specified gems.
 #
 # IV) Removing gems
 #
-#    - Either remove the respective gems from this file and execute 'bundle clean' in ~,
+#    - Either remove the respective gems from this file and execute „bundle clean“ in ~,
 #
-#    - or just execute 'bundle remove ... && bundle clean' in ~.
+#    - or just execute „bundle remove ... && bundle clean“ in ~.
 #      Don't ask me why you have to execute 'bundle clean' yourself here,
-#      whereas 'bundle add ...' automatically executes 'bundle install'.
+#      whereas „bundle add ...“ automatically executes „bundle install“.
 #
-#    - Please note: If you install gems via 'gem install ...' and do 'bundle clean' in ~,
+#    - Please note: If you install gems via „gem install ...“ and do „bundle clean“ in ~,
 #      these gems will be wiped out.
 #      You can use this to test a gem and quickly get rid of it in case you don't like it.
 #
@@ -100,13 +100,11 @@
 #      doesn't hurt at all.
 #
 #    - Of course, you can also add lib gems you want to use in many projects to this global
-#      bundle; just 'require' them the normal way (not via 'require('bundler/setup')').
+#      bundle; just „require“ them the normal way (not via „require('bundler/setup')“).
 #      However, as with npm, you should always use local bundles for projects you want to publish.
 #
 
 source('https://rubygems.org')
-
-ruby('2.7.0')
 
 # I got an error when using Debian's rake because it wasn't in
 # /usr/share/rubygems-integration/all/gems/.
