@@ -92,6 +92,15 @@ Style/CommentedKeyword:
 Style/For:
   Enabled: false
 
+Style/FormatString:
+  EnforcedStyle: sprintf
+
+# The most pointless cop. Consistent style?!
+# It depends on the situation if I have a hash
+# or an array I want to pass to sprintf...
+Style/FormatStringToken:
+  Enabled: false
+
 Style/FrozenStringLiteralComment:
   Enabled: false
 
