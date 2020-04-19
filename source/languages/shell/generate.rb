@@ -1,9 +1,9 @@
 require_relative('../../../directory')
-require_relative(PathFor[:repo_helper])
-require_relative(PathFor[:textmate_tools])
-require_relative(PathFor[:sharedPattern]['numeric'])
-require_relative(PathFor[:sharedPattern]['line_continuation'])
-require_relative('./tokens.rb')
+require(PathFor[:repo_helper])
+require(PathFor[:textmate_tools])
+require(PathFor[:sharedPattern]['numeric'])
+require(PathFor[:sharedPattern]['line_continuation'])
+require_relative('tokens.rb')
 
 #
 # Setup grammar
