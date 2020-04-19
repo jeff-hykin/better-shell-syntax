@@ -1,86 +1,82 @@
-require 'json'
-require 'yaml'
-require 'set'
-require 'deep_clone' # gem install deep_clone
-require 'pathname'
-
-class NegatedSymbol
-    def initialize(a_symbol)
-        @symbol = a_symbol
-    end
-    def to_s
-        return "not(#{@symbol.to_s})"
-    end
-    def to_sym
-        return @symbol
-    end
-end
-
+# **Monkey Patch**<br>
+# Implements operator `!` which returns a `Symbol`
+# prefixed with an '!'.<br>
+# Implements instance method `negated?`.<br><br>
 class Symbol
-    def !@
-        return NegatedSymbol.new(self)
-    end
+	def negated?() self[0] == '!' end
+
+	def !@
+		(negated? ? self[1..-1] : '!' + to_s).to_sym
+	end
 end
 
+# Helpers for Tokens
 class TokenHelper
-    attr_accessor :tokens
-    def initialize(tokens, for_each_token:nil)
-        @tokens = tokens
-        if for_each_token != nil
-            for each in @tokens
-                for_each_token[each]
-            end
-        end
-    end
+	# @return [Array<Hash>]
+	attr_accessor :tokens
 
+	# @param tokens [Array<Hash>]
+	# @param for_each_token [Proc]
+	def initialize(tokens, for_each_token: nil)
+		@tokens = tokens
 
-    def tokensThat(*adjectives)
-        matches = @tokens.select do |each_token|
-            output = true
-            for each_adjective in adjectives
-                # make sure to fail on negated symbols
-                if each_adjective.is_a? NegatedSymbol
-                    if each_token[each_adjective.to_sym] == true
-                        output = false
-                        break
-                    end
-                elsif each_token[each_adjective] != true
-                    output = false
-                    break
-                end
-            end
-            output
-        end
-        return matches
-    end
+		@tokens.each { |token| for_each_token.call(token) } unless for_each_token.nil?
+	end
 
-    def representationsThat(*adjectives)
-        matches = self.tokensThat(*adjectives)
-        return matches.map do |each| each[:representation] end
-    end
+	# Returns an array of tokens
+	# @param adjectives [Array<Symbol>]
+	def tokensThat(*adjectives)
+		matches = @tokens.select do |token|
+			output = true
 
-    def lookBehindToAvoidWordsThat(*adjectives)
-        array_of_invalid_names = self.representationsThat(*adjectives)
-        return /\b/.lookBehindToAvoid(/#{array_of_invalid_names.map { |each| '\W'+each+'|^'+each } .join('|')}/)
-    end
+			adjectives.each do |adjective|
+				# Don't output the token if there is a negated adjective that is valid for the token
+				# or a non-negated one that is not valid.
+				if adjective.negated? && token[adjective] == true || !adjective.negated? && token[adjective] != true
+					output = false
+					break
+				end
+			end
 
-    def lookAheadToAvoidWordsThat(*adjectives)
-        array_of_invalid_names = self.representationsThat(*adjectives)
-        return /\b/.lookAheadToAvoid(/#{array_of_invalid_names.map { |each| each+'\W|'+each+'\$' } .join('|')}/)
-    end
+			output
+		end
 
-    def that(*adjectives)
-        matches = tokensThat(*adjectives)
-        return /(?:#{matches.map {|each| Regexp.escape(each[:representation]) }.join("|")})/
-    end
+		matches
+	end
+
+	def representationsThat(*adjectives)
+		tokensThat(*adjectives).map { |match| match[:representation] }
+	end
+
+	def lookBehindToAvoidWordsThat(*adjectives)
+		array_of_invalid_names = representationsThat(*adjectives)
+
+		/\b/.lookBehindToAvoid(/#{array_of_invalid_names.map { |invalidName| '\W' + invalidName + '|^' + invalidName } .join('|')}/)
+	end
+
+	def lookAheadToAvoidWordsThat(*adjectives)
+		array_of_invalid_names = representationsThat(*adjectives)
+
+		/\b/.lookAheadToAvoid(/#{array_of_invalid_names.map { |invalidName| invalidName + '\W|' + invalidName + '\$' } .join('|')}/)
+	end
+
+	def that(*adjectives)
+		/(?:#{tokensThat(*adjectives).map { |match| Regexp.escape(match[:representation]) } .join('|')})/
+	end
 end
 
+# **Monkey Patch**<br>
+# Implements instance method `without`.<br><br>
 class Array
-    def without(*args)
-        copy = self.clone
-        for each in args
-            copy.delete(each)
-        end
-        return copy
-    end
+	# Returns a shallow copy of `self` from which each provided element
+	# has been removed.<br>
+	# Elements that don't exist are silently ignored.
+	# @param elements [Array] List of elements to be removed
+	def without(*elements)
+		copy = clone
+
+		elements.each { |e| copy.delete(e) }
+
+		copy
+	end
 end
