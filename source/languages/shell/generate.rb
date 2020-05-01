@@ -193,7 +193,7 @@ require_relative './tokens.rb'
         includes: [ :variable_assignment_context ]
     )
     
-    possible_pre_command_characters = /(?:^|;|\||&|!|\(|\{|\`)/
+    possible_pre_command_characters = /(?:^|;|\||&|!|\(|\{|\`|\s)/
     possible_command_start   = lookAheadToAvoid(/(?:!|%|&|\||\(|\{|\[|<|>|#|\n|$|;)/)
     command_end              = lookAheadFor(/;|\||&|$|\n|\)|\`|\}|\{|#|\]/).lookBehindToAvoid(/\\/)
     unquoted_string_end      = lookAheadFor(/\s|;|\||&|$|\n|\)|\`/)
