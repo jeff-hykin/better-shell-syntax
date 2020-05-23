@@ -22,4 +22,4 @@ The screenshots were taken with [PolaCode 2019](https://marketplace.visualstudio
 If you'd like to help improve the syntax, take a look at `source/languages` and look at the `generate.rb` files. And make sure to take a look at `CONTRIBUTING.md` to get a better idea of how code works.
 
 ## What if I see a highlighting bug?
-Post an issue on https://github.com/jeff-hykin/cpp-textmate-grammar
+Post an issue on https://github.com/jeff-hykin/better-shell-syntax
