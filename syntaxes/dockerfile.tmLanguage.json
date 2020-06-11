@@ -659,35 +659,21 @@
           ]
         },
         "comment": {
-          "begin": "(^\\s+)?(?<=^|\\W)(?<!-)(?=#)(?!#{)",
-          "beginCaptures": {
+          "match": "(?<=^|\\s)(?:((#!).*)|((#).*))",
+          "captures": {
             "1": {
-              "name": "punctuation.whitespace.comment.leading.shell.dockerfile"
-            }
-          },
-          "end": "(?!\\G)",
-          "patterns": [
-            {
-              "begin": "#!",
-              "beginCaptures": {
-                "0": {
-                  "name": "punctuation.definition.comment.shebang.shell.dockerfile"
-                }
-              },
-              "end": "$",
-              "name": "comment.line.number-sign.shebang.shell.dockerfile"
+              "name": "comment.line.number-sign.shell.dockerfile meta.shebang.shell.dockerfile"
             },
-            {
-              "begin": "#",
-              "beginCaptures": {
-                "0": {
-                  "name": "punctuation.definition.comment.shell.dockerfile"
-                }
-              },
-              "end": "$",
+            "2": {
+              "name": "punctuation.definition.comment.shebang.shell.dockerfile"
+            },
+            "3": {
               "name": "comment.line.number-sign.shell.dockerfile"
+            },
+            "4": {
+              "name": "punctuation.definition.comment.shell.dockerfile"
             }
-          ]
+          }
         },
         "compound-command": {
           "patterns": [

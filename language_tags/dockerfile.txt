@@ -1,7 +1,6 @@
 Script.dockerfile
 Shell.dockerfile
 comment.line.number-sign.dockerfile
-comment.line.number-sign.shebang.shell.dockerfile
 comment.line.number-sign.shell.dockerfile
 constant.character.control.regexp.shell.dockerfile
 constant.character.escape.ansi-c.shell.dockerfile
@@ -98,6 +97,7 @@ meta.scope.select-block.shell.dockerfile
 meta.scope.subshell.dockerfile
 meta.scope.subshell.shell.dockerfile
 meta.scope.while-loop.shell.dockerfile
+meta.shebang.shell.dockerfile
 meta.statement.shell.dockerfile
 meta.structure.extglob.shell.dockerfile
 punctuation.definition.arguments.shell.dockerfile

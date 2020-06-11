@@ -484,35 +484,21 @@
       ]
     },
     "comment": {
-      "begin": "(^\\s+)?(?<=^|\\W)(?<!-)(?=#)(?!#{)",
-      "beginCaptures": {
+      "match": "(?<=^|\\s)(?:((#!).*)|((#).*))",
+      "captures": {
         "1": {
-          "name": "punctuation.whitespace.comment.leading.shell"
-        }
-      },
-      "end": "(?!\\G)",
-      "patterns": [
-        {
-          "begin": "#!",
-          "beginCaptures": {
-            "0": {
-              "name": "punctuation.definition.comment.shebang.shell"
-            }
-          },
-          "end": "$",
-          "name": "comment.line.number-sign.shebang.shell"
+          "name": "comment.line.number-sign.shell meta.shebang.shell"
         },
-        {
-          "begin": "#",
-          "beginCaptures": {
-            "0": {
-              "name": "punctuation.definition.comment.shell"
-            }
-          },
-          "end": "$",
+        "2": {
+          "name": "punctuation.definition.comment.shebang.shell"
+        },
+        "3": {
           "name": "comment.line.number-sign.shell"
+        },
+        "4": {
+          "name": "punctuation.definition.comment.shell"
         }
-      ]
+      }
     },
     "compound-command": {
       "patterns": [
@@ -1657,76 +1643,6 @@
         }
       ]
     },
-    "misc_ranges": {
-      "patterns": [
-        {
-          "include": "#logical_expression_single"
-        },
-        {
-          "include": "#logical_expression_double"
-        },
-        {
-          "name": "meta.arithmetic.shell",
-          "begin": "(\\(\\()",
-          "beginCaptures": {
-            "1": {
-              "name": "punctuation.section.arithmetic.shell"
-            }
-          },
-          "end": "(\\)\\))",
-          "endCaptures": {
-            "1": {
-              "name": "punctuation.section.arithmetic.shell"
-            }
-          },
-          "patterns": [
-            {
-              "include": "#math"
-            }
-          ]
-        },
-        {
-          "name": "meta.scope.subshell",
-          "begin": "(\\()",
-          "beginCaptures": {
-            "1": {
-              "name": "punctuation.definition.subshell"
-            }
-          },
-          "end": "(\\))",
-          "endCaptures": {
-            "1": {
-              "name": "punctuation.definition.subshell"
-            }
-          },
-          "patterns": [
-            {
-              "include": "#initial_context"
-            }
-          ]
-        },
-        {
-          "name": "meta.scope.group.shell",
-          "begin": "({)",
-          "beginCaptures": {
-            "1": {
-              "name": "punctuation.definition.group.shell"
-            }
-          },
-          "end": "(})",
-          "endCaptures": {
-            "1": {
-              "name": "punctuation.definition.group.shell"
-            }
-          },
-          "patterns": [
-            {
-              "include": "#initial_context"
-            }
-          ]
-        }
-      ]
-    },
     "command_name": {
       "name": "entity.name.command.shell",
       "begin": "\\s*+(?!(?:!|%|&|\\||\\(|\\{|\\[|<|>|#|\\n|$|\\$|;))",
@@ -1795,7 +1711,7 @@
     },
     "command_call": {
       "name": "meta.statement.shell",
-      "begin": "(?<=(?:^|;|\\||&|!|\\(|\\{|\\`))\\s*+(?!function\\W|function\\$|export\\W|export\\$|select\\W|select\\$|case\\W|case\\$|do\\W|do\\$|done\\W|done\\$|elif\\W|elif\\$|else\\W|else\\$|esac\\W|esac\\$|fi\\W|fi\\$|for\\W|for\\$|if\\W|if\\$|in\\W|in\\$|then\\W|then\\$|until\\W|until\\$|while\\W|while\\$|alias\\W|alias\\$)(?!\\})",
+      "begin": "(?<=(?:^|;|\\||&|!|\\(|\\{|\\`))\\s*+(?!function\\W|function\\$|export\\W|export\\$|select\\W|select\\$|case\\W|case\\$|do\\W|do\\$|done\\W|done\\$|elif\\W|elif\\$|else\\W|else\\$|esac\\W|esac\\$|fi\\W|fi\\$|for\\W|for\\$|if\\W|if\\$|in\\W|in\\$|then\\W|then\\$|until\\W|until\\$|while\\W|while\\$|alias\\W|alias\\$)",
       "end": "(?=;|\\||&|$|\\n|\\)|\\`|\\}|\\{|\\}|#|\\])(?<!\\\\)",
       "patterns": [
         {
@@ -2000,6 +1916,76 @@
         },
         {
           "include": "#support"
+        }
+      ]
+    },
+    "misc_ranges": {
+      "patterns": [
+        {
+          "include": "#logical_expression_single"
+        },
+        {
+          "include": "#logical_expression_double"
+        },
+        {
+          "name": "meta.arithmetic.shell",
+          "begin": "(\\(\\()",
+          "beginCaptures": {
+            "1": {
+              "name": "punctuation.section.arithmetic.shell"
+            }
+          },
+          "end": "(\\)\\))",
+          "endCaptures": {
+            "1": {
+              "name": "punctuation.section.arithmetic.shell"
+            }
+          },
+          "patterns": [
+            {
+              "include": "#math"
+            }
+          ]
+        },
+        {
+          "name": "meta.scope.subshell",
+          "begin": "(\\()",
+          "beginCaptures": {
+            "1": {
+              "name": "punctuation.definition.subshell"
+            }
+          },
+          "end": "(\\))",
+          "endCaptures": {
+            "1": {
+              "name": "punctuation.definition.subshell"
+            }
+          },
+          "patterns": [
+            {
+              "include": "#initial_context"
+            }
+          ]
+        },
+        {
+          "name": "meta.scope.group.shell",
+          "begin": "({)",
+          "beginCaptures": {
+            "1": {
+              "name": "punctuation.definition.group.shell"
+            }
+          },
+          "end": "(})",
+          "endCaptures": {
+            "1": {
+              "name": "punctuation.definition.group.shell"
+            }
+          },
+          "patterns": [
+            {
+              "include": "#initial_context"
+            }
+          ]
         }
       ]
     },

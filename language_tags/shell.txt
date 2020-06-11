@@ -1,4 +1,3 @@
-comment.line.number-sign.shebang.shell
 comment.line.number-sign.shell
 constant.character.control.regexp.shell
 constant.character.escape.ansi-c.shell
@@ -60,6 +59,7 @@ keyword.other.unit.octal.shell
 keyword.other.unit.suffix.floating-point.shell
 keyword.other.unit.suffix.integer.shell
 meta.argument.shell
+meta.arithmetic.shell
 meta.assertion.look-ahead.regexp.shell
 meta.assertion.look-behind.regexp.shell
 meta.assertion.negative-look-ahead.regexp.shell
@@ -80,12 +80,15 @@ meta.scope.group.shell
 meta.scope.if-block.shell
 meta.scope.logical-expression.shell
 meta.scope.select-block.shell
+meta.scope.subshell
 meta.scope.subshell.shell
 meta.scope.while-loop.shell
+meta.shebang.shell
 meta.statement.shell
 meta.structure.extglob.shell
 punctuation.definition.arguments.shell
 punctuation.definition.case-pattern.shell
+punctuation.definition.character-class.named.regexp.shell
 punctuation.definition.character-class.regexp.shell
 punctuation.definition.comment.shebang.shell
 punctuation.definition.comment.shell
@@ -103,8 +106,10 @@ punctuation.definition.group.shell
 punctuation.definition.logical-expression.shell
 punctuation.definition.string.begin.shell
 punctuation.definition.string.end.shell
+punctuation.definition.subshell
 punctuation.definition.subshell.shell
 punctuation.definition.variable.shell
+punctuation.section.arithmetic.shell
 punctuation.section.array.shell
 punctuation.section.bracket.curly.variable.begin.shell
 punctuation.section.bracket.curly.variable.end.shell
@@ -123,6 +128,7 @@ source.ruby.embedded.shell
 source.shell
 source.shell.embedded.shell
 storage.modifier.shell
+storage.type.alias.shell
 storage.type.function.shell
 string.interpolated.backtick.shell
 string.interpolated.dollar.shell
