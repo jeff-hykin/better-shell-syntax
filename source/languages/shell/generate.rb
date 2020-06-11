@@ -281,20 +281,20 @@ require_relative './tokens.rb'
             ).then(@spaces).then(
                 match: /'s\//,
                 tag_as: "punctuation.section.regexp",
-            ).then(
-                match: /.*/, # find
+            ).zeroOrMoreOf(
+                match: Pattern.new(/\\./).or(/[^\/]/), # find
                 includes: [ :regexp ],
             ).then(
                 match: /\//,
                 tag_as: "punctuation.section.regexp",
             ).then(
-                match: /.*/, # replace
+                match: Pattern.new(/\\./).or(/[^\/]/), # replace
                 includes: [ :string ],
             ).then(
                 match: /\/\w{0,4}\'/,
                 tag_as: "punctuation.section.regexp",
             ).then(
-                match: /.*/,
+                match: /.*/.then(command_end),
                 includes: [
                     :option,
                     :argument,
