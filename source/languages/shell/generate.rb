@@ -39,7 +39,7 @@ require_relative './tokens.rb'
             :statement_seperator,
             :logical_expression_double,
             :logical_expression_single,
-            :'compound-command',
+            :misc_ranges,
             :loop,
             :string,
             :'function-definition',
@@ -63,7 +63,7 @@ require_relative './tokens.rb'
             :comment,
             :pipeline,
             :statement_seperator,
-            :'compound-command',
+            :misc_ranges,
             :string,
             :variable,
             :interpolation,
@@ -76,7 +76,7 @@ require_relative './tokens.rb'
             :line_continuation,
         ]
     grammar[:option_context] = [
-            :'compound-command',
+            :misc_ranges,
             :string,
             :variable,
             :interpolation,
@@ -170,6 +170,7 @@ require_relative './tokens.rb'
     
     # function thing() {}
     # thing() {}
+    # NOTE: this is not yet actually used
     function_definition_start_pattern = std_space.then(
             # this is the case with the function keyword
             newPattern(
@@ -217,8 +218,8 @@ require_relative './tokens.rb'
     )
     
     possible_pre_command_characters = /(?:^|;|\||&|!|\(|\{|\`)/
-    possible_command_start   = lookAheadToAvoid(/(?:!|%|&|\||\(|\{|\[|<|>|#|\n|$|;)/)
-    command_end              = lookAheadFor(/;|\||&|$|\n|\)|\`|\}|\{|#|\]/).lookBehindToAvoid(/\\/)
+    possible_command_start   = lookAheadToAvoid(/(?:!|%|&|\||\(|\{|\[|<|>|#|\n|$|\$|;)/)
+    command_end              = lookAheadFor(/;|\||&|$|\n|\)|\`|\}|\{|\}|#|\]/).lookBehindToAvoid(/\\/)
     unquoted_string_end      = lookAheadFor(/\s|;|\||&|$|\n|\)|\`/)
     invalid_literals         = Regexp.quote(@tokens.representationsThat(:areInvalidLiterals).join(""))
     valid_literal_characters = Regexp.new("[^\s#{invalid_literals}]+")
@@ -355,12 +356,68 @@ require_relative './tokens.rb'
             ),
         end_pattern: newPattern(
                 match: /\]\]/,
-                at_least: 1.times,
-                at_most: 2.times,
                 tag_as: "punctuation.definition.logical-expression"
             ),
         includes: grammar[:logical_expression_context]
     )
+    grammar[:misc_ranges] = [
+        :logical_expression_single,
+        :logical_expression_double,
+        # 
+        # handle (())
+        # 
+        PatternRange.new(
+            tag_as: "meta.arithmetic",
+            start_pattern: Pattern.new(
+                    tag_as: "punctuation.section.arithmetic",
+                    match: /\(\(/
+                ),
+            end_pattern: Pattern.new(
+                    tag_as: "punctuation.section.arithmetic",
+                    match: /\)\)/
+                ),
+            includes: [
+                # TODO: add more stuff here
+                # see: http://tiswww.case.edu/php/chet/bash/bashref.html#Shell-Arithmetic
+                :math,
+            ]
+        ),
+        # 
+        # handle ()
+        # 
+        PatternRange.new(
+            tag_as: "meta.scope.subshell",
+            start_pattern: Pattern.new(
+                    tag_as: "punctuation.definition.subshell",
+                    match: /\(/
+                ),
+            end_pattern: Pattern.new(
+                    tag_as: "punctuation.definition.subshell",
+                    match: /\)/
+                ),
+            includes: [
+                :$initial_context,
+            ]
+        ),
+        # 
+        # groups (?) 
+        # 
+        PatternRange.new(
+            tag_as: "meta.scope.group",
+            start_pattern: Pattern.new(
+                    tag_as: "punctuation.definition.group",
+                    match: /{/
+                ),
+            end_pattern: Pattern.new(
+                    tag_as: "punctuation.definition.group",
+                    match: /}/
+                ),
+            includes: [
+                :$initial_context
+            ]
+        ),
+    ]
+    
     grammar[:regex_comparison] = Pattern.new(
         Pattern.new(
             tag_as: "keyword.operator.logical",
