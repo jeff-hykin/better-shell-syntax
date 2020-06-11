@@ -290,7 +290,7 @@
           "include": "#statement_seperator"
         },
         {
-          "include": "#compound-command"
+          "include": "#misc_ranges"
         },
         {
           "include": "#string"
@@ -327,7 +327,7 @@
     "option_context": {
       "patterns": [
         {
-          "include": "#compound-command"
+          "include": "#misc_ranges"
         },
         {
           "include": "#string"
@@ -1585,68 +1585,143 @@
       }
     },
     "assignment": {
+      "name": "meta.expression.assignment.shell",
+      "begin": "\\s*+((?:^|\\b)[a-zA-Z_][a-zA-Z0-9_]*+(?:\\b|$))(?:(\\=)|(\\+\\=))",
+      "beginCaptures": {
+        "1": {
+          "name": "variable.other.assignment.shell"
+        },
+        "2": {
+          "name": "keyword.operator.assignment.shell"
+        },
+        "3": {
+          "name": "keyword.operator.assignment.compound.shell"
+        }
+      },
+      "end": "(?:(?:(?:(?:(?:(;)|(&&))|(\\|\\|))|(&))|\\n)|(?= ))",
+      "endCaptures": {
+        "1": {
+          "name": "punctuation.terminator.statement.semicolon.shell"
+        },
+        "2": {
+          "name": "punctuation.separator.statement.and.shell"
+        },
+        "3": {
+          "name": "punctuation.separator.statement.or.shell"
+        },
+        "4": {
+          "name": "punctuation.separator.statement.background.shell"
+        }
+      },
       "patterns": [
         {
-          "name": "meta.expression.assignment.shell",
-          "begin": "\\s*+((?:^|\\b)[a-zA-Z_][a-zA-Z0-9_]*+(?:\\b|$))(\\=)",
+          "include": "#variable_assignment_context"
+        }
+      ]
+    },
+    "alias_statement": {
+      "name": "meta.expression.assignment.shell",
+      "begin": "(alias)\\s+\\s*+((?:^|\\b)[a-zA-Z_][a-zA-Z0-9_]*+(?:\\b|$))(?:(\\=)|(\\+\\=))",
+      "beginCaptures": {
+        "1": {
+          "name": "storage.type.alias.shell"
+        },
+        "2": {
+          "name": "variable.other.assignment.shell"
+        },
+        "3": {
+          "name": "keyword.operator.assignment.shell"
+        },
+        "4": {
+          "name": "keyword.operator.assignment.compound.shell"
+        }
+      },
+      "end": "(?:(?:(?:(?:(?:(;)|(&&))|(\\|\\|))|(&))|\\n)|(?= ))",
+      "endCaptures": {
+        "1": {
+          "name": "punctuation.terminator.statement.semicolon.shell"
+        },
+        "2": {
+          "name": "punctuation.separator.statement.and.shell"
+        },
+        "3": {
+          "name": "punctuation.separator.statement.or.shell"
+        },
+        "4": {
+          "name": "punctuation.separator.statement.background.shell"
+        }
+      },
+      "patterns": [
+        {
+          "include": "#variable_assignment_context"
+        }
+      ]
+    },
+    "misc_ranges": {
+      "patterns": [
+        {
+          "include": "#logical_expression_single"
+        },
+        {
+          "include": "#logical_expression_double"
+        },
+        {
+          "name": "meta.arithmetic.shell",
+          "begin": "(\\(\\()",
           "beginCaptures": {
             "1": {
-              "name": "variable.other.assignment.shell"
-            },
-            "2": {
-              "name": "keyword.operator.assignment.shell"
+              "name": "punctuation.section.arithmetic.shell"
             }
           },
-          "end": "(?:(?:(?:(?:(?:(;)|(&&))|(\\|\\|))|(&))|\\n)|(?= ))",
+          "end": "(\\)\\))",
           "endCaptures": {
             "1": {
-              "name": "punctuation.terminator.statement.semicolon.shell"
-            },
-            "2": {
-              "name": "punctuation.separator.statement.and.shell"
-            },
-            "3": {
-              "name": "punctuation.separator.statement.or.shell"
-            },
-            "4": {
-              "name": "punctuation.separator.statement.background.shell"
+              "name": "punctuation.section.arithmetic.shell"
             }
           },
           "patterns": [
             {
-              "include": "#variable_assignment_context"
+              "include": "#math"
             }
           ]
         },
         {
-          "name": "meta.expression.assignment.shell",
-          "begin": "\\s*+((?:^|\\b)[a-zA-Z_][a-zA-Z0-9_]*+(?:\\b|$))(\\+\\=)",
+          "name": "meta.scope.subshell",
+          "begin": "(\\()",
           "beginCaptures": {
             "1": {
-              "name": "variable.other.assignment.shell"
-            },
-            "2": {
-              "name": "keyword.operator.assignment.compound.shell"
+              "name": "punctuation.definition.subshell"
             }
           },
-          "end": "(?:(?:(?:(?:(?:(;)|(&&))|(\\|\\|))|(&))|\\n)|(?= ))",
+          "end": "(\\))",
           "endCaptures": {
             "1": {
-              "name": "punctuation.terminator.statement.semicolon.shell"
-            },
-            "2": {
-              "name": "punctuation.separator.statement.and.shell"
-            },
-            "3": {
-              "name": "punctuation.separator.statement.or.shell"
-            },
-            "4": {
-              "name": "punctuation.separator.statement.background.shell"
+              "name": "punctuation.definition.subshell"
             }
           },
           "patterns": [
             {
-              "include": "#variable_assignment_context"
+              "include": "#initial_context"
+            }
+          ]
+        },
+        {
+          "name": "meta.scope.group.shell",
+          "begin": "({)",
+          "beginCaptures": {
+            "1": {
+              "name": "punctuation.definition.group.shell"
+            }
+          },
+          "end": "(})",
+          "endCaptures": {
+            "1": {
+              "name": "punctuation.definition.group.shell"
+            }
+          },
+          "patterns": [
+            {
+              "include": "#initial_context"
             }
           ]
         }
@@ -1654,11 +1729,11 @@
     },
     "command_name": {
       "name": "entity.name.command.shell",
-      "begin": "\\s*+(?!(?:!|%|&|\\||\\(|\\{|\\[|<|>|#|\\n|$|;))",
-      "end": "(?:(?=\\s)|(?=;|\\||&|$|\\n|\\)|\\`|\\}|\\{|#|\\])(?<!\\\\))",
+      "begin": "\\s*+(?!(?:!|%|&|\\||\\(|\\{|\\[|<|>|#|\\n|$|\\$|;))",
+      "end": "(?:(?=\\s)|(?=;|\\||&|$|\\n|\\)|\\`|\\}|\\{|\\}|#|\\])(?<!\\\\))",
       "patterns": [
         {
-          "include": "#custom_commands"
+          "include": "#custom_command_names"
         },
         {
           "include": "#command_context"
@@ -1667,7 +1742,7 @@
     },
     "argument": {
       "name": "meta.argument.shell",
-      "begin": "\\s++(?!(?:!|%|&|\\||\\(|\\{|\\[|<|>|#|\\n|$|;))",
+      "begin": "\\s++(?!(?:!|%|&|\\||\\(|\\{|\\[|<|>|#|\\n|$|\\$|;))",
       "end": "(?=\\s|;|\\||&|$|\\n|\\)|\\`)",
       "patterns": [
         {
@@ -1691,7 +1766,7 @@
     },
     "option": {
       "contentName": "string.unquoted.argument.shell constant.other.option.shell",
-      "begin": "\\s++(-)((?!(?:!|%|&|\\||\\(|\\{|\\[|<|>|#|\\n|$|;)))",
+      "begin": "\\s++(-)((?!(?:!|%|&|\\||\\(|\\{|\\[|<|>|#|\\n|$|\\$|;)))",
       "beginCaptures": {
         "1": {
           "name": "string.unquoted.argument.shell constant.other.option.dash.shell"
@@ -1700,7 +1775,7 @@
           "name": "string.unquoted.argument.shell constant.other.option.shell"
         }
       },
-      "end": "(?:(?=\\s)|(?=;|\\||&|$|\\n|\\)|\\`|\\}|\\{|#|\\])(?<!\\\\))",
+      "end": "(?:(?=\\s)|(?=;|\\||&|$|\\n|\\)|\\`|\\}|\\{|\\}|#|\\])(?<!\\\\))",
       "patterns": [
         {
           "include": "#option_context"
@@ -1720,14 +1795,17 @@
     },
     "command_call": {
       "name": "meta.statement.shell",
-      "begin": "(?<=(?:^|;|\\||&|!|\\(|\\{|\\`))\\s*+(?!function\\W|function\\$|export\\W|export\\$|select\\W|select\\$|case\\W|case\\$|do\\W|do\\$|done\\W|done\\$|elif\\W|elif\\$|else\\W|else\\$|esac\\W|esac\\$|fi\\W|fi\\$|for\\W|for\\$|if\\W|if\\$|in\\W|in\\$|then\\W|then\\$|until\\W|until\\$|while\\W|while\\$)",
-      "end": "(?=;|\\||&|$|\\n|\\)|\\`|\\}|\\{|#|\\])(?<!\\\\)",
+      "begin": "(?<=(?:^|;|\\||&|!|\\(|\\{|\\`))\\s*+(?!function\\W|function\\$|export\\W|export\\$|select\\W|select\\$|case\\W|case\\$|do\\W|do\\$|done\\W|done\\$|elif\\W|elif\\$|else\\W|else\\$|esac\\W|esac\\$|fi\\W|fi\\$|for\\W|for\\$|if\\W|if\\$|in\\W|in\\$|then\\W|then\\$|until\\W|until\\$|while\\W|while\\$|alias\\W|alias\\$)(?!\\})",
+      "end": "(?=;|\\||&|$|\\n|\\)|\\`|\\}|\\{|\\}|#|\\])(?<!\\\\)",
       "patterns": [
         {
           "include": "#option"
         },
         {
           "include": "#argument"
+        },
+        {
+          "include": "#custom_commands"
         },
         {
           "include": "#command_name"
@@ -1738,7 +1816,7 @@
       ]
     },
     "sed_command": {
-      "match": "(\\bsed\\b)(?:\\s++(\\-)(\\w+))*\\s+('s\\/)(.*)(\\/)(.*)(\\/\\w{0,4}\\')(.*)",
+      "match": "(\\bsed\\b)(?:\\s++(\\-)(\\w+))*\\s+('s\\/)((?:\\\\.|[^\\/])*)(\\/)((?:\\\\.|[^\\/])*)(\\/\\w{0,4}\\')",
       "captures": {
         "1": {
           "name": "support.function.builtin.shell"
@@ -1765,25 +1843,12 @@
         "7": {
           "patterns": [
             {
-              "include": "#string"
+              "include": "#regexp"
             }
           ]
         },
         "8": {
           "name": "punctuation.section.regexp.shell"
-        },
-        "9": {
-          "patterns": [
-            {
-              "include": "#option"
-            },
-            {
-              "include": "#argument"
-            },
-            {
-              "include": "#command_context"
-            }
-          ]
         }
       }
     },
@@ -1791,7 +1856,11 @@
       "patterns": [
         {
           "include": "#sed_command"
-        },
+        }
+      ]
+    },
+    "custom_command_names": {
+      "patterns": [
         {
           "match": "(?<=^|;|&|\\s)(?:alias|bg|bind|break|builtin|caller|cd|command|compgen|complete|dirs|disown|echo|enable|eval|exec|exit|false|fc|fg|getopts|hash|help|history|jobs|kill|let|logout|popd|printf|pushd|pwd|read|readonly|set|shift|shopt|source|suspend|test|times|trap|true|type|ulimit|umask|unalias|unset|wait)(?=\\s|;|&|$)",
           "name": "support.function.builtin.shell"
@@ -1874,7 +1943,7 @@
           "name": "punctuation.definition.logical-expression.shell"
         }
       },
-      "end": "((?:\\]\\]){1,2})",
+      "end": "(\\]\\])",
       "endCaptures": {
         "1": {
           "name": "punctuation.definition.logical-expression.shell"
@@ -2053,6 +2122,10 @@
     },
     "regexp": {
       "patterns": [
+        {
+          "name": "punctuation.definition.character-class.named.regexp.shell",
+          "match": "\\[\\[:\\w+:\\]\\]"
+        },
         {
           "name": "keyword.control.anchor.regexp.shell",
           "match": "\\\\[bB]|\\^|\\$"
@@ -2233,7 +2306,7 @@
           "include": "#logical_expression_single"
         },
         {
-          "include": "#compound-command"
+          "include": "#misc_ranges"
         },
         {
           "include": "#loop"
@@ -2266,7 +2339,13 @@
           "include": "#keyword"
         },
         {
+          "include": "#alias_statement"
+        },
+        {
           "include": "#assignment"
+        },
+        {
+          "include": "#custom_commands"
         },
         {
           "include": "#command_call"

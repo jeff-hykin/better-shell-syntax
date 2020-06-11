@@ -264,7 +264,7 @@ repository:
         - include: "#comment"
         - include: "#pipeline"
         - include: "#statement_seperator"
-        - include: "#compound-command"
+        - include: "#misc_ranges"
         - include: "#string"
         - include: "#variable"
         - include: "#interpolation"
@@ -277,7 +277,7 @@ repository:
         - include: "#line_continuation"
       option_context:
         patterns:
-        - include: "#compound-command"
+        - include: "#misc_ranges"
         - include: "#string"
         - include: "#variable"
         - include: "#interpolation"
@@ -289,7 +289,10 @@ repository:
         - include: "#support"
       logical_expression_context:
         patterns:
+        - include: "#regex_comparison"
         - include: "#logical-expression"
+        - include: "#logical_expression_single"
+        - include: "#logical_expression_double"
         - include: "#comment"
         - include: "#boolean"
         - include: "#numeric_constant"
@@ -948,8 +951,6 @@ repository:
         patterns:
         - match: "(?<=^|;|&|\\s)(?::|\\.)(?=\\s|;|&|$)"
           name: support.function.builtin.shell.dockerfile
-        - match: "(?<=^|;|&|\\s)(?:alias|bg|bind|break|builtin|caller|cd|command|compgen|complete|dirs|disown|echo|enable|eval|exec|exit|false|fc|fg|getopts|hash|help|history|jobs|kill|let|logout|popd|printf|pushd|pwd|read|readonly|set|shift|shopt|source|suspend|test|times|trap|true|type|ulimit|umask|unalias|unset|wait)(?=\\s|;|&|$)"
-          name: support.function.builtin.shell.dockerfile
       statement_seperator:
         match: "(?:(?:(?:(?:(;)|(&&))|(\\|\\|))|(&))|\\n)"
         captures:
@@ -963,13 +964,15 @@ repository:
             name: punctuation.separator.statement.background.shell.dockerfile
       assignment:
         name: meta.expression.assignment.shell.dockerfile
-        begin: "\\s*+((?:^|\\b)[a-zA-Z_][a-zA-Z0-9_]*+(?:\\b|$))(\\=)"
+        begin: "\\s*+((?:^|\\b)[a-zA-Z_][a-zA-Z0-9_]*+(?:\\b|$))(?:(\\=)|(\\+\\=))"
         beginCaptures:
           '1':
             name: variable.other.assignment.shell.dockerfile
           '2':
             name: keyword.operator.assignment.shell.dockerfile
-        end: "(?:(?:(?:(?:(;)|(&&))|(\\|\\|))|(&))|\\n)"
+          '3':
+            name: keyword.operator.assignment.compound.shell.dockerfile
+        end: "(?:(?:(?:(?:(?:(;)|(&&))|(\\|\\|))|(&))|\\n)|(?= ))"
         endCaptures:
           '1':
             name: punctuation.terminator.statement.semicolon.shell.dockerfile
@@ -981,15 +984,77 @@ repository:
             name: punctuation.separator.statement.background.shell.dockerfile
         patterns:
         - include: "#variable_assignment_context"
+      alias_statement:
+        name: meta.expression.assignment.shell.dockerfile
+        begin: "(alias)\\s+\\s*+((?:^|\\b)[a-zA-Z_][a-zA-Z0-9_]*+(?:\\b|$))(?:(\\=)|(\\+\\=))"
+        beginCaptures:
+          '1':
+            name: storage.type.alias.shell.dockerfile
+          '2':
+            name: variable.other.assignment.shell.dockerfile
+          '3':
+            name: keyword.operator.assignment.shell.dockerfile
+          '4':
+            name: keyword.operator.assignment.compound.shell.dockerfile
+        end: "(?:(?:(?:(?:(?:(;)|(&&))|(\\|\\|))|(&))|\\n)|(?= ))"
+        endCaptures:
+          '1':
+            name: punctuation.terminator.statement.semicolon.shell.dockerfile
+          '2':
+            name: punctuation.separator.statement.and.shell.dockerfile
+          '3':
+            name: punctuation.separator.statement.or.shell.dockerfile
+          '4':
+            name: punctuation.separator.statement.background.shell.dockerfile
+        patterns:
+        - include: "#variable_assignment_context"
+      misc_ranges:
+        patterns:
+        - include: "#logical_expression_single"
+        - include: "#logical_expression_double"
+        - name: meta.arithmetic.shell.dockerfile
+          begin: "(\\(\\()"
+          beginCaptures:
+            '1':
+              name: punctuation.section.arithmetic.shell.dockerfile
+          end: "(\\)\\))"
+          endCaptures:
+            '1':
+              name: punctuation.section.arithmetic.shell.dockerfile
+          patterns:
+          - include: "#math"
+        - name: meta.scope.subshell.dockerfile
+          begin: "(\\()"
+          beginCaptures:
+            '1':
+              name: punctuation.definition.subshell.dockerfile
+          end: "(\\))"
+          endCaptures:
+            '1':
+              name: punctuation.definition.subshell.dockerfile
+          patterns:
+          - include: "#initial_context"
+        - name: meta.scope.group.shell.dockerfile
+          begin: "({)"
+          beginCaptures:
+            '1':
+              name: punctuation.definition.group.shell.dockerfile
+          end: "(})"
+          endCaptures:
+            '1':
+              name: punctuation.definition.group.shell.dockerfile
+          patterns:
+          - include: "#initial_context"
       command_name:
         name: entity.name.command.shell.dockerfile
-        begin: "\\s*+(?!(?:!|%|&|\\||\\(|\\{|\\[|<|>|#|\\n|$|;))"
-        end: "(?:(?=\\s)|(?=;|\\||&|$|\\n|\\)|\\`|\\}|\\{|#|\\])(?<!\\\\))"
+        begin: "\\s*+(?!(?:!|%|&|\\||\\(|\\{|\\[|<|>|#|\\n|$|\\$|;))"
+        end: "(?:(?=\\s)|(?=;|\\||&|$|\\n|\\)|\\`|\\}|\\{|\\}|#|\\])(?<!\\\\))"
         patterns:
+        - include: "#custom_command_names"
         - include: "#command_context"
       argument:
         name: meta.argument.shell.dockerfile
-        begin: "\\s++(?!(?:!|%|&|\\||\\(|\\{|\\[|<|>|#|\\n|$|;))"
+        begin: "\\s++(?!(?:!|%|&|\\||\\(|\\{|\\[|<|>|#|\\n|$|\\$|;))"
         end: "(?=\\s|;|\\||&|$|\\n|\\)|\\`)"
         patterns:
         - include: "#command_context"
@@ -1002,36 +1067,75 @@ repository:
                 name: variable.language.special.wildcard.shell.dockerfile
       option:
         contentName: string.unquoted.argument.shell.dockerfile constant.other.option.shell.dockerfile
-        begin: "\\s++(-)((?!(?:!|%|&|\\||\\(|\\{|\\[|<|>|#|\\n|$|;)))"
+        begin: "\\s++(-)((?!(?:!|%|&|\\||\\(|\\{|\\[|<|>|#|\\n|$|\\$|;)))"
         beginCaptures:
           '1':
             name: string.unquoted.argument.shell.dockerfile constant.other.option.dash.shell.dockerfile
           '2':
             name: string.unquoted.argument.shell.dockerfile constant.other.option.shell.dockerfile
-        end: "(?:(?=\\s)|(?=;|\\||&|$|\\n|\\)|\\`|\\}|\\{|#|\\])(?<!\\\\))"
+        end: "(?:(?=\\s)|(?=;|\\||&|$|\\n|\\)|\\`|\\}|\\{|\\}|#|\\])(?<!\\\\))"
         patterns:
         - include: "#option_context"
+      simple_options:
+        match: "(?:\\s++(\\-)(\\w+))*"
+        captures:
+          '1':
+            name: string.unquoted.argument.shell.dockerfile constant.other.option.dash.shell.dockerfile
+          '2':
+            name: string.unquoted.argument.shell.dockerfile constant.other.option.shell.dockerfile
       command_call:
         name: meta.statement.shell.dockerfile
         begin: "(?<=(?:^|;|\\||&|!|\\(|\\{|\\`|\\A|\\G))\\s*+(?!function\\W|function\\$|select\\W|select\\$|case\\W|case\\$|do\\W|do\\$|done\\W|done\\$|elif\\W|elif\\$|else\\W|else\\$|esac\\W|esac\\$|fi\\W|fi\\$|for\\W|for\\$|if\\W|if\\$|in\\W|in\\$|then\\W|then\\$|until\\W|until\\$|while\\W|while\\$|alias\\W|alias\\$|bg\\W|bg\\$|command\\W|command\\$|false\\W|false\\$|fc\\W|fc\\$|fg\\W|fg\\$|getopts\\W|getopts\\$|hash\\W|hash\\$|jobs\\W|jobs\\$|kill\\W|kill\\$|newgrp\\W|newgrp\\$|read\\W|read\\$|true\\W|true\\$|umask\\W|umask\\$|unalias\\W|unalias\\$|wait\\W|wait\\$)"
-        end: "(?=;|\\||&|$|\\n|\\)|\\`|\\}|\\{|#|\\])(?<!\\\\)"
+        end: "(?=;|\\||&|$|\\n|\\)|\\`|\\}|\\{|\\}|#|\\])(?<!\\\\)"
         patterns:
         - include: "#option"
         - include: "#argument"
+        - include: "#custom_commands"
         - include: "#command_name"
         - include: "#command_context"
-      logical_expression:
+      sed_command:
+        match: "(\\bsed\\b)(?:\\s++(\\-)(\\w+))*\\s+('s\\/)((?:\\\\.|[^\\/])*)(\\/)((?:\\\\.|[^\\/])*)(\\/\\w{0,4}\\')"
+        captures:
+          '1':
+            name: support.function.builtin.shell.dockerfile
+          '2':
+            name: string.unquoted.argument.shell.dockerfile constant.other.option.dash.shell.dockerfile
+          '3':
+            name: string.unquoted.argument.shell.dockerfile constant.other.option.shell.dockerfile
+          '4':
+            name: punctuation.section.regexp.shell.dockerfile
+          '5':
+            patterns:
+            - include: "#regexp"
+          '6':
+            name: punctuation.section.regexp.shell.dockerfile
+          '7':
+            patterns:
+            - include: "#regexp"
+          '8':
+            name: punctuation.section.regexp.shell.dockerfile
+      custom_commands:
+        patterns:
+        - include: "#sed_command"
+      custom_command_names:
+        patterns:
+        - match: "(?<=^|;|&|\\s)(?:alias|bg|bind|break|builtin|caller|cd|command|compgen|complete|dirs|disown|echo|enable|eval|exec|exit|false|fc|fg|getopts|hash|help|history|jobs|kill|let|logout|popd|printf|pushd|pwd|read|readonly|set|shift|shopt|source|suspend|test|times|trap|true|type|ulimit|umask|unalias|unset|wait)(?=\\s|;|&|$)"
+          name: support.function.builtin.shell.dockerfile
+      logical_expression_single:
         name: meta.scope.logical-expression.shell.dockerfile
-        begin: "(\\[{1,2})"
+        begin: "(\\[)"
         beginCaptures:
           '1':
             name: punctuation.definition.logical-expression.shell.dockerfile
-        end: "(\\]{1,2})"
+        end: "(\\])"
         endCaptures:
           '1':
             name: punctuation.definition.logical-expression.shell.dockerfile
         patterns:
+        - include: "#regex_comparison"
         - include: "#logical-expression"
+        - include: "#logical_expression_single"
+        - include: "#logical_expression_double"
         - include: "#comment"
         - include: "#boolean"
         - include: "#numeric_constant"
@@ -1045,27 +1149,64 @@ repository:
         - include: "#pathname"
         - include: "#keyword"
         - include: "#support"
+      logical_expression_double:
+        name: meta.scope.logical-expression.shell.dockerfile
+        begin: "(\\[\\[)"
+        beginCaptures:
+          '1':
+            name: punctuation.definition.logical-expression.shell.dockerfile
+        end: "(\\]\\])"
+        endCaptures:
+          '1':
+            name: punctuation.definition.logical-expression.shell.dockerfile
+        patterns:
+        - include: "#regex_comparison"
+        - include: "#logical-expression"
+        - include: "#logical_expression_single"
+        - include: "#logical_expression_double"
+        - include: "#comment"
+        - include: "#boolean"
+        - include: "#numeric_constant"
+        - include: "#pipeline"
+        - include: "#statement_seperator"
+        - include: "#string"
+        - include: "#variable"
+        - include: "#interpolation"
+        - include: "#heredoc"
+        - include: "#herestring"
+        - include: "#pathname"
+        - include: "#keyword"
+        - include: "#support"
+      regex_comparison:
+        match: "(\\=~)\\s+([^ ]*)"
+        captures:
+          '1':
+            name: keyword.operator.logical.shell.dockerfile
+          '2':
+            patterns:
+            - include: "#variable"
+            - include: "#regexp"
       variable:
         patterns:
-        - match: "(\\$)(\\@)"
+        - match: "(\\$)(\\@(?=\\W))"
           captures:
             '1':
               name: punctuation.definition.variable.shell.dockerfile variable.parameter.positional.all.shell.dockerfile
             '2':
               name: variable.parameter.positional.all.shell.dockerfile
-        - match: "(\\$)([0-9])"
+        - match: "(\\$)([0-9](?=\\W))"
           captures:
             '1':
               name: punctuation.definition.variable.shell.dockerfile variable.parameter.positional.shell.dockerfile
             '2':
               name: variable.parameter.positional.shell.dockerfile
-        - match: "(\\$)(\\{[0-9]+\\})"
+        - match: "(\\$)(\\{[0-9]+\\}(?=\\W))"
           captures:
             '1':
               name: punctuation.definition.variable.shell.dockerfile variable.parameter.positional.shell.dockerfile
             '2':
               name: variable.parameter.positional.shell.dockerfile
-        - match: "(\\$)([-*#?$!0_])"
+        - match: "(\\$)([-*#?$!0_](?=\\W))"
           captures:
             '1':
               name: punctuation.definition.variable.shell.dockerfile variable.language.special.shell.dockerfile
@@ -1092,12 +1233,103 @@ repository:
             match: "(\\[)([^\\]]+)(\\])"
           - include: "#variable"
           - include: "#string"
-        - match: "(\\$)(\\w+)"
+        - match: "(\\$)(\\w+(?=\\W))"
           captures:
             '1':
               name: punctuation.definition.variable.shell.dockerfile variable.other.normal.shell.dockerfile
             '2':
               name: variable.other.normal.shell.dockerfile
+      regexp:
+        patterns:
+        - name: punctuation.definition.character-class.named.regexp.shell.dockerfile
+          match: "\\[\\[:\\w+:\\]\\]"
+        - name: keyword.control.anchor.regexp.shell.dockerfile
+          match: "\\\\[bB]|\\^|\\$"
+        - match: "\\\\[1-9]\\d*|\\\\k<([a-zA-Z_$][\\w$]*)>"
+          captures:
+            '0':
+              name: keyword.other.back-reference.regexp.shell.dockerfile
+            '1':
+              name: variable.other.regexp.shell.dockerfile
+        - name: keyword.operator.quantifier.regexp.shell.dockerfile
+          match: "[?+*]|\\{(\\d+,\\d+|\\d+,|,\\d+|\\d+)\\}\\??"
+        - name: keyword.operator.or.regexp.shell.dockerfile
+          match: "\\|"
+        - name: meta.group.assertion.regexp.shell.dockerfile
+          begin: "(\\()((\\?=)|(\\?!)|(\\?<=)|(\\?<!))"
+          beginCaptures:
+            '1':
+              name: punctuation.definition.group.regexp.shell.dockerfile
+            '2':
+              name: punctuation.definition.group.assertion.regexp.shell.dockerfile
+            '3':
+              name: meta.assertion.look-ahead.regexp.shell.dockerfile
+            '4':
+              name: meta.assertion.negative-look-ahead.regexp.shell.dockerfile
+            '5':
+              name: meta.assertion.look-behind.regexp.shell.dockerfile
+            '6':
+              name: meta.assertion.negative-look-behind.regexp.shell.dockerfile
+          end: "(\\))"
+          endCaptures:
+            '1':
+              name: punctuation.definition.group.regexp.shell.dockerfile
+          patterns:
+          - include: "#regexp"
+        - name: meta.group.regexp.shell.dockerfile
+          begin: "\\((?:(\\?:)|(?:\\?<([a-zA-Z_$][\\w$]*)>))?"
+          beginCaptures:
+            '0':
+              name: punctuation.definition.group.regexp.shell.dockerfile
+            '1':
+              name: punctuation.definition.group.no-capture.regexp.shell.dockerfile
+            '2':
+              name: variable.other.regexp.shell.dockerfile
+          end: "\\)"
+          endCaptures:
+            '0':
+              name: punctuation.definition.group.regexp.shell.dockerfile
+          patterns:
+          - include: "#regexp"
+        - name: constant.other.character-class.set.regexp.shell.dockerfile
+          begin: "(\\[)(\\^)?"
+          beginCaptures:
+            '1':
+              name: punctuation.definition.character-class.regexp.shell.dockerfile
+            '2':
+              name: keyword.operator.negation.regexp.shell.dockerfile
+          end: "(\\])"
+          endCaptures:
+            '1':
+              name: punctuation.definition.character-class.regexp.shell.dockerfile
+          patterns:
+          - name: constant.other.character-class.range.regexp.shell.dockerfile
+            match: "(?:.|(\\\\(?:[0-7]{3}|x[0-9A-Fa-f]{2}|u[0-9A-Fa-f]{4}))|(\\\\c[A-Z])|(\\\\.))\\-(?:[^\\]\\\\]|(\\\\(?:[0-7]{3}|x[0-9A-Fa-f]{2}|u[0-9A-Fa-f]{4}))|(\\\\c[A-Z])|(\\\\.))"
+            captures:
+              '1':
+                name: constant.character.numeric.regexp.shell.dockerfile
+              '2':
+                name: constant.character.control.regexp.shell.dockerfile
+              '3':
+                name: constant.character.escape.backslash.regexp.shell.dockerfile
+              '4':
+                name: constant.character.numeric.regexp.shell.dockerfile
+              '5':
+                name: constant.character.control.regexp.shell.dockerfile
+              '6':
+                name: constant.character.escape.backslash.regexp.shell.dockerfile
+          - include: "#regex-character-class"
+        - include: "#regex-character-class"
+      regex_character_class:
+        patterns:
+        - name: constant.other.character-class.regexp.shell.dockerfile
+          match: "\\\\[wWsSdDtrnvf]|\\."
+        - name: constant.character.numeric.regexp.shell.dockerfile
+          match: "\\\\([0-7]{3}|x[0-9A-Fa-f]{2}|u[0-9A-Fa-f]{4})"
+        - name: constant.character.control.regexp.shell.dockerfile
+          match: "\\\\c[A-Z]"
+        - name: constant.character.escape.backslash.regexp.shell.dockerfile
+          match: "\\\\."
       initial_context:
         patterns:
         - include: "#comment"
@@ -1105,8 +1337,9 @@ repository:
         - include: "#numeric_constant"
         - include: "#pipeline"
         - include: "#statement_seperator"
-        - include: "#logical_expression"
-        - include: "#compound-command"
+        - include: "#logical_expression_double"
+        - include: "#logical_expression_single"
+        - include: "#misc_ranges"
         - include: "#loop"
         - include: "#string"
         - include: "#function-definition"
@@ -1117,7 +1350,9 @@ repository:
         - include: "#redirection"
         - include: "#pathname"
         - include: "#keyword"
+        - include: "#alias_statement"
         - include: "#assignment"
+        - include: "#custom_commands"
         - include: "#command_call"
         - include: "#support"
     name: Shell.dockerfile Script.dockerfile

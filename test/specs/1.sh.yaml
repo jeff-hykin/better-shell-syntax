@@ -1,0 +1,813 @@
+- source: export
+  scopesBegin:
+    - source
+  scopes:
+    - storage.modifier
+- source: PATH
+  scopesBegin:
+    - meta.expression.assignment
+  scopes:
+    - variable.other.assignment
+- source: =
+  scopes:
+    - keyword.operator.assignment
+- source: '"'
+  scopesBegin:
+    - string.quoted.double
+  scopes:
+    - punctuation.definition.string.begin
+- source: $
+  scopes:
+    - punctuation.definition.variable
+    - punctuation.section.bracket.curly.variable.begin
+- source: '{'
+  scopes:
+    - punctuation.section.bracket.curly.variable.begin
+- source: PATH
+- source: '}'
+  scopes:
+    - punctuation.section.bracket.curly.variable.end
+- source: ':/usr/local/opt/llvm/bin'
+- source: '"'
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - meta.expression.assignment
+    - string.quoted.double
+- source: find
+  scopesBegin:
+    - meta.statement
+  scopes:
+    - entity.name.command
+- source: '"'
+  scopesBegin:
+    - meta.argument
+    - string.quoted.double
+  scopes:
+    - punctuation.definition.string.begin
+- source: $
+  scopes:
+    - punctuation.definition.variable
+    - variable.other.normal
+- source: PWD
+  scopes:
+    - variable.other.normal
+- source: '"'
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - meta.argument
+    - string.quoted.double
+- source: '-'
+  scopesBegin:
+    - string.unquoted.argument
+  scopes:
+    - constant.other.option.dash
+- source: maxdepth
+  scopes:
+    - constant.other.option
+  scopesEnd:
+    - string.unquoted.argument
+- source: '1'
+  scopes:
+    - meta.argument
+    - string.unquoted.argument
+- source: '-'
+  scopesBegin:
+    - string.unquoted.argument
+  scopes:
+    - constant.other.option.dash
+- source: print0
+  scopes:
+    - constant.other.option
+  scopesEnd:
+    - meta.statement
+    - string.unquoted.argument
+- source: '|'
+  scopes:
+    - keyword.operator.pipe
+- source: perl
+  scopesBegin:
+    - meta.statement
+  scopes:
+    - entity.name.command
+- source: '-'
+  scopesBegin:
+    - string.unquoted.argument
+  scopes:
+    - constant.other.option.dash
+- source: p
+  scopes:
+    - constant.other.option
+- source: '-'
+  scopes:
+    - constant.other.option.dash
+- source: e
+  scopes:
+    - constant.other.option
+  scopesEnd:
+    - string.unquoted.argument
+- source: ''''
+  scopesBegin:
+    - meta.argument
+    - string.quoted.single
+  scopes:
+    - punctuation.definition.string.begin
+- source: s/\0
+- source: ''''
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - string.quoted.single
+- source: $
+  scopes:
+    - punctuation.definition.variable
+    - variable.other.normal
+- source: escaped_path
+  scopes:
+    - variable.other.normal
+- source: ''''
+  scopesBegin:
+    - string.quoted.single
+  scopes:
+    - punctuation.definition.string.begin
+- source: \//\0/g
+- source: ''''
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - meta.statement
+    - meta.argument
+    - string.quoted.single
+- source: if
+  scopesBegin:
+    - meta.scope.if-block
+  scopes:
+    - keyword.control
+- source: '[['
+  scopesBegin:
+    - meta.scope.logical-expression
+  scopes:
+    - punctuation.definition.logical-expression
+- source: '"'
+  scopesBegin:
+    - string.quoted.double
+  scopes:
+    - punctuation.definition.string.begin
+- source: $
+  scopes:
+    - punctuation.definition.variable
+    - variable.other.normal
+- source: OSTYPE
+  scopes:
+    - variable.other.normal
+- source: '"'
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - string.quoted.double
+- source: ==
+  scopes:
+    - keyword.operator.logical
+- source: '"'
+  scopesBegin:
+    - string.quoted.double
+  scopes:
+    - punctuation.definition.string.begin
+- source: darwin
+- source: '"'
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - string.quoted.double
+- source: '*'
+  scopes:
+    - keyword.operator.glob
+- source: ']]'
+  scopes:
+    - punctuation.definition.logical-expression
+  scopesEnd:
+    - meta.scope.logical-expression
+- source: ;
+  scopes:
+    - punctuation.terminator.statement.semicolon
+- source: then
+  scopes:
+    - keyword.control
+- source: brew
+  scopesBegin:
+    - meta.statement
+  scopes:
+    - entity.name.command
+- source: install
+  scopes:
+    - meta.argument
+    - string.unquoted.argument
+- source: $
+  scopes:
+    - punctuation.definition.variable
+    - variable.parameter.positional.all
+- source: '@'
+  scopes:
+    - variable.parameter.positional.all
+  scopesEnd:
+    - meta.statement
+- source: fi
+  scopes:
+    - keyword.control
+  scopesEnd:
+    - meta.scope.if-block
+- source: cd
+  scopesBegin:
+    - meta.statement
+  scopes:
+    - entity.name.command
+    - support.function.builtin
+- source: /opencv-3.2.0/
+  scopesBegin:
+    - meta.argument
+  scopes:
+    - string.unquoted.argument
+- source: \
+  scopes:
+    - constant.character.escape.line-continuation
+  scopesEnd:
+    - meta.statement
+    - meta.argument
+- source: '&&'
+  scopes:
+    - punctuation.separator.statement.and
+- source: mkdir
+  scopesBegin:
+    - meta.statement
+  scopes:
+    - entity.name.command
+- source: build
+  scopesBegin:
+    - meta.argument
+  scopes:
+    - string.unquoted.argument
+- source: \
+  scopes:
+    - constant.character.escape.line-continuation
+  scopesEnd:
+    - meta.statement
+    - meta.argument
+- source: '&&'
+  scopes:
+    - punctuation.separator.statement.and
+- source: cd
+  scopesBegin:
+    - meta.statement
+  scopes:
+    - entity.name.command
+    - support.function.builtin
+- source: build
+  scopesBegin:
+    - meta.argument
+  scopes:
+    - string.unquoted.argument
+- source: \
+  scopes:
+    - constant.character.escape.line-continuation
+  scopesEnd:
+    - meta.statement
+    - meta.argument
+- source: '&&'
+  scopes:
+    - punctuation.separator.statement.and
+- source: ldconfig
+  scopesBegin:
+    - meta.statement
+  scopes:
+    - entity.name.command
+- source: \
+  scopes:
+    - meta.argument
+    - constant.character.escape.line-continuation
+  scopesEnd:
+    - meta.statement
+- source: '&&'
+  scopes:
+    - punctuation.separator.statement.and
+- source: rm
+  scopesBegin:
+    - meta.statement
+  scopes:
+    - entity.name.command
+- source: /opencv.zip
+  scopesBegin:
+    - meta.argument
+  scopes:
+    - string.unquoted.argument
+- source: \
+  scopes:
+    - constant.character.escape.line-continuation
+  scopesEnd:
+    - meta.statement
+    - meta.argument
+- source: '&&'
+  scopes:
+    - punctuation.separator.statement.and
+- source: rm
+  scopesBegin:
+    - meta.statement
+  scopes:
+    - entity.name.command
+- source: /opencv_contrib.zip
+  scopes:
+    - meta.argument
+    - string.unquoted.argument
+  scopesEnd:
+    - meta.statement
+- source: function
+  scopesBegin:
+    - meta.function
+  scopes:
+    - storage.type.function
+- source: go_to_vs_lang_settings
+  scopes:
+    - entity.name.function
+- source: '{'
+  scopesBegin:
+    - meta.scope.group
+  scopes:
+    - punctuation.definition.group
+- source: arg_1
+  scopesBegin:
+    - meta.expression.assignment
+  scopes:
+    - variable.other.assignment
+- source: =
+  scopes:
+    - keyword.operator.assignment
+- source: $
+  scopes:
+    - punctuation.definition.variable
+    - variable.parameter.positional
+- source: '1'
+  scopes:
+    - variable.parameter.positional
+- source: arg_2
+  scopes:
+    - variable.other.assignment
+- source: =
+  scopes:
+    - keyword.operator.assignment
+- source: $
+  scopes:
+    - punctuation.definition.variable
+    - variable.parameter.positional
+- source: '2'
+  scopes:
+    - variable.parameter.positional
+- source: arg_3
+  scopes:
+    - variable.other.assignment
+- source: =
+  scopes:
+    - keyword.operator.assignment
+- source: $
+  scopes:
+    - punctuation.definition.variable
+    - variable.parameter.positional
+- source: '3'
+  scopes:
+    - variable.parameter.positional
+- source: all_arguments
+  scopes:
+    - variable.other.assignment
+- source: =
+  scopes:
+    - keyword.operator.assignment
+- source: $
+  scopes:
+    - punctuation.definition.variable
+    - variable.parameter.positional.all
+- source: '@'
+  scopes:
+    - variable.parameter.positional.all
+  scopesEnd:
+    - meta.expression.assignment
+- source: cd
+  scopesBegin:
+    - meta.statement
+  scopes:
+    - entity.name.command
+    - support.function.builtin
+- source: '"'
+  scopesBegin:
+    - meta.argument
+    - string.quoted.double
+  scopes:
+    - punctuation.definition.string.begin
+- source: /Applications/extensions/
+- source: '"'
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - meta.statement
+    - meta.argument
+    - string.quoted.double
+- source: ;
+  scopes:
+    - punctuation.terminator.statement.semicolon
+- source: ls
+  scopesBegin:
+    - meta.statement
+  scopes:
+    - entity.name.command
+- source: '-'
+  scopesBegin:
+    - string.unquoted.argument
+  scopes:
+    - constant.other.option.dash
+- source: '1'
+  scopes:
+    - constant.other.option
+  scopesEnd:
+    - meta.statement
+    - string.unquoted.argument
+- source: '}'
+  scopes:
+    - punctuation.definition.group
+  scopesEnd:
+    - meta.function
+    - meta.scope.group
+- source: exec
+  scopesBegin:
+    - meta.statement
+  scopes:
+    - entity.name.command
+    - support.function.builtin
+- source: 9>&2
+  scopes:
+    - meta.argument
+    - keyword.operator.redirect
+- source: exec
+  scopes:
+    - entity.name.command
+    - support.function.builtin
+- source: 8>
+  scopes:
+    - meta.argument
+    - keyword.operator.redirect
+- source: '>('
+  scopesBegin:
+    - string.interpolated.process-substitution
+  scopes:
+    - punctuation.definition.string.begin
+- source: perl
+  scopesBegin:
+    - meta.statement
+  scopes:
+    - entity.name.command
+- source: '-'
+  scopesBegin:
+    - string.unquoted.argument
+  scopes:
+    - constant.other.option.dash
+- source: e
+  scopes:
+    - constant.other.option
+  scopesEnd:
+    - string.unquoted.argument
+- source: ''''
+  scopesBegin:
+    - meta.argument
+    - string.quoted.single
+  scopes:
+    - punctuation.definition.string.begin
+- source: '$|=1; while(sysread STDIN,$a,9999) {print '
+- source: '"$ENV{COLOR_BLUE}$a$ENV{COLOR_RESET}"}'
+- source: ''''
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - meta.statement
+    - meta.argument
+    - string.quoted.single
+- source: )
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - meta.statement
+    - string.interpolated.process-substitution
+- source: export
+  scopes:
+    - storage.modifier
+- source: COLOR_BLUE
+  scopesBegin:
+    - meta.expression.assignment
+  scopes:
+    - variable.other.assignment
+- source: =
+  scopes:
+    - keyword.operator.assignment
+- source: '"'
+  scopesBegin:
+    - string.quoted.double
+  scopes:
+    - punctuation.definition.string.begin
+- source: $(
+  scopesBegin:
+    - string.interpolated.dollar
+  scopes:
+    - punctuation.definition.evaluation.parens.begin
+- source: tput
+  scopesBegin:
+    - meta.statement
+  scopes:
+    - entity.name.command
+- source: setaf
+  scopesBegin:
+    - meta.argument
+    - string.unquoted.argument
+- source: '4'
+  scopesEnd:
+    - meta.statement
+    - meta.argument
+    - string.unquoted.argument
+- source: )
+  scopes:
+    - punctuation.definition.evaluation.parens.end
+  scopesEnd:
+    - string.interpolated.dollar
+- source: '"'
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - meta.expression.assignment
+    - string.quoted.double
+- source: export
+  scopes:
+    - storage.modifier
+- source: COLOR_RED
+  scopesBegin:
+    - meta.expression.assignment
+  scopes:
+    - variable.other.assignment
+- source: =
+  scopes:
+    - keyword.operator.assignment
+- source: '"'
+  scopesBegin:
+    - string.quoted.double
+  scopes:
+    - punctuation.definition.string.begin
+- source: $(
+  scopesBegin:
+    - string.interpolated.dollar
+  scopes:
+    - punctuation.definition.evaluation.parens.begin
+- source: tput
+  scopesBegin:
+    - meta.statement
+  scopes:
+    - entity.name.command
+- source: setaf
+  scopesBegin:
+    - meta.argument
+    - string.unquoted.argument
+- source: '1'
+  scopesEnd:
+    - meta.statement
+    - meta.argument
+    - string.unquoted.argument
+- source: )
+  scopes:
+    - punctuation.definition.evaluation.parens.end
+  scopesEnd:
+    - string.interpolated.dollar
+- source: '"'
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - meta.expression.assignment
+    - string.quoted.double
+- source: export
+  scopes:
+    - storage.modifier
+- source: COLOR_RESET
+  scopesBegin:
+    - meta.expression.assignment
+  scopes:
+    - variable.other.assignment
+- source: =
+  scopes:
+    - keyword.operator.assignment
+- source: '"'
+  scopesBegin:
+    - string.quoted.double
+  scopes:
+    - punctuation.definition.string.begin
+- source: $(
+  scopesBegin:
+    - string.interpolated.dollar
+  scopes:
+    - punctuation.definition.evaluation.parens.begin
+- source: tput
+  scopesBegin:
+    - meta.statement
+  scopes:
+    - entity.name.command
+- source: sgr0
+  scopes:
+    - meta.argument
+    - string.unquoted.argument
+  scopesEnd:
+    - meta.statement
+- source: )
+  scopes:
+    - punctuation.definition.evaluation.parens.end
+  scopesEnd:
+    - string.interpolated.dollar
+- source: '"'
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - meta.expression.assignment
+    - string.quoted.double
+- source: sed
+  scopes:
+    - support.function.builtin
+- source: '-'
+  scopesBegin:
+    - string.unquoted.argument
+  scopes:
+    - constant.other.option.dash
+- source: e
+  scopes:
+    - constant.other.option
+  scopesEnd:
+    - string.unquoted.argument
+- source: '''s/'
+  scopes:
+    - punctuation.section.regexp
+- source: a
+- source: /
+  scopes:
+    - punctuation.section.regexp
+- source: b
+- source: /'
+  scopes:
+    - punctuation.section.regexp
+- source: sed
+  scopes:
+    - support.function.builtin
+- source: '''s/'
+  scopes:
+    - punctuation.section.regexp
+- source: a
+- source: /
+  scopes:
+    - punctuation.section.regexp
+- source: b
+- source: /'
+  scopes:
+    - punctuation.section.regexp
+- source: sed
+  scopes:
+    - support.function.builtin
+- source: '''s/'
+  scopes:
+    - punctuation.section.regexp
+- source: a
+- source: /
+  scopes:
+    - punctuation.section.regexp
+- source: b
+- source: /'
+  scopes:
+    - punctuation.section.regexp
+- source: ' adklfjasdlkjf'
+- source: read
+  scopesBegin:
+    - meta.statement
+  scopes:
+    - entity.name.command
+    - support.function.builtin
+- source: '-'
+  scopesBegin:
+    - string.unquoted.argument
+  scopes:
+    - constant.other.option.dash
+- source: p
+  scopes:
+    - constant.other.option
+  scopesEnd:
+    - string.unquoted.argument
+- source: '"'
+  scopesBegin:
+    - meta.argument
+    - string.quoted.double
+  scopes:
+    - punctuation.definition.string.begin
+- source: Do you want to save your changes?
+- source: '"'
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - meta.argument
+    - string.quoted.double
+- source: '-'
+  scopesBegin:
+    - string.unquoted.argument
+  scopes:
+    - constant.other.option.dash
+- source: 'n'
+  scopes:
+    - constant.other.option
+  scopesEnd:
+    - string.unquoted.argument
+- source: '1'
+  scopes:
+    - meta.argument
+    - string.unquoted.argument
+- source: '-'
+  scopesBegin:
+    - string.unquoted.argument
+  scopes:
+    - constant.other.option.dash
+- source: r
+  scopes:
+    - constant.other.option
+  scopesEnd:
+    - string.unquoted.argument
+- source: echo
+  scopes:
+    - entity.name.command
+    - support.function.builtin
+  scopesEnd:
+    - meta.statement
+- source: '#'
+  scopesBegin:
+    - comment.line.number-sign
+  scopes:
+    - punctuation.definition.comment
+- source: ' (optional) move to a new line'
+  scopesEnd:
+    - comment.line.number-sign
+- source: if
+  scopesBegin:
+    - meta.scope.if-block
+  scopes:
+    - keyword.control
+- source: '[['
+  scopesBegin:
+    - meta.scope.logical-expression
+  scopes:
+    - punctuation.definition.logical-expression
+- source: '!'
+  scopes:
+    - keyword.operator.logical
+- source: $
+  scopes:
+    - punctuation.definition.variable
+    - variable.other.normal
+- source: REPLY
+  scopes:
+    - variable.other.normal
+- source: =~
+  scopes:
+    - keyword.operator.logical
+- source: ^
+  scopes:
+    - keyword.control.anchor.regexp
+- source: '['
+  scopesBegin:
+    - constant.other.character-class.set.regexp
+  scopes:
+    - punctuation.definition.character-class.regexp
+- source: Yy
+- source: ']'
+  scopes:
+    - punctuation.definition.character-class.regexp
+  scopesEnd:
+    - constant.other.character-class.set.regexp
+- source: $
+  scopes:
+    - keyword.control.anchor.regexp
+- source: ']]'
+  scopes:
+    - punctuation.definition.logical-expression
+  scopesEnd:
+    - meta.scope.logical-expression
+- source: then
+  scopes:
+    - keyword.control
+- source: exit
+  scopesBegin:
+    - meta.statement
+  scopes:
+    - entity.name.command
+    - support.function.builtin
+- source: '1'
+  scopes:
+    - meta.argument
+    - string.unquoted.argument
+  scopesEnd:
+    - meta.statement
+- source: fi
+  scopes:
+    - keyword.control

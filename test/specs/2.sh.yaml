@@ -1,0 +1,130 @@
+- source: groupadd
+  scopesBegin:
+    - source
+    - meta.statement
+  scopes:
+    - entity.name.command
+- source: '-'
+  scopesBegin:
+    - string.unquoted.argument
+  scopes:
+    - constant.other.option.dash
+- source: r
+  scopes:
+    - constant.other.option
+  scopesEnd:
+    - string.unquoted.argument
+- source: myma
+  scopes:
+    - meta.argument
+    - string.unquoted.argument
+  scopesEnd:
+    - meta.statement
+- source: '&&'
+  scopes:
+    - punctuation.separator.statement.and
+- source: useradd
+  scopesBegin:
+    - meta.statement
+  scopes:
+    - entity.name.command
+- source: '-'
+  scopesBegin:
+    - string.unquoted.argument
+  scopes:
+    - constant.other.option.dash
+- source: '-no-log-init'
+  scopes:
+    - constant.other.option
+- source: '-'
+  scopes:
+    - constant.other.option.dash
+- source: r
+  scopes:
+    - constant.other.option
+- source: '-'
+  scopes:
+    - constant.other.option.dash
+- source: g
+  scopes:
+    - constant.other.option
+  scopesEnd:
+    - string.unquoted.argument
+- source: myma
+  scopesBegin:
+    - meta.argument
+    - string.unquoted.argument
+- source: myma
+  scopesEnd:
+    - string.unquoted.argument
+- source: \
+  scopes:
+    - constant.character.escape.line-continuation
+  scopesEnd:
+    - meta.statement
+    - meta.argument
+- source: '&&'
+  scopes:
+    - punctuation.separator.statement.and
+- source: '['
+  scopesBegin:
+    - meta.statement
+    - meta.scope.logical-expression
+  scopes:
+    - punctuation.definition.logical-expression
+- source: '['
+  scopesBegin:
+    - meta.scope.logical-expression
+  scopes:
+    - punctuation.definition.logical-expression
+- source: ' -v '
+- source: '"'
+  scopesBegin:
+    - string.quoted.double
+  scopes:
+    - punctuation.definition.string.begin
+- source: $
+  scopes:
+    - punctuation.definition.variable
+    - punctuation.section.bracket.curly.variable.begin
+- source: '{'
+  scopes:
+    - punctuation.section.bracket.curly.variable.begin
+- source: TYPEORM_SYNCHRONIZE
+- source: '}'
+  scopes:
+    - punctuation.section.bracket.curly.variable.end
+- source: '"'
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - string.quoted.double
+- source: ']'
+  scopes:
+    - punctuation.definition.logical-expression
+  scopesEnd:
+    - meta.scope.logical-expression
+- source: ']'
+  scopes:
+    - punctuation.definition.logical-expression
+  scopesEnd:
+    - meta.scope.logical-expression
+- source: ./node_modules/.bin/typeorm
+  scopesBegin:
+    - meta.argument
+    - string.unquoted.argument
+- source: 'schema:sync'
+  scopesEnd:
+    - meta.argument
+    - string.unquoted.argument
+- source: <
+  scopes:
+    - keyword.operator.redirect
+- source: '--'
+  scopes:
+    - entity.name.command
+- source: this
+  scopesBegin:
+    - meta.argument
+    - string.unquoted.argument
+- source: line
