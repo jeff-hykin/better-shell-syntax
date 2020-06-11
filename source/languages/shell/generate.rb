@@ -50,6 +50,7 @@ require_relative './tokens.rb'
             :redirection,
             :pathname,
             :keyword,
+            :alias_statement,
             :assignment,
             :command_call,
             :support,
@@ -201,7 +202,7 @@ require_relative './tokens.rb'
         )
     grammar[:assignment] = PatternRange.new(
         tag_as: "meta.expression.assignment",
-        start_pattern: std_space.then(
+        start_pattern: assignment_start = std_space.then(
                 match: variable_name,
                 tag_as: "variable.other.assignment",
             ).then(
@@ -213,7 +214,16 @@ require_relative './tokens.rb'
                     tag_as: "keyword.operator.assignment.compound",
                 )
             ),
-        end_pattern: grammar[:statement_seperator].or(lookAheadFor(/ /)),
+        end_pattern: assignment_end = grammar[:statement_seperator].or(lookAheadFor(/ /)),
+        includes: [ :variable_assignment_context ]
+    )
+    grammar[:alias_statement] = PatternRange.new(
+        tag_as: "meta.expression.assignment",
+        start_pattern:  Pattern.new(
+                match: /alias/,
+                tag_as: "storage.type.alias"
+            ).then(@spaces).then(assignment_start),
+        end_pattern: assignment_end,
         includes: [ :variable_assignment_context ]
     )
     

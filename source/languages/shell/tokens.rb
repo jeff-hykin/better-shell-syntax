@@ -45,7 +45,7 @@ tokens = [
     { representation: "then"     , areNonCommands: true, },
     { representation: "until"    , areNonCommands: true, },
     { representation: "while"    , areNonCommands: true, },
-    { representation: "alias"    , },
+    { representation: "alias"    , areNonCommands: true, },
     { representation: "bg"       , },
     { representation: "command"  , },
     { representation: "false"    , },
