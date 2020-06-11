@@ -52,6 +52,7 @@ require_relative './tokens.rb'
             :keyword,
             :alias_statement,
             :assignment,
+            :custom_commands,
             :command_call,
             :support,
         ]
@@ -239,7 +240,7 @@ require_relative './tokens.rb'
         start_pattern: std_space.then(possible_command_start),
         end_pattern: lookAheadFor(@space).or(command_end),
         includes: [
-            :custom_commands,
+            :custom_command_names,
             :command_context,
         ]
     )
@@ -297,12 +298,12 @@ require_relative './tokens.rb'
         includes: [
             :option,
             :argument,
+            :custom_commands,
             :command_name,
             :command_context
         ]
     )
     grammar[:custom_commands] = [
-        
         # Note:
         #   this sed does not cover all possible cases, it only covers the most likely case
         #   in the event of a more complicated case, it falls back on tradidional command highlighting
@@ -321,22 +322,16 @@ require_relative './tokens.rb'
             ).then(
                 match: /\//,
                 tag_as: "punctuation.section.regexp",
-            ).then(
+            ).zeroOrMoreOf(
                 match: Pattern.new(/\\./).or(/[^\/]/), # replace
-                includes: [ :string ],
+                includes: [ :regexp ],
             ).then(
                 match: /\/\w{0,4}\'/,
                 tag_as: "punctuation.section.regexp",
-            ).then(
-                match: /.*/.then(command_end),
-                includes: [
-                    :option,
-                    :argument,
-                    :command_context
-                ]
             )
         ),
-        
+    ]
+    grammar[:custom_command_names] = [
         # legacy built-in commands
         {
             "match": "(?<=^|;|&|\\s)(?:alias|bg|bind|break|builtin|caller|cd|command|compgen|complete|dirs|disown|echo|enable|eval|exec|exit|false|fc|fg|getopts|hash|help|history|jobs|kill|let|logout|popd|printf|pushd|pwd|read|readonly|set|shift|shopt|source|suspend|test|times|trap|true|type|ulimit|umask|unalias|unset|wait)(?=\\s|;|&|$)",
@@ -504,6 +499,10 @@ require_relative './tokens.rb'
     # 
         grammar[:regexp] = {
             "patterns"=> [
+                {
+                    "name"=> "punctuation.definition.character-class.named.regexp",
+                    "match"=> "\\[\\[:\\w+:\\]\\]"
+                },
                 {
                     "name"=> "keyword.control.anchor.regexp",
                     "match"=> "\\\\[bB]|\\^|\\$"
