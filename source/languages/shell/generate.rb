@@ -125,6 +125,29 @@ require_relative './tokens.rb'
     variable_name = /(?:^|\b)#{variable_name_no_bounds.without_default_mode_modifiers}+(?:\b|$)/
     
     # 
+    # comments
+    #
+    grammar[:comment, overwrite: true] = lookBehindFor(/^|\s/).then(
+        Pattern.new(
+            tag_as: "comment.line.number-sign meta.shebang",
+            match: Pattern.new(
+                Pattern.new(
+                    match: /#!/,
+                    tag_as: "punctuation.definition.comment.shebang"
+                ).then(/.*/)
+            ),
+        ).or(
+            tag_as: "comment.line.number-sign",
+            match: Pattern.new(
+                Pattern.new(
+                    match: /#/,
+                    tag_as: "punctuation.definition.comment"
+                ).then(/.*/)
+            ),
+        )
+    )
+    
+    # 
     # punctuation / operators
     # 
     # replaces the old list pattern
