@@ -11,7 +11,7 @@ require_relative './tokens.rb'
 # 
 # grammar = Grammar.fromTmLanguage("./original.tmLanguage.json")
 grammar = Grammar.new(
-    name: "YOUR_LANGUAGE",
+    name: "Shell",
     scope_name: "source.shell",
     fileTypes: [
         "sh",
