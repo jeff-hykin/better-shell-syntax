@@ -7022,7 +7022,7 @@
 - source: '&&'
   scopes:
     - punctuation.separator.statement.and
-- source: '        _upvars'
+- source: _upvars
   scopesBegin:
     - meta.statement
     - meta.command
@@ -39811,7 +39811,7 @@
 - source: '&&'
   scopes:
     - punctuation.separator.statement.and
-- source: '        _upvars'
+- source: _upvars
   scopesBegin:
     - meta.statement
     - meta.command

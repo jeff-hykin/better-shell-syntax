@@ -1,0 +1,177 @@
+- source: restore_profile
+  scopesBegin:
+    - meta.function
+  scopes:
+    - entity.name.function
+- source: ()
+  scopes:
+    - punctuation.definition.arguments
+- source: '{'
+  scopesBegin:
+    - meta.scope.group
+  scopes:
+    - punctuation.definition.group
+- source: profile
+  scopesBegin:
+    - meta.expression.assignment
+  scopes:
+    - variable.other.assignment
+- source: '='
+  scopes:
+    - keyword.operator.assignment
+- source: '"'
+  scopesBegin:
+    - string.quoted.double
+  scopes:
+    - punctuation.definition.string.begin
+- source: $
+  scopes:
+    - punctuation.definition.variable
+    - variable.parameter.positional
+- source: '1'
+  scopes:
+    - variable.parameter.positional
+- source: '"'
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - meta.expression.assignment
+    - string.quoted.double
+- source: '#'
+  scopesBegin:
+    - comment.line.number-sign
+  scopes:
+    - punctuation.definition.comment
+- source: ' check if file exists'
+  scopesEnd:
+    - comment.line.number-sign
+- source: if
+  scopesBegin:
+    - meta.scope.if-block
+  scopes:
+    - keyword.control
+- source: '['
+  scopesBegin:
+    - meta.scope.logical-expression
+  scopes:
+    - punctuation.definition.logical-expression
+- source: '-f'
+  scopes:
+    - keyword.operator.logical
+- source: ' "'
+  scopesBegin:
+    - string.quoted.double
+  scopes:
+    - punctuation.definition.string.begin
+- source: $
+  scopes:
+    - punctuation.definition.variable
+    - variable.other.normal
+- source: profile
+  scopes:
+    - variable.other.normal
+- source: '"'
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - string.quoted.double
+- source: ']'
+  scopes:
+    - punctuation.definition.logical-expression
+  scopesEnd:
+    - meta.scope.logical-expression
+- source: then
+  scopes:
+    - keyword.control.then
+- source: if
+  scopesBegin:
+    - meta.scope.if-block
+  scopes:
+    - keyword.control
+- source: ' extract_nix_profile_injection'
+- source: ' "'
+  scopesBegin:
+    - string.quoted.double
+  scopes:
+    - punctuation.definition.string.begin
+- source: $
+  scopes:
+    - punctuation.definition.variable
+    - variable.other.normal
+- source: profile
+  scopes:
+    - variable.other.normal
+- source: '"'
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - string.quoted.double
+- source: ;
+  scopes:
+    - punctuation.terminator.statement.semicolon
+- source: then
+  scopes:
+    - keyword.control.then
+- source: '#'
+  scopesBegin:
+    - comment.line.number-sign
+  scopes:
+    - punctuation.definition.comment
+- source: ' the extraction is done in-place. So if successful, remove the backup'
+  scopesEnd:
+    - comment.line.number-sign
+- source: _sudo
+  scopesBegin:
+    - meta.statement
+    - meta.command
+  scopes:
+    - entity.name.command
+- source: rm
+  scopes:
+    - meta.argument
+    - string.unquoted.argument
+- source: '-'
+  scopesBegin:
+    - string.unquoted.argument
+  scopes:
+    - constant.other.option.dash
+- source: f
+  scopes:
+    - constant.other.option
+  scopesEnd:
+    - string.unquoted.argument
+- source: '"'
+  scopesBegin:
+    - meta.argument
+    - string.quoted.double
+  scopes:
+    - punctuation.definition.string.begin
+- source: $
+  scopes:
+    - punctuation.definition.variable
+    - variable.other.normal
+- source: profile
+  scopes:
+    - variable.other.normal
+- source: .backup-before-nix
+- source: '"'
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - meta.statement
+    - meta.command
+    - meta.argument
+    - string.quoted.double
+- source: fi
+  scopes:
+    - keyword.control
+  scopesEnd:
+    - meta.scope.if-block
+- source: fi
+  scopes:
+    - keyword.control
+  scopesEnd:
+    - meta.scope.if-block
+- source: '}'
+  scopes:
+    - punctuation.definition.group

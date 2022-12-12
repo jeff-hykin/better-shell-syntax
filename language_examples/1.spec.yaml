@@ -826,23 +826,35 @@
     - variable.other.normal
 - source: '=~'
   scopes:
-    - keyword.operator.logical
-- source: '^[Yy]$'
+    - keyword.operator.logical.regex
+- source: ' ^'
+- source: '['
+  scopesBegin:
+    - meta.scope.logical-expression
+  scopes:
+    - punctuation.definition.logical-expression
+- source: Yy
+- source: ']'
+  scopes:
+    - punctuation.definition.logical-expression
+  scopesEnd:
+    - meta.scope.logical-expression
+- source: '$ '
 - source: ']]'
   scopes:
     - punctuation.definition.logical-expression
   scopesEnd:
     - meta.scope.logical-expression
 - source: then
+  scopes:
+    - keyword.control.then
+- source: exit
   scopesBegin:
     - meta.statement
     - meta.command
-    - entity.name.command
-- source: exit
   scopes:
-    - support.function.builtin
-  scopesEnd:
     - entity.name.command
+    - support.function.builtin
 - source: '1'
   scopes:
     - meta.argument
