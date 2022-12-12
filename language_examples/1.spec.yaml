@@ -769,23 +769,7 @@
 - source: '=~'
   scopes:
     - keyword.operator.logical
-- source: ^
-  scopes:
-    - keyword.control.anchor.regexp
-- source: '['
-  scopesBegin:
-    - constant.other.character-class.set.regexp
-  scopes:
-    - punctuation.definition.character-class.regexp
-- source: Yy
-- source: ']'
-  scopes:
-    - punctuation.definition.character-class.regexp
-  scopesEnd:
-    - constant.other.character-class.set.regexp
-- source: $
-  scopes:
-    - keyword.control.anchor.regexp
+- source: '^[Yy]$'
 - source: ']]'
   scopes:
     - punctuation.definition.logical-expression

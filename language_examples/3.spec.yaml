@@ -472,7 +472,18 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: UNAME/CYGWIN_*/Cygwin
+- source: UNAME
+- source: /
+  scopes:
+    - keyword.operator.expansion
+- source: CYGWIN_
+- source: '*'
+  scopesBegin:
+    - keyword.operator.expansion
+- source: /
+  scopesEnd:
+    - keyword.operator.expansion
+- source: Cygwin
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -3513,11 +3524,19 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 1//
+- source: '1'
+- source: /
+  scopesBegin:
+    - keyword.operator.expansion
+- source: /
+  scopesEnd:
+    - keyword.operator.expansion
 - source: \'
   scopes:
     - constant.character.escape
 - source: /
+  scopes:
+    - keyword.operator.expansion
 - source: \'
   scopesBegin:
     - constant.character.escape
@@ -4043,7 +4062,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'FUNCNAME[0]'
+- source: FUNCNAME
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '0'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -4055,7 +4081,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'FUNCNAME[0]'
+- source: FUNCNAME
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '0'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -4190,7 +4223,11 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 1#-a
+- source: '1'
+- source: '#'
+  scopes:
+    - keyword.operator.expansion
+- source: '-a'
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -4236,7 +4273,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'FUNCNAME[0]'
+- source: FUNCNAME
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '0'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -4327,7 +4371,11 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 1#-a
+- source: '1'
+- source: '#'
+  scopes:
+    - keyword.operator.expansion
+- source: '-a'
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -4392,7 +4440,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'FUNCNAME[0]'
+- source: FUNCNAME
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '0'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -4566,7 +4621,11 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 1#-a
+- source: '1'
+- source: '#'
+  scopes:
+    - keyword.operator.expansion
+- source: '-a'
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -4605,7 +4664,11 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 1#-a
+- source: '1'
+- source: '#'
+  scopes:
+    - keyword.operator.expansion
+- source: '-a'
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -4652,7 +4715,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'FUNCNAME[0]'
+- source: FUNCNAME
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '0'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -4918,7 +4988,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'FUNCNAME[0]'
+- source: FUNCNAME
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '0'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -5021,7 +5098,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'FUNCNAME[0]'
+- source: FUNCNAME
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '0'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -5214,15 +5298,20 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '1//[^'
-- source: $
+- source: '1'
+- source: /
+  scopesBegin:
+    - keyword.operator.expansion
+- source: /
+  scopesEnd:
+    - keyword.operator.expansion
+- source: '['
   scopes:
-    - punctuation.definition.variable
-    - variable.other.normal
-- source: COMP_WORDBREAKS
-  scopes:
-    - variable.other.normal
+    - punctuation.section.array
+- source: ^$COMP_WORDBREAKS
 - source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -5357,7 +5446,17 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '#COMP_WORDS[@]'
+- source: '#'
+  scopes:
+    - keyword.operator.expansion
+- source: COMP_WORDS
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -5432,15 +5531,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'COMP_WORDS['
-- source: $
+- source: COMP_WORDS
+- source: '['
   scopes:
-    - punctuation.definition.variable
-    - variable.other.normal
-- source: i
-  scopes:
-    - variable.other.normal
+    - punctuation.section.array
+- source: $i
 - source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -5454,23 +5552,27 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'COMP_WORDS['
-- source: $
+- source: COMP_WORDS
+- source: '['
   scopes:
-    - punctuation.definition.variable
-    - variable.other.normal
-- source: i
-  scopes:
-    - variable.other.normal
-- source: ']//[^'
-- source: $
-  scopes:
-    - punctuation.definition.variable
-    - variable.other.normal
-- source: exclude
-  scopes:
-    - variable.other.normal
+    - punctuation.section.array
+- source: $i
 - source: ']'
+  scopes:
+    - punctuation.section.array
+- source: /
+  scopesBegin:
+    - keyword.operator.expansion
+- source: /
+  scopesEnd:
+    - keyword.operator.expansion
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: ^$exclude
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -5484,15 +5586,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'COMP_WORDS['
-- source: $
+- source: COMP_WORDS
+- source: '['
   scopes:
-    - punctuation.definition.variable
-    - variable.other.normal
-- source: i
-  scopes:
-    - variable.other.normal
+    - punctuation.section.array
+- source: $i
 - source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -5777,7 +5878,17 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '#COMP_WORDS[@]'
+- source: '#'
+  scopes:
+    - keyword.operator.expansion
+- source: COMP_WORDS
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -6375,7 +6486,10 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '#cur'
+- source: '#'
+  scopes:
+    - keyword.operator.expansion
+- source: cur
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -6394,7 +6508,17 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '#words[i]'
+- source: '#'
+  scopes:
+    - keyword.operator.expansion
+- source: words
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: i
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -6421,7 +6545,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'cur:0:'
+- source: cur
+- source: ':'
+  scopes:
+    - keyword.operator.expansion
+- source: '0'
+- source: ':'
+  scopes:
+    - keyword.operator.expansion
 - source: $
   scopes:
     - punctuation.definition.variable
@@ -6429,7 +6560,17 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '#words[i]'
+- source: '#'
+  scopes:
+    - keyword.operator.expansion
+- source: words
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: i
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopesBegin:
     - punctuation.section.bracket.curly.variable.end
@@ -6456,7 +6597,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'words[i]'
+- source: words
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: i
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -6504,7 +6652,11 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'cur:1'
+- source: cur
+- source: ':'
+  scopes:
+    - keyword.operator.expansion
+- source: '1'
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -6640,7 +6792,10 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '#cur'
+- source: '#'
+  scopes:
+    - keyword.operator.expansion
+- source: cur
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -6671,7 +6826,10 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: cur#
+- source: cur
+- source: '#'
+  scopes:
+    - keyword.operator.expansion
 - source: $
   scopes:
     - punctuation.definition.variable
@@ -6679,7 +6837,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'words[i]'
+- source: words
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: i
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopesBegin:
     - punctuation.section.bracket.curly.variable.end
@@ -6715,7 +6880,10 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '#cur'
+- source: '#'
+  scopes:
+    - keyword.operator.expansion
+- source: cur
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -6786,7 +6954,21 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'words[cword]:0:'
+- source: words
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: cword
+- source: ']'
+  scopes:
+    - punctuation.section.array
+- source: ':'
+  scopes:
+    - keyword.operator.expansion
+- source: '0'
+- source: ':'
+  scopes:
+    - keyword.operator.expansion
 - source: $
   scopes:
     - punctuation.definition.variable
@@ -6794,7 +6976,10 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '#cur'
+- source: '#'
+  scopes:
+    - keyword.operator.expansion
+- source: cur
 - source: '}'
   scopesBegin:
     - punctuation.section.bracket.curly.variable.end
@@ -6860,7 +7045,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'words[cword]'
+- source: words
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: cword
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -6884,7 +7076,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'cur:0:'
+- source: cur
+- source: ':'
+  scopes:
+    - keyword.operator.expansion
+- source: '0'
+- source: ':'
+  scopes:
+    - keyword.operator.expansion
 - source: $
   scopes:
     - punctuation.definition.variable
@@ -6977,7 +7176,17 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '#words[@]'
+- source: '#'
+  scopes:
+    - keyword.operator.expansion
+- source: words
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -7004,7 +7213,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'words[@]'
+- source: words
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -7584,7 +7800,10 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '!OPTIND'
+- source: '!'
+  scopes:
+    - keyword.operator.expansion
+- source: OPTIND
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -7743,7 +7962,10 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '!OPTIND'
+- source: '!'
+  scopes:
+    - keyword.operator.expansion
+- source: OPTIND
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -8218,7 +8440,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'words[cword - 1]'
+- source: words
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: cword - 1
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -8341,7 +8570,17 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '#words[@]'
+- source: '#'
+  scopes:
+    - keyword.operator.expansion
+- source: words
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -8367,7 +8606,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'words[@]'
+- source: words
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -8406,7 +8652,17 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '#upvars[@]'
+- source: '#'
+  scopes:
+    - keyword.operator.expansion
+- source: upvars
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -8438,7 +8694,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'upvars[@]'
+- source: upvars
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -8470,7 +8733,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'upargs[@]'
+- source: upargs
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -8645,7 +8915,23 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '2//[^0-9]/'
+- source: '2'
+- source: /
+  scopesBegin:
+    - keyword.operator.expansion
+- source: /
+  scopesEnd:
+    - keyword.operator.expansion
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: ^0-9
+- source: ']'
+  scopes:
+    - punctuation.section.array
+- source: /
+  scopes:
+    - keyword.operator.expansion
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -8686,15 +8972,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'words[cword-'
-- source: $
+- source: words
+- source: '['
   scopes:
-    - punctuation.definition.variable
-    - variable.parameter.positional
-- source: '2'
-  scopes:
-    - variable.parameter.positional
+    - punctuation.section.array
+- source: cword-$2
 - source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -8725,7 +9010,17 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '#words[cword]'
+- source: '#'
+  scopes:
+    - keyword.operator.expansion
+- source: words
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: cword
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -8775,7 +9070,10 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '#COMP_LINE'
+- source: '#'
+  scopes:
+    - keyword.operator.expansion
+- source: COMP_LINE
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -8821,7 +9119,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'words[cword]'
+- source: words
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: cword
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -8967,7 +9272,10 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '#cur'
+- source: '#'
+  scopes:
+    - keyword.operator.expansion
+- source: cur
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -8986,7 +9294,17 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '#words[i]'
+- source: '#'
+  scopes:
+    - keyword.operator.expansion
+- source: words
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: i
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -9013,7 +9331,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'cur:0:'
+- source: cur
+- source: ':'
+  scopes:
+    - keyword.operator.expansion
+- source: '0'
+- source: ':'
+  scopes:
+    - keyword.operator.expansion
 - source: $
   scopes:
     - punctuation.definition.variable
@@ -9021,7 +9346,17 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '#words[i]'
+- source: '#'
+  scopes:
+    - keyword.operator.expansion
+- source: words
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: i
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopesBegin:
     - punctuation.section.bracket.curly.variable.end
@@ -9048,7 +9383,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'words[i]'
+- source: words
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: i
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -9096,7 +9438,11 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'cur:1'
+- source: cur
+- source: ':'
+  scopes:
+    - keyword.operator.expansion
+- source: '1'
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -9232,7 +9578,10 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '#cur'
+- source: '#'
+  scopes:
+    - keyword.operator.expansion
+- source: cur
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -9263,7 +9612,10 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: cur#
+- source: cur
+- source: '#'
+  scopes:
+    - keyword.operator.expansion
 - source: $
   scopes:
     - punctuation.definition.variable
@@ -9271,7 +9623,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'words[i]'
+- source: words
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: i
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopesBegin:
     - punctuation.section.bracket.curly.variable.end
@@ -9307,7 +9666,10 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '#cur'
+- source: '#'
+  scopes:
+    - keyword.operator.expansion
+- source: cur
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -9378,7 +9740,21 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'words[cword]:0:'
+- source: words
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: cword
+- source: ']'
+  scopes:
+    - punctuation.section.array
+- source: ':'
+  scopes:
+    - keyword.operator.expansion
+- source: '0'
+- source: ':'
+  scopes:
+    - keyword.operator.expansion
 - source: $
   scopes:
     - punctuation.definition.variable
@@ -9386,7 +9762,10 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '#cur'
+- source: '#'
+  scopes:
+    - keyword.operator.expansion
+- source: cur
 - source: '}'
   scopesBegin:
     - punctuation.section.bracket.curly.variable.end
@@ -9467,7 +9846,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'words[cword]'
+- source: words
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: cword
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -9507,7 +9893,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'cur:0:'
+- source: cur
+- source: ':'
+  scopes:
+    - keyword.operator.expansion
+- source: '0'
+- source: ':'
+  scopes:
+    - keyword.operator.expansion
 - source: $
   scopes:
     - punctuation.definition.variable
@@ -9642,7 +10035,12 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '@:-'
+- source: '@'
+  scopesBegin:
+    - keyword.operator.expansion
+- source: ':-'
+  scopesEnd:
+    - keyword.operator.expansion
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -9816,7 +10214,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'BASH_VERSINFO[0]'
+- source: BASH_VERSINFO
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '0'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -9837,7 +10242,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'BASH_VERSINFO[0]'
+- source: BASH_VERSINFO
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '0'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -9916,7 +10328,10 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 1%
+- source: '1'
+- source: '%'
+  scopes:
+    - keyword.operator.expansion
 - source: $
   scopes:
     - punctuation.definition.variable
@@ -9924,7 +10339,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '1##*:'
+- source: '1'
+- source: '##'
+  scopesBegin:
+    - keyword.operator.expansion
+- source: '*'
+- source: ':'
+  scopesEnd:
+    - keyword.operator.expansion
 - source: '}'
   scopesBegin:
     - punctuation.section.bracket.curly.variable.end
@@ -9948,7 +10370,17 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '#COMPREPLY[*]'
+- source: '#'
+  scopes:
+    - keyword.operator.expansion
+- source: COMPREPLY
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '*'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -10025,15 +10457,17 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'COMPREPLY['
-- source: $
+- source: COMPREPLY
+- source: '['
   scopes:
-    - punctuation.definition.variable
-    - variable.other.normal
-- source: i
+    - punctuation.section.array
+- source: $i
+- source: ']'
   scopes:
-    - variable.other.normal
-- source: ']#'
+    - punctuation.section.array
+- source: '#'
+  scopes:
+    - keyword.operator.expansion
 - source: '"'
   scopesBegin:
     - string.quoted.double
@@ -10225,7 +10659,15 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '1:0:1'
+- source: '1'
+- source: ':'
+  scopes:
+    - keyword.operator.expansion
+- source: '0'
+- source: ':'
+  scopes:
+    - keyword.operator.expansion
+- source: '1'
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -10271,7 +10713,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'BASH_VERSINFO[0]'
+- source: BASH_VERSINFO
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '0'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -10340,7 +10789,11 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '1:1'
+- source: '1'
+- source: ':'
+  scopes:
+    - keyword.operator.expansion
+- source: '1'
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -10402,7 +10855,11 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '1:1'
+- source: '1'
+- source: ':'
+  scopes:
+    - keyword.operator.expansion
+- source: '1'
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -10455,7 +10912,10 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '!2'
+- source: '!'
+  scopes:
+    - keyword.operator.expansion
+- source: '2'
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -10481,7 +10941,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'BASH_VERSINFO[0]'
+- source: BASH_VERSINFO
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '0'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -10501,7 +10968,15 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '1:0:1'
+- source: '1'
+- source: ':'
+  scopes:
+    - keyword.operator.expansion
+- source: '0'
+- source: ':'
+  scopes:
+    - keyword.operator.expansion
+- source: '1'
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -10570,7 +11045,11 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '1:1'
+- source: '1'
+- source: ':'
+  scopes:
+    - keyword.operator.expansion
+- source: '1'
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -10670,7 +11149,18 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '!2:0:1'
+- source: '!'
+  scopes:
+    - keyword.operator.expansion
+- source: '2'
+- source: ':'
+  scopes:
+    - keyword.operator.expansion
+- source: '0'
+- source: ':'
+  scopes:
+    - keyword.operator.expansion
+- source: '1'
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -10725,7 +11215,10 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '!2'
+- source: '!'
+  scopes:
+    - keyword.operator.expansion
+- source: '2'
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -11074,7 +11567,15 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'toks[@]-'
+- source: toks
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
+- source: '-'
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -11289,7 +11790,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'BASH_VERSINFO[0]'
+- source: BASH_VERSINFO
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '0'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -11333,7 +11841,11 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '1:+'
+- source: '1'
+- source: ':'
+  scopes:
+    - keyword.operator.expansion
+- source: +
 - source: '"'
   scopesBegin:
     - string.quoted.double
@@ -11396,7 +11908,11 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '1:+'
+- source: '1'
+- source: ':'
+  scopes:
+    - keyword.operator.expansion
+- source: +
 - source: '"'
   scopesBegin:
     - string.quoted.double
@@ -11497,7 +12013,15 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'toks[@]-'
+- source: toks
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
+- source: '-'
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -11596,7 +12120,17 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '#toks[@]'
+- source: '#'
+  scopes:
+    - keyword.operator.expansion
+- source: toks
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -11646,7 +12180,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'COMPREPLY[@]'
+- source: COMPREPLY
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -11669,7 +12210,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'toks[@]'
+- source: toks
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -11815,11 +12363,21 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: cur%%?(
+- source: cur
+- source: '%'
+  scopesBegin:
+    - keyword.operator.expansion
+- source: '%'
+  scopesEnd:
+    - keyword.operator.expansion
+- source: '?('
 - source: \\
   scopes:
     - constant.character.escape
-- source: )=*
+- source: )=
+- source: '*'
+  scopes:
+    - keyword.operator.expansion
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -11846,7 +12404,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: cur#*=
+- source: cur
+- source: '#'
+  scopesBegin:
+    - keyword.operator.expansion
+- source: '*'
+  scopesEnd:
+    - keyword.operator.expansion
+- source: '='
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -11938,7 +12503,11 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '2:---help'
+- source: '2'
+- source: ':-'
+  scopes:
+    - keyword.operator.expansion
+- source: '--help'
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -12174,7 +12743,11 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: cur#-
+- source: cur
+- source: '#'
+  scopes:
+    - keyword.operator.expansion
+- source: '-'
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -12221,7 +12794,17 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '#COMPREPLY[@]'
+- source: '#'
+  scopes:
+    - keyword.operator.expansion
+- source: COMPREPLY
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -12263,7 +12846,18 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'COMPREPLY[i]#SIG'
+- source: COMPREPLY
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: i
+- source: ']'
+  scopes:
+    - punctuation.section.array
+- source: '#'
+  scopes:
+    - keyword.operator.expansion
+- source: SIG
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -12393,7 +12987,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'COMPREPLY[@]'
+- source: COMPREPLY
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -12525,7 +13126,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'COMPREPLY[@]'
+- source: COMPREPLY
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -12692,7 +13300,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'COMPREPLY[@]'
+- source: COMPREPLY
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -13855,7 +14470,10 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '1:-'
+- source: '1'
+- source: ':-'
+  scopes:
+    - keyword.operator.expansion
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -13921,7 +14539,10 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '1:-'
+- source: '1'
+- source: ':-'
+  scopes:
+    - keyword.operator.expansion
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -14262,7 +14883,15 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '1:0:1'
+- source: '1'
+- source: ':'
+  scopes:
+    - keyword.operator.expansion
+- source: '0'
+- source: ':'
+  scopes:
+    - keyword.operator.expansion
+- source: '1'
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -14300,7 +14929,13 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 1//
+- source: '1'
+- source: /
+  scopesBegin:
+    - keyword.operator.expansion
+- source: /
+  scopesEnd:
+    - keyword.operator.expansion
 - source: \/
   scopes:
     - constant.character.escape
@@ -14401,7 +15036,10 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 1#
+- source: '1'
+- source: '#'
+  scopes:
+    - keyword.operator.expansion
 - source: \~
   scopes:
     - constant.character.escape
@@ -14439,7 +15077,17 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '#COMPREPLY[@]'
+- source: '#'
+  scopes:
+    - keyword.operator.expansion
+- source: COMPREPLY
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -14602,7 +15250,18 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '!1:0:1'
+- source: '!'
+  scopes:
+    - keyword.operator.expansion
+- source: '1'
+- source: ':'
+  scopes:
+    - keyword.operator.expansion
+- source: '0'
+- source: ':'
+  scopes:
+    - keyword.operator.expansion
+- source: '1'
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -14666,7 +15325,10 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '!1'
+- source: '!'
+  scopes:
+    - keyword.operator.expansion
+- source: '1'
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -14690,7 +15352,16 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '!1//'
+- source: '!'
+  scopes:
+    - keyword.operator.expansion
+- source: '1'
+- source: /
+  scopesBegin:
+    - keyword.operator.expansion
+- source: /
+  scopesEnd:
+    - keyword.operator.expansion
 - source: \/
   scopes:
     - constant.character.escape
@@ -14769,11 +15440,22 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '!1/%'
+- source: '!'
+  scopes:
+    - keyword.operator.expansion
+- source: '1'
+- source: /
+  scopesBegin:
+    - keyword.operator.expansion
+- source: '%'
+  scopesEnd:
+    - keyword.operator.expansion
 - source: \/
   scopes:
     - constant.character.escape
 - source: '*'
+  scopes:
+    - keyword.operator.expansion
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -14835,7 +15517,10 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '!1'
+- source: '!'
+  scopes:
+    - keyword.operator.expansion
+- source: '1'
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -15052,7 +15737,10 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: cur#
+- source: cur
+- source: '#'
+  scopes:
+    - keyword.operator.expansion
 - source: \~
   scopes:
     - constant.character.escape
@@ -15160,7 +15848,17 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '#COMPREPLY[@]'
+- source: '#'
+  scopes:
+    - keyword.operator.expansion
+- source: COMPREPLY
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -15197,7 +15895,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'COMPREPLY[0]'
+- source: COMPREPLY
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '0'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -15214,7 +15919,17 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '#COMPREPLY[@]'
+- source: '#'
+  scopes:
+    - keyword.operator.expansion
+- source: COMPREPLY
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -17209,7 +17924,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'COMPREPLY[@]'
+- source: COMPREPLY
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -17578,47 +18300,11 @@
 - source: '''s/'
   scopes:
     - punctuation.section.regexp
-- source: ^
-  scopes:
-    - keyword.control.anchor.regexp
-- source: \
-- source: (
-  scopesBegin:
-    - meta.group.regexp
-  scopes:
-    - punctuation.definition.group.regexp
-- source: .
-- source: '*'
-  scopes:
-    - keyword.operator.quantifier.regexp
-- source: \
-- source: )
-  scopes:
-    - punctuation.definition.group.regexp
-  scopesEnd:
-    - meta.group.regexp
-- source: '\.k\{0,1\}o\'
-- source: (
-  scopesBegin:
-    - meta.group.regexp
-  scopes:
-    - punctuation.definition.group.regexp
-- source: \.gz\
-- source: )
-  scopes:
-    - punctuation.definition.group.regexp
-  scopesEnd:
-    - meta.group.regexp
-- source: '\{0,1\}'
-- source: $
-  scopes:
-    - keyword.control.anchor.regexp
+- source: '^\(.*\)\.k\{0,1\}o\(\.gz\)\{0,1\}$'
 - source: /
   scopes:
     - punctuation.section.regexp
 - source: \1
-  scopes:
-    - keyword.other.back-reference.regexp
 - source: /p'
   scopes:
     - punctuation.section.regexp
@@ -18073,7 +18759,23 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'cur%%*([^:])'
+- source: cur
+- source: '%'
+  scopesBegin:
+    - keyword.operator.expansion
+- source: '%'
+- source: '*'
+  scopesEnd:
+    - keyword.operator.expansion
+- source: (
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '^:'
+- source: ']'
+  scopes:
+    - punctuation.section.array
+- source: )
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -18090,7 +18792,13 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: prefix//
+- source: prefix
+- source: /
+  scopesBegin:
+    - keyword.operator.expansion
+- source: /
+  scopesEnd:
+    - keyword.operator.expansion
 - source: \\
   scopes:
     - constant.character.escape
@@ -18122,7 +18830,20 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'cur#*[:]'
+- source: cur
+- source: '#'
+  scopesBegin:
+    - keyword.operator.expansion
+- source: '*'
+  scopesEnd:
+    - keyword.operator.expansion
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: ':'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -18376,7 +19097,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'COMPREPLY[@]'
+- source: COMPREPLY
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -18474,7 +19202,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'cur#*:'
+- source: cur
+- source: '#'
+  scopesBegin:
+    - keyword.operator.expansion
+- source: '*'
+- source: ':'
+  scopesEnd:
+    - keyword.operator.expansion
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -18960,7 +19695,10 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '1:-'
+- source: '1'
+- source: ':-'
+  scopes:
+    - keyword.operator.expansion
 - source: $
   scopes:
     - punctuation.definition.variable
@@ -19151,7 +19889,10 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '1:-'
+- source: '1'
+- source: ':-'
+  scopes:
+    - keyword.operator.expansion
 - source: $
   scopes:
     - punctuation.definition.variable
@@ -19560,7 +20301,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'COMPREPLY[@]'
+- source: COMPREPLY
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -20114,7 +20862,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'COMPREPLY[@]'
+- source: COMPREPLY
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -20623,7 +21378,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'COMP_WORDS[i]'
+- source: COMP_WORDS
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: i
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -20665,7 +21427,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'COMP_WORDS[i]'
+- source: COMP_WORDS
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: i
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -20802,7 +21571,22 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'words[@]:1:cword-1'
+- source: words
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
+- source: ':'
+  scopes:
+    - keyword.operator.expansion
+- source: '1'
+- source: ':'
+  scopes:
+    - keyword.operator.expansion
+- source: cword-1
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -20956,7 +21740,17 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'COMPREPLY[@]:-'
+- source: COMPREPLY
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
+- source: ':-'
+  scopes:
+    - keyword.operator.expansion
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -21152,7 +21946,17 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'COMPREPLY[@]:-'
+- source: COMPREPLY
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
+- source: ':-'
+  scopes:
+    - keyword.operator.expansion
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -21350,7 +22154,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'COMPREPLY[@]'
+- source: COMPREPLY
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -21429,7 +22240,17 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'cur:-/dev/'
+- source: cur
+- source: ':-'
+  scopesBegin:
+    - keyword.operator.expansion
+- source: /
+  scopesEnd:
+    - keyword.operator.expansion
+- source: dev
+- source: /
+  scopes:
+    - keyword.operator.expansion
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -21507,7 +22328,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'COMPREPLY[@]'
+- source: COMPREPLY
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -21586,7 +22414,17 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'cur:-/dev/'
+- source: cur
+- source: ':-'
+  scopesBegin:
+    - keyword.operator.expansion
+- source: /
+  scopesEnd:
+    - keyword.operator.expansion
+- source: dev
+- source: /
+  scopes:
+    - keyword.operator.expansion
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -22715,7 +23553,10 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '!OPTIND'
+- source: '!'
+  scopes:
+    - keyword.operator.expansion
+- source: OPTIND
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -22881,7 +23722,10 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '!OPTIND'
+- source: '!'
+  scopes:
+    - keyword.operator.expansion
+- source: OPTIND
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -22958,7 +23802,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: cur%@*
+- source: cur
+- source: '%'
+  scopesBegin:
+    - keyword.operator.expansion
+- source: '@'
+- source: '*'
+  scopesEnd:
+    - keyword.operator.expansion
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -22983,7 +23834,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: cur#*@
+- source: cur
+- source: '#'
+  scopesBegin:
+    - keyword.operator.expansion
+- source: '*'
+- source: '@'
+  scopesEnd:
+    - keyword.operator.expansion
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -23113,7 +23971,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'config[@]'
+- source: config
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -23271,7 +24136,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'config[@]'
+- source: config
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -23342,7 +24214,17 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '#config[@]'
+- source: '#'
+  scopes:
+    - keyword.operator.expansion
+- source: config
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -23489,7 +24371,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'config[@]'
+- source: config
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -23554,7 +24443,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'tmpkh[@]'
+- source: tmpkh
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -23592,7 +24488,13 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: i//
+- source: i
+- source: /
+  scopesBegin:
+    - keyword.operator.expansion
+- source: /
+  scopesEnd:
+    - keyword.operator.expansion
 - source: \"
   scopes:
     - constant.character.escape
@@ -23679,7 +24581,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'kh[@]'
+- source: kh
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -23887,7 +24796,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'kh[@]'
+- source: kh
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -23987,7 +24903,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'khd[@]'
+- source: khd
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -24055,7 +24978,17 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '#kh[@]'
+- source: '#'
+  scopes:
+    - keyword.operator.expansion
+- source: kh
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -24075,7 +25008,17 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '#khd[@]'
+- source: '#'
+  scopes:
+    - keyword.operator.expansion
+- source: khd
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -24119,11 +25062,19 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: cur//
+- source: cur
+- source: /
+  scopesBegin:
+    - keyword.operator.expansion
+- source: /
+  scopesEnd:
+    - keyword.operator.expansion
 - source: \/
   scopes:
     - constant.character.escape
 - source: /
+  scopes:
+    - keyword.operator.expansion
 - source: \\
   scopesBegin:
     - constant.character.escape
@@ -24146,11 +25097,19 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: awkcur//
+- source: awkcur
+- source: /
+  scopesBegin:
+    - keyword.operator.expansion
+- source: /
+  scopesEnd:
+    - keyword.operator.expansion
 - source: \.
   scopes:
     - constant.character.escape
 - source: /
+  scopes:
+    - keyword.operator.expansion
 - source: \\
   scopesBegin:
     - constant.character.escape
@@ -24500,7 +25459,17 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '#kh[@]'
+- source: '#'
+  scopes:
+    - keyword.operator.expansion
+- source: kh
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -24556,7 +25525,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'COMPREPLY[@]'
+- source: COMPREPLY
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -24633,7 +25609,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'kh[@]'
+- source: kh
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -24681,7 +25664,17 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '#khd[@]'
+- source: '#'
+  scopes:
+    - keyword.operator.expansion
+- source: khd
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -24745,7 +25738,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'khd[@]'
+- source: khd
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -24854,7 +25854,18 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: i/#*key_22_/
+- source: i
+- source: /
+  scopesBegin:
+    - keyword.operator.expansion
+- source: '#'
+- source: '*'
+  scopesEnd:
+    - keyword.operator.expansion
+- source: key_22_
+- source: /
+  scopes:
+    - keyword.operator.expansion
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -24871,7 +25882,17 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: host/%.pub/
+- source: host
+- source: /
+  scopesBegin:
+    - keyword.operator.expansion
+- source: '%'
+  scopesEnd:
+    - keyword.operator.expansion
+- source: .pub
+- source: /
+  scopes:
+    - keyword.operator.expansion
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -24900,7 +25921,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'COMPREPLY[@]'
+- source: COMPREPLY
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -24976,7 +26004,17 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '#COMPREPLY[@]'
+- source: '#'
+  scopes:
+    - keyword.operator.expansion
+- source: COMPREPLY
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -25032,7 +26070,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'COMPREPLY[i]'
+- source: COMPREPLY
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: i
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -25081,7 +26126,17 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '#config[@]'
+- source: '#'
+  scopes:
+    - keyword.operator.expansion
+- source: config
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -25159,150 +26214,12 @@
 - source: '''s/'
   scopes:
     - punctuation.section.regexp
-- source: ^
-  scopes:
-    - keyword.control.anchor.regexp
-- source: '[[:blank:]]'
-  scopes:
-    - punctuation.definition.character-class.named.regexp
-- source: '*'
-  scopes:
-    - keyword.operator.quantifier.regexp
-- source: '['
-  scopesBegin:
-    - constant.other.character-class.set.regexp
-  scopes:
-    - punctuation.definition.character-class.regexp
-- source: Hh
-- source: ']'
-  scopesBegin:
-    - punctuation.definition.character-class.regexp
-- source: '['
-  scopesEnd:
-    - punctuation.definition.character-class.regexp
-- source: Oo
-- source: ']'
-  scopesBegin:
-    - punctuation.definition.character-class.regexp
-- source: '['
-  scopesEnd:
-    - punctuation.definition.character-class.regexp
-- source: Ss
-- source: ']'
-  scopesBegin:
-    - punctuation.definition.character-class.regexp
-- source: '['
-  scopesEnd:
-    - punctuation.definition.character-class.regexp
-- source: Tt
-- source: ']'
-  scopes:
-    - punctuation.definition.character-class.regexp
-  scopesEnd:
-    - constant.other.character-class.set.regexp
-- source: \
-- source: (
-  scopesBegin:
-    - meta.group.regexp
-  scopes:
-    - punctuation.definition.group.regexp
-- source: '['
-  scopesBegin:
-    - constant.other.character-class.set.regexp
-  scopes:
-    - punctuation.definition.character-class.regexp
-- source: Nn
-- source: ']'
-  scopesBegin:
-    - punctuation.definition.character-class.regexp
-- source: '['
-  scopesEnd:
-    - punctuation.definition.character-class.regexp
-- source: Aa
-- source: ']'
-  scopesBegin:
-    - punctuation.definition.character-class.regexp
-- source: '['
-  scopesEnd:
-    - punctuation.definition.character-class.regexp
-- source: Mm
-- source: ']'
-  scopesBegin:
-    - punctuation.definition.character-class.regexp
-- source: '['
-  scopesEnd:
-    - punctuation.definition.character-class.regexp
-- source: Ee
-- source: ']'
-  scopes:
-    - punctuation.definition.character-class.regexp
-  scopesEnd:
-    - constant.other.character-class.set.regexp
-- source: \
-- source: )
-  scopes:
-    - punctuation.definition.group.regexp
-  scopesEnd:
-    - meta.group.regexp
-- source: '\{0,1\}'
-- source: '[[:blank:]]'
-  scopes:
-    - punctuation.definition.character-class.named.regexp
-- source: '\{1,\}\'
-- source: (
-  scopesBegin:
-    - meta.group.regexp
-  scopes:
-    - punctuation.definition.group.regexp
-- source: '['
-  scopesBegin:
-    - constant.other.character-class.set.regexp
-  scopes:
-    - punctuation.definition.character-class.regexp
-- source: ^
-  scopes:
-    - keyword.operator.negation.regexp
-- source: '#*?'
-- source: ']'
-  scopes:
-    - punctuation.definition.character-class.regexp
-  scopesEnd:
-    - constant.other.character-class.set.regexp
-- source: '*'
-  scopes:
-    - keyword.operator.quantifier.regexp
-- source: \
-- source: )
-  scopes:
-    - punctuation.definition.group.regexp
-  scopesEnd:
-    - meta.group.regexp
-- source: \
-- source: (
-  scopesBegin:
-    - meta.group.regexp
-  scopes:
-    - punctuation.definition.group.regexp
-- source: '#.'
-- source: '*'
-  scopes:
-    - keyword.operator.quantifier.regexp
-- source: \
-- source: )
-  scopes:
-    - punctuation.definition.group.regexp
-  scopesEnd:
-    - meta.group.regexp
-- source: '\{0,1\}'
-- source: $
-  scopes:
-    - keyword.control.anchor.regexp
+- source: >-
+    ^[[:blank:]]*[Hh][Oo][Ss][Tt]\([Nn][Aa][Mm][Ee]\)\{0,1\}[[:blank:]]\{1,\}\([^#*?]*\)\(#.*\)\{0,1\}$
 - source: /
   scopes:
     - punctuation.section.regexp
 - source: \2
-  scopes:
-    - keyword.other.back-reference.regexp
 - source: /p'
   scopes:
     - punctuation.section.regexp
@@ -25319,7 +26236,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'config[@]'
+- source: config
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -25364,7 +26288,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'COMPREPLY[@]'
+- source: COMPREPLY
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -25548,7 +26479,10 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'COMP_KNOWN_HOSTS_WITH_AVAHI:-'
+- source: COMP_KNOWN_HOSTS_WITH_AVAHI
+- source: ':-'
+  scopes:
+    - keyword.operator.expansion
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -25641,7 +26575,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'COMPREPLY[@]'
+- source: COMPREPLY
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -25994,7 +26935,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'COMPREPLY[@]'
+- source: COMPREPLY
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -26479,7 +27427,11 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: cur#?(
+- source: cur
+- source: '#'
+  scopes:
+    - keyword.operator.expansion
+- source: '?('
 - source: \\
   scopes:
     - constant.character.escape
@@ -26564,7 +27516,10 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'CDPATH:-'
+- source: CDPATH
+- source: ':-'
+  scopes:
+    - keyword.operator.expansion
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -26789,7 +27744,15 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'CDPATH//:/'
+- source: CDPATH
+- source: /
+  scopesBegin:
+    - keyword.operator.expansion
+- source: /
+- source: ':'
+- source: /
+  scopesEnd:
+    - keyword.operator.expansion
 - source: $'
   scopesBegin:
     - string.quoted.single.dollar
@@ -26840,7 +27803,17 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '#COMPREPLY[@]'
+- source: '#'
+  scopes:
+    - keyword.operator.expansion
+- source: COMPREPLY
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -26983,7 +27956,10 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: j#
+- source: j
+- source: '#'
+  scopes:
+    - keyword.operator.expansion
 - source: $
   scopes:
     - punctuation.definition.variable
@@ -26992,6 +27968,8 @@
   scopes:
     - variable.other.normal
 - source: /
+  scopes:
+    - keyword.operator.expansion
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -27065,7 +28043,10 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: j#
+- source: j
+- source: '#'
+  scopes:
+    - keyword.operator.expansion
 - source: $
   scopes:
     - punctuation.definition.variable
@@ -27074,6 +28055,8 @@
   scopes:
     - variable.other.normal
 - source: /
+  scopes:
+    - keyword.operator.expansion
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -27123,7 +28106,17 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '#COMPREPLY[@]'
+- source: '#'
+  scopes:
+    - keyword.operator.expansion
+- source: COMPREPLY
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -27159,7 +28152,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'COMPREPLY[0]'
+- source: COMPREPLY
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '0'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -27537,7 +28537,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'COMP_WORDS[i]'
+- source: COMP_WORDS
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: i
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -27742,15 +28749,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'COMP_WORDS['
-- source: $
+- source: COMP_WORDS
+- source: '['
   scopes:
-    - punctuation.definition.variable
-    - variable.other.normal
-- source: word_offset
-  scopes:
-    - variable.other.normal
+    - punctuation.section.array
+- source: $word_offset
 - source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -27785,7 +28791,10 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '#COMP_LINE'
+- source: '#'
+  scopes:
+    - keyword.operator.expansion
+- source: COMP_LINE
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -27826,7 +28835,10 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'COMP_LINE:'
+- source: COMP_LINE
+- source: ':'
+  scopes:
+    - keyword.operator.expansion
 - source: $
   scopes:
     - punctuation.definition.variable
@@ -27835,6 +28847,8 @@
   scopes:
     - variable.other.normal
 - source: ':'
+  scopes:
+    - keyword.operator.expansion
 - source: $
   scopes:
     - punctuation.definition.variable
@@ -27842,7 +28856,10 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '#first_word'
+- source: '#'
+  scopes:
+    - keyword.operator.expansion
+- source: first_word
 - source: '}'
   scopesBegin:
     - punctuation.section.bracket.curly.variable.end
@@ -27932,7 +28949,10 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'COMP_LINE:'
+- source: COMP_LINE
+- source: ':'
+  scopes:
+    - keyword.operator.expansion
 - source: $
   scopes:
     - punctuation.definition.variable
@@ -28049,15 +29069,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'COMP_WORDS[i+'
-- source: $
+- source: COMP_WORDS
+- source: '['
   scopes:
-    - punctuation.definition.variable
-    - variable.other.normal
-- source: word_offset
-  scopes:
-    - variable.other.normal
+    - punctuation.section.array
+- source: i+$word_offset
 - source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -28304,7 +29323,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'COMP_WORDS[0]'
+- source: COMP_WORDS
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '0'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -28323,7 +29349,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: cmd##*/
+- source: cmd
+- source: '##'
+  scopesBegin:
+    - keyword.operator.expansion
+- source: '*'
+- source: /
+  scopesEnd:
+    - keyword.operator.expansion
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -28376,7 +29409,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: cmd##*/
+- source: cmd
+- source: '##'
+  scopesBegin:
+    - keyword.operator.expansion
+- source: '*'
+- source: /
+  scopesEnd:
+    - keyword.operator.expansion
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -28410,7 +29450,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'cspec#* -F '
+- source: cspec
+- source: '#'
+  scopesBegin:
+    - keyword.operator.expansion
+- source: '*'
+  scopesEnd:
+    - keyword.operator.expansion
+- source: ' -F '
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -28477,7 +29524,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'cspec#*-F '
+- source: cspec
+- source: '#'
+  scopesBegin:
+    - keyword.operator.expansion
+- source: '*'
+  scopesEnd:
+    - keyword.operator.expansion
+- source: '-F '
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -28494,7 +29548,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: func%% *
+- source: func
+- source: '%'
+  scopesBegin:
+    - keyword.operator.expansion
+- source: '%'
+- source: '*'
+  scopesEnd:
+    - keyword.operator.expansion
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -28517,7 +29578,17 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '#COMP_WORDS[@]'
+- source: '#'
+  scopes:
+    - keyword.operator.expansion
+- source: COMP_WORDS
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -28567,22 +29638,18 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'COMP_WORDS['
-- source: $
+- source: COMP_WORDS
+- source: '['
   scopes:
-    - punctuation.definition.variable
-    - punctuation.section.bracket.curly.variable.begin
-- source: '{'
+    - punctuation.section.array
+- source: '${#COMP_WORDS[@'
+- source: ']'
   scopes:
-    - punctuation.section.bracket.curly.variable.begin
-- source: '#COMP_WORDS[@]'
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
-- source: '-1]'
-- source: '}'
-  scopes:
-    - punctuation.section.bracket.curly.variable.end
+- source: '-1]}'
 - source: '"'
   scopes:
     - punctuation.definition.string.end
@@ -28596,22 +29663,18 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'COMP_WORDS['
-- source: $
+- source: COMP_WORDS
+- source: '['
   scopes:
-    - punctuation.definition.variable
-    - punctuation.section.bracket.curly.variable.begin
-- source: '{'
+    - punctuation.section.array
+- source: '${#COMP_WORDS[@'
+- source: ']'
   scopes:
-    - punctuation.section.bracket.curly.variable.begin
-- source: '#COMP_WORDS[@]'
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
-- source: '-2]'
-- source: '}'
-  scopes:
-    - punctuation.section.bracket.curly.variable.end
+- source: '-2]}'
 - source: '"'
   scopes:
     - punctuation.definition.string.end
@@ -28651,22 +29714,18 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'COMP_WORDS['
-- source: $
+- source: COMP_WORDS
+- source: '['
   scopes:
-    - punctuation.definition.variable
-    - punctuation.section.bracket.curly.variable.begin
-- source: '{'
+    - punctuation.section.array
+- source: '${#COMP_WORDS[@'
+- source: ']'
   scopes:
-    - punctuation.section.bracket.curly.variable.begin
-- source: '#COMP_WORDS[@]'
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
-- source: '-1]'
-- source: '}'
-  scopes:
-    - punctuation.section.bracket.curly.variable.end
+- source: '-1]}'
 - source: '"'
   scopes:
     - punctuation.definition.string.end
@@ -28717,7 +29776,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'cspec#*-o '
+- source: cspec
+- source: '#'
+  scopesBegin:
+    - keyword.operator.expansion
+- source: '*'
+  scopesEnd:
+    - keyword.operator.expansion
+- source: '-o '
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -28772,7 +29838,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'cspec#*-o '
+- source: cspec
+- source: '#'
+  scopesBegin:
+    - keyword.operator.expansion
+- source: '*'
+  scopesEnd:
+    - keyword.operator.expansion
+- source: '-o '
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -28789,7 +29862,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: cspec%% *
+- source: cspec
+- source: '%'
+  scopesBegin:
+    - keyword.operator.expansion
+- source: '%'
+- source: '*'
+  scopesEnd:
+    - keyword.operator.expansion
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -28886,14 +29966,33 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'COMPREPLY[@]//'
+- source: COMPREPLY
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
+- source: /
+  scopesBegin:
+    - keyword.operator.expansion
+- source: /
+  scopesEnd:
+    - keyword.operator.expansion
 - source: \\
   scopesBegin:
     - constant.character.escape
 - source: \\
   scopesEnd:
     - constant.character.escape
-- source: ':/:'
+- source: ':'
+  scopesBegin:
+    - keyword.operator.expansion
+- source: /
+- source: ':'
+  scopesEnd:
+    - keyword.operator.expansion
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -28979,7 +30078,11 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: cspec#complete
+- source: cspec
+- source: '#'
+  scopes:
+    - keyword.operator.expansion
+- source: complete
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -28999,7 +30102,13 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: cspec%%
+- source: cspec
+- source: '%'
+  scopesBegin:
+    - keyword.operator.expansion
+- source: '%'
+  scopesEnd:
+    - keyword.operator.expansion
 - source: $
   scopes:
     - punctuation.definition.variable
@@ -29007,7 +30116,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: cmd##*/
+- source: cmd
+- source: '##'
+  scopesBegin:
+    - keyword.operator.expansion
+- source: '*'
+- source: /
+  scopesEnd:
+    - keyword.operator.expansion
 - source: '}'
   scopesBegin:
     - punctuation.section.bracket.curly.variable.end
@@ -29129,7 +30245,17 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '#COMPREPLY[@]'
+- source: '#'
+  scopes:
+    - keyword.operator.expansion
+- source: COMPREPLY
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -29396,7 +30522,10 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'root_command:-'
+- source: root_command
+- source: ':-'
+  scopes:
+    - keyword.operator.expansion
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -29859,51 +30988,11 @@
 - source: '''s/'
   scopes:
     - punctuation.section.regexp
-- source: .
-- source: '*'
-  scopes:
-    - keyword.operator.quantifier.regexp
-- source: \
-- source: (
-  scopesBegin:
-    - meta.group.regexp
-  scopes:
-    - punctuation.definition.group.regexp
-- source: '--'
-- source: '['
-  scopesBegin:
-    - constant.other.character-class.set.regexp
-  scopes:
-    - punctuation.definition.character-class.regexp
-- source: '-'
-- source: A-Z
-  scopesBegin:
-    - constant.other.character-class.range.regexp
-- source: a-z
-- source: 0-9
-  scopesEnd:
-    - constant.other.character-class.range.regexp
-- source: ']'
-  scopes:
-    - punctuation.definition.character-class.regexp
-  scopesEnd:
-    - constant.other.character-class.set.regexp
-- source: '\{1,\}\'
-- source: )
-  scopes:
-    - punctuation.definition.group.regexp
-  scopesEnd:
-    - meta.group.regexp
-- source: .
-- source: '*'
-  scopes:
-    - keyword.operator.quantifier.regexp
+- source: '.*\(--[-A-Za-z0-9]\{1,\}\).*'
 - source: /
   scopes:
     - punctuation.section.regexp
 - source: \1
-  scopes:
-    - keyword.other.back-reference.regexp
 - source: /p'
   scopes:
     - punctuation.section.regexp
@@ -30440,7 +31529,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 1##*/
+- source: '1'
+- source: '##'
+  scopesBegin:
+    - keyword.operator.expansion
+- source: '*'
+- source: /
+  scopesEnd:
+    - keyword.operator.expansion
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -30512,7 +31608,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'xspec#*-X '
+- source: xspec
+- source: '#'
+  scopesBegin:
+    - keyword.operator.expansion
+- source: '*'
+  scopesEnd:
+    - keyword.operator.expansion
+- source: '-X '
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -30529,7 +31632,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: xspec%% *
+- source: xspec
+- source: '%'
+  scopesBegin:
+    - keyword.operator.expansion
+- source: '%'
+- source: '*'
+  scopesEnd:
+    - keyword.operator.expansion
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -30587,7 +31697,15 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'toks[@]-'
+- source: toks
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
+- source: '-'
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -30847,7 +31965,13 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: xspec#!
+- source: xspec
+- source: '#'
+  scopesBegin:
+    - keyword.operator.expansion
+- source: '!'
+  scopesEnd:
+    - keyword.operator.expansion
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -30883,7 +32007,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'BASH_VERSINFO[0]'
+- source: BASH_VERSINFO
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '0'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -31082,7 +32213,15 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'toks[@]-'
+- source: toks
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
+- source: '-'
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -31289,7 +32428,17 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '#toks[@]'
+- source: '#'
+  scopes:
+    - keyword.operator.expansion
+- source: toks
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -31339,7 +32488,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'toks[@]'
+- source: toks
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -31487,7 +32643,10 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: line#
+- source: line
+- source: '#'
+  scopes:
+    - keyword.operator.expansion
 - source: \#
   scopes:
     - constant.character.escape
@@ -31556,7 +32715,17 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: line%# START exclude*
+- source: line
+- source: '%'
+  scopesBegin:
+    - keyword.operator.expansion
+- source: '#'
+  scopesEnd:
+    - keyword.operator.expansion
+- source: ' START exclude'
+- source: '*'
+  scopes:
+    - keyword.operator.expansion
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -31573,7 +32742,17 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: line%# FINISH exclude*
+- source: line
+- source: '%'
+  scopesBegin:
+    - keyword.operator.expansion
+- source: '#'
+  scopesEnd:
+    - keyword.operator.expansion
+- source: ' FINISH exclude'
+- source: '*'
+  scopes:
+    - keyword.operator.expansion
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -31590,7 +32769,13 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: line##*
+- source: line
+- source: '##'
+  scopesBegin:
+    - keyword.operator.expansion
+- source: '*'
+  scopesEnd:
+    - keyword.operator.expansion
 - source: \'
   scopes:
     - constant.character.escape
@@ -31622,7 +32807,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'list[@]'
+- source: list
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -31682,7 +32874,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'list[@]'
+- source: list
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -31736,7 +32935,17 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '#list[@]'
+- source: '#'
+  scopes:
+    - keyword.operator.expansion
+- source: list
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -31784,7 +32993,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'list[@]'
+- source: list
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -31835,7 +33051,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'list[@]'
+- source: list
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -32028,7 +33251,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: i##*/
+- source: i
+- source: '##'
+  scopesBegin:
+    - keyword.operator.expansion
+- source: '*'
+- source: /
+  scopesEnd:
+    - keyword.operator.expansion
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -32389,7 +33619,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: i##*/
+- source: i
+- source: '##'
+  scopesBegin:
+    - keyword.operator.expansion
+- source: '*'
+- source: /
+  scopesEnd:
+    - keyword.operator.expansion
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -33204,7 +34441,18 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: UNAME/CYGWIN_*/Cygwin
+- source: UNAME
+- source: /
+  scopes:
+    - keyword.operator.expansion
+- source: CYGWIN_
+- source: '*'
+  scopesBegin:
+    - keyword.operator.expansion
+- source: /
+  scopesEnd:
+    - keyword.operator.expansion
+- source: Cygwin
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -36245,11 +37493,19 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 1//
+- source: '1'
+- source: /
+  scopesBegin:
+    - keyword.operator.expansion
+- source: /
+  scopesEnd:
+    - keyword.operator.expansion
 - source: \'
   scopes:
     - constant.character.escape
 - source: /
+  scopes:
+    - keyword.operator.expansion
 - source: \'
   scopesBegin:
     - constant.character.escape
@@ -36775,7 +38031,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'FUNCNAME[0]'
+- source: FUNCNAME
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '0'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -36787,7 +38050,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'FUNCNAME[0]'
+- source: FUNCNAME
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '0'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -36922,7 +38192,11 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 1#-a
+- source: '1'
+- source: '#'
+  scopes:
+    - keyword.operator.expansion
+- source: '-a'
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -36968,7 +38242,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'FUNCNAME[0]'
+- source: FUNCNAME
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '0'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -37059,7 +38340,11 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 1#-a
+- source: '1'
+- source: '#'
+  scopes:
+    - keyword.operator.expansion
+- source: '-a'
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -37124,7 +38409,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'FUNCNAME[0]'
+- source: FUNCNAME
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '0'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -37298,7 +38590,11 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 1#-a
+- source: '1'
+- source: '#'
+  scopes:
+    - keyword.operator.expansion
+- source: '-a'
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -37337,7 +38633,11 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 1#-a
+- source: '1'
+- source: '#'
+  scopes:
+    - keyword.operator.expansion
+- source: '-a'
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -37384,7 +38684,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'FUNCNAME[0]'
+- source: FUNCNAME
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '0'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -37650,7 +38957,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'FUNCNAME[0]'
+- source: FUNCNAME
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '0'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -37753,7 +39067,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'FUNCNAME[0]'
+- source: FUNCNAME
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '0'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -37946,15 +39267,20 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '1//[^'
-- source: $
+- source: '1'
+- source: /
+  scopesBegin:
+    - keyword.operator.expansion
+- source: /
+  scopesEnd:
+    - keyword.operator.expansion
+- source: '['
   scopes:
-    - punctuation.definition.variable
-    - variable.other.normal
-- source: COMP_WORDBREAKS
-  scopes:
-    - variable.other.normal
+    - punctuation.section.array
+- source: ^$COMP_WORDBREAKS
 - source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -38089,7 +39415,17 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '#COMP_WORDS[@]'
+- source: '#'
+  scopes:
+    - keyword.operator.expansion
+- source: COMP_WORDS
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -38164,15 +39500,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'COMP_WORDS['
-- source: $
+- source: COMP_WORDS
+- source: '['
   scopes:
-    - punctuation.definition.variable
-    - variable.other.normal
-- source: i
-  scopes:
-    - variable.other.normal
+    - punctuation.section.array
+- source: $i
 - source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -38186,23 +39521,27 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'COMP_WORDS['
-- source: $
+- source: COMP_WORDS
+- source: '['
   scopes:
-    - punctuation.definition.variable
-    - variable.other.normal
-- source: i
-  scopes:
-    - variable.other.normal
-- source: ']//[^'
-- source: $
-  scopes:
-    - punctuation.definition.variable
-    - variable.other.normal
-- source: exclude
-  scopes:
-    - variable.other.normal
+    - punctuation.section.array
+- source: $i
 - source: ']'
+  scopes:
+    - punctuation.section.array
+- source: /
+  scopesBegin:
+    - keyword.operator.expansion
+- source: /
+  scopesEnd:
+    - keyword.operator.expansion
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: ^$exclude
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -38216,15 +39555,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'COMP_WORDS['
-- source: $
+- source: COMP_WORDS
+- source: '['
   scopes:
-    - punctuation.definition.variable
-    - variable.other.normal
-- source: i
-  scopes:
-    - variable.other.normal
+    - punctuation.section.array
+- source: $i
 - source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -38509,7 +39847,17 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '#COMP_WORDS[@]'
+- source: '#'
+  scopes:
+    - keyword.operator.expansion
+- source: COMP_WORDS
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -39107,7 +40455,10 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '#cur'
+- source: '#'
+  scopes:
+    - keyword.operator.expansion
+- source: cur
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -39126,7 +40477,17 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '#words[i]'
+- source: '#'
+  scopes:
+    - keyword.operator.expansion
+- source: words
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: i
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -39153,7 +40514,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'cur:0:'
+- source: cur
+- source: ':'
+  scopes:
+    - keyword.operator.expansion
+- source: '0'
+- source: ':'
+  scopes:
+    - keyword.operator.expansion
 - source: $
   scopes:
     - punctuation.definition.variable
@@ -39161,7 +40529,17 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '#words[i]'
+- source: '#'
+  scopes:
+    - keyword.operator.expansion
+- source: words
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: i
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopesBegin:
     - punctuation.section.bracket.curly.variable.end
@@ -39188,7 +40566,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'words[i]'
+- source: words
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: i
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -39236,7 +40621,11 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'cur:1'
+- source: cur
+- source: ':'
+  scopes:
+    - keyword.operator.expansion
+- source: '1'
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -39372,7 +40761,10 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '#cur'
+- source: '#'
+  scopes:
+    - keyword.operator.expansion
+- source: cur
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -39403,7 +40795,10 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: cur#
+- source: cur
+- source: '#'
+  scopes:
+    - keyword.operator.expansion
 - source: $
   scopes:
     - punctuation.definition.variable
@@ -39411,7 +40806,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'words[i]'
+- source: words
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: i
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopesBegin:
     - punctuation.section.bracket.curly.variable.end
@@ -39447,7 +40849,10 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '#cur'
+- source: '#'
+  scopes:
+    - keyword.operator.expansion
+- source: cur
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -39518,7 +40923,21 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'words[cword]:0:'
+- source: words
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: cword
+- source: ']'
+  scopes:
+    - punctuation.section.array
+- source: ':'
+  scopes:
+    - keyword.operator.expansion
+- source: '0'
+- source: ':'
+  scopes:
+    - keyword.operator.expansion
 - source: $
   scopes:
     - punctuation.definition.variable
@@ -39526,7 +40945,10 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '#cur'
+- source: '#'
+  scopes:
+    - keyword.operator.expansion
+- source: cur
 - source: '}'
   scopesBegin:
     - punctuation.section.bracket.curly.variable.end
@@ -39592,7 +41014,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'words[cword]'
+- source: words
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: cword
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -39616,7 +41045,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'cur:0:'
+- source: cur
+- source: ':'
+  scopes:
+    - keyword.operator.expansion
+- source: '0'
+- source: ':'
+  scopes:
+    - keyword.operator.expansion
 - source: $
   scopes:
     - punctuation.definition.variable
@@ -39709,7 +41145,17 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '#words[@]'
+- source: '#'
+  scopes:
+    - keyword.operator.expansion
+- source: words
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -39736,7 +41182,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'words[@]'
+- source: words
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -40316,7 +41769,10 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '!OPTIND'
+- source: '!'
+  scopes:
+    - keyword.operator.expansion
+- source: OPTIND
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -40475,7 +41931,10 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '!OPTIND'
+- source: '!'
+  scopes:
+    - keyword.operator.expansion
+- source: OPTIND
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -40950,7 +42409,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'words[cword - 1]'
+- source: words
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: cword - 1
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -41073,7 +42539,17 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '#words[@]'
+- source: '#'
+  scopes:
+    - keyword.operator.expansion
+- source: words
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -41099,7 +42575,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'words[@]'
+- source: words
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -41138,7 +42621,17 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '#upvars[@]'
+- source: '#'
+  scopes:
+    - keyword.operator.expansion
+- source: upvars
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -41170,7 +42663,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'upvars[@]'
+- source: upvars
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -41202,7 +42702,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'upargs[@]'
+- source: upargs
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -41377,7 +42884,23 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '2//[^0-9]/'
+- source: '2'
+- source: /
+  scopesBegin:
+    - keyword.operator.expansion
+- source: /
+  scopesEnd:
+    - keyword.operator.expansion
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: ^0-9
+- source: ']'
+  scopes:
+    - punctuation.section.array
+- source: /
+  scopes:
+    - keyword.operator.expansion
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -41418,15 +42941,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'words[cword-'
-- source: $
+- source: words
+- source: '['
   scopes:
-    - punctuation.definition.variable
-    - variable.parameter.positional
-- source: '2'
-  scopes:
-    - variable.parameter.positional
+    - punctuation.section.array
+- source: cword-$2
 - source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -41457,7 +42979,17 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '#words[cword]'
+- source: '#'
+  scopes:
+    - keyword.operator.expansion
+- source: words
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: cword
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -41507,7 +43039,10 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '#COMP_LINE'
+- source: '#'
+  scopes:
+    - keyword.operator.expansion
+- source: COMP_LINE
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -41553,7 +43088,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'words[cword]'
+- source: words
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: cword
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -41699,7 +43241,10 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '#cur'
+- source: '#'
+  scopes:
+    - keyword.operator.expansion
+- source: cur
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -41718,7 +43263,17 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '#words[i]'
+- source: '#'
+  scopes:
+    - keyword.operator.expansion
+- source: words
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: i
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -41745,7 +43300,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'cur:0:'
+- source: cur
+- source: ':'
+  scopes:
+    - keyword.operator.expansion
+- source: '0'
+- source: ':'
+  scopes:
+    - keyword.operator.expansion
 - source: $
   scopes:
     - punctuation.definition.variable
@@ -41753,7 +43315,17 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '#words[i]'
+- source: '#'
+  scopes:
+    - keyword.operator.expansion
+- source: words
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: i
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopesBegin:
     - punctuation.section.bracket.curly.variable.end
@@ -41780,7 +43352,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'words[i]'
+- source: words
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: i
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -41828,7 +43407,11 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'cur:1'
+- source: cur
+- source: ':'
+  scopes:
+    - keyword.operator.expansion
+- source: '1'
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -41964,7 +43547,10 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '#cur'
+- source: '#'
+  scopes:
+    - keyword.operator.expansion
+- source: cur
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -41995,7 +43581,10 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: cur#
+- source: cur
+- source: '#'
+  scopes:
+    - keyword.operator.expansion
 - source: $
   scopes:
     - punctuation.definition.variable
@@ -42003,7 +43592,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'words[i]'
+- source: words
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: i
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopesBegin:
     - punctuation.section.bracket.curly.variable.end
@@ -42039,7 +43635,10 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '#cur'
+- source: '#'
+  scopes:
+    - keyword.operator.expansion
+- source: cur
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -42110,7 +43709,21 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'words[cword]:0:'
+- source: words
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: cword
+- source: ']'
+  scopes:
+    - punctuation.section.array
+- source: ':'
+  scopes:
+    - keyword.operator.expansion
+- source: '0'
+- source: ':'
+  scopes:
+    - keyword.operator.expansion
 - source: $
   scopes:
     - punctuation.definition.variable
@@ -42118,7 +43731,10 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '#cur'
+- source: '#'
+  scopes:
+    - keyword.operator.expansion
+- source: cur
 - source: '}'
   scopesBegin:
     - punctuation.section.bracket.curly.variable.end
@@ -42199,7 +43815,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'words[cword]'
+- source: words
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: cword
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -42239,7 +43862,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'cur:0:'
+- source: cur
+- source: ':'
+  scopes:
+    - keyword.operator.expansion
+- source: '0'
+- source: ':'
+  scopes:
+    - keyword.operator.expansion
 - source: $
   scopes:
     - punctuation.definition.variable
@@ -42374,7 +44004,12 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '@:-'
+- source: '@'
+  scopesBegin:
+    - keyword.operator.expansion
+- source: ':-'
+  scopesEnd:
+    - keyword.operator.expansion
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -42548,7 +44183,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'BASH_VERSINFO[0]'
+- source: BASH_VERSINFO
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '0'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -42569,7 +44211,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'BASH_VERSINFO[0]'
+- source: BASH_VERSINFO
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '0'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -42648,7 +44297,10 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 1%
+- source: '1'
+- source: '%'
+  scopes:
+    - keyword.operator.expansion
 - source: $
   scopes:
     - punctuation.definition.variable
@@ -42656,7 +44308,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '1##*:'
+- source: '1'
+- source: '##'
+  scopesBegin:
+    - keyword.operator.expansion
+- source: '*'
+- source: ':'
+  scopesEnd:
+    - keyword.operator.expansion
 - source: '}'
   scopesBegin:
     - punctuation.section.bracket.curly.variable.end
@@ -42680,7 +44339,17 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '#COMPREPLY[*]'
+- source: '#'
+  scopes:
+    - keyword.operator.expansion
+- source: COMPREPLY
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '*'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -42757,15 +44426,17 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'COMPREPLY['
-- source: $
+- source: COMPREPLY
+- source: '['
   scopes:
-    - punctuation.definition.variable
-    - variable.other.normal
-- source: i
+    - punctuation.section.array
+- source: $i
+- source: ']'
   scopes:
-    - variable.other.normal
-- source: ']#'
+    - punctuation.section.array
+- source: '#'
+  scopes:
+    - keyword.operator.expansion
 - source: '"'
   scopesBegin:
     - string.quoted.double
@@ -42957,7 +44628,15 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '1:0:1'
+- source: '1'
+- source: ':'
+  scopes:
+    - keyword.operator.expansion
+- source: '0'
+- source: ':'
+  scopes:
+    - keyword.operator.expansion
+- source: '1'
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -43003,7 +44682,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'BASH_VERSINFO[0]'
+- source: BASH_VERSINFO
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '0'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -43072,7 +44758,11 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '1:1'
+- source: '1'
+- source: ':'
+  scopes:
+    - keyword.operator.expansion
+- source: '1'
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -43134,7 +44824,11 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '1:1'
+- source: '1'
+- source: ':'
+  scopes:
+    - keyword.operator.expansion
+- source: '1'
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -43187,7 +44881,10 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '!2'
+- source: '!'
+  scopes:
+    - keyword.operator.expansion
+- source: '2'
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -43213,7 +44910,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'BASH_VERSINFO[0]'
+- source: BASH_VERSINFO
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '0'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -43233,7 +44937,15 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '1:0:1'
+- source: '1'
+- source: ':'
+  scopes:
+    - keyword.operator.expansion
+- source: '0'
+- source: ':'
+  scopes:
+    - keyword.operator.expansion
+- source: '1'
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -43302,7 +45014,11 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '1:1'
+- source: '1'
+- source: ':'
+  scopes:
+    - keyword.operator.expansion
+- source: '1'
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -43402,7 +45118,18 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '!2:0:1'
+- source: '!'
+  scopes:
+    - keyword.operator.expansion
+- source: '2'
+- source: ':'
+  scopes:
+    - keyword.operator.expansion
+- source: '0'
+- source: ':'
+  scopes:
+    - keyword.operator.expansion
+- source: '1'
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -43457,7 +45184,10 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '!2'
+- source: '!'
+  scopes:
+    - keyword.operator.expansion
+- source: '2'
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -43806,7 +45536,15 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'toks[@]-'
+- source: toks
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
+- source: '-'
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -44021,7 +45759,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'BASH_VERSINFO[0]'
+- source: BASH_VERSINFO
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '0'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -44065,7 +45810,11 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '1:+'
+- source: '1'
+- source: ':'
+  scopes:
+    - keyword.operator.expansion
+- source: +
 - source: '"'
   scopesBegin:
     - string.quoted.double
@@ -44128,7 +45877,11 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '1:+'
+- source: '1'
+- source: ':'
+  scopes:
+    - keyword.operator.expansion
+- source: +
 - source: '"'
   scopesBegin:
     - string.quoted.double
@@ -44229,7 +45982,15 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'toks[@]-'
+- source: toks
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
+- source: '-'
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -44328,7 +46089,17 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '#toks[@]'
+- source: '#'
+  scopes:
+    - keyword.operator.expansion
+- source: toks
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -44378,7 +46149,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'COMPREPLY[@]'
+- source: COMPREPLY
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -44401,7 +46179,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'toks[@]'
+- source: toks
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -44547,11 +46332,21 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: cur%%?(
+- source: cur
+- source: '%'
+  scopesBegin:
+    - keyword.operator.expansion
+- source: '%'
+  scopesEnd:
+    - keyword.operator.expansion
+- source: '?('
 - source: \\
   scopes:
     - constant.character.escape
-- source: )=*
+- source: )=
+- source: '*'
+  scopes:
+    - keyword.operator.expansion
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -44578,7 +46373,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: cur#*=
+- source: cur
+- source: '#'
+  scopesBegin:
+    - keyword.operator.expansion
+- source: '*'
+  scopesEnd:
+    - keyword.operator.expansion
+- source: '='
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -44670,7 +46472,11 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '2:---help'
+- source: '2'
+- source: ':-'
+  scopes:
+    - keyword.operator.expansion
+- source: '--help'
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -44906,7 +46712,11 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: cur#-
+- source: cur
+- source: '#'
+  scopes:
+    - keyword.operator.expansion
+- source: '-'
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -44953,7 +46763,17 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '#COMPREPLY[@]'
+- source: '#'
+  scopes:
+    - keyword.operator.expansion
+- source: COMPREPLY
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -44995,7 +46815,18 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'COMPREPLY[i]#SIG'
+- source: COMPREPLY
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: i
+- source: ']'
+  scopes:
+    - punctuation.section.array
+- source: '#'
+  scopes:
+    - keyword.operator.expansion
+- source: SIG
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -45125,7 +46956,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'COMPREPLY[@]'
+- source: COMPREPLY
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -45257,7 +47095,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'COMPREPLY[@]'
+- source: COMPREPLY
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -45424,7 +47269,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'COMPREPLY[@]'
+- source: COMPREPLY
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -46587,7 +48439,10 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '1:-'
+- source: '1'
+- source: ':-'
+  scopes:
+    - keyword.operator.expansion
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -46653,7 +48508,10 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '1:-'
+- source: '1'
+- source: ':-'
+  scopes:
+    - keyword.operator.expansion
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -46994,7 +48852,15 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '1:0:1'
+- source: '1'
+- source: ':'
+  scopes:
+    - keyword.operator.expansion
+- source: '0'
+- source: ':'
+  scopes:
+    - keyword.operator.expansion
+- source: '1'
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -47032,7 +48898,13 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 1//
+- source: '1'
+- source: /
+  scopesBegin:
+    - keyword.operator.expansion
+- source: /
+  scopesEnd:
+    - keyword.operator.expansion
 - source: \/
   scopes:
     - constant.character.escape
@@ -47133,7 +49005,10 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 1#
+- source: '1'
+- source: '#'
+  scopes:
+    - keyword.operator.expansion
 - source: \~
   scopes:
     - constant.character.escape
@@ -47171,7 +49046,17 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '#COMPREPLY[@]'
+- source: '#'
+  scopes:
+    - keyword.operator.expansion
+- source: COMPREPLY
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -47334,7 +49219,18 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '!1:0:1'
+- source: '!'
+  scopes:
+    - keyword.operator.expansion
+- source: '1'
+- source: ':'
+  scopes:
+    - keyword.operator.expansion
+- source: '0'
+- source: ':'
+  scopes:
+    - keyword.operator.expansion
+- source: '1'
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -47398,7 +49294,10 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '!1'
+- source: '!'
+  scopes:
+    - keyword.operator.expansion
+- source: '1'
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -47422,7 +49321,16 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '!1//'
+- source: '!'
+  scopes:
+    - keyword.operator.expansion
+- source: '1'
+- source: /
+  scopesBegin:
+    - keyword.operator.expansion
+- source: /
+  scopesEnd:
+    - keyword.operator.expansion
 - source: \/
   scopes:
     - constant.character.escape
@@ -47501,11 +49409,22 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '!1/%'
+- source: '!'
+  scopes:
+    - keyword.operator.expansion
+- source: '1'
+- source: /
+  scopesBegin:
+    - keyword.operator.expansion
+- source: '%'
+  scopesEnd:
+    - keyword.operator.expansion
 - source: \/
   scopes:
     - constant.character.escape
 - source: '*'
+  scopes:
+    - keyword.operator.expansion
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -47567,7 +49486,10 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '!1'
+- source: '!'
+  scopes:
+    - keyword.operator.expansion
+- source: '1'
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -47784,7 +49706,10 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: cur#
+- source: cur
+- source: '#'
+  scopes:
+    - keyword.operator.expansion
 - source: \~
   scopes:
     - constant.character.escape
@@ -47892,7 +49817,17 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '#COMPREPLY[@]'
+- source: '#'
+  scopes:
+    - keyword.operator.expansion
+- source: COMPREPLY
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -47929,7 +49864,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'COMPREPLY[0]'
+- source: COMPREPLY
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '0'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -47946,7 +49888,17 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '#COMPREPLY[@]'
+- source: '#'
+  scopes:
+    - keyword.operator.expansion
+- source: COMPREPLY
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -49941,7 +51893,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'COMPREPLY[@]'
+- source: COMPREPLY
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -50310,47 +52269,11 @@
 - source: '''s/'
   scopes:
     - punctuation.section.regexp
-- source: ^
-  scopes:
-    - keyword.control.anchor.regexp
-- source: \
-- source: (
-  scopesBegin:
-    - meta.group.regexp
-  scopes:
-    - punctuation.definition.group.regexp
-- source: .
-- source: '*'
-  scopes:
-    - keyword.operator.quantifier.regexp
-- source: \
-- source: )
-  scopes:
-    - punctuation.definition.group.regexp
-  scopesEnd:
-    - meta.group.regexp
-- source: '\.k\{0,1\}o\'
-- source: (
-  scopesBegin:
-    - meta.group.regexp
-  scopes:
-    - punctuation.definition.group.regexp
-- source: \.gz\
-- source: )
-  scopes:
-    - punctuation.definition.group.regexp
-  scopesEnd:
-    - meta.group.regexp
-- source: '\{0,1\}'
-- source: $
-  scopes:
-    - keyword.control.anchor.regexp
+- source: '^\(.*\)\.k\{0,1\}o\(\.gz\)\{0,1\}$'
 - source: /
   scopes:
     - punctuation.section.regexp
 - source: \1
-  scopes:
-    - keyword.other.back-reference.regexp
 - source: /p'
   scopes:
     - punctuation.section.regexp
@@ -50805,7 +52728,23 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'cur%%*([^:])'
+- source: cur
+- source: '%'
+  scopesBegin:
+    - keyword.operator.expansion
+- source: '%'
+- source: '*'
+  scopesEnd:
+    - keyword.operator.expansion
+- source: (
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '^:'
+- source: ']'
+  scopes:
+    - punctuation.section.array
+- source: )
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -50822,7 +52761,13 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: prefix//
+- source: prefix
+- source: /
+  scopesBegin:
+    - keyword.operator.expansion
+- source: /
+  scopesEnd:
+    - keyword.operator.expansion
 - source: \\
   scopes:
     - constant.character.escape
@@ -50854,7 +52799,20 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'cur#*[:]'
+- source: cur
+- source: '#'
+  scopesBegin:
+    - keyword.operator.expansion
+- source: '*'
+  scopesEnd:
+    - keyword.operator.expansion
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: ':'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -51108,7 +53066,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'COMPREPLY[@]'
+- source: COMPREPLY
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -51206,7 +53171,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'cur#*:'
+- source: cur
+- source: '#'
+  scopesBegin:
+    - keyword.operator.expansion
+- source: '*'
+- source: ':'
+  scopesEnd:
+    - keyword.operator.expansion
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -51692,7 +53664,10 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '1:-'
+- source: '1'
+- source: ':-'
+  scopes:
+    - keyword.operator.expansion
 - source: $
   scopes:
     - punctuation.definition.variable
@@ -51883,7 +53858,10 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '1:-'
+- source: '1'
+- source: ':-'
+  scopes:
+    - keyword.operator.expansion
 - source: $
   scopes:
     - punctuation.definition.variable
@@ -52292,7 +54270,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'COMPREPLY[@]'
+- source: COMPREPLY
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -52846,7 +54831,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'COMPREPLY[@]'
+- source: COMPREPLY
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -53355,7 +55347,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'COMP_WORDS[i]'
+- source: COMP_WORDS
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: i
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -53397,7 +55396,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'COMP_WORDS[i]'
+- source: COMP_WORDS
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: i
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -53534,7 +55540,22 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'words[@]:1:cword-1'
+- source: words
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
+- source: ':'
+  scopes:
+    - keyword.operator.expansion
+- source: '1'
+- source: ':'
+  scopes:
+    - keyword.operator.expansion
+- source: cword-1
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -53688,7 +55709,17 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'COMPREPLY[@]:-'
+- source: COMPREPLY
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
+- source: ':-'
+  scopes:
+    - keyword.operator.expansion
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -53884,7 +55915,17 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'COMPREPLY[@]:-'
+- source: COMPREPLY
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
+- source: ':-'
+  scopes:
+    - keyword.operator.expansion
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -54082,7 +56123,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'COMPREPLY[@]'
+- source: COMPREPLY
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -54161,7 +56209,17 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'cur:-/dev/'
+- source: cur
+- source: ':-'
+  scopesBegin:
+    - keyword.operator.expansion
+- source: /
+  scopesEnd:
+    - keyword.operator.expansion
+- source: dev
+- source: /
+  scopes:
+    - keyword.operator.expansion
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -54239,7 +56297,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'COMPREPLY[@]'
+- source: COMPREPLY
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -54318,7 +56383,17 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'cur:-/dev/'
+- source: cur
+- source: ':-'
+  scopesBegin:
+    - keyword.operator.expansion
+- source: /
+  scopesEnd:
+    - keyword.operator.expansion
+- source: dev
+- source: /
+  scopes:
+    - keyword.operator.expansion
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -55447,7 +57522,10 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '!OPTIND'
+- source: '!'
+  scopes:
+    - keyword.operator.expansion
+- source: OPTIND
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -55613,7 +57691,10 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '!OPTIND'
+- source: '!'
+  scopes:
+    - keyword.operator.expansion
+- source: OPTIND
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -55690,7 +57771,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: cur%@*
+- source: cur
+- source: '%'
+  scopesBegin:
+    - keyword.operator.expansion
+- source: '@'
+- source: '*'
+  scopesEnd:
+    - keyword.operator.expansion
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -55715,7 +57803,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: cur#*@
+- source: cur
+- source: '#'
+  scopesBegin:
+    - keyword.operator.expansion
+- source: '*'
+- source: '@'
+  scopesEnd:
+    - keyword.operator.expansion
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -55845,7 +57940,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'config[@]'
+- source: config
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -56003,7 +58105,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'config[@]'
+- source: config
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -56074,7 +58183,17 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '#config[@]'
+- source: '#'
+  scopes:
+    - keyword.operator.expansion
+- source: config
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -56221,7 +58340,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'config[@]'
+- source: config
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -56286,7 +58412,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'tmpkh[@]'
+- source: tmpkh
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -56324,7 +58457,13 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: i//
+- source: i
+- source: /
+  scopesBegin:
+    - keyword.operator.expansion
+- source: /
+  scopesEnd:
+    - keyword.operator.expansion
 - source: \"
   scopes:
     - constant.character.escape
@@ -56411,7 +58550,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'kh[@]'
+- source: kh
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -56619,7 +58765,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'kh[@]'
+- source: kh
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -56719,7 +58872,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'khd[@]'
+- source: khd
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -56787,7 +58947,17 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '#kh[@]'
+- source: '#'
+  scopes:
+    - keyword.operator.expansion
+- source: kh
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -56807,7 +58977,17 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '#khd[@]'
+- source: '#'
+  scopes:
+    - keyword.operator.expansion
+- source: khd
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -56851,11 +59031,19 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: cur//
+- source: cur
+- source: /
+  scopesBegin:
+    - keyword.operator.expansion
+- source: /
+  scopesEnd:
+    - keyword.operator.expansion
 - source: \/
   scopes:
     - constant.character.escape
 - source: /
+  scopes:
+    - keyword.operator.expansion
 - source: \\
   scopesBegin:
     - constant.character.escape
@@ -56878,11 +59066,19 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: awkcur//
+- source: awkcur
+- source: /
+  scopesBegin:
+    - keyword.operator.expansion
+- source: /
+  scopesEnd:
+    - keyword.operator.expansion
 - source: \.
   scopes:
     - constant.character.escape
 - source: /
+  scopes:
+    - keyword.operator.expansion
 - source: \\
   scopesBegin:
     - constant.character.escape
@@ -57232,7 +59428,17 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '#kh[@]'
+- source: '#'
+  scopes:
+    - keyword.operator.expansion
+- source: kh
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -57288,7 +59494,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'COMPREPLY[@]'
+- source: COMPREPLY
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -57365,7 +59578,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'kh[@]'
+- source: kh
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -57413,7 +59633,17 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '#khd[@]'
+- source: '#'
+  scopes:
+    - keyword.operator.expansion
+- source: khd
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -57477,7 +59707,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'khd[@]'
+- source: khd
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -57586,7 +59823,18 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: i/#*key_22_/
+- source: i
+- source: /
+  scopesBegin:
+    - keyword.operator.expansion
+- source: '#'
+- source: '*'
+  scopesEnd:
+    - keyword.operator.expansion
+- source: key_22_
+- source: /
+  scopes:
+    - keyword.operator.expansion
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -57603,7 +59851,17 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: host/%.pub/
+- source: host
+- source: /
+  scopesBegin:
+    - keyword.operator.expansion
+- source: '%'
+  scopesEnd:
+    - keyword.operator.expansion
+- source: .pub
+- source: /
+  scopes:
+    - keyword.operator.expansion
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -57632,7 +59890,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'COMPREPLY[@]'
+- source: COMPREPLY
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -57708,7 +59973,17 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '#COMPREPLY[@]'
+- source: '#'
+  scopes:
+    - keyword.operator.expansion
+- source: COMPREPLY
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -57764,7 +60039,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'COMPREPLY[i]'
+- source: COMPREPLY
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: i
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -57813,7 +60095,17 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '#config[@]'
+- source: '#'
+  scopes:
+    - keyword.operator.expansion
+- source: config
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -57891,150 +60183,12 @@
 - source: '''s/'
   scopes:
     - punctuation.section.regexp
-- source: ^
-  scopes:
-    - keyword.control.anchor.regexp
-- source: '[[:blank:]]'
-  scopes:
-    - punctuation.definition.character-class.named.regexp
-- source: '*'
-  scopes:
-    - keyword.operator.quantifier.regexp
-- source: '['
-  scopesBegin:
-    - constant.other.character-class.set.regexp
-  scopes:
-    - punctuation.definition.character-class.regexp
-- source: Hh
-- source: ']'
-  scopesBegin:
-    - punctuation.definition.character-class.regexp
-- source: '['
-  scopesEnd:
-    - punctuation.definition.character-class.regexp
-- source: Oo
-- source: ']'
-  scopesBegin:
-    - punctuation.definition.character-class.regexp
-- source: '['
-  scopesEnd:
-    - punctuation.definition.character-class.regexp
-- source: Ss
-- source: ']'
-  scopesBegin:
-    - punctuation.definition.character-class.regexp
-- source: '['
-  scopesEnd:
-    - punctuation.definition.character-class.regexp
-- source: Tt
-- source: ']'
-  scopes:
-    - punctuation.definition.character-class.regexp
-  scopesEnd:
-    - constant.other.character-class.set.regexp
-- source: \
-- source: (
-  scopesBegin:
-    - meta.group.regexp
-  scopes:
-    - punctuation.definition.group.regexp
-- source: '['
-  scopesBegin:
-    - constant.other.character-class.set.regexp
-  scopes:
-    - punctuation.definition.character-class.regexp
-- source: Nn
-- source: ']'
-  scopesBegin:
-    - punctuation.definition.character-class.regexp
-- source: '['
-  scopesEnd:
-    - punctuation.definition.character-class.regexp
-- source: Aa
-- source: ']'
-  scopesBegin:
-    - punctuation.definition.character-class.regexp
-- source: '['
-  scopesEnd:
-    - punctuation.definition.character-class.regexp
-- source: Mm
-- source: ']'
-  scopesBegin:
-    - punctuation.definition.character-class.regexp
-- source: '['
-  scopesEnd:
-    - punctuation.definition.character-class.regexp
-- source: Ee
-- source: ']'
-  scopes:
-    - punctuation.definition.character-class.regexp
-  scopesEnd:
-    - constant.other.character-class.set.regexp
-- source: \
-- source: )
-  scopes:
-    - punctuation.definition.group.regexp
-  scopesEnd:
-    - meta.group.regexp
-- source: '\{0,1\}'
-- source: '[[:blank:]]'
-  scopes:
-    - punctuation.definition.character-class.named.regexp
-- source: '\{1,\}\'
-- source: (
-  scopesBegin:
-    - meta.group.regexp
-  scopes:
-    - punctuation.definition.group.regexp
-- source: '['
-  scopesBegin:
-    - constant.other.character-class.set.regexp
-  scopes:
-    - punctuation.definition.character-class.regexp
-- source: ^
-  scopes:
-    - keyword.operator.negation.regexp
-- source: '#*?'
-- source: ']'
-  scopes:
-    - punctuation.definition.character-class.regexp
-  scopesEnd:
-    - constant.other.character-class.set.regexp
-- source: '*'
-  scopes:
-    - keyword.operator.quantifier.regexp
-- source: \
-- source: )
-  scopes:
-    - punctuation.definition.group.regexp
-  scopesEnd:
-    - meta.group.regexp
-- source: \
-- source: (
-  scopesBegin:
-    - meta.group.regexp
-  scopes:
-    - punctuation.definition.group.regexp
-- source: '#.'
-- source: '*'
-  scopes:
-    - keyword.operator.quantifier.regexp
-- source: \
-- source: )
-  scopes:
-    - punctuation.definition.group.regexp
-  scopesEnd:
-    - meta.group.regexp
-- source: '\{0,1\}'
-- source: $
-  scopes:
-    - keyword.control.anchor.regexp
+- source: >-
+    ^[[:blank:]]*[Hh][Oo][Ss][Tt]\([Nn][Aa][Mm][Ee]\)\{0,1\}[[:blank:]]\{1,\}\([^#*?]*\)\(#.*\)\{0,1\}$
 - source: /
   scopes:
     - punctuation.section.regexp
 - source: \2
-  scopes:
-    - keyword.other.back-reference.regexp
 - source: /p'
   scopes:
     - punctuation.section.regexp
@@ -58051,7 +60205,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'config[@]'
+- source: config
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -58096,7 +60257,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'COMPREPLY[@]'
+- source: COMPREPLY
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -58280,7 +60448,10 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'COMP_KNOWN_HOSTS_WITH_AVAHI:-'
+- source: COMP_KNOWN_HOSTS_WITH_AVAHI
+- source: ':-'
+  scopes:
+    - keyword.operator.expansion
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -58373,7 +60544,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'COMPREPLY[@]'
+- source: COMPREPLY
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -58726,7 +60904,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'COMPREPLY[@]'
+- source: COMPREPLY
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -59211,7 +61396,11 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: cur#?(
+- source: cur
+- source: '#'
+  scopes:
+    - keyword.operator.expansion
+- source: '?('
 - source: \\
   scopes:
     - constant.character.escape
@@ -59296,7 +61485,10 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'CDPATH:-'
+- source: CDPATH
+- source: ':-'
+  scopes:
+    - keyword.operator.expansion
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -59521,7 +61713,15 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'CDPATH//:/'
+- source: CDPATH
+- source: /
+  scopesBegin:
+    - keyword.operator.expansion
+- source: /
+- source: ':'
+- source: /
+  scopesEnd:
+    - keyword.operator.expansion
 - source: $'
   scopesBegin:
     - string.quoted.single.dollar
@@ -59572,7 +61772,17 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '#COMPREPLY[@]'
+- source: '#'
+  scopes:
+    - keyword.operator.expansion
+- source: COMPREPLY
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -59715,7 +61925,10 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: j#
+- source: j
+- source: '#'
+  scopes:
+    - keyword.operator.expansion
 - source: $
   scopes:
     - punctuation.definition.variable
@@ -59724,6 +61937,8 @@
   scopes:
     - variable.other.normal
 - source: /
+  scopes:
+    - keyword.operator.expansion
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -59797,7 +62012,10 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: j#
+- source: j
+- source: '#'
+  scopes:
+    - keyword.operator.expansion
 - source: $
   scopes:
     - punctuation.definition.variable
@@ -59806,6 +62024,8 @@
   scopes:
     - variable.other.normal
 - source: /
+  scopes:
+    - keyword.operator.expansion
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -59855,7 +62075,17 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '#COMPREPLY[@]'
+- source: '#'
+  scopes:
+    - keyword.operator.expansion
+- source: COMPREPLY
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -59891,7 +62121,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'COMPREPLY[0]'
+- source: COMPREPLY
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '0'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -60269,7 +62506,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'COMP_WORDS[i]'
+- source: COMP_WORDS
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: i
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -60474,15 +62718,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'COMP_WORDS['
-- source: $
+- source: COMP_WORDS
+- source: '['
   scopes:
-    - punctuation.definition.variable
-    - variable.other.normal
-- source: word_offset
-  scopes:
-    - variable.other.normal
+    - punctuation.section.array
+- source: $word_offset
 - source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -60517,7 +62760,10 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '#COMP_LINE'
+- source: '#'
+  scopes:
+    - keyword.operator.expansion
+- source: COMP_LINE
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -60558,7 +62804,10 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'COMP_LINE:'
+- source: COMP_LINE
+- source: ':'
+  scopes:
+    - keyword.operator.expansion
 - source: $
   scopes:
     - punctuation.definition.variable
@@ -60567,6 +62816,8 @@
   scopes:
     - variable.other.normal
 - source: ':'
+  scopes:
+    - keyword.operator.expansion
 - source: $
   scopes:
     - punctuation.definition.variable
@@ -60574,7 +62825,10 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '#first_word'
+- source: '#'
+  scopes:
+    - keyword.operator.expansion
+- source: first_word
 - source: '}'
   scopesBegin:
     - punctuation.section.bracket.curly.variable.end
@@ -60664,7 +62918,10 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'COMP_LINE:'
+- source: COMP_LINE
+- source: ':'
+  scopes:
+    - keyword.operator.expansion
 - source: $
   scopes:
     - punctuation.definition.variable
@@ -60781,15 +63038,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'COMP_WORDS[i+'
-- source: $
+- source: COMP_WORDS
+- source: '['
   scopes:
-    - punctuation.definition.variable
-    - variable.other.normal
-- source: word_offset
-  scopes:
-    - variable.other.normal
+    - punctuation.section.array
+- source: i+$word_offset
 - source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -61036,7 +63292,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'COMP_WORDS[0]'
+- source: COMP_WORDS
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '0'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -61055,7 +63318,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: cmd##*/
+- source: cmd
+- source: '##'
+  scopesBegin:
+    - keyword.operator.expansion
+- source: '*'
+- source: /
+  scopesEnd:
+    - keyword.operator.expansion
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -61108,7 +63378,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: cmd##*/
+- source: cmd
+- source: '##'
+  scopesBegin:
+    - keyword.operator.expansion
+- source: '*'
+- source: /
+  scopesEnd:
+    - keyword.operator.expansion
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -61142,7 +63419,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'cspec#* -F '
+- source: cspec
+- source: '#'
+  scopesBegin:
+    - keyword.operator.expansion
+- source: '*'
+  scopesEnd:
+    - keyword.operator.expansion
+- source: ' -F '
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -61209,7 +63493,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'cspec#*-F '
+- source: cspec
+- source: '#'
+  scopesBegin:
+    - keyword.operator.expansion
+- source: '*'
+  scopesEnd:
+    - keyword.operator.expansion
+- source: '-F '
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -61226,7 +63517,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: func%% *
+- source: func
+- source: '%'
+  scopesBegin:
+    - keyword.operator.expansion
+- source: '%'
+- source: '*'
+  scopesEnd:
+    - keyword.operator.expansion
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -61249,7 +63547,17 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '#COMP_WORDS[@]'
+- source: '#'
+  scopes:
+    - keyword.operator.expansion
+- source: COMP_WORDS
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -61299,22 +63607,18 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'COMP_WORDS['
-- source: $
+- source: COMP_WORDS
+- source: '['
   scopes:
-    - punctuation.definition.variable
-    - punctuation.section.bracket.curly.variable.begin
-- source: '{'
+    - punctuation.section.array
+- source: '${#COMP_WORDS[@'
+- source: ']'
   scopes:
-    - punctuation.section.bracket.curly.variable.begin
-- source: '#COMP_WORDS[@]'
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
-- source: '-1]'
-- source: '}'
-  scopes:
-    - punctuation.section.bracket.curly.variable.end
+- source: '-1]}'
 - source: '"'
   scopes:
     - punctuation.definition.string.end
@@ -61328,22 +63632,18 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'COMP_WORDS['
-- source: $
+- source: COMP_WORDS
+- source: '['
   scopes:
-    - punctuation.definition.variable
-    - punctuation.section.bracket.curly.variable.begin
-- source: '{'
+    - punctuation.section.array
+- source: '${#COMP_WORDS[@'
+- source: ']'
   scopes:
-    - punctuation.section.bracket.curly.variable.begin
-- source: '#COMP_WORDS[@]'
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
-- source: '-2]'
-- source: '}'
-  scopes:
-    - punctuation.section.bracket.curly.variable.end
+- source: '-2]}'
 - source: '"'
   scopes:
     - punctuation.definition.string.end
@@ -61383,22 +63683,18 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'COMP_WORDS['
-- source: $
+- source: COMP_WORDS
+- source: '['
   scopes:
-    - punctuation.definition.variable
-    - punctuation.section.bracket.curly.variable.begin
-- source: '{'
+    - punctuation.section.array
+- source: '${#COMP_WORDS[@'
+- source: ']'
   scopes:
-    - punctuation.section.bracket.curly.variable.begin
-- source: '#COMP_WORDS[@]'
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
-- source: '-1]'
-- source: '}'
-  scopes:
-    - punctuation.section.bracket.curly.variable.end
+- source: '-1]}'
 - source: '"'
   scopes:
     - punctuation.definition.string.end
@@ -61449,7 +63745,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'cspec#*-o '
+- source: cspec
+- source: '#'
+  scopesBegin:
+    - keyword.operator.expansion
+- source: '*'
+  scopesEnd:
+    - keyword.operator.expansion
+- source: '-o '
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -61504,7 +63807,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'cspec#*-o '
+- source: cspec
+- source: '#'
+  scopesBegin:
+    - keyword.operator.expansion
+- source: '*'
+  scopesEnd:
+    - keyword.operator.expansion
+- source: '-o '
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -61521,7 +63831,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: cspec%% *
+- source: cspec
+- source: '%'
+  scopesBegin:
+    - keyword.operator.expansion
+- source: '%'
+- source: '*'
+  scopesEnd:
+    - keyword.operator.expansion
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -61618,14 +63935,33 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'COMPREPLY[@]//'
+- source: COMPREPLY
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
+- source: /
+  scopesBegin:
+    - keyword.operator.expansion
+- source: /
+  scopesEnd:
+    - keyword.operator.expansion
 - source: \\
   scopesBegin:
     - constant.character.escape
 - source: \\
   scopesEnd:
     - constant.character.escape
-- source: ':/:'
+- source: ':'
+  scopesBegin:
+    - keyword.operator.expansion
+- source: /
+- source: ':'
+  scopesEnd:
+    - keyword.operator.expansion
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -61711,7 +64047,11 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: cspec#complete
+- source: cspec
+- source: '#'
+  scopes:
+    - keyword.operator.expansion
+- source: complete
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -61731,7 +64071,13 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: cspec%%
+- source: cspec
+- source: '%'
+  scopesBegin:
+    - keyword.operator.expansion
+- source: '%'
+  scopesEnd:
+    - keyword.operator.expansion
 - source: $
   scopes:
     - punctuation.definition.variable
@@ -61739,7 +64085,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: cmd##*/
+- source: cmd
+- source: '##'
+  scopesBegin:
+    - keyword.operator.expansion
+- source: '*'
+- source: /
+  scopesEnd:
+    - keyword.operator.expansion
 - source: '}'
   scopesBegin:
     - punctuation.section.bracket.curly.variable.end
@@ -61861,7 +64214,17 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '#COMPREPLY[@]'
+- source: '#'
+  scopes:
+    - keyword.operator.expansion
+- source: COMPREPLY
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -62128,7 +64491,10 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'root_command:-'
+- source: root_command
+- source: ':-'
+  scopes:
+    - keyword.operator.expansion
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -62583,51 +64949,11 @@
 - source: '''s/'
   scopes:
     - punctuation.section.regexp
-- source: .
-- source: '*'
-  scopes:
-    - keyword.operator.quantifier.regexp
-- source: \
-- source: (
-  scopesBegin:
-    - meta.group.regexp
-  scopes:
-    - punctuation.definition.group.regexp
-- source: '--'
-- source: '['
-  scopesBegin:
-    - constant.other.character-class.set.regexp
-  scopes:
-    - punctuation.definition.character-class.regexp
-- source: '-'
-- source: A-Z
-  scopesBegin:
-    - constant.other.character-class.range.regexp
-- source: a-z
-- source: 0-9
-  scopesEnd:
-    - constant.other.character-class.range.regexp
-- source: ']'
-  scopes:
-    - punctuation.definition.character-class.regexp
-  scopesEnd:
-    - constant.other.character-class.set.regexp
-- source: '\{1,\}\'
-- source: )
-  scopes:
-    - punctuation.definition.group.regexp
-  scopesEnd:
-    - meta.group.regexp
-- source: .
-- source: '*'
-  scopes:
-    - keyword.operator.quantifier.regexp
+- source: '.*\(--[-A-Za-z0-9]\{1,\}\).*'
 - source: /
   scopes:
     - punctuation.section.regexp
 - source: \1
-  scopes:
-    - keyword.other.back-reference.regexp
 - source: /p'
   scopes:
     - punctuation.section.regexp
@@ -63164,7 +65490,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 1##*/
+- source: '1'
+- source: '##'
+  scopesBegin:
+    - keyword.operator.expansion
+- source: '*'
+- source: /
+  scopesEnd:
+    - keyword.operator.expansion
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -63236,7 +65569,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'xspec#*-X '
+- source: xspec
+- source: '#'
+  scopesBegin:
+    - keyword.operator.expansion
+- source: '*'
+  scopesEnd:
+    - keyword.operator.expansion
+- source: '-X '
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -63253,7 +65593,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: xspec%% *
+- source: xspec
+- source: '%'
+  scopesBegin:
+    - keyword.operator.expansion
+- source: '%'
+- source: '*'
+  scopesEnd:
+    - keyword.operator.expansion
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -63311,7 +65658,15 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'toks[@]-'
+- source: toks
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
+- source: '-'
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -63571,7 +65926,13 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: xspec#!
+- source: xspec
+- source: '#'
+  scopesBegin:
+    - keyword.operator.expansion
+- source: '!'
+  scopesEnd:
+    - keyword.operator.expansion
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -63607,7 +65968,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'BASH_VERSINFO[0]'
+- source: BASH_VERSINFO
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '0'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -63806,7 +66174,15 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'toks[@]-'
+- source: toks
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
+- source: '-'
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -64013,7 +66389,17 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '#toks[@]'
+- source: '#'
+  scopes:
+    - keyword.operator.expansion
+- source: toks
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -64063,7 +66449,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'toks[@]'
+- source: toks
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -64211,7 +66604,10 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: line#
+- source: line
+- source: '#'
+  scopes:
+    - keyword.operator.expansion
 - source: \#
   scopes:
     - constant.character.escape
@@ -64280,7 +66676,17 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: line%# START exclude*
+- source: line
+- source: '%'
+  scopesBegin:
+    - keyword.operator.expansion
+- source: '#'
+  scopesEnd:
+    - keyword.operator.expansion
+- source: ' START exclude'
+- source: '*'
+  scopes:
+    - keyword.operator.expansion
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -64297,7 +66703,17 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: line%# FINISH exclude*
+- source: line
+- source: '%'
+  scopesBegin:
+    - keyword.operator.expansion
+- source: '#'
+  scopesEnd:
+    - keyword.operator.expansion
+- source: ' FINISH exclude'
+- source: '*'
+  scopes:
+    - keyword.operator.expansion
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -64314,7 +66730,13 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: line##*
+- source: line
+- source: '##'
+  scopesBegin:
+    - keyword.operator.expansion
+- source: '*'
+  scopesEnd:
+    - keyword.operator.expansion
 - source: \'
   scopes:
     - constant.character.escape
@@ -64346,7 +66768,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'list[@]'
+- source: list
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -64406,7 +66835,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'list[@]'
+- source: list
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -64460,7 +66896,17 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '#list[@]'
+- source: '#'
+  scopes:
+    - keyword.operator.expansion
+- source: list
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -64508,7 +66954,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'list[@]'
+- source: list
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -64559,7 +67012,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'list[@]'
+- source: list
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -64752,7 +67212,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: i##*/
+- source: i
+- source: '##'
+  scopesBegin:
+    - keyword.operator.expansion
+- source: '*'
+- source: /
+  scopesEnd:
+    - keyword.operator.expansion
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -65113,7 +67580,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: i##*/
+- source: i
+- source: '##'
+  scopesBegin:
+    - keyword.operator.expansion
+- source: '*'
+- source: /
+  scopesEnd:
+    - keyword.operator.expansion
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -65518,7 +67992,10 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'ASDF_DIR:-'
+- source: ASDF_DIR
+- source: ':-'
+  scopes:
+    - keyword.operator.expansion
 - source: ''''
   scopesBegin:
     - string.quoted.single
@@ -65919,7 +68396,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'BASH_SOURCE[0]'
+- source: BASH_SOURCE
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '0'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -67009,10 +69493,7 @@
 - source: '''s/'
   scopes:
     - punctuation.section.regexp
-- source: ^
-  scopes:
-    - keyword.control.anchor.regexp
-- source: ref-
+- source: ^ref-
 - source: /
   scopes:
     - punctuation.section.regexp
@@ -69507,7 +71988,10 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '!version_env_var'
+- source: '!'
+  scopes:
+    - keyword.operator.expansion
+- source: version_env_var
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -69729,7 +72213,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'version_info[0]'
+- source: version_info
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '0'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -69786,7 +72277,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'version_info[0]'
+- source: version_info
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '0'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -69817,7 +72315,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'version_info[1]'
+- source: version_info
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '1'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -69896,7 +72401,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'version_info[0]'
+- source: version_info
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '0'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -70011,7 +72523,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'version_info[1]'
+- source: version_info
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '1'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -70069,7 +72588,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'version_info[0]'
+- source: version_info
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '0'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -72274,15 +74800,7 @@
 - source: '''s/'
   scopes:
     - punctuation.section.regexp
-- source: ^
-  scopes:
-    - keyword.control.anchor.regexp
-- source: '[[:space:]]'
-  scopes:
-    - punctuation.definition.character-class.named.regexp
-- source: '*'
-  scopes:
-    - keyword.operator.quantifier.regexp
+- source: '^[[:space:]]*'
 - source: /
   scopesBegin:
     - punctuation.section.regexp
@@ -72464,7 +74982,10 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'ASDF_CONFIG_FILE:-'
+- source: ASDF_CONFIG_FILE
+- source: ':-'
+  scopes:
+    - keyword.operator.expansion
 - source: '"'
   scopesBegin:
     - string.quoted.double
@@ -72504,7 +75025,10 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'ASDF_CONFIG_DEFAULT_FILE:-'
+- source: ASDF_CONFIG_DEFAULT_FILE
+- source: ':-'
+  scopes:
+    - keyword.operator.expansion
 - source: '"'
   scopesBegin:
     - string.quoted.double
@@ -74758,7 +77282,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'version_info[0]'
+- source: version_info
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '0'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -74815,7 +77346,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'version_info[0]'
+- source: version_info
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '0'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -74846,7 +77384,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'version_info[1]'
+- source: version_info
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '1'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -74904,7 +77449,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'version_info[0]'
+- source: version_info
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '0'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -75269,7 +77821,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'all_bin_paths[@]'
+- source: all_bin_paths
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -75456,7 +78015,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'version_info[0]'
+- source: version_info
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '0'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -75513,7 +78079,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'version_info[0]'
+- source: version_info
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '0'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -75544,7 +78117,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'version_info[1]'
+- source: version_info
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '1'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -75602,7 +78182,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'version_info[0]'
+- source: version_info
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '0'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -77268,15 +79855,7 @@
 - source: '''s/'
   scopes:
     - punctuation.section.regexp
-- source: '[[:space:]]'
-  scopes:
-    - punctuation.definition.character-class.named.regexp
-- source: '*'
-  scopes:
-    - keyword.operator.quantifier.regexp
-- source: $
-  scopes:
-    - keyword.control.anchor.regexp
+- source: '[[:space:]]*$'
 - source: /
   scopesBegin:
     - punctuation.section.regexp
@@ -77636,7 +80215,13 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: '@:2'
+- source: '@'
+  scopesBegin:
+    - keyword.operator.expansion
+- source: ':'
+  scopesEnd:
+    - keyword.operator.expansion
+- source: '2'
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -78275,7 +80860,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'shim_versions[@]'
+- source: shim_versions
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -78378,7 +80970,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'plugins[*]'
+- source: plugins
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '*'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -78495,7 +81094,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'plugins[@]'
+- source: plugins
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -78698,7 +81304,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'usable_plugin_versions[@]'
+- source: usable_plugin_versions
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -78736,7 +81349,14 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'shim_versions[@]'
+- source: shim_versions
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -79856,7 +82476,10 @@
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 'executable_path:-'
+- source: executable_path
+- source: ':-'
+  scopes:
+    - keyword.operator.expansion
 - source: $
   scopes:
     - punctuation.definition.variable
