@@ -55,6 +55,7 @@ keyword.other.unit.suffix.integer.shell
 meta.argument.shell
 meta.arithmetic.shell
 meta.command.shell
+meta.command_name.shell
 meta.expression.assignment.shell
 meta.function.shell
 meta.herestring.shell

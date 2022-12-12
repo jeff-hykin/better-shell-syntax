@@ -498,7 +498,7 @@
       ]
     },
     "command_call": {
-      "begin": "(?<=(?:^|;|\\||&|!|\\(|\\{|\\`))\\s*+(?!nocorrect\\W|nocorrect\\$|readonly\\W|readonly\\$|function\\W|function\\$|foreach\\W|foreach\\$|coproc\\W|coproc\\$|logout\\W|logout\\$|export\\W|export\\$|select\\W|select\\$|repeat\\W|repeat\\$|pushd\\W|pushd\\$|until\\W|until\\$|while\\W|while\\$|local\\W|local\\$|case\\W|case\\$|done\\W|done\\$|elif\\W|elif\\$|else\\W|else\\$|esac\\W|esac\\$|popd\\W|popd\\$|then\\W|then\\$|time\\W|time\\$|for\\W|for\\$|end\\W|end\\$|pwd\\W|pwd\\$|if\\W|if\\$|fi\\W|fi\\$|do\\W|do\\$|in\\W|in\\$)",
+      "begin": "(?!^ *+$)(?<=(?:^|;|\\||&|!|\\(|\\{|\\`))\\s*+(?!nocorrect\\W|nocorrect\\$|readonly\\W|readonly\\$|function\\W|function\\$|foreach\\W|foreach\\$|coproc\\W|coproc\\$|logout\\W|logout\\$|export\\W|export\\$|select\\W|select\\$|repeat\\W|repeat\\$|pushd\\W|pushd\\$|until\\W|until\\$|while\\W|while\\$|local\\W|local\\$|case\\W|case\\$|done\\W|done\\$|elif\\W|elif\\$|else\\W|else\\$|esac\\W|esac\\$|popd\\W|popd\\$|then\\W|then\\$|time\\W|time\\$|for\\W|for\\$|end\\W|end\\$|pwd\\W|pwd\\$|if\\W|if\\$|fi\\W|fi\\$|do\\W|do\\$|in\\W|in\\$)",
       "end": "(?=;|\\||&|\\n|\\)|\\`|\\{|\\}|#|\\])(?<!\\\\)",
       "beginCaptures": {
       },
@@ -507,10 +507,13 @@
       "name": "meta.statement.shell",
       "patterns": [
         {
-          "begin": "\\s*+(?!(?:!|%|&|\\||\\(|\\)|\\{|\\[|<|>|#|\\n|$|;|\\s)).+?(?:(?=\\s)|(?=;|\\||&|\\n|\\)|\\`|\\{|\\}|#|\\])(?<!\\\\))",
+          "begin": "\\s*+(?!(?:!|%|&|\\||\\(|\\)|\\{|\\[|<|>|#|\\n|$|;|\\s))(.+?)(?:(?=\\s)|(?=;|\\||&|\\n|\\)|\\`|\\{|\\}|#|\\])(?<!\\\\))",
           "end": "(?=;|\\||&|\\n|\\)|\\`|\\{|\\}|#|\\])(?<!\\\\)",
           "beginCaptures": {
             "0": {
+              "name": "meta.command_name.shell"
+            },
+            "1": {
               "name": "entity.name.command.shell",
               "patterns": [
                 {
@@ -554,9 +557,10 @@
       ]
     },
     "command_name": {
-      "match": "\\s*+(?!(?:!|%|&|\\||\\(|\\)|\\{|\\[|<|>|#|\\n|$|;|\\s)).+?(?:(?=\\s)|(?=;|\\||&|\\n|\\)|\\`|\\{|\\}|#|\\])(?<!\\\\))",
+      "match": "\\s*+(?!(?:!|%|&|\\||\\(|\\)|\\{|\\[|<|>|#|\\n|$|;|\\s))(.+?)(?:(?=\\s)|(?=;|\\||&|\\n|\\)|\\`|\\{|\\}|#|\\])(?<!\\\\))",
       "captures": {
-        "0": {
+        "1": {
+          "name": "entity.name.command.shell",
           "patterns": [
             {
               "match": "(?<!\\w)(?:return|break)(?!\\w)",
@@ -572,7 +576,7 @@
           ]
         }
       },
-      "name": "entity.name.command.shell"
+      "name": "meta.command_name.shell"
     },
     "comment": {
       "match": "(?<=^|\\s)(?:((#!).*)|((#).*))",

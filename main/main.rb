@@ -266,27 +266,28 @@ require_relative './tokens.rb'
     ]
     
     grammar[:command_name] = Pattern.new(
-        tag_as: "entity.name.command",
+        tag_as: "meta.command_name",
         match: Pattern.new(
             Pattern.new(
                 std_space.then(possible_command_start)
             ).then(
-                /.+?/
+                tag_as: "entity.name.command",
+                match: /.+?/,
+                includes: [
+                    Pattern.new(
+                        match: any_builtin_control_flow,
+                        tag_as: "keyword.control.$match",
+                    ),
+                    Pattern.new(
+                        match: any_builtin_name,
+                        tag_as: "support.function.builtin",
+                    ),
+                    :variable,
+                ]
             ).then(
                 lookAheadFor(@space).or(command_end)
             )
         ),
-        includes: [
-            Pattern.new(
-                match: any_builtin_control_flow,
-                tag_as: "keyword.control.$match",
-            ),
-            Pattern.new(
-                match: any_builtin_name,
-                tag_as: "support.function.builtin",
-            ),
-            :variable,
-        ]
     )
     grammar[:argument_context] = [
         Pattern.new(
@@ -345,7 +346,8 @@ require_relative './tokens.rb'
         zeroLengthStart?: true,
         zeroLengthEnd?: true,
         tag_as: "meta.statement",
-        start_pattern: lookBehindFor(possible_pre_command_characters).then(std_space).lookAheadToAvoid(keyword_patterns),
+        # blank lines screw this pattern up, which is what the first lookAheadToAvoid is fixing
+        start_pattern: lookAheadToAvoid(/^ *+$/).lookBehindFor(possible_pre_command_characters).then(std_space).lookAheadToAvoid(keyword_patterns),
         end_pattern: command_end,
         includes: [
             PatternRange.new(
