@@ -118,10 +118,14 @@
   scopes:
     - constant.other.option
   scopesEnd:
+    - string.unquoted.argument
+- source: pwd
+  scopes:
+    - entity.name.command
+    - support.function.builtin
+  scopesEnd:
     - meta.statement
     - meta.command
-    - string.unquoted.argument
-- source: '    pwd'
 - source: '}'
   scopes:
     - punctuation.definition.group

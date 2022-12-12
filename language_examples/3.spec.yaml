@@ -66159,12 +66159,17 @@
   scopesEnd:
     - keyword.operator.pipe
 - source: exit
-  scopes:
+  scopesBegin:
     - meta.statement
     - meta.command
     - entity.name.command
     - support.function.builtin
-- source: '      pwd'
+- source: pwd
+  scopesEnd:
+    - meta.statement
+    - meta.command
+    - entity.name.command
+    - support.function.builtin
 - source: )
   scopes:
     - punctuation.definition.evaluation.parens.end
@@ -72031,6 +72036,11 @@
   scopes:
     - punctuation.definition.evaluation.parens.begin
 - source: pwd
+  scopes:
+    - meta.statement
+    - meta.command
+    - entity.name.command
+    - support.function.builtin
 - source: )
   scopes:
     - punctuation.definition.evaluation.parens.end
@@ -73896,6 +73906,11 @@
   scopes:
     - punctuation.definition.evaluation.parens.begin
 - source: pwd
+  scopes:
+    - meta.statement
+    - meta.command
+    - entity.name.command
+    - support.function.builtin
 - source: )
   scopes:
     - punctuation.definition.evaluation.parens.end
@@ -78414,6 +78429,11 @@
   scopes:
     - punctuation.definition.evaluation.parens.begin
 - source: pwd
+  scopes:
+    - meta.statement
+    - meta.command
+    - entity.name.command
+    - support.function.builtin
 - source: )
   scopes:
     - punctuation.definition.evaluation.parens.end

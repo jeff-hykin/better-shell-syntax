@@ -498,7 +498,7 @@
       ]
     },
     "command_call": {
-      "begin": "(?!^ *+$)(?<=(?:^|;|\\||&|!|\\(|\\{|\\`))\\s*+(?!nocorrect\\W|nocorrect\\$|readonly\\W|readonly\\$|function\\W|function\\$|foreach\\W|foreach\\$|coproc\\W|coproc\\$|logout\\W|logout\\$|export\\W|export\\$|select\\W|select\\$|repeat\\W|repeat\\$|pushd\\W|pushd\\$|until\\W|until\\$|while\\W|while\\$|local\\W|local\\$|case\\W|case\\$|done\\W|done\\$|elif\\W|elif\\$|else\\W|else\\$|esac\\W|esac\\$|popd\\W|popd\\$|then\\W|then\\$|time\\W|time\\$|for\\W|for\\$|end\\W|end\\$|pwd\\W|pwd\\$|if\\W|if\\$|fi\\W|fi\\$|do\\W|do\\$|in\\W|in\\$)",
+      "begin": "(?!^ *+$)(?<=(?:^|;|\\||&|!|\\(|\\{|\\`))\\s*+(?!nocorrect\\W|nocorrect\\$|readonly\\W|readonly\\$|function\\W|function\\$|foreach\\W|foreach\\$|coproc\\W|coproc\\$|logout\\W|logout\\$|export\\W|export\\$|select\\W|select\\$|repeat\\W|repeat\\$|pushd\\W|pushd\\$|until\\W|until\\$|while\\W|while\\$|local\\W|local\\$|case\\W|case\\$|done\\W|done\\$|elif\\W|elif\\$|else\\W|else\\$|esac\\W|esac\\$|popd\\W|popd\\$|then\\W|then\\$|time\\W|time\\$|for\\W|for\\$|end\\W|end\\$|fi\\W|fi\\$|do\\W|do\\$|in\\W|in\\$|if\\W|if\\$)",
       "end": "(?=;|\\||&|\\n|\\)|\\`|\\{|\\}|#|\\])(?<!\\\\)",
       "beginCaptures": {
       },
@@ -521,7 +521,7 @@
                   "name": "keyword.control.$0.shell"
                 },
                 {
-                  "match": "(?<!\\w)(?:unfunction|unsetopt|autoload|unlimit|bindkey|builtin|command|history|getopts|declare|unalias|typeset|suspend|ulimit|return|source|unhash|disown|break|alias|false|print|shift|times|umask|umask|unset|which|read|type|eval|echo|wait|dirs|hash|jobs|kill|exit|stat|exec|test|trap|true|set|let|fc|cd|fg|bg|:|\\.)(?!\\w)",
+                  "match": "(?<!\\w)(?:unfunction|unsetopt|autoload|unlimit|bindkey|builtin|command|getopts|history|declare|unalias|typeset|suspend|return|source|ulimit|unhash|disown|which|alias|break|false|print|shift|times|umask|umask|unset|read|type|exec|eval|wait|echo|dirs|hash|jobs|kill|stat|exit|test|trap|true|pwd|let|set|cd|fg|bg|fc|:|\\.)(?!\\w)",
                   "name": "support.function.builtin.shell"
                 },
                 {
@@ -567,7 +567,7 @@
               "name": "keyword.control.$0.shell"
             },
             {
-              "match": "(?<!\\w)(?:unfunction|unsetopt|autoload|unlimit|bindkey|builtin|command|history|getopts|declare|unalias|typeset|suspend|ulimit|return|source|unhash|disown|break|alias|false|print|shift|times|umask|umask|unset|which|read|type|eval|echo|wait|dirs|hash|jobs|kill|exit|stat|exec|test|trap|true|set|let|fc|cd|fg|bg|:|\\.)(?!\\w)",
+              "match": "(?<!\\w)(?:unfunction|unsetopt|autoload|unlimit|bindkey|builtin|command|getopts|history|declare|unalias|typeset|suspend|return|source|ulimit|unhash|disown|which|alias|break|false|print|shift|times|umask|umask|unset|read|type|exec|eval|wait|echo|dirs|hash|jobs|kill|stat|exit|test|trap|true|pwd|let|set|cd|fg|bg|fc|:|\\.)(?!\\w)",
               "name": "support.function.builtin.shell"
             },
             {
