@@ -467,7 +467,7 @@ require_relative './tokens.rb'
                 ),
             includes: [
                 Pattern.new(
-                    match: /!|:[-=?]?|\*|@|##|#|%|\//,
+                    match: /!|:[-=?]?|\*|@|##|#|%%|%|\//,
                     tag_as: "keyword.operator.expansion",
                 ),
                 Pattern.new(

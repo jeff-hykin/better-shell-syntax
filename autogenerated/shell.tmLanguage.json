@@ -2275,7 +2275,7 @@
           },
           "patterns": [
             {
-              "match": "!|:[-=?]?|\\*|@|##|#|%|\\/",
+              "match": "!|:[-=?]?|\\*|@|##|#|%%|%|\\/",
               "name": "keyword.operator.expansion.shell"
             },
             {

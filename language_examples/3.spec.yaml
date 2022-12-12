@@ -12364,11 +12364,8 @@
   scopes:
     - punctuation.section.bracket.curly.variable.begin
 - source: cur
-- source: '%'
-  scopesBegin:
-    - keyword.operator.expansion
-- source: '%'
-  scopesEnd:
+- source: '%%'
+  scopes:
     - keyword.operator.expansion
 - source: '?('
 - source: \\
@@ -18760,10 +18757,9 @@
   scopes:
     - punctuation.section.bracket.curly.variable.begin
 - source: cur
-- source: '%'
+- source: '%%'
   scopesBegin:
     - keyword.operator.expansion
-- source: '%'
 - source: '*'
   scopesEnd:
     - keyword.operator.expansion
@@ -29549,10 +29545,9 @@
   scopes:
     - punctuation.section.bracket.curly.variable.begin
 - source: func
-- source: '%'
+- source: '%%'
   scopesBegin:
     - keyword.operator.expansion
-- source: '%'
 - source: '*'
   scopesEnd:
     - keyword.operator.expansion
@@ -29863,10 +29858,9 @@
   scopes:
     - punctuation.section.bracket.curly.variable.begin
 - source: cspec
-- source: '%'
+- source: '%%'
   scopesBegin:
     - keyword.operator.expansion
-- source: '%'
 - source: '*'
   scopesEnd:
     - keyword.operator.expansion
@@ -30103,11 +30097,8 @@
   scopes:
     - punctuation.section.bracket.curly.variable.begin
 - source: cspec
-- source: '%'
-  scopesBegin:
-    - keyword.operator.expansion
-- source: '%'
-  scopesEnd:
+- source: '%%'
+  scopes:
     - keyword.operator.expansion
 - source: $
   scopes:
@@ -31633,10 +31624,9 @@
   scopes:
     - punctuation.section.bracket.curly.variable.begin
 - source: xspec
-- source: '%'
+- source: '%%'
   scopesBegin:
     - keyword.operator.expansion
-- source: '%'
 - source: '*'
   scopesEnd:
     - keyword.operator.expansion
@@ -46333,11 +46323,8 @@
   scopes:
     - punctuation.section.bracket.curly.variable.begin
 - source: cur
-- source: '%'
-  scopesBegin:
-    - keyword.operator.expansion
-- source: '%'
-  scopesEnd:
+- source: '%%'
+  scopes:
     - keyword.operator.expansion
 - source: '?('
 - source: \\
@@ -52729,10 +52716,9 @@
   scopes:
     - punctuation.section.bracket.curly.variable.begin
 - source: cur
-- source: '%'
+- source: '%%'
   scopesBegin:
     - keyword.operator.expansion
-- source: '%'
 - source: '*'
   scopesEnd:
     - keyword.operator.expansion
@@ -63518,10 +63504,9 @@
   scopes:
     - punctuation.section.bracket.curly.variable.begin
 - source: func
-- source: '%'
+- source: '%%'
   scopesBegin:
     - keyword.operator.expansion
-- source: '%'
 - source: '*'
   scopesEnd:
     - keyword.operator.expansion
@@ -63832,10 +63817,9 @@
   scopes:
     - punctuation.section.bracket.curly.variable.begin
 - source: cspec
-- source: '%'
+- source: '%%'
   scopesBegin:
     - keyword.operator.expansion
-- source: '%'
 - source: '*'
   scopesEnd:
     - keyword.operator.expansion
@@ -64072,11 +64056,8 @@
   scopes:
     - punctuation.section.bracket.curly.variable.begin
 - source: cspec
-- source: '%'
-  scopesBegin:
-    - keyword.operator.expansion
-- source: '%'
-  scopesEnd:
+- source: '%%'
+  scopes:
     - keyword.operator.expansion
 - source: $
   scopes:
@@ -65594,10 +65575,9 @@
   scopes:
     - punctuation.section.bracket.curly.variable.begin
 - source: xspec
-- source: '%'
+- source: '%%'
   scopesBegin:
     - keyword.operator.expansion
-- source: '%'
 - source: '*'
   scopesEnd:
     - keyword.operator.expansion
