@@ -236,8 +236,6 @@
     - meta.argument
     - string.unquoted.argument
 - source: 3.2.0
-  scopes:
-    - invalid.illegal.constant.numeric
 - source: /
   scopesEnd:
     - string.unquoted.argument

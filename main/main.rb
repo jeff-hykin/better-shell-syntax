@@ -119,6 +119,7 @@ require_relative './tokens.rb'
     variable_name = variableBounds[part_of_a_variable]
     
     std_space = Pattern.new(/\s*+/)
+    grammar[:numeric_literal] = variableBounds[grammar[:numeric_literal]]
     
     # 
     # comments
@@ -300,7 +301,7 @@ require_relative './tokens.rb'
                     tag_as: "variable.language.special.wildcard"
                 ),
                 :variable,
-                variableBounds[grammar[:numeric_literal]],
+                :numeric_literal,
                 variableBounds[grammar[:boolean]],
             ]
         ),

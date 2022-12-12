@@ -24,7 +24,6 @@ constant.other.option.dash.shell
 constant.other.option.shell
 entity.name.command.shell
 entity.name.function.shell
-invalid.illegal.constant.numeric.shell
 keyword.control.$0.shell
 keyword.control.shell
 keyword.operator.arithmetic.shell

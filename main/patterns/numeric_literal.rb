@@ -207,11 +207,6 @@ def generateNumericLiteral(allow_user_defined_literals: false, separator:"'")
                     octal_prefix  .then(octal_digits  )                        .maybe(numeric_suffix).then(octal_ending  ),
                     hex_prefix    .then(hex_digits    ).maybe(hex_exponent    ).maybe(numeric_suffix).then(hex_ending    ),
                     decimal_prefix.then(decimal_digits).maybe(decimal_exponent).maybe(numeric_suffix).then(decimal_ending),
-                    # invalid
-                    Pattern.new(
-                        match: oneOrMoreOf(valid_single_character.or(valid_after_exponent)),
-                        tag_as: "invalid.illegal.constant.numeric"
-                    )
                 ]
             )
         ]
