@@ -22,7 +22,11 @@ require_relative './tokens.rb'
 # Contexts
 #
 #
+    # this naming thing is just a backwards compatibility thing. If all tests pass without it, it should be removed
     grammar[:$initial_context] = [
+        :initial_context,
+    ]
+    grammar[:initial_context] = [
             :comment,
             :boolean,
             :numeric_literal,
