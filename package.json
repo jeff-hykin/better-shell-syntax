@@ -50,6 +50,5 @@
   },
   "homepage": "https://github.com/jeff-hykin/better-shell-syntax#readme",
   "license": "ISC",
-  "devDependencies": {},
-  "main": "index.js"
+  "devDependencies": {}
 }
