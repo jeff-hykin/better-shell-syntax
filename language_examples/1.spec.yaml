@@ -220,7 +220,6 @@
     - meta.statement
   scopes:
     - entity.name.command
-    - support.function.builtin
 - source: /opencv-3.2.0/
   scopesBegin:
     - meta.argument
@@ -259,7 +258,6 @@
     - meta.statement
   scopes:
     - entity.name.command
-    - support.function.builtin
 - source: build
   scopesBegin:
     - meta.argument
@@ -392,7 +390,6 @@
     - meta.statement
   scopes:
     - entity.name.command
-    - support.function.builtin
 - source: '"'
   scopesBegin:
     - meta.argument
@@ -437,7 +434,6 @@
     - meta.statement
   scopes:
     - entity.name.command
-    - support.function.builtin
 - source: 9>&2
   scopes:
     - meta.argument
@@ -445,7 +441,6 @@
 - source: exec
   scopes:
     - entity.name.command
-    - support.function.builtin
 - source: 8>
   scopes:
     - meta.argument
@@ -627,8 +622,10 @@
     - meta.expression.assignment
     - string.quoted.double
 - source: sed
+  scopesBegin:
+    - meta.statement
   scopes:
-    - support.function.builtin
+    - entity.name.command
 - source: '-'
   scopesBegin:
     - string.unquoted.argument
@@ -639,52 +636,58 @@
     - constant.other.option
   scopesEnd:
     - string.unquoted.argument
-- source: '''s/'
-  scopes:
-    - punctuation.section.regexp
-- source: a
-- source: /
-  scopes:
-    - punctuation.section.regexp
-- source: b
-- source: /'
-  scopes:
-    - punctuation.section.regexp
-- source: sed
-  scopes:
-    - support.function.builtin
-- source: '''s/'
-  scopes:
-    - punctuation.section.regexp
-- source: a
-- source: /
-  scopes:
-    - punctuation.section.regexp
-- source: b
-- source: /'
-  scopes:
-    - punctuation.section.regexp
-- source: sed
-  scopes:
-    - support.function.builtin
-- source: '''s/'
-  scopes:
-    - punctuation.section.regexp
-- source: a
-- source: /
-  scopes:
-    - punctuation.section.regexp
-- source: b
-- source: /'
-  scopes:
-    - punctuation.section.regexp
-- source: ' adklfjasdlkjf'
-- source: read
+- source: ''''
   scopesBegin:
-    - meta.statement
+    - meta.argument
+    - string.quoted.single
+  scopes:
+    - punctuation.definition.string.begin
+- source: s/a/b/
+- source: ''''
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - meta.argument
+    - string.quoted.single
+- source: sed
   scopes:
     - entity.name.command
-    - support.function.builtin
+- source: ''''
+  scopesBegin:
+    - meta.argument
+    - string.quoted.single
+  scopes:
+    - punctuation.definition.string.begin
+- source: s/a/b/
+- source: ''''
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - meta.argument
+    - string.quoted.single
+- source: sed
+  scopes:
+    - entity.name.command
+- source: ''''
+  scopesBegin:
+    - meta.argument
+    - string.quoted.single
+  scopes:
+    - punctuation.definition.string.begin
+- source: s/a/b/
+- source: ''''
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - string.quoted.single
+- source: adklfjasdlkjf
+  scopes:
+    - string.unquoted.argument
+  scopesEnd:
+    - meta.argument
+- source: read
+  scopes:
+    - entity.name.command
 - source: '-'
   scopesBegin:
     - string.unquoted.argument
@@ -735,7 +738,6 @@
 - source: echo
   scopes:
     - entity.name.command
-    - support.function.builtin
   scopesEnd:
     - meta.statement
 - source: '#'
@@ -783,7 +785,6 @@
     - meta.statement
   scopes:
     - entity.name.command
-    - support.function.builtin
 - source: '1'
   scopes:
     - meta.argument

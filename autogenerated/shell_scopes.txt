@@ -96,7 +96,6 @@ punctuation.section.arithmetic.shell
 punctuation.section.array.shell
 punctuation.section.bracket.curly.variable.begin.shell
 punctuation.section.bracket.curly.variable.end.shell
-punctuation.section.regexp.shell
 punctuation.separator.constant.numeric.shell
 punctuation.separator.pipe-sign.shell
 punctuation.separator.statement.and.shell
@@ -138,7 +137,6 @@ string.unquoted.heredoc.shell
 string.unquoted.heredoc.shell.shell
 string.unquoted.heredoc.textile.shell
 string.unquoted.herestring.shell
-support.function.builtin.shell
 text.html.embedded.shell
 text.html.markdown.embedded.shell
 text.html.textile.embedded.shell

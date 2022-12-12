@@ -47,7 +47,7 @@ require_relative './tokens.rb'
             :keyword,
             :alias_statement,
             :assignment,
-            :custom_commands,
+            # :custom_commands,
             :command_call,
             :support,
         ]
@@ -202,14 +202,30 @@ require_relative './tokens.rb'
     grammar[:assignment] = PatternRange.new(
         tag_as: "meta.expression.assignment",
         start_pattern: assignment_start = std_space.then(
-                match: variable_name,
-                tag_as: "variable.other.assignment",
+                Pattern.new(
+                    match: variable_name,
+                    tag_as: "variable.other.assignment",
+                ).maybe(
+                    Pattern.new(
+                        match: "[",
+                        tag_as: "punctuation.definition.array.access",
+                    ).then(
+                        match: variable_name.or("@"),
+                        tag_as: "variable.other.assignment",
+                    ).then(
+                        match: "]",
+                        tag_as: "punctuation.definition.array.access",
+                    ),
+                )
             ).then(
                 Pattern.new(
                     match: /\=/,
                     tag_as: "keyword.operator.assignment",
                 ).or(
                     match: /\+\=/,
+                    tag_as: "keyword.operator.assignment.compound",
+                ).or(
+                    match: /\-\=/,
                     tag_as: "keyword.operator.assignment.compound",
                 )
             ),
@@ -232,13 +248,20 @@ require_relative './tokens.rb'
     unquoted_string_end      = lookAheadFor(/\s|;|\||&|$|\n|\)|\`/)
     invalid_literals         = Regexp.quote(@tokens.representationsThat(:areInvalidLiterals).join(""))
     valid_literal_characters = Regexp.new("[^\s#{invalid_literals}]+")
+    any_builtin_name         = @tokens.representationsThat(:areBuiltInCommands).map{ |value| Regexp.quote(value) }.join("|")
+    any_builtin_name         = Regexp.new("(?:#{any_builtin_name})")
+    any_builtin_name         = variableBounds[any_builtin_name]
     
     grammar[:command_name] = PatternRange.new(
         tag_as: "entity.name.command",
         start_pattern: std_space.then(possible_command_start),
         end_pattern: lookAheadFor(@space).or(command_end),
         includes: [
-            :custom_command_names,
+            Pattern.new(
+                match: any_builtin_name,
+                tag_as: "support.function.builtin",
+            ),
+            # :custom_command_names,
             :command_context,
         ]
     )
@@ -286,7 +309,7 @@ require_relative './tokens.rb'
             tag_as: "string.unquoted.argument constant.other.option"
         )
     )
-    keywords = @tokens.representationsThat(:areNonCommands)
+    keywords = @tokens.representationsThat(:areShellReservedWords)
     keyword_patterns = /#{keywords.map { |each| each+'\W|'+each+'\$' } .join('|')}/
     grammar[:command_call] = PatternRange.new(
         zeroLengthStart?: true,
@@ -296,45 +319,15 @@ require_relative './tokens.rb'
         includes: [
             :option,
             :argument,
-            :custom_commands,
+            # :custom_commands,
             :command_name,
             :command_context
         ]
     )
     grammar[:custom_commands] = [
-        # Note:
-        #   this sed does not cover all possible cases, it only covers the most likely case
-        #   in the event of a more complicated case, it falls back on tradidional command highlighting
-        grammar[:sed_command] = Pattern.new(
-            Pattern.new(
-                match: /\bsed\b/,
-                tag_as: "support.function.builtin",
-            ).then(
-                grammar[:simple_options]
-            ).then(@spaces).then(
-                match: /'s\//,
-                tag_as: "punctuation.section.regexp",
-            ).zeroOrMoreOf(
-                match: Pattern.new(/\\./).or(/[^\/]/), # find
-                includes: [ :regexp ],
-            ).then(
-                match: /\//,
-                tag_as: "punctuation.section.regexp",
-            ).zeroOrMoreOf(
-                match: Pattern.new(/\\./).or(/[^\/]/), # replace
-                includes: [ :regexp ],
-            ).then(
-                match: /\/\w{0,4}\'/,
-                tag_as: "punctuation.section.regexp",
-            )
-        ),
+        
     ]
     grammar[:custom_command_names] = [
-        # legacy built-in commands
-        {
-            "match": "(?<=^|;|&|\\s)(?:alias|bg|bind|break|builtin|caller|cd|command|compgen|complete|dirs|disown|echo|enable|eval|exec|exit|false|fc|fg|getopts|hash|help|history|jobs|kill|let|logout|popd|printf|pushd|pwd|read|readonly|set|shift|shopt|source|suspend|test|times|trap|true|type|ulimit|umask|unalias|unset|wait)(?=\\s|;|&|$)",
-            "name": "support.function.builtin.shell"
-        }        
     ]
     grammar[:logical_expression_single] = PatternRange.new(
         tag_as: "meta.scope.logical-expression",

@@ -196,7 +196,7 @@
       ]
     },
     "command_call": {
-      "begin": "(?<=(?:^|;|\\||&|!|\\(|\\{|\\`))\\s*+(?!function\\W|function\\$|export\\W|export\\$|select\\W|select\\$|alias\\W|alias\\$|until\\W|until\\$|while\\W|while\\$|elif\\W|elif\\$|else\\W|else\\$|esac\\W|esac\\$|then\\W|then\\$|case\\W|case\\$|done\\W|done\\$|for\\W|for\\$|in\\W|in\\$|do\\W|do\\$|fi\\W|fi\\$|if\\W|if\\$)",
+      "begin": "(?<=(?:^|;|\\||&|!|\\(|\\{|\\`))\\s*+(?!nocorrect\\W|nocorrect\\$|readonly\\W|readonly\\$|function\\W|function\\$|foreach\\W|foreach\\$|coproc\\W|coproc\\$|logout\\W|logout\\$|export\\W|export\\$|select\\W|select\\$|repeat\\W|repeat\\$|pushd\\W|pushd\\$|until\\W|until\\$|while\\W|while\\$|local\\W|local\\$|case\\W|case\\$|done\\W|done\\$|elif\\W|elif\\$|else\\W|else\\$|esac\\W|esac\\$|popd\\W|popd\\$|then\\W|then\\$|time\\W|time\\$|for\\W|for\\$|end\\W|end\\$|pwd\\W|pwd\\$|if\\W|if\\$|fi\\W|fi\\$|do\\W|do\\$|in\\W|in\\$)",
       "end": "(?=;|\\||&|$|\\n|\\)|\\`|\\}|\\{|\\}|#|\\])(?<!\\\\)",
       "beginCaptures": {
       },
@@ -209,9 +209,6 @@
         },
         {
           "include": "#argument"
-        },
-        {
-          "include": "#custom_commands"
         },
         {
           "include": "#command_name"
@@ -276,9 +273,6 @@
       },
       "name": "entity.name.command.shell",
       "patterns": [
-        {
-          "include": "#custom_command_names"
-        },
         {
           "include": "#command_context"
         }
@@ -400,60 +394,12 @@
     },
     "custom_command_names": {
       "patterns": [
-        {
-          "match": "(?<=^|;|&|\\s)(?:alias|bg|bind|break|builtin|caller|cd|command|compgen|complete|dirs|disown|echo|enable|eval|exec|exit|false|fc|fg|getopts|hash|help|history|jobs|kill|let|logout|popd|printf|pushd|pwd|read|readonly|set|shift|shopt|source|suspend|test|times|trap|true|type|ulimit|umask|unalias|unset|wait)(?=\\s|;|&|$)",
-          "name": "support.function.builtin.shell"
-        }
+
       ]
     },
     "custom_commands": {
       "patterns": [
-        {
-          "match": "(\\bsed\\b)((?:\\s++\\-\\w+)*)(?:\\s)+('s\\/)((?:\\\\.|[^\\/])*)(\\/)((?:\\\\.|[^\\/])*)(\\/\\w{0,4}\\')",
-          "captures": {
-            "1": {
-              "name": "support.function.builtin.shell"
-            },
-            "2": {
-              "patterns": [
-                {
-                  "match": "\\s++(\\-)(\\w+)",
-                  "captures": {
-                    "1": {
-                      "name": "string.unquoted.argument.shell constant.other.option.dash.shell"
-                    },
-                    "2": {
-                      "name": "string.unquoted.argument.shell constant.other.option.shell"
-                    }
-                  }
-                }
-              ]
-            },
-            "3": {
-              "name": "punctuation.section.regexp.shell"
-            },
-            "4": {
-              "patterns": [
-                {
-                  "include": "#regexp"
-                }
-              ]
-            },
-            "5": {
-              "name": "punctuation.section.regexp.shell"
-            },
-            "6": {
-              "patterns": [
-                {
-                  "include": "#regexp"
-                }
-              ]
-            },
-            "7": {
-              "name": "punctuation.section.regexp.shell"
-            }
-          }
-        }
+
       ]
     },
     "function-definition": {
@@ -1017,9 +963,6 @@
         },
         {
           "include": "#assignment"
-        },
-        {
-          "include": "#custom_commands"
         },
         {
           "include": "#command_call"
@@ -2044,52 +1987,6 @@
           "match": ".+"
         }
       ]
-    },
-    "sed_command": {
-      "match": "(\\bsed\\b)((?:\\s++\\-\\w+)*)(?:\\s)+('s\\/)((?:\\\\.|[^\\/])*)(\\/)((?:\\\\.|[^\\/])*)(\\/\\w{0,4}\\')",
-      "captures": {
-        "1": {
-          "name": "support.function.builtin.shell"
-        },
-        "2": {
-          "patterns": [
-            {
-              "match": "\\s++(\\-)(\\w+)",
-              "captures": {
-                "1": {
-                  "name": "string.unquoted.argument.shell constant.other.option.dash.shell"
-                },
-                "2": {
-                  "name": "string.unquoted.argument.shell constant.other.option.shell"
-                }
-              }
-            }
-          ]
-        },
-        "3": {
-          "name": "punctuation.section.regexp.shell"
-        },
-        "4": {
-          "patterns": [
-            {
-              "include": "#regexp"
-            }
-          ]
-        },
-        "5": {
-          "name": "punctuation.section.regexp.shell"
-        },
-        "6": {
-          "patterns": [
-            {
-              "include": "#regexp"
-            }
-          ]
-        },
-        "7": {
-          "name": "punctuation.section.regexp.shell"
-        }
-      }
     },
     "simple_options": {
       "match": "(?:\\s++\\-\\w+)*",
