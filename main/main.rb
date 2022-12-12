@@ -102,9 +102,6 @@ require_relative './tokens.rb'
             :keyword,
             :support,
         ]
-    grammar[:variable_assignment_context] = [
-            :initial_context
-        ]
 #
 #
 # Patterns
@@ -210,7 +207,7 @@ require_relative './tokens.rb'
                         match: "[",
                         tag_as: "punctuation.definition.array.access",
                     ).then(
-                        match: variable_name.or("@"),
+                        match: maybe("$").then(variable_name).or("@").or("*"),
                         tag_as: "variable.other.assignment",
                     ).then(
                         match: "]",
@@ -229,8 +226,8 @@ require_relative './tokens.rb'
                     tag_as: "keyword.operator.assignment.compound",
                 )
             ),
-        end_pattern: assignment_end = grammar[:statement_seperator].or(lookAheadFor(/ /)),
-        includes: [ :variable_assignment_context ]
+        end_pattern: assignment_end = grammar[:statement_seperator].or(lookAheadFor(/ |$/)),
+        includes: [ :argument_context ]
     )
     grammar[:alias_statement] = PatternRange.new(
         tag_as: "meta.expression.assignment",
@@ -239,24 +236,45 @@ require_relative './tokens.rb'
                 tag_as: "storage.type.alias"
             ).then(@spaces).then(assignment_start),
         end_pattern: assignment_end,
-        includes: [ :variable_assignment_context ]
+        includes: [ :command_context ]
     )
     
     possible_pre_command_characters = /(?:^|;|\||&|!|\(|\{|\`)/
     possible_command_start   = lookAheadToAvoid(/(?:!|%|&|\||\(|\{|\[|<|>|#|\n|$|\$|;)/)
-    command_end              = lookAheadFor(/;|\||&|$|\n|\)|\`|\}|\{|\}|#|\]/).lookBehindToAvoid(/\\/)
+    possible_argument_start  = lookAheadToAvoid(/(?:%|&|\||\(|\[|#|\n|$|;)/)
+    command_end              = lookAheadFor(/;|\||&|$|\n|$|\)|\`|\{|\}|#|\]/).lookBehindToAvoid(/\\/)
     unquoted_string_end      = lookAheadFor(/\s|;|\||&|$|\n|\)|\`/)
     invalid_literals         = Regexp.quote(@tokens.representationsThat(:areInvalidLiterals).join(""))
     valid_literal_characters = Regexp.new("[^\s#{invalid_literals}]+")
     any_builtin_name         = @tokens.representationsThat(:areBuiltInCommands).map{ |value| Regexp.quote(value) }.join("|")
     any_builtin_name         = Regexp.new("(?:#{any_builtin_name})")
     any_builtin_name         = variableBounds[any_builtin_name]
+    any_builtin_control_flow = @tokens.representationsThat(:areBuiltInCommands, :areControlFlow).map{ |value| Regexp.quote(value) }.join("|")
+    any_builtin_control_flow = Regexp.new("(?:#{any_builtin_control_flow})")
+    any_builtin_control_flow = variableBounds[any_builtin_control_flow]
+    
+    grammar[:keyword] = [
+        Pattern.new(
+            # TODO: generate this using @tokens
+            match: /(?<=^|;|&|\s)(?:then|else|elif|fi|for|in|do|done|select|case|continue|esac|while|until|return)(?=\s|;|&|$)/,
+            tag_as: "keyword.control.$match",
+        ),
+        Pattern.new(
+            # TODO: generate this using @tokens
+            match: /(?<=^|;|&|\s)(?:export|declare|typeset|local|readonly)(?=\s|;|&|$)/,
+            tag_as: "storage.modifier.$match",
+        ),
+    ]
     
     grammar[:command_name] = PatternRange.new(
         tag_as: "entity.name.command",
-        start_pattern: std_space.then(possible_command_start),
+        start_pattern: Pattern.new(/\G/).then(std_space).then(possible_command_start),
         end_pattern: lookAheadFor(@space).or(command_end),
         includes: [
+            Pattern.new(
+                match: any_builtin_control_flow,
+                tag_as: "keyword.control.$match",
+            ),
             Pattern.new(
                 match: any_builtin_name,
                 tag_as: "support.function.builtin",
@@ -265,23 +283,27 @@ require_relative './tokens.rb'
             :command_context,
         ]
     )
+    grammar[:argument_context] = [
+        Pattern.new(
+            tag_as: "string.unquoted.argument",
+            match: valid_literal_characters,
+            includes: [
+                # wildcard
+                Pattern.new(
+                    match: /\*/,
+                    tag_as: "variable.language.special.wildcard"
+                ),
+                :variable,
+            ]
+        ),
+        :command_context,
+    ]
     grammar[:argument] = PatternRange.new(
         tag_as: "meta.argument",
-        start_pattern: Pattern.new(/\s++/).then(possible_command_start),
+        start_pattern: Pattern.new(/\s++/).then(possible_argument_start),
         end_pattern: unquoted_string_end,
         includes: [
-            :command_context,
-            Pattern.new(
-                tag_as: "string.unquoted.argument",
-                match: valid_literal_characters,
-                includes: [
-                    # wildcard
-                    Pattern.new(
-                        match: /\*/,
-                        tag_as: "variable.language.special.wildcard"
-                    ),
-                ]
-            ),
+            :argument_context
         ]
     )
     grammar[:option] = PatternRange.new(
@@ -325,7 +347,6 @@ require_relative './tokens.rb'
         ]
     )
     grammar[:custom_commands] = [
-        
     ]
     grammar[:custom_command_names] = [
     ]

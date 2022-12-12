@@ -49,7 +49,6 @@
     "url": "https://github.com/jeff-hykin/better-shell-syntax/issues"
   },
   "homepage": "https://github.com/jeff-hykin/better-shell-syntax#readme",
-  "main": "index.js",
   "license": "ISC",
   "devDependencies": {}
 }
