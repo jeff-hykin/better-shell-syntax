@@ -345,7 +345,7 @@ require_relative './tokens.rb'
         zeroLengthStart?: true,
         zeroLengthEnd?: true,
         tag_as: "meta.statement",
-        start_pattern: lookBehindFor(possible_pre_command_characters).then(std_space).lookAheadToAvoid(keyword_patterns).lookAheadToAvoid(/$/),
+        start_pattern: lookBehindFor(possible_pre_command_characters).then(std_space).lookAheadToAvoid(keyword_patterns),
         end_pattern: command_end,
         includes: [
             PatternRange.new(
