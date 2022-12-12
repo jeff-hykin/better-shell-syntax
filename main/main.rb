@@ -345,7 +345,7 @@ require_relative './tokens.rb'
         zeroLengthStart?: true,
         zeroLengthEnd?: true,
         tag_as: "meta.statement",
-        start_pattern: lookBehindFor(possible_pre_command_characters).then(std_space).lookAheadToAvoid(keyword_patterns),
+        start_pattern: lookBehindFor(possible_pre_command_characters).then(std_space).lookAheadToAvoid(keyword_patterns).lookAheadToAvoid(/$/),
         end_pattern: command_end,
         includes: [
             PatternRange.new(
@@ -522,7 +522,138 @@ require_relative './tokens.rb'
     ]
     
     # 
-    # regex (legacy format, imported from JavaScript regex)
+    # 
+    # strings
+    # 
+    # 
+        basic_escape_char = Pattern.new(
+            match: /\\./,
+            tag_as: "constant.character.escape",
+        )
+        grammar[:double_quote_escape_char] = Pattern.new(
+            match: /\\[\$`"\\\n]/,
+            tag_as: "constant.character.escape",
+        )
+    
+        # 
+        # heredocs
+        # 
+            generateHeredocRanges = ->(name_pattern, tag_content_as:nil, includes:[]) do
+                [
+                    # <<-"HEREDOC"
+                    PatternRange.new(
+                        tag_as: "string.quoted.heredoc.indent",
+                        tag_content_as: tag_content_as,
+                        start_pattern: Pattern.new(
+                            Pattern.new(
+                                match: /<<-/,
+                                tag_as: "keyword.operator.heredoc",
+                            ).then(/\s*+/).then(
+                                match: /"|'/,
+                                reference: "start_quote"
+                            ).then(/\s*+/).then(
+                                match: name_pattern,
+                                reference: "delimiter",
+                                tag_as: "punctuation.definition.string.heredoc",
+                            ).lookAheadFor(/\s|;|&|<|"|'/).matchResultOf(
+                                "start_quote"
+                            )
+                        ),
+                        end_pattern: Pattern.new(
+                            Pattern.new(/^\t*/).matchResultOf(
+                                "delimiter"
+                            ).lookAheadFor(/\s|;|&|$/),
+                        ),
+                        includes: includes,
+                    ),
+                    # <<"HEREDOC"
+                    PatternRange.new(
+                        tag_as: "string.quoted.heredoc.no-indent",
+                        tag_content_as: tag_content_as,
+                        start_pattern: Pattern.new(
+                            Pattern.new(
+                                match: /<</,
+                                tag_as: "keyword.operator.heredoc",
+                            ).then(/\s*+/).then(
+                                match: /"|'/,
+                                reference: "start_quote"
+                            ).then(/\s*+/).then(
+                                match: name_pattern,
+                                reference: "delimiter",
+                                tag_as: "punctuation.definition.string.heredoc",
+                            ).lookAheadFor(/\s|;|&|<|"|'/).matchResultOf(
+                                "start_quote"
+                            )
+                        ),
+                        end_pattern: Pattern.new(
+                            Pattern.new(/^\t*/).matchResultOf(
+                                "delimiter"
+                            ).lookAheadFor(/\s|;|&|$/),
+                        ),
+                        includes: includes,
+                    ),
+                    # <<-HEREDOC
+                    PatternRange.new(
+                        tag_as: "string.unquoted.heredoc.indent",
+                        tag_content_as: tag_content_as,
+                        start_pattern: Pattern.new(
+                            Pattern.new(
+                                match: /<<-/,
+                                tag_as: "keyword.operator.heredoc",
+                            ).then(/\s*+/).then(/\s*+/).then(
+                                match: name_pattern,
+                                reference: "delimiter",
+                                tag_as: "punctuation.definition.string.heredoc",
+                            ).lookAheadFor(/\s|;|&|<|"|'/)
+                        ),
+                        end_pattern: Pattern.new(
+                            Pattern.new(/^\t*/).matchResultOf(
+                                "delimiter"
+                            ).lookAheadFor(/\s|;|&|$/),
+                        ),
+                        includes: [
+                            :double_quote_escape_char,
+                            :variable,
+                            :interpolation,
+                            *includes,
+                        ]
+                    ),
+                    # <<HEREDOC
+                    PatternRange.new(
+                        tag_as: "string.unquoted.heredoc.no-indent",
+                        tag_content_as: tag_content_as,
+                        start_pattern: Pattern.new(
+                            Pattern.new(
+                                match: /<</,
+                                tag_as: "keyword.operator.heredoc",
+                            ).then(/\s*+/).then(/\s*+/).then(
+                                match: name_pattern,
+                                reference: "delimiter",
+                                tag_as: "punctuation.definition.string.heredoc",
+                            ).lookAheadFor(/\s|;|&|<|"|'/)
+                        ),
+                        end_pattern: Pattern.new(
+                            tag_as: "punctuation.definition.string.heredoc",
+                            match: Pattern.new(
+                                Pattern.new(/^\t*/).matchResultOf(
+                                    "delimiter"
+                                ).lookAheadFor(/\s|;|&|$/),
+                            )
+                        ),
+                        includes: [
+                            :double_quote_escape_char,
+                            :variable,
+                            :interpolation,
+                            *includes,
+                        ]
+                    ),
+                ]
+            end
+            
+            grammar[:heredoc] = generateHeredocRanges[variable_name]
+    
+    # 
+    # regex
     # 
         grammar[:regexp] = [
             # regex highlight is not the same as Perl, Ruby, or JavaScript so extra work needs to be done here

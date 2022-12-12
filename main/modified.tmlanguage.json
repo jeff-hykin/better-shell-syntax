@@ -741,7 +741,7 @@
 							"name": "punctuation.definition.evaluation.arithmetic.begin.shell"
 						}
 					},
-					"end": "\\){2}",
+					"end": "\\)\\s*\\)",
 					"endCaptures": {
 						"0": {
 							"name": "punctuation.definition.evaluation.arithmetic.end.shell"

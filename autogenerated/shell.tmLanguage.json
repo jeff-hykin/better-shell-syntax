@@ -498,7 +498,7 @@
       ]
     },
     "command_call": {
-      "begin": "(?<=(?:^|;|\\||&|!|\\(|\\{|\\`))\\s*+(?!nocorrect\\W|nocorrect\\$|readonly\\W|readonly\\$|function\\W|function\\$|foreach\\W|foreach\\$|coproc\\W|coproc\\$|logout\\W|logout\\$|export\\W|export\\$|select\\W|select\\$|repeat\\W|repeat\\$|pushd\\W|pushd\\$|until\\W|until\\$|while\\W|while\\$|local\\W|local\\$|case\\W|case\\$|done\\W|done\\$|elif\\W|elif\\$|else\\W|else\\$|esac\\W|esac\\$|popd\\W|popd\\$|then\\W|then\\$|time\\W|time\\$|for\\W|for\\$|end\\W|end\\$|pwd\\W|pwd\\$|if\\W|if\\$|fi\\W|fi\\$|do\\W|do\\$|in\\W|in\\$)",
+      "begin": "(?<=(?:^|;|\\||&|!|\\(|\\{|\\`))\\s*+(?!nocorrect\\W|nocorrect\\$|readonly\\W|readonly\\$|function\\W|function\\$|foreach\\W|foreach\\$|coproc\\W|coproc\\$|logout\\W|logout\\$|export\\W|export\\$|select\\W|select\\$|repeat\\W|repeat\\$|pushd\\W|pushd\\$|until\\W|until\\$|while\\W|while\\$|local\\W|local\\$|case\\W|case\\$|done\\W|done\\$|elif\\W|elif\\$|else\\W|else\\$|esac\\W|esac\\$|popd\\W|popd\\$|then\\W|then\\$|time\\W|time\\$|for\\W|for\\$|end\\W|end\\$|pwd\\W|pwd\\$|if\\W|if\\$|fi\\W|fi\\$|do\\W|do\\$|in\\W|in\\$)(?!$)",
       "end": "(?=;|\\||&|\\n|\\)|\\`|\\{|\\}|#|\\])(?<!\\\\)",
       "beginCaptures": {
       },
@@ -698,6 +698,10 @@
 
       ]
     },
+    "double_quote_escape_char": {
+      "match": "\\\\[\\$`\"\\\\\\n]",
+      "name": "constant.character.escape.shell"
+    },
     "function-definition": {
       "patterns": [
         {
@@ -754,376 +758,99 @@
     "heredoc": {
       "patterns": [
         {
-          "begin": "(<<)-\\s*(\"|'|)\\s*(RUBY)(?=\\s|;|&|<|\"|')\\2",
+          "begin": "(<<-)\\s*+(\"|')\\s*+((?<!\\w)[a-zA-Z_][a-zA-Z_0-9]*(?!\\w))(?=\\s|;|&|<|\"|')\\2",
+          "end": "^\\t*\\3(?=\\s|;|&|$)",
           "beginCaptures": {
             "1": {
               "name": "keyword.operator.heredoc.shell"
             },
+            "2": {
+            },
             "3": {
-              "name": "keyword.control.heredoc-token.shell"
+              "name": "punctuation.definition.string.heredoc.shell"
             }
           },
-          "end": "^\\t*(RUBY)(?=\\s|;|&|$)",
           "endCaptures": {
+          },
+          "name": "string.quoted.heredoc.indent.shell",
+          "patterns": [
+
+          ]
+        },
+        {
+          "begin": "(<<)\\s*+(\"|')\\s*+((?<!\\w)[a-zA-Z_][a-zA-Z_0-9]*(?!\\w))(?=\\s|;|&|<|\"|')\\2",
+          "end": "^\\t*\\3(?=\\s|;|&|$)",
+          "beginCaptures": {
             "1": {
-              "name": "keyword.control.heredoc-token.shell"
+              "name": "keyword.operator.heredoc.shell"
+            },
+            "2": {
+            },
+            "3": {
+              "name": "punctuation.definition.string.heredoc.shell"
             }
           },
-          "name": "string.unquoted.heredoc.no-indent.ruby.shell",
-          "contentName": "source.ruby.embedded.shell",
+          "endCaptures": {
+          },
+          "name": "string.quoted.heredoc.no-indent.shell",
+          "patterns": [
+
+          ]
+        },
+        {
+          "begin": "(<<-)\\s*+\\s*+((?<!\\w)[a-zA-Z_][a-zA-Z_0-9]*(?!\\w))(?=\\s|;|&|<|\"|')",
+          "end": "^\\t*\\2(?=\\s|;|&|$)",
+          "beginCaptures": {
+            "1": {
+              "name": "keyword.operator.heredoc.shell"
+            },
+            "2": {
+              "name": "punctuation.definition.string.heredoc.shell"
+            }
+          },
+          "endCaptures": {
+          },
+          "name": "string.unquoted.heredoc.indent.shell",
           "patterns": [
             {
-              "include": "source.ruby"
+              "include": "#double_quote_escape_char"
+            },
+            {
+              "include": "#variable"
+            },
+            {
+              "include": "#interpolation"
             }
           ]
         },
         {
-          "begin": "(<<)\\s*(\"|'|)\\s*(RUBY)(?=\\s|;|&|<|\"|')\\2",
+          "begin": "(<<)\\s*+\\s*+((?<!\\w)[a-zA-Z_][a-zA-Z_0-9]*(?!\\w))(?=\\s|;|&|<|\"|')",
+          "end": "^\\t*\\2(?=\\s|;|&|$)",
           "beginCaptures": {
             "1": {
               "name": "keyword.operator.heredoc.shell"
             },
-            "3": {
-              "name": "keyword.control.heredoc-token.shell"
+            "2": {
+              "name": "punctuation.definition.string.heredoc.shell"
             }
           },
-          "end": "^(RUBY)(?=\\s|;|&|$)",
           "endCaptures": {
-            "1": {
-              "name": "keyword.control.heredoc-token.shell"
+            "0": {
+              "name": "punctuation.definition.string.heredoc.shell"
             }
           },
-          "name": "string.unquoted.heredoc.ruby.shell",
-          "contentName": "source.ruby.embedded.shell",
+          "name": "string.unquoted.heredoc.no-indent.shell",
           "patterns": [
             {
-              "include": "source.ruby"
-            }
-          ]
-        },
-        {
-          "begin": "(<<)-\\s*(\"|'|)\\s*(PYTHON)(?=\\s|;|&|<|\"|')\\2",
-          "beginCaptures": {
-            "1": {
-              "name": "keyword.operator.heredoc.shell"
+              "include": "#double_quote_escape_char"
             },
-            "3": {
-              "name": "keyword.control.heredoc-token.shell"
-            }
-          },
-          "end": "^\\t*(PYTHON)(?=\\s|;|&|$)",
-          "endCaptures": {
-            "1": {
-              "name": "keyword.control.heredoc-token.shell"
-            }
-          },
-          "name": "string.unquoted.heredoc.no-indent.python.shell",
-          "contentName": "source.python.embedded.shell",
-          "patterns": [
             {
-              "include": "source.python"
-            }
-          ]
-        },
-        {
-          "begin": "(<<)\\s*(\"|'|)\\s*(PYTHON)(?=\\s|;|&|<|\"|')\\2",
-          "beginCaptures": {
-            "1": {
-              "name": "keyword.operator.heredoc.shell"
+              "include": "#variable"
             },
-            "3": {
-              "name": "keyword.control.heredoc-token.shell"
-            }
-          },
-          "end": "^(PYTHON)(?=\\s|;|&|$)",
-          "endCaptures": {
-            "1": {
-              "name": "keyword.control.heredoc-token.shell"
-            }
-          },
-          "name": "string.unquoted.heredoc.python.shell",
-          "contentName": "source.python.embedded.shell",
-          "patterns": [
             {
-              "include": "source.python"
+              "include": "#interpolation"
             }
           ]
-        },
-        {
-          "begin": "(<<)-\\s*(\"|'|)\\s*(APPLESCRIPT)(?=\\s|;|&|<|\"|')\\2",
-          "beginCaptures": {
-            "1": {
-              "name": "keyword.operator.heredoc.shell"
-            },
-            "3": {
-              "name": "keyword.control.heredoc-token.shell"
-            }
-          },
-          "end": "^\\t*(APPLESCRIPT)(?=\\s|;|&|$)",
-          "endCaptures": {
-            "1": {
-              "name": "keyword.control.heredoc-token.shell"
-            }
-          },
-          "name": "string.unquoted.heredoc.no-indent.applescript.shell",
-          "contentName": "source.applescript.embedded.shell",
-          "patterns": [
-            {
-              "include": "source.applescript"
-            }
-          ]
-        },
-        {
-          "begin": "(<<)\\s*(\"|'|)\\s*(APPLESCRIPT)(?=\\s|;|&|<|\"|')\\2",
-          "beginCaptures": {
-            "1": {
-              "name": "keyword.operator.heredoc.shell"
-            },
-            "3": {
-              "name": "keyword.control.heredoc-token.shell"
-            }
-          },
-          "end": "^(APPLESCRIPT)(?=\\s|;|&|$)",
-          "endCaptures": {
-            "1": {
-              "name": "keyword.control.heredoc-token.shell"
-            }
-          },
-          "name": "string.unquoted.heredoc.applescript.shell",
-          "contentName": "source.applescript.embedded.shell",
-          "patterns": [
-            {
-              "include": "source.applescript"
-            }
-          ]
-        },
-        {
-          "begin": "(<<)-\\s*(\"|'|)\\s*(HTML)(?=\\s|;|&|<|\"|')\\2",
-          "beginCaptures": {
-            "1": {
-              "name": "keyword.operator.heredoc.shell"
-            },
-            "3": {
-              "name": "keyword.control.heredoc-token.shell"
-            }
-          },
-          "end": "^\\t*(HTML)(?=\\s|;|&|$)",
-          "endCaptures": {
-            "1": {
-              "name": "keyword.control.heredoc-token.shell"
-            }
-          },
-          "name": "string.unquoted.heredoc.no-indent.html.shell",
-          "contentName": "text.html.embedded.shell",
-          "patterns": [
-            {
-              "include": "text.html.basic"
-            }
-          ]
-        },
-        {
-          "begin": "(<<)\\s*(\"|'|)\\s*(HTML)(?=\\s|;|&|<|\"|')\\2",
-          "beginCaptures": {
-            "1": {
-              "name": "keyword.operator.heredoc.shell"
-            },
-            "3": {
-              "name": "keyword.control.heredoc-token.shell"
-            }
-          },
-          "end": "^(HTML)(?=\\s|;|&|$)",
-          "endCaptures": {
-            "1": {
-              "name": "keyword.control.heredoc-token.shell"
-            }
-          },
-          "name": "string.unquoted.heredoc.html.shell",
-          "contentName": "text.html.embedded.shell",
-          "patterns": [
-            {
-              "include": "text.html.basic"
-            }
-          ]
-        },
-        {
-          "begin": "(<<)-\\s*(\"|'|)\\s*(MARKDOWN)(?=\\s|;|&|<|\"|')\\2",
-          "beginCaptures": {
-            "1": {
-              "name": "keyword.operator.heredoc.shell"
-            },
-            "3": {
-              "name": "keyword.control.heredoc-token.shell"
-            }
-          },
-          "end": "^\\t*(MARKDOWN)(?=\\s|;|&|$)",
-          "endCaptures": {
-            "1": {
-              "name": "keyword.control.heredoc-token.shell"
-            }
-          },
-          "name": "string.unquoted.heredoc.no-indent.markdown.shell",
-          "contentName": "text.html.markdown.embedded.shell",
-          "patterns": [
-            {
-              "include": "text.html.markdown"
-            }
-          ]
-        },
-        {
-          "begin": "(<<)\\s*(\"|'|)\\s*(MARKDOWN)(?=\\s|;|&|<|\"|')\\2",
-          "beginCaptures": {
-            "1": {
-              "name": "keyword.operator.heredoc.shell"
-            },
-            "3": {
-              "name": "keyword.control.heredoc-token.shell"
-            }
-          },
-          "end": "^(MARKDOWN)(?=\\s|;|&|$)",
-          "endCaptures": {
-            "1": {
-              "name": "keyword.control.heredoc-token.shell"
-            }
-          },
-          "name": "string.unquoted.heredoc.markdown.shell",
-          "contentName": "text.html.markdown.embedded.shell",
-          "patterns": [
-            {
-              "include": "text.html.markdown"
-            }
-          ]
-        },
-        {
-          "begin": "(<<)-\\s*(\"|'|)\\s*(TEXTILE)(?=\\s|;|&|<|\"|')\\2",
-          "beginCaptures": {
-            "1": {
-              "name": "keyword.operator.heredoc.shell"
-            },
-            "3": {
-              "name": "keyword.control.heredoc-token.shell"
-            }
-          },
-          "end": "^\\t*(TEXTILE)(?=\\s|;|&|$)",
-          "endCaptures": {
-            "1": {
-              "name": "keyword.control.heredoc-token.shell"
-            }
-          },
-          "name": "string.unquoted.heredoc.no-indent.textile.shell",
-          "contentName": "text.html.textile.embedded.shell",
-          "patterns": [
-            {
-              "include": "text.html.textile"
-            }
-          ]
-        },
-        {
-          "begin": "(<<)\\s*(\"|'|)\\s*(TEXTILE)(?=\\s|;|&|<|\"|')\\2",
-          "beginCaptures": {
-            "1": {
-              "name": "keyword.operator.heredoc.shell"
-            },
-            "3": {
-              "name": "keyword.control.heredoc-token.shell"
-            }
-          },
-          "end": "^(TEXTILE)(?=\\s|;|&|$)",
-          "endCaptures": {
-            "1": {
-              "name": "keyword.control.heredoc-token.shell"
-            }
-          },
-          "name": "string.unquoted.heredoc.textile.shell",
-          "contentName": "text.html.textile.embedded.shell",
-          "patterns": [
-            {
-              "include": "text.html.textile"
-            }
-          ]
-        },
-        {
-          "begin": "(<<)-\\s*(\"|'|)\\s*(SHELL)(?=\\s|;|&|<|\"|')\\2",
-          "beginCaptures": {
-            "1": {
-              "name": "keyword.operator.heredoc.shell"
-            },
-            "3": {
-              "name": "keyword.control.heredoc-token.shell"
-            }
-          },
-          "end": "^\\t*(\\3)(?=\\s|;|&|$)",
-          "endCaptures": {
-            "1": {
-              "name": "keyword.control.heredoc-token.shell"
-            }
-          },
-          "contentName": "source.shell.embedded.shell",
-          "name": "string.unquoted.heredoc.no-indent.shell.shell",
-          "patterns": [
-            {
-              "include": "source.shell"
-            }
-          ]
-        },
-        {
-          "begin": "(<<)\\s*(\"|'|)\\s*(SHELL)(?=\\s|;|&|<|\"|')\\2",
-          "beginCaptures": {
-            "1": {
-              "name": "keyword.operator.heredoc.shell"
-            },
-            "3": {
-              "name": "keyword.control.heredoc-token.shell"
-            }
-          },
-          "end": "^(\\3)(?=\\s|;|&|$)",
-          "endCaptures": {
-            "1": {
-              "name": "keyword.control.heredoc-token.shell"
-            }
-          },
-          "name": "string.unquoted.heredoc.shell.shell",
-          "contentName": "source.shell.embedded.shell",
-          "patterns": [
-            {
-              "include": "source.shell"
-            }
-          ]
-        },
-        {
-          "begin": "(<<)-\\s*(\"|'|)\\s*\\\\?([^;&<\\s]+)\\2",
-          "beginCaptures": {
-            "1": {
-              "name": "keyword.operator.heredoc.shell"
-            },
-            "3": {
-              "name": "keyword.control.heredoc-token.shell"
-            }
-          },
-          "end": "^\\t*(\\3)(?=\\s|;|&|$)",
-          "endCaptures": {
-            "1": {
-              "name": "keyword.control.heredoc-token.shell"
-            }
-          },
-          "name": "string.unquoted.heredoc.no-indent.shell"
-        },
-        {
-          "begin": "(<<)\\s*(\"|'|)\\s*\\\\?([^;&<\\s]+)\\2",
-          "beginCaptures": {
-            "1": {
-              "name": "keyword.operator.heredoc.shell"
-            },
-            "3": {
-              "name": "keyword.control.heredoc-token.shell"
-            }
-          },
-          "end": "^(\\3)(?=\\s|;|&|$)",
-          "endCaptures": {
-            "1": {
-              "name": "keyword.control.heredoc-token.shell"
-            }
-          },
-          "name": "string.unquoted.heredoc.shell"
         }
       ]
     },
@@ -1300,7 +1027,7 @@
               "name": "punctuation.definition.evaluation.arithmetic.begin.shell"
             }
           },
-          "end": "\\){2}",
+          "end": "\\)\\s*\\)",
           "endCaptures": {
             "0": {
               "name": "punctuation.definition.evaluation.arithmetic.end.shell"
