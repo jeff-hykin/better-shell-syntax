@@ -103,7 +103,7 @@ require_relative './tokens.rb'
             :support,
         ]
     grammar[:variable_assignment_context] = [
-            :$initial_context
+            :initial_context
         ]
 #
 #
@@ -396,7 +396,7 @@ require_relative './tokens.rb'
                     match: /\)/
                 ),
             includes: [
-                :$initial_context,
+                :initial_context,
             ]
         ),
         # 
@@ -413,7 +413,7 @@ require_relative './tokens.rb'
                     match: /}/
                 ),
             includes: [
-                :$initial_context
+                :initial_context
             ]
         ),
     ]

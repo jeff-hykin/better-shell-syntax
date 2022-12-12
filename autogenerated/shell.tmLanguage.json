@@ -1608,7 +1608,7 @@
           "name": "meta.scope.subshell",
           "patterns": [
             {
-              "include": "$self"
+              "include": "#initial_context"
             }
           ]
         },
@@ -1628,7 +1628,7 @@
           "name": "meta.scope.group.shell",
           "patterns": [
             {
-              "include": "$self"
+              "include": "#initial_context"
             }
           ]
         }
@@ -2459,7 +2459,7 @@
     "variable_assignment_context": {
       "patterns": [
         {
-          "include": "#$self"
+          "include": "#initial_context"
         }
       ]
     }

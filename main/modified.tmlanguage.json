@@ -1190,5 +1190,13 @@
 				}
 			]
 		}
-	}
+	},
+    "support": {
+      "patterns": [
+        {
+          "match": "(?<=^|;|&|\\s)(?::|\\.)(?=\\s|;|&|$)",
+          "name": "support.function.builtin.shell"
+        }
+      ]
+    }
 }
