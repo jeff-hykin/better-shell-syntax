@@ -1,0 +1,43 @@
+- source: '#'
+  scopesBegin:
+    - comment.line.number-sign
+  scopes:
+    - punctuation.definition.comment
+- source: '        (   )    zsh glob qualifiers'
+- source: '#'
+  scopes:
+    - punctuation.definition.comment
+- source: '         #q      glob expansion inside conditional expressions'
+- source: '#'
+  scopes:
+    - punctuation.definition.comment
+- source: '           N     null glob for no error if no matches'
+- source: '#'
+  scopes:
+    - punctuation.definition.comment
+- source: '                 then/fi not required in zsh'
+  scopesEnd:
+    - comment.line.number-sign
+- source: if
+  scopesBegin:
+    - meta.scope.if-block
+  scopes:
+    - keyword.control
+- source: '[['
+  scopesBegin:
+    - meta.scope.logical-expression
+  scopes:
+    - punctuation.definition.logical-expression
+- source: '!'
+  scopes:
+    - keyword.operator.logical
+- source: '*'
+  scopes:
+    - keyword.operator.glob
+- source: '(#qN) '
+- source: ']]'
+  scopes:
+    - punctuation.definition.logical-expression
+  scopesEnd:
+    - meta.scope.logical-expression
+- source: ' echo nothing to see here'

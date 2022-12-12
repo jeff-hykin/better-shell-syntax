@@ -1,95 +1,99 @@
 {
-    "name": "better-shell-syntax",
-    "displayName": "Better Shell Syntax",
-    "version": "1.1.0",
-    "repository": {
-        "url": "https://github.com/jeff-hykin/better-shell-syntax",
-        "type": "git"
-    },
-    "icon": "icon.png",
-    "version": "1.0.0",
-    "scripts": {},
-    "keywords": [
-        "syntax",
-        "textmate",
-        "highlighting",
-        "coloring",
-        "color"
-    ],
-    "engines": {
-        "vscode": "^1.0.0"
-    },
-    "author": {
-        "name": "Jeff Hykin"
-    },
-    "publisher": "jeff-hykin",
-    "contributes": {
-        "grammars": [
-            {
-                "language": "cpp",
-                "scopeName": "source.cpp.embedded.macro",
-                "path": "./syntaxes/cpp.embedded.macro.tmLanguage.json",
-                "embeddedLanguages": {
-                    "meta.embedded.assembly.cpp": "asm"
-                }
-            },
-            {
-                "language": "cpp",
-                "scopeName": "source.cpp",
-                "path": "./syntaxes/cpp.tmLanguage.json",
-                "embeddedLanguages": {
-                    "meta.embedded.assembly.cpp": "asm",
-                    "meta.preprocessor.macro.contents": "cpp"
-                }
-            },
-            {
-                "language": "c",
-                "scopeName": "source.c",
-                "path": "./syntaxes/c.tmLanguage.json",
-                "embeddedLanguages": {
-                    "meta.embedded.assembly.c": "asm"
-                }
-            },
-            {
-                "language": "objective-cpp",
-                "scopeName": "source.objcpp",
-                "path": "./syntaxes/objcpp.tmLanguage.json"
-            },
-            {
-                "language": "objective-c",
-                "scopeName": "source.objc",
-                "path": "./syntaxes/objc.tmLanguage.json"
-            },
-            {
-                "language": "shellscript",
-                "scopeName": "source.shell",
-                "path": "syntaxes/shell.tmLanguage.json"
-            },
-            {
-                "language": "perl",
-                "scopeName": "source.perl",
-                "path": "syntaxes/perl.tmLanguage.json"
-            },
-            {
-                "language": "dockerfile",
-                "scopeName": "source.dockerfile",
-                "path": "syntaxes/dockerfile.tmLanguage.json"
-            }
-        ]
-    },
-    "categories": [
-        "Programming Languages"
-    ],
-    "dependencies": {
-        "chalk": "^2.4.2",
-        "dictionary-en-us": "^2.1.1",
-        "lodash": "^4.17.19",
-        "nspell": "^2.1.2",
-        "oniguruma": "^7.2.0",
-        "textmate-bailout": "^1.1.0",
-        "vsce": "^1.99.0",
-        "yargs": "^17.5.1",
-        "ovsx": "^0.5.1",
-        "textmate-tester": "^1.1.9"
-    }
+  "name": "better-shell-syntax",
+  "displayName": "Better Shell Syntax",
+  "version": "1.0.0",
+  "repository": {
+    "url": "git+https://github.com/jeff-hykin/better-shell-syntax.git",
+    "type": "git"
+  },
+  "icon": "icon.png",
+  "scripts": {},
+  "keywords": [
+    "syntax",
+    "textmate",
+    "highlighting",
+    "coloring",
+    "color"
+  ],
+  "engines": {
+    "vscode": "^1.0.0"
+  },
+  "author": "Jeff Hykin",
+  "publisher": "jeff-hykin",
+  "contributes": {
+    "grammars": [
+      {
+        "language": "cpp",
+        "scopeName": "source.cpp.embedded.macro",
+        "path": "./syntaxes/cpp.embedded.macro.tmLanguage.json",
+        "embeddedLanguages": {
+          "meta.embedded.assembly.cpp": "asm"
+        }
+      },
+      {
+        "language": "cpp",
+        "scopeName": "source.cpp",
+        "path": "./syntaxes/cpp.tmLanguage.json",
+        "embeddedLanguages": {
+          "meta.embedded.assembly.cpp": "asm",
+          "meta.preprocessor.macro.contents": "cpp"
+        }
+      },
+      {
+        "language": "c",
+        "scopeName": "source.c",
+        "path": "./syntaxes/c.tmLanguage.json",
+        "embeddedLanguages": {
+          "meta.embedded.assembly.c": "asm"
+        }
+      },
+      {
+        "language": "objective-cpp",
+        "scopeName": "source.objcpp",
+        "path": "./syntaxes/objcpp.tmLanguage.json"
+      },
+      {
+        "language": "objective-c",
+        "scopeName": "source.objc",
+        "path": "./syntaxes/objc.tmLanguage.json"
+      },
+      {
+        "language": "shellscript",
+        "scopeName": "source.shell",
+        "path": "syntaxes/shell.tmLanguage.json"
+      },
+      {
+        "language": "perl",
+        "scopeName": "source.perl",
+        "path": "syntaxes/perl.tmLanguage.json"
+      },
+      {
+        "language": "dockerfile",
+        "scopeName": "source.dockerfile",
+        "path": "syntaxes/dockerfile.tmLanguage.json"
+      }
+    ]
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "dependencies": {
+    "chalk": "^2.4.2",
+    "dictionary-en-us": "^2.1.1",
+    "lodash": "^4.17.19",
+    "nspell": "^2.1.2",
+    "oniguruma": "^7.2.0",
+    "textmate-bailout": "^1.1.0",
+    "vsce": "^1.99.0",
+    "yargs": "^17.5.1",
+    "ovsx": "^0.5.1",
+    "textmate-tester": "^1.1.9"
+  },
+  "description": "This enables your theme to better color your code. There are \"textmate scopes\" that your theme uses to apply color, this extension adds/improves the textmate scopes which should improve the way your code looks.",
+  "bugs": {
+    "url": "https://github.com/jeff-hykin/better-shell-syntax/issues"
+  },
+  "homepage": "https://github.com/jeff-hykin/better-shell-syntax#readme",
+  "main": "index.js",
+  "license": "ISC"
 }
