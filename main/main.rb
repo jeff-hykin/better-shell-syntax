@@ -242,7 +242,7 @@ require_relative './tokens.rb'
     possible_pre_command_characters = /(?:^|;|\||&|!|\(|\{|\`)/
     possible_command_start   = lookAheadToAvoid(/(?:!|%|&|\||\(|\)|\{|\[|<|>|#|\n|$|\$|;|\s)/)
     possible_argument_start  = lookAheadToAvoid(/(?:%|&|\||\(|\[|#|\n|$|;)/)
-    command_end              = lookAheadFor(/;|\||&|$|\n|\)|\`|\{|\}|#|\]/).lookBehindToAvoid(/\\/)
+    command_end              = lookAheadFor(/;|\||&|\n|\)|\`|\{|\}|#|\]/).lookBehindToAvoid(/\\/)
     unquoted_string_end      = lookAheadFor(/\s|;|\||&|$|\n|\)|\`/)
     invalid_literals         = Regexp.quote(@tokens.representationsThat(:areInvalidLiterals).join(""))
     valid_literal_characters = Regexp.new("[^\s#{invalid_literals}]+")
@@ -345,18 +345,19 @@ require_relative './tokens.rb'
         start_pattern: lookBehindFor(possible_pre_command_characters).then(std_space).lookAheadToAvoid(keyword_patterns),
         end_pattern: command_end,
         includes: [
-            # this 
             PatternRange.new(
+                tag_as: "meta.command",
                 start_pattern: grammar[:command_name],
                 end_pattern: command_end,
                 includes: [
+                    :line_continuation,
                     :option,
                     :argument,
                     # :custom_commands,
-                    # :command_name,
                     :statement_context
                 ],
             ),
+            :line_continuation,
             :statement_context
         ]
     )
