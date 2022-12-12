@@ -1152,7 +1152,7 @@
           "name": "keyword.operator.logical.shell"
         },
         {
-          "match": "(?<!\\S)-(nt|ot|ef|eq|ne|l[te]|g[te]|[a-hknoprstuwxzOGLSN])",
+          "match": "(?<!\\S)-(nt|ot|ef|eq|ne|l[te]|g[te]|[a-hknoprstuwxzOGLSN])\\b",
           "name": "keyword.operator.logical.shell"
         }
       ]
