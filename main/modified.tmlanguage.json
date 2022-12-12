@@ -235,7 +235,7 @@
 		"function-definition": {
 			"patterns": [
 				{
-					"begin": "(^\\s*|(?<=^|;|&|\\s))(function)\\s+([^\\s\\\\]+)(?:\\s*(\\(\\)))?",
+					"begin": "(?:^\\s*|(?<=^|;|&|\\s))(function)\\s+([^\\s\\\\]+)(?:\\s*(\\(\\)))?",
 					"beginCaptures": {
 						"1": {
 							"name": "storage.type.function.shell"
@@ -261,7 +261,7 @@
 					]
 				},
 				{
-					"begin": "(^\\s*|(?<=^|;|&|\\s))([^\\s\\\\=]+)\\s*(\\(\\))",
+					"begin": "(?:^\\s*|(?<=^|;|&|\\s))([^\\s\\\\=]+)\\s*(\\(\\))",
 					"beginCaptures": {
 						"1": {
 							"name": "entity.name.function.shell"

@@ -1,6 +1,7 @@
 - source: groupadd
   scopesBegin:
     - meta.statement
+    - meta.command
   scopes:
     - entity.name.command
 - source: '-'
@@ -19,12 +20,14 @@
     - string.unquoted.argument
   scopesEnd:
     - meta.statement
+    - meta.command
 - source: '&&'
   scopes:
     - punctuation.separator.statement.and
 - source: useradd
   scopesBegin:
     - meta.statement
+    - meta.command
   scopes:
     - entity.name.command
 - source: '-'
@@ -61,6 +64,7 @@
     - constant.character.escape.line-continuation
   scopesEnd:
     - meta.statement
+    - meta.command
     - meta.argument
 - source: '&&'
   scopes:
@@ -76,8 +80,8 @@
     - meta.scope.logical-expression
   scopes:
     - punctuation.definition.logical-expression
-- source: ' -v '
-- source: '"'
+- source: ' -v'
+- source: ' "'
   scopesBegin:
     - string.quoted.double
   scopes:
@@ -108,22 +112,16 @@
     - punctuation.definition.logical-expression
   scopesEnd:
     - meta.scope.logical-expression
-- source: ./node_modules/.bin/typeorm
+- source: .
   scopesBegin:
-    - meta.argument
-    - string.unquoted.argument
-- source: 'schema:sync'
-  scopesEnd:
-    - meta.argument
-    - string.unquoted.argument
-- source: <
-  scopes:
-    - keyword.operator.redirect
-- source: '--'
-  scopes:
+    - meta.command
     - entity.name.command
-- source: this
-  scopesBegin:
+  scopes:
+    - support.function.builtin
+- source: /node_modules/.bin/typeorm
+  scopesEnd:
+    - entity.name.command
+- source: 'schema:sync'
+  scopes:
     - meta.argument
     - string.unquoted.argument
-- source: line

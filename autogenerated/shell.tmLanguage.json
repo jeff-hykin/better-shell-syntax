@@ -77,13 +77,16 @@
       "patterns": [
         {
           "include": "#argument_context"
+        },
+        {
+          "include": "#line_continuation"
         }
       ]
     },
     "argument_context": {
       "patterns": [
         {
-          "match": "[^ '&;<>\\(\\)\\$`\\\\\"\\|]+",
+          "match": "[^ \n'&;<>\\(\\)\\$`\\\\\"\\|]+(?!>)",
           "captures": {
             "0": {
               "patterns": [
@@ -93,6 +96,271 @@
                 },
                 {
                   "include": "#variable"
+                },
+                {
+                  "match": "(?<!\\w)((?<!\\w)\\.?\\d(?:(?:[0-9a-zA-Z_\\.]|')|(?<=[eEpP])[+-])*)(?!\\w)",
+                  "captures": {
+                    "1": {
+                      "patterns": [
+                        {
+                          "begin": "(?=.)",
+                          "end": "$",
+                          "beginCaptures": {
+                          },
+                          "endCaptures": {
+                          },
+                          "patterns": [
+                            {
+                              "match": "(\\G0[xX])([0-9a-fA-F](?:[0-9a-fA-F]|((?<=[0-9a-fA-F])'(?=[0-9a-fA-F])))*)?((?:(?<=[0-9a-fA-F])\\.|\\.(?=[0-9a-fA-F])))([0-9a-fA-F](?:[0-9a-fA-F]|((?<=[0-9a-fA-F])'(?=[0-9a-fA-F])))*)?(?:(?<!')([pP])((?:\\+)?)((?:\\-)?)([0-9](?:[0-9]|(?<=[0-9a-fA-F])'(?=[0-9a-fA-F]))*))?([lLfF](?!\\w))?$",
+                              "captures": {
+                                "1": {
+                                  "name": "keyword.other.unit.hexadecimal.shell"
+                                },
+                                "2": {
+                                  "name": "constant.numeric.hexadecimal.shell",
+                                  "patterns": [
+                                    {
+                                      "match": "(?<=[0-9a-fA-F])'(?=[0-9a-fA-F])",
+                                      "name": "punctuation.separator.constant.numeric.shell"
+                                    }
+                                  ]
+                                },
+                                "3": {
+                                  "name": "punctuation.separator.constant.numeric.shell"
+                                },
+                                "4": {
+                                  "name": "constant.numeric.hexadecimal.shell"
+                                },
+                                "5": {
+                                  "name": "constant.numeric.hexadecimal.shell",
+                                  "patterns": [
+                                    {
+                                      "match": "(?<=[0-9a-fA-F])'(?=[0-9a-fA-F])",
+                                      "name": "punctuation.separator.constant.numeric.shell"
+                                    }
+                                  ]
+                                },
+                                "6": {
+                                  "name": "punctuation.separator.constant.numeric.shell"
+                                },
+                                "7": {
+                                  "name": "keyword.other.unit.exponent.hexadecimal.shell"
+                                },
+                                "8": {
+                                  "name": "keyword.operator.plus.exponent.hexadecimal.shell"
+                                },
+                                "9": {
+                                  "name": "keyword.operator.minus.exponent.hexadecimal.shell"
+                                },
+                                "10": {
+                                  "name": "constant.numeric.exponent.hexadecimal.shell",
+                                  "patterns": [
+                                    {
+                                      "match": "(?<=[0-9a-fA-F])'(?=[0-9a-fA-F])",
+                                      "name": "punctuation.separator.constant.numeric.shell"
+                                    }
+                                  ]
+                                },
+                                "11": {
+                                  "name": "keyword.other.unit.suffix.floating-point.shell"
+                                }
+                              }
+                            },
+                            {
+                              "match": "\\G(?=[0-9.])(?!0[xXbB])([0-9](?:[0-9]|((?<=[0-9a-fA-F])'(?=[0-9a-fA-F])))*)?((?:(?<=[0-9])\\.|\\.(?=[0-9])))([0-9](?:[0-9]|((?<=[0-9a-fA-F])'(?=[0-9a-fA-F])))*)?(?:(?<!')([eE])((?:\\+)?)((?:\\-)?)([0-9](?:[0-9]|(?<=[0-9a-fA-F])'(?=[0-9a-fA-F]))*))?([lLfF](?!\\w))?$",
+                              "captures": {
+                                "1": {
+                                  "name": "constant.numeric.decimal.shell",
+                                  "patterns": [
+                                    {
+                                      "match": "(?<=[0-9a-fA-F])'(?=[0-9a-fA-F])",
+                                      "name": "punctuation.separator.constant.numeric.shell"
+                                    }
+                                  ]
+                                },
+                                "2": {
+                                  "name": "punctuation.separator.constant.numeric.shell"
+                                },
+                                "3": {
+                                  "name": "constant.numeric.decimal.point.shell"
+                                },
+                                "4": {
+                                  "name": "constant.numeric.decimal.shell",
+                                  "patterns": [
+                                    {
+                                      "match": "(?<=[0-9a-fA-F])'(?=[0-9a-fA-F])",
+                                      "name": "punctuation.separator.constant.numeric.shell"
+                                    }
+                                  ]
+                                },
+                                "5": {
+                                  "name": "punctuation.separator.constant.numeric.shell"
+                                },
+                                "6": {
+                                  "name": "keyword.other.unit.exponent.decimal.shell"
+                                },
+                                "7": {
+                                  "name": "keyword.operator.plus.exponent.decimal.shell"
+                                },
+                                "8": {
+                                  "name": "keyword.operator.minus.exponent.decimal.shell"
+                                },
+                                "9": {
+                                  "name": "constant.numeric.exponent.decimal.shell",
+                                  "patterns": [
+                                    {
+                                      "match": "(?<=[0-9a-fA-F])'(?=[0-9a-fA-F])",
+                                      "name": "punctuation.separator.constant.numeric.shell"
+                                    }
+                                  ]
+                                },
+                                "10": {
+                                  "name": "keyword.other.unit.suffix.floating-point.shell"
+                                }
+                              }
+                            },
+                            {
+                              "match": "(\\G0[bB])([01](?:[01]|((?<=[0-9a-fA-F])'(?=[0-9a-fA-F])))*)((?:[uU]|(?:[uU]ll?)|(?:[uU]LL?)|(?:ll?[uU]?)|(?:LL?[uU]?)|[fF])(?!\\w))?$",
+                              "captures": {
+                                "1": {
+                                  "name": "keyword.other.unit.binary.shell"
+                                },
+                                "2": {
+                                  "name": "constant.numeric.binary.shell",
+                                  "patterns": [
+                                    {
+                                      "match": "(?<=[0-9a-fA-F])'(?=[0-9a-fA-F])",
+                                      "name": "punctuation.separator.constant.numeric.shell"
+                                    }
+                                  ]
+                                },
+                                "3": {
+                                  "name": "punctuation.separator.constant.numeric.shell"
+                                },
+                                "4": {
+                                  "name": "keyword.other.unit.suffix.integer.shell"
+                                }
+                              }
+                            },
+                            {
+                              "match": "(\\G0)((?:[0-7]|((?<=[0-9a-fA-F])'(?=[0-9a-fA-F])))+)((?:[uU]|(?:[uU]ll?)|(?:[uU]LL?)|(?:ll?[uU]?)|(?:LL?[uU]?)|[fF])(?!\\w))?$",
+                              "captures": {
+                                "1": {
+                                  "name": "keyword.other.unit.octal.shell"
+                                },
+                                "2": {
+                                  "name": "constant.numeric.octal.shell",
+                                  "patterns": [
+                                    {
+                                      "match": "(?<=[0-9a-fA-F])'(?=[0-9a-fA-F])",
+                                      "name": "punctuation.separator.constant.numeric.shell"
+                                    }
+                                  ]
+                                },
+                                "3": {
+                                  "name": "punctuation.separator.constant.numeric.shell"
+                                },
+                                "4": {
+                                  "name": "keyword.other.unit.suffix.integer.shell"
+                                }
+                              }
+                            },
+                            {
+                              "match": "(\\G0[xX])([0-9a-fA-F](?:[0-9a-fA-F]|((?<=[0-9a-fA-F])'(?=[0-9a-fA-F])))*)(?:(?<!')([pP])((?:\\+)?)((?:\\-)?)([0-9](?:[0-9]|(?<=[0-9a-fA-F])'(?=[0-9a-fA-F]))*))?((?:[uU]|(?:[uU]ll?)|(?:[uU]LL?)|(?:ll?[uU]?)|(?:LL?[uU]?)|[fF])(?!\\w))?$",
+                              "captures": {
+                                "1": {
+                                  "name": "keyword.other.unit.hexadecimal.shell"
+                                },
+                                "2": {
+                                  "name": "constant.numeric.hexadecimal.shell",
+                                  "patterns": [
+                                    {
+                                      "match": "(?<=[0-9a-fA-F])'(?=[0-9a-fA-F])",
+                                      "name": "punctuation.separator.constant.numeric.shell"
+                                    }
+                                  ]
+                                },
+                                "3": {
+                                  "name": "punctuation.separator.constant.numeric.shell"
+                                },
+                                "4": {
+                                  "name": "keyword.other.unit.exponent.hexadecimal.shell"
+                                },
+                                "5": {
+                                  "name": "keyword.operator.plus.exponent.hexadecimal.shell"
+                                },
+                                "6": {
+                                  "name": "keyword.operator.minus.exponent.hexadecimal.shell"
+                                },
+                                "7": {
+                                  "name": "constant.numeric.exponent.hexadecimal.shell",
+                                  "patterns": [
+                                    {
+                                      "match": "(?<=[0-9a-fA-F])'(?=[0-9a-fA-F])",
+                                      "name": "punctuation.separator.constant.numeric.shell"
+                                    }
+                                  ]
+                                },
+                                "8": {
+                                  "name": "keyword.other.unit.suffix.integer.shell"
+                                }
+                              }
+                            },
+                            {
+                              "match": "\\G(?=[0-9.])(?!0[xXbB])([0-9](?:[0-9]|((?<=[0-9a-fA-F])'(?=[0-9a-fA-F])))*)(?:(?<!')([eE])((?:\\+)?)((?:\\-)?)([0-9](?:[0-9]|(?<=[0-9a-fA-F])'(?=[0-9a-fA-F]))*))?((?:[uU]|(?:[uU]ll?)|(?:[uU]LL?)|(?:ll?[uU]?)|(?:LL?[uU]?)|[fF])(?!\\w))?$",
+                              "captures": {
+                                "1": {
+                                  "name": "constant.numeric.decimal.shell",
+                                  "patterns": [
+                                    {
+                                      "match": "(?<=[0-9a-fA-F])'(?=[0-9a-fA-F])",
+                                      "name": "punctuation.separator.constant.numeric.shell"
+                                    }
+                                  ]
+                                },
+                                "2": {
+                                  "name": "punctuation.separator.constant.numeric.shell"
+                                },
+                                "3": {
+                                  "name": "keyword.other.unit.exponent.decimal.shell"
+                                },
+                                "4": {
+                                  "name": "keyword.operator.plus.exponent.decimal.shell"
+                                },
+                                "5": {
+                                  "name": "keyword.operator.minus.exponent.decimal.shell"
+                                },
+                                "6": {
+                                  "name": "constant.numeric.exponent.decimal.shell",
+                                  "patterns": [
+                                    {
+                                      "match": "(?<=[0-9a-fA-F])'(?=[0-9a-fA-F])",
+                                      "name": "punctuation.separator.constant.numeric.shell"
+                                    }
+                                  ]
+                                },
+                                "7": {
+                                  "name": "keyword.other.unit.suffix.integer.shell"
+                                }
+                              }
+                            },
+                            {
+                              "match": "(?:(?:[0-9a-zA-Z_\\.]|')|(?<=[eEpP])[+-])+",
+                              "name": "invalid.illegal.constant.numeric.shell"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "match": "(?<!\\w)(\\b(?:true|false)\\b)(?!\\w)",
+                  "captures": {
+                    "1": {
+                      "name": "constant.language.$1.shell"
+                    }
+                  }
                 }
               ]
             }
@@ -231,7 +499,7 @@
     },
     "command_call": {
       "begin": "(?<=(?:^|;|\\||&|!|\\(|\\{|\\`))\\s*+(?!nocorrect\\W|nocorrect\\$|readonly\\W|readonly\\$|function\\W|function\\$|foreach\\W|foreach\\$|coproc\\W|coproc\\$|logout\\W|logout\\$|export\\W|export\\$|select\\W|select\\$|repeat\\W|repeat\\$|pushd\\W|pushd\\$|until\\W|until\\$|while\\W|while\\$|local\\W|local\\$|case\\W|case\\$|done\\W|done\\$|elif\\W|elif\\$|else\\W|else\\$|esac\\W|esac\\$|popd\\W|popd\\$|then\\W|then\\$|time\\W|time\\$|for\\W|for\\$|end\\W|end\\$|pwd\\W|pwd\\$|if\\W|if\\$|fi\\W|fi\\$|do\\W|do\\$|in\\W|in\\$)",
-      "end": "(?=;|\\||&|$|\\n|\\)|\\`|\\{|\\}|#|\\])(?<!\\\\)",
+      "end": "(?=;|\\||&|\\n|\\)|\\`|\\{|\\}|#|\\])(?<!\\\\)",
       "beginCaptures": {
       },
       "endCaptures": {
@@ -239,26 +507,33 @@
       "name": "meta.statement.shell",
       "patterns": [
         {
-          "begin": "\\s*+(?!(?:!|%|&|\\||\\(|\\)|\\{|\\[|<|>|#|\\n|$|\\$|;|\\s)).+?(?:(?=\\s)|(?=;|\\||&|$|\\n|\\)|\\`|\\{|\\}|#|\\])(?<!\\\\))",
-          "end": "(?=;|\\||&|$|\\n|\\)|\\`|\\{|\\}|#|\\])(?<!\\\\)",
+          "begin": "\\s*+(?!(?:!|%|&|\\||\\(|\\)|\\{|\\[|<|>|#|\\n|$|;|\\s)).+?(?:(?=\\s)|(?=;|\\||&|\\n|\\)|\\`|\\{|\\}|#|\\])(?<!\\\\))",
+          "end": "(?=;|\\||&|\\n|\\)|\\`|\\{|\\}|#|\\])(?<!\\\\)",
           "beginCaptures": {
             "0": {
               "name": "entity.name.command.shell",
               "patterns": [
                 {
-                  "match": "(?<!\\w)(?:)(?!\\w)",
+                  "match": "(?<!\\w)(?:return|break)(?!\\w)",
                   "name": "keyword.control.$0.shell"
                 },
                 {
                   "match": "(?<!\\w)(?:unfunction|unsetopt|autoload|unlimit|bindkey|builtin|command|history|getopts|declare|unalias|typeset|suspend|ulimit|return|source|unhash|disown|break|alias|false|print|shift|times|umask|umask|unset|which|read|type|eval|echo|wait|dirs|hash|jobs|kill|exit|stat|exec|test|trap|true|set|let|fc|cd|fg|bg|:|\\.)(?!\\w)",
                   "name": "support.function.builtin.shell"
+                },
+                {
+                  "include": "#variable"
                 }
               ]
             }
           },
           "endCaptures": {
           },
+          "name": "meta.command.shell",
           "patterns": [
+            {
+              "include": "#line_continuation"
+            },
             {
               "include": "#option"
             },
@@ -271,22 +546,28 @@
           ]
         },
         {
+          "include": "#line_continuation"
+        },
+        {
           "include": "#statement_context"
         }
       ]
     },
     "command_name": {
-      "match": "\\s*+(?!(?:!|%|&|\\||\\(|\\)|\\{|\\[|<|>|#|\\n|$|\\$|;|\\s)).+?(?:(?=\\s)|(?=;|\\||&|$|\\n|\\)|\\`|\\{|\\}|#|\\])(?<!\\\\))",
+      "match": "\\s*+(?!(?:!|%|&|\\||\\(|\\)|\\{|\\[|<|>|#|\\n|$|;|\\s)).+?(?:(?=\\s)|(?=;|\\||&|\\n|\\)|\\`|\\{|\\}|#|\\])(?<!\\\\))",
       "captures": {
         "0": {
           "patterns": [
             {
-              "match": "(?<!\\w)(?:)(?!\\w)",
+              "match": "(?<!\\w)(?:return|break)(?!\\w)",
               "name": "keyword.control.$0.shell"
             },
             {
               "match": "(?<!\\w)(?:unfunction|unsetopt|autoload|unlimit|bindkey|builtin|command|history|getopts|declare|unalias|typeset|suspend|ulimit|return|source|unhash|disown|break|alias|false|print|shift|times|umask|umask|unset|which|read|type|eval|echo|wait|dirs|hash|jobs|kill|exit|stat|exec|test|trap|true|set|let|fc|cd|fg|bg|:|\\.)(?!\\w)",
               "name": "support.function.builtin.shell"
+            },
+            {
+              "include": "#variable"
             }
           ]
         }
@@ -420,7 +701,7 @@
     "function-definition": {
       "patterns": [
         {
-          "begin": "(^\\s*|(?<=^|;|&|\\s))(function)\\s+([^\\s\\\\]+)(?:\\s*(\\(\\)))?",
+          "begin": "(?:^\\s*|(?<=^|;|&|\\s))(function)\\s+([^\\s\\\\]+)(?:\\s*(\\(\\)))?",
           "beginCaptures": {
             "1": {
               "name": "storage.type.function.shell"
@@ -446,7 +727,7 @@
           ]
         },
         {
-          "begin": "(^\\s*|(?<=^|;|&|\\s))([^\\s\\\\=]+)\\s*(\\(\\))",
+          "begin": "(?:^\\s*|(?<=^|;|&|\\s))([^\\s\\\\=]+)\\s*(\\(\\))",
           "beginCaptures": {
             "1": {
               "name": "entity.name.function.shell"
@@ -1847,8 +2128,8 @@
       }
     },
     "option": {
-      "begin": "\\s++(-)((?!(?:!|%|&|\\||\\(|\\)|\\{|\\[|<|>|#|\\n|$|\\$|;|\\s)))",
-      "end": "(?:(?=\\s)|(?=;|\\||&|$|\\n|\\)|\\`|\\{|\\}|#|\\])(?<!\\\\))",
+      "begin": "\\s++(-)((?!(?:!|%|&|\\||\\(|\\)|\\{|\\[|<|>|#|\\n|$|;|\\s)))",
+      "end": "(?:(?=\\s)|(?=;|\\||&|\\n|\\)|\\`|\\{|\\}|#|\\])(?<!\\\\))",
       "beginCaptures": {
         "1": {
           "name": "string.unquoted.argument.shell constant.other.option.dash.shell"
@@ -2060,9 +2341,6 @@
         },
         {
           "include": "#support"
-        },
-        {
-          "include": "#line_continuation"
         }
       ]
     },
@@ -2169,7 +2447,7 @@
     "variable": {
       "patterns": [
         {
-          "match": "(\\$)(\\@(?=\\W))",
+          "match": "(\\$)(\\@(?!\\w))",
           "captures": {
             "1": {
               "name": "punctuation.definition.variable.shell variable.parameter.positional.all.shell"
@@ -2180,7 +2458,7 @@
           }
         },
         {
-          "match": "(\\$)([0-9](?=\\W))",
+          "match": "(\\$)([0-9](?!\\w))",
           "captures": {
             "1": {
               "name": "punctuation.definition.variable.shell variable.parameter.positional.shell"
@@ -2191,7 +2469,7 @@
           }
         },
         {
-          "match": "(\\$)(\\{[0-9]+\\}(?=\\W))",
+          "match": "(\\$)(\\{[0-9]+\\}(?!\\w))",
           "captures": {
             "1": {
               "name": "punctuation.definition.variable.shell variable.parameter.positional.shell"
@@ -2202,7 +2480,7 @@
           }
         },
         {
-          "match": "(\\$)([-*#?$!0_](?=\\W))",
+          "match": "(\\$)([-*#?$!0_](?!\\w))",
           "captures": {
             "1": {
               "name": "punctuation.definition.variable.shell variable.language.special.shell"
@@ -2253,7 +2531,7 @@
           ]
         },
         {
-          "match": "(\\$)(\\w+(?=\\W))",
+          "match": "(\\$)(\\w+(?!\\w))",
           "captures": {
             "1": {
               "name": "punctuation.definition.variable.shell variable.other.normal.shell"

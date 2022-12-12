@@ -1,4 +1,3 @@
-#
 #   bash_completion - programmable completion functions for bash 3.2+
 #
 #   Copyright © 2006-2008, Ian Macdonald <ian@caliban.org>

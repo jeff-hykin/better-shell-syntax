@@ -69,7 +69,6 @@ require_relative './tokens.rb'
             :pathname,
             :keyword,
             :support,
-            :line_continuation,
         ]
     grammar[:option_context] = [
             :misc_ranges,
@@ -240,12 +239,12 @@ require_relative './tokens.rb'
     )
     
     possible_pre_command_characters = /(?:^|;|\||&|!|\(|\{|\`)/
-    possible_command_start   = lookAheadToAvoid(/(?:!|%|&|\||\(|\)|\{|\[|<|>|#|\n|$|\$|;|\s)/)
+    possible_command_start   = lookAheadToAvoid(/(?:!|%|&|\||\(|\)|\{|\[|<|>|#|\n|$|;|\s)/)
     possible_argument_start  = lookAheadToAvoid(/(?:%|&|\||\(|\[|#|\n|$|;)/)
     command_end              = lookAheadFor(/;|\||&|\n|\)|\`|\{|\}|#|\]/).lookBehindToAvoid(/\\/)
     unquoted_string_end      = lookAheadFor(/\s|;|\||&|$|\n|\)|\`/)
     invalid_literals         = Regexp.quote(@tokens.representationsThat(:areInvalidLiterals).join(""))
-    valid_literal_characters = Regexp.new("[^\s#{invalid_literals}]+")
+    valid_literal_characters = Regexp.new("[^\s\n#{invalid_literals}]+")
     any_builtin_name         = @tokens.representationsThat(:areBuiltInCommands).map{ |value| Regexp.quote(value) }.join("|")
     any_builtin_name         = Regexp.new("(?:#{any_builtin_name})")
     any_builtin_name         = variableBounds[any_builtin_name]
@@ -286,12 +285,13 @@ require_relative './tokens.rb'
                 match: any_builtin_name,
                 tag_as: "support.function.builtin",
             ),
+            :variable,
         ]
     )
     grammar[:argument_context] = [
         Pattern.new(
             tag_as: "string.unquoted.argument",
-            match: valid_literal_characters,
+            match: Pattern.new(valid_literal_characters).lookAheadToAvoid(/>/), # ex: 1>&2
             includes: [
                 # wildcard
                 Pattern.new(
@@ -299,6 +299,8 @@ require_relative './tokens.rb'
                     tag_as: "variable.language.special.wildcard"
                 ),
                 :variable,
+                variableBounds[grammar[:numeric_literal]],
+                variableBounds[grammar[:boolean]],
             ]
         ),
         :statement_context,
@@ -308,7 +310,8 @@ require_relative './tokens.rb'
         start_pattern: Pattern.new(/\s++/).then(possible_argument_start),
         end_pattern: unquoted_string_end,
         includes: [
-            :argument_context
+            :argument_context,
+            :line_continuation,
         ]
     )
     grammar[:option] = PatternRange.new(
@@ -468,7 +471,7 @@ require_relative './tokens.rb'
                 match: /\$/,
                 tag_as: "punctuation.definition.variable #{tag}"
             ).then(
-                match: Pattern.new(regex_after_dollarsign).lookAheadFor(/\W/),
+                match: Pattern.new(regex_after_dollarsign).lookAheadToAvoid(/\w/),
                 tag_as: tag,
             )
         )

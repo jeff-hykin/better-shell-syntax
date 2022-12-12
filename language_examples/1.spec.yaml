@@ -1,6 +1,6 @@
 - source: export
   scopes:
-    - storage.modifier
+    - storage.modifier.export
 - source: PATH
   scopesBegin:
     - meta.expression.assignment
@@ -35,6 +35,7 @@
 - source: find
   scopesBegin:
     - meta.statement
+    - meta.command
   scopes:
     - entity.name.command
 - source: '"'
@@ -70,6 +71,7 @@
   scopes:
     - meta.argument
     - string.unquoted.argument
+    - constant.numeric.decimal
 - source: '-'
   scopesBegin:
     - string.unquoted.argument
@@ -80,6 +82,7 @@
     - constant.other.option
   scopesEnd:
     - meta.statement
+    - meta.command
     - string.unquoted.argument
 - source: '|'
   scopes:
@@ -87,6 +90,7 @@
 - source: perl
   scopesBegin:
     - meta.statement
+    - meta.command
   scopes:
     - entity.name.command
 - source: '-'
@@ -135,6 +139,7 @@
     - punctuation.definition.string.end
   scopesEnd:
     - meta.statement
+    - meta.command
     - meta.argument
     - string.quoted.single
 - source: if
@@ -147,7 +152,7 @@
     - meta.scope.logical-expression
   scopes:
     - punctuation.definition.logical-expression
-- source: '"'
+- source: ' "'
   scopesBegin:
     - string.quoted.double
   scopes:
@@ -167,7 +172,7 @@
 - source: '=='
   scopes:
     - keyword.operator.logical
-- source: '"'
+- source: ' "'
   scopesBegin:
     - string.quoted.double
   scopes:
@@ -191,15 +196,17 @@
     - punctuation.terminator.statement.semicolon
 - source: then
   scopes:
-    - keyword.control
+    - keyword.control.then
 - source: brew
   scopesBegin:
     - meta.statement
+    - meta.command
   scopes:
     - entity.name.command
 - source: install
-  scopes:
+  scopesBegin:
     - meta.argument
+  scopes:
     - string.unquoted.argument
 - source: $
   scopes:
@@ -210,6 +217,8 @@
     - variable.parameter.positional.all
   scopesEnd:
     - meta.statement
+    - meta.command
+    - meta.argument
 - source: fi
   scopes:
     - keyword.control
@@ -218,18 +227,26 @@
 - source: cd
   scopesBegin:
     - meta.statement
+    - meta.command
   scopes:
     - entity.name.command
-- source: /opencv-3.2.0/
+    - support.function.builtin
+- source: /opencv-
   scopesBegin:
     - meta.argument
+    - string.unquoted.argument
+- source: 3.2.0
   scopes:
+    - invalid.illegal.constant.numeric
+- source: /
+  scopesEnd:
     - string.unquoted.argument
 - source: \
   scopes:
     - constant.character.escape.line-continuation
   scopesEnd:
     - meta.statement
+    - meta.command
     - meta.argument
 - source: '&&'
   scopes:
@@ -237,6 +254,7 @@
 - source: mkdir
   scopesBegin:
     - meta.statement
+    - meta.command
   scopes:
     - entity.name.command
 - source: build
@@ -249,6 +267,7 @@
     - constant.character.escape.line-continuation
   scopesEnd:
     - meta.statement
+    - meta.command
     - meta.argument
 - source: '&&'
   scopes:
@@ -256,8 +275,10 @@
 - source: cd
   scopesBegin:
     - meta.statement
+    - meta.command
   scopes:
     - entity.name.command
+    - support.function.builtin
 - source: build
   scopesBegin:
     - meta.argument
@@ -268,6 +289,7 @@
     - constant.character.escape.line-continuation
   scopesEnd:
     - meta.statement
+    - meta.command
     - meta.argument
 - source: '&&'
   scopes:
@@ -275,6 +297,7 @@
 - source: ldconfig
   scopesBegin:
     - meta.statement
+    - meta.command
   scopes:
     - entity.name.command
 - source: \
@@ -283,12 +306,14 @@
     - constant.character.escape.line-continuation
   scopesEnd:
     - meta.statement
+    - meta.command
 - source: '&&'
   scopes:
     - punctuation.separator.statement.and
 - source: rm
   scopesBegin:
     - meta.statement
+    - meta.command
   scopes:
     - entity.name.command
 - source: /opencv.zip
@@ -301,6 +326,7 @@
     - constant.character.escape.line-continuation
   scopesEnd:
     - meta.statement
+    - meta.command
     - meta.argument
 - source: '&&'
   scopes:
@@ -308,6 +334,7 @@
 - source: rm
   scopesBegin:
     - meta.statement
+    - meta.command
   scopes:
     - entity.name.command
 - source: /opencv_contrib.zip
@@ -316,6 +343,7 @@
     - string.unquoted.argument
   scopesEnd:
     - meta.statement
+    - meta.command
 - source: function
   scopesBegin:
     - meta.function
@@ -388,8 +416,10 @@
 - source: cd
   scopesBegin:
     - meta.statement
+    - meta.command
   scopes:
     - entity.name.command
+    - support.function.builtin
 - source: '"'
   scopesBegin:
     - meta.argument
@@ -402,6 +432,7 @@
     - punctuation.definition.string.end
   scopesEnd:
     - meta.statement
+    - meta.command
     - meta.argument
     - string.quoted.double
 - source: ;
@@ -410,6 +441,7 @@
 - source: ls
   scopesBegin:
     - meta.statement
+    - meta.command
   scopes:
     - entity.name.command
 - source: '-'
@@ -422,6 +454,7 @@
     - constant.other.option
   scopesEnd:
     - meta.statement
+    - meta.command
     - string.unquoted.argument
 - source: '}'
   scopes:
@@ -432,8 +465,10 @@
 - source: exec
   scopesBegin:
     - meta.statement
+    - meta.command
   scopes:
     - entity.name.command
+    - support.function.builtin
 - source: 9>&2
   scopes:
     - meta.argument
@@ -441,9 +476,11 @@
 - source: exec
   scopes:
     - entity.name.command
+    - support.function.builtin
 - source: 8>
-  scopes:
+  scopesBegin:
     - meta.argument
+  scopes:
     - keyword.operator.redirect
 - source: '>('
   scopesBegin:
@@ -453,6 +490,7 @@
 - source: perl
   scopesBegin:
     - meta.statement
+    - meta.command
   scopes:
     - entity.name.command
 - source: '-'
@@ -478,6 +516,7 @@
     - punctuation.definition.string.end
   scopesEnd:
     - meta.statement
+    - meta.command
     - meta.argument
     - string.quoted.single
 - source: )
@@ -485,10 +524,12 @@
     - punctuation.definition.string.end
   scopesEnd:
     - meta.statement
+    - meta.command
+    - meta.argument
     - string.interpolated.process-substitution
 - source: export
   scopes:
-    - storage.modifier
+    - storage.modifier.export
 - source: COLOR_BLUE
   scopesBegin:
     - meta.expression.assignment
@@ -510,6 +551,7 @@
 - source: tput
   scopesBegin:
     - meta.statement
+    - meta.command
   scopes:
     - entity.name.command
 - source: setaf
@@ -517,8 +559,11 @@
     - meta.argument
     - string.unquoted.argument
 - source: '4'
+  scopes:
+    - constant.numeric.decimal
   scopesEnd:
     - meta.statement
+    - meta.command
     - meta.argument
     - string.unquoted.argument
 - source: )
@@ -534,7 +579,7 @@
     - string.quoted.double
 - source: export
   scopes:
-    - storage.modifier
+    - storage.modifier.export
 - source: COLOR_RED
   scopesBegin:
     - meta.expression.assignment
@@ -556,6 +601,7 @@
 - source: tput
   scopesBegin:
     - meta.statement
+    - meta.command
   scopes:
     - entity.name.command
 - source: setaf
@@ -563,8 +609,11 @@
     - meta.argument
     - string.unquoted.argument
 - source: '1'
+  scopes:
+    - constant.numeric.decimal
   scopesEnd:
     - meta.statement
+    - meta.command
     - meta.argument
     - string.unquoted.argument
 - source: )
@@ -580,7 +629,7 @@
     - string.quoted.double
 - source: export
   scopes:
-    - storage.modifier
+    - storage.modifier.export
 - source: COLOR_RESET
   scopesBegin:
     - meta.expression.assignment
@@ -602,6 +651,7 @@
 - source: tput
   scopesBegin:
     - meta.statement
+    - meta.command
   scopes:
     - entity.name.command
 - source: sgr0
@@ -610,6 +660,7 @@
     - string.unquoted.argument
   scopesEnd:
     - meta.statement
+    - meta.command
 - source: )
   scopes:
     - punctuation.definition.evaluation.parens.end
@@ -624,6 +675,7 @@
 - source: sed
   scopesBegin:
     - meta.statement
+    - meta.command
   scopes:
     - entity.name.command
 - source: '-'
@@ -688,6 +740,7 @@
 - source: read
   scopes:
     - entity.name.command
+    - support.function.builtin
 - source: '-'
   scopesBegin:
     - string.unquoted.argument
@@ -725,6 +778,7 @@
   scopes:
     - meta.argument
     - string.unquoted.argument
+    - constant.numeric.decimal
 - source: '-'
   scopesBegin:
     - string.unquoted.argument
@@ -738,8 +792,10 @@
 - source: echo
   scopes:
     - entity.name.command
+    - support.function.builtin
   scopesEnd:
     - meta.statement
+    - meta.command
 - source: '#'
   scopesBegin:
     - comment.line.number-sign
@@ -778,19 +834,23 @@
   scopesEnd:
     - meta.scope.logical-expression
 - source: then
-  scopes:
-    - keyword.control
-- source: exit
   scopesBegin:
     - meta.statement
+    - meta.command
+    - entity.name.command
+- source: exit
   scopes:
+    - support.function.builtin
+  scopesEnd:
     - entity.name.command
 - source: '1'
   scopes:
     - meta.argument
     - string.unquoted.argument
+    - constant.numeric.decimal
   scopesEnd:
     - meta.statement
+    - meta.command
 - source: fi
   scopes:
     - keyword.control

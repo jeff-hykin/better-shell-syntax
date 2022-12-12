@@ -8,6 +8,7 @@ constant.character.escape.line-continuation.shell
 constant.character.escape.octal.shell
 constant.character.escape.shell
 constant.language.$0.shell
+constant.language.$1.shell
 constant.numeric.binary.shell
 constant.numeric.decimal.point.shell
 constant.numeric.decimal.shell
@@ -53,6 +54,7 @@ keyword.other.unit.suffix.floating-point.shell
 keyword.other.unit.suffix.integer.shell
 meta.argument.shell
 meta.arithmetic.shell
+meta.command.shell
 meta.expression.assignment.shell
 meta.function.shell
 meta.herestring.shell
