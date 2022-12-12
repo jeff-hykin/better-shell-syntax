@@ -24,6 +24,7 @@ constant.other.option.shell
 entity.name.command.shell
 entity.name.function.shell
 invalid.illegal.constant.numeric.shell
+keyword.control.$0.shell
 keyword.control.heredoc-token.shell
 keyword.control.shell
 keyword.operator.arithmetic.shell
@@ -73,6 +74,7 @@ meta.shebang.shell
 meta.statement.shell
 meta.structure.extglob.shell
 punctuation.definition.arguments.shell
+punctuation.definition.array.access.shell
 punctuation.definition.case-pattern.shell
 punctuation.definition.comment.begin.shell
 punctuation.definition.comment.end.shell
@@ -108,7 +110,7 @@ source.applescript.embedded.shell
 source.python.embedded.shell
 source.ruby.embedded.shell
 source.shell.embedded.shell
-storage.modifier.shell
+storage.modifier.$0.shell
 storage.type.alias.shell
 storage.type.function.shell
 string.interpolated.backtick.shell
@@ -137,6 +139,7 @@ string.unquoted.heredoc.shell
 string.unquoted.heredoc.shell.shell
 string.unquoted.heredoc.textile.shell
 string.unquoted.herestring.shell
+support.function.builtin.shell
 text.html.embedded.shell
 text.html.markdown.embedded.shell
 text.html.textile.embedded.shell

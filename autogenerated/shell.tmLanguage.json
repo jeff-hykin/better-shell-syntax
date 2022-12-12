@@ -62,7 +62,7 @@
       "name": "meta.expression.assignment.shell",
       "patterns": [
         {
-          "include": "#command_context"
+          "include": "#statement_context"
         }
       ]
     },
@@ -100,7 +100,7 @@
           "name": "string.unquoted.argument.shell"
         },
         {
-          "include": "#command_context"
+          "include": "#statement_context"
         }
       ]
     },
@@ -231,7 +231,7 @@
     },
     "command_call": {
       "begin": "(?<=(?:^|;|\\||&|!|\\(|\\{|\\`))\\s*+(?!nocorrect\\W|nocorrect\\$|readonly\\W|readonly\\$|function\\W|function\\$|foreach\\W|foreach\\$|coproc\\W|coproc\\$|logout\\W|logout\\$|export\\W|export\\$|select\\W|select\\$|repeat\\W|repeat\\$|pushd\\W|pushd\\$|until\\W|until\\$|while\\W|while\\$|local\\W|local\\$|case\\W|case\\$|done\\W|done\\$|elif\\W|elif\\$|else\\W|else\\$|esac\\W|esac\\$|popd\\W|popd\\$|then\\W|then\\$|time\\W|time\\$|for\\W|for\\$|end\\W|end\\$|pwd\\W|pwd\\$|if\\W|if\\$|fi\\W|fi\\$|do\\W|do\\$|in\\W|in\\$)",
-      "end": "(?=;|\\||&|$|\\n|$|\\)|\\`|\\{|\\}|#|\\])(?<!\\\\)",
+      "end": "(?=;|\\||&|$|\\n|\\)|\\`|\\{|\\}|#|\\])(?<!\\\\)",
       "beginCaptures": {
       },
       "endCaptures": {
@@ -239,86 +239,59 @@
       "name": "meta.statement.shell",
       "patterns": [
         {
-          "include": "#option"
+          "begin": "\\s*+(?!(?:!|%|&|\\||\\(|\\)|\\{|\\[|<|>|#|\\n|$|\\$|;|\\s)).+?(?:(?=\\s)|(?=;|\\||&|$|\\n|\\)|\\`|\\{|\\}|#|\\])(?<!\\\\))",
+          "end": "(?=;|\\||&|$|\\n|\\)|\\`|\\{|\\}|#|\\])(?<!\\\\)",
+          "beginCaptures": {
+            "0": {
+              "name": "entity.name.command.shell",
+              "patterns": [
+                {
+                  "match": "(?<!\\w)(?:)(?!\\w)",
+                  "name": "keyword.control.$0.shell"
+                },
+                {
+                  "match": "(?<!\\w)(?:unfunction|unsetopt|autoload|unlimit|bindkey|builtin|command|history|getopts|declare|unalias|typeset|suspend|ulimit|return|source|unhash|disown|break|alias|false|print|shift|times|umask|umask|unset|which|read|type|eval|echo|wait|dirs|hash|jobs|kill|exit|stat|exec|test|trap|true|set|let|fc|cd|fg|bg|:|\\.)(?!\\w)",
+                  "name": "support.function.builtin.shell"
+                }
+              ]
+            }
+          },
+          "endCaptures": {
+          },
+          "patterns": [
+            {
+              "include": "#option"
+            },
+            {
+              "include": "#argument"
+            },
+            {
+              "include": "#statement_context"
+            }
+          ]
         },
         {
-          "include": "#argument"
-        },
-        {
-          "include": "#command_name"
-        },
-        {
-          "include": "#command_context"
-        }
-      ]
-    },
-    "command_context": {
-      "patterns": [
-        {
-          "include": "#comment"
-        },
-        {
-          "include": "#pipeline"
-        },
-        {
-          "include": "#statement_seperator"
-        },
-        {
-          "include": "#misc_ranges"
-        },
-        {
-          "include": "#string"
-        },
-        {
-          "include": "#variable"
-        },
-        {
-          "include": "#interpolation"
-        },
-        {
-          "include": "#heredoc"
-        },
-        {
-          "include": "#herestring"
-        },
-        {
-          "include": "#redirection"
-        },
-        {
-          "include": "#pathname"
-        },
-        {
-          "include": "#keyword"
-        },
-        {
-          "include": "#support"
-        },
-        {
-          "include": "#line_continuation"
+          "include": "#statement_context"
         }
       ]
     },
     "command_name": {
-      "begin": "\\G\\s*+(?!(?:!|%|&|\\||\\(|\\{|\\[|<|>|#|\\n|$|\\$|;))",
-      "end": "(?:(?=\\s)|(?=;|\\||&|$|\\n|$|\\)|\\`|\\{|\\}|#|\\])(?<!\\\\))",
-      "beginCaptures": {
-      },
-      "endCaptures": {
-      },
-      "name": "entity.name.command.shell",
-      "patterns": [
-        {
-          "match": "(?<!\\w)(?:)(?!\\w)",
-          "name": "keyword.control.$0.shell"
-        },
-        {
-          "match": "(?<!\\w)(?:unfunction|unsetopt|autoload|unlimit|bindkey|builtin|command|history|getopts|declare|unalias|typeset|suspend|ulimit|return|source|unhash|disown|break|alias|false|print|shift|times|umask|umask|unset|which|read|type|eval|echo|wait|dirs|hash|jobs|kill|exit|stat|exec|test|trap|true|set|let|fc|cd|fg|bg|:|\\.)(?!\\w)",
-          "name": "support.function.builtin.shell"
-        },
-        {
-          "include": "#command_context"
+      "match": "\\s*+(?!(?:!|%|&|\\||\\(|\\)|\\{|\\[|<|>|#|\\n|$|\\$|;|\\s)).+?(?:(?=\\s)|(?=;|\\||&|$|\\n|\\)|\\`|\\{|\\}|#|\\])(?<!\\\\))",
+      "captures": {
+        "0": {
+          "patterns": [
+            {
+              "match": "(?<!\\w)(?:)(?!\\w)",
+              "name": "keyword.control.$0.shell"
+            },
+            {
+              "match": "(?<!\\w)(?:unfunction|unsetopt|autoload|unlimit|bindkey|builtin|command|history|getopts|declare|unalias|typeset|suspend|ulimit|return|source|unhash|disown|break|alias|false|print|shift|times|umask|umask|unset|which|read|type|eval|echo|wait|dirs|hash|jobs|kill|exit|stat|exec|test|trap|true|set|let|fc|cd|fg|bg|:|\\.)(?!\\w)",
+              "name": "support.function.builtin.shell"
+            }
+          ]
         }
-      ]
+      },
+      "name": "entity.name.command.shell"
     },
     "comment": {
       "match": "(?<=^|\\s)(?:((#!).*)|((#).*))",
@@ -1575,7 +1548,7 @@
           ]
         },
         {
-          "begin": "\\(",
+          "begin": "(?<!=)\\(",
           "end": "\\)",
           "beginCaptures": {
             "0": {
@@ -1874,8 +1847,8 @@
       }
     },
     "option": {
-      "begin": "\\s++(-)((?!(?:!|%|&|\\||\\(|\\{|\\[|<|>|#|\\n|$|\\$|;)))",
-      "end": "(?:(?=\\s)|(?=;|\\||&|$|\\n|$|\\)|\\`|\\{|\\}|#|\\])(?<!\\\\))",
+      "begin": "\\s++(-)((?!(?:!|%|&|\\||\\(|\\)|\\{|\\[|<|>|#|\\n|$|\\$|;|\\s)))",
+      "end": "(?:(?=\\s)|(?=;|\\||&|$|\\n|\\)|\\`|\\{|\\}|#|\\])(?<!\\\\))",
       "beginCaptures": {
         "1": {
           "name": "string.unquoted.argument.shell constant.other.option.dash.shell"
@@ -2046,6 +2019,52 @@
           ]
         }
       }
+    },
+    "statement_context": {
+      "patterns": [
+        {
+          "include": "#comment"
+        },
+        {
+          "include": "#pipeline"
+        },
+        {
+          "include": "#statement_seperator"
+        },
+        {
+          "include": "#misc_ranges"
+        },
+        {
+          "include": "#string"
+        },
+        {
+          "include": "#variable"
+        },
+        {
+          "include": "#interpolation"
+        },
+        {
+          "include": "#heredoc"
+        },
+        {
+          "include": "#herestring"
+        },
+        {
+          "include": "#redirection"
+        },
+        {
+          "include": "#pathname"
+        },
+        {
+          "include": "#keyword"
+        },
+        {
+          "include": "#support"
+        },
+        {
+          "include": "#line_continuation"
+        }
+      ]
     },
     "statement_seperator": {
       "match": "(?:(?:(?:(?:(;)|(&&))|(\\|\\|))|(&))|\\n)",

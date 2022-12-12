@@ -55,7 +55,7 @@ require_relative './tokens.rb'
             match: /\b(?:true|false)\b/,
             tag_as: "constant.language.$match"
         )
-    grammar[:command_context] = [
+    grammar[:statement_context] = [
             :comment,
             :pipeline,
             :statement_seperator,
@@ -236,13 +236,13 @@ require_relative './tokens.rb'
                 tag_as: "storage.type.alias"
             ).then(@spaces).then(assignment_start),
         end_pattern: assignment_end,
-        includes: [ :command_context ]
+        includes: [ :statement_context ]
     )
     
     possible_pre_command_characters = /(?:^|;|\||&|!|\(|\{|\`)/
-    possible_command_start   = lookAheadToAvoid(/(?:!|%|&|\||\(|\{|\[|<|>|#|\n|$|\$|;)/)
+    possible_command_start   = lookAheadToAvoid(/(?:!|%|&|\||\(|\)|\{|\[|<|>|#|\n|$|\$|;|\s)/)
     possible_argument_start  = lookAheadToAvoid(/(?:%|&|\||\(|\[|#|\n|$|;)/)
-    command_end              = lookAheadFor(/;|\||&|$|\n|$|\)|\`|\{|\}|#|\]/).lookBehindToAvoid(/\\/)
+    command_end              = lookAheadFor(/;|\||&|$|\n|\)|\`|\{|\}|#|\]/).lookBehindToAvoid(/\\/)
     unquoted_string_end      = lookAheadFor(/\s|;|\||&|$|\n|\)|\`/)
     invalid_literals         = Regexp.quote(@tokens.representationsThat(:areInvalidLiterals).join(""))
     valid_literal_characters = Regexp.new("[^\s#{invalid_literals}]+")
@@ -266,10 +266,17 @@ require_relative './tokens.rb'
         ),
     ]
     
-    grammar[:command_name] = PatternRange.new(
+    grammar[:command_name] = Pattern.new(
         tag_as: "entity.name.command",
-        start_pattern: Pattern.new(/\G/).then(std_space).then(possible_command_start),
-        end_pattern: lookAheadFor(@space).or(command_end),
+        match: Pattern.new(
+            Pattern.new(
+                std_space.then(possible_command_start)
+            ).then(
+                /.+?/
+            ).then(
+                lookAheadFor(@space).or(command_end)
+            )
+        ),
         includes: [
             Pattern.new(
                 match: any_builtin_control_flow,
@@ -279,8 +286,6 @@ require_relative './tokens.rb'
                 match: any_builtin_name,
                 tag_as: "support.function.builtin",
             ),
-            # :custom_command_names,
-            :command_context,
         ]
     )
     grammar[:argument_context] = [
@@ -296,7 +301,7 @@ require_relative './tokens.rb'
                 :variable,
             ]
         ),
-        :command_context,
+        :statement_context,
     ]
     grammar[:argument] = PatternRange.new(
         tag_as: "meta.argument",
@@ -335,15 +340,24 @@ require_relative './tokens.rb'
     keyword_patterns = /#{keywords.map { |each| each+'\W|'+each+'\$' } .join('|')}/
     grammar[:command_call] = PatternRange.new(
         zeroLengthStart?: true,
+        zeroLengthEnd?: true,
         tag_as: "meta.statement",
         start_pattern: lookBehindFor(possible_pre_command_characters).then(std_space).lookAheadToAvoid(keyword_patterns),
         end_pattern: command_end,
         includes: [
-            :option,
-            :argument,
-            # :custom_commands,
-            :command_name,
-            :command_context
+            # this 
+            PatternRange.new(
+                start_pattern: grammar[:command_name],
+                end_pattern: command_end,
+                includes: [
+                    :option,
+                    :argument,
+                    # :custom_commands,
+                    # :command_name,
+                    :statement_context
+                ],
+            ),
+            :statement_context
         ]
     )
     grammar[:custom_commands] = [
@@ -403,7 +417,7 @@ require_relative './tokens.rb'
             tag_as: "meta.scope.subshell",
             start_pattern: Pattern.new(
                     tag_as: "punctuation.definition.subshell",
-                    match: /\(/
+                    match: lookBehindToAvoid("=").then(/\(/)
                 ),
             end_pattern: Pattern.new(
                     tag_as: "punctuation.definition.subshell",
