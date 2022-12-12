@@ -1984,22 +1984,8 @@
       ]
     },
     "regex_comparison": {
-      "match": "(\\=~)(?:\\s)+([^ ]*)",
-      "captures": {
-        "1": {
-          "name": "keyword.operator.logical.shell"
-        },
-        "2": {
-          "patterns": [
-            {
-              "include": "#variable"
-            },
-            {
-              "include": "#regexp"
-            }
-          ]
-        }
-      }
+      "match": "\\=~",
+      "name": "keyword.operator.logical.regex.shell"
     },
     "regexp": {
       "patterns": [

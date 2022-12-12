@@ -451,19 +451,9 @@ require_relative './tokens.rb'
     ]
     
     grammar[:regex_comparison] = Pattern.new(
-        Pattern.new(
-            tag_as: "keyword.operator.logical",
+            tag_as: "keyword.operator.logical.regex",
             match: /\=~/,
-        ).then(
-            @spaces
-        ).then(
-            match: /[^ ]*/,
-            includes: [
-                :variable,
-                :regexp
-            ]
         )
-    )
     
     def generateVariable(regex_after_dollarsign, tag)
         Pattern.new(

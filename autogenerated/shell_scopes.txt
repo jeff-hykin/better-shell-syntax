@@ -35,6 +35,7 @@ keyword.operator.extglob.shell
 keyword.operator.glob.shell
 keyword.operator.heredoc.shell
 keyword.operator.herestring.shell
+keyword.operator.logical.regex.shell
 keyword.operator.logical.shell
 keyword.operator.minus.exponent.decimal.shell
 keyword.operator.minus.exponent.hexadecimal.shell
