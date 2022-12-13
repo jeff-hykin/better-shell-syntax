@@ -1,0 +1,123 @@
+- source: if
+  scopesBegin:
+    - meta.scope.if-block
+  scopes:
+    - keyword.control
+- source: 'true'
+  scopes:
+    - constant.language.true
+- source: ;
+  scopes:
+    - punctuation.terminator.statement.semicolon
+- source: then
+  scopes:
+    - keyword.control.then
+- source: cat
+  scopesBegin:
+    - meta.statement
+    - meta.command
+  scopes:
+    - entity.name.command
+- source: <<-
+  scopesBegin:
+    - meta.argument
+    - string.unquoted.heredoc.indent
+  scopes:
+    - keyword.operator.heredoc
+- source: EOF
+  scopes:
+    - punctuation.definition.string.heredoc
+- source: "\t\t# My script here"
+- source: "\tEOF"
+  scopes:
+    - punctuation.definition.string.heredoc
+  scopesEnd:
+    - meta.argument
+    - string.unquoted.heredoc.indent
+- source: cat
+  scopes:
+    - entity.name.command
+- source: <<-
+  scopesBegin:
+    - meta.argument
+    - string.quoted.heredoc.indent
+  scopes:
+    - keyword.operator.heredoc
+- source: ''''
+- source: EOF
+  scopes:
+    - punctuation.definition.string.heredoc
+- source: ''''
+- source: "\t\t# My script here"
+- source: "\tEOF"
+  scopes:
+    - punctuation.definition.string.heredoc
+  scopesEnd:
+    - meta.argument
+    - string.quoted.heredoc.indent
+- source: cat
+  scopes:
+    - entity.name.command
+- source: <<-
+  scopesBegin:
+    - meta.argument
+    - string.quoted.heredoc.indent
+  scopes:
+    - keyword.operator.heredoc
+- source: '"'
+- source: EOF
+  scopes:
+    - punctuation.definition.string.heredoc
+- source: '"'
+- source: "\t\t# My script here"
+- source: "\tEOF"
+  scopes:
+    - punctuation.definition.string.heredoc
+  scopesEnd:
+    - meta.argument
+    - string.quoted.heredoc.indent
+- source: cat
+  scopes:
+    - entity.name.command
+- source: '<<'
+  scopesBegin:
+    - meta.argument
+    - string.quoted.heredoc.no-indent
+  scopes:
+    - keyword.operator.heredoc
+- source: ''''
+- source: EOF
+  scopes:
+    - punctuation.definition.string.heredoc
+- source: ''''
+- source: "\t\t# My script here"
+- source: EOF
+  scopes:
+    - punctuation.definition.string.heredoc
+  scopesEnd:
+    - meta.argument
+    - string.quoted.heredoc.no-indent
+- source: cat
+  scopes:
+    - entity.name.command
+- source: '<<'
+  scopesBegin:
+    - meta.argument
+    - string.unquoted.heredoc.no-indent
+  scopes:
+    - keyword.operator.heredoc
+- source: EOF
+  scopes:
+    - punctuation.definition.string.heredoc
+- source: "\t\t# My script here"
+- source: EOF
+  scopes:
+    - punctuation.definition.string.heredoc
+  scopesEnd:
+    - meta.statement
+    - meta.command
+    - meta.argument
+    - string.unquoted.heredoc.no-indent
+- source: fi
+  scopes:
+    - keyword.control

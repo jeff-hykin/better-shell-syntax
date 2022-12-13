@@ -553,9 +553,12 @@ require_relative './tokens.rb'
                             )
                         ),
                         end_pattern: Pattern.new(
-                            Pattern.new(/^\t*/).matchResultOf(
-                                "delimiter"
-                            ).lookAheadFor(/\s|;|&|$/),
+                            tag_as: "punctuation.definition.string.heredoc",
+                            match: Pattern.new(
+                                Pattern.new(/^\t*/).matchResultOf(
+                                    "delimiter"
+                                ).lookAheadFor(/\s|;|&|$/),
+                            ),
                         ),
                         includes: includes,
                     ),
@@ -579,9 +582,12 @@ require_relative './tokens.rb'
                             )
                         ),
                         end_pattern: Pattern.new(
-                            Pattern.new(/^\t*/).matchResultOf(
-                                "delimiter"
-                            ).lookAheadFor(/\s|;|&|$/),
+                            tag_as: "punctuation.definition.string.heredoc",
+                            match: Pattern.new(
+                                Pattern.new(/^/).matchResultOf(
+                                    "delimiter"
+                                ).lookAheadFor(/\s|;|&|$/),
+                            ),
                         ),
                         includes: includes,
                     ),
@@ -600,9 +606,12 @@ require_relative './tokens.rb'
                             ).lookAheadFor(/\s|;|&|<|"|'/)
                         ),
                         end_pattern: Pattern.new(
-                            Pattern.new(/^\t*/).matchResultOf(
-                                "delimiter"
-                            ).lookAheadFor(/\s|;|&|$/),
+                            tag_as: "punctuation.definition.string.heredoc",
+                            match: Pattern.new(
+                                Pattern.new(/^\t*/).matchResultOf(
+                                    "delimiter"
+                                ).lookAheadFor(/\s|;|&|$/),
+                            )
                         ),
                         includes: [
                             :double_quote_escape_char,
@@ -628,7 +637,7 @@ require_relative './tokens.rb'
                         end_pattern: Pattern.new(
                             tag_as: "punctuation.definition.string.heredoc",
                             match: Pattern.new(
-                                Pattern.new(/^\t*/).matchResultOf(
+                                Pattern.new(/^/).matchResultOf(
                                     "delimiter"
                                 ).lookAheadFor(/\s|;|&|$/),
                             )
