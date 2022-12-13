@@ -541,10 +541,10 @@ require_relative './tokens.rb'
                             Pattern.new(
                                 match: /<<-/,
                                 tag_as: "keyword.operator.heredoc",
-                            ).then(/\s*+/).then(
+                            ).then(std_space).then(
                                 match: /"|'/,
                                 reference: "start_quote"
-                            ).then(/\s*+/).then(
+                            ).then(std_space).then(
                                 match: name_pattern,
                                 reference: "delimiter",
                                 tag_as: "punctuation.definition.string.heredoc",
@@ -567,10 +567,10 @@ require_relative './tokens.rb'
                             Pattern.new(
                                 match: /<</,
                                 tag_as: "keyword.operator.heredoc",
-                            ).then(/\s*+/).then(
+                            ).then(std_space).then(
                                 match: /"|'/,
                                 reference: "start_quote"
-                            ).then(/\s*+/).then(
+                            ).then(std_space).then(
                                 match: name_pattern,
                                 reference: "delimiter",
                                 tag_as: "punctuation.definition.string.heredoc",
@@ -593,7 +593,7 @@ require_relative './tokens.rb'
                             Pattern.new(
                                 match: /<<-/,
                                 tag_as: "keyword.operator.heredoc",
-                            ).then(/\s*+/).then(/\s*+/).then(
+                            ).then(std_space).then(
                                 match: name_pattern,
                                 reference: "delimiter",
                                 tag_as: "punctuation.definition.string.heredoc",
@@ -619,7 +619,7 @@ require_relative './tokens.rb'
                             Pattern.new(
                                 match: /<</,
                                 tag_as: "keyword.operator.heredoc",
-                            ).then(/\s*+/).then(/\s*+/).then(
+                            ).then(std_space).then(
                                 match: name_pattern,
                                 reference: "delimiter",
                                 tag_as: "punctuation.definition.string.heredoc",
