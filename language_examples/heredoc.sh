@@ -15,3 +15,12 @@ echo another code here
 exit 0
 
 
+
+#!/bin/bash
+nl <(sed -nre 's!^\s+!!p' <<'__FOO__'
+  ########################
+  ## Dummy Message      ##
+  ########################
+  __FOO__
+  )
+echo bar
