@@ -548,7 +548,7 @@
           ]
         },
         {
-          "begin": "(<<-)\\s*+\\s*+((?<!\\w)[a-zA-Z_][a-zA-Z_0-9]*(?!\\w))(?=\\s|;|&|<|\"|')",
+          "begin": "(<<-)\\s*+((?<!\\w)[a-zA-Z_][a-zA-Z_0-9]*(?!\\w))(?=\\s|;|&|<|\"|')",
           "end": "^\\t*\\2(?=\\s|;|&|$)",
           "beginCaptures": {
             "1": {
@@ -574,7 +574,7 @@
           ]
         },
         {
-          "begin": "(<<)\\s*+\\s*+((?<!\\w)[a-zA-Z_][a-zA-Z_0-9]*(?!\\w))(?=\\s|;|&|<|\"|')",
+          "begin": "(<<)\\s*+((?<!\\w)[a-zA-Z_][a-zA-Z_0-9]*(?!\\w))(?=\\s|;|&|<|\"|')",
           "end": "^\\t*\\2(?=\\s|;|&|$)",
           "beginCaptures": {
             "1": {
@@ -1103,7 +1103,7 @@
               "name": "keyword.control.shell"
             }
           },
-          "end": "(?<=^|;|&|\\s)done(?=\\s|;|&|$)",
+          "end": "(?<=^|;|&|\\s)done(?=\\s|;|&|$|\\))",
           "endCaptures": {
             "0": {
               "name": "keyword.control.shell"
@@ -1134,7 +1134,7 @@
               "name": "keyword.control.shell"
             }
           },
-          "end": "(?<=^|;|&|\\s)done(?=\\s|;|&|$)",
+          "end": "(?<=^|;|&|\\s)done(?=\\s|;|&|$|\\))",
           "endCaptures": {
             "0": {
               "name": "keyword.control.shell"
@@ -1154,7 +1154,7 @@
               "name": "keyword.control.shell"
             }
           },
-          "end": "(?<=^|;|&|\\s)done(?=\\s|;|&|$)",
+          "end": "(?<=^|;|&|\\s)done(?=\\s|;|&|$|\\))",
           "endCaptures": {
             "0": {
               "name": "keyword.control.shell"
@@ -1177,7 +1177,7 @@
               "name": "variable.other.loop.shell"
             }
           },
-          "end": "(?<=^|;|&|\\s)(done)(?=\\s|;|&|$)",
+          "end": "(?<=^|;|&|\\s)(done)(?=\\s|;|&|$|\\))",
           "endCaptures": {
             "1": {
               "name": "keyword.control.shell"

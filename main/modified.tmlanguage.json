@@ -855,7 +855,7 @@
 							"name": "keyword.control.shell"
 						}
 					},
-					"end": "(?<=^|;|&|\\s)done(?=\\s|;|&|$)",
+					"end": "(?<=^|;|&|\\s)done(?=\\s|;|&|$|\\))",
 					"endCaptures": {
 						"0": {
 							"name": "keyword.control.shell"
@@ -886,7 +886,7 @@
 							"name": "keyword.control.shell"
 						}
 					},
-					"end": "(?<=^|;|&|\\s)done(?=\\s|;|&|$)",
+					"end": "(?<=^|;|&|\\s)done(?=\\s|;|&|$|\\))",
 					"endCaptures": {
 						"0": {
 							"name": "keyword.control.shell"
@@ -906,7 +906,7 @@
 							"name": "keyword.control.shell"
 						}
 					},
-					"end": "(?<=^|;|&|\\s)done(?=\\s|;|&|$)",
+					"end": "(?<=^|;|&|\\s)done(?=\\s|;|&|$|\\))",
 					"endCaptures": {
 						"0": {
 							"name": "keyword.control.shell"
@@ -929,7 +929,7 @@
 							"name": "variable.other.loop.shell"
 						}
 					},
-					"end": "(?<=^|;|&|\\s)(done)(?=\\s|;|&|$)",
+					"end": "(?<=^|;|&|\\s)(done)(?=\\s|;|&|$|\\))",
 					"endCaptures": {
 						"1": {
 							"name": "keyword.control.shell"
