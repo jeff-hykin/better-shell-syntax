@@ -240,18 +240,19 @@ require_relative './tokens.rb'
     )
     
     possible_pre_command_characters = /(?:^|;|\||&|!|\(|\{|\`)/
-    possible_command_start   = lookAheadToAvoid(/(?:!|%|&|\||\(|\)|\{|\[|<|>|#|\n|$|;|\s)/)
-    possible_argument_start  = lookAheadToAvoid(/(?:%|&|\||\(|\[|#|\n|$|;)/)
-    command_end              = lookAheadFor(/;|\||&|\n|\)|\`|\{|\}|#|\]/).lookBehindToAvoid(/\\/)
-    unquoted_string_end      = lookAheadFor(/\s|;|\||&|$|\n|\)|\`/)
-    invalid_literals         = Regexp.quote(@tokens.representationsThat(:areInvalidLiterals).join(""))
-    valid_literal_characters = Regexp.new("[^\s\n#{invalid_literals}]+")
-    any_builtin_name         = @tokens.representationsThat(:areBuiltInCommands).map{ |value| Regexp.quote(value) }.join("|")
-    any_builtin_name         = Regexp.new("(?:#{any_builtin_name})")
-    any_builtin_name         = variableBounds[any_builtin_name]
-    any_builtin_control_flow = @tokens.representationsThat(:areBuiltInCommands, :areControlFlow).map{ |value| Regexp.quote(value) }.join("|")
-    any_builtin_control_flow = Regexp.new("(?:#{any_builtin_control_flow})")
-    any_builtin_control_flow = variableBounds[any_builtin_control_flow]
+    possible_command_start    = lookAheadToAvoid(/(?:!|%|&|\||\(|\)|\{|\[|<|>|#|\n|$|;|\s)/)
+    possible_argument_start   = lookAheadToAvoid(/(?:%|&|\||\(|\[|#|\n|$|;)/)
+    command_end               = lookAheadFor(/;|\||&|\n|\)|\`|\{|\}|#|\]/).lookBehindToAvoid(/\\/)
+    unquoted_string_end_regex = /\s|;|\||&|$|\n|\)|\`/
+    unquoted_string_end       = lookAheadFor(unquoted_string_end_regex)
+    invalid_literals          = Regexp.quote(@tokens.representationsThat(:areInvalidLiterals).join(""))
+    valid_literal_characters  = Regexp.new("[^\s\n#{invalid_literals}]+")
+    any_builtin_name          = @tokens.representationsThat(:areBuiltInCommands).map{ |value| Regexp.quote(value) }.join("|")
+    any_builtin_name          = Regexp.new("(?:#{any_builtin_name})")
+    any_builtin_name          = variableBounds[any_builtin_name]
+    any_builtin_control_flow  = @tokens.representationsThat(:areBuiltInCommands, :areControlFlow).map{ |value| Regexp.quote(value) }.join("|")
+    any_builtin_control_flow  = Regexp.new("(?:#{any_builtin_control_flow})")
+    any_builtin_control_flow  = variableBounds[any_builtin_control_flow]
     
     grammar[:keyword] = [
         Pattern.new(
@@ -531,119 +532,120 @@ require_relative './tokens.rb'
         # 
         # heredocs
         # 
+            single_quote = "'"
+            double_quote = '"'
+            
+            # quoted
+            generateQuotedHeredoc = ->(quote, indented:false, name_pattern: nil, tag_content_as:nil, includes:[]) do
+                start_string = "<<"
+                start_string = "<<-" if indented
+                end_prefix   = /^/
+                end_prefix   = /^\t*/ if indented
+                tag          = "no-indent"
+                tag          = "indent" if indented
+                
+                PatternRange.new(
+                    tag_as: "string.quoted.heredoc.#{tag}",
+                    tag_content_as: tag_content_as,
+                    start_pattern: Pattern.new(
+                        Pattern.new(
+                            match: start_string,
+                            tag_as: "keyword.operator.heredoc",
+                        ).then(std_space).then(
+                            match: quote,
+                            reference: "start_quote"
+                        ).then(std_space).then(
+                            match: name_pattern || /[^#{quote}]*/, # yes... even empty quotes work
+                            reference: "delimiter",
+                            tag_as: "punctuation.definition.string.heredoc",
+                        ).then(
+                            quote
+                        )
+                    ),
+                    end_pattern: Pattern.new(
+                        Pattern.new(end_prefix).matchResultOf(
+                            "delimiter"
+                        ).lookAheadFor(/\s|;|&|$/),
+                    ),
+                    includes: [
+                        :double_quote_escape_char,
+                        :variable,
+                        :interpolation,
+                        *includes,
+                    ],
+                ),
+            end
+            
+            # unquoted
+            generateUnquotedHeredoc = ->(indented:false, name_pattern: nil, tag_content_as:nil, includes:[]) do
+                start_string = "<<"
+                start_string = "<<-" if indented
+                end_prefix   = /^/
+                end_prefix   = /^\t*/ if indented
+                tag          = "no-indent"
+                tag          = "indent" if indented
+                
+                PatternRange.new(
+                    tag_as: "string.unquoted.heredoc.#{tag}",
+                    tag_content_as: tag_content_as,
+                    start_pattern: Pattern.new(
+                        Pattern.new(
+                            match: start_string,
+                            tag_as: "keyword.operator.heredoc",
+                        ).then(std_space).then(
+                            match: name_pattern,
+                            reference: "delimiter",
+                            tag_as: "punctuation.definition.string.heredoc",
+                        )
+                    ),
+                    end_pattern: Pattern.new(
+                        Pattern.new(end_prefix).matchResultOf(
+                            "delimiter"
+                        ).lookAheadFor(/\s|;|&|$/),
+                    ),
+                    includes: includes,
+                ),
+            end
+            
+            
+            # TODO: this method can be used for custom highlighting/embedding:
+                # grammar[:heredoc_shell] = generateHeredocRanges["SHELL", tag_content_as: "source.shell", includes: [ "source.shell" ]]
+                # grammar[:heredoc_ruby ] = generateHeredocRanges["RUBY", tag_content_as: "source.rb", ]
+                # grammar[:heredoc_shell] = generateHeredocRanges["HTML", ... etc ]
             generateHeredocRanges = ->(name_pattern, tag_content_as:nil, includes:[]) do
                 [
                     # <<-"HEREDOC"
-                    PatternRange.new(
-                        tag_as: "string.quoted.heredoc.indent",
-                        tag_content_as: tag_content_as,
-                        start_pattern: Pattern.new(
-                            Pattern.new(
-                                match: /<<-/,
-                                tag_as: "keyword.operator.heredoc",
-                            ).then(std_space).then(
-                                match: /"|'/,
-                                reference: "start_quote"
-                            ).then(std_space).then(
-                                match: name_pattern,
-                                reference: "delimiter",
-                                tag_as: "punctuation.definition.string.heredoc",
-                            ).lookAheadFor(/\s|;|&|<|"|'/).matchResultOf(
-                                "start_quote"
-                            )
-                        ),
-                        end_pattern: Pattern.new(
-                            Pattern.new(/^\t*/).matchResultOf(
-                                "delimiter"
-                            ).lookAheadFor(/\s|;|&|$/),
-                        ),
-                        includes: includes,
-                    ),
+                    generateQuotedHeredoc[ single_quote, indented: true, name_pattern: name_pattern, tag_content_as: tag_content_as, includes: includes ],
                     # <<"HEREDOC"
-                    PatternRange.new(
-                        tag_as: "string.quoted.heredoc.no-indent",
-                        tag_content_as: tag_content_as,
-                        start_pattern: Pattern.new(
-                            Pattern.new(
-                                match: /<</,
-                                tag_as: "keyword.operator.heredoc",
-                            ).then(std_space).then(
-                                match: /"|'/,
-                                reference: "start_quote"
-                            ).then(std_space).then(
-                                match: name_pattern,
-                                reference: "delimiter",
-                                tag_as: "punctuation.definition.string.heredoc",
-                            ).lookAheadFor(/\s|;|&|<|"|'/).matchResultOf(
-                                "start_quote"
-                            )
-                        ),
-                        end_pattern: Pattern.new(
-                            Pattern.new(/^\t*/).matchResultOf(
-                                "delimiter"
-                            ).lookAheadFor(/\s|;|&|$/),
-                        ),
-                        includes: includes,
-                    ),
+                    generateQuotedHeredoc[ single_quote, indented: false, name_pattern: name_pattern, tag_content_as: tag_content_as, includes: includes ],
+                    # <<-'HEREDOC'
+                    generateQuotedHeredoc[ double_quote, indented: true, name_pattern: name_pattern, tag_content_as: tag_content_as, includes: includes ],
+                    # <<'HEREDOC'
+                    generateQuotedHeredoc[ double_quote, indented: false, name_pattern: name_pattern, tag_content_as: tag_content_as, includes: includes ],
                     # <<-HEREDOC
-                    PatternRange.new(
-                        tag_as: "string.unquoted.heredoc.indent",
-                        tag_content_as: tag_content_as,
-                        start_pattern: Pattern.new(
-                            Pattern.new(
-                                match: /<<-/,
-                                tag_as: "keyword.operator.heredoc",
-                            ).then(std_space).then(
-                                match: name_pattern,
-                                reference: "delimiter",
-                                tag_as: "punctuation.definition.string.heredoc",
-                            ).lookAheadFor(/\s|;|&|<|"|'/)
-                        ),
-                        end_pattern: Pattern.new(
-                            Pattern.new(/^\t*/).matchResultOf(
-                                "delimiter"
-                            ).lookAheadFor(/\s|;|&|$/),
-                        ),
-                        includes: [
-                            :double_quote_escape_char,
-                            :variable,
-                            :interpolation,
-                            *includes,
-                        ]
-                    ),
+                    generateUnquotedHeredoc[ indented: true, name_pattern: name_pattern, tag_content_as: tag_content_as, includes: includes ]
                     # <<HEREDOC
-                    PatternRange.new(
-                        tag_as: "string.unquoted.heredoc.no-indent",
-                        tag_content_as: tag_content_as,
-                        start_pattern: Pattern.new(
-                            Pattern.new(
-                                match: /<</,
-                                tag_as: "keyword.operator.heredoc",
-                            ).then(std_space).then(
-                                match: name_pattern,
-                                reference: "delimiter",
-                                tag_as: "punctuation.definition.string.heredoc",
-                            ).lookAheadFor(/\s|;|&|<|"|'/)
-                        ),
-                        end_pattern: Pattern.new(
-                            tag_as: "punctuation.definition.string.heredoc",
-                            match: Pattern.new(
-                                Pattern.new(/^\t*/).matchResultOf(
-                                    "delimiter"
-                                ).lookAheadFor(/\s|;|&|$/),
-                            )
-                        ),
-                        includes: [
-                            :double_quote_escape_char,
-                            :variable,
-                            :interpolation,
-                            *includes,
-                        ]
-                    ),
+                    generateUnquotedHeredoc[ indented: false, name_pattern: name_pattern, tag_content_as: tag_content_as, includes: includes ]
                 ]
             end
             
-            grammar[:heredoc] = generateHeredocRanges[variable_name]
+            # the default generic heredoc
+            grammar[:heredoc] = [
+                # <<-"HEREDOC"
+                generateQuotedHeredoc[ single_quote, indented: true, ],
+                # <<"HEREDOC"
+                generateQuotedHeredoc[ single_quote, indented: false, ],
+                # <<-'HEREDOC'
+                generateQuotedHeredoc[ double_quote, indented: true, ],
+                # <<'HEREDOC'
+                generateQuotedHeredoc[ double_quote, indented: false, ],
+                # <<-HEREDOC
+                generateUnquotedHeredoc[ indented: true, name_pattern:  Pattern.new(/\S+/).then(lookAheadToAvoid(unquoted_string_end_regex).or(/./)), ]
+                # <<HEREDOC
+                generateUnquotedHeredoc[ indented: false, name_pattern: Pattern.new(/\S+/).then(lookAheadToAvoid(unquoted_string_end_regex).or(/./)), ]
+            ]
+            
+            
     
     # 
     # regex
