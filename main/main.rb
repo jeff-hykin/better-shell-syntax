@@ -286,7 +286,7 @@ require_relative './tokens.rb'
                     :variable,
                 ]
             ).then(
-                lookAheadFor(@space).or(command_end)
+                lookAheadFor(/\s/).or(command_end)
             )
         ),
     )
@@ -327,7 +327,7 @@ require_relative './tokens.rb'
                 tag_as: "string.unquoted.argument constant.other.option",
             )
         ),
-        end_pattern: lookAheadFor(@space).or(command_end),
+        end_pattern: lookAheadFor(/\s/).or(command_end),
         includes: [
             :option_context,
         ]
