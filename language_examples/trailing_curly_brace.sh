@@ -1,0 +1,1 @@
+[ "$_should_aggresive_remove_artifacts" = "true" ] && { poly_4_agressive_remove_artifacts }
