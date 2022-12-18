@@ -237,14 +237,45 @@
 - source: then
   scopes:
     - keyword.control.then
-- source: ' set -x'
+- source: set
+  scopesBegin:
+    - meta.statement
+    - meta.command
+  scopes:
+    - entity.name.command
+    - support.function.builtin
+- source: '-'
+  scopesBegin:
+    - string.unquoted.argument
+  scopes:
+    - constant.other.option.dash
+- source: x
+  scopes:
+    - constant.other.option
+  scopesEnd:
+    - meta.statement
+    - meta.command
+    - string.unquoted.argument
 - source: ;
   scopes:
     - punctuation.terminator.statement.semicolon
 - source: else
   scopes:
     - keyword.control.else
-- source: ' set +x'
+- source: set
+  scopesBegin:
+    - meta.statement
+    - meta.command
+  scopes:
+    - entity.name.command
+    - support.function.builtin
+- source: +x
+  scopes:
+    - meta.argument
+    - string.unquoted.argument
+  scopesEnd:
+    - meta.statement
+    - meta.command
 - source: ;
   scopes:
     - punctuation.terminator.statement.semicolon
@@ -581,14 +612,45 @@
 - source: then
   scopes:
     - keyword.control.then
-- source: ' set -x'
+- source: set
+  scopesBegin:
+    - meta.statement
+    - meta.command
+  scopes:
+    - entity.name.command
+    - support.function.builtin
+- source: '-'
+  scopesBegin:
+    - string.unquoted.argument
+  scopes:
+    - constant.other.option.dash
+- source: x
+  scopes:
+    - constant.other.option
+  scopesEnd:
+    - meta.statement
+    - meta.command
+    - string.unquoted.argument
 - source: ;
   scopes:
     - punctuation.terminator.statement.semicolon
 - source: else
   scopes:
     - keyword.control.else
-- source: ' set +x'
+- source: set
+  scopesBegin:
+    - meta.statement
+    - meta.command
+  scopes:
+    - entity.name.command
+    - support.function.builtin
+- source: +x
+  scopes:
+    - meta.argument
+    - string.unquoted.argument
+  scopesEnd:
+    - meta.statement
+    - meta.command
 - source: ;
   scopes:
     - punctuation.terminator.statement.semicolon
@@ -925,14 +987,45 @@
 - source: then
   scopes:
     - keyword.control.then
-- source: ' set -x'
+- source: set
+  scopesBegin:
+    - meta.statement
+    - meta.command
+  scopes:
+    - entity.name.command
+    - support.function.builtin
+- source: '-'
+  scopesBegin:
+    - string.unquoted.argument
+  scopes:
+    - constant.other.option.dash
+- source: x
+  scopes:
+    - constant.other.option
+  scopesEnd:
+    - meta.statement
+    - meta.command
+    - string.unquoted.argument
 - source: ;
   scopes:
     - punctuation.terminator.statement.semicolon
 - source: else
   scopes:
     - keyword.control.else
-- source: ' set +x'
+- source: set
+  scopesBegin:
+    - meta.statement
+    - meta.command
+  scopes:
+    - entity.name.command
+    - support.function.builtin
+- source: +x
+  scopes:
+    - meta.argument
+    - string.unquoted.argument
+  scopesEnd:
+    - meta.statement
+    - meta.command
 - source: ;
   scopes:
     - punctuation.terminator.statement.semicolon

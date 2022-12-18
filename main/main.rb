@@ -397,6 +397,7 @@ require_relative './tokens.rb'
     )
     keywords = @tokens.representationsThat(:areShellReservedWords, :areNotModifiers)
     keyword_patterns = /#{keywords.map { |each| each+'\W|'+each+'\$' } .join('|')}/
+    valid_after_patterns = /#{['if','elif','then', 'else'].map { |each| '^'+each+' | '+each+' |\t'+each+' ' } .join('|')}/
     empty_line = /^ *+$/
     grammar[:command_call] = PatternRange.new(
         zeroLengthStart?: true,
@@ -405,7 +406,7 @@ require_relative './tokens.rb'
         # blank lines screw this pattern up, which is what the first lookAheadToAvoid is fixing
         start_pattern: Pattern.new(
             lookAheadToAvoid(empty_line).then(
-                lookBehindFor(/^if |^elif | if | elif |\tif |\telif /).or(lookBehindFor(possible_pre_command_characters))
+                lookBehindFor(valid_after_patterns).or(lookBehindFor(possible_pre_command_characters))
             ).then(std_space).lookAheadToAvoid(keyword_patterns),
         ),
         end_pattern: command_end,
