@@ -3,7 +3,12 @@
     - meta.scope.if-block
   scopes:
     - keyword.control
-- source: ' true'
+- source: 'true'
+  scopes:
+    - meta.statement
+    - meta.command
+    - entity.name.command
+    - support.function.builtin
 - source: ;
   scopes:
     - punctuation.terminator.statement.semicolon

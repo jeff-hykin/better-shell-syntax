@@ -405,7 +405,7 @@ require_relative './tokens.rb'
         # blank lines screw this pattern up, which is what the first lookAheadToAvoid is fixing
         start_pattern: Pattern.new(
             lookAheadToAvoid(empty_line).then(
-                lookBehindFor(/\Wif |\Welif /).or(lookBehindFor(possible_pre_command_characters))
+                lookBehindFor(/^if |^elif | if | elif |\tif |\telif /).or(lookBehindFor(possible_pre_command_characters))
             ).then(std_space).lookAheadToAvoid(keyword_patterns),
         ),
         end_pattern: command_end,

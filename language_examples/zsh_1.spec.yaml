@@ -28610,7 +28610,29 @@
     - meta.scope.if-block
   scopes:
     - keyword.control
-- source: ' shopt -q cdable_vars'
+- source: shopt
+  scopesBegin:
+    - meta.statement
+    - meta.command
+  scopes:
+    - entity.name.command
+- source: '-'
+  scopesBegin:
+    - string.unquoted.argument
+  scopes:
+    - constant.other.option.dash
+- source: q
+  scopes:
+    - constant.other.option
+  scopesEnd:
+    - string.unquoted.argument
+- source: cdable_vars
+  scopes:
+    - meta.argument
+    - string.unquoted.argument
+  scopesEnd:
+    - meta.statement
+    - meta.command
 - source: ;
   scopes:
     - punctuation.terminator.statement.semicolon
@@ -63001,7 +63023,29 @@
     - meta.scope.if-block
   scopes:
     - keyword.control
-- source: ' shopt -q cdable_vars'
+- source: shopt
+  scopesBegin:
+    - meta.statement
+    - meta.command
+  scopes:
+    - entity.name.command
+- source: '-'
+  scopesBegin:
+    - string.unquoted.argument
+  scopes:
+    - constant.other.option.dash
+- source: q
+  scopes:
+    - constant.other.option
+  scopesEnd:
+    - string.unquoted.argument
+- source: cdable_vars
+  scopes:
+    - meta.argument
+    - string.unquoted.argument
+  scopesEnd:
+    - meta.statement
+    - meta.command
 - source: ;
   scopes:
     - punctuation.terminator.statement.semicolon
