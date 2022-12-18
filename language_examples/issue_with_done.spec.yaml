@@ -1,5 +1,6 @@
 - source: out
   scopesBegin:
+    - meta.statement
     - meta.expression.assignment
   scopes:
     - variable.other.assignment
@@ -77,6 +78,7 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
+    - meta.statement
     - meta.expression.assignment
     - string.quoted.double
 - source: '#'
@@ -89,6 +91,7 @@
     - comment.line.number-sign
 - source: x
   scopesBegin:
+    - meta.statement
     - meta.expression.assignment
   scopes:
     - variable.other.assignment
@@ -109,7 +112,6 @@
     - string.quoted.double
 - source: echo
   scopesBegin:
-    - meta.statement
     - meta.command
   scopes:
     - entity.name.command
@@ -139,6 +141,7 @@
     - meta.shebang
 - source: some
   scopesBegin:
+    - meta.statement
     - meta.expression.assignment
   scopes:
     - variable.other.assignment
@@ -243,7 +246,6 @@
     - string.quoted.double
 - source: echo
   scopesBegin:
-    - meta.statement
     - meta.command
   scopes:
     - entity.name.command
@@ -266,7 +268,6 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
-    - meta.statement
     - meta.command
     - meta.argument
     - string.quoted.double
@@ -324,17 +325,7 @@
     - meta.scope.while-loop
   scopes:
     - keyword.control
-- source: IFS
-  scopesBegin:
-    - meta.expression.assignment
-  scopes:
-    - variable.other.assignment
-- source: '='
-  scopes:
-    - keyword.operator.assignment
-  scopesEnd:
-    - meta.expression.assignment
-- source: ' read -r pip_thing'
+- source: ' IFS= read -r pip_thing'
 - source: ;
   scopes:
     - punctuation.terminator.statement.semicolon
@@ -415,7 +406,6 @@
     - string.quoted.double
 - source: echo
   scopesBegin:
-    - meta.statement
     - meta.command
   scopes:
     - entity.name.command
@@ -438,7 +428,6 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
-    - meta.statement
     - meta.command
     - meta.argument
     - string.quoted.double
@@ -496,17 +485,7 @@
     - meta.scope.while-loop
   scopes:
     - keyword.control
-- source: IFS
-  scopesBegin:
-    - meta.expression.assignment
-  scopes:
-    - variable.other.assignment
-- source: '='
-  scopes:
-    - keyword.operator.assignment
-  scopesEnd:
-    - meta.expression.assignment
-- source: ' read -r one_thing'
+- source: ' IFS= read -r one_thing'
 - source: ;
   scopes:
     - punctuation.terminator.statement.semicolon
@@ -557,7 +536,6 @@
     - string.quoted.double
 - source: echo
   scopesBegin:
-    - meta.statement
     - meta.command
   scopes:
     - entity.name.command
@@ -580,7 +558,6 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
-    - meta.statement
     - meta.command
     - meta.argument
     - string.quoted.double
@@ -638,17 +615,7 @@
     - meta.scope.while-loop
   scopes:
     - keyword.control
-- source: IFS
-  scopesBegin:
-    - meta.expression.assignment
-  scopes:
-    - variable.other.assignment
-- source: '='
-  scopes:
-    - keyword.operator.assignment
-  scopesEnd:
-    - meta.expression.assignment
-- source: ' read -r pip_thing'
+- source: ' IFS= read -r pip_thing'
 - source: ;
   scopes:
     - punctuation.terminator.statement.semicolon
@@ -729,7 +696,6 @@
     - string.quoted.double
 - source: echo
   scopesBegin:
-    - meta.statement
     - meta.command
   scopes:
     - entity.name.command
@@ -752,7 +718,6 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
-    - meta.statement
     - meta.command
     - meta.argument
     - string.quoted.double
@@ -810,17 +775,7 @@
     - meta.scope.while-loop
   scopes:
     - keyword.control
-- source: IFS
-  scopesBegin:
-    - meta.expression.assignment
-  scopes:
-    - variable.other.assignment
-- source: '='
-  scopes:
-    - keyword.operator.assignment
-  scopesEnd:
-    - meta.expression.assignment
-- source: ' read -r two_thing'
+- source: ' IFS= read -r two_thing'
 - source: ;
   scopes:
     - punctuation.terminator.statement.semicolon
@@ -871,7 +826,6 @@
     - string.quoted.double
 - source: echo
   scopesBegin:
-    - meta.statement
     - meta.command
   scopes:
     - entity.name.command

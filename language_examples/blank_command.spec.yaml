@@ -17,6 +17,7 @@
     - punctuation.section.function.definition
 - source: profile
   scopesBegin:
+    - meta.statement
     - meta.expression.assignment
   scopes:
     - variable.other.assignment
@@ -39,6 +40,7 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
+    - meta.statement
     - meta.expression.assignment
     - string.quoted.double
 - source: '#'

@@ -27,19 +27,19 @@ tokens = [
     { representation: "else"     , areShellReservedWords: true, areControlFlow: true, },
     { representation: "end"      , areShellReservedWords: true, areControlFlow: true, }, # https://info2html.sourceforge.net/cgi-bin/info2html-demo/info2html?(zsh)Reserved%2520Words
     { representation: "esac"     , areShellReservedWords: true, areControlFlow: true, },
-    { representation: "export"   , areShellReservedWords: true, },
+    { representation: "export"   , areShellReservedWords: true, areModifiers: true },
     { representation: "fi"       , areShellReservedWords: true, areControlFlow: true, },
     { representation: "for"      , areShellReservedWords: true, areControlFlow: true, },
     { representation: "foreach"  , areShellReservedWords: true, areControlFlow: true, },
     { representation: "function" , areShellReservedWords: true, },
     { representation: "if"       , areShellReservedWords: true, areControlFlow: true, },
     { representation: "in"       , areShellReservedWords: true, areControlFlow: true, },
-    { representation: "local"    , areShellReservedWords: true, },
+    { representation: "local"    , areShellReservedWords: true, areModifiers: true },
     { representation: "logout"   , areShellReservedWords: true, },
     { representation: "popd"     , areShellReservedWords: true, },
     { representation: "nocorrect", areShellReservedWords: true, },
     { representation: "pushd"    , areShellReservedWords: true, },
-    { representation: "readonly" , areShellReservedWords: true, },
+    { representation: "readonly" , areShellReservedWords: true, areModifiers: true },
     { representation: "repeat"   , areShellReservedWords: true, areControlFlow: true, },
     { representation: "select"   , areShellReservedWords: true, areControlFlow: true, },
     { representation: "then"     , areShellReservedWords: true, areControlFlow: true, },
@@ -56,7 +56,7 @@ tokens = [
     { representation: "builtin"    , areBuiltInCommands: true },
     { representation: "cd"         , areBuiltInCommands: true },
     { representation: "command"    , areBuiltInCommands: true },
-    { representation: "declare"    , areBuiltInCommands: true },
+    { representation: "declare"    , areBuiltInCommands: true, areModifiers: true },
     { representation: "dirs"       , areBuiltInCommands: true },
     { representation: "disown"     , areBuiltInCommands: true },
     { representation: "echo"       , areBuiltInCommands: true },
@@ -86,7 +86,7 @@ tokens = [
     { representation: "trap"       , areBuiltInCommands: true },
     { representation: "true"       , areBuiltInCommands: true },
     { representation: "type"       , areBuiltInCommands: true },
-    { representation: "typeset"    , areBuiltInCommands: true },
+    { representation: "typeset"    , areBuiltInCommands: true, areModifiers: true },
     { representation: "ulimit"     , areBuiltInCommands: true },
     { representation: "umask"      , areBuiltInCommands: true },
     { representation: "umask"      , areBuiltInCommands: true },
@@ -111,5 +111,9 @@ tokens = [
     # isWord
     if each[:representation] =~ /\A[a-zA-Z_][a-zA-Z0-9_]*\z/
         each[:isWord] = true
+    end
+    # isWord
+    if ! each[:areModifiers]
+        each[:areNotModifiers] = true
     end
 end

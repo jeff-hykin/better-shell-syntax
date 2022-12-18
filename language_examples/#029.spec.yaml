@@ -15,6 +15,7 @@
     - comment.line.number-sign
 - source: a
   scopesBegin:
+    - meta.statement
     - meta.expression.assignment
   scopes:
     - variable.other.assignment
@@ -94,6 +95,7 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
+    - meta.statement
     - meta.expression.assignment
     - string.quoted.double
 - source: '#'
@@ -123,6 +125,7 @@
     - punctuation.section.function.definition
 - source: a
   scopesBegin:
+    - meta.statement
     - meta.expression.assignment
   scopes:
     - variable.other.assignment
@@ -175,7 +178,6 @@
     - string.quoted.double
 - source: set
   scopesBegin:
-    - meta.statement
     - meta.command
   scopes:
     - entity.name.command
@@ -467,6 +469,7 @@
     - punctuation.section.function.definition
 - source: a
   scopesBegin:
+    - meta.statement
     - meta.expression.assignment
   scopes:
     - variable.other.assignment
@@ -519,7 +522,6 @@
     - string.quoted.double
 - source: set
   scopesBegin:
-    - meta.statement
     - meta.command
   scopes:
     - entity.name.command
@@ -811,6 +813,7 @@
     - punctuation.section.function.definition
 - source: a
   scopesBegin:
+    - meta.statement
     - meta.expression.assignment
   scopes:
     - variable.other.assignment
@@ -863,7 +866,6 @@
     - string.quoted.double
 - source: set
   scopesBegin:
-    - meta.statement
     - meta.command
   scopes:
     - entity.name.command

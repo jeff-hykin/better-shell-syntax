@@ -3,9 +3,7 @@
     - meta.scope.if-block
   scopes:
     - keyword.control
-- source: 'true'
-  scopes:
-    - constant.language.true
+- source: ' true'
 - source: ;
   scopes:
     - punctuation.terminator.statement.semicolon

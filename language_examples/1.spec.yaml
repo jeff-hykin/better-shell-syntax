@@ -1,9 +1,10 @@
 - source: export
+  scopesBegin:
+    - meta.statement
+    - meta.expression.assignment
   scopes:
     - storage.modifier.export
 - source: PATH
-  scopesBegin:
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
@@ -34,7 +35,6 @@
     - string.quoted.double
 - source: find
   scopesBegin:
-    - meta.statement
     - meta.command
   scopes:
     - entity.name.command
@@ -358,6 +358,7 @@
     - punctuation.section.function.definition
 - source: arg_1
   scopesBegin:
+    - meta.statement
     - meta.expression.assignment
   scopes:
     - variable.other.assignment
@@ -414,7 +415,6 @@
     - meta.expression.assignment
 - source: cd
   scopesBegin:
-    - meta.statement
     - meta.command
   scopes:
     - entity.name.command
@@ -469,17 +469,26 @@
   scopes:
     - entity.name.command
     - support.function.builtin
-- source: 9>&2
-  scopes:
+- source: '9'
+  scopesBegin:
     - meta.argument
+  scopes:
+    - constant.numeric.decimal
+- source: '>&2'
+  scopes:
     - keyword.operator.redirect
+  scopesEnd:
+    - meta.argument
 - source: exec
   scopes:
     - entity.name.command
     - support.function.builtin
-- source: 8>
+- source: '8'
   scopesBegin:
     - meta.argument
+  scopes:
+    - constant.numeric.decimal
+- source: '>'
   scopes:
     - keyword.operator.redirect
 - source: '>('
@@ -523,16 +532,15 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
-    - meta.statement
     - meta.command
     - meta.argument
     - string.interpolated.process-substitution
 - source: export
+  scopesBegin:
+    - meta.expression.assignment
   scopes:
     - storage.modifier.export
 - source: COLOR_BLUE
-  scopesBegin:
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
@@ -575,14 +583,11 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
-    - meta.expression.assignment
     - string.quoted.double
 - source: export
   scopes:
     - storage.modifier.export
 - source: COLOR_RED
-  scopesBegin:
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
@@ -625,14 +630,11 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
-    - meta.expression.assignment
     - string.quoted.double
 - source: export
   scopes:
     - storage.modifier.export
 - source: COLOR_RESET
-  scopesBegin:
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
@@ -674,7 +676,6 @@
     - string.quoted.double
 - source: sed
   scopesBegin:
-    - meta.statement
     - meta.command
   scopes:
     - entity.name.command

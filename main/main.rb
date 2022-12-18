@@ -44,9 +44,6 @@ require_relative './tokens.rb'
             :pathname,
             :keyword,
             :alias_statement,
-            :assignment,
-            :boolean,
-            :numeric_literal,
             # :custom_commands,
             :command_call,
             :support,
@@ -60,6 +57,8 @@ require_relative './tokens.rb'
             :pipeline,
             :statement_seperator,
             :misc_ranges,
+            :boolean,
+            :numeric_literal,
             :string,
             :variable,
             :interpolation,
@@ -225,39 +224,67 @@ require_relative './tokens.rb'
         ],
     )
     
-    grammar[:assignment] = PatternRange.new(
-        tag_as: "meta.expression.assignment",
-        start_pattern: assignment_start = std_space.then(
-                Pattern.new(
-                    match: variable_name,
-                    tag_as: "variable.other.assignment",
-                ).maybe(
-                    Pattern.new(
-                        match: "[",
-                        tag_as: "punctuation.definition.array.access",
-                    ).then(
-                        match: maybe("$").then(variable_name).or("@").or("*"),
-                        tag_as: "variable.other.assignment",
-                    ).then(
-                        match: "]",
-                        tag_as: "punctuation.definition.array.access",
-                    ),
-                )
-            ).then(
-                Pattern.new(
-                    match: /\=/,
-                    tag_as: "keyword.operator.assignment",
-                ).or(
-                    match: /\+\=/,
-                    tag_as: "keyword.operator.assignment.compound",
-                ).or(
-                    match: /\-\=/,
-                    tag_as: "keyword.operator.assignment.compound",
-                )
-            ),
-        end_pattern: assignment_end = grammar[:statement_seperator].or(lookAheadFor(/ |$/)),
-        includes: [ :argument_context ]
+    grammar[:modifiers] = modifier = Pattern.new(
+        # TODO: generate this using @tokens
+        match: /(?<=^|;|&|\s)(?:export|declare|typeset|local|readonly)(?=\s|;|&|$)/,
+        tag_as: "storage.modifier.$match",
     )
+    
+    normal_assignment = PatternRange.new(
+            tag_as: "meta.expression.assignment",
+            start_pattern: assignment_start = std_space.maybe(modifier.then(std_space)).then(
+                    Pattern.new(
+                        match: variable_name,
+                        tag_as: "variable.other.assignment",
+                    ).maybe(
+                        Pattern.new(
+                            match: "[",
+                            tag_as: "punctuation.definition.array.access",
+                        ).then(
+                            match: maybe("$").then(variable_name).or("@").or("*"),
+                            tag_as: "variable.other.assignment",
+                        ).then(
+                            match: "]",
+                            tag_as: "punctuation.definition.array.access",
+                        ),
+                    )
+                ).then(
+                    Pattern.new(
+                        match: /\=/,
+                        tag_as: "keyword.operator.assignment",
+                    ).or(
+                        match: /\+\=/,
+                        tag_as: "keyword.operator.assignment.compound",
+                    ).or(
+                        match: /\-\=/,
+                        tag_as: "keyword.operator.assignment.compound",
+                    )
+                ),
+            end_pattern: assignment_end = lookAheadFor(/ |$/).or(grammar[:statement_seperator]),
+            includes: [
+                :comment,
+                :argument_context,
+            ]
+        )
+    grammar[:assignment] = [
+        # assignment with ()'s
+        PatternRange.new(
+            tag_as: "meta.expression.assignment",
+            start_pattern: assignment_start.then(std_space).then(
+                match:"(",
+                tag_as: "punctuation",
+            ),
+            end_pattern: Pattern.new(
+                match: ")",
+                tag_as: "punctuation",
+            ),
+            includes: [ 
+                :comment,
+                :argument_context,
+            ]
+        ),
+        normal_assignment
+    ]
     grammar[:alias_statement] = PatternRange.new(
         tag_as: "meta.expression.assignment",
         start_pattern:  Pattern.new(
@@ -269,6 +296,7 @@ require_relative './tokens.rb'
     )
     
     possible_pre_command_characters = /(?:^|;|\||&|!|\(|\{|\`)/
+    # possible_command_start   = lookBehindFor(/\b(?:if|elif)\s/).or(lookAheadToAvoid(/(?:!|%|&|\||\(|\)|\{|\[|<|>|#|\n|$|;|\s)/))
     possible_command_start   = lookAheadToAvoid(/(?:!|%|&|\||\(|\)|\{|\[|<|>|#|\n|$|;|\s)/)
     possible_argument_start  = lookAheadToAvoid(/(?:%|&|\||\(|\[|#|\n|$|;)/)
     command_end              = lookAheadFor(/;|\||&|\n|\)|\`|\{|\}|#|\]/).lookBehindToAvoid(/\\/)
@@ -288,11 +316,7 @@ require_relative './tokens.rb'
             match: /(?<=^|;|&|\s)(?:then|else|elif|fi|for|in|do|done|select|case|continue|esac|while|until|return)(?=\s|;|&|$)/,
             tag_as: "keyword.control.$match",
         ),
-        Pattern.new(
-            # TODO: generate this using @tokens
-            match: /(?<=^|;|&|\s)(?:export|declare|typeset|local|readonly)(?=\s|;|&|$)/,
-            tag_as: "storage.modifier.$match",
-        ),
+        # modifier
     ]
     
     grammar[:command_name] = Pattern.new(
@@ -301,19 +325,21 @@ require_relative './tokens.rb'
             Pattern.new(
                 std_space.then(possible_command_start)
             ).then(
-                tag_as: "entity.name.command",
-                match: /.+?/,
-                includes: [
-                    Pattern.new(
-                        match: any_builtin_control_flow,
-                        tag_as: "keyword.control.$match",
-                    ),
-                    Pattern.new(
-                        match: any_builtin_name,
-                        tag_as: "support.function.builtin",
-                    ),
-                    :variable,
-                ]
+                modifier.or(
+                    tag_as: "entity.name.command",
+                    match: lookAheadToAvoid(/\\\n?$/).then(/.+?/),
+                    includes: [
+                        Pattern.new(
+                            match: any_builtin_control_flow,
+                            tag_as: "keyword.control.$match",
+                        ),
+                        Pattern.new(
+                            match: any_builtin_name,
+                            tag_as: "support.function.builtin",
+                        ),
+                        :variable,
+                    ]
+                )
             ).then(
                 lookAheadFor(/\s/).or(command_end)
             )
@@ -370,17 +396,19 @@ require_relative './tokens.rb'
             tag_as: "string.unquoted.argument constant.other.option"
         )
     )
-    keywords = @tokens.representationsThat(:areShellReservedWords)
+    keywords = @tokens.representationsThat(:areShellReservedWords, :areNotModifiers)
     keyword_patterns = /#{keywords.map { |each| each+'\W|'+each+'\$' } .join('|')}/
+    empty_line = /^ *+$/
     grammar[:command_call] = PatternRange.new(
         zeroLengthStart?: true,
         zeroLengthEnd?: true,
         tag_as: "meta.statement",
         # blank lines screw this pattern up, which is what the first lookAheadToAvoid is fixing
-        start_pattern: lookAheadToAvoid(/^ *+$/).lookBehindFor(possible_pre_command_characters).then(std_space).lookAheadToAvoid(keyword_patterns),
+        start_pattern: lookAheadToAvoid(empty_line).then(lookBehindFor(/\b(?:if|elif)\b/).or(lookBehindFor(possible_pre_command_characters))).then(std_space).lookAheadToAvoid(keyword_patterns),
         end_pattern: command_end,
         includes: [
             :function_definition,
+            :assignment,
             PatternRange.new(
                 tag_as: "meta.command",
                 start_pattern: grammar[:command_name],
@@ -394,7 +422,7 @@ require_relative './tokens.rb'
                 ],
             ),
             :line_continuation,
-            :statement_context
+            :statement_context,
         ]
     )
     grammar[:custom_commands] = [

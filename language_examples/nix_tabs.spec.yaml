@@ -34,6 +34,7 @@
     - punctuation.section.function.definition
 - source: profile
   scopesBegin:
+    - meta.statement
     - meta.expression.assignment
   scopes:
     - variable.other.assignment
@@ -360,6 +361,7 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
+    - meta.statement
     - meta.expression.assignment
     - string.quoted.double
 - source: if
@@ -478,6 +480,7 @@
     - keyword.control.then
 - source: line_number_before
   scopesBegin:
+    - meta.statement
     - meta.expression.assignment
   scopes:
     - variable.other.assignment
@@ -658,6 +661,7 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
+    - meta.statement
     - meta.expression.assignment
     - string.quoted.double
 - source: '#'
@@ -727,7 +731,10 @@
     - punctuation.definition.string.end
   scopesEnd:
     - string.quoted.double
-- source: 1>
+- source: '1'
+  scopes:
+    - constant.numeric.decimal
+- source: '>'
   scopes:
     - keyword.operator.redirect
 - source: /dev/null
@@ -981,6 +988,7 @@
     - punctuation.section.function.definition
 - source: profile
   scopesBegin:
+    - meta.statement
     - meta.expression.assignment
   scopes:
     - variable.other.assignment
@@ -1003,6 +1011,7 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
+    - meta.statement
     - meta.expression.assignment
     - string.quoted.double
 - source: '#'

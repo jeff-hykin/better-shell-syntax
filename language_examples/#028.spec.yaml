@@ -1,17 +1,18 @@
 - source: readonly
+  scopesBegin:
+    - meta.statement
+    - meta.expression.assignment
   scopes:
     - storage.modifier.readonly
 - source: PROFILE_FISH_PREFIXES
-  scopesBegin:
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
   scopes:
     - keyword.operator.assignment
 - source: (
-  scopesEnd:
-    - meta.expression.assignment
+  scopes:
+    - punctuation
 - source: '#'
   scopesBegin:
     - comment.line.number-sign
@@ -105,18 +106,17 @@
   scopesEnd:
     - comment.line.number-sign
 - source: )
-  scopesBegin:
-    - meta.statement
+  scopes:
+    - punctuation
 - source: readonly
-  scopesBegin:
-    - meta.command
   scopes:
-    - entity.name.command
-- source: PROFILE_NIX_FILE_FISH=
-  scopesBegin:
-    - meta.argument
+    - storage.modifier.readonly
+- source: PROFILE_NIX_FILE_FISH
   scopes:
-    - string.unquoted.argument
+    - variable.other.assignment
+- source: '='
+  scopes:
+    - keyword.operator.assignment
 - source: '"'
   scopesBegin:
     - string.quoted.double

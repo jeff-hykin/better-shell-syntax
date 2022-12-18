@@ -1,11 +1,3 @@
-- source: '#'
-  scopesBegin:
-    - comment.line.number-sign
-  scopes:
-    - punctuation.definition.comment
-- source: ' shellcheck disable=SC2162'
-  scopesEnd:
-    - comment.line.number-sign
 - source: IFS
   scopesBegin:
     - meta.statement
@@ -38,6 +30,12 @@
     - string.unquoted.argument
   scopes:
     - constant.other.option.dash
+- source: r
+  scopes:
+    - constant.other.option
+- source: '-'
+  scopes:
+    - constant.other.option.dash
 - source: a
   scopes:
     - constant.other.option
@@ -58,7 +56,7 @@
     - string.quoted.double
   scopes:
     - punctuation.definition.string.begin
-- source: $version
+- source: $full_version
 - source: '"'
   scopes:
     - punctuation.definition.string.end
