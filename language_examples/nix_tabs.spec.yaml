@@ -1065,9 +1065,15 @@
     - meta.scope.if-block
   scopes:
     - keyword.control
-- source: ' extract_nix_profile_injection'
-- source: ' "'
+- source: extract_nix_profile_injection
   scopesBegin:
+    - meta.statement
+    - meta.command
+  scopes:
+    - entity.name.command
+- source: '"'
+  scopesBegin:
+    - meta.argument
     - string.quoted.double
   scopes:
     - punctuation.definition.string.begin
@@ -1082,6 +1088,9 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
+    - meta.statement
+    - meta.command
+    - meta.argument
     - string.quoted.double
 - source: ;
   scopes:

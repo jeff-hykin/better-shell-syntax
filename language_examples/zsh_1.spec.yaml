@@ -3814,9 +3814,26 @@
     - meta.scope.if-block
   scopes:
     - keyword.control
-- source: ' unset -v'
-- source: ' "'
+- source: unset
   scopesBegin:
+    - meta.statement
+    - meta.command
+  scopes:
+    - entity.name.command
+    - support.function.builtin
+- source: '-'
+  scopesBegin:
+    - string.unquoted.argument
+  scopes:
+    - constant.other.option.dash
+- source: v
+  scopes:
+    - constant.other.option
+  scopesEnd:
+    - string.unquoted.argument
+- source: '"'
+  scopesBegin:
+    - meta.argument
     - string.quoted.double
   scopes:
     - punctuation.definition.string.begin
@@ -3831,6 +3848,9 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
+    - meta.statement
+    - meta.command
+    - meta.argument
     - string.quoted.double
 - source: ;
   scopes:
@@ -16940,7 +16960,20 @@
     - meta.scope.if-block
   scopes:
     - keyword.control
-- source: ' type getent '
+- source: type
+  scopesBegin:
+    - meta.statement
+    - meta.command
+  scopes:
+    - entity.name.command
+    - support.function.builtin
+- source: getent
+  scopes:
+    - meta.argument
+    - string.unquoted.argument
+  scopesEnd:
+    - meta.statement
+    - meta.command
 - source: '&'
   scopes:
     - punctuation.separator.statement.background
@@ -17045,7 +17078,20 @@
 - source: elif
   scopes:
     - keyword.control.elif
-- source: ' type perl '
+- source: type
+  scopesBegin:
+    - meta.statement
+    - meta.command
+  scopes:
+    - entity.name.command
+    - support.function.builtin
+- source: perl
+  scopes:
+    - meta.argument
+    - string.unquoted.argument
+  scopesEnd:
+    - meta.statement
+    - meta.command
 - source: '&'
   scopes:
     - punctuation.separator.statement.background
@@ -17335,7 +17381,20 @@
     - meta.scope.if-block
   scopes:
     - keyword.control
-- source: ' type getent '
+- source: type
+  scopesBegin:
+    - meta.statement
+    - meta.command
+  scopes:
+    - entity.name.command
+    - support.function.builtin
+- source: getent
+  scopes:
+    - meta.argument
+    - string.unquoted.argument
+  scopesEnd:
+    - meta.statement
+    - meta.command
 - source: '&'
   scopes:
     - punctuation.separator.statement.background
@@ -17444,7 +17503,20 @@
 - source: elif
   scopes:
     - keyword.control.elif
-- source: ' type perl '
+- source: type
+  scopesBegin:
+    - meta.statement
+    - meta.command
+  scopes:
+    - entity.name.command
+    - support.function.builtin
+- source: perl
+  scopes:
+    - meta.argument
+    - string.unquoted.argument
+  scopesEnd:
+    - meta.statement
+    - meta.command
 - source: '&'
   scopes:
     - punctuation.separator.statement.background
@@ -19672,7 +19744,11 @@
     - meta.scope.if-block
   scopes:
     - keyword.control
-- source: ' _complete_as_root'
+- source: _complete_as_root
+  scopes:
+    - meta.statement
+    - meta.command
+    - entity.name.command
 - source: ;
   scopes:
     - punctuation.terminator.statement.semicolon
@@ -20015,7 +20091,11 @@
     - meta.scope.if-block
   scopes:
     - keyword.control
-- source: ' _complete_as_root'
+- source: _complete_as_root
+  scopes:
+    - meta.statement
+    - meta.command
+    - entity.name.command
 - source: ;
   scopes:
     - punctuation.terminator.statement.semicolon
@@ -21169,11 +21249,38 @@
     - meta.scope.if-block
   scopes:
     - keyword.control
-- source: ' type -p realpath '
+- source: type
+  scopesBegin:
+    - meta.statement
+    - meta.command
+  scopes:
+    - entity.name.command
+    - support.function.builtin
+- source: '-'
+  scopesBegin:
+    - string.unquoted.argument
+  scopes:
+    - constant.other.option.dash
+- source: p
+  scopes:
+    - constant.other.option
+  scopesEnd:
+    - string.unquoted.argument
+- source: realpath
+  scopesBegin:
+    - meta.argument
+  scopes:
+    - string.unquoted.argument
 - source: '>'
   scopes:
     - keyword.operator.redirect
-- source: ' /dev/null'
+- source: /dev/null
+  scopes:
+    - string.unquoted.argument
+  scopesEnd:
+    - meta.statement
+    - meta.command
+    - meta.argument
 - source: ;
   scopes:
     - punctuation.terminator.statement.semicolon
@@ -21251,11 +21358,38 @@
 - source: elif
   scopes:
     - keyword.control.elif
-- source: ' type -p readlink '
+- source: type
+  scopesBegin:
+    - meta.statement
+    - meta.command
+  scopes:
+    - entity.name.command
+    - support.function.builtin
+- source: '-'
+  scopesBegin:
+    - string.unquoted.argument
+  scopes:
+    - constant.other.option.dash
+- source: p
+  scopes:
+    - constant.other.option
+  scopesEnd:
+    - string.unquoted.argument
+- source: readlink
+  scopesBegin:
+    - meta.argument
+  scopes:
+    - string.unquoted.argument
 - source: '>'
   scopes:
     - keyword.operator.redirect
-- source: ' /dev/null'
+- source: /dev/null
+  scopes:
+    - string.unquoted.argument
+  scopesEnd:
+    - meta.statement
+    - meta.command
+    - meta.argument
 - source: ;
   scopes:
     - punctuation.terminator.statement.semicolon
@@ -29527,8 +29661,25 @@
     - meta.scope.if-block
   scopes:
     - keyword.control
-- source: ' complete -p '
+- source: complete
+  scopesBegin:
+    - meta.statement
+    - meta.command
+  scopes:
+    - entity.name.command
+- source: '-'
+  scopesBegin:
+    - string.unquoted.argument
+  scopes:
+    - constant.other.option.dash
+- source: p
+  scopes:
+    - constant.other.option
+  scopesEnd:
+    - string.unquoted.argument
 - source: $
+  scopesBegin:
+    - meta.argument
   scopes:
     - punctuation.definition.variable
     - punctuation.section.bracket.curly.variable.begin
@@ -29546,6 +29697,10 @@
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
+  scopesEnd:
+    - meta.statement
+    - meta.command
+    - meta.argument
 - source: '&'
   scopes:
     - punctuation.separator.statement.background
@@ -38050,9 +38205,26 @@
     - meta.scope.if-block
   scopes:
     - keyword.control
-- source: ' unset -v'
-- source: ' "'
+- source: unset
   scopesBegin:
+    - meta.statement
+    - meta.command
+  scopes:
+    - entity.name.command
+    - support.function.builtin
+- source: '-'
+  scopesBegin:
+    - string.unquoted.argument
+  scopes:
+    - constant.other.option.dash
+- source: v
+  scopes:
+    - constant.other.option
+  scopesEnd:
+    - string.unquoted.argument
+- source: '"'
+  scopesBegin:
+    - meta.argument
     - string.quoted.double
   scopes:
     - punctuation.definition.string.begin
@@ -38067,6 +38239,9 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
+    - meta.statement
+    - meta.command
+    - meta.argument
     - string.quoted.double
 - source: ;
   scopes:
@@ -51176,7 +51351,20 @@
     - meta.scope.if-block
   scopes:
     - keyword.control
-- source: ' type getent '
+- source: type
+  scopesBegin:
+    - meta.statement
+    - meta.command
+  scopes:
+    - entity.name.command
+    - support.function.builtin
+- source: getent
+  scopes:
+    - meta.argument
+    - string.unquoted.argument
+  scopesEnd:
+    - meta.statement
+    - meta.command
 - source: '&'
   scopes:
     - punctuation.separator.statement.background
@@ -51281,7 +51469,20 @@
 - source: elif
   scopes:
     - keyword.control.elif
-- source: ' type perl '
+- source: type
+  scopesBegin:
+    - meta.statement
+    - meta.command
+  scopes:
+    - entity.name.command
+    - support.function.builtin
+- source: perl
+  scopes:
+    - meta.argument
+    - string.unquoted.argument
+  scopesEnd:
+    - meta.statement
+    - meta.command
 - source: '&'
   scopes:
     - punctuation.separator.statement.background
@@ -51571,7 +51772,20 @@
     - meta.scope.if-block
   scopes:
     - keyword.control
-- source: ' type getent '
+- source: type
+  scopesBegin:
+    - meta.statement
+    - meta.command
+  scopes:
+    - entity.name.command
+    - support.function.builtin
+- source: getent
+  scopes:
+    - meta.argument
+    - string.unquoted.argument
+  scopesEnd:
+    - meta.statement
+    - meta.command
 - source: '&'
   scopes:
     - punctuation.separator.statement.background
@@ -51680,7 +51894,20 @@
 - source: elif
   scopes:
     - keyword.control.elif
-- source: ' type perl '
+- source: type
+  scopesBegin:
+    - meta.statement
+    - meta.command
+  scopes:
+    - entity.name.command
+    - support.function.builtin
+- source: perl
+  scopes:
+    - meta.argument
+    - string.unquoted.argument
+  scopesEnd:
+    - meta.statement
+    - meta.command
 - source: '&'
   scopes:
     - punctuation.separator.statement.background
@@ -53908,7 +54135,11 @@
     - meta.scope.if-block
   scopes:
     - keyword.control
-- source: ' _complete_as_root'
+- source: _complete_as_root
+  scopes:
+    - meta.statement
+    - meta.command
+    - entity.name.command
 - source: ;
   scopes:
     - punctuation.terminator.statement.semicolon
@@ -54251,7 +54482,11 @@
     - meta.scope.if-block
   scopes:
     - keyword.control
-- source: ' _complete_as_root'
+- source: _complete_as_root
+  scopes:
+    - meta.statement
+    - meta.command
+    - entity.name.command
 - source: ;
   scopes:
     - punctuation.terminator.statement.semicolon
@@ -55405,11 +55640,38 @@
     - meta.scope.if-block
   scopes:
     - keyword.control
-- source: ' type -p realpath '
+- source: type
+  scopesBegin:
+    - meta.statement
+    - meta.command
+  scopes:
+    - entity.name.command
+    - support.function.builtin
+- source: '-'
+  scopesBegin:
+    - string.unquoted.argument
+  scopes:
+    - constant.other.option.dash
+- source: p
+  scopes:
+    - constant.other.option
+  scopesEnd:
+    - string.unquoted.argument
+- source: realpath
+  scopesBegin:
+    - meta.argument
+  scopes:
+    - string.unquoted.argument
 - source: '>'
   scopes:
     - keyword.operator.redirect
-- source: ' /dev/null'
+- source: /dev/null
+  scopes:
+    - string.unquoted.argument
+  scopesEnd:
+    - meta.statement
+    - meta.command
+    - meta.argument
 - source: ;
   scopes:
     - punctuation.terminator.statement.semicolon
@@ -55487,11 +55749,38 @@
 - source: elif
   scopes:
     - keyword.control.elif
-- source: ' type -p readlink '
+- source: type
+  scopesBegin:
+    - meta.statement
+    - meta.command
+  scopes:
+    - entity.name.command
+    - support.function.builtin
+- source: '-'
+  scopesBegin:
+    - string.unquoted.argument
+  scopes:
+    - constant.other.option.dash
+- source: p
+  scopes:
+    - constant.other.option
+  scopesEnd:
+    - string.unquoted.argument
+- source: readlink
+  scopesBegin:
+    - meta.argument
+  scopes:
+    - string.unquoted.argument
 - source: '>'
   scopes:
     - keyword.operator.redirect
-- source: ' /dev/null'
+- source: /dev/null
+  scopes:
+    - string.unquoted.argument
+  scopesEnd:
+    - meta.statement
+    - meta.command
+    - meta.argument
 - source: ;
   scopes:
     - punctuation.terminator.statement.semicolon
@@ -63763,8 +64052,25 @@
     - meta.scope.if-block
   scopes:
     - keyword.control
-- source: ' complete -p '
+- source: complete
+  scopesBegin:
+    - meta.statement
+    - meta.command
+  scopes:
+    - entity.name.command
+- source: '-'
+  scopesBegin:
+    - string.unquoted.argument
+  scopes:
+    - constant.other.option.dash
+- source: p
+  scopes:
+    - constant.other.option
+  scopesEnd:
+    - string.unquoted.argument
 - source: $
+  scopesBegin:
+    - meta.argument
   scopes:
     - punctuation.definition.variable
     - punctuation.section.bracket.curly.variable.begin
@@ -63782,6 +64088,10 @@
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
+  scopesEnd:
+    - meta.statement
+    - meta.command
+    - meta.argument
 - source: '&'
   scopes:
     - punctuation.separator.statement.background
@@ -70686,9 +70996,26 @@
     - meta.scope.if-block
   scopes:
     - keyword.control
-- source: ' test -n'
-- source: ' "'
+- source: test
   scopesBegin:
+    - meta.statement
+    - meta.command
+  scopes:
+    - entity.name.command
+    - support.function.builtin
+- source: '-'
+  scopesBegin:
+    - string.unquoted.argument
+  scopes:
+    - constant.other.option.dash
+- source: 'n'
+  scopes:
+    - constant.other.option
+  scopesEnd:
+    - string.unquoted.argument
+- source: '"'
+  scopesBegin:
+    - meta.argument
     - string.quoted.double
   scopes:
     - punctuation.definition.string.begin
@@ -70703,6 +71030,9 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
+    - meta.statement
+    - meta.command
+    - meta.argument
     - string.quoted.double
 - source: ;
   scopes:
@@ -76649,7 +76979,11 @@
 - source: elif
   scopes:
     - keyword.control.elif
-- source: ' repository_needs_update'
+- source: repository_needs_update
+  scopes:
+    - meta.statement
+    - meta.command
+    - entity.name.command
 - source: ;
   scopes:
     - punctuation.terminator.statement.semicolon
@@ -80203,9 +80537,15 @@
     - meta.scope.if-block
   scopes:
     - keyword.control
-- source: ' is_executable'
-- source: ' "'
+- source: is_executable
   scopesBegin:
+    - meta.statement
+    - meta.command
+  scopes:
+    - entity.name.command
+- source: '"'
+  scopesBegin:
+    - meta.argument
     - string.quoted.double
   scopes:
     - punctuation.definition.string.begin
@@ -80220,6 +80560,9 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
+    - meta.statement
+    - meta.command
+    - meta.argument
     - string.quoted.double
 - source: ;
   scopes:

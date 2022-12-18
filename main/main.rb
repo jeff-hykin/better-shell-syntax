@@ -296,7 +296,6 @@ require_relative './tokens.rb'
     )
     
     possible_pre_command_characters = /(?:^|;|\||&|!|\(|\{|\`)/
-    # possible_command_start   = lookBehindFor(/\b(?:if|elif)\s/).or(lookAheadToAvoid(/(?:!|%|&|\||\(|\)|\{|\[|<|>|#|\n|$|;|\s)/))
     possible_command_start   = lookAheadToAvoid(/(?:!|%|&|\||\(|\)|\{|\[|<|>|#|\n|$|;|\s)/)
     possible_argument_start  = lookAheadToAvoid(/(?:%|&|\||\(|\[|#|\n|$|;)/)
     command_end              = lookAheadFor(/;|\||&|\n|\)|\`|\{|\}|#|\]/).lookBehindToAvoid(/\\/)
@@ -404,7 +403,11 @@ require_relative './tokens.rb'
         zeroLengthEnd?: true,
         tag_as: "meta.statement",
         # blank lines screw this pattern up, which is what the first lookAheadToAvoid is fixing
-        start_pattern: lookAheadToAvoid(empty_line).then(lookBehindFor(/\b(?:if|elif)\b/).or(lookBehindFor(possible_pre_command_characters))).then(std_space).lookAheadToAvoid(keyword_patterns),
+        start_pattern: Pattern.new(
+            lookAheadToAvoid(empty_line).then(
+                lookBehindFor(/\Wif |\Welif /).or(lookBehindFor(possible_pre_command_characters))
+            ).then(std_space).lookAheadToAvoid(keyword_patterns),
+        ),
         end_pattern: command_end,
         includes: [
             :function_definition,
