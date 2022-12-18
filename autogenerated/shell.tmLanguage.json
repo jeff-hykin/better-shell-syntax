@@ -456,7 +456,7 @@
       "name": "constant.character.escape.shell"
     },
     "function_definition": {
-      "begin": "\\s*+(?:(\\bfunction )\\s*+(\\S+)(?:(\\()\\s*+(\\)))?|(\\S+)\\s*+(\\()\\s*+(\\)))",
+      "begin": "\\s*+(?:(\\bfunction )\\s*+([^ \\t\\n\\r\\(\\)=]+)(?:(\\()\\s*+(\\)))?|([^ \\t\\n\\r\\(\\)=]+)\\s*+(\\()\\s*+(\\)))",
       "end": "(?<=\\})",
       "beginCaptures": {
         "1": {
@@ -510,7 +510,7 @@
     "heredoc": {
       "patterns": [
         {
-          "begin": "(<<-)\\s*+(\"|')\\s*+((?<!\\w)[a-zA-Z_0-9]*(?!\\w))(?=\\s|;|&|<|\"|')\\2",
+          "begin": "((?<!<)<<-)\\s*+(\"|')\\s*+((?<!\\w)[a-zA-Z_0-9]*(?!\\w))(?=\\s|;|&|<|\"|')\\2(.*)",
           "end": "^\\t*\\3(?=\\s|;|&|$)",
           "beginCaptures": {
             "1": {
@@ -520,6 +520,13 @@
             },
             "3": {
               "name": "punctuation.definition.string.heredoc.shell"
+            },
+            "4": {
+              "patterns": [
+                {
+                  "include": "#statement_context"
+                }
+              ]
             }
           },
           "endCaptures": {
@@ -527,13 +534,13 @@
               "name": "punctuation.definition.string.heredoc.shell"
             }
           },
-          "name": "string.quoted.heredoc.indent.shell",
+          "contentName": "string.quoted.heredoc.indent",
           "patterns": [
 
           ]
         },
         {
-          "begin": "(<<)\\s*+(\"|')\\s*+((?<!\\w)[a-zA-Z_0-9]*(?!\\w))(?=\\s|;|&|<|\"|')\\2",
+          "begin": "((?<!<)<<(?!<))\\s*+(\"|')\\s*+((?<!\\w)[a-zA-Z_0-9]*(?!\\w))(?=\\s|;|&|<|\"|')\\2(.*)",
           "end": "^\\3(?=\\s|;|&|$)",
           "beginCaptures": {
             "1": {
@@ -543,6 +550,13 @@
             },
             "3": {
               "name": "punctuation.definition.string.heredoc.shell"
+            },
+            "4": {
+              "patterns": [
+                {
+                  "include": "#statement_context"
+                }
+              ]
             }
           },
           "endCaptures": {
@@ -550,13 +564,13 @@
               "name": "punctuation.definition.string.heredoc.shell"
             }
           },
-          "name": "string.quoted.heredoc.no-indent.shell",
+          "contentName": "string.quoted.heredoc.no-indent",
           "patterns": [
 
           ]
         },
         {
-          "begin": "(<<-)\\s*+((?<!\\w)[a-zA-Z_0-9]*(?!\\w))(?=\\s|;|&|<|\"|')",
+          "begin": "((?<!<)<<-)\\s*+((?<!\\w)[a-zA-Z_0-9]*(?!\\w))(?=\\s|;|&|<|\"|')(.*)",
           "end": "^\\t*\\2(?=\\s|;|&|$)",
           "beginCaptures": {
             "1": {
@@ -564,6 +578,13 @@
             },
             "2": {
               "name": "punctuation.definition.string.heredoc.shell"
+            },
+            "3": {
+              "patterns": [
+                {
+                  "include": "#statement_context"
+                }
+              ]
             }
           },
           "endCaptures": {
@@ -571,7 +592,7 @@
               "name": "punctuation.definition.string.heredoc.shell"
             }
           },
-          "name": "string.unquoted.heredoc.indent.shell",
+          "contentName": "string.unquoted.heredoc.indent",
           "patterns": [
             {
               "include": "#double_quote_escape_char"
@@ -585,7 +606,7 @@
           ]
         },
         {
-          "begin": "(<<)\\s*+((?<!\\w)[a-zA-Z_0-9]*(?!\\w))(?=\\s|;|&|<|\"|')",
+          "begin": "((?<!<)<<(?!<))\\s*+((?<!\\w)[a-zA-Z_0-9]*(?!\\w))(?=\\s|;|&|<|\"|')(.*)",
           "end": "^\\2(?=\\s|;|&|$)",
           "beginCaptures": {
             "1": {
@@ -593,6 +614,13 @@
             },
             "2": {
               "name": "punctuation.definition.string.heredoc.shell"
+            },
+            "3": {
+              "patterns": [
+                {
+                  "include": "#statement_context"
+                }
+              ]
             }
           },
           "endCaptures": {
@@ -600,7 +628,7 @@
               "name": "punctuation.definition.string.heredoc.shell"
             }
           },
-          "name": "string.unquoted.heredoc.no-indent.shell",
+          "contentName": "string.unquoted.heredoc.no-indent",
           "patterns": [
             {
               "include": "#double_quote_escape_char"

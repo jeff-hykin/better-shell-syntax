@@ -21,26 +21,25 @@
 - source: <<-
   scopesBegin:
     - meta.argument
-    - string.unquoted.heredoc.indent
   scopes:
     - keyword.operator.heredoc
 - source: EOF
   scopes:
     - punctuation.definition.string.heredoc
 - source: "\t\t# My script here"
+  scopes:
+    - string.unquoted.heredoc.indent
 - source: "\tEOF"
   scopes:
     - punctuation.definition.string.heredoc
   scopesEnd:
     - meta.argument
-    - string.unquoted.heredoc.indent
 - source: cat
   scopes:
     - entity.name.command
 - source: <<-
   scopesBegin:
     - meta.argument
-    - string.quoted.heredoc.indent
   scopes:
     - keyword.operator.heredoc
 - source: ''''
@@ -49,19 +48,19 @@
     - punctuation.definition.string.heredoc
 - source: ''''
 - source: "\t\t# My script here"
+  scopes:
+    - string.quoted.heredoc.indent
 - source: "\tEOF"
   scopes:
     - punctuation.definition.string.heredoc
   scopesEnd:
     - meta.argument
-    - string.quoted.heredoc.indent
 - source: cat
   scopes:
     - entity.name.command
 - source: <<-
   scopesBegin:
     - meta.argument
-    - string.quoted.heredoc.indent
   scopes:
     - keyword.operator.heredoc
 - source: '"'
@@ -70,19 +69,19 @@
     - punctuation.definition.string.heredoc
 - source: '"'
 - source: "\t\t# My script here"
+  scopes:
+    - string.quoted.heredoc.indent
 - source: "\tEOF"
   scopes:
     - punctuation.definition.string.heredoc
   scopesEnd:
     - meta.argument
-    - string.quoted.heredoc.indent
 - source: cat
   scopes:
     - entity.name.command
 - source: '<<'
   scopesBegin:
     - meta.argument
-    - string.quoted.heredoc.no-indent
   scopes:
     - keyword.operator.heredoc
 - source: ''''
@@ -91,25 +90,27 @@
     - punctuation.definition.string.heredoc
 - source: ''''
 - source: "\t\t# My script here"
+  scopes:
+    - string.quoted.heredoc.no-indent
 - source: EOF
   scopes:
     - punctuation.definition.string.heredoc
   scopesEnd:
     - meta.argument
-    - string.quoted.heredoc.no-indent
 - source: cat
   scopes:
     - entity.name.command
 - source: '<<'
   scopesBegin:
     - meta.argument
+  scopes:
+    - keyword.operator.heredoc
+- source: EOF
+  scopes:
+    - punctuation.definition.string.heredoc
+- source: "\t\t# My script here"
+  scopes:
     - string.unquoted.heredoc.no-indent
-  scopes:
-    - keyword.operator.heredoc
-- source: EOF
-  scopes:
-    - punctuation.definition.string.heredoc
-- source: "\t\t# My script here"
 - source: EOF
   scopes:
     - punctuation.definition.string.heredoc
@@ -117,7 +118,6 @@
     - meta.statement
     - meta.command
     - meta.argument
-    - string.unquoted.heredoc.no-indent
 - source: fi
   scopes:
     - keyword.control
@@ -157,22 +157,27 @@
 - source: '<<'
   scopesBegin:
     - meta.argument
-    - string.unquoted.heredoc.no-indent
   scopes:
     - keyword.operator.heredoc
 - source: EOF
   scopes:
     - punctuation.definition.string.heredoc
-- source: ' > myfile.txt'
+- source: '>'
+  scopes:
+    - keyword.operator.redirect
+- source: ' myfile.txt'
 - source: multiple line
+  scopesBegin:
+    - string.unquoted.heredoc.no-indent
 - source: output into
 - source: a file
+  scopesEnd:
+    - string.unquoted.heredoc.no-indent
 - source: EOF
   scopes:
     - punctuation.definition.string.heredoc
   scopesEnd:
     - meta.argument
-    - string.unquoted.heredoc.no-indent
 - source: echo
   scopes:
     - entity.name.command
@@ -229,22 +234,27 @@
 - source: <<-
   scopesBegin:
     - meta.argument
-    - string.unquoted.heredoc.indent
   scopes:
     - keyword.operator.heredoc
 - source: EOF
   scopes:
     - punctuation.definition.string.heredoc
-- source: ' > myfile.txt'
+- source: '>'
+  scopes:
+    - keyword.operator.redirect
+- source: ' myfile.txt'
 - source: "\tmultiple line"
+  scopesBegin:
+    - string.unquoted.heredoc.indent
 - source: "\toutput into"
 - source: "\ta file"
+  scopesEnd:
+    - string.unquoted.heredoc.indent
 - source: "\tEOF"
   scopes:
     - punctuation.definition.string.heredoc
   scopesEnd:
     - meta.argument
-    - string.unquoted.heredoc.indent
 - source: echo
   scopes:
     - entity.name.command

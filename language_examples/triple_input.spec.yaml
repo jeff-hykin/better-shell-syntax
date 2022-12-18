@@ -1,0 +1,43 @@
+- source: '#'
+  scopesBegin:
+    - comment.line.number-sign
+  scopes:
+    - punctuation.definition.comment
+- source: ' shellcheck disable=SC2162'
+  scopesEnd:
+    - comment.line.number-sign
+- source: IFS
+  scopesBegin:
+    - meta.expression.assignment
+  scopes:
+    - variable.other.assignment
+- source: '='
+  scopes:
+    - keyword.operator.assignment
+- source: ''''
+  scopesBegin:
+    - string.quoted.single
+  scopes:
+    - punctuation.definition.string.begin
+- source: ':'
+- source: ''''
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - meta.expression.assignment
+    - string.quoted.single
+- source: ' read -a version_info '
+- source: <<<
+  scopesBegin:
+    - meta.herestring
+  scopes:
+    - keyword.operator.herestring
+- source: '"'
+  scopesBegin:
+    - string.quoted.double
+  scopes:
+    - punctuation.definition.string.begin
+- source: $version
+- source: '"'
+  scopes:
+    - punctuation.definition.string.end

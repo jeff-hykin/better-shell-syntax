@@ -167,6 +167,9 @@ require_relative './tokens.rb'
     
     # function thing() {}
     # thing() {}
+    function_name_pattern = /[^ \t\n\r\(\)=]+/ 
+    # ^ what is actually allowed by POSIX is not the same as what shells actually allow
+    # so this pattern tries to be as flexible as possible
     grammar[:function_definition] = PatternRange.new(
         tag_as: "meta.function",
         start_pattern: std_space.then(
@@ -176,7 +179,7 @@ require_relative './tokens.rb'
                     match: /\bfunction /,
                     tag_as: "storage.type.function"
                 ).then(std_space).then(
-                    match: /\S+/,
+                    match: function_name_pattern,
                     tag_as: "entity.name.function",
                 ).maybe(
                     Pattern.new(
@@ -190,7 +193,7 @@ require_relative './tokens.rb'
             ).or(
                 # no function keyword
                 Pattern.new(
-                    match: /\S+/,
+                    match: function_name_pattern,
                     tag_as: "entity.name.function",
                 ).then(
                     std_space
@@ -562,11 +565,10 @@ require_relative './tokens.rb'
                 [
                     # <<-"HEREDOC"
                     PatternRange.new(
-                        tag_as: "string.quoted.heredoc.indent",
-                        tag_content_as: tag_content_as,
+                        tag_content_as: "string.quoted.heredoc.indent",
                         start_pattern: Pattern.new(
                             Pattern.new(
-                                match: /<<-/,
+                                match: lookBehindToAvoid(/</).then(/<<-/),
                                 tag_as: "keyword.operator.heredoc",
                             ).then(std_space).then(
                                 match: /"|'/,
@@ -577,6 +579,11 @@ require_relative './tokens.rb'
                                 tag_as: "punctuation.definition.string.heredoc",
                             ).lookAheadFor(/\s|;|&|<|"|'/).matchResultOf(
                                 "start_quote"
+                            ).then(
+                                match: /.*/,
+                                includes: [
+                                    :statement_context,
+                                ],
                             )
                         ),
                         end_pattern: Pattern.new(
@@ -591,11 +598,10 @@ require_relative './tokens.rb'
                     ),
                     # <<"HEREDOC"
                     PatternRange.new(
-                        tag_as: "string.quoted.heredoc.no-indent",
-                        tag_content_as: tag_content_as,
+                        tag_content_as: "string.quoted.heredoc.no-indent",
                         start_pattern: Pattern.new(
                             Pattern.new(
-                                match: /<</,
+                                match: lookBehindToAvoid(/</).then(/<</).lookAheadToAvoid(/</),
                                 tag_as: "keyword.operator.heredoc",
                             ).then(std_space).then(
                                 match: /"|'/,
@@ -606,6 +612,11 @@ require_relative './tokens.rb'
                                 tag_as: "punctuation.definition.string.heredoc",
                             ).lookAheadFor(/\s|;|&|<|"|'/).matchResultOf(
                                 "start_quote"
+                            ).then(
+                                match: /.*/,
+                                includes: [
+                                    :statement_context,
+                                ],
                             )
                         ),
                         end_pattern: Pattern.new(
@@ -620,17 +631,21 @@ require_relative './tokens.rb'
                     ),
                     # <<-HEREDOC
                     PatternRange.new(
-                        tag_as: "string.unquoted.heredoc.indent",
-                        tag_content_as: tag_content_as,
+                        tag_content_as: "string.unquoted.heredoc.indent",
                         start_pattern: Pattern.new(
                             Pattern.new(
-                                match: /<<-/,
+                                match: lookBehindToAvoid(/</).then(/<<-/),
                                 tag_as: "keyword.operator.heredoc",
                             ).then(std_space).then(
                                 match: name_pattern,
                                 reference: "delimiter",
                                 tag_as: "punctuation.definition.string.heredoc",
-                            ).lookAheadFor(/\s|;|&|<|"|'/)
+                            ).lookAheadFor(/\s|;|&|<|"|'/).then(
+                                match: /.*/,
+                                includes: [
+                                    :statement_context,
+                                ],
+                            )
                         ),
                         end_pattern: Pattern.new(
                             tag_as: "punctuation.definition.string.heredoc",
@@ -649,17 +664,21 @@ require_relative './tokens.rb'
                     ),
                     # <<HEREDOC
                     PatternRange.new(
-                        tag_as: "string.unquoted.heredoc.no-indent",
-                        tag_content_as: tag_content_as,
+                        tag_content_as: "string.unquoted.heredoc.no-indent",
                         start_pattern: Pattern.new(
                             Pattern.new(
-                                match: /<</,
+                                match: lookBehindToAvoid(/</).then(/<</).lookAheadToAvoid(/</),
                                 tag_as: "keyword.operator.heredoc",
                             ).then(std_space).then(
                                 match: name_pattern,
                                 reference: "delimiter",
                                 tag_as: "punctuation.definition.string.heredoc",
-                            ).lookAheadFor(/\s|;|&|<|"|'/)
+                            ).lookAheadFor(/\s|;|&|<|"|'/).then(
+                                match: /.*/,
+                                includes: [
+                                    :statement_context,
+                                ],
+                            )
                         ),
                         end_pattern: Pattern.new(
                             tag_as: "punctuation.definition.string.heredoc",

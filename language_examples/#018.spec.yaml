@@ -87,9 +87,15 @@
     - meta.function
   scopes:
     - storage.type.function
-- source: testo()
+- source: testo
   scopes:
     - entity.name.function
+- source: (
+  scopesBegin:
+    - punctuation.definition.arguments
+- source: )
+  scopesEnd:
+    - punctuation.definition.arguments
 - source: '{'
   scopesBegin:
     - meta.function.body

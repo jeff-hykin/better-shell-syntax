@@ -4272,13 +4272,14 @@
 - source: '<<'
   scopesBegin:
     - meta.argument
-    - string.unquoted.heredoc.no-indent
   scopes:
     - keyword.operator.heredoc
 - source: EOF
   scopes:
     - punctuation.definition.string.heredoc
 - source: ''''
+  scopesBegin:
+    - string.unquoted.heredoc.no-indent
 - source: 'Nix isn''t the only thing in '
 - source: $
   scopes:
@@ -4290,6 +4291,8 @@
 - source: ','
 - source: but I think I know how to edit it out.
 - source: 'Here''s the diff:'
+  scopesEnd:
+    - string.unquoted.heredoc.no-indent
 - source: EOF
   scopes:
     - punctuation.definition.string.heredoc
@@ -4297,7 +4300,6 @@
     - meta.statement
     - meta.command
     - meta.argument
-    - string.unquoted.heredoc.no-indent
 - source: '#'
   scopesBegin:
     - comment.line.number-sign
@@ -4724,7 +4726,35 @@
 - source: ' user is asked to confirm after each delimiter.'
   scopesEnd:
     - comment.line.number-sign
-- source: _reminders=
+- source: _reminders
+  scopesBegin:
+    - meta.expression.assignment
+  scopes:
+    - variable.other.assignment
+- source: '='
+  scopes:
+    - keyword.operator.assignment
+- source: ()
+  scopesEnd:
+    - meta.expression.assignment
+- source: ((
+  scopesBegin:
+    - meta.arithmetic
+  scopes:
+    - punctuation.section.arithmetic
+- source: _remind_num
+- source: '='
+  scopes:
+    - keyword.operator.arithmetic
+- source: '1'
+  scopes:
+    - constant.numeric.integer
+- source: ))
+  scopes:
+    - punctuation.section.arithmetic
+  scopesEnd:
+    - meta.arithmetic
+- source: remind
   scopesBegin:
     - meta.function
   scopes:
@@ -4735,8 +4765,6 @@
 - source: )
   scopesEnd:
     - punctuation.definition.arguments
-- source: ((_remind_num=1))
-- source: 'remind() '
 - source: '{'
   scopesBegin:
     - meta.function.body
@@ -6066,15 +6094,18 @@
 - source: '<<'
   scopesBegin:
     - meta.argument
-    - string.unquoted.heredoc.no-indent
   scopes:
     - keyword.operator.heredoc
 - source: EOF
   scopes:
     - punctuation.definition.string.heredoc
 - source: 'Oh no, something went wrong. If you can take all the output and open'
+  scopesBegin:
+    - string.unquoted.heredoc.no-indent
 - source: 'an issue, we''d love to fix the problem so nobody else has this issue.'
 - source: ':('
+  scopesEnd:
+    - string.unquoted.heredoc.no-indent
 - source: EOF
   scopes:
     - punctuation.definition.string.heredoc
@@ -6082,7 +6113,6 @@
     - meta.statement
     - meta.command
     - meta.argument
-    - string.unquoted.heredoc.no-indent
 - source: '}'
   scopes:
     - punctuation.definition.group
@@ -6149,13 +6179,14 @@
 - source: '<<'
   scopesBegin:
     - meta.argument
-    - string.unquoted.heredoc.no-indent
   scopes:
     - keyword.operator.heredoc
 - source: EOF
   scopes:
     - punctuation.definition.string.heredoc
 - source: 'Try it! Open a new terminal, and type:'
+  scopesBegin:
+    - string.unquoted.heredoc.no-indent
 - source: $(
   scopesBegin:
     - string.interpolated.dollar
@@ -6188,13 +6219,13 @@
   scopes:
     - punctuation.definition.evaluation.parens.end
   scopesEnd:
+    - string.unquoted.heredoc.no-indent
     - string.interpolated.dollar
 - source: EOF
   scopes:
     - punctuation.definition.string.heredoc
   scopesEnd:
     - meta.argument
-    - string.unquoted.heredoc.no-indent
 - source: remind
   scopesBegin:
     - entity.name.command
@@ -6249,13 +6280,14 @@
 - source: '<<'
   scopesBegin:
     - meta.argument
-    - string.unquoted.heredoc.no-indent
   scopes:
     - keyword.operator.heredoc
 - source: EOF
   scopes:
     - punctuation.definition.string.heredoc
 - source: 'If you spot anything this uninstaller missed or have feedback,'
+  scopesBegin:
+    - string.unquoted.heredoc.no-indent
 - source: 'don''t hesitate:'
 - source: $(
   scopesBegin:
@@ -6271,13 +6303,13 @@
   scopes:
     - punctuation.definition.evaluation.parens.end
   scopesEnd:
+    - string.unquoted.heredoc.no-indent
     - string.interpolated.dollar
 - source: EOF
   scopes:
     - punctuation.definition.string.heredoc
   scopesEnd:
     - meta.argument
-    - string.unquoted.heredoc.no-indent
 - source: remind
   scopesBegin:
     - entity.name.command
@@ -6476,14 +6508,17 @@
 - source: '<<'
   scopesBegin:
     - meta.argument
-    - string.unquoted.heredoc.no-indent
   scopes:
     - keyword.operator.heredoc
 - source: EOF
   scopes:
     - punctuation.definition.string.heredoc
 - source: Nix already appears to be installed. This installer may run into issues.
+  scopesBegin:
+    - string.unquoted.heredoc.no-indent
 - source: 'If an error occurs, try manually uninstalling, then rerunning this script.'
+  scopesEnd:
+    - string.unquoted.heredoc.no-indent
 - source: EOF
   scopes:
     - punctuation.definition.string.heredoc
@@ -6491,7 +6526,6 @@
     - meta.statement
     - meta.command
     - meta.argument
-    - string.unquoted.heredoc.no-indent
 - source: '}'
   scopes:
     - punctuation.definition.group
@@ -7068,13 +7102,14 @@
 - source: '<<'
   scopesBegin:
     - meta.argument
-    - string.unquoted.heredoc.no-indent
   scopes:
     - keyword.operator.heredoc
 - source: EOF
   scopes:
     - punctuation.definition.string.heredoc
 - source: I back up shell profile/rc scripts before I add Nix to them.
+  scopesBegin:
+    - string.unquoted.heredoc.no-indent
 - source: 'I need to back up each of these profiles: '
 - source: $
   scopes:
@@ -7121,6 +7156,8 @@
   scopes:
     - variable.other.normal
 - source: (ideally a location you will remember encase you need to rollback to them)
+  scopesEnd:
+    - string.unquoted.heredoc.no-indent
 - source: EOF
   scopes:
     - punctuation.definition.string.heredoc
@@ -7128,7 +7165,6 @@
     - meta.statement
     - meta.command
     - meta.argument
-    - string.unquoted.heredoc.no-indent
 - source: '}'
   scopes:
     - punctuation.definition.group
@@ -7175,14 +7211,17 @@
 - source: '<<'
   scopesBegin:
     - meta.argument
-    - string.unquoted.heredoc.no-indent
   scopes:
     - keyword.operator.heredoc
 - source: EOF
   scopes:
     - punctuation.definition.string.heredoc
 - source: 'Before I try to install, I''ll check for signs Nix already is or has'
+  scopesBegin:
+    - string.unquoted.heredoc.no-indent
 - source: been installed on this system.
+  scopesEnd:
+    - string.unquoted.heredoc.no-indent
 - source: EOF
   scopes:
     - punctuation.definition.string.heredoc
@@ -7190,7 +7229,6 @@
     - meta.statement
     - meta.command
     - meta.argument
-    - string.unquoted.heredoc.no-indent
 - source: if
   scopesBegin:
     - meta.scope.if-block
@@ -8373,13 +8411,14 @@
 - source: '<<'
   scopesBegin:
     - meta.argument
-    - string.unquoted.heredoc.no-indent
   scopes:
     - keyword.operator.heredoc
 - source: EOF
   scopes:
     - punctuation.definition.string.heredoc
 - source: 'It seems the build group '
+  scopesBegin:
+    - string.unquoted.heredoc.no-indent
 - source: $
   scopes:
     - punctuation.definition.variable
@@ -8416,6 +8455,8 @@
   scopes:
     - variable.other.normal
 - source: ' and re-run.'
+  scopesEnd:
+    - string.unquoted.heredoc.no-indent
 - source: EOF
   scopes:
     - punctuation.definition.string.heredoc
@@ -8423,7 +8464,6 @@
     - meta.statement
     - meta.command
     - meta.argument
-    - string.unquoted.heredoc.no-indent
 - source: else
   scopes:
     - keyword.control.else
@@ -8871,13 +8911,14 @@
 - source: '<<'
   scopesBegin:
     - meta.argument
-    - string.unquoted.heredoc.no-indent
   scopes:
     - keyword.operator.heredoc
 - source: EOF
   scopes:
     - punctuation.definition.string.heredoc
 - source: 'It seems the build user '
+  scopesBegin:
+    - string.unquoted.heredoc.no-indent
 - source: $
   scopes:
     - punctuation.definition.variable
@@ -8915,6 +8956,8 @@
     - variable.other.normal
 - source: ' and try'
 - source: again.
+  scopesEnd:
+    - string.unquoted.heredoc.no-indent
 - source: EOF
   scopes:
     - punctuation.definition.string.heredoc
@@ -8922,7 +8965,6 @@
     - meta.statement
     - meta.command
     - meta.argument
-    - string.unquoted.heredoc.no-indent
 - source: else
   scopes:
     - keyword.control.else
@@ -10586,13 +10628,14 @@
 - source: '<<'
   scopesBegin:
     - meta.argument
-    - string.unquoted.heredoc.no-indent
   scopes:
     - keyword.operator.heredoc
 - source: EOF
   scopes:
     - punctuation.definition.string.heredoc
 - source: 'I wanted to take root ownership of existing Nix store files,'
+  scopesBegin:
+    - string.unquoted.heredoc.no-indent
 - source: but I couldn't locate 'chown'. (You may need to fix your PATH.)
 - source: 'To manually change file ownership, you can run:'
 - source: '    sudo chown -R ''root:'
@@ -10612,6 +10655,8 @@
   scopes:
     - variable.other.normal
 - source: ''''
+  scopesEnd:
+    - string.unquoted.heredoc.no-indent
 - source: EOF
   scopes:
     - punctuation.definition.string.heredoc
@@ -10619,7 +10664,6 @@
     - meta.statement
     - meta.command
     - meta.argument
-    - string.unquoted.heredoc.no-indent
 - source: else
   scopes:
     - keyword.control.else
@@ -11225,14 +11269,17 @@
 - source: '<<'
   scopesBegin:
     - meta.argument
-    - string.unquoted.heredoc.no-indent
   scopes:
     - keyword.operator.heredoc
 - source: EOF
   scopes:
     - punctuation.definition.string.heredoc
 - source: Nix does not work with selinux enabled yet!
+  scopesBegin:
+    - string.unquoted.heredoc.no-indent
 - source: 'see https://github.com/NixOS/nix/issues/2374'
+  scopesEnd:
+    - string.unquoted.heredoc.no-indent
 - source: EOF
   scopes:
     - punctuation.definition.string.heredoc
@@ -11240,7 +11287,6 @@
     - meta.statement
     - meta.command
     - meta.argument
-    - string.unquoted.heredoc.no-indent
 - source: fi
   scopes:
     - keyword.control
@@ -11297,13 +11343,14 @@
 - source: '<<'
   scopesBegin:
     - meta.argument
-    - string.unquoted.heredoc.no-indent
   scopes:
     - keyword.operator.heredoc
 - source: EOF
   scopes:
     - punctuation.definition.string.heredoc
 - source: This installation tool will set up your computer with the Nix package
+  scopesBegin:
+    - string.unquoted.heredoc.no-indent
 - source: 'manager. This will happen in a few stages:'
 - source: '1. Make sure your computer doesn''t already have Nix. If it does, I'
 - source: '   will show you instructions on how to clean up your old install.'
@@ -11315,6 +11362,8 @@
 - source: '5. Configure your shell to import special Nix Profile files, so you'
 - source: '   can use Nix.'
 - source: 6. Start the Nix daemon.
+  scopesEnd:
+    - string.unquoted.heredoc.no-indent
 - source: EOF
   scopes:
     - punctuation.definition.string.heredoc
@@ -11322,7 +11371,6 @@
     - meta.statement
     - meta.command
     - meta.argument
-    - string.unquoted.heredoc.no-indent
 - source: if
   scopesBegin:
     - meta.scope.if-block
@@ -11355,13 +11403,14 @@
 - source: '<<'
   scopesBegin:
     - meta.argument
-    - string.unquoted.heredoc.no-indent
   scopes:
     - keyword.operator.heredoc
 - source: EOF
   scopes:
     - punctuation.definition.string.heredoc
 - source: 'I will:'
+  scopesBegin:
+    - string.unquoted.heredoc.no-indent
 - source: ' - make sure your computer doesn''t already have Nix files'
 - source: '   (if it does, I will tell you how to clean them up.)'
 - source: ' - create local users (see the list above for the users I''ll make)'
@@ -11391,6 +11440,8 @@
 - source: ROOT_HOME
   scopes:
     - variable.other.normal
+  scopesEnd:
+    - string.unquoted.heredoc.no-indent
 - source: EOF
   scopes:
     - punctuation.definition.string.heredoc
@@ -11398,7 +11449,6 @@
     - meta.statement
     - meta.command
     - meta.argument
-    - string.unquoted.heredoc.no-indent
 - source: for
   scopesBegin:
     - meta.scope.for-in-loop
@@ -11494,13 +11544,14 @@
 - source: '<<'
   scopesBegin:
     - meta.argument
-    - string.unquoted.heredoc.no-indent
   scopes:
     - keyword.operator.heredoc
 - source: EOF
   scopes:
     - punctuation.definition.string.heredoc
 - source: ' - back up '
+  scopesBegin:
+    - string.unquoted.heredoc.no-indent
 - source: $
   scopes:
     - punctuation.definition.variable
@@ -11532,6 +11583,8 @@
   scopes:
     - variable.other.normal
 - source: ' to include some Nix configuration'
+  scopesEnd:
+    - string.unquoted.heredoc.no-indent
 - source: EOF
   scopes:
     - punctuation.definition.string.heredoc
@@ -11539,7 +11592,6 @@
     - meta.statement
     - meta.command
     - meta.argument
-    - string.unquoted.heredoc.no-indent
 - source: fi
   scopes:
     - keyword.control
@@ -11599,13 +11651,14 @@
 - source: '<<'
   scopesBegin:
     - meta.argument
-    - string.unquoted.heredoc.no-indent
   scopes:
     - keyword.operator.heredoc
 - source: EOF
   scopes:
     - punctuation.definition.string.heredoc
 - source: 'Okay, maybe you would like to talk to the team.'
+  scopes:
+    - string.unquoted.heredoc.no-indent
 - source: EOF
   scopes:
     - punctuation.definition.string.heredoc
@@ -11613,7 +11666,6 @@
     - meta.statement
     - meta.command
     - meta.argument
-    - string.unquoted.heredoc.no-indent
 - source: fi
   scopes:
     - keyword.control
@@ -11687,13 +11739,14 @@
 - source: '<<'
   scopesBegin:
     - meta.argument
-    - string.unquoted.heredoc.no-indent
   scopes:
     - keyword.operator.heredoc
 - source: EOF
   scopes:
     - punctuation.definition.string.heredoc
 - source: 'This script is going to call sudo a lot. Normally, it would show you'
+  scopesBegin:
+    - string.unquoted.heredoc.no-indent
 - source: 'exactly what commands it is running and why. However, the script is'
 - source: 'run in a headless fashion, like this:'
 - source: '  $ curl -L https://nixos.org/nix/install | sh'
@@ -11703,12 +11756,13 @@
 - source: 'see the output, try like this:'
 - source: '  $ curl -L -o install-nix https://nixos.org/nix/install'
 - source: '  $ sh ./install-nix'
+  scopesEnd:
+    - string.unquoted.heredoc.no-indent
 - source: EOF
   scopes:
     - punctuation.definition.string.heredoc
   scopesEnd:
     - meta.argument
-    - string.unquoted.heredoc.no-indent
 - source: return
   scopes:
     - entity.name.command
@@ -11735,21 +11789,23 @@
 - source: '<<'
   scopesBegin:
     - meta.argument
-    - string.unquoted.heredoc.no-indent
   scopes:
     - keyword.operator.heredoc
 - source: EOF
   scopes:
     - punctuation.definition.string.heredoc
 - source: 'This script is going to call sudo a lot. Every time I do, it''ll'
+  scopesBegin:
+    - string.unquoted.heredoc.no-indent
 - source: 'output exactly what it''ll do, and why.'
 - source: 'Just like this:'
+  scopesEnd:
+    - string.unquoted.heredoc.no-indent
 - source: EOF
   scopes:
     - punctuation.definition.string.heredoc
   scopesEnd:
     - meta.argument
-    - string.unquoted.heredoc.no-indent
 - source: __sudo
   scopes:
     - entity.name.command
@@ -11789,15 +11845,18 @@
 - source: '<<'
   scopesBegin:
     - meta.argument
-    - string.unquoted.heredoc.no-indent
   scopes:
     - keyword.operator.heredoc
 - source: EOF
   scopes:
     - punctuation.definition.string.heredoc
 - source: 'This might look scary, but everything can be undone by running just a'
+  scopesBegin:
+    - string.unquoted.heredoc.no-indent
 - source: 'few commands. I used to ask you to confirm each time sudo ran, but it'
 - source: 'was too many times. Instead, I''ll just ask you this one time:'
+  scopesEnd:
+    - string.unquoted.heredoc.no-indent
 - source: EOF
   scopes:
     - punctuation.definition.string.heredoc
@@ -11805,7 +11864,6 @@
     - meta.statement
     - meta.command
     - meta.argument
-    - string.unquoted.heredoc.no-indent
 - source: if
   scopesBegin:
     - meta.scope.if-block
@@ -11862,13 +11920,14 @@
 - source: '<<'
   scopesBegin:
     - meta.argument
-    - string.unquoted.heredoc.no-indent
   scopes:
     - keyword.operator.heredoc
 - source: EOF
   scopes:
     - punctuation.definition.string.heredoc
 - source: 'That is okay, but I can''t install.'
+  scopes:
+    - string.unquoted.heredoc.no-indent
 - source: EOF
   scopes:
     - punctuation.definition.string.heredoc
@@ -11876,7 +11935,6 @@
     - meta.statement
     - meta.command
     - meta.argument
-    - string.unquoted.heredoc.no-indent
 - source: fi
   scopes:
     - keyword.control
@@ -12172,13 +12230,14 @@
 - source: '<<'
   scopesBegin:
     - meta.argument
-    - string.unquoted.heredoc.no-indent
   scopes:
     - keyword.operator.heredoc
 - source: EOF
   scopes:
     - punctuation.definition.string.heredoc
 - source: 'Something went wrong, and I didn''t find Nix installed at'
+  scopesBegin:
+    - string.unquoted.heredoc.no-indent
 - source: $
   scopes:
     - punctuation.definition.variable
@@ -12187,6 +12246,8 @@
   scopes:
     - variable.other.normal
 - source: .
+  scopesEnd:
+    - string.unquoted.heredoc.no-indent
 - source: EOF
   scopes:
     - punctuation.definition.string.heredoc
@@ -12194,7 +12255,6 @@
     - meta.statement
     - meta.command
     - meta.argument
-    - string.unquoted.heredoc.no-indent
 - source: fi
   scopes:
     - keyword.control
@@ -12331,13 +12391,14 @@
 - source: '<<'
   scopesBegin:
     - meta.argument
-    - string.unquoted.heredoc.no-indent
   scopes:
     - keyword.operator.heredoc
 - source: EOF
   scopes:
     - punctuation.definition.string.heredoc
 - source: $
+  scopesBegin:
+    - string.unquoted.heredoc.no-indent
   scopes:
     - punctuation.definition.variable
     - variable.other.normal
@@ -12370,6 +12431,8 @@
 - source: PROFILE_NIX_END_DELIMETER
   scopes:
     - variable.other.normal
+  scopesEnd:
+    - string.unquoted.heredoc.no-indent
 - source: EOF
   scopes:
     - punctuation.definition.string.heredoc
@@ -12377,7 +12440,6 @@
     - meta.statement
     - meta.command
     - meta.argument
-    - string.unquoted.heredoc.no-indent
 - source: '}'
   scopes:
     - punctuation.definition.group
@@ -12419,13 +12481,14 @@
 - source: '<<'
   scopesBegin:
     - meta.argument
-    - string.unquoted.heredoc.no-indent
   scopes:
     - keyword.operator.heredoc
 - source: EOF
   scopes:
     - punctuation.definition.string.heredoc
 - source: $
+  scopesBegin:
+    - string.unquoted.heredoc.no-indent
   scopes:
     - punctuation.definition.variable
     - variable.other.normal
@@ -12458,6 +12521,8 @@
 - source: PROFILE_NIX_END_DELIMETER
   scopes:
     - variable.other.normal
+  scopesEnd:
+    - string.unquoted.heredoc.no-indent
 - source: EOF
   scopes:
     - punctuation.definition.string.heredoc
@@ -12465,7 +12530,6 @@
     - meta.statement
     - meta.command
     - meta.argument
-    - string.unquoted.heredoc.no-indent
 - source: '}'
   scopes:
     - punctuation.definition.group
@@ -14172,14 +14236,17 @@
 - source: '<<'
   scopesBegin:
     - meta.argument
-    - string.unquoted.heredoc.no-indent
   scopes:
     - keyword.operator.heredoc
 - source: EOF
   scopes:
     - punctuation.definition.string.heredoc
 - source: I had trouble fetching the nixpkgs channel (are you offline?)
+  scopesBegin:
+    - string.unquoted.heredoc.no-indent
 - source: 'To try again later, run: sudo -i nix-channel --update nixpkgs'
+  scopesEnd:
+    - string.unquoted.heredoc.no-indent
 - source: EOF
   scopes:
     - punctuation.definition.string.heredoc
@@ -14187,7 +14254,6 @@
     - meta.statement
     - meta.command
     - meta.argument
-    - string.unquoted.heredoc.no-indent
 - source: fi
   scopes:
     - keyword.control
@@ -15454,13 +15520,19 @@
 - source: '<<'
   scopesBegin:
     - meta.argument
-    - string.unquoted.heredoc.no-indent
   scopes:
     - keyword.operator.heredoc
 - source: EOF
   scopes:
     - punctuation.definition.string.heredoc
-- source: ' > "'
+- source: '>'
+  scopes:
+    - keyword.operator.redirect
+- source: ' "'
+  scopesBegin:
+    - string.quoted.double
+  scopes:
+    - punctuation.definition.string.begin
 - source: $
   scopes:
     - punctuation.definition.variable
@@ -15468,8 +15540,15 @@
 - source: SCRATCH
   scopes:
     - variable.other.normal
-- source: /nix.conf"
+- source: /nix.conf
+- source: '"'
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - string.quoted.double
 - source: $
+  scopesBegin:
+    - string.unquoted.heredoc.no-indent
   scopes:
     - punctuation.definition.variable
     - variable.other.normal
@@ -15484,12 +15563,13 @@
 - source: NIX_BUILD_GROUP_NAME
   scopes:
     - variable.other.normal
+  scopesEnd:
+    - string.unquoted.heredoc.no-indent
 - source: EOF
   scopes:
     - punctuation.definition.string.heredoc
   scopesEnd:
     - meta.argument
-    - string.unquoted.heredoc.no-indent
 - source: _sudo
   scopes:
     - entity.name.command
