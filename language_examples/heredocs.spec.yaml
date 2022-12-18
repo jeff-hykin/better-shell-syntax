@@ -121,3 +121,149 @@
 - source: fi
   scopes:
     - keyword.control
+  scopesEnd:
+    - meta.scope.if-block
+- source: echo
+  scopesBegin:
+    - meta.statement
+    - meta.command
+  scopes:
+    - entity.name.command
+    - support.function.builtin
+- source: '"'
+  scopesBegin:
+    - meta.argument
+    - string.quoted.double
+  scopes:
+    - punctuation.definition.string.begin
+- source: 'here is some '
+- source: $
+  scopes:
+    - punctuation.definition.variable
+    - variable.other.normal
+- source: SYNTAX
+  scopes:
+    - variable.other.normal
+- source: ' coloring'
+- source: '"'
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - meta.argument
+    - string.quoted.double
+- source: cat
+  scopes:
+    - entity.name.command
+- source: '<<'
+  scopesBegin:
+    - meta.argument
+    - string.unquoted.heredoc.no-indent
+  scopes:
+    - keyword.operator.heredoc
+- source: EOF
+  scopes:
+    - punctuation.definition.string.heredoc
+- source: ' > myfile.txt'
+- source: multiple line
+- source: output into
+- source: a file
+- source: EOF
+  scopes:
+    - punctuation.definition.string.heredoc
+  scopesEnd:
+    - meta.argument
+    - string.unquoted.heredoc.no-indent
+- source: echo
+  scopes:
+    - entity.name.command
+    - support.function.builtin
+- source: '"'
+  scopesBegin:
+    - meta.argument
+    - string.quoted.double
+  scopes:
+    - punctuation.definition.string.begin
+- source: 'here is some more '
+- source: $
+  scopes:
+    - punctuation.definition.variable
+    - variable.other.normal
+- source: SYNTAX
+  scopes:
+    - variable.other.normal
+- source: ' coloring'
+- source: '"'
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - meta.argument
+    - string.quoted.double
+- source: echo
+  scopes:
+    - entity.name.command
+    - support.function.builtin
+- source: '"'
+  scopesBegin:
+    - meta.argument
+    - string.quoted.double
+  scopes:
+    - punctuation.definition.string.begin
+- source: 'here is some '
+- source: $
+  scopes:
+    - punctuation.definition.variable
+    - variable.other.normal
+- source: SYNTAX
+  scopes:
+    - variable.other.normal
+- source: ' coloring'
+- source: '"'
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - meta.argument
+    - string.quoted.double
+- source: cat
+  scopes:
+    - entity.name.command
+- source: <<-
+  scopesBegin:
+    - meta.argument
+    - string.unquoted.heredoc.indent
+  scopes:
+    - keyword.operator.heredoc
+- source: EOF
+  scopes:
+    - punctuation.definition.string.heredoc
+- source: ' > myfile.txt'
+- source: "\tmultiple line"
+- source: "\toutput into"
+- source: "\ta file"
+- source: "\tEOF"
+  scopes:
+    - punctuation.definition.string.heredoc
+  scopesEnd:
+    - meta.argument
+    - string.unquoted.heredoc.indent
+- source: echo
+  scopes:
+    - entity.name.command
+    - support.function.builtin
+- source: '"'
+  scopesBegin:
+    - meta.argument
+    - string.quoted.double
+  scopes:
+    - punctuation.definition.string.begin
+- source: 'here is some more '
+- source: $
+  scopes:
+    - punctuation.definition.variable
+    - variable.other.normal
+- source: SYNTAX
+  scopes:
+    - variable.other.normal
+- source: ' coloring'
+- source: '"'
+  scopes:
+    - punctuation.definition.string.end

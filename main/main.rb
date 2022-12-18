@@ -28,8 +28,6 @@ require_relative './tokens.rb'
     ]
     grammar[:initial_context] = [
             :comment,
-            :boolean,
-            :numeric_literal,
             :pipeline,
             :statement_seperator,
             :logical_expression_double,
@@ -37,7 +35,7 @@ require_relative './tokens.rb'
             :misc_ranges,
             :loop,
             :string,
-            :'function-definition',
+            :function_definition,
             :variable,
             :interpolation,
             :heredoc,
@@ -47,6 +45,8 @@ require_relative './tokens.rb'
             :keyword,
             :alias_statement,
             :assignment,
+            :boolean,
+            :numeric_literal,
             # :custom_commands,
             :command_call,
             :support,
@@ -111,7 +111,7 @@ require_relative './tokens.rb'
         tag_as: "constant.character.escape.line-continuation"
     )
     
-    part_of_a_variable = /[a-zA-Z_][a-zA-Z_0-9]*/
+    part_of_a_variable = /[a-zA-Z_0-9]*/ # yes.. ints can be regular variables/function-names in shells
     # this is really useful for keywords. eg: variableBounds[/new/] wont match "newThing" or "thingnew"
     variableBounds = ->(regex_pattern) do
         lookBehindToAvoid(@standard_character).then(regex_pattern).lookAheadToAvoid(@standard_character)
@@ -167,16 +167,34 @@ require_relative './tokens.rb'
     
     # function thing() {}
     # thing() {}
-    # NOTE: this is not yet actually used
-    function_definition_start_pattern = std_space.then(
-            # this is the case with the function keyword
+    grammar[:function_definition] = PatternRange.new(
+        tag_as: "meta.function",
+        start_pattern: std_space.then(
             Pattern.new(
-                match: /\bfunction /,
-                tag_as: "storage.type.function"
-            ).then(std_space).then(
-                variable_name
-            ).maybe(
+                # this is the case with the function keyword
                 Pattern.new(
+                    match: /\bfunction /,
+                    tag_as: "storage.type.function"
+                ).then(std_space).then(
+                    match: /\S+/,
+                    tag_as: "entity.name.function",
+                ).maybe(
+                    Pattern.new(
+                        match: /\(/,
+                        tag_as: "punctuation.definition.arguments",
+                    ).then(std_space).then(
+                        match: /\)/,
+                        tag_as: "punctuation.definition.arguments",
+                    )
+                )
+            ).or(
+                # no function keyword
+                Pattern.new(
+                    match: /\S+/,
+                    tag_as: "entity.name.function",
+                ).then(
+                    std_space
+                ).then(
                     match: /\(/,
                     tag_as: "punctuation.definition.arguments",
                 ).then(std_space).then(
@@ -184,18 +202,26 @@ require_relative './tokens.rb'
                     tag_as: "punctuation.definition.arguments",
                 )
             )
-        ).or(
-            # no function keyword
-            variable_name.then(
-                std_space
-            ).then(
-                match: /\(/,
-                tag_as: "punctuation.definition.arguments",
-            ).then(std_space).then(
-                match: /\)/,
-                tag_as: "punctuation.definition.arguments",
-            )
-        )
+        ),
+        end_pattern: lookBehindFor("}"),
+        includes: [
+            PatternRange.new(
+                tag_as: "meta.function.body",
+                start_pattern: Pattern.new(
+                    match: "{",
+                    tag_as: "punctuation.definition.group punctuation.section.function.definition",
+                ),
+                end_pattern: Pattern.new(
+                    match: "}",
+                    tag_as: "punctuation.definition.group punctuation.section.function.definition",
+                ),
+                includes: [
+                    :initial_context,
+                ],
+            ),
+        ],
+    )
+    
     grammar[:assignment] = PatternRange.new(
         tag_as: "meta.expression.assignment",
         start_pattern: assignment_start = std_space.then(
@@ -351,6 +377,7 @@ require_relative './tokens.rb'
         start_pattern: lookAheadToAvoid(/^ *+$/).lookBehindFor(possible_pre_command_characters).then(std_space).lookAheadToAvoid(keyword_patterns),
         end_pattern: command_end,
         includes: [
+            :function_definition,
             PatternRange.new(
                 tag_as: "meta.command",
                 start_pattern: grammar[:command_name],

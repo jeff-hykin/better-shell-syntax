@@ -342,7 +342,7 @@
   scopesEnd:
     - meta.statement
     - meta.command
-- source: function
+- source: 'function '
   scopesBegin:
     - meta.function
   scopes:
@@ -352,9 +352,10 @@
     - entity.name.function
 - source: '{'
   scopesBegin:
-    - meta.scope.group
+    - meta.function.body
   scopes:
     - punctuation.definition.group
+    - punctuation.section.function.definition
 - source: arg_1
   scopesBegin:
     - meta.expression.assignment
@@ -457,9 +458,10 @@
 - source: '}'
   scopes:
     - punctuation.definition.group
+    - punctuation.section.function.definition
   scopesEnd:
     - meta.function
-    - meta.scope.group
+    - meta.function.body
 - source: exec
   scopesBegin:
     - meta.statement

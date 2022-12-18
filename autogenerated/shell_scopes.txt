@@ -56,6 +56,7 @@ meta.arithmetic.shell
 meta.command.shell
 meta.command_name.shell
 meta.expression.assignment.shell
+meta.function.body.shell
 meta.function.shell
 meta.herestring.shell
 meta.scope.case-block.shell
@@ -88,7 +89,6 @@ punctuation.definition.evaluation.backticks.shell
 punctuation.definition.evaluation.parens.begin.shell
 punctuation.definition.evaluation.parens.end.shell
 punctuation.definition.extglob.shell
-punctuation.definition.function.shell
 punctuation.definition.group.shell
 punctuation.definition.logical-expression.shell
 punctuation.definition.string.begin.shell
@@ -101,6 +101,7 @@ punctuation.section.arithmetic.shell
 punctuation.section.array.shell
 punctuation.section.bracket.curly.variable.begin.shell
 punctuation.section.bracket.curly.variable.end.shell
+punctuation.section.function.definition.shell
 punctuation.separator.constant.numeric.shell
 punctuation.separator.pipe-sign.shell
 punctuation.separator.statement.and.shell

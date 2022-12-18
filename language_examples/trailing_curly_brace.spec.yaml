@@ -1,0 +1,60 @@
+- source: '['
+  scopesBegin:
+    - meta.scope.logical-expression
+  scopes:
+    - punctuation.definition.logical-expression
+- source: ' "'
+  scopesBegin:
+    - string.quoted.double
+  scopes:
+    - punctuation.definition.string.begin
+- source: $
+  scopes:
+    - punctuation.definition.variable
+    - variable.other.normal
+- source: _should_aggresive_remove_artifacts
+  scopes:
+    - variable.other.normal
+- source: '"'
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - string.quoted.double
+- source: '='
+  scopes:
+    - keyword.operator.logical
+- source: ' "'
+  scopesBegin:
+    - string.quoted.double
+  scopes:
+    - punctuation.definition.string.begin
+- source: 'true'
+- source: '"'
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - string.quoted.double
+- source: ']'
+  scopes:
+    - punctuation.definition.logical-expression
+  scopesEnd:
+    - meta.scope.logical-expression
+- source: '&&'
+  scopes:
+    - punctuation.separator.statement.and
+- source: '{'
+  scopesBegin:
+    - meta.scope.group
+  scopes:
+    - punctuation.definition.group
+- source: poly_4_agressive_remove_artifacts
+  scopes:
+    - meta.statement
+    - meta.command
+    - entity.name.command
+- source: ;
+  scopes:
+    - punctuation.terminator.statement.semicolon
+- source: '}'
+  scopes:
+    - punctuation.definition.group

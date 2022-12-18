@@ -1,0 +1,135 @@
+- source: readonly
+  scopes:
+    - storage.modifier.readonly
+- source: PROFILE_FISH_PREFIXES
+  scopesBegin:
+    - meta.expression.assignment
+  scopes:
+    - variable.other.assignment
+- source: '='
+  scopes:
+    - keyword.operator.assignment
+- source: (
+  scopesEnd:
+    - meta.expression.assignment
+- source: '#'
+  scopesBegin:
+    - comment.line.number-sign
+  scopes:
+    - punctuation.definition.comment
+- source: ' each of these are common values of $__fish_sysconf_dir,'
+- source: '#'
+  scopes:
+    - punctuation.definition.comment
+- source: ' under which Fish will look for a file named'
+- source: '#'
+  scopes:
+    - punctuation.definition.comment
+- source: ' $PROFILE_FISH_SUFFIX.'
+  scopesEnd:
+    - comment.line.number-sign
+- source: '    "'
+  scopesBegin:
+    - string.quoted.double
+  scopes:
+    - punctuation.definition.string.begin
+- source: /etc/fish
+- source: '"'
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - string.quoted.double
+- source: '#'
+  scopesBegin:
+    - comment.line.number-sign
+  scopes:
+    - punctuation.definition.comment
+- source: ' standard'
+  scopesEnd:
+    - comment.line.number-sign
+- source: '    "'
+  scopesBegin:
+    - string.quoted.double
+  scopes:
+    - punctuation.definition.string.begin
+- source: /usr/local/etc/fish
+- source: '"'
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - string.quoted.double
+- source: '#'
+  scopesBegin:
+    - comment.line.number-sign
+  scopes:
+    - punctuation.definition.comment
+- source: ' their installer .pkg for macOS'
+  scopesEnd:
+    - comment.line.number-sign
+- source: '    "'
+  scopesBegin:
+    - string.quoted.double
+  scopes:
+    - punctuation.definition.string.begin
+- source: /opt/homebrew/etc/fish
+- source: '"'
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - string.quoted.double
+- source: '#'
+  scopesBegin:
+    - comment.line.number-sign
+  scopes:
+    - punctuation.definition.comment
+- source: ' homebrew'
+  scopesEnd:
+    - comment.line.number-sign
+- source: '    "'
+  scopesBegin:
+    - string.quoted.double
+  scopes:
+    - punctuation.definition.string.begin
+- source: /opt/local/etc/fish
+- source: '"'
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - string.quoted.double
+- source: '#'
+  scopesBegin:
+    - comment.line.number-sign
+  scopes:
+    - punctuation.definition.comment
+- source: ' macports'
+  scopesEnd:
+    - comment.line.number-sign
+- source: )
+  scopesBegin:
+    - meta.statement
+- source: readonly
+  scopesBegin:
+    - meta.command
+  scopes:
+    - entity.name.command
+- source: PROFILE_NIX_FILE_FISH=
+  scopesBegin:
+    - meta.argument
+  scopes:
+    - string.unquoted.argument
+- source: '"'
+  scopesBegin:
+    - string.quoted.double
+  scopes:
+    - punctuation.definition.string.begin
+- source: $
+  scopes:
+    - punctuation.definition.variable
+    - variable.other.normal
+- source: NIX_ROOT
+  scopes:
+    - variable.other.normal
+- source: /var/nix/profiles/default/etc/profile.d/nix-daemon.fish
+- source: '"'
+  scopes:
+    - punctuation.definition.string.end

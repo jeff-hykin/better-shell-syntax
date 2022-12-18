@@ -82,7 +82,7 @@
     - meta.command
     - meta.argument
     - string.quoted.double
-- source: function
+- source: 'function '
   scopesBegin:
     - meta.function
   scopes:
@@ -92,9 +92,10 @@
     - entity.name.function
 - source: '{'
   scopesBegin:
-    - meta.scope.group
+    - meta.function.body
   scopes:
     - punctuation.definition.group
+    - punctuation.section.function.definition
 - source: '#'
   scopesBegin:
     - comment.line.number-sign
@@ -129,3 +130,4 @@
 - source: '}'
   scopes:
     - punctuation.definition.group
+    - punctuation.section.function.definition

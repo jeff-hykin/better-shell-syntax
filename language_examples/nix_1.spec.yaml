@@ -1017,14 +1017,18 @@
     - meta.function
   scopes:
     - entity.name.function
-- source: ()
-  scopes:
+- source: (
+  scopesBegin:
+    - punctuation.definition.arguments
+- source: )
+  scopesEnd:
     - punctuation.definition.arguments
 - source: '{'
   scopesBegin:
-    - meta.scope.group
+    - meta.function.body
   scopes:
     - punctuation.definition.group
+    - punctuation.section.function.definition
 - source: if
   scopesBegin:
     - meta.scope.if-block
@@ -1118,19 +1122,24 @@
 - source: '}'
   scopes:
     - punctuation.definition.group
+    - punctuation.section.function.definition
   scopesEnd:
-    - meta.scope.group
+    - meta.function.body
 - source: is_root
   scopes:
     - entity.name.function
-- source: ()
-  scopes:
+- source: (
+  scopesBegin:
+    - punctuation.definition.arguments
+- source: )
+  scopesEnd:
     - punctuation.definition.arguments
 - source: '{'
   scopesBegin:
-    - meta.scope.group
+    - meta.function.body
   scopes:
     - punctuation.definition.group
+    - punctuation.section.function.definition
 - source: if
   scopesBegin:
     - meta.scope.if-block
@@ -1216,19 +1225,24 @@
 - source: '}'
   scopes:
     - punctuation.definition.group
+    - punctuation.section.function.definition
   scopesEnd:
-    - meta.scope.group
+    - meta.function.body
 - source: is_os_linux
   scopes:
     - entity.name.function
-- source: ()
-  scopes:
+- source: (
+  scopesBegin:
+    - punctuation.definition.arguments
+- source: )
+  scopesEnd:
     - punctuation.definition.arguments
 - source: '{'
   scopesBegin:
-    - meta.scope.group
+    - meta.function.body
   scopes:
     - punctuation.definition.group
+    - punctuation.section.function.definition
 - source: if
   scopesBegin:
     - meta.scope.if-block
@@ -1343,19 +1357,24 @@
 - source: '}'
   scopes:
     - punctuation.definition.group
+    - punctuation.section.function.definition
   scopesEnd:
-    - meta.scope.group
+    - meta.function.body
 - source: is_os_darwin
   scopes:
     - entity.name.function
-- source: ()
-  scopes:
+- source: (
+  scopesBegin:
+    - punctuation.definition.arguments
+- source: )
+  scopesEnd:
     - punctuation.definition.arguments
 - source: '{'
   scopesBegin:
-    - meta.scope.group
+    - meta.function.body
   scopes:
     - punctuation.definition.group
+    - punctuation.section.function.definition
 - source: if
   scopesBegin:
     - meta.scope.if-block
@@ -1470,19 +1489,24 @@
 - source: '}'
   scopes:
     - punctuation.definition.group
+    - punctuation.section.function.definition
   scopesEnd:
-    - meta.scope.group
+    - meta.function.body
 - source: contact_us
   scopes:
     - entity.name.function
-- source: ()
-  scopes:
+- source: (
+  scopesBegin:
+    - punctuation.definition.arguments
+- source: )
+  scopesEnd:
     - punctuation.definition.arguments
 - source: '{'
   scopesBegin:
-    - meta.scope.group
+    - meta.function.body
   scopes:
     - punctuation.definition.group
+    - punctuation.section.function.definition
 - source: echo
   scopesBegin:
     - meta.statement
@@ -1609,19 +1633,24 @@
 - source: '}'
   scopes:
     - punctuation.definition.group
+    - punctuation.section.function.definition
   scopesEnd:
-    - meta.scope.group
+    - meta.function.body
 - source: get_help
   scopes:
     - entity.name.function
-- source: ()
-  scopes:
+- source: (
+  scopesBegin:
+    - punctuation.definition.arguments
+- source: )
+  scopesEnd:
     - punctuation.definition.arguments
 - source: '{'
   scopesBegin:
-    - meta.scope.group
+    - meta.function.body
   scopes:
     - punctuation.definition.group
+    - punctuation.section.function.definition
 - source: echo
   scopesBegin:
     - meta.statement
@@ -1667,19 +1696,24 @@
 - source: '}'
   scopes:
     - punctuation.definition.group
+    - punctuation.section.function.definition
   scopesEnd:
-    - meta.scope.group
+    - meta.function.body
 - source: nix_user_for_core
   scopes:
     - entity.name.function
-- source: ()
-  scopes:
+- source: (
+  scopesBegin:
+    - punctuation.definition.arguments
+- source: )
+  scopesEnd:
     - punctuation.definition.arguments
 - source: '{'
   scopesBegin:
-    - meta.scope.group
+    - meta.function.body
   scopes:
     - punctuation.definition.group
+    - punctuation.section.function.definition
 - source: printf
   scopesBegin:
     - meta.statement
@@ -1723,19 +1757,24 @@
 - source: '}'
   scopes:
     - punctuation.definition.group
+    - punctuation.section.function.definition
   scopesEnd:
-    - meta.scope.group
+    - meta.function.body
 - source: nix_uid_for_core
   scopes:
     - entity.name.function
-- source: ()
-  scopes:
+- source: (
+  scopesBegin:
+    - punctuation.definition.arguments
+- source: )
+  scopesEnd:
     - punctuation.definition.arguments
 - source: '{'
   scopesBegin:
-    - meta.scope.group
+    - meta.function.body
   scopes:
     - punctuation.definition.group
+    - punctuation.section.function.definition
 - source: echo
   scopesBegin:
     - meta.statement
@@ -1777,19 +1816,24 @@
 - source: '}'
   scopes:
     - punctuation.definition.group
+    - punctuation.section.function.definition
   scopesEnd:
-    - meta.scope.group
+    - meta.function.body
 - source: _textout
   scopes:
     - entity.name.function
-- source: ()
-  scopes:
+- source: (
+  scopesBegin:
+    - punctuation.definition.arguments
+- source: )
+  scopesEnd:
     - punctuation.definition.arguments
 - source: '{'
   scopesBegin:
-    - meta.scope.group
+    - meta.function.body
   scopes:
     - punctuation.definition.group
+    - punctuation.section.function.definition
 - source: echo
   scopesBegin:
     - meta.statement
@@ -1966,19 +2010,24 @@
 - source: '}'
   scopes:
     - punctuation.definition.group
+    - punctuation.section.function.definition
   scopesEnd:
-    - meta.scope.group
+    - meta.function.body
 - source: header
   scopes:
     - entity.name.function
-- source: ()
-  scopes:
+- source: (
+  scopesBegin:
+    - punctuation.definition.arguments
+- source: )
+  scopesEnd:
     - punctuation.definition.arguments
 - source: '{'
   scopesBegin:
-    - meta.scope.group
+    - meta.function.body
   scopes:
     - punctuation.definition.group
+    - punctuation.section.function.definition
 - source: follow
   scopesBegin:
     - meta.expression.assignment
@@ -2151,19 +2200,24 @@
 - source: '}'
   scopes:
     - punctuation.definition.group
+    - punctuation.section.function.definition
   scopesEnd:
-    - meta.scope.group
+    - meta.function.body
 - source: warningheader
   scopes:
     - entity.name.function
-- source: ()
-  scopes:
+- source: (
+  scopesBegin:
+    - punctuation.definition.arguments
+- source: )
+  scopesEnd:
     - punctuation.definition.arguments
 - source: '{'
   scopesBegin:
-    - meta.scope.group
+    - meta.function.body
   scopes:
     - punctuation.definition.group
+    - punctuation.section.function.definition
 - source: follow
   scopesBegin:
     - meta.expression.assignment
@@ -2336,19 +2390,24 @@
 - source: '}'
   scopes:
     - punctuation.definition.group
+    - punctuation.section.function.definition
   scopesEnd:
-    - meta.scope.group
+    - meta.function.body
 - source: subheader
   scopes:
     - entity.name.function
-- source: ()
-  scopes:
+- source: (
+  scopesBegin:
+    - punctuation.definition.arguments
+- source: )
+  scopesEnd:
     - punctuation.definition.arguments
 - source: '{'
   scopesBegin:
-    - meta.scope.group
+    - meta.function.body
   scopes:
     - punctuation.definition.group
+    - punctuation.section.function.definition
 - source: echo
   scopesBegin:
     - meta.statement
@@ -2408,19 +2467,24 @@
 - source: '}'
   scopes:
     - punctuation.definition.group
+    - punctuation.section.function.definition
   scopesEnd:
-    - meta.scope.group
+    - meta.function.body
 - source: row
   scopes:
     - entity.name.function
-- source: ()
-  scopes:
+- source: (
+  scopesBegin:
+    - punctuation.definition.arguments
+- source: )
+  scopesEnd:
     - punctuation.definition.arguments
 - source: '{'
   scopesBegin:
-    - meta.scope.group
+    - meta.function.body
   scopes:
     - punctuation.definition.group
+    - punctuation.section.function.definition
 - source: printf
   scopesBegin:
     - meta.statement
@@ -2494,19 +2558,24 @@
 - source: '}'
   scopes:
     - punctuation.definition.group
+    - punctuation.section.function.definition
   scopesEnd:
-    - meta.scope.group
+    - meta.function.body
 - source: task
   scopes:
     - entity.name.function
-- source: ()
-  scopes:
+- source: (
+  scopesBegin:
+    - punctuation.definition.arguments
+- source: )
+  scopesEnd:
     - punctuation.definition.arguments
 - source: '{'
   scopesBegin:
-    - meta.scope.group
+    - meta.function.body
   scopes:
     - punctuation.definition.group
+    - punctuation.section.function.definition
 - source: echo
   scopesBegin:
     - meta.statement
@@ -2554,19 +2623,24 @@
 - source: '}'
   scopes:
     - punctuation.definition.group
+    - punctuation.section.function.definition
   scopesEnd:
-    - meta.scope.group
+    - meta.function.body
 - source: bold
   scopes:
     - entity.name.function
-- source: ()
-  scopes:
+- source: (
+  scopesBegin:
+    - punctuation.definition.arguments
+- source: )
+  scopesEnd:
     - punctuation.definition.arguments
 - source: '{'
   scopesBegin:
-    - meta.scope.group
+    - meta.function.body
   scopes:
     - punctuation.definition.group
+    - punctuation.section.function.definition
 - source: echo
   scopesBegin:
     - meta.statement
@@ -2612,19 +2686,24 @@
 - source: '}'
   scopes:
     - punctuation.definition.group
+    - punctuation.section.function.definition
   scopesEnd:
-    - meta.scope.group
+    - meta.function.body
 - source: ok
   scopes:
     - entity.name.function
-- source: ()
-  scopes:
+- source: (
+  scopesBegin:
+    - punctuation.definition.arguments
+- source: )
+  scopesEnd:
     - punctuation.definition.arguments
 - source: '{'
   scopesBegin:
-    - meta.scope.group
+    - meta.function.body
   scopes:
     - punctuation.definition.group
+    - punctuation.section.function.definition
 - source: _textout
   scopesBegin:
     - meta.statement
@@ -2668,19 +2747,24 @@
 - source: '}'
   scopes:
     - punctuation.definition.group
+    - punctuation.section.function.definition
   scopesEnd:
-    - meta.scope.group
+    - meta.function.body
 - source: warning
   scopes:
     - entity.name.function
-- source: ()
-  scopes:
+- source: (
+  scopesBegin:
+    - punctuation.definition.arguments
+- source: )
+  scopesEnd:
     - punctuation.definition.arguments
 - source: '{'
   scopesBegin:
-    - meta.scope.group
+    - meta.function.body
   scopes:
     - punctuation.definition.group
+    - punctuation.section.function.definition
 - source: warningheader
   scopesBegin:
     - meta.statement
@@ -2725,19 +2809,24 @@
 - source: '}'
   scopes:
     - punctuation.definition.group
+    - punctuation.section.function.definition
   scopesEnd:
-    - meta.scope.group
+    - meta.function.body
 - source: error
   scopes:
     - entity.name.function
-- source: ()
-  scopes:
+- source: (
+  scopesBegin:
+    - punctuation.definition.arguments
+- source: )
+  scopesEnd:
     - punctuation.definition.arguments
 - source: '{'
   scopesBegin:
-    - meta.scope.group
+    - meta.function.body
   scopes:
     - punctuation.definition.group
+    - punctuation.section.function.definition
 - source: '#'
   scopesBegin:
     - comment.line.number-sign
@@ -2790,19 +2879,24 @@
 - source: '}'
   scopes:
     - punctuation.definition.group
+    - punctuation.section.function.definition
   scopesEnd:
-    - meta.scope.group
+    - meta.function.body
 - source: failure
   scopes:
     - entity.name.function
-- source: ()
-  scopes:
+- source: (
+  scopesBegin:
+    - punctuation.definition.arguments
+- source: )
+  scopesEnd:
     - punctuation.definition.arguments
 - source: '{'
   scopesBegin:
-    - meta.scope.group
+    - meta.function.body
   scopes:
     - punctuation.definition.group
+    - punctuation.section.function.definition
 - source: header
   scopesBegin:
     - meta.statement
@@ -2943,19 +3037,24 @@
 - source: '}'
   scopes:
     - punctuation.definition.group
+    - punctuation.section.function.definition
   scopesEnd:
-    - meta.scope.group
+    - meta.function.body
 - source: failed_check
   scopes:
     - entity.name.function
-- source: ()
-  scopes:
+- source: (
+  scopesBegin:
+    - punctuation.definition.arguments
+- source: )
+  scopesEnd:
     - punctuation.definition.arguments
 - source: '{'
   scopesBegin:
-    - meta.scope.group
+    - meta.function.body
   scopes:
     - punctuation.definition.group
+    - punctuation.section.function.definition
 - source: _textout
   scopesBegin:
     - meta.statement
@@ -3010,19 +3109,24 @@
 - source: '}'
   scopes:
     - punctuation.definition.group
+    - punctuation.section.function.definition
   scopesEnd:
-    - meta.scope.group
+    - meta.function.body
 - source: passed_check
   scopes:
     - entity.name.function
-- source: ()
-  scopes:
+- source: (
+  scopesBegin:
+    - punctuation.definition.arguments
+- source: )
+  scopesEnd:
     - punctuation.definition.arguments
 - source: '{'
   scopesBegin:
-    - meta.scope.group
+    - meta.function.body
   scopes:
     - punctuation.definition.group
+    - punctuation.section.function.definition
 - source: _textout
   scopesBegin:
     - meta.statement
@@ -3077,19 +3181,24 @@
 - source: '}'
   scopes:
     - punctuation.definition.group
+    - punctuation.section.function.definition
   scopesEnd:
-    - meta.scope.group
+    - meta.function.body
 - source: ui_confirm
   scopes:
     - entity.name.function
-- source: ()
-  scopes:
+- source: (
+  scopesBegin:
+    - punctuation.definition.arguments
+- source: )
+  scopesEnd:
     - punctuation.definition.arguments
 - source: '{'
   scopesBegin:
-    - meta.scope.group
+    - meta.function.body
   scopes:
     - punctuation.definition.group
+    - punctuation.section.function.definition
 - source: _textout
   scopesBegin:
     - meta.statement
@@ -3537,9 +3646,10 @@
 - source: '}'
   scopes:
     - punctuation.definition.group
+    - punctuation.section.function.definition
   scopesEnd:
     - meta.function
-    - meta.scope.group
+    - meta.function.body
 - source: printf
   scopesBegin:
     - meta.statement
@@ -3800,14 +3910,18 @@
     - meta.function
   scopes:
     - entity.name.function
-- source: ()
-  scopes:
+- source: (
+  scopesBegin:
+    - punctuation.definition.arguments
+- source: )
+  scopesEnd:
     - punctuation.definition.arguments
 - source: '{'
   scopesBegin:
-    - meta.scope.group
+    - meta.function.body
   scopes:
     - punctuation.definition.group
+    - punctuation.section.function.definition
 - source: '#'
   scopesBegin:
     - comment.line.number-sign
@@ -3939,19 +4053,24 @@
 - source: '}'
   scopes:
     - punctuation.definition.group
+    - punctuation.section.function.definition
   scopesEnd:
-    - meta.scope.group
+    - meta.function.body
 - source: confirm_rm
   scopes:
     - entity.name.function
-- source: ()
-  scopes:
+- source: (
+  scopesBegin:
+    - punctuation.definition.arguments
+- source: )
+  scopesEnd:
     - punctuation.definition.arguments
 - source: '{'
   scopesBegin:
-    - meta.scope.group
+    - meta.function.body
   scopes:
     - punctuation.definition.group
+    - punctuation.section.function.definition
 - source: local
   scopes:
     - storage.modifier.local
@@ -4068,19 +4187,24 @@
 - source: '}'
   scopes:
     - punctuation.definition.group
+    - punctuation.section.function.definition
   scopesEnd:
-    - meta.scope.group
+    - meta.function.body
 - source: confirm_edit
   scopes:
     - entity.name.function
-- source: ()
-  scopes:
+- source: (
+  scopesBegin:
+    - punctuation.definition.arguments
+- source: )
+  scopesEnd:
     - punctuation.definition.arguments
 - source: '{'
   scopesBegin:
-    - meta.scope.group
+    - meta.function.body
   scopes:
     - punctuation.definition.group
+    - punctuation.section.function.definition
 - source: local
   scopes:
     - storage.modifier.local
@@ -4314,9 +4438,10 @@
 - source: '}'
   scopes:
     - punctuation.definition.group
+    - punctuation.section.function.definition
   scopesEnd:
     - meta.function
-    - meta.scope.group
+    - meta.function.body
 - source: _SERIOUS_BUSINESS
   scopesBegin:
     - meta.expression.assignment
@@ -4364,14 +4489,18 @@
     - meta.function
   scopes:
     - entity.name.function
-- source: ()
-  scopes:
+- source: (
+  scopesBegin:
+    - punctuation.definition.arguments
+- source: )
+  scopesEnd:
     - punctuation.definition.arguments
 - source: '{'
   scopesBegin:
-    - meta.scope.group
+    - meta.function.body
   scopes:
     - punctuation.definition.group
+    - punctuation.section.function.definition
 - source: local
   scopes:
     - storage.modifier.local
@@ -4555,9 +4684,10 @@
 - source: '}'
   scopes:
     - punctuation.definition.group
+    - punctuation.section.function.definition
   scopesEnd:
     - meta.function
-    - meta.scope.group
+    - meta.function.body
 - source: '#'
   scopesBegin:
     - comment.line.number-sign
@@ -4594,47 +4724,25 @@
 - source: ' user is asked to confirm after each delimiter.'
   scopesEnd:
     - comment.line.number-sign
-- source: _reminders
-  scopesBegin:
-    - meta.expression.assignment
-  scopes:
-    - variable.other.assignment
-- source: '='
-  scopes:
-    - keyword.operator.assignment
-- source: ()
-  scopesEnd:
-    - meta.expression.assignment
-- source: ((
-  scopesBegin:
-    - meta.arithmetic
-  scopes:
-    - punctuation.section.arithmetic
-- source: _remind_num
-- source: '='
-  scopes:
-    - keyword.operator.arithmetic
-- source: '1'
-  scopes:
-    - constant.numeric.integer
-- source: ))
-  scopes:
-    - punctuation.section.arithmetic
-  scopesEnd:
-    - meta.arithmetic
-- source: remind
+- source: _reminders=
   scopesBegin:
     - meta.function
   scopes:
     - entity.name.function
-- source: ()
-  scopes:
+- source: (
+  scopesBegin:
     - punctuation.definition.arguments
+- source: )
+  scopesEnd:
+    - punctuation.definition.arguments
+- source: ((_remind_num=1))
+- source: 'remind() '
 - source: '{'
   scopesBegin:
-    - meta.scope.group
+    - meta.function.body
   scopes:
     - punctuation.definition.group
+    - punctuation.section.function.definition
 - source: '#'
   scopesBegin:
     - comment.line.number-sign
@@ -4902,19 +5010,24 @@
 - source: '}'
   scopes:
     - punctuation.definition.group
+    - punctuation.section.function.definition
   scopesEnd:
-    - meta.scope.group
+    - meta.function.body
 - source: reminder
   scopes:
     - entity.name.function
-- source: ()
-  scopes:
+- source: (
+  scopesBegin:
+    - punctuation.definition.arguments
+- source: )
+  scopesEnd:
     - punctuation.definition.arguments
 - source: '{'
   scopesBegin:
-    - meta.scope.group
+    - meta.function.body
   scopes:
     - punctuation.definition.group
+    - punctuation.section.function.definition
 - source: printf
   scopesBegin:
     - meta.statement
@@ -5201,19 +5314,24 @@
 - source: '}'
   scopes:
     - punctuation.definition.group
+    - punctuation.section.function.definition
   scopesEnd:
-    - meta.scope.group
+    - meta.function.body
 - source: __sudo
   scopes:
     - entity.name.function
-- source: ()
-  scopes:
+- source: (
+  scopesBegin:
+    - punctuation.definition.arguments
+- source: )
+  scopesEnd:
     - punctuation.definition.arguments
 - source: '{'
   scopesBegin:
-    - meta.scope.group
+    - meta.function.body
   scopes:
     - punctuation.definition.group
+    - punctuation.section.function.definition
 - source: local
   scopes:
     - storage.modifier.local
@@ -5431,19 +5549,24 @@
 - source: '}'
   scopes:
     - punctuation.definition.group
+    - punctuation.section.function.definition
   scopesEnd:
-    - meta.scope.group
+    - meta.function.body
 - source: _sudo
   scopes:
     - entity.name.function
-- source: ()
-  scopes:
+- source: (
+  scopesBegin:
+    - punctuation.definition.arguments
+- source: )
+  scopesEnd:
     - punctuation.definition.arguments
 - source: '{'
   scopesBegin:
-    - meta.scope.group
+    - meta.function.body
   scopes:
     - punctuation.definition.group
+    - punctuation.section.function.definition
 - source: local
   scopes:
     - storage.modifier.local
@@ -5631,9 +5754,10 @@
 - source: '}'
   scopes:
     - punctuation.definition.group
+    - punctuation.section.function.definition
   scopesEnd:
     - meta.function
-    - meta.scope.group
+    - meta.function.body
 - source: '#'
   scopesBegin:
     - comment.line.number-sign
@@ -5861,14 +5985,18 @@
     - meta.function
   scopes:
     - entity.name.function
-- source: ()
-  scopes:
+- source: (
+  scopesBegin:
+    - punctuation.definition.arguments
+- source: )
+  scopesEnd:
     - punctuation.definition.arguments
 - source: '{'
   scopesBegin:
-    - meta.scope.group
+    - meta.function.body
   scopes:
     - punctuation.definition.group
+    - punctuation.section.function.definition
 - source: rm
   scopesBegin:
     - meta.statement
@@ -5909,19 +6037,24 @@
 - source: '}'
   scopes:
     - punctuation.definition.group
+    - punctuation.section.function.definition
   scopesEnd:
-    - meta.scope.group
+    - meta.function.body
 - source: finish_fail
   scopes:
     - entity.name.function
-- source: ()
-  scopes:
+- source: (
+  scopesBegin:
+    - punctuation.definition.arguments
+- source: )
+  scopesEnd:
     - punctuation.definition.arguments
 - source: '{'
   scopesBegin:
-    - meta.scope.group
+    - meta.function.body
   scopes:
     - punctuation.definition.group
+    - punctuation.section.function.definition
 - source: finish_cleanup
   scopesBegin:
     - meta.statement
@@ -5953,9 +6086,10 @@
 - source: '}'
   scopes:
     - punctuation.definition.group
+    - punctuation.section.function.definition
   scopesEnd:
     - meta.function
-    - meta.scope.group
+    - meta.function.body
 - source: trap
   scopesBegin:
     - meta.statement
@@ -5978,14 +6112,18 @@
     - meta.function
   scopes:
     - entity.name.function
-- source: ()
-  scopes:
+- source: (
+  scopesBegin:
+    - punctuation.definition.arguments
+- source: )
+  scopesEnd:
     - punctuation.definition.arguments
 - source: '{'
   scopesBegin:
-    - meta.scope.group
+    - meta.function.body
   scopes:
     - punctuation.definition.group
+    - punctuation.section.function.definition
 - source: ok
   scopesBegin:
     - meta.statement
@@ -6068,19 +6206,24 @@
 - source: '}'
   scopes:
     - punctuation.definition.group
+    - punctuation.section.function.definition
   scopesEnd:
-    - meta.scope.group
+    - meta.function.body
 - source: finish_uninstall_success
   scopes:
     - entity.name.function
-- source: ()
-  scopes:
+- source: (
+  scopesBegin:
+    - punctuation.definition.arguments
+- source: )
+  scopesEnd:
     - punctuation.definition.arguments
 - source: '{'
   scopesBegin:
-    - meta.scope.group
+    - meta.function.body
   scopes:
     - punctuation.definition.group
+    - punctuation.section.function.definition
 - source: ok
   scopesBegin:
     - meta.statement
@@ -6146,19 +6289,24 @@
 - source: '}'
   scopes:
     - punctuation.definition.group
+    - punctuation.section.function.definition
   scopesEnd:
-    - meta.scope.group
+    - meta.function.body
 - source: remove_nix_artifacts
   scopes:
     - entity.name.function
-- source: ()
-  scopes:
+- source: (
+  scopesBegin:
+    - punctuation.definition.arguments
+- source: )
+  scopesEnd:
     - punctuation.definition.arguments
 - source: '{'
   scopesBegin:
-    - meta.scope.group
+    - meta.function.body
   scopes:
     - punctuation.definition.group
+    - punctuation.section.function.definition
 - source: failure
   scopesBegin:
     - meta.statement
@@ -6183,9 +6331,10 @@
 - source: '}'
   scopes:
     - punctuation.definition.group
+    - punctuation.section.function.definition
   scopesEnd:
     - meta.function
-    - meta.scope.group
+    - meta.function.body
 - source: '#'
   scopesBegin:
     - comment.line.number-sign
@@ -6204,14 +6353,18 @@
     - meta.function
   scopes:
     - entity.name.function
-- source: ()
-  scopes:
+- source: (
+  scopesBegin:
+    - punctuation.definition.arguments
+- source: )
+  scopesEnd:
     - punctuation.definition.arguments
 - source: '{'
   scopesBegin:
-    - meta.scope.group
+    - meta.function.body
   scopes:
     - punctuation.definition.group
+    - punctuation.section.function.definition
 - source: '#'
   scopesBegin:
     - comment.line.number-sign
@@ -6226,10 +6379,7 @@
   scopes:
     - keyword.control
 - source: ' type nix-env '
-- source: '2'
-  scopes:
-    - constant.numeric.decimal
-- source: '>'
+- source: 2>
   scopes:
     - keyword.operator.redirect
 - source: ' /dev/null '
@@ -6295,19 +6445,24 @@
 - source: '}'
   scopes:
     - punctuation.definition.group
+    - punctuation.section.function.definition
   scopesEnd:
-    - meta.scope.group
+    - meta.function.body
 - source: nixenv_command_exists_error
   scopes:
     - entity.name.function
-- source: ()
-  scopes:
+- source: (
+  scopesBegin:
+    - punctuation.definition.arguments
+- source: )
+  scopesEnd:
     - punctuation.definition.arguments
 - source: '{'
   scopesBegin:
-    - meta.scope.group
+    - meta.function.body
   scopes:
     - punctuation.definition.group
+    - punctuation.section.function.definition
 - source: echo
   scopesBegin:
     - meta.statement
@@ -6340,19 +6495,24 @@
 - source: '}'
   scopes:
     - punctuation.definition.group
+    - punctuation.section.function.definition
   scopesEnd:
-    - meta.scope.group
+    - meta.function.body
 - source: backup_profiles_dont_exist_check
   scopes:
     - entity.name.function
-- source: ()
-  scopes:
+- source: (
+  scopesBegin:
+    - punctuation.definition.arguments
+- source: )
+  scopesEnd:
     - punctuation.definition.arguments
 - source: '{'
   scopesBegin:
-    - meta.scope.group
+    - meta.function.body
   scopes:
     - punctuation.definition.group
+    - punctuation.section.function.definition
 - source: at_least_one_failed
   scopesBegin:
     - meta.expression.assignment
@@ -6665,19 +6825,24 @@
 - source: '}'
   scopes:
     - punctuation.definition.group
+    - punctuation.section.function.definition
   scopesEnd:
-    - meta.scope.group
+    - meta.function.body
 - source: backup_profiles_error
   scopes:
     - entity.name.function
-- source: ()
-  scopes:
+- source: (
+  scopesBegin:
+    - punctuation.definition.arguments
+- source: )
+  scopesEnd:
     - punctuation.definition.arguments
 - source: '{'
   scopesBegin:
-    - meta.scope.group
+    - meta.function.body
   scopes:
     - punctuation.definition.group
+    - punctuation.section.function.definition
 - source: echo
   scopes:
     - meta.statement
@@ -6967,19 +7132,24 @@
 - source: '}'
   scopes:
     - punctuation.definition.group
+    - punctuation.section.function.definition
   scopesEnd:
-    - meta.scope.group
+    - meta.function.body
 - source: validate_starting_assumptions
   scopes:
     - entity.name.function
-- source: ()
-  scopes:
+- source: (
+  scopesBegin:
+    - punctuation.definition.arguments
+- source: )
+  scopesEnd:
     - punctuation.definition.arguments
 - source: '{'
   scopesBegin:
-    - meta.scope.group
+    - meta.function.body
   scopes:
     - punctuation.definition.group
+    - punctuation.section.function.definition
 - source: task
   scopesBegin:
     - meta.statement
@@ -7459,19 +7629,24 @@
 - source: '}'
   scopes:
     - punctuation.definition.group
+    - punctuation.section.function.definition
   scopesEnd:
-    - meta.scope.group
+    - meta.function.body
 - source: setup_report
   scopes:
     - entity.name.function
-- source: ()
-  scopes:
+- source: (
+  scopesBegin:
+    - punctuation.definition.arguments
+- source: )
+  scopesEnd:
     - punctuation.definition.arguments
 - source: '{'
   scopesBegin:
-    - meta.scope.group
+    - meta.function.body
   scopes:
     - punctuation.definition.group
+    - punctuation.section.function.definition
 - source: header
   scopesBegin:
     - meta.statement
@@ -7961,19 +8136,24 @@
 - source: '}'
   scopes:
     - punctuation.definition.group
+    - punctuation.section.function.definition
   scopesEnd:
-    - meta.scope.group
+    - meta.function.body
 - source: create_build_group
   scopes:
     - entity.name.function
-- source: ()
-  scopes:
+- source: (
+  scopesBegin:
+    - punctuation.definition.arguments
+- source: )
+  scopesEnd:
     - punctuation.definition.arguments
 - source: '{'
   scopesBegin:
-    - meta.scope.group
+    - meta.function.body
   scopes:
     - punctuation.definition.group
+    - punctuation.section.function.definition
 - source: local
   scopes:
     - storage.modifier.local
@@ -8288,19 +8468,24 @@
 - source: '}'
   scopes:
     - punctuation.definition.group
+    - punctuation.section.function.definition
   scopesEnd:
-    - meta.scope.group
+    - meta.function.body
 - source: create_build_user_for_core
   scopes:
     - entity.name.function
-- source: ()
-  scopes:
+- source: (
+  scopesBegin:
+    - punctuation.definition.arguments
+- source: )
+  scopesEnd:
     - punctuation.definition.arguments
 - source: '{'
   scopesBegin:
-    - meta.scope.group
+    - meta.function.body
   scopes:
     - punctuation.definition.group
+    - punctuation.section.function.definition
 - source: local
   scopes:
     - storage.modifier.local
@@ -9850,19 +10035,24 @@
 - source: '}'
   scopes:
     - punctuation.definition.group
+    - punctuation.section.function.definition
   scopesEnd:
-    - meta.scope.group
+    - meta.function.body
 - source: create_build_users
   scopes:
     - entity.name.function
-- source: ()
-  scopes:
+- source: (
+  scopesBegin:
+    - punctuation.definition.arguments
+- source: )
+  scopesEnd:
     - punctuation.definition.arguments
 - source: '{'
   scopesBegin:
-    - meta.scope.group
+    - meta.function.body
   scopes:
     - punctuation.definition.group
+    - punctuation.section.function.definition
 - source: for
   scopesBegin:
     - meta.scope.for-in-loop
@@ -9957,19 +10147,24 @@
 - source: '}'
   scopes:
     - punctuation.definition.group
+    - punctuation.section.function.definition
   scopesEnd:
-    - meta.scope.group
+    - meta.function.body
 - source: create_directories
   scopes:
     - entity.name.function
-- source: ()
-  scopes:
+- source: (
+  scopesBegin:
+    - punctuation.definition.arguments
+- source: )
+  scopesEnd:
     - punctuation.definition.arguments
 - source: '{'
   scopesBegin:
-    - meta.scope.group
+    - meta.function.body
   scopes:
     - punctuation.definition.group
+    - punctuation.section.function.definition
 - source: '#'
   scopesBegin:
     - comment.line.number-sign
@@ -10730,19 +10925,24 @@
 - source: '}'
   scopes:
     - punctuation.definition.group
+    - punctuation.section.function.definition
   scopesEnd:
-    - meta.scope.group
+    - meta.function.body
 - source: place_channel_configuration
   scopes:
     - entity.name.function
-- source: ()
-  scopes:
+- source: (
+  scopesBegin:
+    - punctuation.definition.arguments
+- source: )
+  scopesEnd:
     - punctuation.definition.arguments
 - source: '{'
   scopesBegin:
-    - meta.scope.group
+    - meta.function.body
   scopes:
     - punctuation.definition.group
+    - punctuation.section.function.definition
 - source: if
   scopesBegin:
     - meta.scope.if-block
@@ -10919,19 +11119,24 @@
 - source: '}'
   scopes:
     - punctuation.definition.group
+    - punctuation.section.function.definition
   scopesEnd:
-    - meta.scope.group
+    - meta.function.body
 - source: check_selinux
   scopes:
     - entity.name.function
-- source: ()
-  scopes:
+- source: (
+  scopesBegin:
+    - punctuation.definition.arguments
+- source: )
+  scopesEnd:
     - punctuation.definition.arguments
 - source: '{'
   scopesBegin:
-    - meta.scope.group
+    - meta.function.body
   scopes:
     - punctuation.definition.group
+    - punctuation.section.function.definition
 - source: if
   scopesBegin:
     - meta.scope.if-block
@@ -10942,10 +11147,7 @@
   scopes:
     - keyword.operator.redirect
 - source: ' /dev/null '
-- source: '2'
-  scopes:
-    - constant.numeric.decimal
-- source: '>&1'
+- source: 2>&1
   scopes:
     - keyword.operator.redirect
 - source: ;
@@ -11052,19 +11254,24 @@
 - source: '}'
   scopes:
     - punctuation.definition.group
+    - punctuation.section.function.definition
   scopesEnd:
-    - meta.scope.group
+    - meta.function.body
 - source: welcome_to_nix
   scopes:
     - entity.name.function
-- source: ()
-  scopes:
+- source: (
+  scopesBegin:
+    - punctuation.definition.arguments
+- source: )
+  scopesEnd:
     - punctuation.definition.arguments
 - source: '{'
   scopesBegin:
-    - meta.scope.group
+    - meta.function.body
   scopes:
     - punctuation.definition.group
+    - punctuation.section.function.definition
 - source: ok
   scopesBegin:
     - meta.statement
@@ -11420,19 +11627,24 @@
 - source: '}'
   scopes:
     - punctuation.definition.group
+    - punctuation.section.function.definition
   scopesEnd:
-    - meta.scope.group
+    - meta.function.body
 - source: chat_about_sudo
   scopes:
     - entity.name.function
-- source: ()
-  scopes:
+- source: (
+  scopesBegin:
+    - punctuation.definition.arguments
+- source: )
+  scopesEnd:
     - punctuation.definition.arguments
 - source: '{'
   scopesBegin:
-    - meta.scope.group
+    - meta.function.body
   scopes:
     - punctuation.definition.group
+    - punctuation.section.function.definition
 - source: header
   scopesBegin:
     - meta.statement
@@ -11673,19 +11885,24 @@
 - source: '}'
   scopes:
     - punctuation.definition.group
+    - punctuation.section.function.definition
   scopesEnd:
-    - meta.scope.group
+    - meta.function.body
 - source: install_from_extracted_nix
   scopes:
     - entity.name.function
-- source: ()
-  scopes:
+- source: (
+  scopesBegin:
+    - punctuation.definition.arguments
+- source: )
+  scopesEnd:
     - punctuation.definition.arguments
 - source: '{'
   scopesBegin:
-    - meta.scope.group
+    - meta.function.body
   scopes:
     - punctuation.definition.group
+    - punctuation.section.function.definition
 - source: task
   scopesBegin:
     - meta.statement
@@ -12087,19 +12304,24 @@
 - source: '}'
   scopes:
     - punctuation.definition.group
+    - punctuation.section.function.definition
   scopesEnd:
-    - meta.scope.group
+    - meta.function.body
 - source: shell_source_lines
   scopes:
     - entity.name.function
-- source: ()
-  scopes:
+- source: (
+  scopesBegin:
+    - punctuation.definition.arguments
+- source: )
+  scopesEnd:
     - punctuation.definition.arguments
 - source: '{'
   scopesBegin:
-    - meta.scope.group
+    - meta.function.body
   scopes:
     - punctuation.definition.group
+    - punctuation.section.function.definition
 - source: cat
   scopesBegin:
     - meta.statement
@@ -12159,9 +12381,10 @@
 - source: '}'
   scopes:
     - punctuation.definition.group
+    - punctuation.section.function.definition
   scopesEnd:
     - meta.function
-    - meta.scope.group
+    - meta.function.body
 - source: '#'
   scopesBegin:
     - comment.line.number-sign
@@ -12175,14 +12398,18 @@
     - meta.function
   scopes:
     - entity.name.function
-- source: ()
-  scopes:
+- source: (
+  scopesBegin:
+    - punctuation.definition.arguments
+- source: )
+  scopesEnd:
     - punctuation.definition.arguments
 - source: '{'
   scopesBegin:
-    - meta.scope.group
+    - meta.function.body
   scopes:
     - punctuation.definition.group
+    - punctuation.section.function.definition
 - source: cat
   scopesBegin:
     - meta.statement
@@ -12242,19 +12469,24 @@
 - source: '}'
   scopes:
     - punctuation.definition.group
+    - punctuation.section.function.definition
   scopesEnd:
-    - meta.scope.group
+    - meta.function.body
 - source: configure_shell_profile
   scopes:
     - entity.name.function
-- source: ()
-  scopes:
+- source: (
+  scopesBegin:
+    - punctuation.definition.arguments
+- source: )
+  scopesEnd:
     - punctuation.definition.arguments
 - source: '{'
   scopesBegin:
-    - meta.scope.group
+    - meta.function.body
   scopes:
     - punctuation.definition.group
+    - punctuation.section.function.definition
 - source: task
   scopesBegin:
     - meta.statement
@@ -13224,19 +13456,24 @@
 - source: '}'
   scopes:
     - punctuation.definition.group
+    - punctuation.section.function.definition
   scopesEnd:
-    - meta.scope.group
+    - meta.function.body
 - source: cert_in_store
   scopes:
     - entity.name.function
-- source: ()
-  scopes:
+- source: (
+  scopesBegin:
+    - punctuation.definition.arguments
+- source: )
+  scopesEnd:
     - punctuation.definition.arguments
 - source: '{'
   scopesBegin:
-    - meta.scope.group
+    - meta.function.body
   scopes:
     - punctuation.definition.group
+    - punctuation.section.function.definition
 - source: '#'
   scopesBegin:
     - comment.line.number-sign
@@ -13420,19 +13657,24 @@
 - source: '}'
   scopes:
     - punctuation.definition.group
+    - punctuation.section.function.definition
   scopesEnd:
-    - meta.scope.group
+    - meta.function.body
 - source: setup_default_profile
   scopes:
     - entity.name.function
-- source: ()
-  scopes:
+- source: (
+  scopesBegin:
+    - punctuation.definition.arguments
+- source: )
+  scopesEnd:
     - punctuation.definition.arguments
 - source: '{'
   scopesBegin:
-    - meta.scope.group
+    - meta.function.body
   scopes:
     - punctuation.definition.group
+    - punctuation.section.function.definition
 - source: task
   scopesBegin:
     - meta.statement
@@ -13959,32 +14201,41 @@
 - source: '}'
   scopes:
     - punctuation.definition.group
+    - punctuation.section.function.definition
   scopesEnd:
-    - meta.scope.group
+    - meta.function.body
 - source: unsetup_profiles
   scopes:
     - entity.name.function
-- source: ()
-  scopes:
+- source: (
+  scopesBegin:
+    - punctuation.definition.arguments
+- source: )
+  scopesEnd:
     - punctuation.definition.arguments
 - source: '{'
   scopesBegin:
-    - meta.scope.group
+    - meta.function.body
   scopes:
     - punctuation.definition.group
+    - punctuation.section.function.definition
 - source: extract_nix_profile_injection
   scopesBegin:
     - meta.function
   scopes:
     - entity.name.function
-- source: ()
-  scopes:
+- source: (
+  scopesBegin:
+    - punctuation.definition.arguments
+- source: )
+  scopesEnd:
     - punctuation.definition.arguments
 - source: '{'
   scopesBegin:
-    - meta.scope.group
+    - meta.function.body
   scopes:
     - punctuation.definition.group
+    - punctuation.section.function.definition
 - source: profile
   scopesBegin:
     - meta.expression.assignment
@@ -14910,19 +15161,24 @@
 - source: '}'
   scopes:
     - punctuation.definition.group
+    - punctuation.section.function.definition
   scopesEnd:
-    - meta.scope.group
+    - meta.function.body
 - source: restore_profile
   scopes:
     - entity.name.function
-- source: ()
-  scopes:
+- source: (
+  scopesBegin:
+    - punctuation.definition.arguments
+- source: )
+  scopesEnd:
     - punctuation.definition.arguments
 - source: '{'
   scopesBegin:
-    - meta.scope.group
+    - meta.function.body
   scopes:
     - punctuation.definition.group
+    - punctuation.section.function.definition
 - source: profile
   scopesBegin:
     - meta.expression.assignment
@@ -15087,9 +15343,10 @@
 - source: '}'
   scopes:
     - punctuation.definition.group
+    - punctuation.section.function.definition
   scopesEnd:
     - meta.function
-    - meta.scope.group
+    - meta.function.body
 - source: for
   scopesBegin:
     - meta.scope.for-in-loop
@@ -15170,19 +15427,24 @@
 - source: '}'
   scopes:
     - punctuation.definition.group
+    - punctuation.section.function.definition
   scopesEnd:
-    - meta.scope.group
+    - meta.function.body
 - source: place_nix_configuration
   scopes:
     - entity.name.function
-- source: ()
-  scopes:
+- source: (
+  scopesBegin:
+    - punctuation.definition.arguments
+- source: )
+  scopesEnd:
     - punctuation.definition.arguments
 - source: '{'
   scopesBegin:
-    - meta.scope.group
+    - meta.function.body
   scopes:
     - punctuation.definition.group
+    - punctuation.section.function.definition
 - source: cat
   scopesBegin:
     - meta.statement
@@ -15300,19 +15562,24 @@
 - source: '}'
   scopes:
     - punctuation.definition.group
+    - punctuation.section.function.definition
   scopesEnd:
-    - meta.scope.group
+    - meta.function.body
 - source: main
   scopes:
     - entity.name.function
-- source: ()
-  scopes:
+- source: (
+  scopesBegin:
+    - punctuation.definition.arguments
+- source: )
+  scopesEnd:
     - punctuation.definition.arguments
 - source: '{'
   scopesBegin:
-    - meta.scope.group
+    - meta.function.body
   scopes:
     - punctuation.definition.group
+    - punctuation.section.function.definition
 - source: check_selinux
   scopes:
     - meta.statement
@@ -15701,9 +15968,10 @@
 - source: '}'
   scopes:
     - punctuation.definition.group
+    - punctuation.section.function.definition
   scopesEnd:
     - meta.function
-    - meta.scope.group
+    - meta.function.body
 - source: '#'
   scopesBegin:
     - comment.line.number-sign

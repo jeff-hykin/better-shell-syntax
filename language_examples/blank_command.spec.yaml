@@ -3,14 +3,18 @@
     - meta.function
   scopes:
     - entity.name.function
-- source: ()
-  scopes:
+- source: (
+  scopesBegin:
+    - punctuation.definition.arguments
+- source: )
+  scopesEnd:
     - punctuation.definition.arguments
 - source: '{'
   scopesBegin:
-    - meta.scope.group
+    - meta.function.body
   scopes:
     - punctuation.definition.group
+    - punctuation.section.function.definition
 - source: profile
   scopesBegin:
     - meta.expression.assignment
@@ -175,3 +179,4 @@
 - source: '}'
   scopes:
     - punctuation.definition.group
+    - punctuation.section.function.definition

@@ -27,7 +27,7 @@
 			"include": "#string"
 		},
 		{
-			"include": "#function-definition"
+			"include": "#function_definition"
 		},
 		{
 			"include": "#variable"
@@ -232,7 +232,7 @@
 				}
 			]
 		},
-		"function-definition": {
+		"function_definition": {
 			"patterns": [
 				{
 					"begin": "(?:^\\s*|(?<=^|;|&|\\s))(function)\\s+([^\\s\\\\]+)(?:\\s*(\\(\\)))?",
