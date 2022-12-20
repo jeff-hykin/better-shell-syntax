@@ -397,8 +397,8 @@ require_relative './tokens.rb'
     )
     keywords = @tokens.representationsThat(:areShellReservedWords, :areNotModifiers)
     keyword_patterns = /#{keywords.map { |each| each+'\W|'+each+'\$' } .join('|')}/
-    valid_after_patterns = /#{['if','elif','then', 'else'].map { |each| '^'+each+' | '+each+' |\t'+each+' ' } .join('|')}/
-    empty_line = /^ *+$/
+    valid_after_patterns = /#{['if','elif','then', 'else', 'while', 'do'].map { |each| '^'+each+' | '+each+' |\t'+each+' ' } .join('|')}/
+    empty_line = /^[ \t]*+$/
     grammar[:command_call] = PatternRange.new(
         zeroLengthStart?: true,
         zeroLengthEnd?: true,

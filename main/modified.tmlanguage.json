@@ -711,7 +711,12 @@
 						}
 					},
 					"name": "meta.herestring.shell",
-					"contentName": "string.quoted.double.shell"
+					"contentName": "string.quoted.double.shell",
+					"patterns": [
+						{
+							"include": "#double_quote_context"
+						}
+					]
 				},
 				{
 					"captures": {
@@ -1141,14 +1146,7 @@
 					"name": "string.quoted.double.shell",
 					"patterns": [
 						{
-							"match": "\\\\[\\$`\"\\\\\\n]",
-							"name": "constant.character.escape.shell"
-						},
-						{
-							"include": "#variable"
-						},
-						{
-							"include": "#interpolation"
+							"include": "#double_quote_context"
 						}
 					]
 				},
@@ -1186,14 +1184,28 @@
 					]
 				}
 			]
-		}
-	},
-    "support": {
-      "patterns": [
-        {
-          "match": "(?<=^|;|&|\\s)(?::|\\.)(?=\\s|;|&|$)",
-          "name": "support.function.builtin.shell"
+		},
+        "support": {
+            "patterns": [
+                {
+                "match": "(?<=^|;|&|\\s)(?::|\\.)(?=\\s|;|&|$)",
+                "name": "support.function.builtin.shell"
+                }
+            ]
+        },
+        "double_quote_context": {
+            "patterns": [
+                {
+                    "match": "\\\\[\\$`\"\\\\\\n]",
+                    "name": "constant.character.escape.shell"
+                },
+                {
+                    "include": "#variable"
+                },
+                {
+                    "include": "#interpolation"
+                }
+            ]
         }
-      ]
-    }
+	}
 }

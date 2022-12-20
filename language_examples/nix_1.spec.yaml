@@ -3322,7 +3322,30 @@
     - meta.scope.while-loop
   scopes:
     - keyword.control
-- source: ' read -r y'
+- source: read
+  scopesBegin:
+    - meta.statement
+    - meta.command
+  scopes:
+    - entity.name.command
+    - support.function.builtin
+- source: '-'
+  scopesBegin:
+    - string.unquoted.argument
+  scopes:
+    - constant.other.option.dash
+- source: r
+  scopes:
+    - constant.other.option
+  scopesEnd:
+    - string.unquoted.argument
+- source: 'y'
+  scopes:
+    - meta.argument
+    - string.unquoted.argument
+  scopesEnd:
+    - meta.statement
+    - meta.command
 - source: ;
   scopes:
     - punctuation.terminator.statement.semicolon
@@ -5238,7 +5261,30 @@
     - meta.scope.while-loop
   scopes:
     - keyword.control
-- source: ' read -r line'
+- source: read
+  scopesBegin:
+    - meta.statement
+    - meta.command
+  scopes:
+    - entity.name.command
+    - support.function.builtin
+- source: '-'
+  scopesBegin:
+    - string.unquoted.argument
+  scopes:
+    - constant.other.option.dash
+- source: r
+  scopes:
+    - constant.other.option
+  scopesEnd:
+    - string.unquoted.argument
+- source: line
+  scopes:
+    - meta.argument
+    - string.unquoted.argument
+  scopesEnd:
+    - meta.statement
+    - meta.command
 - source: ;
   scopes:
     - punctuation.terminator.statement.semicolon

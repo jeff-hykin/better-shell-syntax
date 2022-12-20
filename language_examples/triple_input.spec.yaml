@@ -58,7 +58,13 @@
     - string.quoted.double
   scopes:
     - punctuation.definition.string.begin
-- source: $version
+- source: $
+  scopes:
+    - punctuation.definition.variable
+    - variable.other.normal
+- source: version
+  scopes:
+    - variable.other.normal
 - source: '"'
   scopes:
     - punctuation.definition.string.end

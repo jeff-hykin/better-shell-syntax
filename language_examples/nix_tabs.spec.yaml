@@ -966,12 +966,8 @@
     - punctuation.definition.group
     - punctuation.section.function.definition
   scopesEnd:
-    - meta.function
     - meta.function.body
 - source: restore_profile
-  scopesBegin:
-    - meta.statement
-    - meta.function
   scopes:
     - entity.name.function
 - source: (
@@ -1167,17 +1163,16 @@
     - meta.function.body
 - source: for
   scopesBegin:
-    - meta.command
+    - meta.scope.for-in-loop
   scopes:
-    - entity.name.command
+    - keyword.control
 - source: profile_target
-  scopesBegin:
-    - meta.argument
-    - string.unquoted.argument
+  scopes:
+    - variable.other.loop
 - source: in
-  scopesEnd:
-    - string.unquoted.argument
-- source: '"'
+  scopes:
+    - keyword.control
+- source: ' "'
   scopesBegin:
     - string.quoted.double
   scopes:
@@ -1204,9 +1199,6 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
-    - meta.statement
-    - meta.command
-    - meta.argument
     - string.quoted.double
 - source: ;
   scopes:
@@ -1243,7 +1235,9 @@
     - string.quoted.double
 - source: done
   scopes:
-    - keyword.control.done
+    - keyword.control
+  scopesEnd:
+    - meta.scope.for-in-loop
 - source: '}'
   scopes:
     - punctuation.definition.group

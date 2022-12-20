@@ -304,7 +304,7 @@
       ]
     },
     "command_call": {
-      "begin": "(?!^ *+$)(?:(?<=^if | if |\\tif |^elif | elif |\\telif |^then | then |\\tthen |^else | else |\\telse )|(?<=(?:^|;|\\||&|!|\\(|\\{|\\`)))\\s*+(?!nocorrect\\W|nocorrect\\$|function\\W|function\\$|foreach\\W|foreach\\$|repeat\\W|repeat\\$|logout\\W|logout\\$|coproc\\W|coproc\\$|select\\W|select\\$|while\\W|while\\$|pushd\\W|pushd\\$|until\\W|until\\$|case\\W|case\\$|done\\W|done\\$|elif\\W|elif\\$|else\\W|else\\$|esac\\W|esac\\$|popd\\W|popd\\$|then\\W|then\\$|time\\W|time\\$|for\\W|for\\$|end\\W|end\\$|fi\\W|fi\\$|do\\W|do\\$|in\\W|in\\$|if\\W|if\\$)",
+      "begin": "(?!^[ \\t]*+$)(?:(?<=^if | if |\\tif |^elif | elif |\\telif |^then | then |\\tthen |^else | else |\\telse |^while | while |\\twhile |^do | do |\\tdo )|(?<=(?:^|;|\\||&|!|\\(|\\{|\\`)))\\s*+(?!nocorrect\\W|nocorrect\\$|function\\W|function\\$|foreach\\W|foreach\\$|repeat\\W|repeat\\$|logout\\W|logout\\$|coproc\\W|coproc\\$|select\\W|select\\$|while\\W|while\\$|pushd\\W|pushd\\$|until\\W|until\\$|case\\W|case\\$|done\\W|done\\$|elif\\W|elif\\$|else\\W|else\\$|esac\\W|esac\\$|popd\\W|popd\\$|then\\W|then\\$|time\\W|time\\$|for\\W|for\\$|end\\W|end\\$|fi\\W|fi\\$|do\\W|do\\$|in\\W|in\\$|if\\W|if\\$)",
       "end": "(?=;|\\||&|\\n|\\)|\\`|\\{|\\}|#|\\])(?<!\\\\)",
       "beginCaptures": {
       },
@@ -518,6 +518,20 @@
     "custom_commands": {
       "patterns": [
 
+      ]
+    },
+    "double_quote_context": {
+      "patterns": [
+        {
+          "match": "\\\\[\\$`\"\\\\\\n]",
+          "name": "constant.character.escape.shell"
+        },
+        {
+          "include": "#variable"
+        },
+        {
+          "include": "#interpolation"
+        }
       ]
     },
     "double_quote_escape_char": {
@@ -762,7 +776,12 @@
             }
           },
           "name": "meta.herestring.shell",
-          "contentName": "string.quoted.double.shell"
+          "contentName": "string.quoted.double.shell",
+          "patterns": [
+            {
+              "include": "#double_quote_context"
+            }
+          ]
         },
         {
           "captures": {
@@ -1962,14 +1981,7 @@
           "name": "string.quoted.double.shell",
           "patterns": [
             {
-              "match": "\\\\[\\$`\"\\\\\\n]",
-              "name": "constant.character.escape.shell"
-            },
-            {
-              "include": "#variable"
-            },
-            {
-              "include": "#interpolation"
+              "include": "#double_quote_context"
             }
           ]
         },
@@ -2005,6 +2017,14 @@
               "name": "constant.character.escape.control-char.shell"
             }
           ]
+        }
+      ]
+    },
+    "support": {
+      "patterns": [
+        {
+          "match": "(?<=^|;|&|\\s)(?::|\\.)(?=\\s|;|&|$)",
+          "name": "support.function.builtin.shell"
         }
       ]
     },

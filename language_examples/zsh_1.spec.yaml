@@ -7541,9 +7541,16 @@
     - meta.scope.while-loop
   scopes:
     - keyword.control
-- source: ' getopts'
-- source: ' "'
+- source: getopts
   scopesBegin:
+    - meta.statement
+    - meta.command
+  scopes:
+    - entity.name.command
+    - support.function.builtin
+- source: '"'
+  scopesBegin:
+    - meta.argument
     - string.quoted.double
   scopes:
     - punctuation.definition.string.begin
@@ -7553,8 +7560,10 @@
     - punctuation.definition.string.end
   scopesEnd:
     - string.quoted.double
-- source: ' flag'
-- source: ' "'
+- source: flag
+  scopes:
+    - string.unquoted.argument
+- source: '"'
   scopesBegin:
     - string.quoted.double
   scopes:
@@ -7570,6 +7579,9 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
+    - meta.statement
+    - meta.command
+    - meta.argument
     - string.quoted.double
 - source: ;
   scopes:
@@ -11608,7 +11620,30 @@
     - meta.scope.while-loop
   scopes:
     - keyword.control
-- source: ' read -r tmp'
+- source: read
+  scopesBegin:
+    - meta.statement
+    - meta.command
+  scopes:
+    - entity.name.command
+    - support.function.builtin
+- source: '-'
+  scopesBegin:
+    - string.unquoted.argument
+  scopes:
+    - constant.other.option.dash
+- source: r
+  scopes:
+    - constant.other.option
+  scopesEnd:
+    - string.unquoted.argument
+- source: tmp
+  scopes:
+    - meta.argument
+    - string.unquoted.argument
+  scopesEnd:
+    - meta.statement
+    - meta.command
 - source: ;
   scopes:
     - punctuation.terminator.statement.semicolon
@@ -23608,9 +23643,16 @@
     - meta.scope.while-loop
   scopes:
     - keyword.control
-- source: ' getopts'
-- source: ' "'
+- source: getopts
   scopesBegin:
+    - meta.statement
+    - meta.command
+  scopes:
+    - entity.name.command
+    - support.function.builtin
+- source: '"'
+  scopesBegin:
+    - meta.argument
     - string.quoted.double
   scopes:
     - punctuation.definition.string.begin
@@ -23620,8 +23662,10 @@
     - punctuation.definition.string.end
   scopesEnd:
     - string.quoted.double
-- source: ' flag'
-- source: ' "'
+- source: flag
+  scopes:
+    - string.unquoted.argument
+- source: '"'
   scopesBegin:
     - string.quoted.double
   scopes:
@@ -23637,6 +23681,9 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
+    - meta.statement
+    - meta.command
+    - meta.argument
     - string.quoted.double
 - source: ;
   scopes:
@@ -23999,9 +24046,15 @@
 - source: do
   scopes:
     - keyword.control.do
-- source: ' printf '
+- source: printf
+  scopesBegin:
+    - meta.statement
+    - meta.command
+  scopes:
+    - entity.name.command
 - source: ''''
   scopesBegin:
+    - meta.argument
     - string.quoted.single
   scopes:
     - punctuation.definition.string.begin
@@ -24025,6 +24078,10 @@
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
+  scopesEnd:
+    - meta.statement
+    - meta.command
+    - meta.argument
 - source: ;
   scopes:
     - punctuation.terminator.statement.semicolon
@@ -32184,7 +32241,30 @@
     - meta.scope.while-loop
   scopes:
     - keyword.control
-- source: ' read -r tmp'
+- source: read
+  scopesBegin:
+    - meta.statement
+    - meta.command
+  scopes:
+    - entity.name.command
+    - support.function.builtin
+- source: '-'
+  scopesBegin:
+    - string.unquoted.argument
+  scopes:
+    - constant.other.option.dash
+- source: r
+  scopes:
+    - constant.other.option
+  scopesEnd:
+    - string.unquoted.argument
+- source: tmp
+  scopes:
+    - meta.argument
+    - string.unquoted.argument
+  scopesEnd:
+    - meta.statement
+    - meta.command
 - source: ;
   scopes:
     - punctuation.terminator.statement.semicolon
@@ -32736,7 +32816,30 @@
     - meta.scope.while-loop
   scopes:
     - keyword.control
-- source: ' read -r tmp'
+- source: read
+  scopesBegin:
+    - meta.statement
+    - meta.command
+  scopes:
+    - entity.name.command
+    - support.function.builtin
+- source: '-'
+  scopesBegin:
+    - string.unquoted.argument
+  scopes:
+    - constant.other.option.dash
+- source: r
+  scopes:
+    - constant.other.option
+  scopesEnd:
+    - string.unquoted.argument
+- source: tmp
+  scopes:
+    - meta.argument
+    - string.unquoted.argument
+  scopesEnd:
+    - meta.statement
+    - meta.command
 - source: ;
   scopes:
     - punctuation.terminator.statement.semicolon
@@ -33007,7 +33110,20 @@
     - meta.scope.while-loop
   scopes:
     - keyword.control
-- source: ' read line'
+- source: read
+  scopesBegin:
+    - meta.statement
+    - meta.command
+  scopes:
+    - entity.name.command
+    - support.function.builtin
+- source: line
+  scopes:
+    - meta.argument
+    - string.unquoted.argument
+  scopesEnd:
+    - meta.statement
+    - meta.command
 - source: do
   scopes:
     - keyword.control.do
@@ -41954,9 +42070,16 @@
     - meta.scope.while-loop
   scopes:
     - keyword.control
-- source: ' getopts'
-- source: ' "'
+- source: getopts
   scopesBegin:
+    - meta.statement
+    - meta.command
+  scopes:
+    - entity.name.command
+    - support.function.builtin
+- source: '"'
+  scopesBegin:
+    - meta.argument
     - string.quoted.double
   scopes:
     - punctuation.definition.string.begin
@@ -41966,8 +42089,10 @@
     - punctuation.definition.string.end
   scopesEnd:
     - string.quoted.double
-- source: ' flag'
-- source: ' "'
+- source: flag
+  scopes:
+    - string.unquoted.argument
+- source: '"'
   scopesBegin:
     - string.quoted.double
   scopes:
@@ -41983,6 +42108,9 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
+    - meta.statement
+    - meta.command
+    - meta.argument
     - string.quoted.double
 - source: ;
   scopes:
@@ -46021,7 +46149,30 @@
     - meta.scope.while-loop
   scopes:
     - keyword.control
-- source: ' read -r tmp'
+- source: read
+  scopesBegin:
+    - meta.statement
+    - meta.command
+  scopes:
+    - entity.name.command
+    - support.function.builtin
+- source: '-'
+  scopesBegin:
+    - string.unquoted.argument
+  scopes:
+    - constant.other.option.dash
+- source: r
+  scopes:
+    - constant.other.option
+  scopesEnd:
+    - string.unquoted.argument
+- source: tmp
+  scopes:
+    - meta.argument
+    - string.unquoted.argument
+  scopesEnd:
+    - meta.statement
+    - meta.command
 - source: ;
   scopes:
     - punctuation.terminator.statement.semicolon
@@ -58021,9 +58172,16 @@
     - meta.scope.while-loop
   scopes:
     - keyword.control
-- source: ' getopts'
-- source: ' "'
+- source: getopts
   scopesBegin:
+    - meta.statement
+    - meta.command
+  scopes:
+    - entity.name.command
+    - support.function.builtin
+- source: '"'
+  scopesBegin:
+    - meta.argument
     - string.quoted.double
   scopes:
     - punctuation.definition.string.begin
@@ -58033,8 +58191,10 @@
     - punctuation.definition.string.end
   scopesEnd:
     - string.quoted.double
-- source: ' flag'
-- source: ' "'
+- source: flag
+  scopes:
+    - string.unquoted.argument
+- source: '"'
   scopesBegin:
     - string.quoted.double
   scopes:
@@ -58050,6 +58210,9 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
+    - meta.statement
+    - meta.command
+    - meta.argument
     - string.quoted.double
 - source: ;
   scopes:
@@ -58412,9 +58575,15 @@
 - source: do
   scopes:
     - keyword.control.do
-- source: ' printf '
+- source: printf
+  scopesBegin:
+    - meta.statement
+    - meta.command
+  scopes:
+    - entity.name.command
 - source: ''''
   scopesBegin:
+    - meta.argument
     - string.quoted.single
   scopes:
     - punctuation.definition.string.begin
@@ -58438,6 +58607,10 @@
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
+  scopesEnd:
+    - meta.statement
+    - meta.command
+    - meta.argument
 - source: ;
   scopes:
     - punctuation.terminator.statement.semicolon
@@ -66589,7 +66762,30 @@
     - meta.scope.while-loop
   scopes:
     - keyword.control
-- source: ' read -r tmp'
+- source: read
+  scopesBegin:
+    - meta.statement
+    - meta.command
+  scopes:
+    - entity.name.command
+    - support.function.builtin
+- source: '-'
+  scopesBegin:
+    - string.unquoted.argument
+  scopes:
+    - constant.other.option.dash
+- source: r
+  scopes:
+    - constant.other.option
+  scopesEnd:
+    - string.unquoted.argument
+- source: tmp
+  scopes:
+    - meta.argument
+    - string.unquoted.argument
+  scopesEnd:
+    - meta.statement
+    - meta.command
 - source: ;
   scopes:
     - punctuation.terminator.statement.semicolon
@@ -67141,7 +67337,30 @@
     - meta.scope.while-loop
   scopes:
     - keyword.control
-- source: ' read -r tmp'
+- source: read
+  scopesBegin:
+    - meta.statement
+    - meta.command
+  scopes:
+    - entity.name.command
+    - support.function.builtin
+- source: '-'
+  scopesBegin:
+    - string.unquoted.argument
+  scopes:
+    - constant.other.option.dash
+- source: r
+  scopes:
+    - constant.other.option
+  scopesEnd:
+    - string.unquoted.argument
+- source: tmp
+  scopes:
+    - meta.argument
+    - string.unquoted.argument
+  scopesEnd:
+    - meta.statement
+    - meta.command
 - source: ;
   scopes:
     - punctuation.terminator.statement.semicolon
@@ -67412,7 +67631,20 @@
     - meta.scope.while-loop
   scopes:
     - keyword.control
-- source: ' read line'
+- source: read
+  scopesBegin:
+    - meta.statement
+    - meta.command
+  scopes:
+    - entity.name.command
+    - support.function.builtin
+- source: line
+  scopes:
+    - meta.argument
+    - string.unquoted.argument
+  scopesEnd:
+    - meta.statement
+    - meta.command
 - source: do
   scopes:
     - keyword.control.do
@@ -73265,7 +73497,13 @@
     - string.quoted.double
   scopes:
     - punctuation.definition.string.begin
-- source: $version
+- source: $
+  scopes:
+    - punctuation.definition.variable
+    - variable.other.normal
+- source: version
+  scopes:
+    - variable.other.normal
 - source: '"'
   scopes:
     - punctuation.definition.string.end
@@ -75758,7 +75996,13 @@
     - string.quoted.double
   scopes:
     - punctuation.definition.string.begin
-- source: $version_and_path
+- source: $
+  scopes:
+    - punctuation.definition.variable
+    - variable.other.normal
+- source: version_and_path
+  scopes:
+    - variable.other.normal
 - source: '"'
   scopes:
     - punctuation.definition.string.end
@@ -78705,7 +78949,13 @@
     - string.quoted.double
   scopes:
     - punctuation.definition.string.begin
-- source: $full_version
+- source: $
+  scopes:
+    - punctuation.definition.variable
+    - variable.other.normal
+- source: full_version
+  scopes:
+    - variable.other.normal
 - source: '"'
   scopes:
     - punctuation.definition.string.end
@@ -79201,7 +79451,13 @@
     - string.quoted.double
   scopes:
     - punctuation.definition.string.begin
-- source: $space_separated_list_of_bin_paths
+- source: $
+  scopes:
+    - punctuation.definition.variable
+    - variable.other.normal
+- source: space_separated_list_of_bin_paths
+  scopes:
+    - variable.other.normal
 - source: '"'
   scopes:
     - punctuation.definition.string.end
@@ -79505,7 +79761,13 @@
     - string.quoted.double
   scopes:
     - punctuation.definition.string.begin
-- source: $full_version
+- source: $
+  scopes:
+    - punctuation.definition.variable
+    - variable.other.normal
+- source: full_version
+  scopes:
+    - variable.other.normal
 - source: '"'
   scopes:
     - punctuation.definition.string.end
@@ -81309,7 +81571,40 @@
     - meta.scope.while-loop
   scopes:
     - keyword.control
-- source: ' IFS= read -r tool_line '
+- source: IFS
+  scopesBegin:
+    - meta.statement
+    - meta.expression.assignment
+  scopes:
+    - variable.other.assignment
+- source: '='
+  scopes:
+    - keyword.operator.assignment
+  scopesEnd:
+    - meta.expression.assignment
+- source: read
+  scopesBegin:
+    - meta.command
+  scopes:
+    - entity.name.command
+    - support.function.builtin
+- source: '-'
+  scopesBegin:
+    - string.unquoted.argument
+  scopes:
+    - constant.other.option.dash
+- source: r
+  scopes:
+    - constant.other.option
+  scopesEnd:
+    - string.unquoted.argument
+- source: tool_line
+  scopes:
+    - meta.argument
+    - string.unquoted.argument
+  scopesEnd:
+    - meta.statement
+    - meta.command
 - source: '|'
   scopesBegin:
     - keyword.operator.pipe
@@ -82480,7 +82775,21 @@
     - string.quoted.double
   scopes:
     - punctuation.definition.string.begin
-- source: $(get_shim_versions)
+- source: $(
+  scopesBegin:
+    - string.interpolated.dollar
+  scopes:
+    - punctuation.definition.evaluation.parens.begin
+- source: get_shim_versions
+  scopes:
+    - meta.statement
+    - meta.command
+    - entity.name.command
+- source: )
+  scopes:
+    - punctuation.definition.evaluation.parens.end
+  scopesEnd:
+    - string.interpolated.dollar
 - source: '"'
   scopes:
     - punctuation.definition.string.end
@@ -82632,7 +82941,13 @@
     - string.quoted.double
   scopes:
     - punctuation.definition.string.begin
-- source: $plugin_and_version
+- source: $
+  scopes:
+    - punctuation.definition.variable
+    - variable.other.normal
+- source: plugin_and_version
+  scopes:
+    - variable.other.normal
 - source: '"'
   scopes:
     - punctuation.definition.string.end
@@ -82964,7 +83279,13 @@
     - string.quoted.double
   scopes:
     - punctuation.definition.string.begin
-- source: $version_and_path
+- source: $
+  scopes:
+    - punctuation.definition.variable
+    - variable.other.normal
+- source: version_and_path
+  scopes:
+    - variable.other.normal
 - source: '"'
   scopes:
     - punctuation.definition.string.end
@@ -83029,7 +83350,13 @@
     - string.quoted.double
   scopes:
     - punctuation.definition.string.begin
-- source: $version_string
+- source: $
+  scopes:
+    - punctuation.definition.variable
+    - variable.other.normal
+- source: version_string
+  scopes:
+    - variable.other.normal
 - source: '"'
   scopes:
     - punctuation.definition.string.end
@@ -83202,7 +83529,13 @@
     - string.quoted.double
   scopes:
     - punctuation.definition.string.begin
-- source: $plugin_and_version
+- source: $
+  scopes:
+    - punctuation.definition.variable
+    - variable.other.normal
+- source: plugin_and_version
+  scopes:
+    - variable.other.normal
 - source: '"'
   scopes:
     - punctuation.definition.string.end
@@ -83840,7 +84173,13 @@
     - string.quoted.double
   scopes:
     - punctuation.definition.string.begin
-- source: $selected_version
+- source: $
+  scopes:
+    - punctuation.definition.variable
+    - variable.other.normal
+- source: selected_version
+  scopes:
+    - variable.other.normal
 - source: '"'
   scopes:
     - punctuation.definition.string.end
