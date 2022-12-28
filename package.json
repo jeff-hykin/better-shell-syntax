@@ -32,23 +32,22 @@
   "categories": [
     "Programming Languages"
   ],
-  "dependencies": {
-    "chalk": "^2.4.2",
-    "dictionary-en-us": "^2.1.1",
-    "lodash": "^4.17.19",
-    "nspell": "^2.1.2",
-    "oniguruma": "^7.2.0",
-    "textmate-bailout": "^1.1.0",
-    "vsce": "^1.99.0",
-    "yargs": "^17.5.1",
-    "ovsx": "^0.5.1",
-    "textmate-tester": "^1.1.9"
-  },
   "description": "This enables your theme to better color your code. There are \"textmate scopes\" that your theme uses to apply color, this extension adds/improves the textmate scopes which should improve the way your code looks.",
   "bugs": {
     "url": "https://github.com/jeff-hykin/better-shell-syntax/issues"
   },
   "homepage": "https://github.com/jeff-hykin/better-shell-syntax#readme",
   "license": "ISC",
-  "devDependencies": {}
+  "devDependencies": {
+        "chalk": "^2.4.2",
+        "dictionary-en-us": "^2.1.1",
+        "lodash": "^4.17.19",
+        "nspell": "^2.1.2",
+        "oniguruma": "^7.2.0",
+        "textmate-bailout": "^1.1.0",
+        "vsce": "^1.99.0",
+        "yargs": "^17.5.1",
+        "ovsx": "^0.5.1",
+        "textmate-tester": "^1.1.9"
+    }
 }
