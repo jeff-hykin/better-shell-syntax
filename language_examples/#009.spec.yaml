@@ -3,7 +3,7 @@
     - meta.scope.logical-expression
   scopes:
     - punctuation.definition.logical-expression
-- source: ' "'
+- source: '"'
   scopesBegin:
     - string.quoted.double
   scopes:
@@ -39,7 +39,7 @@
     - meta.scope.logical-expression
   scopes:
     - punctuation.definition.logical-expression
-- source: ' "'
+- source: '"'
   scopesBegin:
     - string.quoted.double
   scopes:

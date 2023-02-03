@@ -29,7 +29,7 @@
 - source: ' $PROFILE_FISH_SUFFIX.'
   scopesEnd:
     - comment.line.number-sign
-- source: '    "'
+- source: '"'
   scopesBegin:
     - string.quoted.double
   scopes:
@@ -48,7 +48,7 @@
 - source: ' standard'
   scopesEnd:
     - comment.line.number-sign
-- source: '    "'
+- source: '"'
   scopesBegin:
     - string.quoted.double
   scopes:
@@ -67,7 +67,7 @@
 - source: ' their installer .pkg for macOS'
   scopesEnd:
     - comment.line.number-sign
-- source: '    "'
+- source: '"'
   scopesBegin:
     - string.quoted.double
   scopes:
@@ -86,7 +86,7 @@
 - source: ' homebrew'
   scopesEnd:
     - comment.line.number-sign
-- source: '    "'
+- source: '"'
   scopesBegin:
     - string.quoted.double
   scopes:

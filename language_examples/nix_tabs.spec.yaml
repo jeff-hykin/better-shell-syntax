@@ -377,7 +377,7 @@
 - source: '-n'
   scopes:
     - keyword.operator.logical
-- source: ' "'
+- source: '"'
   scopesBegin:
     - string.quoted.double
   scopes:
@@ -411,7 +411,7 @@
 - source: '-n'
   scopes:
     - keyword.operator.logical
-- source: ' "'
+- source: '"'
   scopesBegin:
     - string.quoted.double
   scopes:
@@ -733,7 +733,7 @@
     - string.quoted.double
 - source: '1'
   scopes:
-    - constant.numeric.decimal
+    - keyword.operator.redirect.stdout
 - source: '>'
   scopes:
     - keyword.operator.redirect
@@ -750,6 +750,7 @@
   scopes:
     - meta.argument
     - string.unquoted.argument
+    - constant.numeric
     - constant.numeric.decimal
   scopesEnd:
     - meta.statement
@@ -810,6 +811,7 @@
   scopes:
     - meta.argument
     - string.unquoted.argument
+    - constant.numeric
     - constant.numeric.decimal
   scopesEnd:
     - meta.statement
@@ -830,7 +832,7 @@
 - source: '-n'
   scopes:
     - keyword.operator.logical
-- source: ' "'
+- source: '"'
   scopesBegin:
     - string.quoted.double
   scopes:
@@ -867,7 +869,7 @@
 - source: '-n'
   scopes:
     - keyword.operator.logical
-- source: ' "'
+- source: '"'
   scopesBegin:
     - string.quoted.double
   scopes:
@@ -952,6 +954,7 @@
   scopes:
     - meta.argument
     - string.unquoted.argument
+    - constant.numeric
     - constant.numeric.decimal
   scopesEnd:
     - meta.statement
@@ -1031,7 +1034,7 @@
 - source: '-f'
   scopes:
     - keyword.operator.logical
-- source: ' "'
+- source: '"'
   scopesBegin:
     - string.quoted.double
   scopes:
@@ -1172,7 +1175,7 @@
 - source: in
   scopes:
     - keyword.control
-- source: ' "'
+- source: '"'
   scopesBegin:
     - string.quoted.double
   scopes:

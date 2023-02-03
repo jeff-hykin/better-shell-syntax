@@ -205,7 +205,7 @@
 - source: '-n'
   scopes:
     - keyword.operator.logical
-- source: ' "'
+- source: '"'
   scopesBegin:
     - string.quoted.double
   scopes:
@@ -290,7 +290,7 @@
     - meta.scope.logical-expression
   scopes:
     - punctuation.definition.logical-expression
-- source: ' "'
+- source: '"'
   scopesBegin:
     - string.quoted.double
   scopes:
@@ -318,7 +318,7 @@
 - source: '='
   scopes:
     - keyword.operator.logical
-- source: ' "'
+- source: '"'
   scopesBegin:
     - string.quoted.double
   scopes:
@@ -580,7 +580,7 @@
 - source: '-n'
   scopes:
     - keyword.operator.logical
-- source: ' "'
+- source: '"'
   scopesBegin:
     - string.quoted.double
   scopes:
@@ -665,7 +665,7 @@
     - meta.scope.logical-expression
   scopes:
     - punctuation.definition.logical-expression
-- source: ' "'
+- source: '"'
   scopesBegin:
     - string.quoted.double
   scopes:
@@ -693,7 +693,7 @@
 - source: '='
   scopes:
     - keyword.operator.logical
-- source: ' "'
+- source: '"'
   scopesBegin:
     - string.quoted.double
   scopes:
@@ -955,7 +955,7 @@
 - source: '-n'
   scopes:
     - keyword.operator.logical
-- source: ' "'
+- source: '"'
   scopesBegin:
     - string.quoted.double
   scopes:
@@ -1040,7 +1040,7 @@
     - meta.scope.logical-expression
   scopes:
     - punctuation.definition.logical-expression
-- source: ' "'
+- source: '"'
   scopesBegin:
     - string.quoted.double
   scopes:
@@ -1068,7 +1068,7 @@
 - source: '='
   scopes:
     - keyword.operator.logical
-- source: ' "'
+- source: '"'
   scopesBegin:
     - string.quoted.double
   scopes:

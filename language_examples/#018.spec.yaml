@@ -13,7 +13,7 @@
 - source: '=~'
   scopes:
     - keyword.operator.logical.regex
-- source: ' "'
+- source: '"'
   scopesBegin:
     - string.quoted.double
   scopes:

@@ -461,28 +461,28 @@
 - source: '"'
   scopes:
     - punctuation.definition.string.end
-- source: ' "'
+- source: '"'
   scopes:
     - punctuation.definition.string.begin
 - source: /etc/profile.d/nix.sh
 - source: '"'
   scopes:
     - punctuation.definition.string.end
-- source: ' "'
+- source: '"'
   scopes:
     - punctuation.definition.string.begin
 - source: /etc/zshrc
 - source: '"'
   scopes:
     - punctuation.definition.string.end
-- source: ' "'
+- source: '"'
   scopes:
     - punctuation.definition.string.begin
 - source: /etc/bash.bashrc
 - source: '"'
   scopes:
     - punctuation.definition.string.end
-- source: ' "'
+- source: '"'
   scopes:
     - punctuation.definition.string.begin
 - source: /etc/zsh/zshrc
@@ -646,7 +646,7 @@
 - source: ' $PROFILE_FISH_SUFFIX.'
   scopesEnd:
     - comment.line.number-sign
-- source: '    "'
+- source: '"'
   scopesBegin:
     - string.quoted.double
   scopes:
@@ -665,7 +665,7 @@
 - source: ' standard'
   scopesEnd:
     - comment.line.number-sign
-- source: '    "'
+- source: '"'
   scopesBegin:
     - string.quoted.double
   scopes:
@@ -684,7 +684,7 @@
 - source: ' their installer .pkg for macOS'
   scopesEnd:
     - comment.line.number-sign
-- source: '    "'
+- source: '"'
   scopesBegin:
     - string.quoted.double
   scopes:
@@ -703,7 +703,7 @@
 - source: ' homebrew'
   scopesEnd:
     - comment.line.number-sign
-- source: '    "'
+- source: '"'
   scopesBegin:
     - string.quoted.double
   scopes:
@@ -899,6 +899,7 @@
     - keyword.operator.logical
 - source: '0'
   scopes:
+    - constant.numeric
     - constant.numeric.decimal
 - source: ']'
   scopes:
@@ -996,7 +997,7 @@
     - meta.scope.logical-expression
   scopes:
     - punctuation.definition.logical-expression
-- source: ' "'
+- source: '"'
   scopesBegin:
     - string.quoted.double
   scopes:
@@ -1016,7 +1017,7 @@
 - source: '='
   scopes:
     - keyword.operator.logical
-- source: ' "'
+- source: '"'
   scopesBegin:
     - string.quoted.double
   scopes:
@@ -1049,6 +1050,7 @@
   scopes:
     - meta.argument
     - string.unquoted.argument
+    - constant.numeric
     - constant.numeric.decimal
   scopesEnd:
     - meta.statement
@@ -1067,6 +1069,7 @@
   scopes:
     - meta.argument
     - string.unquoted.argument
+    - constant.numeric
     - constant.numeric.decimal
   scopesEnd:
     - meta.statement
@@ -1107,7 +1110,7 @@
     - meta.scope.logical-expression
   scopes:
     - punctuation.definition.logical-expression
-- source: ' "'
+- source: '"'
   scopesBegin:
     - string.quoted.double
   scopes:
@@ -1129,6 +1132,7 @@
     - keyword.operator.logical
 - source: '0'
   scopes:
+    - constant.numeric
     - constant.numeric.decimal
 - source: ']'
   scopes:
@@ -1152,6 +1156,7 @@
   scopes:
     - meta.argument
     - string.unquoted.argument
+    - constant.numeric
     - constant.numeric.decimal
   scopesEnd:
     - meta.statement
@@ -1170,6 +1175,7 @@
   scopes:
     - meta.argument
     - string.unquoted.argument
+    - constant.numeric
     - constant.numeric.decimal
   scopesEnd:
     - meta.statement
@@ -1210,7 +1216,7 @@
     - meta.scope.logical-expression
   scopes:
     - punctuation.definition.logical-expression
-- source: ' "'
+- source: '"'
   scopesBegin:
     - string.quoted.double
   scopes:
@@ -1251,7 +1257,7 @@
 - source: '='
   scopes:
     - keyword.operator.logical
-- source: ' "'
+- source: '"'
   scopesBegin:
     - string.quoted.double
   scopes:
@@ -1284,6 +1290,7 @@
   scopes:
     - meta.argument
     - string.unquoted.argument
+    - constant.numeric
     - constant.numeric.decimal
   scopesEnd:
     - meta.statement
@@ -1302,6 +1309,7 @@
   scopes:
     - meta.argument
     - string.unquoted.argument
+    - constant.numeric
     - constant.numeric.decimal
   scopesEnd:
     - meta.statement
@@ -1342,7 +1350,7 @@
     - meta.scope.logical-expression
   scopes:
     - punctuation.definition.logical-expression
-- source: ' "'
+- source: '"'
   scopesBegin:
     - string.quoted.double
   scopes:
@@ -1383,7 +1391,7 @@
 - source: '='
   scopes:
     - keyword.operator.logical
-- source: ' "'
+- source: '"'
   scopesBegin:
     - string.quoted.double
   scopes:
@@ -1416,6 +1424,7 @@
   scopes:
     - meta.argument
     - string.unquoted.argument
+    - constant.numeric
     - constant.numeric.decimal
   scopesEnd:
     - meta.statement
@@ -1434,6 +1443,7 @@
   scopes:
     - meta.argument
     - string.unquoted.argument
+    - constant.numeric
     - constant.numeric.decimal
   scopesEnd:
     - meta.statement
@@ -1844,7 +1854,7 @@
     - meta.scope.logical-expression
   scopes:
     - punctuation.definition.logical-expression
-- source: ' "'
+- source: '"'
   scopesBegin:
     - string.quoted.double
   scopes:
@@ -1864,7 +1874,7 @@
 - source: '='
   scopes:
     - keyword.operator.logical
-- source: ' "'
+- source: '"'
   scopesBegin:
     - string.quoted.double
   scopes:
@@ -2089,6 +2099,7 @@
   scopes:
     - meta.argument
     - string.unquoted.argument
+    - constant.numeric
     - constant.numeric.decimal
   scopesEnd:
     - meta.statement
@@ -2279,6 +2290,7 @@
   scopes:
     - meta.argument
     - string.unquoted.argument
+    - constant.numeric
     - constant.numeric.decimal
   scopesEnd:
     - meta.statement
@@ -2987,6 +2999,7 @@
   scopes:
     - meta.argument
     - string.unquoted.argument
+    - constant.numeric
     - constant.numeric.decimal
   scopesEnd:
     - meta.statement
@@ -3059,6 +3072,7 @@
   scopes:
     - meta.argument
     - string.unquoted.argument
+    - constant.numeric
     - constant.numeric.decimal
   scopesEnd:
     - meta.statement
@@ -3131,6 +3145,7 @@
   scopes:
     - meta.argument
     - string.unquoted.argument
+    - constant.numeric
     - constant.numeric.decimal
   scopesEnd:
     - meta.statement
@@ -3247,6 +3262,7 @@
   scopes:
     - meta.argument
     - string.unquoted.argument
+    - constant.numeric
     - constant.numeric.decimal
   scopesEnd:
     - meta.statement
@@ -3362,7 +3378,7 @@
     - meta.scope.logical-expression
   scopes:
     - punctuation.definition.logical-expression
-- source: ' "'
+- source: '"'
   scopesBegin:
     - string.quoted.double
   scopes:
@@ -3382,7 +3398,7 @@
 - source: '='
   scopes:
     - keyword.operator.logical
-- source: ' "'
+- source: '"'
   scopesBegin:
     - string.quoted.double
   scopes:
@@ -3431,6 +3447,7 @@
   scopes:
     - meta.argument
     - string.unquoted.argument
+    - constant.numeric
     - constant.numeric.decimal
   scopesEnd:
     - meta.statement
@@ -3443,7 +3460,7 @@
     - meta.scope.logical-expression
   scopes:
     - punctuation.definition.logical-expression
-- source: ' "'
+- source: '"'
   scopesBegin:
     - string.quoted.double
   scopes:
@@ -3463,7 +3480,7 @@
 - source: '='
   scopes:
     - keyword.operator.logical
-- source: ' "'
+- source: '"'
   scopesBegin:
     - string.quoted.double
   scopes:
@@ -3512,6 +3529,7 @@
   scopes:
     - meta.argument
     - string.unquoted.argument
+    - constant.numeric
     - constant.numeric.decimal
   scopesEnd:
     - meta.statement
@@ -3623,6 +3641,7 @@
   scopes:
     - meta.argument
     - string.unquoted.argument
+    - constant.numeric
     - constant.numeric.decimal
   scopesEnd:
     - meta.statement
@@ -3671,10 +3690,7 @@
     - string.quoted.single.dollar
   scopes:
     - punctuation.definition.string.begin
-- source: \033
-  scopes:
-    - constant.character.escape.octal
-- source: '[2m%='
+- source: '\033[2m%='
 - source: ''''
   scopes:
     - punctuation.definition.string.end
@@ -3753,10 +3769,7 @@
     - string.quoted.single.dollar
   scopes:
     - punctuation.definition.string.begin
-- source: \033
-  scopes:
-    - constant.character.escape.octal
-- source: '[1;7;31m-'
+- source: '\033[1;7;31m-'
 - source: ''''
   scopes:
     - punctuation.definition.string.end
@@ -3837,10 +3850,7 @@
     - string.quoted.single.dollar
   scopes:
     - punctuation.definition.string.begin
-- source: \033
-  scopes:
-    - constant.character.escape.octal
-- source: '[1;7;32m+'
+- source: '\033[1;7;32m+'
 - source: ''''
   scopes:
     - punctuation.definition.string.end
@@ -4688,6 +4698,7 @@
   scopes:
     - meta.argument
     - string.unquoted.argument
+    - constant.numeric
     - constant.numeric.decimal
   scopesEnd:
     - meta.statement
@@ -4859,7 +4870,7 @@
 - source: in
   scopes:
     - keyword.control
-- source: ' "'
+- source: '"'
   scopesBegin:
     - string.quoted.double
   scopes:
@@ -4943,7 +4954,7 @@
     - meta.scope.logical-expression
   scopes:
     - punctuation.definition.logical-expression
-- source: ' "'
+- source: '"'
   scopesBegin:
     - string.quoted.double
   scopes:
@@ -4972,6 +4983,7 @@
     - keyword.operator.logical
 - source: '0'
   scopes:
+    - constant.numeric
     - constant.numeric.decimal
 - source: ']'
   scopes:
@@ -5046,10 +5058,7 @@
     - string.quoted.single.dollar
   scopes:
     - punctuation.definition.string.begin
-- source: \033
-  scopes:
-    - constant.character.escape.octal
-- source: '[A\33[2K'
+- source: '\033[A\33[2K'
 - source: \r
   scopes:
     - constant.character.escape.ansi-c
@@ -5215,7 +5224,7 @@
     - meta.scope.logical-expression
   scopes:
     - punctuation.definition.logical-expression
-- source: ' "'
+- source: '"'
   scopesBegin:
     - string.quoted.double
   scopes:
@@ -5235,7 +5244,7 @@
 - source: '='
   scopes:
     - keyword.operator.logical
-- source: ' "'
+- source: '"'
   scopesBegin:
     - string.quoted.double
   scopes:
@@ -5656,6 +5665,7 @@
   scopes:
     - meta.argument
     - string.unquoted.argument
+    - constant.numeric
     - constant.numeric.decimal
   scopesEnd:
     - meta.statement
@@ -5899,7 +5909,7 @@
 - source: '-n'
   scopes:
     - keyword.operator.logical
-- source: ' "'
+- source: '"'
   scopesBegin:
     - string.quoted.double
   scopes:
@@ -5948,7 +5958,7 @@
 - source: '-d'
   scopesEnd:
     - keyword.operator.logical
-- source: ' "'
+- source: '"'
   scopesBegin:
     - string.quoted.double
   scopes:
@@ -6009,6 +6019,7 @@
   scopesBegin:
     - meta.argument
     - string.unquoted.argument
+    - constant.numeric
   scopes:
     - keyword.other.unit.octal
 - source: '700'
@@ -6017,6 +6028,7 @@
   scopesEnd:
     - meta.argument
     - string.unquoted.argument
+    - constant.numeric
 - source: '-'
   scopesBegin:
     - string.unquoted.argument
@@ -6518,7 +6530,7 @@
     - string.unquoted.argument
 - source: '2'
   scopes:
-    - constant.numeric.decimal
+    - keyword.operator.redirect.stderr
 - source: '>'
   scopes:
     - keyword.operator.redirect
@@ -6694,7 +6706,7 @@
 - source: in
   scopes:
     - keyword.control
-- source: ' "'
+- source: '"'
   scopesBegin:
     - string.quoted.double
   scopes:
@@ -6757,7 +6769,7 @@
 - source: '-e'
   scopes:
     - keyword.operator.logical
-- source: ' "'
+- source: '"'
   scopesBegin:
     - string.quoted.double
   scopes:
@@ -6913,7 +6925,7 @@
     - meta.scope.logical-expression
   scopes:
     - punctuation.definition.logical-expression
-- source: ' "'
+- source: '"'
   scopesBegin:
     - string.quoted.double
   scopes:
@@ -6933,7 +6945,7 @@
 - source: '='
   scopes:
     - keyword.operator.logical
-- source: ' "'
+- source: '"'
   scopesBegin:
     - string.quoted.double
   scopes:
@@ -6963,6 +6975,7 @@
   scopes:
     - meta.argument
     - string.unquoted.argument
+    - constant.numeric
     - constant.numeric.decimal
   scopesEnd:
     - meta.statement
@@ -7047,7 +7060,7 @@
 - source: in
   scopes:
     - keyword.control
-- source: ' "'
+- source: '"'
   scopesBegin:
     - string.quoted.double
   scopes:
@@ -7094,7 +7107,7 @@
 - source: '-e'
   scopes:
     - keyword.operator.logical
-- source: ' "'
+- source: '"'
   scopesBegin:
     - string.quoted.double
   scopes:
@@ -7998,7 +8011,7 @@
     - meta.scope.logical-expression
   scopes:
     - punctuation.definition.logical-expression
-- source: ' "'
+- source: '"'
   scopesBegin:
     - string.quoted.double
   scopes:
@@ -8025,7 +8038,7 @@
 - source: '!='
   scopes:
     - keyword.operator.logical
-- source: ' "'
+- source: '"'
   scopesBegin:
     - string.quoted.double
   scopes:
@@ -8150,6 +8163,7 @@
     - meta.argument
   scopes:
     - string.unquoted.argument
+    - constant.numeric
     - constant.numeric.decimal
 - source: '"'
   scopesBegin:
@@ -8497,7 +8511,7 @@
     - meta.scope.logical-expression
   scopes:
     - punctuation.definition.logical-expression
-- source: ' "'
+- source: '"'
   scopesBegin:
     - string.quoted.double
   scopes:
@@ -8517,7 +8531,7 @@
 - source: '-ne'
   scopes:
     - keyword.operator.logical
-- source: ' "'
+- source: '"'
   scopesBegin:
     - string.quoted.double
   scopes:
@@ -9015,7 +9029,7 @@
     - meta.scope.logical-expression
   scopes:
     - punctuation.definition.logical-expression
-- source: ' "'
+- source: '"'
   scopesBegin:
     - string.quoted.double
   scopes:
@@ -9035,7 +9049,7 @@
 - source: '!='
   scopes:
     - keyword.operator.logical
-- source: ' "'
+- source: '"'
   scopesBegin:
     - string.quoted.double
   scopes:
@@ -9173,7 +9187,7 @@
     - meta.scope.logical-expression
   scopes:
     - punctuation.definition.logical-expression
-- source: ' "'
+- source: '"'
   scopesBegin:
     - string.quoted.double
   scopes:
@@ -9223,7 +9237,7 @@
 - source: '='
   scopes:
     - keyword.operator.logical
-- source: ' "'
+- source: '"'
   scopesBegin:
     - string.quoted.double
   scopes:
@@ -9337,7 +9351,7 @@
     - meta.scope.logical-expression
   scopes:
     - punctuation.definition.logical-expression
-- source: ' "'
+- source: '"'
   scopesBegin:
     - string.quoted.double
   scopes:
@@ -9387,7 +9401,7 @@
 - source: '='
   scopes:
     - keyword.operator.logical
-- source: ' "'
+- source: '"'
   scopesBegin:
     - string.quoted.double
   scopes:
@@ -9724,7 +9738,7 @@
     - meta.scope.logical-expression
   scopes:
     - punctuation.definition.logical-expression
-- source: ' "'
+- source: '"'
   scopesBegin:
     - string.quoted.double
   scopes:
@@ -9774,7 +9788,7 @@
 - source: '='
   scopes:
     - keyword.operator.logical
-- source: ' "'
+- source: '"'
   scopesBegin:
     - string.quoted.double
   scopes:
@@ -10055,7 +10069,7 @@
     - meta.scope.logical-expression
   scopes:
     - punctuation.definition.logical-expression
-- source: ' "'
+- source: '"'
   scopesBegin:
     - string.quoted.double
   scopes:
@@ -10105,7 +10119,7 @@
 - source: '='
   scopes:
     - keyword.operator.logical
-- source: ' "'
+- source: '"'
   scopesBegin:
     - string.quoted.double
   scopes:
@@ -10292,6 +10306,7 @@
     - meta.argument
   scopes:
     - string.unquoted.argument
+    - constant.numeric
     - constant.numeric.decimal
 - source: '"'
   scopesBegin:
@@ -10419,7 +10434,7 @@
 - source: '-d'
   scopes:
     - keyword.operator.logical
-- source: ' "'
+- source: '"'
   scopesBegin:
     - string.quoted.double
   scopes:
@@ -10624,7 +10639,7 @@
     - string.unquoted.argument
 - source: '2'
   scopes:
-    - constant.numeric.decimal
+    - keyword.operator.redirect.stderr
 - source: '>'
   scopes:
     - keyword.operator.redirect
@@ -10694,7 +10709,7 @@
 - source: '-z'
   scopes:
     - keyword.operator.logical
-- source: ' "'
+- source: '"'
   scopesBegin:
     - string.quoted.double
   scopes:
@@ -10791,7 +10806,7 @@
 - source: '-z'
   scopes:
     - keyword.operator.logical
-- source: ' "'
+- source: '"'
   scopesBegin:
     - string.quoted.double
   scopes:
@@ -11019,11 +11034,14 @@
   scopesBegin:
     - meta.argument
     - string.unquoted.argument
+    - constant.numeric
   scopes:
     - keyword.other.unit.octal
 - source: '755'
   scopes:
     - constant.numeric.octal
+  scopesEnd:
+    - constant.numeric
 - source: /nix
 - source: /nix/var
 - source: /nix/var/log
@@ -11107,6 +11125,7 @@
     - meta.argument
     - string.unquoted.argument
   scopes:
+    - constant.numeric
     - constant.numeric.decimal
 - source: /nix/store
   scopesEnd:
@@ -11155,11 +11174,14 @@
   scopesBegin:
     - meta.argument
     - string.unquoted.argument
+    - constant.numeric
   scopes:
     - keyword.other.unit.octal
 - source: '555'
   scopes:
     - constant.numeric.octal
+  scopesEnd:
+    - constant.numeric
 - source: /etc/nix
   scopesEnd:
     - meta.statement
@@ -11200,7 +11222,7 @@
 - source: '-z'
   scopes:
     - keyword.operator.logical
-- source: ' "'
+- source: '"'
   scopesBegin:
     - string.quoted.double
   scopes:
@@ -11313,6 +11335,7 @@
   scopesBegin:
     - meta.argument
     - string.unquoted.argument
+    - constant.numeric
   scopes:
     - keyword.other.unit.octal
 - source: '664'
@@ -11320,6 +11343,7 @@
     - constant.numeric.octal
   scopesEnd:
     - string.unquoted.argument
+    - constant.numeric
 - source: '"'
   scopesBegin:
     - string.quoted.double
@@ -11416,7 +11440,7 @@
     - string.unquoted.argument
 - source: '2'
   scopes:
-    - constant.numeric.decimal
+    - keyword.operator.redirect.stderr
 - source: '>&1'
   scopes:
     - keyword.operator.redirect
@@ -11440,7 +11464,7 @@
     - meta.scope.logical-expression
   scopes:
     - punctuation.definition.logical-expression
-- source: ' "'
+- source: '"'
   scopesBegin:
     - string.quoted.double
   scopes:
@@ -11468,7 +11492,7 @@
 - source: '='
   scopes:
     - keyword.operator.logical
-- source: ' "'
+- source: '"'
   scopesBegin:
     - string.quoted.double
   scopes:
@@ -11699,7 +11723,7 @@
 - source: in
   scopes:
     - keyword.control
-- source: ' "'
+- source: '"'
   scopesBegin:
     - string.quoted.double
   scopes:
@@ -11746,7 +11770,7 @@
 - source: '-e'
   scopes:
     - keyword.operator.logical
-- source: ' "'
+- source: '"'
   scopesBegin:
     - string.quoted.double
   scopes:
@@ -12014,6 +12038,7 @@
   scopes:
     - meta.argument
     - string.unquoted.argument
+    - constant.numeric
     - constant.numeric.decimal
   scopesEnd:
     - meta.statement
@@ -12413,7 +12438,7 @@
 - source: '-d'
   scopes:
     - keyword.operator.logical
-- source: ' "'
+- source: '"'
   scopesBegin:
     - string.quoted.double
   scopes:
@@ -12853,7 +12878,7 @@
 - source: in
   scopes:
     - keyword.control
-- source: ' "'
+- source: '"'
   scopesBegin:
     - string.quoted.double
   scopes:
@@ -12900,7 +12925,7 @@
 - source: '-e'
   scopes:
     - keyword.operator.logical
-- source: ' "'
+- source: '"'
   scopesBegin:
     - string.quoted.double
   scopes:
@@ -13096,7 +13121,7 @@
 - source: '-d'
   scopes:
     - keyword.operator.logical
-- source: ' "'
+- source: '"'
   scopesBegin:
     - string.quoted.double
   scopes:
@@ -13195,7 +13220,7 @@
 - source: '-e'
   scopes:
     - keyword.operator.logical
-- source: ' "'
+- source: '"'
   scopesBegin:
     - string.quoted.double
   scopes:
@@ -13376,7 +13401,7 @@
 - source: in
   scopes:
     - keyword.control
-- source: ' "'
+- source: '"'
   scopesBegin:
     - string.quoted.double
   scopes:
@@ -13426,7 +13451,7 @@
 - source: '-d'
   scopesEnd:
     - keyword.operator.logical
-- source: ' "'
+- source: '"'
   scopesBegin:
     - string.quoted.double
   scopes:
@@ -13579,7 +13604,7 @@
 - source: '-d'
   scopesEnd:
     - keyword.operator.logical
-- source: ' "'
+- source: '"'
   scopesBegin:
     - string.quoted.double
   scopes:
@@ -13825,7 +13850,7 @@
     - meta.scope.logical-expression
   scopes:
     - punctuation.definition.logical-expression
-- source: ' "'
+- source: '"'
   scopesBegin:
     - string.quoted.double
   scopes:
@@ -13942,7 +13967,7 @@
 - source: '=='
   scopes:
     - keyword.operator.logical
-- source: ' "'
+- source: '"'
   scopesBegin:
     - string.quoted.double
   scopes:
@@ -14111,7 +14136,7 @@
 - source: '-z'
   scopes:
     - keyword.operator.logical
-- source: ' "'
+- source: '"'
   scopesBegin:
     - string.quoted.double
   scopes:
@@ -14159,7 +14184,7 @@
 - source: '-f'
   scopes:
     - keyword.operator.logical
-- source: ' "'
+- source: '"'
   scopesBegin:
     - string.quoted.double
   scopes:
@@ -14325,7 +14350,7 @@
 - source: '-z'
   scopes:
     - keyword.operator.logical
-- source: ' "'
+- source: '"'
   scopesBegin:
     - string.quoted.double
   scopes:
@@ -14903,7 +14928,7 @@
 - source: '-n'
   scopes:
     - keyword.operator.logical
-- source: ' "'
+- source: '"'
   scopesBegin:
     - string.quoted.double
   scopes:
@@ -14937,7 +14962,7 @@
 - source: '-n'
   scopes:
     - keyword.operator.logical
-- source: ' "'
+- source: '"'
   scopesBegin:
     - string.quoted.double
   scopes:
@@ -15259,7 +15284,7 @@
     - string.quoted.double
 - source: '1'
   scopes:
-    - constant.numeric.decimal
+    - keyword.operator.redirect.stdout
 - source: '>'
   scopes:
     - keyword.operator.redirect
@@ -15276,6 +15301,7 @@
   scopes:
     - meta.argument
     - string.unquoted.argument
+    - constant.numeric
     - constant.numeric.decimal
   scopesEnd:
     - meta.statement
@@ -15336,6 +15362,7 @@
   scopes:
     - meta.argument
     - string.unquoted.argument
+    - constant.numeric
     - constant.numeric.decimal
   scopesEnd:
     - meta.statement
@@ -15356,7 +15383,7 @@
 - source: '-n'
   scopes:
     - keyword.operator.logical
-- source: ' "'
+- source: '"'
   scopesBegin:
     - string.quoted.double
   scopes:
@@ -15393,7 +15420,7 @@
 - source: '-n'
   scopes:
     - keyword.operator.logical
-- source: ' "'
+- source: '"'
   scopesBegin:
     - string.quoted.double
   scopes:
@@ -15478,6 +15505,7 @@
   scopes:
     - meta.argument
     - string.unquoted.argument
+    - constant.numeric
     - constant.numeric.decimal
   scopesEnd:
     - meta.statement
@@ -15557,7 +15585,7 @@
 - source: '-f'
   scopes:
     - keyword.operator.logical
-- source: ' "'
+- source: '"'
   scopesBegin:
     - string.quoted.double
   scopes:
@@ -15698,7 +15726,7 @@
 - source: in
   scopes:
     - keyword.control
-- source: ' "'
+- source: '"'
   scopesBegin:
     - string.quoted.double
   scopes:
@@ -15802,7 +15830,7 @@
 - source: '>'
   scopes:
     - keyword.operator.redirect
-- source: ' "'
+- source: '"'
   scopesBegin:
     - string.quoted.double
   scopes:
@@ -15881,6 +15909,7 @@
   scopesBegin:
     - meta.argument
     - string.unquoted.argument
+    - constant.numeric
   scopes:
     - keyword.other.unit.octal
 - source: '664'
@@ -15888,6 +15917,7 @@
     - constant.numeric.octal
   scopesEnd:
     - string.unquoted.argument
+    - constant.numeric
 - source: '"'
   scopesBegin:
     - string.quoted.double
@@ -16242,6 +16272,7 @@
   scopes:
     - meta.argument
     - string.unquoted.argument
+    - constant.numeric
     - constant.numeric.decimal
   scopesEnd:
     - meta.statement
@@ -16356,7 +16387,7 @@
     - meta.scope.logical-expression
   scopes:
     - punctuation.definition.logical-expression
-- source: ' "'
+- source: '"'
   scopesBegin:
     - string.quoted.double
   scopes:
@@ -16387,6 +16418,7 @@
     - keyword.operator.logical
 - source: '0'
   scopes:
+    - constant.numeric
     - constant.numeric.decimal
 - source: ']'
   scopes:
@@ -16438,7 +16470,7 @@
     - meta.scope.case-block
   scopes:
     - keyword.control
-- source: ' "'
+- source: '"'
   scopesBegin:
     - string.quoted.double
   scopes:

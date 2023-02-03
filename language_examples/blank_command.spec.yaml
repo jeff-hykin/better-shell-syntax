@@ -64,7 +64,7 @@
 - source: '-f'
   scopes:
     - keyword.operator.logical
-- source: ' "'
+- source: '"'
   scopesBegin:
     - string.quoted.double
   scopes:

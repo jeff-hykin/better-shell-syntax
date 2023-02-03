@@ -80,8 +80,8 @@
     - meta.scope.logical-expression
   scopes:
     - punctuation.definition.logical-expression
-- source: ' -v'
-- source: ' "'
+- source: ' -v '
+- source: '"'
   scopesBegin:
     - string.quoted.double
   scopes:
