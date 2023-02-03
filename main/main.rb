@@ -15,7 +15,6 @@ require_relative './tokens.rb'
 # imports
 # 
     grammar.import(PathFor[:pattern]["comments"])
-    grammar.import(PathFor[:pattern]["numeric_literal"])
 
 #
 #
@@ -122,7 +121,7 @@ require_relative './tokens.rb'
     std_space = Pattern.new(/\s*+/)
     
     # this numeric_literal was stolen from C++, has been cleaned up some, but could have a few dangling oddities
-    def generateNumericLiteral(allow_user_defined_literals: false, separator:".")
+    def generateNumericLiteral(allow_user_defined_literals: false, separator:"_")
         valid_single_character = Pattern.new(/(?:[0-9a-zA-Z_\.]|#{separator})/)
         valid_after_exponent = lookBehindFor(/[eEpP]/).then(/[+-]/)
         valid_character = valid_single_character.or(valid_after_exponent)
@@ -311,7 +310,10 @@ require_relative './tokens.rb'
             ]
         )
     end
-    grammar[:numeric_literal] = generateNumericLiteral()
+    grammar[:numeric_literal] = Pattern.new(
+        tag_as: "constant.numeric",
+        match: generateNumericLiteral(),
+    )
     grammar[:redirect_number] = lookBehindFor(/\s/).then(
         oneOf([
             Pattern.new(
@@ -757,7 +759,9 @@ require_relative './tokens.rb'
                 match: /\]/,
                 tag_as: "punctuation.definition.logical-expression"
             ),
-        includes: grammar[:logical_expression_context]
+        includes: [
+            :logical_expression_context
+        ],
     )
     grammar[:logical_expression_double] = PatternRange.new(
         tag_as: "meta.scope.logical-expression",
@@ -769,7 +773,9 @@ require_relative './tokens.rb'
                 match: /\]\]/,
                 tag_as: "punctuation.definition.logical-expression"
             ),
-        includes: grammar[:logical_expression_context]
+        includes: [
+            :logical_expression_context
+        ],
     )
     grammar[:misc_ranges] = [
         :logical_expression_single,

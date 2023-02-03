@@ -19,9 +19,11 @@ constant.numeric.hexadecimal.shell
 constant.numeric.integer.shell
 constant.numeric.octal.shell
 constant.numeric.other.shell
+constant.numeric.shell
 constant.other.option
 constant.other.option.dash.shell
 constant.other.option.shell
+entity.name.command
 entity.name.command.shell
 entity.name.function.shell
 keyword.control.$0.shell
@@ -41,7 +43,10 @@ keyword.operator.minus.exponent.hexadecimal.shell
 keyword.operator.pipe.shell
 keyword.operator.plus.exponent.decimal.shell
 keyword.operator.plus.exponent.hexadecimal.shell
+keyword.operator.redirect.$3.shell
 keyword.operator.redirect.shell
+keyword.operator.redirect.stderr.shell
+keyword.operator.redirect.stdout.shell
 keyword.operator.tilde.shell
 keyword.other.shell
 keyword.other.unit.binary.shell
@@ -54,6 +59,8 @@ keyword.other.unit.suffix.integer.shell
 meta.argument.shell
 meta.arithmetic.shell
 meta.command.shell
+meta.command_name.continuation
+meta.command_name.quoted.shell
 meta.command_name.shell
 meta.expression.assignment.shell
 meta.function.body.shell
@@ -120,9 +127,11 @@ string.interpolated.backtick.shell
 string.interpolated.dollar.shell
 string.interpolated.process-substitution.shell
 string.other.math.shell
+string.quoted.double
 string.quoted.double.shell
 string.quoted.heredoc.indent
 string.quoted.heredoc.no-indent
+string.quoted.single
 string.quoted.single.dollar.shell
 string.quoted.single.shell
 string.unquoted.argument
