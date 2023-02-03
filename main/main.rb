@@ -58,6 +58,7 @@ require_relative './tokens.rb'
             :statement_seperator,
             :misc_ranges,
             :boolean,
+            :redirect_number,
             :numeric_literal,
             :string,
             :variable,
@@ -88,6 +89,7 @@ require_relative './tokens.rb'
             :logical_expression_double,
             :comment,
             :boolean,
+            :redirect_number,
             :numeric_literal,
             :pipeline,
             :statement_seperator,
@@ -289,7 +291,7 @@ require_relative './tokens.rb'
         # then, after the range is found, it starts to figure out what kind of number/constant it is
         # it does this by matching one of the includes
         return Pattern.new(
-            match: lookBehindToAvoid(/\w-?/).then(/\.?\d/).zeroOrMoreOf(valid_character).lookAheadFor(/\s|$/),
+            match: lookBehindToAvoid(/\w-/).lookBehindToAvoid(/\w/).then(/\.?\d/).zeroOrMoreOf(valid_character).lookAheadFor(/\s|$/),
             includes: [
                 PatternRange.new(
                     start_pattern: lookAheadFor(/./),
@@ -310,27 +312,47 @@ require_relative './tokens.rb'
         )
     end
     grammar[:numeric_literal] = generateNumericLiteral()
+    grammar[:redirect_number] = lookBehindFor(/\s/).then(
+        oneOf([
+            Pattern.new(
+                tag_as: "keyword.operator.redirect.stdout",
+                match: /1/,
+            ),
+            Pattern.new(
+                tag_as: "keyword.operator.redirect.stderr",
+                match: /2/,
+            ),
+            Pattern.new(
+                tag_as: "keyword.operator.redirect.$match",
+                match: /\d+/,
+            ),
+        ]).lookAheadFor(/>/)
+    )
     
     # 
     # comments
     #
-    grammar[:comment] = lookBehindFor(/^|\s/).then(
+    grammar[:comment] = Pattern.new(
         Pattern.new(
-            tag_as: "comment.line.number-sign meta.shebang",
-            match: Pattern.new(
-                Pattern.new(
-                    match: /#!/,
-                    tag_as: "punctuation.definition.comment.shebang"
-                ).then(/.*/)
-            ),
-        ).or(
-            tag_as: "comment.line.number-sign",
-            match: Pattern.new(
-                Pattern.new(
-                    match: /#/,
-                    tag_as: "punctuation.definition.comment"
-                ).then(/.*/)
-            ),
+            Pattern.new(/^/).or(lookBehindFor(/\s/))
+        ).then(
+            Pattern.new(
+                tag_as: "comment.line.number-sign meta.shebang",
+                match: Pattern.new(
+                    Pattern.new(
+                        match: /#!/,
+                        tag_as: "punctuation.definition.comment.shebang"
+                    ).then(/.*/)
+                ),
+            ).or(
+                tag_as: "comment.line.number-sign",
+                match: Pattern.new(
+                    Pattern.new(
+                        match: /#/,
+                        tag_as: "punctuation.definition.comment"
+                    ).then(/.*/)
+                ),
+            )
         )
     )
     
