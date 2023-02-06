@@ -33849,15 +33849,11 @@
 - source: '|'
   scopes:
     - keyword.operator.pipe
-- source: \#
+- source: \#*\#
   scopes:
-    - constant.character.escape
-- source: '*'
-  scopes:
-    - keyword.operator.glob
-- source: \#
-  scopes:
-    - constant.character.escape
+    - meta.statement
+    - meta.command
+    - entity.name.command
 - source: '|'
   scopes:
     - keyword.operator.pipe
@@ -34236,15 +34232,11 @@
 - source: '|'
   scopes:
     - keyword.operator.pipe
-- source: \#
+- source: \#*\#
   scopes:
-    - constant.character.escape
-- source: '*'
-  scopes:
-    - keyword.operator.glob
-- source: \#
-  scopes:
-    - constant.character.escape
+    - meta.statement
+    - meta.command
+    - entity.name.command
 - source: '|'
   scopes:
     - keyword.operator.pipe
@@ -68390,15 +68382,11 @@
 - source: '|'
   scopes:
     - keyword.operator.pipe
-- source: \#
+- source: \#*\#
   scopes:
-    - constant.character.escape
-- source: '*'
-  scopes:
-    - keyword.operator.glob
-- source: \#
-  scopes:
-    - constant.character.escape
+    - meta.statement
+    - meta.command
+    - entity.name.command
 - source: '|'
   scopes:
     - keyword.operator.pipe
@@ -68777,15 +68765,11 @@
 - source: '|'
   scopes:
     - keyword.operator.pipe
-- source: \#
+- source: \#*\#
   scopes:
-    - constant.character.escape
-- source: '*'
-  scopes:
-    - keyword.operator.glob
-- source: \#
-  scopes:
-    - constant.character.escape
+    - meta.statement
+    - meta.command
+    - entity.name.command
 - source: '|'
   scopes:
     - keyword.operator.pipe
@@ -74418,10 +74402,18 @@
     - punctuation.definition.evaluation.parens.begin
 - source: '"'
   scopesBegin:
-    - string.quoted.double
+    - meta.statement
+    - meta.command
   scopes:
+    - meta.command_name.quoted
+    - string.quoted.double
     - punctuation.definition.string.begin
+    - entity.name.command
 - source: $
+  scopesBegin:
+    - meta.command_name.continuation
+    - string.quoted.double
+    - entity.name.command
   scopes:
     - punctuation.definition.variable
     - punctuation.section.bracket.curly.variable.begin
@@ -74433,10 +74425,18 @@
   scopes:
     - punctuation.section.bracket.curly.variable.end
 - source: /bin/exec-path
+  scopesEnd:
+    - meta.command_name.continuation
+    - string.quoted.double
+    - entity.name.command
 - source: '"'
   scopes:
     - punctuation.definition.string.end
+    - entity.name.command
 - source: '"'
+  scopesBegin:
+    - meta.argument
+    - string.quoted.double
   scopes:
     - punctuation.definition.string.begin
 - source: $
@@ -74476,6 +74476,9 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
+    - meta.statement
+    - meta.command
+    - meta.argument
     - string.quoted.double
 - source: )
   scopes:
