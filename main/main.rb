@@ -33,7 +33,6 @@ require_relative './tokens.rb'
             :logical_expression_single,
             :misc_ranges,
             :loop,
-            :string,
             :function_definition,
             :variable,
             :interpolation,
@@ -45,6 +44,7 @@ require_relative './tokens.rb'
             :alias_statement,
             # :custom_commands,
             :command_call,
+            :string,
             :support,
         ]
     grammar[:boolean] = Pattern.new(

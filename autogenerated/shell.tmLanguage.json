@@ -951,9 +951,6 @@
           "include": "#loop"
         },
         {
-          "include": "#string"
-        },
-        {
           "include": "#function_definition"
         },
         {
@@ -982,6 +979,9 @@
         },
         {
           "include": "#command_call"
+        },
+        {
+          "include": "#string"
         },
         {
           "include": "#support"
