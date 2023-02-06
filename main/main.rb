@@ -336,7 +336,7 @@ require_relative './tokens.rb'
     #
     grammar[:comment] = Pattern.new(
         Pattern.new(
-            Pattern.new(/^/).or(lookBehindFor(/\s/))
+            Pattern.new(/^/).or(/\s++/)
         ).then(
             Pattern.new(
                 tag_as: "comment.line.number-sign meta.shebang",
@@ -505,7 +505,7 @@ require_relative './tokens.rb'
         start_pattern:  Pattern.new(
                 match: /alias/,
                 tag_as: "storage.type.alias"
-            ).then(@spaces).then(assignment_start),
+            ).then(std_space).then(assignment_start),
         end_pattern: assignment_end,
         includes: [ :statement_context ]
     )
@@ -513,7 +513,7 @@ require_relative './tokens.rb'
     possible_pre_command_characters = /(?:^|;|\||&|!|\(|\{|\`)/
     possible_command_start   = lookAheadToAvoid(/(?:!|%|&|\||\(|\)|\{|\[|<|>|#|\n|$|;|\s)/)
     possible_argument_start  = lookAheadToAvoid(/(?:%|&|\||\(|\[|#|\n|$|;)/)
-    command_end              = lookAheadFor(/;|\||&|\n|\)|\`|\{|\}|#|\]/).lookBehindToAvoid(/\\/)
+    command_end              = lookAheadFor(/;|\||&|\n|\)|\`|\{|\}| *#|\]/).lookBehindToAvoid(/\\/)
     unquoted_string_end      = lookAheadFor(/\s|;|\||&|$|\n|\)|\`/)
     invalid_literals         = Regexp.quote(@tokens.representationsThat(:areInvalidLiterals).join(""))
     valid_literal_characters = Regexp.new("[^\s\n#{invalid_literals}]+")
@@ -539,7 +539,7 @@ require_relative './tokens.rb'
     # 
     #
     generateUnquotedArugment = ->(tag_as) do
-        Pattern.new(
+        std_space.then(
             tag_as: tag_as,
             match: Pattern.new(valid_literal_characters).lookAheadToAvoid(/>/), # ex: 1>&2
             includes: [
