@@ -451,7 +451,7 @@
     - meta.statement
   scopes:
     - keyword.operator.pipe
-- source: ' "'
+- source: '"'
   scopesBegin:
     - meta.command
   scopes:
@@ -610,7 +610,7 @@
     - meta.statement
   scopes:
     - keyword.operator.pipe
-- source: ' "'
+- source: '"'
   scopesBegin:
     - meta.command
   scopes:
@@ -999,7 +999,7 @@
     - meta.statement
   scopes:
     - keyword.operator.pipe
-- source: ' '''
+- source: ''''
   scopesBegin:
     - meta.command
   scopes:
@@ -1116,7 +1116,7 @@
     - meta.statement
   scopes:
     - keyword.operator.pipe
-- source: ' '''
+- source: ''''
   scopesBegin:
     - meta.command
   scopes:

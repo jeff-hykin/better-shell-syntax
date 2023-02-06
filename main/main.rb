@@ -510,8 +510,8 @@ require_relative './tokens.rb'
         includes: [ :statement_context ]
     )
     
-    possible_pre_command_characters = /(?:^|;|\||&|!|\(|\{|\`)/
-    possible_command_start   = lookAheadToAvoid(/(?:!|%|&|\||\(|\)|\{|\[|<|>|#|\n|$|;|\s)/)
+    possible_pre_command_characters   = /(?:^|;|\||&|!|\(|\{|\`)/
+    basic_possible_command_start      = lookAheadToAvoid(/(?:!|%|&|\||\(|\)|\{|\[|<|>|#|\n|$|;|\s)/)
     possible_argument_start  = lookAheadToAvoid(/(?:%|&|\||\(|\[|#|\n|$|;)/)
     command_end              = lookAheadFor(/;|\||&|\n|\)|\`|\{|\}| *#|\]/).lookBehindToAvoid(/\\/)
     unquoted_string_end      = lookAheadFor(/\s|;|\||&|$|\n|\)|\`/)
@@ -523,6 +523,22 @@ require_relative './tokens.rb'
     any_builtin_control_flow = @tokens.representationsThat(:areBuiltInCommands, :areControlFlow).map{ |value| Regexp.quote(value) }.join("|")
     any_builtin_control_flow = Regexp.new("(?:#{any_builtin_control_flow})")
     any_builtin_control_flow = variableBounds[any_builtin_control_flow]
+    possible_command_start   = basic_possible_command_start.lookAheadToAvoid(
+        Regexp.new(
+            @tokens.representationsThat(
+                :areShellReservedWords,
+                :areControlFlow
+            # escape before putting into regex
+            ).map{
+                |value| Regexp.quote(value) 
+            # add word-delimiter
+            }.map{
+                |value| value + '\b'
+            # "OR" join
+            }.join("|")
+        )
+    )
+    puts "possible_command_start is: #{possible_command_start} "
     
     grammar[:keyword] = [
         Pattern.new(
@@ -559,7 +575,7 @@ require_relative './tokens.rb'
         tag_as: "meta.command_name.quoted string.quoted.double punctuation.definition.string.begin entity.name.command",
         match: Pattern.new(
             Pattern.new(
-                std_space.then(possible_command_start)
+                basic_possible_command_start
             ).maybe(unquoted_command_prefix).oneOf([
                 /\$"/,
                 /"/,
@@ -571,8 +587,7 @@ require_relative './tokens.rb'
         tag_as: "meta.command_name.quoted string.quoted.single punctuation.definition.string.begin entity.name.command",
         match: Pattern.new(
             Pattern.new(
-                    std_space
-                    .then(possible_command_start)
+                basic_possible_command_start
             ).maybe(unquoted_command_prefix).oneOf([
                 /\$'/,
                 /'/,
@@ -618,7 +633,7 @@ require_relative './tokens.rb'
         tag_as: "meta.command_name",
         match: Pattern.new(
             Pattern.new(
-                std_space.then(possible_command_start)
+                possible_command_start
             ).then(
                 modifier.or(
                     tag_as: "entity.name.command",
@@ -660,7 +675,7 @@ require_relative './tokens.rb'
                 match: /-/,
                 tag_as: "string.unquoted.argument constant.other.option.dash"
             ).then(
-                match: possible_command_start,
+                match: basic_possible_command_start,
                 tag_as: "string.unquoted.argument constant.other.option",
             )
         ),
@@ -699,7 +714,7 @@ require_relative './tokens.rb'
             # This pattern exclusively handleds commands with quotes
             PatternRange.new(
                 tag_as: "meta.command",
-                start_pattern: oneOf([
+                start_pattern: std_space.oneOf([
                     grammar[:start_of_single_quoted_command_name],
                     grammar[:start_of_double_quoted_command_name],
                 ]),
@@ -728,9 +743,7 @@ require_relative './tokens.rb'
             # (and I don't think it can be combined with the above pattern without breaking multi-line quoted commands)
             PatternRange.new(
                 tag_as: "meta.command",
-                start_pattern: oneOf([
-                    grammar[:command_name],
-                ]),
+                start_pattern: std_space.then(grammar[:command_name]),
                 end_pattern: command_end,
                 includes: [
                     # same as the grammar string, but instead looks behind for the "

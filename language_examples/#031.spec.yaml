@@ -1,0 +1,258 @@
+- source: A
+  scopesBegin:
+    - meta.statement
+    - meta.expression.assignment
+  scopes:
+    - variable.other.assignment
+- source: '='
+  scopes:
+    - keyword.operator.assignment
+- source: $(
+  scopesBegin:
+    - string.interpolated.dollar
+  scopes:
+    - punctuation.definition.evaluation.parens.begin
+- source: for
+  scopesBegin:
+    - meta.scope.for-loop
+  scopes:
+    - keyword.control
+- source: ((
+  scopesBegin:
+    - meta.arithmetic
+  scopes:
+    - punctuation.section.arithmetic
+- source: i
+- source: '='
+  scopes:
+    - keyword.operator.arithmetic
+- source: '0'
+  scopes:
+    - constant.numeric.integer
+- source: ; i
+- source: <
+  scopes:
+    - keyword.operator.arithmetic
+- source: $
+  scopes:
+    - punctuation.definition.variable
+    - punctuation.section.bracket.curly.variable.begin
+- source: '{'
+  scopes:
+    - punctuation.section.bracket.curly.variable.begin
+- source: '#'
+  scopes:
+    - keyword.operator.expansion
+- source: ID
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
+- source: '}'
+  scopes:
+    - punctuation.section.bracket.curly.variable.end
+- source: ; i
+- source: ++
+  scopes:
+    - keyword.operator.arithmetic
+- source: ))
+  scopes:
+    - punctuation.section.arithmetic
+  scopesEnd:
+    - meta.arithmetic
+- source: ;
+  scopes:
+    - punctuation.terminator.statement.semicolon
+- source: '{'
+  scopesBegin:
+    - meta.scope.group
+  scopes:
+    - punctuation.definition.group
+- source: do_something
+  scopes:
+    - meta.statement
+    - meta.command
+    - entity.name.command
+- source: '}'
+  scopes:
+    - punctuation.definition.group
+  scopesEnd:
+    - meta.scope.group
+- source: ') # <- check this'
+  scopesBegin:
+    - meta.statement
+- source: A
+  scopesBegin:
+    - meta.expression.assignment
+  scopes:
+    - variable.other.assignment
+- source: '='
+  scopes:
+    - keyword.operator.assignment
+- source: $(
+  scopesBegin:
+    - string.interpolated.dollar
+  scopes:
+    - punctuation.definition.evaluation.parens.begin
+- source: for
+  scopesBegin:
+    - meta.scope.for-loop
+  scopes:
+    - keyword.control
+- source: ((
+  scopesBegin:
+    - meta.arithmetic
+  scopes:
+    - punctuation.section.arithmetic
+- source: i
+- source: '='
+  scopes:
+    - keyword.operator.arithmetic
+- source: '0'
+  scopes:
+    - constant.numeric.integer
+- source: ; i
+- source: <
+  scopes:
+    - keyword.operator.arithmetic
+- source: $
+  scopes:
+    - punctuation.definition.variable
+    - punctuation.section.bracket.curly.variable.begin
+- source: '{'
+  scopes:
+    - punctuation.section.bracket.curly.variable.begin
+- source: '#'
+  scopes:
+    - keyword.operator.expansion
+- source: ID
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
+- source: '}'
+  scopes:
+    - punctuation.section.bracket.curly.variable.end
+- source: ; i
+- source: ++
+  scopes:
+    - keyword.operator.arithmetic
+- source: ))
+  scopes:
+    - punctuation.section.arithmetic
+  scopesEnd:
+    - meta.arithmetic
+- source: ;
+  scopes:
+    - punctuation.terminator.statement.semicolon
+- source: do
+  scopes:
+    - keyword.control.do
+- source: do_something
+  scopes:
+    - meta.statement
+    - meta.command
+    - entity.name.command
+- source: done
+  scopes:
+    - keyword.control
+  scopesEnd:
+    - meta.scope.for-loop
+- source: )
+  scopes:
+    - punctuation.definition.evaluation.parens.end
+  scopesEnd:
+    - string.interpolated.dollar
+- source: A
+  scopes:
+    - variable.other.assignment
+- source: '='
+  scopes:
+    - keyword.operator.assignment
+- source: $(
+  scopesBegin:
+    - string.interpolated.dollar
+  scopes:
+    - punctuation.definition.evaluation.parens.begin
+- source: \
+  scopesBegin:
+    - meta.statement
+  scopes:
+    - constant.character.escape.line-continuation
+- source: for
+  scopes:
+    - keyword.control.for
+- source: ((
+  scopesBegin:
+    - meta.arithmetic
+  scopes:
+    - punctuation.section.arithmetic
+- source: i
+- source: '='
+  scopes:
+    - keyword.operator.arithmetic
+- source: '0'
+  scopes:
+    - constant.numeric.integer
+- source: ; i
+- source: <
+  scopes:
+    - keyword.operator.arithmetic
+- source: $
+  scopes:
+    - punctuation.definition.variable
+    - punctuation.section.bracket.curly.variable.begin
+- source: '{'
+  scopes:
+    - punctuation.section.bracket.curly.variable.begin
+- source: '#'
+  scopes:
+    - keyword.operator.expansion
+- source: ID
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
+- source: '}'
+  scopes:
+    - punctuation.section.bracket.curly.variable.end
+- source: ; i
+- source: ++
+  scopes:
+    - keyword.operator.arithmetic
+- source: ))
+  scopes:
+    - punctuation.section.arithmetic
+  scopesEnd:
+    - meta.statement
+    - meta.arithmetic
+- source: ;
+  scopes:
+    - punctuation.terminator.statement.semicolon
+- source: '{'
+  scopesBegin:
+    - meta.scope.group
+  scopes:
+    - punctuation.definition.group
+- source: do_something
+  scopes:
+    - meta.statement
+    - meta.command
+    - entity.name.command
+- source: '}'
+  scopes:
+    - punctuation.definition.group
+  scopesEnd:
+    - meta.scope.group
+- source: )
+  scopes:
+    - punctuation.definition.evaluation.parens.end

@@ -80494,7 +80494,7 @@
     - variable.other.normal
   scopesEnd:
     - meta.expression.assignment
-- source: ' "'
+- source: '"'
   scopesBegin:
     - meta.command
   scopes:
@@ -80741,7 +80741,7 @@
     - variable.other.normal
   scopesEnd:
     - meta.expression.assignment
-- source: ' "'
+- source: '"'
   scopesBegin:
     - meta.command
   scopes:
