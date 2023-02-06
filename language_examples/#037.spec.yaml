@@ -1,0 +1,40 @@
+- source: alias
+  scopesBegin:
+    - meta.expression.assignment
+  scopes:
+    - storage.type.alias
+- source: brew_list
+  scopes:
+    - variable.other.assignment
+- source: '='
+  scopes:
+    - keyword.operator.assignment
+- source: '"'
+  scopesBegin:
+    - string.quoted.double
+  scopes:
+    - punctuation.definition.string.begin
+- source: brew leaves
+- source: '"'
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - string.quoted.double
+- source: alias
+  scopes:
+    - storage.type.alias
+- source: brew-list
+  scopes:
+    - variable.other.assignment
+- source: '='
+  scopes:
+    - keyword.operator.assignment
+- source: '"'
+  scopesBegin:
+    - string.quoted.double
+  scopes:
+    - punctuation.definition.string.begin
+- source: brew leaves
+- source: '"'
+  scopes:
+    - punctuation.definition.string.end
