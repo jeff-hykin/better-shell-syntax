@@ -111,7 +111,7 @@ require_relative './tokens.rb'
         tag_as: "constant.character.escape.line-continuation"
     )
     
-    part_of_a_variable = /[a-zA-Z_0-9]*/ # yes.. ints can be regular variables/function-names in shells
+    part_of_a_variable = /[a-zA-Z_0-9-]*/ # yes.. ints can be regular variables/function-names in shells
     # this is really useful for keywords. eg: variableBounds[/new/] wont match "newThing" or "thingnew"
     variableBounds = ->(regex_pattern) do
         lookBehindToAvoid(@standard_character).then(regex_pattern).lookAheadToAvoid(@standard_character)
