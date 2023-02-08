@@ -420,6 +420,9 @@
   scopes:
     - punctuation.section.bracket.curly.variable.begin
 - source: pip_thing
+  scopes:
+    - meta.parameter-expansion
+    - variable.other.normal
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -633,6 +636,9 @@
   scopes:
     - punctuation.section.bracket.curly.variable.begin
 - source: one_thing
+  scopes:
+    - meta.parameter-expansion
+    - variable.other.normal
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -816,6 +822,9 @@
   scopes:
     - punctuation.section.bracket.curly.variable.begin
 - source: pip_thing
+  scopes:
+    - meta.parameter-expansion
+    - variable.other.normal
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -1029,6 +1038,9 @@
   scopes:
     - punctuation.section.bracket.curly.variable.begin
 - source: two_thing
+  scopes:
+    - meta.parameter-expansion
+    - variable.other.normal
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end

@@ -94,6 +94,9 @@
   scopes:
     - punctuation.section.bracket.curly.variable.begin
 - source: TYPEORM_SYNCHRONIZE
+  scopes:
+    - meta.parameter-expansion
+    - variable.other.normal
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end

@@ -258,10 +258,18 @@
   scopes:
     - punctuation.section.bracket.curly.variable.begin
 - source: NIX_USER_COUNT
+  scopesBegin:
+    - meta.parameter-expansion
+  scopes:
+    - variable.other.normal
 - source: ':-'
   scopes:
     - keyword.operator.expansion
 - source: '32'
+  scopes:
+    - variable.other.normal
+  scopesEnd:
+    - meta.parameter-expansion
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -287,10 +295,18 @@
   scopes:
     - punctuation.section.bracket.curly.variable.begin
 - source: NIX_BUILD_GROUP_ID
+  scopesBegin:
+    - meta.parameter-expansion
+  scopes:
+    - variable.other.normal
 - source: ':-'
   scopes:
     - keyword.operator.expansion
 - source: '30000'
+  scopes:
+    - variable.other.normal
+  scopesEnd:
+    - meta.parameter-expansion
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -351,10 +367,18 @@
   scopes:
     - punctuation.section.bracket.curly.variable.begin
 - source: NIX_FIRST_BUILD_UID
+  scopesBegin:
+    - meta.parameter-expansion
+  scopes:
+    - variable.other.normal
 - source: ':-'
   scopes:
     - keyword.operator.expansion
 - source: '30001'
+  scopes:
+    - variable.other.normal
+  scopesEnd:
+    - meta.parameter-expansion
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -434,9 +458,15 @@
   scopes:
     - punctuation.section.bracket.curly.variable.begin
 - source: NIX_EXTRA_CONF
+  scopesBegin:
+    - meta.parameter-expansion
+  scopes:
+    - variable.other.normal
 - source: ':-'
   scopes:
     - keyword.operator.expansion
+  scopesEnd:
+    - meta.parameter-expansion
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -3795,6 +3825,9 @@
   scopes:
     - punctuation.section.bracket.curly.variable.begin
 - source: RED
+  scopes:
+    - meta.parameter-expansion
+    - variable.other.normal
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -3807,6 +3840,9 @@
   scopes:
     - punctuation.section.bracket.curly.variable.begin
 - source: ESC
+  scopes:
+    - meta.parameter-expansion
+    - variable.other.normal
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -3876,6 +3912,9 @@
   scopes:
     - punctuation.section.bracket.curly.variable.begin
 - source: GREEN
+  scopes:
+    - meta.parameter-expansion
+    - variable.other.normal
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -3888,6 +3927,9 @@
   scopes:
     - punctuation.section.bracket.curly.variable.begin
 - source: ESC
+  scopes:
+    - meta.parameter-expansion
+    - variable.other.normal
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -4477,6 +4519,9 @@
   scopes:
     - punctuation.section.bracket.curly.variable.begin
 - source: RED
+  scopes:
+    - meta.parameter-expansion
+    - variable.other.normal
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -4489,6 +4534,9 @@
   scopes:
     - punctuation.section.bracket.curly.variable.begin
 - source: ESC
+  scopes:
+    - meta.parameter-expansion
+    - variable.other.normal
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -4645,6 +4693,9 @@
   scopes:
     - punctuation.section.bracket.curly.variable.begin
 - source: _SERIOUS_BUSINESS
+  scopes:
+    - meta.parameter-expansion
+    - variable.other.normal
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -4883,6 +4934,10 @@
   scopes:
     - punctuation.section.bracket.curly.variable.begin
 - source: _reminders
+  scopesBegin:
+    - meta.parameter-expansion
+  scopes:
+    - variable.other.normal
 - source: '['
   scopes:
     - punctuation.section.array
@@ -4890,6 +4945,8 @@
 - source: ']'
   scopes:
     - punctuation.section.array
+  scopesEnd:
+    - meta.parameter-expansion
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -4967,9 +5024,15 @@
   scopes:
     - punctuation.section.bracket.curly.variable.begin
 - source: '#'
+  scopesBegin:
+    - meta.parameter-expansion
   scopes:
     - keyword.operator.expansion
 - source: line
+  scopes:
+    - variable.other.normal
+  scopesEnd:
+    - meta.parameter-expansion
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -5145,6 +5208,9 @@
   scopes:
     - punctuation.section.bracket.curly.variable.begin
 - source: BLUE
+  scopes:
+    - meta.parameter-expansion
+    - variable.other.normal
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -5157,6 +5223,9 @@
   scopes:
     - punctuation.section.bracket.curly.variable.begin
 - source: ESC
+  scopes:
+    - meta.parameter-expansion
+    - variable.other.normal
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -5922,9 +5991,15 @@
   scopes:
     - punctuation.section.bracket.curly.variable.begin
 - source: TMPDIR
+  scopesBegin:
+    - meta.parameter-expansion
+  scopes:
+    - variable.other.normal
 - source: ':-'
   scopes:
     - keyword.operator.expansion
+  scopesEnd:
+    - meta.parameter-expansion
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -5971,9 +6046,15 @@
   scopes:
     - punctuation.section.bracket.curly.variable.begin
 - source: TMPDIR
+  scopesBegin:
+    - meta.parameter-expansion
+  scopes:
+    - variable.other.normal
 - source: ':-'
   scopes:
     - keyword.operator.expansion
+  scopesEnd:
+    - meta.parameter-expansion
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -6053,9 +6134,15 @@
   scopes:
     - punctuation.section.bracket.curly.variable.begin
 - source: TMPDIR
+  scopesBegin:
+    - meta.parameter-expansion
+  scopes:
+    - variable.other.normal
 - source: ':-'
   scopes:
     - keyword.operator.expansion
+  scopesEnd:
+    - meta.parameter-expansion
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -6719,6 +6806,10 @@
   scopes:
     - punctuation.section.bracket.curly.variable.begin
 - source: PROFILE_TARGETS
+  scopesBegin:
+    - meta.parameter-expansion
+  scopes:
+    - variable.other.normal
 - source: '['
   scopes:
     - punctuation.section.array
@@ -6726,6 +6817,8 @@
 - source: ']'
   scopes:
     - punctuation.section.array
+  scopesEnd:
+    - meta.parameter-expansion
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -7073,6 +7166,10 @@
   scopes:
     - punctuation.section.bracket.curly.variable.begin
 - source: PROFILE_TARGETS
+  scopesBegin:
+    - meta.parameter-expansion
+  scopes:
+    - variable.other.normal
 - source: '['
   scopes:
     - punctuation.section.array
@@ -7080,6 +7177,8 @@
 - source: ']'
   scopes:
     - punctuation.section.array
+  scopesEnd:
+    - meta.parameter-expansion
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -8024,9 +8123,15 @@
   scopes:
     - punctuation.section.bracket.curly.variable.begin
 - source: ALLOW_PREEXISTING_INSTALLATION
+  scopesBegin:
+    - meta.parameter-expansion
+  scopes:
+    - variable.other.normal
 - source: ':-'
   scopes:
     - keyword.operator.expansion
+  scopesEnd:
+    - meta.parameter-expansion
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -11235,9 +11340,15 @@
   scopes:
     - punctuation.section.bracket.curly.variable.begin
 - source: NIX_INSTALLER_NO_CHANNEL_ADD
+  scopesBegin:
+    - meta.parameter-expansion
+  scopes:
+    - variable.other.normal
 - source: ':-'
   scopes:
     - keyword.operator.expansion
+  scopesEnd:
+    - meta.parameter-expansion
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -11736,6 +11847,10 @@
   scopes:
     - punctuation.section.bracket.curly.variable.begin
 - source: PROFILE_TARGETS
+  scopesBegin:
+    - meta.parameter-expansion
+  scopes:
+    - variable.other.normal
 - source: '['
   scopes:
     - punctuation.section.array
@@ -11743,6 +11858,8 @@
 - source: ']'
   scopes:
     - punctuation.section.array
+  scopesEnd:
+    - meta.parameter-expansion
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -12849,6 +12966,10 @@
   scopes:
     - punctuation.section.bracket.curly.variable.begin
 - source: PROFILE_TARGETS
+  scopesBegin:
+    - meta.parameter-expansion
+  scopes:
+    - variable.other.normal
 - source: '['
   scopes:
     - punctuation.section.array
@@ -12856,6 +12977,8 @@
 - source: ']'
   scopes:
     - punctuation.section.array
+  scopesEnd:
+    - meta.parameter-expansion
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -12891,6 +13014,10 @@
   scopes:
     - punctuation.section.bracket.curly.variable.begin
 - source: PROFILE_TARGETS
+  scopesBegin:
+    - meta.parameter-expansion
+  scopes:
+    - variable.other.normal
 - source: '['
   scopes:
     - punctuation.section.array
@@ -12898,6 +13025,8 @@
 - source: ']'
   scopes:
     - punctuation.section.array
+  scopesEnd:
+    - meta.parameter-expansion
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -13360,6 +13489,9 @@
   scopes:
     - punctuation.section.bracket.curly.variable.begin
 - source: PROFILE_FISH_SUFFIX
+  scopes:
+    - meta.parameter-expansion
+    - variable.other.normal
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -13372,6 +13504,10 @@
   scopes:
     - punctuation.section.bracket.curly.variable.begin
 - source: PROFILE_FISH_PREFIXES
+  scopesBegin:
+    - meta.parameter-expansion
+  scopes:
+    - variable.other.normal
 - source: '['
   scopes:
     - punctuation.section.array
@@ -13379,6 +13515,8 @@
 - source: ']'
   scopes:
     - punctuation.section.array
+  scopesEnd:
+    - meta.parameter-expansion
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -13414,6 +13552,10 @@
   scopes:
     - punctuation.section.bracket.curly.variable.begin
 - source: PROFILE_FISH_PREFIXES
+  scopesBegin:
+    - meta.parameter-expansion
+  scopes:
+    - variable.other.normal
 - source: '['
   scopes:
     - punctuation.section.array
@@ -13421,6 +13563,8 @@
 - source: ']'
   scopes:
     - punctuation.section.array
+  scopesEnd:
+    - meta.parameter-expansion
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -13523,6 +13667,9 @@
   scopes:
     - punctuation.section.bracket.curly.variable.begin
 - source: fish_prefix
+  scopes:
+    - meta.parameter-expansion
+    - variable.other.normal
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -13535,6 +13682,9 @@
   scopes:
     - punctuation.section.bracket.curly.variable.begin
 - source: PROFILE_FISH_SUFFIX
+  scopes:
+    - meta.parameter-expansion
+    - variable.other.normal
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -14149,9 +14299,15 @@
   scopes:
     - punctuation.section.bracket.curly.variable.begin
 - source: NIX_SSL_CERT_FILE
+  scopesBegin:
+    - meta.parameter-expansion
+  scopes:
+    - variable.other.normal
 - source: ':-'
   scopes:
     - keyword.operator.expansion
+  scopesEnd:
+    - meta.parameter-expansion
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -14197,9 +14353,15 @@
   scopes:
     - punctuation.section.bracket.curly.variable.begin
 - source: NIX_SSL_CERT_FILE
+  scopesBegin:
+    - meta.parameter-expansion
+  scopes:
+    - variable.other.normal
 - source: ':-'
   scopes:
     - keyword.operator.expansion
+  scopesEnd:
+    - meta.parameter-expansion
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -14363,9 +14525,15 @@
   scopes:
     - punctuation.section.bracket.curly.variable.begin
 - source: NIX_INSTALLER_NO_CHANNEL_ADD
+  scopesBegin:
+    - meta.parameter-expansion
+  scopes:
+    - variable.other.normal
 - source: ':-'
   scopes:
     - keyword.operator.expansion
+  scopesEnd:
+    - meta.parameter-expansion
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -15739,6 +15907,10 @@
   scopes:
     - punctuation.section.bracket.curly.variable.begin
 - source: PROFILE_TARGETS
+  scopesBegin:
+    - meta.parameter-expansion
+  scopes:
+    - variable.other.normal
 - source: '['
   scopes:
     - punctuation.section.array
@@ -15746,6 +15918,8 @@
 - source: ']'
   scopes:
     - punctuation.section.array
+  scopesEnd:
+    - meta.parameter-expansion
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -16401,9 +16575,11 @@
     - punctuation.section.bracket.curly.variable.begin
 - source: '#'
   scopesBegin:
+    - meta.parameter-expansion
     - keyword.operator.expansion
 - source: '@'
   scopesEnd:
+    - meta.parameter-expansion
     - keyword.operator.expansion
 - source: '}'
   scopes:
@@ -16483,6 +16659,9 @@
   scopes:
     - punctuation.section.bracket.curly.variable.begin
 - source: 1-
+  scopes:
+    - meta.parameter-expansion
+    - variable.other.normal
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end

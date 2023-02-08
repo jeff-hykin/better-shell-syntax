@@ -111,14 +111,14 @@ require_relative './tokens.rb'
         tag_as: "constant.character.escape.line-continuation"
     )
     
-    part_of_a_variable = /[a-zA-Z_0-9-]*/ # yes.. ints can be regular variables/function-names in shells
+    part_of_a_variable = /[a-zA-Z_0-9-]+/ # yes.. ints can be regular variables/function-names in shells
     # this is really useful for keywords. eg: variableBounds[/new/] wont match "newThing" or "thingnew"
     variableBounds = ->(regex_pattern) do
         lookBehindToAvoid(@standard_character).then(regex_pattern).lookAheadToAvoid(@standard_character)
     end
     variable_name = variableBounds[part_of_a_variable]
     
-    std_space = Pattern.new(/\s*+/)
+    std_space = Pattern.new(/[ \t]*+/)
     
     # this numeric_literal was stolen from C++, has been cleaned up some, but could have a few dangling oddities
     def generateNumericLiteral(allow_user_defined_literals: false, separator:"_")
@@ -871,6 +871,7 @@ require_relative './tokens.rb'
         generateVariable(/\{[0-9]+\}/, "variable.parameter.positional"),
         generateVariable(/[-*#?$!0_]/, "variable.language.special"),
         PatternRange.new(
+            tag_content_as: "meta.parameter-expansion",
             start_pattern: Pattern.new(
                     match: Pattern.new(
                         match: /\$/,
@@ -900,6 +901,10 @@ require_relative './tokens.rb'
                         match: /\]/,
                         tag_as: "punctuation.section.array",
                     )
+                ),
+                Pattern.new(
+                    match: variable_name,
+                    tag_as: "variable.other.normal",
                 ),
                 :variable,
                 :string,

@@ -66,6 +66,7 @@ meta.expression.assignment.shell
 meta.function.body.shell
 meta.function.shell
 meta.herestring.shell
+meta.parameter-expansion
 meta.scope.case-block.shell
 meta.scope.case-body.shell
 meta.scope.case-clause-body.shell

@@ -23,6 +23,9 @@
   scopes:
     - punctuation.section.bracket.curly.variable.begin
 - source: PATH
+  scopes:
+    - meta.parameter-expansion
+    - variable.other.normal
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end

@@ -1188,6 +1188,10 @@
   scopes:
     - punctuation.section.bracket.curly.variable.begin
 - source: PROFILE_TARGETS
+  scopesBegin:
+    - meta.parameter-expansion
+  scopes:
+    - variable.other.normal
 - source: '['
   scopes:
     - punctuation.section.array
@@ -1195,6 +1199,8 @@
 - source: ']'
   scopes:
     - punctuation.section.array
+  scopesEnd:
+    - meta.parameter-expansion
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end

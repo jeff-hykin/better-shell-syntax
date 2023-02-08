@@ -35,6 +35,10 @@
   scopes:
     - punctuation.section.bracket.curly.variable.begin
 - source: '-'
+  scopesBegin:
+    - meta.parameter-expansion
+  scopes:
+    - variable.other.normal
 - source: ':'
   scopes:
     - keyword.operator.expansion
@@ -56,6 +60,7 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
+    - meta.parameter-expansion
     - string.quoted.double
 - source: '}'
   scopes:
@@ -145,6 +150,10 @@
   scopes:
     - punctuation.section.bracket.curly.variable.begin
 - source: '-'
+  scopesBegin:
+    - meta.parameter-expansion
+  scopes:
+    - variable.other.normal
 - source: ':'
   scopes:
     - keyword.operator.expansion
@@ -166,6 +175,7 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
+    - meta.parameter-expansion
     - string.quoted.double
 - source: '}'
   scopes:
@@ -218,6 +228,9 @@
   scopes:
     - punctuation.section.bracket.curly.variable.begin
 - source: a
+  scopes:
+    - meta.parameter-expansion
+    - variable.other.normal
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -442,6 +455,9 @@
   scopes:
     - punctuation.section.bracket.curly.variable.begin
 - source: a
+  scopes:
+    - meta.parameter-expansion
+    - variable.other.normal
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -520,6 +536,10 @@
   scopes:
     - punctuation.section.bracket.curly.variable.begin
 - source: '-'
+  scopesBegin:
+    - meta.parameter-expansion
+  scopes:
+    - variable.other.normal
 - source: ':'
   scopes:
     - keyword.operator.expansion
@@ -541,6 +561,7 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
+    - meta.parameter-expansion
     - string.quoted.double
 - source: '}'
   scopes:
@@ -593,6 +614,9 @@
   scopes:
     - punctuation.section.bracket.curly.variable.begin
 - source: a
+  scopes:
+    - meta.parameter-expansion
+    - variable.other.normal
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -817,6 +841,9 @@
   scopes:
     - punctuation.section.bracket.curly.variable.begin
 - source: a
+  scopes:
+    - meta.parameter-expansion
+    - variable.other.normal
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -895,6 +922,10 @@
   scopes:
     - punctuation.section.bracket.curly.variable.begin
 - source: '-'
+  scopesBegin:
+    - meta.parameter-expansion
+  scopes:
+    - variable.other.normal
 - source: ':'
   scopes:
     - keyword.operator.expansion
@@ -916,6 +947,7 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
+    - meta.parameter-expansion
     - string.quoted.double
 - source: '}'
   scopes:
@@ -968,6 +1000,9 @@
   scopes:
     - punctuation.section.bracket.curly.variable.begin
 - source: a
+  scopes:
+    - meta.parameter-expansion
+    - variable.other.normal
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
@@ -1192,6 +1227,9 @@
   scopes:
     - punctuation.section.bracket.curly.variable.begin
 - source: a
+  scopes:
+    - meta.parameter-expansion
+    - variable.other.normal
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
