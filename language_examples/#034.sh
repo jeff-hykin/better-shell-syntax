@@ -7,10 +7,12 @@ echo "Start"
 
 for post in "${posts[@]}"; do
 	"${command_args[@]}" "$post"
+    "${command_args[@]}" "$post"
 done
 
 echo "End"
 "${command_args[@]}" "$post"
  "${command_args[@]}" "$post"
+	"${command_args[@]}" "$post"
 ${command_args[@]} "$post"
 
