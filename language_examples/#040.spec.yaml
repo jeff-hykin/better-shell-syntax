@@ -1,0 +1,277 @@
+- source: 'function '
+  scopesBegin:
+    - meta.function
+  scopes:
+    - storage.type.function
+- source: aaa
+  scopes:
+    - entity.name.function
+- source: (
+  scopesBegin:
+    - punctuation.definition.arguments
+- source: )
+  scopesEnd:
+    - punctuation.definition.arguments
+- source: '{'
+  scopesBegin:
+    - meta.function.body
+  scopes:
+    - punctuation.definition.group
+    - punctuation.section.function.definition
+- source: local
+  scopesBegin:
+    - meta.statement
+    - meta.expression.assignment
+  scopes:
+    - storage.modifier.local
+- source: O
+  scopes:
+    - variable.other.assignment
+- source: '='
+  scopes:
+    - keyword.operator.assignment
+- source: '"'
+  scopesBegin:
+    - string.quoted.double
+  scopes:
+    - punctuation.definition.string.begin
+- source: $
+  scopes:
+    - punctuation.definition.variable
+    - punctuation.section.bracket.curly.variable.begin
+- source: '{'
+  scopes:
+    - punctuation.section.bracket.curly.variable.begin
+- source: O
+  scopesBegin:
+    - meta.parameter-expansion
+  scopes:
+    - variable.other.normal
+- source: ':-'
+  scopes:
+    - keyword.operator.expansion
+- source: $
+  scopes:
+    - punctuation.definition.variable
+    - variable.other.normal
+- source: ___XX_DEFAULT
+  scopes:
+    - variable.other.normal
+  scopesEnd:
+    - meta.parameter-expansion
+- source: '}'
+  scopes:
+    - punctuation.section.bracket.curly.variable.end
+- source: '"'
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - string.quoted.double
+- source: local
+  scopes:
+    - storage.modifier.local
+- source: O
+  scopes:
+    - variable.other.assignment
+- source: '='
+  scopes:
+    - keyword.operator.assignment
+- source: '"'
+  scopesBegin:
+    - string.quoted.double
+  scopes:
+    - punctuation.definition.string.begin
+- source: $
+  scopes:
+    - punctuation.definition.variable
+    - punctuation.section.bracket.curly.variable.begin
+- source: '{'
+  scopes:
+    - punctuation.section.bracket.curly.variable.begin
+- source: O
+  scopesBegin:
+    - meta.parameter-expansion
+  scopes:
+    - variable.other.normal
+- source: ':-'
+  scopes:
+    - keyword.operator.expansion
+- source: ___XX_DEFAULT
+  scopes:
+    - variable.other.normal
+  scopesEnd:
+    - meta.parameter-expansion
+- source: '}'
+  scopes:
+    - punctuation.section.bracket.curly.variable.end
+- source: '"'
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - string.quoted.double
+- source: local
+  scopes:
+    - storage.modifier.local
+- source: O
+  scopes:
+    - variable.other.assignment
+- source: '='
+  scopes:
+    - keyword.operator.assignment
+- source: '"'
+  scopesBegin:
+    - string.quoted.double
+  scopes:
+    - punctuation.definition.string.begin
+- source: $
+  scopes:
+    - punctuation.definition.variable
+    - punctuation.section.bracket.curly.variable.begin
+- source: '{'
+  scopes:
+    - punctuation.section.bracket.curly.variable.begin
+- source: '1'
+  scopesBegin:
+    - meta.parameter-expansion
+  scopes:
+    - variable.other.normal
+- source: ':?'
+  scopes:
+    - keyword.operator.expansion
+- source: '"'
+  scopesBegin:
+    - string.quoted.double
+  scopes:
+    - punctuation.definition.string.begin
+- source: Please provide xxx
+- source: '"'
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - meta.parameter-expansion
+    - string.quoted.double
+- source: '}'
+  scopes:
+    - punctuation.section.bracket.curly.variable.end
+- source: '"'
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - string.quoted.double
+- source: local
+  scopes:
+    - storage.modifier.local
+- source: O
+  scopes:
+    - variable.other.assignment
+- source: '='
+  scopes:
+    - keyword.operator.assignment
+- source: '"'
+  scopesBegin:
+    - string.quoted.double
+  scopes:
+    - punctuation.definition.string.begin
+- source: $
+  scopes:
+    - punctuation.definition.variable
+    - punctuation.section.bracket.curly.variable.begin
+- source: '{'
+  scopes:
+    - punctuation.section.bracket.curly.variable.begin
+- source: '1'
+  scopesBegin:
+    - meta.parameter-expansion
+  scopes:
+    - variable.other.normal
+- source: ':'
+  scopes:
+    - keyword.operator.expansion
+- source: +
+- source: '"'
+  scopesBegin:
+    - string.quoted.double
+  scopes:
+    - punctuation.definition.string.begin
+- source: p=path
+- source: '"'
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - meta.parameter-expansion
+    - string.quoted.double
+- source: '}'
+  scopes:
+    - punctuation.section.bracket.curly.variable.end
+- source: '"'
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - string.quoted.double
+- source: local
+  scopes:
+    - storage.modifier.local
+- source: O
+  scopes:
+    - variable.other.assignment
+- source: '='
+  scopes:
+    - keyword.operator.assignment
+- source: '"'
+  scopesBegin:
+    - string.quoted.double
+  scopes:
+    - punctuation.definition.string.begin
+- source: $
+  scopes:
+    - punctuation.definition.variable
+    - punctuation.section.bracket.curly.variable.begin
+- source: '{'
+  scopes:
+    - punctuation.section.bracket.curly.variable.begin
+- source: '1'
+  scopesBegin:
+    - meta.parameter-expansion
+  scopes:
+    - variable.other.normal
+- source: '##'
+  scopes:
+    - keyword.operator.expansion
+- source: '"'
+  scopesBegin:
+    - string.quoted.double
+  scopes:
+    - punctuation.definition.string.begin
+- source: cut
+- source: '"'
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - string.quoted.double
+- source: '*'
+  scopes:
+    - keyword.operator.expansion
+  scopesEnd:
+    - meta.parameter-expansion
+- source: '}'
+  scopes:
+    - punctuation.section.bracket.curly.variable.end
+- source: '"'
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - meta.statement
+    - meta.expression.assignment
+    - string.quoted.double
+- source: '}'
+  scopes:
+    - punctuation.definition.group
+    - punctuation.section.function.definition
+  scopesEnd:
+    - meta.function
+    - meta.function.body
+- source: aaa
+  scopes:
+    - meta.statement
+    - meta.command
+    - entity.name.command

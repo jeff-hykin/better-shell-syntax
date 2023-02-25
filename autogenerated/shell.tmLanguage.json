@@ -606,7 +606,7 @@
       },
       "endCaptures": {
         "0": {
-          "name": "punctuation.definition.string.end.shell entity.name.command.shell"
+          "name": "string.quoted.double.shell punctuation.definition.string.end.shell entity.name.command.shell"
         }
       },
       "contentName": "meta.command_name.continuation string.quoted.double entity.name.command",
@@ -630,7 +630,7 @@
       },
       "endCaptures": {
         "0": {
-          "name": "punctuation.definition.string.end.shell entity.name.command.shell"
+          "name": "string.quoted.single.shell punctuation.definition.string.end.shell entity.name.command.shell"
         }
       },
       "contentName": "meta.command_name.continuation string.quoted.single entity.name.command"

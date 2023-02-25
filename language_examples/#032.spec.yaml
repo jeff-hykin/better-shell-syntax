@@ -115,6 +115,7 @@
     - entity.name.command
 - source: '"'
   scopes:
+    - string.quoted.double
     - punctuation.definition.string.end
     - entity.name.command
 - source: echo
@@ -198,6 +199,7 @@
     - entity.name.command
 - source: '"'
   scopes:
+    - string.quoted.double
     - punctuation.definition.string.end
     - entity.name.command
 - source: echo
@@ -278,6 +280,7 @@
     - entity.name.command
 - source: '"'
   scopes:
+    - string.quoted.double
     - punctuation.definition.string.end
     - entity.name.command
 - source: imma_postfix
@@ -364,6 +367,7 @@
     - entity.name.command
 - source: '"'
   scopes:
+    - string.quoted.double
     - punctuation.definition.string.end
     - entity.name.command
 - source: imma_postfix
@@ -456,6 +460,7 @@
     - entity.name.command
 - source: '"'
   scopes:
+    - string.quoted.double
     - punctuation.definition.string.end
     - entity.name.command
 - source: imma_postfix
@@ -523,6 +528,7 @@
     - entity.name.command
 - source: '"'
   scopes:
+    - string.quoted.double
     - punctuation.definition.string.end
     - entity.name.command
 - source: echo
@@ -610,6 +616,7 @@
     - entity.name.command
 - source: '"'
   scopes:
+    - string.quoted.double
     - punctuation.definition.string.end
     - entity.name.command
 - source: echo
@@ -694,6 +701,7 @@
     - entity.name.command
 - source: '"'
   scopes:
+    - string.quoted.double
     - punctuation.definition.string.end
     - entity.name.command
 - source: imma_postfix
@@ -784,6 +792,7 @@
     - entity.name.command
 - source: '"'
   scopes:
+    - string.quoted.double
     - punctuation.definition.string.end
     - entity.name.command
 - source: imma_postfix
@@ -840,6 +849,7 @@
     - entity.name.command
 - source: ''''
   scopes:
+    - string.quoted.single
     - punctuation.definition.string.end
     - entity.name.command
 - source: echo
@@ -896,6 +906,7 @@
     - entity.name.command
 - source: ''''
   scopes:
+    - string.quoted.single
     - punctuation.definition.string.end
     - entity.name.command
 - source: echo
@@ -949,6 +960,7 @@
     - entity.name.command
 - source: ''''
   scopes:
+    - string.quoted.single
     - punctuation.definition.string.end
     - entity.name.command
 - source: imma_postfix
@@ -1008,6 +1020,7 @@
     - entity.name.command
 - source: ''''
   scopes:
+    - string.quoted.single
     - punctuation.definition.string.end
     - entity.name.command
 - source: imma_postfix
@@ -1068,6 +1081,7 @@
     - entity.name.command
 - source: ''''
   scopes:
+    - string.quoted.single
     - punctuation.definition.string.end
     - entity.name.command
 - source: echo
@@ -1128,6 +1142,7 @@
     - entity.name.command
 - source: ''''
   scopes:
+    - string.quoted.single
     - punctuation.definition.string.end
     - entity.name.command
 - source: echo
@@ -1185,6 +1200,7 @@
     - entity.name.command
 - source: ''''
   scopes:
+    - string.quoted.single
     - punctuation.definition.string.end
     - entity.name.command
 - source: imma_postfix
@@ -1248,6 +1264,7 @@
     - entity.name.command
 - source: ''''
   scopes:
+    - string.quoted.single
     - punctuation.definition.string.end
     - entity.name.command
 - source: imma_postfix
@@ -1316,6 +1333,7 @@
     - entity.name.command
 - source: ''''
   scopes:
+    - string.quoted.single
     - punctuation.definition.string.end
     - entity.name.command
 - source: imma_postfix

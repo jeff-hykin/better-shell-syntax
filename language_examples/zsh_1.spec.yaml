@@ -25343,6 +25343,7 @@
     - entity.name.command
 - source: '"'
   scopes:
+    - string.quoted.double
     - punctuation.definition.string.end
     - entity.name.command
   scopesEnd:
@@ -61308,6 +61309,7 @@
     - entity.name.command
 - source: '"'
   scopes:
+    - string.quoted.double
     - punctuation.definition.string.end
     - entity.name.command
   scopesEnd:
@@ -77404,6 +77406,7 @@
     - entity.name.command
 - source: '"'
   scopes:
+    - string.quoted.double
     - punctuation.definition.string.end
     - entity.name.command
 - source: '"'
@@ -83193,6 +83196,7 @@
     - entity.name.command
 - source: '"'
   scopes:
+    - string.quoted.double
     - punctuation.definition.string.end
     - entity.name.command
 - source: return
@@ -83583,6 +83587,7 @@
     - entity.name.command
 - source: '"'
   scopes:
+    - string.quoted.double
     - punctuation.definition.string.end
     - entity.name.command
 - source: return
@@ -83833,6 +83838,7 @@
     - entity.name.command
 - source: '"'
   scopes:
+    - string.quoted.double
     - punctuation.definition.string.end
     - entity.name.command
   scopesEnd:
@@ -85261,6 +85267,7 @@
     - entity.name.command
 - source: ''''
   scopes:
+    - string.quoted.single
     - punctuation.definition.string.end
     - entity.name.command
 - source: '"'
@@ -87996,6 +88003,7 @@
     - entity.name.command
 - source: '"'
   scopes:
+    - string.quoted.double
     - punctuation.definition.string.end
     - entity.name.command
 - source: '"'
