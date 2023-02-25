@@ -604,7 +604,7 @@ require_relative './tokens.rb'
         ),
         end_pattern: Pattern.new(
             match: "\"",
-            tag_as: "punctuation.definition.string.end.shell entity.name.command",
+            tag_as: "string.quoted.double punctuation.definition.string.end.shell entity.name.command",
         ),
         includes: [
             Pattern.new(
@@ -625,7 +625,7 @@ require_relative './tokens.rb'
         ),
         end_pattern: Pattern.new(
             match: "\'",
-            tag_as: "punctuation.definition.string.end.shell entity.name.command",
+            tag_as: "string.quoted.single punctuation.definition.string.end.shell entity.name.command",
         ),
     )
     
