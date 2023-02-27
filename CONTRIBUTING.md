@@ -1,59 +1,159 @@
 ## How do I setup the project?
 
-1. Make sure you have ruby, node and npm installed.
-2. Clone or fork the repo.
-3. Run `npm install`
-4. Run `npm test` to make sure everything is working
-5. Then inside VS Code, start the debugger (F5 for windows / Mac OS / Linux)
-6. Then open up a C++ file, and any changes made to the project will show up in the syntax of that file.
-7. Every time you make a change, just press the refresh button on the debugger pop up.
+Take a look at `documentation/setup.md` for details on installing dependencies and such.
 
-## Mapping textmate grammar constructs to readable grammars
-For a single pattern rule:
-- captures are replaced with tagging sub expressions (see readable regex tutorial later)
-- in scope name `$0` becomes `$match` and `$N` becomes `$reference(name)`
-- `"captures": {"0": {"patterns": [...]}}` is just `includes:`
+## Adding a Feature
 
-For begin/end rules:
-- `contentName:` is renamed to `tag_content_as:`
-- `begin:` is renamed to `start_pattern:`
-- `end:` is renamed to `end_pattern:`
-- `beginCaptures` and `endCaptures` are replaced with tagged sub-expressions on `start_pattern` and `end_pattern` respectively
-- `patterns:` is renamed to `includes`
+If you believe you've successfully made a change.
+- Create a `your_feature.cpp` file in the `language_examples/` folder. Once it is created, add C++ code to it that demonstrates your feature (more demonstration the better).
+- Then use `project test` to generate specs for all the examples.
+- If there were no side effects, then `your_feature.spec.yaml` should be the only new/changed file. However, if there were side effects then some of the other `.spec.yaml` files will be changed. Sometimes those side effects are good, sometimes they're irrelevent, and often times they're a regression. 
+- Once that is ready, make a pull request!
 
-For both single pattern and begin/end rules:
-- `name:` is renamed to `tag_as:`
-- use ruby symbols `:repository_name:` instead of `"#repository_name` in `includes:`
-- to add a rule to the repository use `cpp_grammar[:repository_name] = newPattern(...)`
+# How things work
+
+- Everything really begins in `main/main.rb`
+- The TLDR is
+    - we create a grammar object
+    - we create patterns using `Pattern.new` and `PatternRange.new`
+    - we decide which patterns "go first" by putting them in the `grammar[:$initial_context]`
+    - then we compile the grammar to a .tmLanguage.json file 
+- Sadly the C++ repo is a bit of spaghetti, due in large part to the language complexity
+
+## If you already know about Textmate Grammars 
+
+(So if you happen to be one of the approximately 200 people on earth that have used textmate grammars)
+Something like this in a tmLanguage.json file
+
+```json
+{
+    "match": "blah/blah/blah",
+    "name": "punctuation.separator.attribute.cpp",
+    "patterns": [
+        {
+          "include": "#evaluation_context"
+        },
+    ]
+}
+```
+
+Becomes this inside main.rb
+
+```ruby
+Pattern.new(
+    match: /blah\/blah\/blah/,
+    tag_as: "punctuation.separator.attribute",
+    includes: [
+        :evaluation_context,
+    ],
+)
+```
+
+And things like this
+
+```json
+{
+    "begin": "\\[\\[",
+    "end": "\\]\\]",
+    "beginCaptures": {
+        "0": {
+            "name": "punctuation.section.attribute.begin.cpp"
+        }
+    },
+    "endCaptures": {
+        "0": {
+            "name": "punctuation.section.attribute.end.cpp"
+        }
+    },
+    "name": "support.other.attribute.cpp",
+    "patterns": [
+        {
+            "include": "#attributes_context"
+        },
+    ]
+}
+```
+
+Become this
+
+```ruby
+PatternRange.new(
+    start_pattern: Pattern.new(
+            match: /\[\[/,
+            tag_as: "punctuation.section.attribute.begin"
+        ),
+    end_pattern: Pattern.new(
+            match: /\]\]/,
+            tag_as: "punctuation.section.attribute.end",
+        ),
+    tag_as: "support.other.attribute",
+    # tag_content_as: "support.other.attribute", # <- alternative that doesnt double-tag the start/end
+    includes: [
+        :attributes_context,
+    ]
+)
+```
+
+To add something to the grammar's repository just do 
+
+```ruby
+grammar[:the_pattern_name] = Pattern.new(/blahblahblah/)
+```
+
+Where this gets really powerful is that you can nest/reuse patterns.
+
+```ruby
+quote = Pattern.new(
+    match: /"/,
+    tag_as: "punctuation",
+)
+
+smalltalk = Pattern.new(
+    match: /blah\/blah\/blah/,
+    tag_as: "punctuation.separator.attribute",
+    includes: [
+        :evaluation_context,
+    ],
+)
+
+phrase = Pattern.new(
+    match: Pattern.new(/the man said: /).then(quote).then(smalltalk).then(quote),
+    tag_as: "other.phrase",
+)
+```
 
 ## Readable Regex Guide
-the following helpers exist to create a more readable regex syntax
-- `newPattern(*attributes)` or `.then(*attributes)` create a new "shy" group
-  - example: `newPattern(/foo/)` => `/(?:foo)/
+
+Regex is pretty hard to read, so this repo uses a library to help.
+- `Pattern.new(*attributes)` or `.then(*attributes)` creates a new "shy" group
+  - example: `Pattern.new(/foo/)` => `/(?:foo)/
 - `.or(*attributes)` adds an alternation (`|`)
-  - example: `/foo/.or(/bar/)` => `/foo|(?:bar)/`
+  - example: `Pattern.new(/foo/).or(/bar/)` => `/foo|(?:bar)/`
   - please note you may need more shy groups depending on order
-    `/foo/.or(/bar/).maybe(@spaces)` becomes (simplified) `/foo|bar\s*/` not `/(?:foo|bar)\s*/` for that you need
-    
-    `newPattern(/foo/.or(/bar/)).maybe(@spaces)`
+    `Pattern.new(/foo/).or(/bar/).maybe(@spaces)` becomes (simplified) `/(?:foo|bar)\s*/`
 - `maybe(*attributes)` or `.maybe(*attributes)` causes the pattern to match zero or one times (`?`)
   - example `maybe(/foo/)` => `/(?:foo)?/`
 - `zeroOrMoreTimes(*attributes)` or `.zeroOrMoreTimes(*attributes)` causes the pattern to be matched zero or more times (`*`)
-  - example `zeroOrMoreTimes(/foo/)` => `/(?:foo)*/
+  - example `zeroOrMoreTimes(/foo/)` => `/(?:foo)*/`
 - `oneOrMoreTimes(*attributes)` or `.oneOrMoreTimes(*attributes)` causes the pattern to be matched one or more times (`+`)
-  - example `oneOrMoreTimes(/foo/)` => `/(?:foo)+/
+  - example `oneOrMoreTimes(/foo/)` => `/(?:foo)+/`
 - `lookBehindFor(regex)` or `.lookBehindFor(regex)` add a positive lookbehind
-  - example `lookBehindFor(/foo/)` => `/(?<=foo)/
+  - example `lookBehindFor(/foo/)` => `/(?<=foo)/`
 - `lookBehindToAvoid(regex)` or `.lookBehindToAvoid(regex)` add a negative lookbehind
-  - example `lookBehindToAvoid(/foo/)` => `/(?<!foo)/
+  - example `lookBehindToAvoid(/foo/)` => `/(?<!foo)/`
 - `lookAheadFor(regex)` or `.lookAheadFor(regex)` add a positive lookahead
-  - example `lookAheadFor(/foo/)` => `/(?=foo)/
+  - example `lookAheadFor(/foo/)` => `/(?=foo)/`
 - `lookAheadToAvoid(regex)` or `.lookAheadToAvoid(regex)` add a negative lookahead
-  - example `lookAheadToAvoid(/foo/)` => `/(?!foo)/
-- `backreference(reference)` or `.backreference(reference)` adds a backreference
-  - example `newPattern(match: /foo|bar/, reference: "foobar").backreference("foobar")` => `/(foo|bar)\1/`
+  - example `lookAheadToAvoid(/foo/)` => `/(?!foo)/`
+- `recursivelyMatch(reference)` or `.recursivelyMatch(reference)` adds a regex subexpression
+  - for example here's a pattern that would match `()`, `(())`, `((()))`, etc
+  - `Pattern.new(match: Pattern.new( "(" ).recursivelyMatch("foobar").or("").then( ")" ), reference: "foobar")`
+  - as normal ruby-regex it would look like: `/(\(\g<1>\))/`
+- `matchResultOf(reference)` or `.matchResultOf(reference)` adds a backreference
+  - example `Pattern.new(match: /foo|bar/, reference: "foobar").matchResultOf("foobar")` => `/(foo|bar)\1/`
+  - matches: `foofoo` and `barbar` but not `foobar`
 
-helpers that are marked as accepting `*attributes` can accept either a regular expression, a hash that provide more info, or a variable that is either of those.
+helpers that are marked as accepting `*attributes` can accept either a regular expression, a hash that provides more info, or a variable that is either of those.
 
 the hash provided to the helper patterns can have the following keys:
   - `match:` the regular expression that should be matched
@@ -62,10 +162,31 @@ the hash provided to the helper patterns can have the following keys:
   - `comment:` unused, use regular ruby comments
   - `should_partial_match`, `should_not_partial_match`, `should_fully_match`, and `should_not_fully_match` see unit testing
 
-look{Ahead,Behind}{ToAvoid,For} helpers only accept regular expressions use `.without_numbered_capture_groups` to convert a pattern to a regular expression
 
 ### PatternRange
 `PatternRange.new` is used to create a begin/end pattern rule.
+
+```ruby
+# All available arguments (can't all be used at same time)
+PatternRange.new(
+    # typical aguments
+    tag_as:  "",
+    start_pattern: Pattern.new(),
+    end_pattern:  Pattern.new(),
+    includes: [],
+    
+    # unit testing arguments
+    should_partial_match: [],
+    should_not_partial_match: [],
+    should_fully_match: [],
+    should_not_fully_match: [],
+    
+    # advanced options
+    tag_contents_as: "",
+    while_pattern: Pattern.new(), # replaces "end_pattern" but the underlying behavior is strange, see: https://github.com/jeff-hykin/fornix/blob/877b89c5d4b2e51c6bf6bd019d3b34b04aaabe72/documentation/library/textmate_while.md#L1
+    apply_end_pattern_last: false, # boolean, see https://www.apeth.com/nonblog/stories/textmatebundle.html
+)
+```
 
 ## Testing
 ### Unit Testing
