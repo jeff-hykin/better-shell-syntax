@@ -40,6 +40,7 @@
   scopesBegin:
     - meta.command
   scopes:
+    - meta.command_name
     - entity.name.command
 - source: '"'
   scopesBegin:
@@ -96,6 +97,7 @@
     - meta.statement
     - meta.command
   scopes:
+    - meta.command_name
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -206,6 +208,7 @@
     - meta.statement
     - meta.command
   scopes:
+    - meta.command_name
     - entity.name.command
 - source: install
   scopesBegin:
@@ -233,6 +236,7 @@
     - meta.statement
     - meta.command
   scopes:
+    - meta.command_name
     - entity.name.command
     - support.function.builtin
 - source: /opencv-3.2.0/
@@ -255,6 +259,7 @@
     - meta.statement
     - meta.command
   scopes:
+    - meta.command_name
     - entity.name.command
 - source: build
   scopesBegin:
@@ -276,6 +281,7 @@
     - meta.statement
     - meta.command
   scopes:
+    - meta.command_name
     - entity.name.command
     - support.function.builtin
 - source: build
@@ -298,6 +304,7 @@
     - meta.statement
     - meta.command
   scopes:
+    - meta.command_name
     - entity.name.command
 - source: \
   scopes:
@@ -314,6 +321,7 @@
     - meta.statement
     - meta.command
   scopes:
+    - meta.command_name
     - entity.name.command
 - source: /opencv.zip
   scopesBegin:
@@ -335,6 +343,7 @@
     - meta.statement
     - meta.command
   scopes:
+    - meta.command_name
     - entity.name.command
 - source: /opencv_contrib.zip
   scopes:
@@ -418,6 +427,7 @@
   scopesBegin:
     - meta.command
   scopes:
+    - meta.command_name
     - entity.name.command
     - support.function.builtin
 - source: '"'
@@ -443,6 +453,7 @@
     - meta.statement
     - meta.command
   scopes:
+    - meta.command_name
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -468,6 +479,7 @@
     - meta.statement
     - meta.command
   scopes:
+    - meta.command_name
     - entity.name.command
     - support.function.builtin
 - source: '9'
@@ -482,6 +494,7 @@
     - meta.argument
 - source: exec
   scopes:
+    - meta.command_name
     - entity.name.command
     - support.function.builtin
 - source: '8'
@@ -502,6 +515,7 @@
     - meta.statement
     - meta.command
   scopes:
+    - meta.command_name
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -562,6 +576,7 @@
     - meta.statement
     - meta.command
   scopes:
+    - meta.command_name
     - entity.name.command
 - source: setaf
   scopesBegin:
@@ -610,6 +625,7 @@
     - meta.statement
     - meta.command
   scopes:
+    - meta.command_name
     - entity.name.command
 - source: setaf
   scopesBegin:
@@ -658,6 +674,7 @@
     - meta.statement
     - meta.command
   scopes:
+    - meta.command_name
     - entity.name.command
 - source: sgr0
   scopes:
@@ -681,6 +698,7 @@
   scopesBegin:
     - meta.command
   scopes:
+    - meta.command_name
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -707,6 +725,7 @@
     - string.quoted.single
 - source: sed
   scopes:
+    - meta.command_name
     - entity.name.command
 - source: ''''
   scopesBegin:
@@ -723,6 +742,7 @@
     - string.quoted.single
 - source: sed
   scopes:
+    - meta.command_name
     - entity.name.command
 - source: ''''
   scopesBegin:
@@ -743,6 +763,7 @@
     - meta.argument
 - source: read
   scopes:
+    - meta.command_name
     - entity.name.command
     - support.function.builtin
 - source: '-'
@@ -796,6 +817,7 @@
     - string.unquoted.argument
 - source: echo
   scopes:
+    - meta.command_name
     - entity.name.command
     - support.function.builtin
   scopesEnd:
@@ -858,6 +880,7 @@
     - meta.statement
     - meta.command
   scopes:
+    - meta.command_name
     - entity.name.command
     - support.function.builtin
 - source: '1'

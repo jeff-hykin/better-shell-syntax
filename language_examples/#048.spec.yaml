@@ -1,0 +1,175 @@
+- source: '#!'
+  scopesBegin:
+    - comment.line.number-sign
+    - meta.shebang
+  scopes:
+    - punctuation.definition.comment.shebang
+- source: /bin/sh
+  scopesEnd:
+    - comment.line.number-sign
+    - meta.shebang
+- source: if
+  scopesBegin:
+    - meta.scope.if-block
+  scopes:
+    - keyword.control
+- source: '['
+  scopesBegin:
+    - meta.scope.logical-expression
+  scopes:
+    - punctuation.definition.logical-expression
+- source: '!'
+  scopesBegin:
+    - keyword.operator.logical
+- source: '-d'
+  scopesEnd:
+    - keyword.operator.logical
+- source: $
+  scopes:
+    - punctuation.definition.variable
+    - variable.other.normal
+- source: source_configs_path
+  scopes:
+    - variable.other.normal
+- source: ']'
+  scopes:
+    - punctuation.definition.logical-expression
+  scopesEnd:
+    - meta.scope.logical-expression
+- source: ;
+  scopes:
+    - punctuation.terminator.statement.semicolon
+- source: then
+  scopes:
+    - keyword.control.then
+- source: echo
+  scopesBegin:
+    - meta.statement
+    - meta.command
+  scopes:
+    - meta.command_name
+    - entity.name.command
+    - support.function.builtin
+- source: '-'
+  scopesBegin:
+    - string.unquoted.argument
+  scopes:
+    - constant.other.option.dash
+- source: e
+  scopes:
+    - constant.other.option
+  scopesEnd:
+    - meta.statement
+    - meta.command
+    - string.unquoted.argument
+- source: '`'
+  scopesBegin:
+    - string.interpolated.backtick
+  scopes:
+    - punctuation.definition.evaluation.backticks
+- source: date
+  scopesBegin:
+    - meta.statement
+    - meta.command
+  scopes:
+    - meta.command_name
+    - entity.name.command
+- source: '"'
+  scopesBegin:
+    - meta.argument
+    - string.quoted.double
+  scopes:
+    - punctuation.definition.string.begin
+- source: '+%Y-%m-%d %H:%M:%S'
+- source: '"'
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - meta.statement
+    - meta.command
+    - meta.argument
+    - string.quoted.double
+- source: '`'
+  scopes:
+    - punctuation.definition.evaluation.backticks
+  scopesEnd:
+    - string.interpolated.backtick
+- source: '"'
+  scopesBegin:
+    - meta.statement
+    - meta.command
+    - meta.command_name
+  scopes:
+    - meta.command_name.quoted
+    - string.quoted.double
+    - punctuation.definition.string.begin
+    - entity.name.command
+- source: '['
+  scopesBegin:
+    - meta.command_name.continuation
+    - string.quoted.double
+    - entity.name.command
+- source: $
+  scopes:
+    - punctuation.definition.variable
+    - variable.other.normal
+- source: FUNCNAME
+  scopes:
+    - variable.other.normal
+- source: '] '
+  scopesEnd:
+    - meta.command_name.continuation
+    - string.quoted.double
+    - entity.name.command
+- source: '"'
+  scopes:
+    - string.quoted.double
+    - punctuation.definition.string.end
+    - entity.name.command
+- source: '"'
+  scopes:
+    - meta.command_name.quoted
+    - string.quoted.double
+    - punctuation.definition.string.begin
+    - entity.name.command
+- source: ' desination path of source_config doesn''t exist...'
+  scopes:
+    - meta.command_name.continuation
+    - string.quoted.double
+    - entity.name.command
+- source: '"'
+  scopes:
+    - string.quoted.double
+    - punctuation.definition.string.end
+    - entity.name.command
+- source: mkdir
+  scopes:
+    - entity.name.command
+  scopesEnd:
+    - meta.command_name
+- source: '-'
+  scopesBegin:
+    - string.unquoted.argument
+  scopes:
+    - constant.other.option.dash
+- source: p
+  scopes:
+    - constant.other.option
+  scopesEnd:
+    - string.unquoted.argument
+- source: $
+  scopesBegin:
+    - meta.argument
+  scopes:
+    - punctuation.definition.variable
+    - variable.other.normal
+- source: source_configs_path
+  scopes:
+    - variable.other.normal
+  scopesEnd:
+    - meta.statement
+    - meta.command
+    - meta.argument
+- source: fi
+  scopes:
+    - keyword.control

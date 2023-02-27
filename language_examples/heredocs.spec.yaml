@@ -7,6 +7,7 @@
   scopes:
     - meta.statement
     - meta.command
+    - meta.command_name
     - entity.name.command
     - support.function.builtin
 - source: ;
@@ -20,6 +21,7 @@
     - meta.statement
     - meta.command
   scopes:
+    - meta.command_name
     - entity.name.command
 - source: <<-
   scopesBegin:
@@ -39,6 +41,7 @@
     - meta.argument
 - source: cat
   scopes:
+    - meta.command_name
     - entity.name.command
 - source: <<-
   scopesBegin:
@@ -60,6 +63,7 @@
     - meta.argument
 - source: cat
   scopes:
+    - meta.command_name
     - entity.name.command
 - source: <<-
   scopesBegin:
@@ -81,6 +85,7 @@
     - meta.argument
 - source: cat
   scopes:
+    - meta.command_name
     - entity.name.command
 - source: '<<'
   scopesBegin:
@@ -102,6 +107,7 @@
     - meta.argument
 - source: cat
   scopes:
+    - meta.command_name
     - entity.name.command
 - source: '<<'
   scopesBegin:
@@ -131,6 +137,7 @@
     - meta.statement
     - meta.command
   scopes:
+    - meta.command_name
     - entity.name.command
     - support.function.builtin
 - source: '"'
@@ -156,6 +163,7 @@
     - string.quoted.double
 - source: cat
   scopes:
+    - meta.command_name
     - entity.name.command
 - source: '<<'
   scopesBegin:
@@ -183,6 +191,7 @@
     - meta.argument
 - source: echo
   scopes:
+    - meta.command_name
     - entity.name.command
     - support.function.builtin
 - source: '"'
@@ -208,6 +217,7 @@
     - string.quoted.double
 - source: echo
   scopes:
+    - meta.command_name
     - entity.name.command
     - support.function.builtin
 - source: '"'
@@ -233,6 +243,7 @@
     - string.quoted.double
 - source: cat
   scopes:
+    - meta.command_name
     - entity.name.command
 - source: <<-
   scopesBegin:
@@ -260,6 +271,7 @@
     - meta.argument
 - source: echo
   scopes:
+    - meta.command_name
     - entity.name.command
     - support.function.builtin
 - source: '"'

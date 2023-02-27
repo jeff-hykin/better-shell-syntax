@@ -13,6 +13,7 @@
     - meta.statement
     - meta.command
   scopes:
+    - meta.command_name
     - entity.name.command
     - support.function.builtin
 - source: '"'
@@ -111,6 +112,7 @@
   scopesBegin:
     - meta.command
   scopes:
+    - meta.command_name
     - entity.name.command
     - support.function.builtin
 - source: '"'

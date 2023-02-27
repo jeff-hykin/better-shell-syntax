@@ -58,6 +58,7 @@ keyword.other.unit.suffix.floating-point.shell
 keyword.other.unit.suffix.integer.shell
 meta.argument.shell
 meta.arithmetic.shell
+meta.command.name.basic.shell
 meta.command.shell
 meta.command_name.continuation
 meta.command_name.quoted.shell
@@ -102,6 +103,7 @@ punctuation.definition.logical-expression.shell
 punctuation.definition.string.begin.shell
 punctuation.definition.string.end.shell
 punctuation.definition.string.heredoc.shell
+punctuation.definition.string.shell
 punctuation.definition.subshell
 punctuation.definition.subshell.shell
 punctuation.definition.variable.shell

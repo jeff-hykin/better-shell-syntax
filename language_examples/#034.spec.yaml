@@ -78,6 +78,7 @@
   scopesBegin:
     - meta.command
   scopes:
+    - meta.command_name
     - entity.name.command
     - support.function.builtin
 - source: '"'
@@ -150,6 +151,7 @@
   scopesBegin:
     - meta.statement
     - meta.command
+    - meta.command_name
   scopes:
     - meta.command_name.quoted
     - string.quoted.double
@@ -192,6 +194,8 @@
     - string.quoted.double
     - punctuation.definition.string.end
     - entity.name.command
+  scopesEnd:
+    - meta.command_name
 - source: '"'
   scopesBegin:
     - meta.argument
@@ -212,6 +216,8 @@
     - meta.argument
     - string.quoted.double
 - source: '"'
+  scopesBegin:
+    - meta.command_name
   scopes:
     - meta.command_name.quoted
     - string.quoted.double
@@ -254,6 +260,8 @@
     - string.quoted.double
     - punctuation.definition.string.end
     - entity.name.command
+  scopesEnd:
+    - meta.command_name
 - source: '"'
   scopesBegin:
     - meta.argument
@@ -285,6 +293,7 @@
     - meta.statement
     - meta.command
   scopes:
+    - meta.command_name
     - entity.name.command
     - support.function.builtin
 - source: '"'
@@ -301,6 +310,8 @@
     - meta.argument
     - string.quoted.double
 - source: '"'
+  scopesBegin:
+    - meta.command_name
   scopes:
     - meta.command_name.quoted
     - string.quoted.double
@@ -343,6 +354,8 @@
     - string.quoted.double
     - punctuation.definition.string.end
     - entity.name.command
+  scopesEnd:
+    - meta.command_name
 - source: '"'
   scopesBegin:
     - meta.argument
@@ -363,6 +376,8 @@
     - meta.argument
     - string.quoted.double
 - source: '"'
+  scopesBegin:
+    - meta.command_name
   scopes:
     - meta.command_name.quoted
     - string.quoted.double
@@ -405,6 +420,8 @@
     - string.quoted.double
     - punctuation.definition.string.end
     - entity.name.command
+  scopesEnd:
+    - meta.command_name
 - source: '"'
   scopesBegin:
     - meta.argument
@@ -425,6 +442,8 @@
     - meta.argument
     - string.quoted.double
 - source: '"'
+  scopesBegin:
+    - meta.command_name
   scopes:
     - meta.command_name.quoted
     - string.quoted.double
@@ -467,6 +486,8 @@
     - string.quoted.double
     - punctuation.definition.string.end
     - entity.name.command
+  scopesEnd:
+    - meta.command_name
 - source: '"'
   scopesBegin:
     - meta.argument

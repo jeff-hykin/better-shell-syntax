@@ -4,6 +4,12 @@ require 'walk_up'
 require_relative walk_up_until("paths.rb")
 require_relative './tokens.rb'
 
+# TODO:
+    # meta.command_name" => "meta.command.name"
+    # meta.command_name.quoted" => "meta.command.name.quoted"
+    # meta.command_name.continuation" => "meta.command.name.continuation"
+    # "meta.command.name" => "meta.statement.command.name"
+
 # 
 # 
 # create grammar!
@@ -28,7 +34,7 @@ require_relative './tokens.rb'
     grammar[:initial_context] = [
             :comment,
             :pipeline,
-            :statement_seperator,
+            :normal_statement_seperator,
             :logical_expression_double,
             :logical_expression_single,
             :misc_ranges,
@@ -43,7 +49,7 @@ require_relative './tokens.rb'
             :keyword,
             :alias_statement,
             # :custom_commands,
-            :command_call,
+            :normal_statement,
             :string,
             :support,
         ]
@@ -51,10 +57,10 @@ require_relative './tokens.rb'
             match: /\b(?:true|false)\b/,
             tag_as: "constant.language.$match"
         )
-    grammar[:statement_context] = [
+    grammar[:normal_statement_context] = [
             :comment,
             :pipeline,
-            :statement_seperator,
+            :normal_statement_seperator,
             :misc_ranges,
             :boolean,
             :redirect_number,
@@ -91,7 +97,7 @@ require_relative './tokens.rb'
             :redirect_number,
             :numeric_literal,
             :pipeline,
-            :statement_seperator,
+            :normal_statement_seperator,
             :string,
             :variable,
             :interpolation,
@@ -106,6 +112,8 @@ require_relative './tokens.rb'
 # Patterns
 #
 #
+    empty_line = /^[ \t]*+$/
+    line_continuation = /\\\n?$/
     grammar[:line_continuation] = Pattern.new(
         match: Pattern.new(/\\/).lookAheadFor(/\n/),
         tag_as: "constant.character.escape.line-continuation"
@@ -362,7 +370,7 @@ require_relative './tokens.rb'
     # punctuation / operators
     # 
     # replaces the old list pattern
-    grammar[:statement_seperator] = Pattern.new(
+    grammar[:normal_statement_seperator] = Pattern.new(
             match: /;/,
             tag_as: "punctuation.terminator.statement.semicolon"
         ).or(
@@ -475,7 +483,7 @@ require_relative './tokens.rb'
                         tag_as: "keyword.operator.assignment.compound",
                     )
                 ),
-            end_pattern: assignment_end = lookAheadFor(/ |$/).or(grammar[:statement_seperator]),
+            end_pattern: assignment_end = lookAheadFor(/ |$/).or(grammar[:normal_statement_seperator]),
             includes: [
                 :comment,
                 :argument_context,
@@ -507,7 +515,7 @@ require_relative './tokens.rb'
                 tag_as: "storage.type.alias"
             ).then(std_space).then(assignment_start),
         end_pattern: assignment_end,
-        includes: [ :statement_context ]
+        includes: [ :normal_statement_context ]
     )
     
     possible_pre_command_characters   = /(?:^|;|\||&|!|\(|\{|\`)/
@@ -516,10 +524,11 @@ require_relative './tokens.rb'
     command_end              = lookAheadFor(/;|\||&|\n|\)|\`|\{|\}| *#|\]/).lookBehindToAvoid(/\\/)
     command_continuation     = lookBehindToAvoid(/ |\t|;|\||&|\n|\{|#/)
     unquoted_string_end      = lookAheadFor(/\s|;|\||&|$|\n|\)|\`/)
+    argument_end             = lookAheadFor(/\s|;|\||&|$|\n|\)|\`/)
     invalid_literals         = Regexp.quote(@tokens.representationsThat(:areInvalidLiterals).join(""))
     valid_literal_characters = Regexp.new("[^\s\n#{invalid_literals}]+")
     any_builtin_name         = @tokens.representationsThat(:areBuiltInCommands).map{ |value| Regexp.quote(value) }.join("|")
-    any_builtin_name         = Regexp.new("(?:#{any_builtin_name})")
+    any_builtin_name         = Regexp.new("(?:#{any_builtin_name})(?!\/)")
     any_builtin_name         = variableBounds[any_builtin_name]
     any_builtin_control_flow = @tokens.representationsThat(:areBuiltInCommands, :areControlFlow).map{ |value| Regexp.quote(value) }.join("|")
     any_builtin_control_flow = Regexp.new("(?:#{any_builtin_control_flow})")
@@ -534,12 +543,11 @@ require_relative './tokens.rb'
                 |value| Regexp.quote(value) 
             # add word-delimiter
             }.map{
-                |value| value + '\b'
+                |value| value + '\b(?!\/)'
             # "OR" join
             }.join("|")
         )
     )
-    puts "possible_command_start is: #{possible_command_start} "
     
     grammar[:keyword] = [
         Pattern.new(
@@ -630,8 +638,8 @@ require_relative './tokens.rb'
         ),
     )
     
-    grammar[:command_name] = Pattern.new(
-        tag_as: "meta.command_name",
+    grammar[:basic_command_name] = Pattern.new(
+        tag_as: "meta.command.name.basic",
         match: Pattern.new(
             Pattern.new(
                 possible_command_start
@@ -656,9 +664,15 @@ require_relative './tokens.rb'
             )
         ),
     )
+    grammar[:start_of_command] = Pattern.new(
+        std_space.then(
+            possible_command_start.lookAheadToAvoid(line_continuation) # avoid line exscapes
+        )
+    )
+    
     grammar[:argument_context] = [
         generateUnquotedArugment["string.unquoted.argument"],
-        :statement_context,
+        :normal_statement_context,
     ]
     grammar[:argument] = PatternRange.new(
         tag_as: "meta.argument",
@@ -697,8 +711,7 @@ require_relative './tokens.rb'
     keywords = @tokens.representationsThat(:areShellReservedWords, :areNotModifiers)
     keyword_patterns = /#{keywords.map { |each| each+'\W|'+each+'\$' } .join('|')}/
     valid_after_patterns = /#{['if','elif','then', 'else', 'while', 'do'].map { |each| '^'+each+' | '+each+' |\t'+each+' ' } .join('|')}/
-    empty_line = /^[ \t]*+$/
-    grammar[:command_call] = PatternRange.new(
+    grammar[:normal_statement] = PatternRange.new(
         zeroLengthStart?: true,
         zeroLengthEnd?: true,
         tag_as: "meta.statement",
@@ -712,44 +725,56 @@ require_relative './tokens.rb'
         includes: [
             :function_definition,
             :assignment,
-            # This pattern exclusively handleds commands with quotes
+            
+            # 
+            # Command Statement
+            # 
             PatternRange.new(
                 tag_as: "meta.command",
-                start_pattern: std_space.oneOf([
-                    grammar[:start_of_single_quoted_command_name],
-                    grammar[:start_of_double_quoted_command_name],
-                ]),
+                start_pattern: grammar[:start_of_command],
                 end_pattern: command_end,
                 includes: [
+                    # 
                     # Command Name Range
+                    # 
                     PatternRange.new(
-                        tag_as: "meta.command.name",
-                        start_pattern: Pattern.new(
-                            /\G/,
-                        ),
-                        end_pattern: unquoted_string_end,
+                        tag_as: "meta.command_name",
+                        start_pattern: Pattern.new(/\G/,),
+                        end_pattern: argument_end,
                         includes: [
-                            # first quotes
-                            :continuation_of_single_quoted_command_name,
-                            :continuation_of_double_quoted_command_name,
+                            # 
+                            # builtin commands
+                            # 
+                            :modifiers, # TODO: eventually this one thing shouldnt be here
+                            
+                            Pattern.new(
+                                match: any_builtin_control_flow,
+                                tag_as: "entity.name.command keyword.control.$match",
+                            ),
+                            Pattern.new(
+                                match: any_builtin_name,
+                                tag_as: "entity.name.command support.function.builtin",
+                            ),
+                            :variable,
                             
                             # 
-                            # any connected unquoted parts
+                            # unquoted parts of a command name
                             # 
                             Pattern.new(
-                                lookBehindFor(/'|"/).then(
-                                    tag_as: "meta.command.extension entity.name.command",
-                                    match: /[^ \n\t\r"';#$!&\|]+/,
+                                lookBehindFor(/\G|'|"|\}|\)/).then(
+                                    tag_as: "entity.name.command",
+                                    match: /[^ \n\t\r"'=;#$!&\|`\)\{]+/,
                                 ),
                             ),
                             
                             # 
-                            # any connected quotes
+                            # any quotes within a command name
                             # 
                             PatternRange.new(
-                                tag_as: "meta.command.extension",
                                 start_pattern: Pattern.new(
-                                    command_continuation.then(
+                                    Pattern.new(
+                                        Pattern.new(/\G/).or(command_continuation)
+                                    ).then(
                                         maybe(
                                             match: /\$/,
                                             tag_as: "meta.command_name.quoted punctuation.definition.string entity.name.command",
@@ -772,24 +797,14 @@ require_relative './tokens.rb'
                                     :continuation_of_single_quoted_command_name,
                                     :continuation_of_double_quoted_command_name,
                                 ],
-                            )
+                            ),
+                            :line_continuation,
                         ],
                     ),
-                    :line_continuation,
-                    :option,
-                    :argument,
-                    # :custom_commands,
-                    :statement_context
-                ],
-            ),
-            # This pattern exclusively handleds commands that don't use quotes
-            # (and I don't think it can be combined with the above pattern without breaking multi-line quoted commands)
-            PatternRange.new(
-                tag_as: "meta.command",
-                start_pattern: std_space.then(grammar[:command_name]),
-                end_pattern: command_end,
-                includes: [
-                    # same as the grammar string, but instead looks behind for the "
+                    
+                    # 
+                    # everything else after the command name
+                    # 
                     :line_continuation,
                     :option,
                     :argument,
@@ -798,7 +813,7 @@ require_relative './tokens.rb'
                 ],
             ),
             :line_continuation,
-            :statement_context,
+            :normal_statement_context,
         ]
     )
     grammar[:custom_commands] = [
@@ -1061,7 +1076,7 @@ require_relative './tokens.rb'
                             ).then(
                                 match: /.*/,
                                 includes: [
-                                    :statement_context,
+                                    :normal_statement_context,
                                 ],
                             )
                         ),
@@ -1094,7 +1109,7 @@ require_relative './tokens.rb'
                             ).then(
                                 match: /.*/,
                                 includes: [
-                                    :statement_context,
+                                    :normal_statement_context,
                                 ],
                             )
                         ),
@@ -1122,7 +1137,7 @@ require_relative './tokens.rb'
                             ).lookAheadFor(/\s|;|&|<|"|'/).then(
                                 match: /.*/,
                                 includes: [
-                                    :statement_context,
+                                    :normal_statement_context,
                                 ],
                             )
                         ),
@@ -1155,7 +1170,7 @@ require_relative './tokens.rb'
                             ).lookAheadFor(/\s|;|&|<|"|'/).then(
                                 match: /.*/,
                                 includes: [
-                                    :statement_context,
+                                    :normal_statement_context,
                                 ],
                             )
                         ),

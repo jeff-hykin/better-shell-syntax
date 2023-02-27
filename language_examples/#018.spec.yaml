@@ -37,6 +37,7 @@
     - meta.statement
     - meta.command
   scopes:
+    - meta.command_name
     - entity.name.command
     - support.function.builtin
 - source: '"'
@@ -65,6 +66,7 @@
     - meta.statement
     - meta.command
   scopes:
+    - meta.command_name
     - entity.name.command
     - support.function.builtin
 - source: '"'
@@ -115,6 +117,7 @@
     - meta.statement
     - meta.command
   scopes:
+    - meta.command_name
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -128,6 +131,7 @@
     - string.unquoted.argument
 - source: pwd
   scopes:
+    - meta.command_name
     - entity.name.command
     - support.function.builtin
   scopesEnd:

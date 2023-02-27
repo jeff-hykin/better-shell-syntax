@@ -90,6 +90,7 @@
   scopes:
     - meta.statement
     - meta.command
+    - meta.command_name
     - entity.name.command
 - source: '`'
   scopes:
@@ -190,6 +191,7 @@
   scopesBegin:
     - meta.command
   scopes:
+    - meta.command_name
     - entity.name.command
     - support.function.builtin
 - source: +x
@@ -255,6 +257,7 @@
     - meta.statement
     - meta.command
   scopes:
+    - meta.command_name
     - entity.name.command
     - support.function.builtin
 - source: '-'
@@ -280,6 +283,7 @@
     - meta.statement
     - meta.command
   scopes:
+    - meta.command_name
     - entity.name.command
     - support.function.builtin
 - source: +x
@@ -317,6 +321,7 @@
   scopes:
     - meta.statement
     - meta.command
+    - meta.command_name
     - entity.name.command
 - source: )
   scopes:
@@ -358,6 +363,7 @@
     - meta.statement
     - meta.command
   scopes:
+    - meta.command_name
     - entity.name.command
     - support.function.builtin
 - source: date
@@ -403,6 +409,7 @@
     - meta.statement
     - meta.command
   scopes:
+    - meta.command_name
     - entity.name.command
     - support.function.builtin
 - source: date
@@ -440,6 +447,7 @@
     - meta.statement
     - meta.command
   scopes:
+    - meta.command_name
     - entity.name.command
     - support.function.builtin
 - source: +x
@@ -465,6 +473,7 @@
     - meta.argument
 - source: unset
   scopes:
+    - meta.command_name
     - entity.name.command
     - support.function.builtin
 - source: a
@@ -493,6 +502,7 @@
   scopes:
     - meta.statement
     - meta.command
+    - meta.command_name
     - entity.name.command
 - source: ;
   scopes:
@@ -576,6 +586,7 @@
   scopesBegin:
     - meta.command
   scopes:
+    - meta.command_name
     - entity.name.command
     - support.function.builtin
 - source: +x
@@ -641,6 +652,7 @@
     - meta.statement
     - meta.command
   scopes:
+    - meta.command_name
     - entity.name.command
     - support.function.builtin
 - source: '-'
@@ -666,6 +678,7 @@
     - meta.statement
     - meta.command
   scopes:
+    - meta.command_name
     - entity.name.command
     - support.function.builtin
 - source: +x
@@ -703,6 +716,7 @@
   scopes:
     - meta.statement
     - meta.command
+    - meta.command_name
     - entity.name.command
 - source: )
   scopes:
@@ -744,6 +758,7 @@
     - meta.statement
     - meta.command
   scopes:
+    - meta.command_name
     - entity.name.command
     - support.function.builtin
 - source: date
@@ -789,6 +804,7 @@
     - meta.statement
     - meta.command
   scopes:
+    - meta.command_name
     - entity.name.command
     - support.function.builtin
 - source: date
@@ -826,6 +842,7 @@
     - meta.statement
     - meta.command
   scopes:
+    - meta.command_name
     - entity.name.command
     - support.function.builtin
 - source: +x
@@ -851,6 +868,7 @@
     - meta.argument
 - source: unset
   scopes:
+    - meta.command_name
     - entity.name.command
     - support.function.builtin
 - source: a
@@ -879,6 +897,7 @@
   scopes:
     - meta.statement
     - meta.command
+    - meta.command_name
     - entity.name.command
 - source: ;
   scopes:
@@ -962,6 +981,7 @@
   scopesBegin:
     - meta.command
   scopes:
+    - meta.command_name
     - entity.name.command
     - support.function.builtin
 - source: +x
@@ -1027,6 +1047,7 @@
     - meta.statement
     - meta.command
   scopes:
+    - meta.command_name
     - entity.name.command
     - support.function.builtin
 - source: '-'
@@ -1052,6 +1073,7 @@
     - meta.statement
     - meta.command
   scopes:
+    - meta.command_name
     - entity.name.command
     - support.function.builtin
 - source: +x
@@ -1089,6 +1111,7 @@
   scopes:
     - meta.statement
     - meta.command
+    - meta.command_name
     - entity.name.command
 - source: )
   scopes:
@@ -1130,6 +1153,7 @@
     - meta.statement
     - meta.command
   scopes:
+    - meta.command_name
     - entity.name.command
     - support.function.builtin
 - source: date
@@ -1175,6 +1199,7 @@
     - meta.statement
     - meta.command
   scopes:
+    - meta.command_name
     - entity.name.command
     - support.function.builtin
 - source: date
@@ -1212,6 +1237,7 @@
     - meta.statement
     - meta.command
   scopes:
+    - meta.command_name
     - entity.name.command
     - support.function.builtin
 - source: +x
@@ -1237,6 +1263,7 @@
     - meta.argument
 - source: unset
   scopes:
+    - meta.command_name
     - entity.name.command
     - support.function.builtin
 - source: a

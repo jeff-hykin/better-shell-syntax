@@ -79,6 +79,7 @@
     - meta.statement
     - meta.command
   scopes:
+    - meta.command_name
     - entity.name.command
 - source: '"'
   scopesBegin:
@@ -109,6 +110,7 @@
     - meta.statement
     - meta.command
   scopes:
+    - meta.command_name
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -160,6 +162,7 @@
     - meta.statement
     - meta.command
   scopes:
+    - meta.command_name
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -187,6 +190,7 @@
     - meta.statement
     - meta.command
   scopes:
+    - meta.command_name
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -231,6 +235,7 @@
     - meta.statement
     - meta.command
   scopes:
+    - meta.command_name
     - entity.name.command
 - source: '"'
   scopesBegin:
@@ -261,6 +266,7 @@
     - meta.statement
     - meta.command
   scopes:
+    - meta.command_name
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -312,6 +318,7 @@
     - meta.statement
     - meta.command
   scopes:
+    - meta.command_name
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -339,6 +346,7 @@
     - meta.statement
     - meta.command
   scopes:
+    - meta.command_name
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -560,6 +568,7 @@
     - meta.statement
     - meta.command
   scopes:
+    - meta.command_name
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -619,6 +628,7 @@
     - meta.statement
     - meta.command
   scopes:
+    - meta.command_name
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -677,6 +687,7 @@
     - meta.statement
     - meta.command
   scopes:
+    - meta.command_name
     - entity.name.command
     - support.function.builtin
 - source: '"'
@@ -708,6 +719,7 @@
     - meta.statement
     - meta.command
   scopes:
+    - meta.command_name
     - entity.name.command
 - source: tee
   scopesBegin:
@@ -744,6 +756,7 @@
     - meta.argument
 - source: return
   scopes:
+    - meta.command_name
     - entity.name.command
     - keyword.control.return
 - source: '0'
@@ -763,6 +776,7 @@
     - meta.statement
     - meta.command
   scopes:
+    - meta.command_name
     - entity.name.command
     - support.function.builtin
 - source: '"'
@@ -788,6 +802,7 @@
     - string.quoted.double
 - source: echo
   scopes:
+    - meta.command_name
     - entity.name.command
     - support.function.builtin
 - source: '"'
@@ -805,6 +820,7 @@
     - string.quoted.double
 - source: return
   scopes:
+    - meta.command_name
     - entity.name.command
     - keyword.control.return
 - source: '1'
@@ -906,6 +922,7 @@
     - meta.statement
     - meta.command
   scopes:
+    - meta.command_name
     - entity.name.command
     - support.function.builtin
 - source: '"'
@@ -931,6 +948,7 @@
     - string.quoted.double
 - source: echo
   scopes:
+    - meta.command_name
     - entity.name.command
     - support.function.builtin
 - source: '"'
@@ -948,6 +966,7 @@
     - string.quoted.double
 - source: return
   scopes:
+    - meta.command_name
     - entity.name.command
     - keyword.control.return
 - source: '1'
@@ -1069,6 +1088,7 @@
     - meta.statement
     - meta.command
   scopes:
+    - meta.command_name
     - entity.name.command
 - source: '"'
   scopesBegin:
@@ -1110,6 +1130,7 @@
     - meta.statement
     - meta.command
   scopes:
+    - meta.command_name
     - entity.name.command
 - source: rm
   scopes:
@@ -1220,6 +1241,7 @@
     - meta.statement
     - meta.command
   scopes:
+    - meta.command_name
     - entity.name.command
 - source: '"'
   scopesBegin:

@@ -99,6 +99,7 @@
     - meta.statement
     - meta.command
   scopes:
+    - meta.command_name
     - entity.name.command
 - source: '"'
   scopesBegin:
@@ -140,6 +141,7 @@
     - meta.statement
     - meta.command
   scopes:
+    - meta.command_name
     - entity.name.command
 - source: rm
   scopes:

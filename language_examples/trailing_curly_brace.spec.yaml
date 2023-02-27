@@ -51,6 +51,7 @@
   scopes:
     - meta.statement
     - meta.command
+    - meta.command_name
     - entity.name.command
 - source: ;
   scopes:
