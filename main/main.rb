@@ -514,6 +514,7 @@ require_relative './tokens.rb'
     basic_possible_command_start      = lookAheadToAvoid(/(?:!|%|&|\||\(|\)|\{|\[|<|>|#|\n|$|;|\s)/)
     possible_argument_start  = lookAheadToAvoid(/(?:%|&|\||\(|\[|#|\n|$|;)/)
     command_end              = lookAheadFor(/;|\||&|\n|\)|\`|\{|\}| *#|\]/).lookBehindToAvoid(/\\/)
+    command_continuation     = lookBehindToAvoid(/ |\t|;|\||&|\n|\{|#/)
     unquoted_string_end      = lookAheadFor(/\s|;|\||&|$|\n|\)|\`/)
     invalid_literals         = Regexp.quote(@tokens.representationsThat(:areInvalidLiterals).join(""))
     valid_literal_characters = Regexp.new("[^\s\n#{invalid_literals}]+")
@@ -637,7 +638,7 @@ require_relative './tokens.rb'
             ).then(
                 modifier.or(
                     tag_as: "entity.name.command",
-                    match: lookAheadToAvoid(/\\\n?$/).oneOf([ /\$?"/, /.+?/ ]), # the start of a string command or normal command
+                    match: lookAheadToAvoid(/"|'|\\\n?$/).then(/[^!'" \t\n\r]+?/), # start of unquoted command
                     includes: [
                         Pattern.new(
                             match: any_builtin_control_flow,
@@ -720,20 +721,62 @@ require_relative './tokens.rb'
                 ]),
                 end_pattern: command_end,
                 includes: [
-                    # same as the grammar string, but instead looks behind for the "
-                    :continuation_of_single_quoted_command_name,
-                    :continuation_of_double_quoted_command_name,
+                    # Command Name Range
+                    PatternRange.new(
+                        tag_as: "meta.command.name",
+                        start_pattern: Pattern.new(
+                            /\G/,
+                        ),
+                        end_pattern: unquoted_string_end,
+                        includes: [
+                            # first quotes
+                            :continuation_of_single_quoted_command_name,
+                            :continuation_of_double_quoted_command_name,
+                            
+                            # 
+                            # any connected unquoted parts
+                            # 
+                            Pattern.new(
+                                lookBehindFor(/'|"/).then(
+                                    tag_as: "meta.command.extension entity.name.command",
+                                    match: /[^ \n\t\r"';#$!&\|]+/,
+                                ),
+                            ),
+                            
+                            # 
+                            # any connected quotes
+                            # 
+                            PatternRange.new(
+                                tag_as: "meta.command.extension",
+                                start_pattern: Pattern.new(
+                                    command_continuation.then(
+                                        maybe(
+                                            match: /\$/,
+                                            tag_as: "meta.command_name.quoted punctuation.definition.string entity.name.command",
+                                        ).then(
+                                            reference: "start_quote",
+                                            match: Pattern.new(
+                                                Pattern.new(
+                                                    tag_as: "meta.command_name.quoted string.quoted.double punctuation.definition.string.begin entity.name.command",
+                                                    match: /"/
+                                                ).or(
+                                                    tag_as: "meta.command_name.quoted string.quoted.single punctuation.definition.string.begin entity.name.command",
+                                                    match: /'/,
+                                                )
+                                            )
+                                        )
+                                    )
+                                ),
+                                end_pattern: lookBehindToAvoid(/\G/).lookBehindFor(matchResultOf("start_quote")),
+                                includes: [
+                                    :continuation_of_single_quoted_command_name,
+                                    :continuation_of_double_quoted_command_name,
+                                ],
+                            )
+                        ],
+                    ),
                     :line_continuation,
                     :option,
-                    # this pattern only happens as a rare edgecase 
-                    # if this is the command: "$1"_command_postfix
-                    # then this pattern matches the trailing '_command_postfix' part 
-                    Pattern.new(
-                        lookBehindFor(/'|"/).then(
-                            tag_as: "entity.name.command",
-                            match: /[^ \n\t\r]+/,
-                        ),
-                    ),
                     :argument,
                     # :custom_commands,
                     :statement_context
