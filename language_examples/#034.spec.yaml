@@ -78,7 +78,7 @@
   scopesBegin:
     - meta.command
   scopes:
-    - meta.command_name
+    - meta.statement.command.name
     - entity.name.command
     - support.function.builtin
 - source: '"'
@@ -151,15 +151,15 @@
   scopesBegin:
     - meta.statement
     - meta.command
-    - meta.command_name
+    - meta.statement.command.name
   scopes:
-    - meta.command_name.quoted
+    - meta.statement.command.name.quoted
     - string.quoted.double
     - punctuation.definition.string.begin
     - entity.name.command
 - source: $
   scopesBegin:
-    - meta.command_name.continuation
+    - meta.statement.command.name.continuation
     - string.quoted.double
     - entity.name.command
   scopes:
@@ -186,7 +186,7 @@
   scopes:
     - punctuation.section.bracket.curly.variable.end
   scopesEnd:
-    - meta.command_name.continuation
+    - meta.statement.command.name.continuation
     - string.quoted.double
     - entity.name.command
 - source: '"'
@@ -195,7 +195,7 @@
     - punctuation.definition.string.end
     - entity.name.command
   scopesEnd:
-    - meta.command_name
+    - meta.statement.command.name
 - source: '"'
   scopesBegin:
     - meta.argument
@@ -217,15 +217,15 @@
     - string.quoted.double
 - source: '"'
   scopesBegin:
-    - meta.command_name
+    - meta.statement.command.name
   scopes:
-    - meta.command_name.quoted
+    - meta.statement.command.name.quoted
     - string.quoted.double
     - punctuation.definition.string.begin
     - entity.name.command
 - source: $
   scopesBegin:
-    - meta.command_name.continuation
+    - meta.statement.command.name.continuation
     - string.quoted.double
     - entity.name.command
   scopes:
@@ -252,7 +252,7 @@
   scopes:
     - punctuation.section.bracket.curly.variable.end
   scopesEnd:
-    - meta.command_name.continuation
+    - meta.statement.command.name.continuation
     - string.quoted.double
     - entity.name.command
 - source: '"'
@@ -261,7 +261,7 @@
     - punctuation.definition.string.end
     - entity.name.command
   scopesEnd:
-    - meta.command_name
+    - meta.statement.command.name
 - source: '"'
   scopesBegin:
     - meta.argument
@@ -293,7 +293,7 @@
     - meta.statement
     - meta.command
   scopes:
-    - meta.command_name
+    - meta.statement.command.name
     - entity.name.command
     - support.function.builtin
 - source: '"'
@@ -311,15 +311,15 @@
     - string.quoted.double
 - source: '"'
   scopesBegin:
-    - meta.command_name
+    - meta.statement.command.name
   scopes:
-    - meta.command_name.quoted
+    - meta.statement.command.name.quoted
     - string.quoted.double
     - punctuation.definition.string.begin
     - entity.name.command
 - source: $
   scopesBegin:
-    - meta.command_name.continuation
+    - meta.statement.command.name.continuation
     - string.quoted.double
     - entity.name.command
   scopes:
@@ -346,7 +346,7 @@
   scopes:
     - punctuation.section.bracket.curly.variable.end
   scopesEnd:
-    - meta.command_name.continuation
+    - meta.statement.command.name.continuation
     - string.quoted.double
     - entity.name.command
 - source: '"'
@@ -355,7 +355,7 @@
     - punctuation.definition.string.end
     - entity.name.command
   scopesEnd:
-    - meta.command_name
+    - meta.statement.command.name
 - source: '"'
   scopesBegin:
     - meta.argument
@@ -377,15 +377,15 @@
     - string.quoted.double
 - source: '"'
   scopesBegin:
-    - meta.command_name
+    - meta.statement.command.name
   scopes:
-    - meta.command_name.quoted
+    - meta.statement.command.name.quoted
     - string.quoted.double
     - punctuation.definition.string.begin
     - entity.name.command
 - source: $
   scopesBegin:
-    - meta.command_name.continuation
+    - meta.statement.command.name.continuation
     - string.quoted.double
     - entity.name.command
   scopes:
@@ -412,7 +412,7 @@
   scopes:
     - punctuation.section.bracket.curly.variable.end
   scopesEnd:
-    - meta.command_name.continuation
+    - meta.statement.command.name.continuation
     - string.quoted.double
     - entity.name.command
 - source: '"'
@@ -421,7 +421,7 @@
     - punctuation.definition.string.end
     - entity.name.command
   scopesEnd:
-    - meta.command_name
+    - meta.statement.command.name
 - source: '"'
   scopesBegin:
     - meta.argument
@@ -443,15 +443,15 @@
     - string.quoted.double
 - source: '"'
   scopesBegin:
-    - meta.command_name
+    - meta.statement.command.name
   scopes:
-    - meta.command_name.quoted
+    - meta.statement.command.name.quoted
     - string.quoted.double
     - punctuation.definition.string.begin
     - entity.name.command
 - source: $
   scopesBegin:
-    - meta.command_name.continuation
+    - meta.statement.command.name.continuation
     - string.quoted.double
     - entity.name.command
   scopes:
@@ -478,7 +478,7 @@
   scopes:
     - punctuation.section.bracket.curly.variable.end
   scopesEnd:
-    - meta.command_name.continuation
+    - meta.statement.command.name.continuation
     - string.quoted.double
     - entity.name.command
 - source: '"'
@@ -487,7 +487,7 @@
     - punctuation.definition.string.end
     - entity.name.command
   scopesEnd:
-    - meta.command_name
+    - meta.statement.command.name
 - source: '"'
   scopesBegin:
     - meta.argument

@@ -3,7 +3,7 @@
     - meta.statement
     - meta.command
   scopes:
-    - meta.command_name
+    - meta.statement.command.name
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -30,7 +30,7 @@
     - meta.statement
     - meta.command
   scopes:
-    - meta.command_name
+    - meta.statement.command.name
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -121,7 +121,7 @@
   scopesBegin:
     - meta.command
   scopes:
-    - meta.command_name
+    - meta.statement.command.name
     - entity.name.command
 - source: 'schema:sync'
   scopes:

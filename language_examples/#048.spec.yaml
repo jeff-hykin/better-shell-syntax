@@ -47,7 +47,7 @@
     - meta.statement
     - meta.command
   scopes:
-    - meta.command_name
+    - meta.statement.command.name
     - entity.name.command
     - support.function.builtin
 - source: '-'
@@ -72,7 +72,7 @@
     - meta.statement
     - meta.command
   scopes:
-    - meta.command_name
+    - meta.statement.command.name
     - entity.name.command
 - source: '"'
   scopesBegin:
@@ -98,15 +98,15 @@
   scopesBegin:
     - meta.statement
     - meta.command
-    - meta.command_name
+    - meta.statement.command.name
   scopes:
-    - meta.command_name.quoted
+    - meta.statement.command.name.quoted
     - string.quoted.double
     - punctuation.definition.string.begin
     - entity.name.command
 - source: '['
   scopesBegin:
-    - meta.command_name.continuation
+    - meta.statement.command.name.continuation
     - string.quoted.double
     - entity.name.command
 - source: $
@@ -118,7 +118,7 @@
     - variable.other.normal
 - source: '] '
   scopesEnd:
-    - meta.command_name.continuation
+    - meta.statement.command.name.continuation
     - string.quoted.double
     - entity.name.command
 - source: '"'
@@ -128,13 +128,13 @@
     - entity.name.command
 - source: '"'
   scopes:
-    - meta.command_name.quoted
+    - meta.statement.command.name.quoted
     - string.quoted.double
     - punctuation.definition.string.begin
     - entity.name.command
 - source: ' desination path of source_config doesn''t exist...'
   scopes:
-    - meta.command_name.continuation
+    - meta.statement.command.name.continuation
     - string.quoted.double
     - entity.name.command
 - source: '"'
@@ -146,7 +146,7 @@
   scopes:
     - entity.name.command
   scopesEnd:
-    - meta.command_name
+    - meta.statement.command.name
 - source: '-'
   scopesBegin:
     - string.unquoted.argument

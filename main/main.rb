@@ -4,12 +4,6 @@ require 'walk_up'
 require_relative walk_up_until("paths.rb")
 require_relative './tokens.rb'
 
-# TODO:
-    # meta.command_name" => "meta.command.name"
-    # meta.command_name.quoted" => "meta.command.name.quoted"
-    # meta.command_name.continuation" => "meta.command.name.continuation"
-    # "meta.command.name" => "meta.statement.command.name"
-
 # 
 # 
 # create grammar!
@@ -581,7 +575,7 @@ require_relative './tokens.rb'
     end
     unquoted_command_prefix = generateUnquotedArugment["entity.name.command"]
     grammar[:start_of_double_quoted_command_name] = Pattern.new(
-        tag_as: "meta.command_name.quoted string.quoted.double punctuation.definition.string.begin entity.name.command",
+        tag_as: "meta.statement.command.name.quoted string.quoted.double punctuation.definition.string.begin entity.name.command",
         match: Pattern.new(
             Pattern.new(
                 basic_possible_command_start
@@ -593,7 +587,7 @@ require_relative './tokens.rb'
     )
     
     grammar[:start_of_single_quoted_command_name] = Pattern.new(
-        tag_as: "meta.command_name.quoted string.quoted.single punctuation.definition.string.begin entity.name.command",
+        tag_as: "meta.statement.command.name.quoted string.quoted.single punctuation.definition.string.begin entity.name.command",
         match: Pattern.new(
             Pattern.new(
                 basic_possible_command_start
@@ -605,7 +599,7 @@ require_relative './tokens.rb'
     )
     
     grammar[:continuation_of_double_quoted_command_name] = PatternRange.new(
-        tag_content_as: "meta.command_name.continuation string.quoted.double entity.name.command",
+        tag_content_as: "meta.statement.command.name.continuation string.quoted.double entity.name.command",
         start_pattern: Pattern.new(
             Pattern.new(
                 /\G/
@@ -626,7 +620,7 @@ require_relative './tokens.rb'
     )
     
     grammar[:continuation_of_single_quoted_command_name] = PatternRange.new(
-        tag_content_as: "meta.command_name.continuation string.quoted.single entity.name.command",
+        tag_content_as: "meta.statement.command.name.continuation string.quoted.single entity.name.command",
         start_pattern: Pattern.new(
             Pattern.new(
                 /\G/
@@ -639,7 +633,7 @@ require_relative './tokens.rb'
     )
     
     grammar[:basic_command_name] = Pattern.new(
-        tag_as: "meta.command.name.basic",
+        tag_as: "meta.statement.command.name.basic",
         match: Pattern.new(
             Pattern.new(
                 possible_command_start
@@ -738,7 +732,7 @@ require_relative './tokens.rb'
                     # Command Name Range
                     # 
                     PatternRange.new(
-                        tag_as: "meta.command_name",
+                        tag_as: "meta.statement.command.name",
                         start_pattern: Pattern.new(/\G/,),
                         end_pattern: argument_end,
                         includes: [
@@ -777,15 +771,15 @@ require_relative './tokens.rb'
                                     ).then(
                                         maybe(
                                             match: /\$/,
-                                            tag_as: "meta.command_name.quoted punctuation.definition.string entity.name.command",
+                                            tag_as: "meta.statement.command.name.quoted punctuation.definition.string entity.name.command",
                                         ).then(
                                             reference: "start_quote",
                                             match: Pattern.new(
                                                 Pattern.new(
-                                                    tag_as: "meta.command_name.quoted string.quoted.double punctuation.definition.string.begin entity.name.command",
+                                                    tag_as: "meta.statement.command.name.quoted string.quoted.double punctuation.definition.string.begin entity.name.command",
                                                     match: /"/
                                                 ).or(
-                                                    tag_as: "meta.command_name.quoted string.quoted.single punctuation.definition.string.begin entity.name.command",
+                                                    tag_as: "meta.statement.command.name.quoted string.quoted.single punctuation.definition.string.begin entity.name.command",
                                                     match: /'/,
                                                 )
                                             )

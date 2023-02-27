@@ -81,7 +81,7 @@
   scopes:
     - meta.statement
     - meta.command
-    - meta.command_name
+    - meta.statement.command.name
     - entity.name.command
 - source: '}'
   scopes:
@@ -171,7 +171,7 @@
   scopes:
     - meta.statement
     - meta.command
-    - meta.command_name
+    - meta.statement.command.name
     - entity.name.command
 - source: done
   scopes:
@@ -267,7 +267,7 @@
   scopes:
     - meta.statement
     - meta.command
-    - meta.command_name
+    - meta.statement.command.name
     - entity.name.command
 - source: '}'
   scopes:

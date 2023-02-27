@@ -248,7 +248,7 @@
           ]
         }
       },
-      "name": "meta.command.name.basic.shell"
+      "name": "meta.statement.command.name.basic.shell"
     },
     "block_comment": {
       "begin": "\\s*+(\\/\\*)",
@@ -452,7 +452,7 @@
           "name": "string.quoted.double.shell punctuation.definition.string.end.shell entity.name.command.shell"
         }
       },
-      "contentName": "meta.command_name.continuation string.quoted.double entity.name.command",
+      "contentName": "meta.statement.command.name.continuation string.quoted.double entity.name.command",
       "patterns": [
         {
           "match": "\\\\[\\$\\n`\"\\\\]",
@@ -476,7 +476,7 @@
           "name": "string.quoted.single.shell punctuation.definition.string.end.shell entity.name.command.shell"
         }
       },
-      "contentName": "meta.command_name.continuation string.quoted.single entity.name.command"
+      "contentName": "meta.statement.command.name.continuation string.quoted.single entity.name.command"
     },
     "custom_command_names": {
       "patterns": [
@@ -1371,7 +1371,7 @@
               },
               "endCaptures": {
               },
-              "name": "meta.command_name.shell",
+              "name": "meta.statement.command.name.shell",
               "patterns": [
                 {
                   "include": "#modifiers"
@@ -1400,15 +1400,15 @@
                   "end": "(?<!\\G)(?<=(?:\\2))",
                   "beginCaptures": {
                     "1": {
-                      "name": "meta.command_name.quoted.shell punctuation.definition.string.shell entity.name.command.shell"
+                      "name": "meta.statement.command.name.quoted.shell punctuation.definition.string.shell entity.name.command.shell"
                     },
                     "2": {
                     },
                     "3": {
-                      "name": "meta.command_name.quoted.shell string.quoted.double.shell punctuation.definition.string.begin.shell entity.name.command.shell"
+                      "name": "meta.statement.command.name.quoted.shell string.quoted.double.shell punctuation.definition.string.begin.shell entity.name.command.shell"
                     },
                     "4": {
-                      "name": "meta.command_name.quoted.shell string.quoted.single.shell punctuation.definition.string.begin.shell entity.name.command.shell"
+                      "name": "meta.statement.command.name.quoted.shell string.quoted.single.shell punctuation.definition.string.begin.shell entity.name.command.shell"
                     }
                   },
                   "endCaptures": {
@@ -1976,7 +1976,7 @@
           ]
         }
       },
-      "name": "meta.command_name.quoted.shell string.quoted.double.shell punctuation.definition.string.begin.shell entity.name.command.shell"
+      "name": "meta.statement.command.name.quoted.shell string.quoted.double.shell punctuation.definition.string.begin.shell entity.name.command.shell"
     },
     "start_of_single_quoted_command_name": {
       "match": "(?!(?:!|%|&|\\||\\(|\\)|\\{|\\[|<|>|#|\\n|$|;|\\s))(?:[ \\t]*+([^ \n'&;<>\\(\\)\\$`\\\\\"\\|]+(?!>)))?(?:(?:\\$')|')",
@@ -2005,7 +2005,7 @@
           ]
         }
       },
-      "name": "meta.command_name.quoted.shell string.quoted.single.shell punctuation.definition.string.begin.shell entity.name.command.shell"
+      "name": "meta.statement.command.name.quoted.shell string.quoted.single.shell punctuation.definition.string.begin.shell entity.name.command.shell"
     },
     "string": {
       "patterns": [
