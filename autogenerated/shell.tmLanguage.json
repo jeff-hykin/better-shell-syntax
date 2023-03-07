@@ -508,7 +508,7 @@
     },
     "function_definition": {
       "begin": "[ \\t]*+(?:(\\bfunction )[ \\t]*+([^ \\t\\n\\r\\(\\)=]+)(?:(\\()[ \\t]*+(\\)))?|([^ \\t\\n\\r\\(\\)=]+)[ \\t]*+(\\()[ \\t]*+(\\)))",
-      "end": "(?<=\\})",
+      "end": "(?<=\\}|\\))",
       "beginCaptures": {
         "1": {
           "name": "storage.type.function.shell"
@@ -537,6 +537,9 @@
       "name": "meta.function.shell",
       "patterns": [
         {
+          "match": "\\G(?:\\t| |\\n)"
+        },
+        {
           "begin": "\\{",
           "end": "\\}",
           "beginCaptures": {
@@ -555,8 +558,29 @@
               "include": "#initial_context"
             }
           ]
+        },
+        {
+          "begin": "\\(",
+          "end": "\\)",
+          "beginCaptures": {
+            "0": {
+              "name": "punctuation.definition.group.shell punctuation.section.function.definition.shell"
+            }
+          },
+          "endCaptures": {
+            "0": {
+              "name": "punctuation.definition.group.shell punctuation.section.function.definition.shell"
+            }
+          },
+          "name": "meta.function.body.shell",
+          "patterns": [
+            {
+              "include": "#initial_context"
+            }
+          ]
         }
-      ]
+      ],
+      "applyEndPatternLast": 1
     },
     "heredoc": {
       "patterns": [

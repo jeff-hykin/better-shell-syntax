@@ -422,8 +422,11 @@ require_relative './tokens.rb'
                 )
             )
         ),
-        end_pattern: lookBehindFor("}"),
+        apply_end_pattern_last: true,
+        end_pattern: lookBehindFor(/\}|\)/),
         includes: [
+            # exists soley to eat one char after the "func_name()" so that the lookBehind doesnt immediately match
+            Pattern.new(/\G(?:\t| |\n)/),
             PatternRange.new(
                 tag_as: "meta.function.body",
                 start_pattern: Pattern.new(
@@ -432,6 +435,20 @@ require_relative './tokens.rb'
                 ),
                 end_pattern: Pattern.new(
                     match: "}",
+                    tag_as: "punctuation.definition.group punctuation.section.function.definition",
+                ),
+                includes: [
+                    :initial_context,
+                ],
+            ),
+            PatternRange.new(
+                tag_as: "meta.function.body",
+                start_pattern: Pattern.new(
+                    match: "(",
+                    tag_as: "punctuation.definition.group punctuation.section.function.definition",
+                ),
+                end_pattern: Pattern.new(
+                    match: ")",
                     tag_as: "punctuation.definition.group punctuation.section.function.definition",
                 ),
                 includes: [
