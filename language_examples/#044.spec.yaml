@@ -1,0 +1,103 @@
+- source: '#!'
+  scopesBegin:
+    - comment.line.number-sign
+    - meta.shebang
+  scopes:
+    - punctuation.definition.comment.shebang
+- source: /usr/bin/env zsh
+  scopesEnd:
+    - comment.line.number-sign
+    - meta.shebang
+- source: function
+  scopesBegin:
+    - meta.function
+  scopes:
+    - storage.type.function
+- source: foo
+  scopes:
+    - entity.name.function
+- source: '{'
+  scopesBegin:
+    - meta.function.body
+  scopes:
+    - punctuation.definition.group
+    - punctuation.section.function.definition
+- source: echo
+  scopesBegin:
+    - meta.statement
+    - meta.command
+  scopes:
+    - meta.statement.command.name
+    - entity.name.command
+    - support.function.builtin
+- source: '"'
+  scopesBegin:
+    - meta.argument
+    - string.quoted.double
+  scopes:
+    - punctuation.definition.string.begin
+- source: 'foo: '
+- source: $
+  scopes:
+    - punctuation.definition.variable
+    - variable.parameter.positional
+- source: '1'
+  scopes:
+    - variable.parameter.positional
+- source: '"'
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - meta.statement
+    - meta.command
+    - meta.argument
+    - string.quoted.double
+- source: '}'
+  scopes:
+    - punctuation.definition.group
+    - punctuation.section.function.definition
+  scopesEnd:
+    - meta.function
+    - meta.function.body
+- source: foo
+  scopesBegin:
+    - meta.statement
+    - meta.command
+  scopes:
+    - meta.statement.command.name
+    - entity.name.command
+- source: bar
+  scopes:
+    - meta.argument
+    - string.unquoted.argument
+  scopesEnd:
+    - meta.statement
+    - meta.command
+- source: '#'
+  scopesBegin:
+    - comment.line.number-sign
+  scopes:
+    - punctuation.definition.comment
+- source: ' trailing comments'
+  scopesEnd:
+    - comment.line.number-sign
+- source: foo
+  scopesBegin:
+    - meta.statement
+    - meta.command
+  scopes:
+    - meta.statement.command.name
+    - entity.name.command
+- source: baz
+  scopes:
+    - meta.argument
+    - string.unquoted.argument
+  scopesEnd:
+    - meta.statement
+    - meta.command
+- source: '#'
+  scopesBegin:
+    - comment.line.number-sign
+  scopes:
+    - punctuation.definition.comment
+- source: ' tab trailing comments'

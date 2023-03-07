@@ -1,4 +1,4 @@
-- source: 'function '
+- source: function
   scopesBegin:
     - meta.function
   scopes:

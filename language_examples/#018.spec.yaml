@@ -84,7 +84,7 @@
     - meta.command
     - meta.argument
     - string.quoted.double
-- source: 'function '
+- source: function
   scopesBegin:
     - meta.function
   scopes:

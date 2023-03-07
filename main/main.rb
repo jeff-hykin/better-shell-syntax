@@ -292,7 +292,7 @@ require_relative './tokens.rb'
         # then, after the range is found, it starts to figure out what kind of number/constant it is
         # it does this by matching one of the includes
         return Pattern.new(
-            match: lookBehindToAvoid(/\w-/).lookBehindToAvoid(/\w/).then(/\.?\d/).zeroOrMoreOf(valid_character).lookAheadFor(/\s|$/),
+            match: lookBehindToAvoid(/\w-/).lookBehindToAvoid(/\w/).then(/\.?\d/).zeroOrMoreOf(valid_character).lookAheadFor(/[ \t]|$/),
             includes: [
                 PatternRange.new(
                     start_pattern: lookAheadFor(/./),
@@ -316,7 +316,7 @@ require_relative './tokens.rb'
         tag_as: "constant.numeric",
         match: generateNumericLiteral(),
     )
-    grammar[:redirect_number] = lookBehindFor(/\s/).then(
+    grammar[:redirect_number] = lookBehindFor(/[ \t]/).then(
         oneOf([
             Pattern.new(
                 tag_as: "keyword.operator.redirect.stdout",
@@ -338,7 +338,7 @@ require_relative './tokens.rb'
     #
     grammar[:comment] = Pattern.new(
         Pattern.new(
-            Pattern.new(/^/).or(/\s++/)
+            Pattern.new(/^/).or(/[ \t]++/)
         ).then(
             Pattern.new(
                 tag_as: "comment.line.number-sign meta.shebang",
@@ -392,9 +392,9 @@ require_relative './tokens.rb'
             Pattern.new(
                 # this is the case with the function keyword
                 Pattern.new(
-                    match: /\bfunction/,
+                    match: /\bfunction\b/,
                     tag_as: "storage.type.function"
-                ).then(/ |\t/).then(std_space).then(
+                ).then(std_space).then(
                     match: function_name_pattern,
                     tag_as: "entity.name.function",
                 ).maybe(
@@ -460,7 +460,7 @@ require_relative './tokens.rb'
     
     grammar[:modifiers] = modifier = Pattern.new(
         # TODO: generate this using @tokens
-        match: /(?<=^|;|&|\s)(?:export|declare|typeset|local|readonly)(?=\s|;|&|$)/,
+        match: /(?<=^|;|&|[ \t])(?:export|declare|typeset|local|readonly)(?=[ \t]|;|&|$)/,
         tag_as: "storage.modifier.$match",
     )
     
@@ -530,14 +530,14 @@ require_relative './tokens.rb'
     )
     
     possible_pre_command_characters   = /(?:^|;|\||&|!|\(|\{|\`)/
-    basic_possible_command_start      = lookAheadToAvoid(/(?:!|%|&|\||\(|\)|\{|\[|<|>|#|\n|$|;|\s)/)
+    basic_possible_command_start      = lookAheadToAvoid(/(?:!|%|&|\||\(|\)|\{|\[|<|>|#|\n|$|;|[ \t])/)
     possible_argument_start  = lookAheadToAvoid(/(?:%|&|\||\(|\[|#|\n|$|;)/)
     command_end              = lookAheadFor(/;|\||&|\n|\)|\`|\{|\}|[ \t]*#|\]/).lookBehindToAvoid(/\\/)
     command_continuation     = lookBehindToAvoid(/ |\t|;|\||&|\n|\{|#/)
-    unquoted_string_end      = lookAheadFor(/\s|;|\||&|$|\n|\)|\`/)
-    argument_end             = lookAheadFor(/\s|;|\||&|$|\n|\)|\`/)
+    unquoted_string_end      = lookAheadFor(/ |\t|;|\||&|$|\n|\)|\`/)
+    argument_end             = lookAheadFor(/ |\t|;|\||&|$|\n|\)|\`/)
     invalid_literals         = Regexp.quote(@tokens.representationsThat(:areInvalidLiterals).join(""))
-    valid_literal_characters = Regexp.new("[^\s\n#{invalid_literals}]+")
+    valid_literal_characters = Regexp.new("[^ \t\n#{invalid_literals}]+")
     any_builtin_name         = @tokens.representationsThat(:areBuiltInCommands).map{ |value| Regexp.quote(value) }.join("|")
     any_builtin_name         = Regexp.new("(?:#{any_builtin_name})(?!\/)")
     any_builtin_name         = variableBounds[any_builtin_name]
@@ -563,7 +563,7 @@ require_relative './tokens.rb'
     grammar[:keyword] = [
         Pattern.new(
             # TODO: generate this using @tokens
-            match: /(?<=^|;|&|\s)(?:then|else|elif|fi|for|in|do|done|select|case|continue|esac|while|until|return)(?=\s|;|&|$)/,
+            match: /(?<=^|;|&| |\t)(?:then|else|elif|fi|for|in|do|done|select|case|continue|esac|while|until|return)(?= |\t|;|&|$)/,
             tag_as: "keyword.control.$match",
         ),
         # modifier
@@ -671,7 +671,7 @@ require_relative './tokens.rb'
                     ]
                 )
             ).then(
-                lookAheadFor(/\s/).or(command_end)
+                lookAheadFor(/ |\t/).or(command_end)
             )
         ),
     )
@@ -687,7 +687,7 @@ require_relative './tokens.rb'
     ]
     grammar[:argument] = PatternRange.new(
         tag_as: "meta.argument",
-        start_pattern: Pattern.new(/\s++/).then(possible_argument_start),
+        start_pattern: Pattern.new(/[ \t]++/).then(possible_argument_start),
         end_pattern: unquoted_string_end,
         includes: [
             :argument_context,
@@ -697,7 +697,7 @@ require_relative './tokens.rb'
     grammar[:option] = PatternRange.new(
         tag_content_as: "string.unquoted.argument constant.other.option",
         start_pattern: Pattern.new(  
-            Pattern.new(/\s++/).then(
+            Pattern.new(/[ \t]++/).then(
                 match: /-/,
                 tag_as: "string.unquoted.argument constant.other.option.dash"
             ).then(
@@ -705,13 +705,13 @@ require_relative './tokens.rb'
                 tag_as: "string.unquoted.argument constant.other.option",
             )
         ),
-        end_pattern: lookAheadFor(/\s/).or(command_end),
+        end_pattern: lookAheadFor(/[ \t]/).or(command_end),
         includes: [
             :option_context,
         ]
     )
     grammar[:simple_options] = zeroOrMoreOf(
-        Pattern.new(/\s++/).then(
+        Pattern.new(/[ \t]++/).then(
             match: /\-/,
             tag_as: "string.unquoted.argument constant.other.option.dash"
         ).then(

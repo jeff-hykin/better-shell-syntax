@@ -1,0 +1,152 @@
+- source: function
+  scopesBegin:
+    - meta.function
+  scopes:
+    - storage.type.function
+- source: foo
+  scopes:
+    - entity.name.function
+- source: '{'
+  scopesBegin:
+    - meta.function.body
+  scopes:
+    - punctuation.definition.group
+    - punctuation.section.function.definition
+- source: local
+  scopesBegin:
+    - meta.statement
+    - meta.command
+  scopes:
+    - meta.statement.command.name
+    - storage.modifier.local
+- source: '-'
+  scopesBegin:
+    - string.unquoted.argument
+  scopes:
+    - constant.other.option.dash
+- source: a
+  scopes:
+    - constant.other.option
+  scopesEnd:
+    - string.unquoted.argument
+- source: arr=
+  scopesBegin:
+    - meta.argument
+  scopes:
+    - string.unquoted.argument
+- source: (
+- source: ''''
+  scopesBegin:
+    - string.quoted.single
+  scopes:
+    - punctuation.definition.string.begin
+- source: '#'
+- source: ''''
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - meta.statement
+    - meta.command
+    - meta.argument
+    - string.quoted.single
+- source: )
+- source: echo
+  scopesBegin:
+    - meta.statement
+    - meta.command
+  scopes:
+    - meta.statement.command.name
+    - entity.name.command
+    - support.function.builtin
+- source: blah
+  scopes:
+    - meta.argument
+    - string.unquoted.argument
+  scopesEnd:
+    - meta.statement
+    - meta.command
+- source: '}'
+  scopes:
+    - punctuation.definition.group
+    - punctuation.section.function.definition
+  scopesEnd:
+    - meta.function.body
+- source: function
+  scopes:
+    - storage.type.function
+- source: bar
+  scopes:
+    - entity.name.function
+- source: '{'
+  scopesBegin:
+    - meta.function.body
+  scopes:
+    - punctuation.definition.group
+    - punctuation.section.function.definition
+- source: local
+  scopesBegin:
+    - meta.statement
+    - meta.command
+  scopes:
+    - meta.statement.command.name
+    - storage.modifier.local
+- source: '-'
+  scopesBegin:
+    - string.unquoted.argument
+  scopes:
+    - constant.other.option.dash
+- source: a
+  scopes:
+    - constant.other.option
+  scopesEnd:
+    - string.unquoted.argument
+- source: arr=
+  scopesBegin:
+    - meta.argument
+  scopes:
+    - string.unquoted.argument
+- source: (
+  scopesEnd:
+    - meta.argument
+- source: ''''
+  scopesBegin:
+    - meta.statement.command.name
+  scopes:
+    - meta.statement.command.name.quoted
+    - string.quoted.single
+    - punctuation.definition.string.begin
+    - entity.name.command
+- source: '#'
+  scopes:
+    - meta.statement.command.name.continuation
+    - string.quoted.single
+    - entity.name.command
+- source: ''''
+  scopes:
+    - string.quoted.single
+    - punctuation.definition.string.end
+    - entity.name.command
+  scopesEnd:
+    - meta.statement
+    - meta.command
+    - meta.statement.command.name
+- source: )
+- source: echo
+  scopesBegin:
+    - meta.statement
+    - meta.command
+  scopes:
+    - meta.statement.command.name
+    - entity.name.command
+    - support.function.builtin
+- source: blah
+  scopes:
+    - meta.argument
+    - string.unquoted.argument
+  scopesEnd:
+    - meta.statement
+    - meta.command
+- source: '}'
+  scopes:
+    - punctuation.definition.group
+    - punctuation.section.function.definition

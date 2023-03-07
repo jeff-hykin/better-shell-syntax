@@ -8,7 +8,7 @@
   scopesEnd:
     - comment.line.number-sign
     - meta.shebang
-- source: 'function '
+- source: function
   scopesBegin:
     - meta.function
   scopes:

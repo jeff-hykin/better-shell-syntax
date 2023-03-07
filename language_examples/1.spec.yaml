@@ -352,7 +352,7 @@
   scopesEnd:
     - meta.statement
     - meta.command
-- source: 'function '
+- source: function
   scopesBegin:
     - meta.function
   scopes:
