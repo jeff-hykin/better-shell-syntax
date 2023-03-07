@@ -392,9 +392,9 @@ require_relative './tokens.rb'
             Pattern.new(
                 # this is the case with the function keyword
                 Pattern.new(
-                    match: /\bfunction /,
+                    match: /\bfunction/,
                     tag_as: "storage.type.function"
-                ).then(std_space).then(
+                ).then(/ |\t/).then(std_space).then(
                     match: function_name_pattern,
                     tag_as: "entity.name.function",
                 ).maybe(
@@ -494,7 +494,7 @@ require_relative './tokens.rb'
                         tag_as: "keyword.operator.assignment.compound",
                     )
                 ),
-            end_pattern: assignment_end = lookAheadFor(/ |$/).or(grammar[:normal_statement_seperator]),
+            end_pattern: assignment_end = lookAheadFor(/ |\t|$/).or(grammar[:normal_statement_seperator]),
             includes: [
                 :comment,
                 :argument_context,
@@ -532,7 +532,7 @@ require_relative './tokens.rb'
     possible_pre_command_characters   = /(?:^|;|\||&|!|\(|\{|\`)/
     basic_possible_command_start      = lookAheadToAvoid(/(?:!|%|&|\||\(|\)|\{|\[|<|>|#|\n|$|;|\s)/)
     possible_argument_start  = lookAheadToAvoid(/(?:%|&|\||\(|\[|#|\n|$|;)/)
-    command_end              = lookAheadFor(/;|\||&|\n|\)|\`|\{|\}| *#|\]/).lookBehindToAvoid(/\\/)
+    command_end              = lookAheadFor(/;|\||&|\n|\)|\`|\{|\}|[ \t]*#|\]/).lookBehindToAvoid(/\\/)
     command_continuation     = lookBehindToAvoid(/ |\t|;|\||&|\n|\{|#/)
     unquoted_string_end      = lookAheadFor(/\s|;|\||&|$|\n|\)|\`/)
     argument_end             = lookAheadFor(/\s|;|\||&|$|\n|\)|\`/)
