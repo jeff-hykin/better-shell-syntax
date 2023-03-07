@@ -73,6 +73,7 @@ tokens = [
     { representation: "kill"       , areBuiltInCommands: true },
     { representation: "let"        , areBuiltInCommands: true },
     { representation: "print"      , areBuiltInCommands: true },
+    { representation: "printf"     , areBuiltInCommands: true },
     { representation: "pwd"        , areBuiltInCommands: true },
     { representation: "read"       , areBuiltInCommands: true },
     { representation: "return"     , areBuiltInCommands: true, areControlFlow: true },

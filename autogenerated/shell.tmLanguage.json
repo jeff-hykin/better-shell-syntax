@@ -239,7 +239,7 @@
               "name": "keyword.control.$0.shell"
             },
             {
-              "match": "(?<!\\w)(?:unfunction|unsetopt|autoload|unlimit|bindkey|builtin|command|getopts|history|declare|unalias|typeset|suspend|return|source|ulimit|unhash|disown|which|alias|break|false|print|shift|times|umask|umask|unset|read|type|exec|eval|wait|echo|dirs|hash|jobs|kill|stat|exit|test|trap|true|pwd|let|set|cd|fg|bg|fc|:|\\.)(?!\\/)(?!\\w)",
+              "match": "(?<!\\w)(?:unfunction|unsetopt|autoload|suspend|bindkey|builtin|getopts|command|declare|unalias|history|unlimit|typeset|source|printf|unhash|disown|ulimit|return|which|alias|break|false|print|shift|times|umask|umask|unset|read|type|exec|eval|wait|echo|dirs|jobs|kill|hash|stat|exit|test|trap|true|let|set|pwd|cd|fg|bg|fc|:|\\.)(?!\\/)(?!\\w)",
               "name": "support.function.builtin.shell"
             },
             {
@@ -1405,7 +1405,7 @@
                   "name": "entity.name.command.shell keyword.control.$0.shell"
                 },
                 {
-                  "match": "(?<!\\w)(?:unfunction|unsetopt|autoload|unlimit|bindkey|builtin|command|getopts|history|declare|unalias|typeset|suspend|return|source|ulimit|unhash|disown|which|alias|break|false|print|shift|times|umask|umask|unset|read|type|exec|eval|wait|echo|dirs|hash|jobs|kill|stat|exit|test|trap|true|pwd|let|set|cd|fg|bg|fc|:|\\.)(?!\\/)(?!\\w)",
+                  "match": "(?<!\\w)(?:unfunction|unsetopt|autoload|suspend|bindkey|builtin|getopts|command|declare|unalias|history|unlimit|typeset|source|printf|unhash|disown|ulimit|return|which|alias|break|false|print|shift|times|umask|umask|unset|read|type|exec|eval|wait|echo|dirs|jobs|kill|hash|stat|exit|test|trap|true|let|set|pwd|cd|fg|bg|fc|:|\\.)(?!\\/)(?!\\w)",
                   "name": "entity.name.command.shell support.function.builtin.shell"
                 },
                 {

@@ -1,0 +1,140 @@
+- source: var1
+  scopesBegin:
+    - meta.statement
+    - meta.expression.assignment
+  scopes:
+    - variable.other.assignment
+- source: '='
+  scopes:
+    - keyword.operator.assignment
+- source: '"'
+  scopesBegin:
+    - string.quoted.double
+  scopes:
+    - punctuation.definition.string.begin
+- source: Lorem ipsum dolor sit amet
+- source: '"'
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - meta.expression.assignment
+    - string.quoted.double
+- source: declare
+  scopesBegin:
+    - meta.command
+  scopes:
+    - meta.statement.command.name
+    - storage.modifier.declare
+- source: '-'
+  scopesBegin:
+    - string.unquoted.argument
+  scopes:
+    - constant.other.option.dash
+- source: A
+  scopes:
+    - constant.other.option
+  scopesEnd:
+    - string.unquoted.argument
+- source: ASSOC_ARRAY
+  scopes:
+    - meta.argument
+    - string.unquoted.argument
+  scopesEnd:
+    - meta.command
+- source: ASSOC_ARRAY
+  scopesBegin:
+    - meta.expression.assignment
+  scopes:
+    - variable.other.assignment
+- source: '='
+  scopes:
+    - keyword.operator.assignment
+- source: (
+  scopes:
+    - punctuation
+- source: '[item1]='
+  scopes:
+    - string.unquoted.argument
+- source: $
+  scopes:
+    - punctuation.definition.variable
+    - variable.other.normal
+- source: var1
+  scopes:
+    - variable.other.normal
+- source: '[item2]='
+  scopes:
+    - string.unquoted.argument
+- source: $'
+  scopesBegin:
+    - string.quoted.single.dollar
+  scopes:
+    - punctuation.definition.string.begin
+- source: '\033[1;94m'
+- source: ''''
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - string.quoted.single.dollar
+- source: '[item3]='
+  scopes:
+    - string.unquoted.argument
+- source: '"'
+  scopesBegin:
+    - string.quoted.double
+  scopes:
+    - punctuation.definition.string.begin
+- source: lorem-ipsum
+- source: '"'
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - string.quoted.double
+- source: '[item4]='
+  scopesBegin:
+    - string.unquoted.argument
+- source: '100'
+  scopes:
+    - constant.numeric
+    - constant.numeric.decimal
+- source: '[item5]='
+  scopesEnd:
+    - string.unquoted.argument
+- source: $'
+  scopesBegin:
+    - string.quoted.single.dollar
+  scopes:
+    - punctuation.definition.string.begin
+- source: '\033[1;95m'
+- source: ''''
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - string.quoted.single.dollar
+- source: '[item6]='
+  scopes:
+    - string.unquoted.argument
+- source: $'
+  scopesBegin:
+    - string.quoted.single.dollar
+  scopes:
+    - punctuation.definition.string.begin
+- source: '\033[1;93m'
+- source: ''''
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - string.quoted.single.dollar
+- source: '[item7]='
+  scopes:
+    - string.unquoted.argument
+- source: $
+  scopes:
+    - punctuation.definition.variable
+    - variable.other.normal
+- source: var1
+  scopes:
+    - variable.other.normal
+- source: )
+  scopes:
+    - punctuation
