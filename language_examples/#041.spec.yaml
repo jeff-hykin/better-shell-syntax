@@ -100,8 +100,19 @@
   scopes:
     - punctuation.definition.variable
     - variable.parameter.positional
-- source: '{1}'
+- source: '{'
   scopes:
+    - punctuation.section.bracket.curly.variable.begin
+    - punctuation.definition.variable
+    - variable.parameter.positional
+- source: '1'
+  scopes:
+    - meta.parameter-expansion
+    - variable.parameter.positional
+- source: '}'
+  scopes:
+    - punctuation.section.bracket.curly.variable.end
+    - punctuation.definition.variable
     - variable.parameter.positional
 - source: '"'
   scopes:

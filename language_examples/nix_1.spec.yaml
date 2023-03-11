@@ -255,10 +255,10 @@
 - source: $
   scopes:
     - punctuation.definition.variable
-    - punctuation.section.bracket.curly.variable.begin
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
+    - punctuation.definition.variable
 - source: NIX_USER_COUNT
   scopesBegin:
     - meta.parameter-expansion
@@ -275,6 +275,7 @@
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
+    - punctuation.definition.variable
 - source: readonly
   scopes:
     - storage.modifier.readonly
@@ -292,10 +293,10 @@
 - source: $
   scopes:
     - punctuation.definition.variable
-    - punctuation.section.bracket.curly.variable.begin
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
+    - punctuation.definition.variable
 - source: NIX_BUILD_GROUP_ID
   scopesBegin:
     - meta.parameter-expansion
@@ -312,6 +313,7 @@
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
+    - punctuation.definition.variable
 - source: '"'
   scopes:
     - punctuation.definition.string.end
@@ -364,10 +366,10 @@
 - source: $
   scopes:
     - punctuation.definition.variable
-    - punctuation.section.bracket.curly.variable.begin
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
+    - punctuation.definition.variable
 - source: NIX_FIRST_BUILD_UID
   scopesBegin:
     - meta.parameter-expansion
@@ -384,6 +386,7 @@
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
+    - punctuation.definition.variable
 - source: '"'
   scopes:
     - punctuation.definition.string.end
@@ -455,10 +458,10 @@
 - source: $
   scopes:
     - punctuation.definition.variable
-    - punctuation.section.bracket.curly.variable.begin
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
+    - punctuation.definition.variable
 - source: NIX_EXTRA_CONF
   scopesBegin:
     - meta.parameter-expansion
@@ -472,6 +475,7 @@
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
+    - punctuation.definition.variable
 - source: readonly
   scopes:
     - storage.modifier.readonly
@@ -3902,10 +3906,10 @@
 - source: $
   scopes:
     - punctuation.definition.variable
-    - punctuation.section.bracket.curly.variable.begin
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
+    - punctuation.definition.variable
 - source: RED
   scopes:
     - meta.parameter-expansion
@@ -3913,14 +3917,15 @@
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
+    - punctuation.definition.variable
 - source: '%L'
 - source: $
   scopes:
     - punctuation.definition.variable
-    - punctuation.section.bracket.curly.variable.begin
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
+    - punctuation.definition.variable
 - source: ESC
   scopes:
     - meta.parameter-expansion
@@ -3928,6 +3933,7 @@
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
+    - punctuation.definition.variable
 - source: '"'
   scopes:
     - punctuation.definition.string.end
@@ -3991,10 +3997,10 @@
 - source: $
   scopes:
     - punctuation.definition.variable
-    - punctuation.section.bracket.curly.variable.begin
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
+    - punctuation.definition.variable
 - source: GREEN
   scopes:
     - meta.parameter-expansion
@@ -4002,14 +4008,15 @@
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
+    - punctuation.definition.variable
 - source: '%L'
 - source: $
   scopes:
     - punctuation.definition.variable
-    - punctuation.section.bracket.curly.variable.begin
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
+    - punctuation.definition.variable
 - source: ESC
   scopes:
     - meta.parameter-expansion
@@ -4017,6 +4024,7 @@
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
+    - punctuation.definition.variable
 - source: '"'
   scopes:
     - punctuation.definition.string.end
@@ -4605,10 +4613,10 @@
 - source: $
   scopes:
     - punctuation.definition.variable
-    - punctuation.section.bracket.curly.variable.begin
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
+    - punctuation.definition.variable
 - source: RED
   scopes:
     - meta.parameter-expansion
@@ -4616,14 +4624,15 @@
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
+    - punctuation.definition.variable
 - source: '%s:'
 - source: $
   scopes:
     - punctuation.definition.variable
-    - punctuation.section.bracket.curly.variable.begin
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
+    - punctuation.definition.variable
 - source: ESC
   scopes:
     - meta.parameter-expansion
@@ -4631,6 +4640,7 @@
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
+    - punctuation.definition.variable
 - source: '"'
   scopes:
     - punctuation.definition.string.end
@@ -4783,10 +4793,10 @@
 - source: $
   scopes:
     - punctuation.definition.variable
-    - punctuation.section.bracket.curly.variable.begin
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
+    - punctuation.definition.variable
 - source: _SERIOUS_BUSINESS
   scopes:
     - meta.parameter-expansion
@@ -4794,6 +4804,7 @@
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
+    - punctuation.definition.variable
 - source: '"'
   scopes:
     - punctuation.definition.string.end
@@ -5026,10 +5037,10 @@
 - source: $
   scopes:
     - punctuation.definition.variable
-    - punctuation.section.bracket.curly.variable.begin
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
+    - punctuation.definition.variable
 - source: _reminders
   scopesBegin:
     - meta.parameter-expansion
@@ -5047,6 +5058,7 @@
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
+    - punctuation.definition.variable
 - source: '"'
   scopes:
     - punctuation.definition.string.end
@@ -5118,10 +5130,10 @@
 - source: $
   scopes:
     - punctuation.definition.variable
-    - punctuation.section.bracket.curly.variable.begin
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
+    - punctuation.definition.variable
 - source: '#'
   scopesBegin:
     - meta.parameter-expansion
@@ -5135,6 +5147,7 @@
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
+    - punctuation.definition.variable
 - source: '"'
   scopes:
     - punctuation.definition.string.end
@@ -5307,10 +5320,10 @@
 - source: $
   scopes:
     - punctuation.definition.variable
-    - punctuation.section.bracket.curly.variable.begin
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
+    - punctuation.definition.variable
 - source: BLUE
   scopes:
     - meta.parameter-expansion
@@ -5318,14 +5331,15 @@
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
+    - punctuation.definition.variable
 - source: '[ %d ]'
 - source: $
   scopes:
     - punctuation.definition.variable
-    - punctuation.section.bracket.curly.variable.begin
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
+    - punctuation.definition.variable
 - source: ESC
   scopes:
     - meta.parameter-expansion
@@ -5333,6 +5347,7 @@
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
+    - punctuation.definition.variable
 - source: '"'
   scopes:
     - punctuation.definition.string.end
@@ -6108,10 +6123,10 @@
 - source: $
   scopes:
     - punctuation.definition.variable
-    - punctuation.section.bracket.curly.variable.begin
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
+    - punctuation.definition.variable
 - source: TMPDIR
   scopesBegin:
     - meta.parameter-expansion
@@ -6125,6 +6140,7 @@
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
+    - punctuation.definition.variable
 - source: '"'
   scopes:
     - punctuation.definition.string.end
@@ -6163,10 +6179,10 @@
 - source: $
   scopes:
     - punctuation.definition.variable
-    - punctuation.section.bracket.curly.variable.begin
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
+    - punctuation.definition.variable
 - source: TMPDIR
   scopesBegin:
     - meta.parameter-expansion
@@ -6180,6 +6196,7 @@
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
+    - punctuation.definition.variable
 - source: '"'
   scopes:
     - punctuation.definition.string.end
@@ -6252,10 +6269,10 @@
 - source: $
   scopes:
     - punctuation.definition.variable
-    - punctuation.section.bracket.curly.variable.begin
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
+    - punctuation.definition.variable
 - source: TMPDIR
   scopesBegin:
     - meta.parameter-expansion
@@ -6269,6 +6286,7 @@
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
+    - punctuation.definition.variable
 - source: '"'
   scopes:
     - punctuation.definition.string.end
@@ -6946,10 +6964,10 @@
 - source: $
   scopes:
     - punctuation.definition.variable
-    - punctuation.section.bracket.curly.variable.begin
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
+    - punctuation.definition.variable
 - source: PROFILE_TARGETS
   scopesBegin:
     - meta.parameter-expansion
@@ -6967,6 +6985,7 @@
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
+    - punctuation.definition.variable
 - source: '"'
   scopes:
     - punctuation.definition.string.end
@@ -7310,10 +7329,10 @@
 - source: $
   scopes:
     - punctuation.definition.variable
-    - punctuation.section.bracket.curly.variable.begin
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
+    - punctuation.definition.variable
 - source: PROFILE_TARGETS
   scopesBegin:
     - meta.parameter-expansion
@@ -7331,6 +7350,7 @@
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
+    - punctuation.definition.variable
 - source: '"'
   scopes:
     - punctuation.definition.string.end
@@ -8297,10 +8317,10 @@
 - source: $
   scopes:
     - punctuation.definition.variable
-    - punctuation.section.bracket.curly.variable.begin
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
+    - punctuation.definition.variable
 - source: ALLOW_PREEXISTING_INSTALLATION
   scopesBegin:
     - meta.parameter-expansion
@@ -8314,6 +8334,7 @@
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
+    - punctuation.definition.variable
 - source: '"'
   scopes:
     - punctuation.definition.string.end
@@ -11575,10 +11596,10 @@
 - source: $
   scopes:
     - punctuation.definition.variable
-    - punctuation.section.bracket.curly.variable.begin
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
+    - punctuation.definition.variable
 - source: NIX_INSTALLER_NO_CHANNEL_ADD
   scopesBegin:
     - meta.parameter-expansion
@@ -11592,6 +11613,7 @@
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
+    - punctuation.definition.variable
 - source: '"'
   scopes:
     - punctuation.definition.string.end
@@ -12091,10 +12113,10 @@
 - source: $
   scopes:
     - punctuation.definition.variable
-    - punctuation.section.bracket.curly.variable.begin
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
+    - punctuation.definition.variable
 - source: PROFILE_TARGETS
   scopesBegin:
     - meta.parameter-expansion
@@ -12112,6 +12134,7 @@
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
+    - punctuation.definition.variable
 - source: '"'
   scopes:
     - punctuation.definition.string.end
@@ -13235,10 +13258,10 @@
 - source: $
   scopes:
     - punctuation.definition.variable
-    - punctuation.section.bracket.curly.variable.begin
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
+    - punctuation.definition.variable
 - source: PROFILE_TARGETS
   scopesBegin:
     - meta.parameter-expansion
@@ -13256,6 +13279,7 @@
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
+    - punctuation.definition.variable
 - source: '"'
   scopes:
     - punctuation.definition.string.end
@@ -13283,10 +13307,10 @@
 - source: $
   scopes:
     - punctuation.definition.variable
-    - punctuation.section.bracket.curly.variable.begin
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
+    - punctuation.definition.variable
 - source: PROFILE_TARGETS
   scopesBegin:
     - meta.parameter-expansion
@@ -13304,6 +13328,7 @@
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
+    - punctuation.definition.variable
 - source: '"'
   scopes:
     - punctuation.definition.string.end
@@ -13764,10 +13789,10 @@
 - source: $
   scopes:
     - punctuation.definition.variable
-    - punctuation.section.bracket.curly.variable.begin
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
+    - punctuation.definition.variable
 - source: PROFILE_FISH_SUFFIX
   scopes:
     - meta.parameter-expansion
@@ -13775,14 +13800,15 @@
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
+    - punctuation.definition.variable
 - source: ' inside '
 - source: $
   scopes:
     - punctuation.definition.variable
-    - punctuation.section.bracket.curly.variable.begin
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
+    - punctuation.definition.variable
 - source: PROFILE_FISH_PREFIXES
   scopesBegin:
     - meta.parameter-expansion
@@ -13800,6 +13826,7 @@
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
+    - punctuation.definition.variable
 - source: '"'
   scopes:
     - punctuation.definition.string.end
@@ -13827,10 +13854,10 @@
 - source: $
   scopes:
     - punctuation.definition.variable
-    - punctuation.section.bracket.curly.variable.begin
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
+    - punctuation.definition.variable
 - source: PROFILE_FISH_PREFIXES
   scopesBegin:
     - meta.parameter-expansion
@@ -13848,6 +13875,7 @@
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
+    - punctuation.definition.variable
 - source: '"'
   scopes:
     - punctuation.definition.string.end
@@ -13943,10 +13971,10 @@
 - source: $
   scopes:
     - punctuation.definition.variable
-    - punctuation.section.bracket.curly.variable.begin
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
+    - punctuation.definition.variable
 - source: fish_prefix
   scopes:
     - meta.parameter-expansion
@@ -13954,14 +13982,15 @@
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
+    - punctuation.definition.variable
 - source: /
 - source: $
   scopes:
     - punctuation.definition.variable
-    - punctuation.section.bracket.curly.variable.begin
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
+    - punctuation.definition.variable
 - source: PROFILE_FISH_SUFFIX
   scopes:
     - meta.parameter-expansion
@@ -13969,6 +13998,7 @@
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
+    - punctuation.definition.variable
 - source: '"'
   scopes:
     - punctuation.definition.string.end
@@ -14585,10 +14615,10 @@
 - source: $
   scopes:
     - punctuation.definition.variable
-    - punctuation.section.bracket.curly.variable.begin
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
+    - punctuation.definition.variable
 - source: NIX_SSL_CERT_FILE
   scopesBegin:
     - meta.parameter-expansion
@@ -14602,6 +14632,7 @@
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
+    - punctuation.definition.variable
 - source: '"'
   scopes:
     - punctuation.definition.string.end
@@ -14639,10 +14670,10 @@
 - source: $
   scopes:
     - punctuation.definition.variable
-    - punctuation.section.bracket.curly.variable.begin
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
+    - punctuation.definition.variable
 - source: NIX_SSL_CERT_FILE
   scopesBegin:
     - meta.parameter-expansion
@@ -14656,6 +14687,7 @@
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
+    - punctuation.definition.variable
 - source: '"'
   scopes:
     - punctuation.definition.string.end
@@ -14813,10 +14845,10 @@
 - source: $
   scopes:
     - punctuation.definition.variable
-    - punctuation.section.bracket.curly.variable.begin
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
+    - punctuation.definition.variable
 - source: NIX_INSTALLER_NO_CHANNEL_ADD
   scopesBegin:
     - meta.parameter-expansion
@@ -14830,6 +14862,7 @@
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
+    - punctuation.definition.variable
 - source: '"'
   scopes:
     - punctuation.definition.string.end
@@ -16218,10 +16251,10 @@
 - source: $
   scopes:
     - punctuation.definition.variable
-    - punctuation.section.bracket.curly.variable.begin
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
+    - punctuation.definition.variable
 - source: PROFILE_TARGETS
   scopesBegin:
     - meta.parameter-expansion
@@ -16239,6 +16272,7 @@
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
+    - punctuation.definition.variable
 - source: '"'
   scopes:
     - punctuation.definition.string.end
@@ -16912,10 +16946,10 @@
 - source: $
   scopes:
     - punctuation.definition.variable
-    - punctuation.section.bracket.curly.variable.begin
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
+    - punctuation.definition.variable
 - source: '#'
   scopesBegin:
     - meta.parameter-expansion
@@ -16927,6 +16961,7 @@
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
+    - punctuation.definition.variable
 - source: '"'
   scopes:
     - punctuation.definition.string.end
@@ -16998,17 +17033,25 @@
 - source: $
   scopes:
     - punctuation.definition.variable
-    - punctuation.section.bracket.curly.variable.begin
+    - variable.parameter.positional
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
-- source: 1-
-  scopes:
+    - punctuation.definition.variable
+    - variable.parameter.positional
+- source: '1'
+  scopesBegin:
     - meta.parameter-expansion
-    - variable.other.normal
+  scopes:
+    - variable.parameter.positional
+- source: '-'
+  scopesEnd:
+    - meta.parameter-expansion
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
+    - punctuation.definition.variable
+    - variable.parameter.positional
 - source: '"'
   scopes:
     - punctuation.definition.string.end

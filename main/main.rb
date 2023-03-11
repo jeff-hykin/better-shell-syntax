@@ -937,23 +937,67 @@ require_relative './tokens.rb'
     grammar[:variable] = [
         generateVariable(/\@/, "variable.parameter.positional.all"),
         generateVariable(/[0-9]/, "variable.parameter.positional"),
-        generateVariable(/\{[0-9]+\}/, "variable.parameter.positional"),
         generateVariable(/[-*#?$!0_]/, "variable.language.special"),
+        # positional but has {}'s
         PatternRange.new(
             tag_content_as: "meta.parameter-expansion",
             start_pattern: Pattern.new(
                     match: Pattern.new(
                         match: /\$/,
-                        tag_as: "punctuation.definition.variable punctuation.section.bracket.curly.variable.begin"
+                        tag_as: "punctuation.definition.variable variable.parameter.positional"
                     ).then(
                         match: /\{/,
-                        tag_as: "punctuation.section.bracket.curly.variable.begin",
+                        tag_as: "punctuation.section.bracket.curly.variable.begin punctuation.definition.variable variable.parameter.positional",
+                    ).then(std_space).lookAheadFor(/\d/)
+                ),
+            end_pattern: Pattern.new(
+                    match: /\}/,
+                    tag_as: "punctuation.section.bracket.curly.variable.end punctuation.definition.variable variable.parameter.positional",
+                ),
+            includes: [
+                Pattern.new(
+                    match: /!|:[-=?]?|\*|@|##|#|%%|%|\//,
+                    tag_as: "keyword.operator.expansion",
+                ),
+                Pattern.new(
+                    Pattern.new(
+                        match: /\[/,
+                        tag_as: "punctuation.section.array",
+                    ).then(
+                        match: /[^\]]+/,
+                    ).then(
+                        match: /\]/,
+                        tag_as: "punctuation.section.array",
+                    )
+                ),
+                Pattern.new(
+                    match: /[0-9]+/,
+                    tag_as: "variable.parameter.positional",
+                ),
+                Pattern.new(
+                    match: variable_name,
+                    tag_as: "variable.other.normal",
+                ),
+                :variable,
+                :string,
+            ]
+        ),
+        # Normal varible {}'s
+        PatternRange.new(
+            tag_content_as: "meta.parameter-expansion",
+            start_pattern: Pattern.new(
+                    match: Pattern.new(
+                        match: /\$/,
+                        tag_as: "punctuation.definition.variable"
+                    ).then(
+                        match: /\{/,
+                        tag_as: "punctuation.section.bracket.curly.variable.begin punctuation.definition.variable",
                         
                     )
                 ),
             end_pattern: Pattern.new(
                     match: /\}/,
-                    tag_as: "punctuation.section.bracket.curly.variable.end",
+                    tag_as: "punctuation.section.bracket.curly.variable.end punctuation.definition.variable",
                 ),
             includes: [
                 Pattern.new(

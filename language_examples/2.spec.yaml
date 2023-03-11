@@ -91,10 +91,10 @@
 - source: $
   scopes:
     - punctuation.definition.variable
-    - punctuation.section.bracket.curly.variable.begin
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
+    - punctuation.definition.variable
 - source: TYPEORM_SYNCHRONIZE
   scopes:
     - meta.parameter-expansion
@@ -102,6 +102,7 @@
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
+    - punctuation.definition.variable
 - source: '"'
   scopes:
     - punctuation.definition.string.end

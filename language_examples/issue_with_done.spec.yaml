@@ -425,10 +425,10 @@
 - source: $
   scopes:
     - punctuation.definition.variable
-    - punctuation.section.bracket.curly.variable.begin
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
+    - punctuation.definition.variable
 - source: pip_thing
   scopes:
     - meta.parameter-expansion
@@ -436,6 +436,7 @@
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
+    - punctuation.definition.variable
 - source: '"'
   scopes:
     - punctuation.definition.string.end
@@ -646,10 +647,10 @@
 - source: $
   scopes:
     - punctuation.definition.variable
-    - punctuation.section.bracket.curly.variable.begin
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
+    - punctuation.definition.variable
 - source: one_thing
   scopes:
     - meta.parameter-expansion
@@ -657,6 +658,7 @@
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
+    - punctuation.definition.variable
 - source: '"'
   scopes:
     - punctuation.definition.string.end
@@ -836,10 +838,10 @@
 - source: $
   scopes:
     - punctuation.definition.variable
-    - punctuation.section.bracket.curly.variable.begin
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
+    - punctuation.definition.variable
 - source: pip_thing
   scopes:
     - meta.parameter-expansion
@@ -847,6 +849,7 @@
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
+    - punctuation.definition.variable
 - source: '"'
   scopes:
     - punctuation.definition.string.end
@@ -1057,10 +1060,10 @@
 - source: $
   scopes:
     - punctuation.definition.variable
-    - punctuation.section.bracket.curly.variable.begin
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
+    - punctuation.definition.variable
 - source: two_thing
   scopes:
     - meta.parameter-expansion
@@ -1068,6 +1071,7 @@
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
+    - punctuation.definition.variable
 - source: '"'
   scopes:
     - punctuation.definition.string.end

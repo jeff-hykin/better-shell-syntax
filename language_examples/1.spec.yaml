@@ -18,10 +18,10 @@
 - source: $
   scopes:
     - punctuation.definition.variable
-    - punctuation.section.bracket.curly.variable.begin
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
+    - punctuation.definition.variable
 - source: PATH
   scopes:
     - meta.parameter-expansion
@@ -29,6 +29,7 @@
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
+    - punctuation.definition.variable
 - source: ':/usr/local/opt/llvm/bin'
 - source: '"'
   scopes:

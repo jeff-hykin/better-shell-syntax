@@ -89,10 +89,10 @@
     - entity.name.command
   scopes:
     - punctuation.definition.variable
-    - punctuation.section.bracket.curly.variable.begin
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
+    - punctuation.definition.variable
 - source: args
   scopesBegin:
     - meta.parameter-expansion
@@ -110,6 +110,7 @@
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
+    - punctuation.definition.variable
   scopesEnd:
     - meta.statement.command.name.continuation
     - string.quoted.double
@@ -177,10 +178,10 @@
     - entity.name.command
   scopes:
     - punctuation.definition.variable
-    - punctuation.section.bracket.curly.variable.begin
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
+    - punctuation.definition.variable
 - source: args
   scopesBegin:
     - meta.parameter-expansion
@@ -198,6 +199,7 @@
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
+    - punctuation.definition.variable
   scopesEnd:
     - meta.statement.command.name.continuation
     - string.quoted.double
@@ -262,10 +264,10 @@
     - entity.name.command
   scopes:
     - punctuation.definition.variable
-    - punctuation.section.bracket.curly.variable.begin
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
+    - punctuation.definition.variable
 - source: args
   scopesBegin:
     - meta.parameter-expansion
@@ -283,6 +285,7 @@
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
+    - punctuation.definition.variable
   scopesEnd:
     - meta.statement.command.name.continuation
     - string.quoted.double
@@ -353,10 +356,10 @@
     - entity.name.command
   scopes:
     - punctuation.definition.variable
-    - punctuation.section.bracket.curly.variable.begin
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
+    - punctuation.definition.variable
 - source: args
   scopesBegin:
     - meta.parameter-expansion
@@ -374,6 +377,7 @@
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
+    - punctuation.definition.variable
   scopesEnd:
     - meta.statement.command.name.continuation
     - string.quoted.double
@@ -448,10 +452,10 @@
     - entity.name.command
   scopes:
     - punctuation.definition.variable
-    - punctuation.section.bracket.curly.variable.begin
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
+    - punctuation.definition.variable
 - source: args
   scopesBegin:
     - meta.parameter-expansion
@@ -469,6 +473,7 @@
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
+    - punctuation.definition.variable
 - source: ' echo hi'
 - source: "\techo "
   scopesEnd:
@@ -521,10 +526,10 @@
     - entity.name.command
   scopes:
     - punctuation.definition.variable
-    - punctuation.section.bracket.curly.variable.begin
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
+    - punctuation.definition.variable
 - source: args
   scopesBegin:
     - meta.parameter-expansion
@@ -542,6 +547,7 @@
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
+    - punctuation.definition.variable
   scopesEnd:
     - meta.statement.command.name.continuation
     - string.quoted.double
@@ -613,10 +619,10 @@
     - entity.name.command
   scopes:
     - punctuation.definition.variable
-    - punctuation.section.bracket.curly.variable.begin
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
+    - punctuation.definition.variable
 - source: args
   scopesBegin:
     - meta.parameter-expansion
@@ -634,6 +640,7 @@
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
+    - punctuation.definition.variable
   scopesEnd:
     - meta.statement.command.name.continuation
     - string.quoted.double
@@ -702,10 +709,10 @@
     - entity.name.command
   scopes:
     - punctuation.definition.variable
-    - punctuation.section.bracket.curly.variable.begin
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
+    - punctuation.definition.variable
 - source: args
   scopesBegin:
     - meta.parameter-expansion
@@ -723,6 +730,7 @@
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
+    - punctuation.definition.variable
   scopesEnd:
     - meta.statement.command.name.continuation
     - string.quoted.double
@@ -797,10 +805,10 @@
     - entity.name.command
   scopes:
     - punctuation.definition.variable
-    - punctuation.section.bracket.curly.variable.begin
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
+    - punctuation.definition.variable
 - source: args
   scopesBegin:
     - meta.parameter-expansion
@@ -818,6 +826,7 @@
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
+    - punctuation.definition.variable
   scopesEnd:
     - meta.statement.command.name.continuation
     - string.quoted.double

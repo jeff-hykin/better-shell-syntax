@@ -38,10 +38,10 @@
 - source: $
   scopes:
     - punctuation.definition.variable
-    - punctuation.section.bracket.curly.variable.begin
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
+    - punctuation.definition.variable
 - source: O
   scopesBegin:
     - meta.parameter-expansion
@@ -62,6 +62,7 @@
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
+    - punctuation.definition.variable
 - source: '"'
   scopes:
     - punctuation.definition.string.end
@@ -84,10 +85,10 @@
 - source: $
   scopes:
     - punctuation.definition.variable
-    - punctuation.section.bracket.curly.variable.begin
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
+    - punctuation.definition.variable
 - source: O
   scopesBegin:
     - meta.parameter-expansion
@@ -104,6 +105,7 @@
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
+    - punctuation.definition.variable
 - source: '"'
   scopes:
     - punctuation.definition.string.end
@@ -126,15 +128,17 @@
 - source: $
   scopes:
     - punctuation.definition.variable
-    - punctuation.section.bracket.curly.variable.begin
+    - variable.parameter.positional
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
+    - punctuation.definition.variable
+    - variable.parameter.positional
 - source: '1'
   scopesBegin:
     - meta.parameter-expansion
   scopes:
-    - variable.other.normal
+    - variable.parameter.positional
 - source: ':?'
   scopes:
     - keyword.operator.expansion
@@ -153,6 +157,8 @@
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
+    - punctuation.definition.variable
+    - variable.parameter.positional
 - source: '"'
   scopes:
     - punctuation.definition.string.end
@@ -175,15 +181,17 @@
 - source: $
   scopes:
     - punctuation.definition.variable
-    - punctuation.section.bracket.curly.variable.begin
+    - variable.parameter.positional
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
+    - punctuation.definition.variable
+    - variable.parameter.positional
 - source: '1'
   scopesBegin:
     - meta.parameter-expansion
   scopes:
-    - variable.other.normal
+    - variable.parameter.positional
 - source: ':'
   scopes:
     - keyword.operator.expansion
@@ -203,6 +211,8 @@
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
+    - punctuation.definition.variable
+    - variable.parameter.positional
 - source: '"'
   scopes:
     - punctuation.definition.string.end
@@ -225,15 +235,17 @@
 - source: $
   scopes:
     - punctuation.definition.variable
-    - punctuation.section.bracket.curly.variable.begin
+    - variable.parameter.positional
 - source: '{'
   scopes:
     - punctuation.section.bracket.curly.variable.begin
+    - punctuation.definition.variable
+    - variable.parameter.positional
 - source: '1'
   scopesBegin:
     - meta.parameter-expansion
   scopes:
-    - variable.other.normal
+    - variable.parameter.positional
 - source: '##'
   scopes:
     - keyword.operator.expansion
@@ -256,6 +268,8 @@
 - source: '}'
   scopes:
     - punctuation.section.bracket.curly.variable.end
+    - punctuation.definition.variable
+    - variable.parameter.positional
 - source: '"'
   scopes:
     - punctuation.definition.string.end
