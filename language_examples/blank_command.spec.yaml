@@ -97,7 +97,7 @@
 - source: extract_nix_profile_injection
   scopesBegin:
     - meta.statement
-    - meta.command
+    - meta.statement.command
   scopes:
     - meta.statement.command.name
     - entity.name.command
@@ -119,7 +119,7 @@
     - punctuation.definition.string.end
   scopesEnd:
     - meta.statement
-    - meta.command
+    - meta.statement.command
     - meta.argument
     - string.quoted.double
 - source: ;
@@ -139,7 +139,7 @@
 - source: _sudo
   scopesBegin:
     - meta.statement
-    - meta.command
+    - meta.statement.command
   scopes:
     - meta.statement.command.name
     - entity.name.command
@@ -176,7 +176,7 @@
     - punctuation.definition.string.end
   scopesEnd:
     - meta.statement
-    - meta.command
+    - meta.statement.command
     - meta.argument
     - string.quoted.double
 - source: fi

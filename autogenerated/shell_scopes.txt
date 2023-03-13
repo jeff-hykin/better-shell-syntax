@@ -58,7 +58,6 @@ keyword.other.unit.suffix.floating-point.shell
 keyword.other.unit.suffix.integer.shell
 meta.argument.shell
 meta.arithmetic.shell
-meta.command.shell
 meta.expression.assignment.shell
 meta.function.body.shell
 meta.function.shell
@@ -83,6 +82,7 @@ meta.statement.command.name.basic.shell
 meta.statement.command.name.continuation
 meta.statement.command.name.quoted.shell
 meta.statement.command.name.shell
+meta.statement.command.shell
 meta.statement.shell
 meta.structure.extglob.shell
 punctuation.definition.arguments.shell

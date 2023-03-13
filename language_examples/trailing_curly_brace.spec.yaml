@@ -50,7 +50,7 @@
 - source: poly_4_agressive_remove_artifacts
   scopes:
     - meta.statement
-    - meta.command
+    - meta.statement.command
     - meta.statement.command.name
     - entity.name.command
 - source: ;

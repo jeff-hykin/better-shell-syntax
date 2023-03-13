@@ -1,7 +1,7 @@
 - source: groupadd
   scopesBegin:
     - meta.statement
-    - meta.command
+    - meta.statement.command
   scopes:
     - meta.statement.command.name
     - entity.name.command
@@ -21,14 +21,14 @@
     - string.unquoted.argument
   scopesEnd:
     - meta.statement
-    - meta.command
+    - meta.statement.command
 - source: '&&'
   scopes:
     - punctuation.separator.statement.and
 - source: useradd
   scopesBegin:
     - meta.statement
-    - meta.command
+    - meta.statement.command
   scopes:
     - meta.statement.command.name
     - entity.name.command
@@ -66,7 +66,7 @@
     - constant.character.escape.line-continuation
   scopesEnd:
     - meta.statement
-    - meta.command
+    - meta.statement.command
     - meta.argument
 - source: '&&'
   scopes:
@@ -120,7 +120,7 @@
     - meta.scope.logical-expression
 - source: ./node_modules/.bin/typeorm
   scopesBegin:
-    - meta.command
+    - meta.statement.command
   scopes:
     - meta.statement.command.name
     - entity.name.command

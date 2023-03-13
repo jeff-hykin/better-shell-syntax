@@ -15,7 +15,7 @@
 - source: local
   scopesBegin:
     - meta.statement
-    - meta.command
+    - meta.statement.command
   scopes:
     - meta.statement.command.name
     - storage.modifier.local
@@ -46,14 +46,14 @@
     - punctuation.definition.string.end
   scopesEnd:
     - meta.statement
-    - meta.command
+    - meta.statement.command
     - meta.argument
     - string.quoted.single
 - source: )
 - source: echo
   scopesBegin:
     - meta.statement
-    - meta.command
+    - meta.statement.command
   scopes:
     - meta.statement.command.name
     - entity.name.command
@@ -64,7 +64,7 @@
     - string.unquoted.argument
   scopesEnd:
     - meta.statement
-    - meta.command
+    - meta.statement.command
 - source: '}'
   scopes:
     - punctuation.definition.group
@@ -86,7 +86,7 @@
 - source: local
   scopesBegin:
     - meta.statement
-    - meta.command
+    - meta.statement.command
   scopes:
     - meta.statement.command.name
     - storage.modifier.local
@@ -128,13 +128,13 @@
     - entity.name.command
   scopesEnd:
     - meta.statement
-    - meta.command
+    - meta.statement.command
     - meta.statement.command.name
 - source: )
 - source: echo
   scopesBegin:
     - meta.statement
-    - meta.command
+    - meta.statement.command
   scopes:
     - meta.statement.command.name
     - entity.name.command
@@ -145,7 +145,7 @@
     - string.unquoted.argument
   scopesEnd:
     - meta.statement
-    - meta.command
+    - meta.statement.command
 - source: '}'
   scopes:
     - punctuation.definition.group

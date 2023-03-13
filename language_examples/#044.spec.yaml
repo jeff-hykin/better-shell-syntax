@@ -25,7 +25,7 @@
 - source: echo
   scopesBegin:
     - meta.statement
-    - meta.command
+    - meta.statement.command
   scopes:
     - meta.statement.command.name
     - entity.name.command
@@ -49,7 +49,7 @@
     - punctuation.definition.string.end
   scopesEnd:
     - meta.statement
-    - meta.command
+    - meta.statement.command
     - meta.argument
     - string.quoted.double
 - source: '}'
@@ -62,7 +62,7 @@
 - source: foo
   scopesBegin:
     - meta.statement
-    - meta.command
+    - meta.statement.command
   scopes:
     - meta.statement.command.name
     - entity.name.command
@@ -72,7 +72,7 @@
     - string.unquoted.argument
   scopesEnd:
     - meta.statement
-    - meta.command
+    - meta.statement.command
 - source: '#'
   scopesBegin:
     - comment.line.number-sign
@@ -84,7 +84,7 @@
 - source: foo
   scopesBegin:
     - meta.statement
-    - meta.command
+    - meta.statement.command
   scopes:
     - meta.statement.command.name
     - entity.name.command
@@ -94,7 +94,7 @@
     - string.unquoted.argument
   scopesEnd:
     - meta.statement
-    - meta.command
+    - meta.statement.command
 - source: '#'
   scopesBegin:
     - comment.line.number-sign

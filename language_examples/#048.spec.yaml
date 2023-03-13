@@ -45,7 +45,7 @@
 - source: echo
   scopesBegin:
     - meta.statement
-    - meta.command
+    - meta.statement.command
   scopes:
     - meta.statement.command.name
     - entity.name.command
@@ -60,7 +60,7 @@
     - constant.other.option
   scopesEnd:
     - meta.statement
-    - meta.command
+    - meta.statement.command
     - string.unquoted.argument
 - source: '`'
   scopesBegin:
@@ -70,7 +70,7 @@
 - source: date
   scopesBegin:
     - meta.statement
-    - meta.command
+    - meta.statement.command
   scopes:
     - meta.statement.command.name
     - entity.name.command
@@ -86,7 +86,7 @@
     - punctuation.definition.string.end
   scopesEnd:
     - meta.statement
-    - meta.command
+    - meta.statement.command
     - meta.argument
     - string.quoted.double
 - source: '`'
@@ -97,7 +97,7 @@
 - source: '"'
   scopesBegin:
     - meta.statement
-    - meta.command
+    - meta.statement.command
     - meta.statement.command.name
   scopes:
     - meta.statement.command.name.quoted
@@ -168,7 +168,7 @@
     - variable.other.normal
   scopesEnd:
     - meta.statement
-    - meta.command
+    - meta.statement.command
     - meta.argument
 - source: fi
   scopes:

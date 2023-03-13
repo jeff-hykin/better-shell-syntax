@@ -90,7 +90,7 @@
 - source: mpp
   scopes:
     - meta.statement
-    - meta.command
+    - meta.statement.command
     - meta.statement.command.name
     - entity.name.command
 - source: '`'
@@ -191,7 +191,7 @@
     - string.quoted.double
 - source: set
   scopesBegin:
-    - meta.command
+    - meta.statement.command
   scopes:
     - meta.statement.command.name
     - entity.name.command
@@ -202,7 +202,7 @@
     - string.unquoted.argument
   scopesEnd:
     - meta.statement
-    - meta.command
+    - meta.statement.command
 - source: ;
   scopes:
     - punctuation.terminator.statement.semicolon
@@ -258,7 +258,7 @@
 - source: set
   scopesBegin:
     - meta.statement
-    - meta.command
+    - meta.statement.command
   scopes:
     - meta.statement.command.name
     - entity.name.command
@@ -273,7 +273,7 @@
     - constant.other.option
   scopesEnd:
     - meta.statement
-    - meta.command
+    - meta.statement.command
     - string.unquoted.argument
 - source: ;
   scopes:
@@ -284,7 +284,7 @@
 - source: set
   scopesBegin:
     - meta.statement
-    - meta.command
+    - meta.statement.command
   scopes:
     - meta.statement.command.name
     - entity.name.command
@@ -295,7 +295,7 @@
     - string.unquoted.argument
   scopesEnd:
     - meta.statement
-    - meta.command
+    - meta.statement.command
 - source: ;
   scopes:
     - punctuation.terminator.statement.semicolon
@@ -323,7 +323,7 @@
 - source: uname
   scopes:
     - meta.statement
-    - meta.command
+    - meta.statement.command
     - meta.statement.command.name
     - entity.name.command
 - source: )
@@ -364,7 +364,7 @@
 - source: command
   scopesBegin:
     - meta.statement
-    - meta.command
+    - meta.statement.command
   scopes:
     - meta.statement.command.name
     - entity.name.command
@@ -401,7 +401,7 @@
     - punctuation.definition.string.end
   scopesEnd:
     - meta.statement
-    - meta.command
+    - meta.statement.command
     - meta.argument
     - string.quoted.double
 - source: else
@@ -410,7 +410,7 @@
 - source: command
   scopesBegin:
     - meta.statement
-    - meta.command
+    - meta.statement.command
   scopes:
     - meta.statement.command.name
     - entity.name.command
@@ -437,7 +437,7 @@
     - punctuation.definition.string.end
   scopesEnd:
     - meta.statement
-    - meta.command
+    - meta.statement.command
     - meta.argument
     - string.quoted.double
 - source: fi
@@ -448,7 +448,7 @@
 - source: set
   scopesBegin:
     - meta.statement
-    - meta.command
+    - meta.statement.command
   scopes:
     - meta.statement.command.name
     - entity.name.command
@@ -486,7 +486,7 @@
     - string.unquoted.argument
   scopesEnd:
     - meta.statement
-    - meta.command
+    - meta.statement.command
 - source: '}'
   scopes:
     - punctuation.definition.group
@@ -505,7 +505,7 @@
 - source: nulldef
   scopes:
     - meta.statement
-    - meta.command
+    - meta.statement.command
     - meta.statement.command.name
     - entity.name.command
 - source: ;
@@ -589,7 +589,7 @@
     - string.quoted.double
 - source: set
   scopesBegin:
-    - meta.command
+    - meta.statement.command
   scopes:
     - meta.statement.command.name
     - entity.name.command
@@ -600,7 +600,7 @@
     - string.unquoted.argument
   scopesEnd:
     - meta.statement
-    - meta.command
+    - meta.statement.command
 - source: ;
   scopes:
     - punctuation.terminator.statement.semicolon
@@ -656,7 +656,7 @@
 - source: set
   scopesBegin:
     - meta.statement
-    - meta.command
+    - meta.statement.command
   scopes:
     - meta.statement.command.name
     - entity.name.command
@@ -671,7 +671,7 @@
     - constant.other.option
   scopesEnd:
     - meta.statement
-    - meta.command
+    - meta.statement.command
     - string.unquoted.argument
 - source: ;
   scopes:
@@ -682,7 +682,7 @@
 - source: set
   scopesBegin:
     - meta.statement
-    - meta.command
+    - meta.statement.command
   scopes:
     - meta.statement.command.name
     - entity.name.command
@@ -693,7 +693,7 @@
     - string.unquoted.argument
   scopesEnd:
     - meta.statement
-    - meta.command
+    - meta.statement.command
 - source: ;
   scopes:
     - punctuation.terminator.statement.semicolon
@@ -721,7 +721,7 @@
 - source: uname
   scopes:
     - meta.statement
-    - meta.command
+    - meta.statement.command
     - meta.statement.command.name
     - entity.name.command
 - source: )
@@ -762,7 +762,7 @@
 - source: command
   scopesBegin:
     - meta.statement
-    - meta.command
+    - meta.statement.command
   scopes:
     - meta.statement.command.name
     - entity.name.command
@@ -799,7 +799,7 @@
     - punctuation.definition.string.end
   scopesEnd:
     - meta.statement
-    - meta.command
+    - meta.statement.command
     - meta.argument
     - string.quoted.double
 - source: else
@@ -808,7 +808,7 @@
 - source: command
   scopesBegin:
     - meta.statement
-    - meta.command
+    - meta.statement.command
   scopes:
     - meta.statement.command.name
     - entity.name.command
@@ -835,7 +835,7 @@
     - punctuation.definition.string.end
   scopesEnd:
     - meta.statement
-    - meta.command
+    - meta.statement.command
     - meta.argument
     - string.quoted.double
 - source: fi
@@ -846,7 +846,7 @@
 - source: set
   scopesBegin:
     - meta.statement
-    - meta.command
+    - meta.statement.command
   scopes:
     - meta.statement.command.name
     - entity.name.command
@@ -884,7 +884,7 @@
     - string.unquoted.argument
   scopesEnd:
     - meta.statement
-    - meta.command
+    - meta.statement.command
 - source: '}'
   scopes:
     - punctuation.definition.group
@@ -903,7 +903,7 @@
 - source: nulldef
   scopes:
     - meta.statement
-    - meta.command
+    - meta.statement.command
     - meta.statement.command.name
     - entity.name.command
 - source: ;
@@ -987,7 +987,7 @@
     - string.quoted.double
 - source: set
   scopesBegin:
-    - meta.command
+    - meta.statement.command
   scopes:
     - meta.statement.command.name
     - entity.name.command
@@ -998,7 +998,7 @@
     - string.unquoted.argument
   scopesEnd:
     - meta.statement
-    - meta.command
+    - meta.statement.command
 - source: ;
   scopes:
     - punctuation.terminator.statement.semicolon
@@ -1054,7 +1054,7 @@
 - source: set
   scopesBegin:
     - meta.statement
-    - meta.command
+    - meta.statement.command
   scopes:
     - meta.statement.command.name
     - entity.name.command
@@ -1069,7 +1069,7 @@
     - constant.other.option
   scopesEnd:
     - meta.statement
-    - meta.command
+    - meta.statement.command
     - string.unquoted.argument
 - source: ;
   scopes:
@@ -1080,7 +1080,7 @@
 - source: set
   scopesBegin:
     - meta.statement
-    - meta.command
+    - meta.statement.command
   scopes:
     - meta.statement.command.name
     - entity.name.command
@@ -1091,7 +1091,7 @@
     - string.unquoted.argument
   scopesEnd:
     - meta.statement
-    - meta.command
+    - meta.statement.command
 - source: ;
   scopes:
     - punctuation.terminator.statement.semicolon
@@ -1119,7 +1119,7 @@
 - source: uname
   scopes:
     - meta.statement
-    - meta.command
+    - meta.statement.command
     - meta.statement.command.name
     - entity.name.command
 - source: )
@@ -1160,7 +1160,7 @@
 - source: command
   scopesBegin:
     - meta.statement
-    - meta.command
+    - meta.statement.command
   scopes:
     - meta.statement.command.name
     - entity.name.command
@@ -1197,7 +1197,7 @@
     - punctuation.definition.string.end
   scopesEnd:
     - meta.statement
-    - meta.command
+    - meta.statement.command
     - meta.argument
     - string.quoted.double
 - source: else
@@ -1206,7 +1206,7 @@
 - source: command
   scopesBegin:
     - meta.statement
-    - meta.command
+    - meta.statement.command
   scopes:
     - meta.statement.command.name
     - entity.name.command
@@ -1233,7 +1233,7 @@
     - punctuation.definition.string.end
   scopesEnd:
     - meta.statement
-    - meta.command
+    - meta.statement.command
     - meta.argument
     - string.quoted.double
 - source: fi
@@ -1244,7 +1244,7 @@
 - source: set
   scopesBegin:
     - meta.statement
-    - meta.command
+    - meta.statement.command
   scopes:
     - meta.statement.command.name
     - entity.name.command
@@ -1282,7 +1282,7 @@
     - string.unquoted.argument
   scopesEnd:
     - meta.statement
-    - meta.command
+    - meta.statement.command
 - source: '}'
   scopes:
     - punctuation.definition.group

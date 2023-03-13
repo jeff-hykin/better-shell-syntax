@@ -1386,7 +1386,7 @@
           },
           "endCaptures": {
           },
-          "name": "meta.command.shell",
+          "name": "meta.statement.command.shell",
           "patterns": [
             {
               "begin": "\\G",

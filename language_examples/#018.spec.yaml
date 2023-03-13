@@ -35,7 +35,7 @@
 - source: echo
   scopesBegin:
     - meta.statement
-    - meta.command
+    - meta.statement.command
   scopes:
     - meta.statement.command.name
     - entity.name.command
@@ -52,7 +52,7 @@
     - punctuation.definition.string.end
   scopesEnd:
     - meta.statement
-    - meta.command
+    - meta.statement.command
     - meta.argument
     - string.quoted.double
 - source: '|'
@@ -64,7 +64,7 @@
 - source: echo
   scopesBegin:
     - meta.statement
-    - meta.command
+    - meta.statement.command
   scopes:
     - meta.statement.command.name
     - entity.name.command
@@ -81,7 +81,7 @@
     - punctuation.definition.string.end
   scopesEnd:
     - meta.statement
-    - meta.command
+    - meta.statement.command
     - meta.argument
     - string.quoted.double
 - source: function
@@ -115,7 +115,7 @@
 - source: ls
   scopesBegin:
     - meta.statement
-    - meta.command
+    - meta.statement.command
   scopes:
     - meta.statement.command.name
     - entity.name.command
@@ -136,7 +136,7 @@
     - support.function.builtin
   scopesEnd:
     - meta.statement
-    - meta.command
+    - meta.statement.command
 - source: '}'
   scopes:
     - punctuation.definition.group

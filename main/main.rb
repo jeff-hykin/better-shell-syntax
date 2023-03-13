@@ -741,7 +741,7 @@ require_relative './tokens.rb'
             # Command Statement
             # 
             PatternRange.new(
-                tag_as: "meta.command",
+                tag_as: "meta.statement.command",
                 start_pattern: grammar[:start_of_command],
                 end_pattern: command_end,
                 includes: [

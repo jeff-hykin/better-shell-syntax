@@ -41,7 +41,7 @@
     - string.quoted.double
 - source: printf
   scopesBegin:
-    - meta.command
+    - meta.statement.command
   scopes:
     - meta.statement.command.name
     - entity.name.command
@@ -83,7 +83,7 @@
     - punctuation.definition.string.end
   scopesEnd:
     - meta.statement
-    - meta.command
+    - meta.statement.command
     - meta.argument
     - string.quoted.double
 - source: case
@@ -160,7 +160,7 @@
     - string.quoted.double
 - source: echo
   scopesBegin:
-    - meta.command
+    - meta.statement.command
   scopes:
     - meta.statement.command.name
     - entity.name.command
@@ -184,7 +184,7 @@
   scopesEnd:
     - meta.scope.case-clause-body
     - meta.statement
-    - meta.command
+    - meta.statement.command
     - meta.argument
     - string.quoted.double
 - source: ;;
@@ -218,7 +218,7 @@
 - source: echo
   scopesBegin:
     - meta.statement
-    - meta.command
+    - meta.statement.command
   scopes:
     - meta.statement.command.name
     - entity.name.command
@@ -242,7 +242,7 @@
   scopesEnd:
     - meta.scope.case-clause-body
     - meta.statement
-    - meta.command
+    - meta.statement.command
     - meta.argument
     - string.quoted.double
 - source: ;;

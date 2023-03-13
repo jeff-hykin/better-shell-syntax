@@ -21,7 +21,7 @@
     - string.quoted.double
 - source: declare
   scopesBegin:
-    - meta.command
+    - meta.statement.command
   scopes:
     - meta.statement.command.name
     - storage.modifier.declare
@@ -40,7 +40,7 @@
     - meta.argument
     - string.unquoted.argument
   scopesEnd:
-    - meta.command
+    - meta.statement.command
 - source: ASSOC_ARRAY
   scopesBegin:
     - meta.expression.assignment

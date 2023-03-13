@@ -6,7 +6,7 @@
 - source: 'true'
   scopes:
     - meta.statement
-    - meta.command
+    - meta.statement.command
     - meta.statement.command.name
     - entity.name.command
     - support.function.builtin
@@ -19,7 +19,7 @@
 - source: cat
   scopesBegin:
     - meta.statement
-    - meta.command
+    - meta.statement.command
   scopes:
     - meta.statement.command.name
     - entity.name.command
@@ -125,7 +125,7 @@
     - punctuation.definition.string.heredoc
   scopesEnd:
     - meta.statement
-    - meta.command
+    - meta.statement.command
     - meta.argument
 - source: fi
   scopes:
@@ -135,7 +135,7 @@
 - source: echo
   scopesBegin:
     - meta.statement
-    - meta.command
+    - meta.statement.command
   scopes:
     - meta.statement.command.name
     - entity.name.command

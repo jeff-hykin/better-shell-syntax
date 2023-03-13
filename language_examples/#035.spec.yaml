@@ -11,7 +11,7 @@
 - source: echo
   scopesBegin:
     - meta.statement
-    - meta.command
+    - meta.statement.command
   scopes:
     - meta.statement.command.name
     - entity.name.command
@@ -27,7 +27,7 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
-    - meta.command
+    - meta.statement.command
     - meta.argument
     - string.quoted.double
 - source: array_not_ok
@@ -110,7 +110,7 @@
     - meta.expression.assignment
 - source: echo
   scopesBegin:
-    - meta.command
+    - meta.statement.command
   scopes:
     - meta.statement.command.name
     - entity.name.command

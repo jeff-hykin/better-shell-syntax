@@ -21,7 +21,7 @@
     - string.quoted.single
 - source: read
   scopesBegin:
-    - meta.command
+    - meta.statement.command
   scopes:
     - meta.statement.command.name
     - entity.name.command

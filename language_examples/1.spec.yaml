@@ -39,7 +39,7 @@
     - string.quoted.double
 - source: find
   scopesBegin:
-    - meta.command
+    - meta.statement.command
   scopes:
     - meta.statement.command.name
     - entity.name.command
@@ -88,7 +88,7 @@
     - constant.other.option
   scopesEnd:
     - meta.statement
-    - meta.command
+    - meta.statement.command
     - string.unquoted.argument
 - source: '|'
   scopes:
@@ -96,7 +96,7 @@
 - source: perl
   scopesBegin:
     - meta.statement
-    - meta.command
+    - meta.statement.command
   scopes:
     - meta.statement.command.name
     - entity.name.command
@@ -146,7 +146,7 @@
     - punctuation.definition.string.end
   scopesEnd:
     - meta.statement
-    - meta.command
+    - meta.statement.command
     - meta.argument
     - string.quoted.single
 - source: if
@@ -207,7 +207,7 @@
 - source: brew
   scopesBegin:
     - meta.statement
-    - meta.command
+    - meta.statement.command
   scopes:
     - meta.statement.command.name
     - entity.name.command
@@ -225,7 +225,7 @@
     - variable.parameter.positional.all
   scopesEnd:
     - meta.statement
-    - meta.command
+    - meta.statement.command
     - meta.argument
 - source: fi
   scopes:
@@ -235,7 +235,7 @@
 - source: cd
   scopesBegin:
     - meta.statement
-    - meta.command
+    - meta.statement.command
   scopes:
     - meta.statement.command.name
     - entity.name.command
@@ -250,7 +250,7 @@
     - constant.character.escape.line-continuation
   scopesEnd:
     - meta.statement
-    - meta.command
+    - meta.statement.command
     - meta.argument
 - source: '&&'
   scopes:
@@ -258,7 +258,7 @@
 - source: mkdir
   scopesBegin:
     - meta.statement
-    - meta.command
+    - meta.statement.command
   scopes:
     - meta.statement.command.name
     - entity.name.command
@@ -272,7 +272,7 @@
     - constant.character.escape.line-continuation
   scopesEnd:
     - meta.statement
-    - meta.command
+    - meta.statement.command
     - meta.argument
 - source: '&&'
   scopes:
@@ -280,7 +280,7 @@
 - source: cd
   scopesBegin:
     - meta.statement
-    - meta.command
+    - meta.statement.command
   scopes:
     - meta.statement.command.name
     - entity.name.command
@@ -295,7 +295,7 @@
     - constant.character.escape.line-continuation
   scopesEnd:
     - meta.statement
-    - meta.command
+    - meta.statement.command
     - meta.argument
 - source: '&&'
   scopes:
@@ -303,7 +303,7 @@
 - source: ldconfig
   scopesBegin:
     - meta.statement
-    - meta.command
+    - meta.statement.command
   scopes:
     - meta.statement.command.name
     - entity.name.command
@@ -313,14 +313,14 @@
     - constant.character.escape.line-continuation
   scopesEnd:
     - meta.statement
-    - meta.command
+    - meta.statement.command
 - source: '&&'
   scopes:
     - punctuation.separator.statement.and
 - source: rm
   scopesBegin:
     - meta.statement
-    - meta.command
+    - meta.statement.command
   scopes:
     - meta.statement.command.name
     - entity.name.command
@@ -334,7 +334,7 @@
     - constant.character.escape.line-continuation
   scopesEnd:
     - meta.statement
-    - meta.command
+    - meta.statement.command
     - meta.argument
 - source: '&&'
   scopes:
@@ -342,7 +342,7 @@
 - source: rm
   scopesBegin:
     - meta.statement
-    - meta.command
+    - meta.statement.command
   scopes:
     - meta.statement.command.name
     - entity.name.command
@@ -352,7 +352,7 @@
     - string.unquoted.argument
   scopesEnd:
     - meta.statement
-    - meta.command
+    - meta.statement.command
 - source: function
   scopesBegin:
     - meta.function
@@ -426,7 +426,7 @@
     - meta.expression.assignment
 - source: cd
   scopesBegin:
-    - meta.command
+    - meta.statement.command
   scopes:
     - meta.statement.command.name
     - entity.name.command
@@ -443,7 +443,7 @@
     - punctuation.definition.string.end
   scopesEnd:
     - meta.statement
-    - meta.command
+    - meta.statement.command
     - meta.argument
     - string.quoted.double
 - source: ;
@@ -452,7 +452,7 @@
 - source: ls
   scopesBegin:
     - meta.statement
-    - meta.command
+    - meta.statement.command
   scopes:
     - meta.statement.command.name
     - entity.name.command
@@ -466,7 +466,7 @@
     - constant.other.option
   scopesEnd:
     - meta.statement
-    - meta.command
+    - meta.statement.command
     - string.unquoted.argument
 - source: '}'
   scopes:
@@ -478,7 +478,7 @@
 - source: exec
   scopesBegin:
     - meta.statement
-    - meta.command
+    - meta.statement.command
   scopes:
     - meta.statement.command.name
     - entity.name.command
@@ -514,7 +514,7 @@
 - source: perl
   scopesBegin:
     - meta.statement
-    - meta.command
+    - meta.statement.command
   scopes:
     - meta.statement.command.name
     - entity.name.command
@@ -541,14 +541,14 @@
     - punctuation.definition.string.end
   scopesEnd:
     - meta.statement
-    - meta.command
+    - meta.statement.command
     - meta.argument
     - string.quoted.single
 - source: )
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
-    - meta.command
+    - meta.statement.command
     - meta.argument
     - string.interpolated.process-substitution
 - source: export
@@ -575,7 +575,7 @@
 - source: tput
   scopesBegin:
     - meta.statement
-    - meta.command
+    - meta.statement.command
   scopes:
     - meta.statement.command.name
     - entity.name.command
@@ -589,7 +589,7 @@
     - constant.numeric.decimal
   scopesEnd:
     - meta.statement
-    - meta.command
+    - meta.statement.command
     - meta.argument
     - string.unquoted.argument
 - source: )
@@ -624,7 +624,7 @@
 - source: tput
   scopesBegin:
     - meta.statement
-    - meta.command
+    - meta.statement.command
   scopes:
     - meta.statement.command.name
     - entity.name.command
@@ -638,7 +638,7 @@
     - constant.numeric.decimal
   scopesEnd:
     - meta.statement
-    - meta.command
+    - meta.statement.command
     - meta.argument
     - string.unquoted.argument
 - source: )
@@ -673,7 +673,7 @@
 - source: tput
   scopesBegin:
     - meta.statement
-    - meta.command
+    - meta.statement.command
   scopes:
     - meta.statement.command.name
     - entity.name.command
@@ -683,7 +683,7 @@
     - string.unquoted.argument
   scopesEnd:
     - meta.statement
-    - meta.command
+    - meta.statement.command
 - source: )
   scopes:
     - punctuation.definition.evaluation.parens.end
@@ -697,7 +697,7 @@
     - string.quoted.double
 - source: sed
   scopesBegin:
-    - meta.command
+    - meta.statement.command
   scopes:
     - meta.statement.command.name
     - entity.name.command
@@ -823,7 +823,7 @@
     - support.function.builtin
   scopesEnd:
     - meta.statement
-    - meta.command
+    - meta.statement.command
 - source: '#'
   scopesBegin:
     - comment.line.number-sign
@@ -879,7 +879,7 @@
 - source: exit
   scopesBegin:
     - meta.statement
-    - meta.command
+    - meta.statement.command
   scopes:
     - meta.statement.command.name
     - entity.name.command
@@ -892,7 +892,7 @@
     - constant.numeric.decimal
   scopesEnd:
     - meta.statement
-    - meta.command
+    - meta.statement.command
 - source: fi
   scopes:
     - keyword.control

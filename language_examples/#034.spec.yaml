@@ -76,7 +76,7 @@
     - meta.expression.assignment
 - source: echo
   scopesBegin:
-    - meta.command
+    - meta.statement.command
   scopes:
     - meta.statement.command.name
     - entity.name.command
@@ -93,7 +93,7 @@
     - punctuation.definition.string.end
   scopesEnd:
     - meta.statement
-    - meta.command
+    - meta.statement.command
     - meta.argument
     - string.quoted.double
 - source: for
@@ -151,7 +151,7 @@
 - source: '"'
   scopesBegin:
     - meta.statement
-    - meta.command
+    - meta.statement.command
     - meta.statement.command.name
   scopes:
     - meta.statement.command.name.quoted
@@ -283,7 +283,7 @@
     - punctuation.definition.string.end
   scopesEnd:
     - meta.statement
-    - meta.command
+    - meta.statement.command
     - meta.argument
     - string.quoted.double
 - source: done
@@ -294,7 +294,7 @@
 - source: echo
   scopesBegin:
     - meta.statement
-    - meta.command
+    - meta.statement.command
   scopes:
     - meta.statement.command.name
     - entity.name.command
@@ -512,7 +512,7 @@
     - punctuation.definition.string.end
   scopesEnd:
     - meta.statement
-    - meta.command
+    - meta.statement.command
     - meta.argument
     - string.quoted.double
 - source: $
