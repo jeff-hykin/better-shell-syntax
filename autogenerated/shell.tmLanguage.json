@@ -1462,6 +1462,9 @@
             },
             {
               "include": "#statement_context"
+            },
+            {
+              "include": "#string"
             }
           ]
         },

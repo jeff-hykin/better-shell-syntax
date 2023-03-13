@@ -820,7 +820,8 @@ require_relative './tokens.rb'
                     :option,
                     :argument,
                     # :custom_commands,
-                    :statement_context
+                    :statement_context,
+                    :string,
                 ],
             ),
             :line_continuation,
