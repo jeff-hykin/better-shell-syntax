@@ -77,7 +77,7 @@
     - meta.argument
     - string.unquoted.argument
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
 - source: '-'
   scopesBegin:
     - string.unquoted.argument
@@ -586,7 +586,7 @@
 - source: '4'
   scopes:
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
   scopesEnd:
     - meta.statement
     - meta.statement.command
@@ -635,7 +635,7 @@
 - source: '1'
   scopes:
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
   scopesEnd:
     - meta.statement
     - meta.statement.command
@@ -805,7 +805,7 @@
     - meta.argument
     - string.unquoted.argument
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
 - source: '-'
   scopesBegin:
     - string.unquoted.argument
@@ -889,7 +889,7 @@
     - meta.argument
     - string.unquoted.argument
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
   scopesEnd:
     - meta.statement
     - meta.statement.command

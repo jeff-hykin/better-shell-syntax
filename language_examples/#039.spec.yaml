@@ -96,7 +96,7 @@
 - source: '100'
   scopes:
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
 - source: '[item5]='
   scopesEnd:
     - string.unquoted.argument

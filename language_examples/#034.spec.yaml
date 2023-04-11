@@ -61,14 +61,14 @@
   scopesBegin:
     - string.unquoted.argument
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
 - source: '3'
 - source: '4'
 - source: '10'
   scopesEnd:
     - string.unquoted.argument
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
 - source: )
   scopes:
     - punctuation

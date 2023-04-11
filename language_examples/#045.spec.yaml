@@ -162,7 +162,7 @@
     - meta.argument
     - string.unquoted.argument
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
   scopesEnd:
     - meta.statement
     - meta.statement.command

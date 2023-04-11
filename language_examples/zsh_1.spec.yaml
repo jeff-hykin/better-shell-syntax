@@ -4034,8 +4034,6 @@
 - source: '2'
   scopes:
     - string.unquoted.argument
-    - constant.numeric
-    - constant.numeric.decimal
 - source: \"
   scopes:
     - constant.character.escape
@@ -4307,7 +4305,7 @@
     - meta.argument
     - string.unquoted.argument
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
   scopesEnd:
     - meta.statement
     - meta.statement.command
@@ -4539,7 +4537,7 @@
     - meta.argument
     - string.unquoted.argument
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
   scopesEnd:
     - meta.statement
     - meta.statement.command
@@ -4707,7 +4705,7 @@
     - meta.argument
     - string.unquoted.argument
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
   scopesEnd:
     - meta.statement
     - meta.statement.command
@@ -5074,7 +5072,7 @@
     - meta.argument
     - string.unquoted.argument
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
   scopesEnd:
     - meta.statement
     - meta.statement.command
@@ -5220,8 +5218,6 @@
 - source: '3'
   scopes:
     - string.unquoted.argument
-    - constant.numeric
-    - constant.numeric.decimal
 - source: \"
   scopes:
     - constant.character.escape
@@ -5245,7 +5241,7 @@
     - meta.argument
     - string.unquoted.argument
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
   scopesEnd:
     - meta.statement
     - meta.statement.command
@@ -5354,7 +5350,7 @@
     - meta.argument
     - string.unquoted.argument
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
   scopesEnd:
     - meta.statement
     - meta.statement.command
@@ -5453,7 +5449,7 @@
     - meta.argument
     - string.unquoted.argument
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
   scopesEnd:
     - meta.scope.case-clause-body
     - meta.statement
@@ -5871,7 +5867,7 @@
 - source: '0'
   scopes:
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
 - source: '&&'
   scopes:
     - keyword.operator.logical
@@ -5999,7 +5995,7 @@
 - source: '2'
   scopes:
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
 - source: ']'
   scopes:
     - punctuation.definition.logical-expression
@@ -6287,7 +6283,7 @@
     - meta.argument
     - string.unquoted.argument
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
   scopesEnd:
     - meta.statement
     - meta.statement.command
@@ -7879,7 +7875,7 @@
 - source: '1'
   scopes:
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
   scopesEnd:
     - meta.argument
     - string.unquoted.argument
@@ -8358,7 +8354,7 @@
     - meta.argument
     - string.unquoted.argument
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
   scopesEnd:
     - meta.scope.case-clause-body
     - meta.statement
@@ -9475,7 +9471,7 @@
 - source: '0'
   scopes:
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
 - source: '||'
   scopes:
     - keyword.operator.logical
@@ -10577,7 +10573,7 @@
 - source: '1'
   scopes:
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
 - source: ']'
   scopes:
     - punctuation.definition.logical-expression
@@ -10630,7 +10626,7 @@
   scopes:
     - string.unquoted.argument
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
   scopesEnd:
     - meta.statement
     - meta.statement.command
@@ -10824,7 +10820,7 @@
 - source: '4'
   scopes:
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
 - source: '||'
   scopes:
     - keyword.operator.logical
@@ -10860,7 +10856,7 @@
 - source: '4'
   scopes:
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
 - source: '&&'
   scopes:
     - keyword.operator.logical
@@ -11045,7 +11041,7 @@
 - source: '0'
   scopes:
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
 - source: ']'
   scopes:
     - punctuation.definition.logical-expression
@@ -11381,7 +11377,7 @@
 - source: '4'
   scopes:
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
 - source: ']]'
   scopes:
     - punctuation.definition.logical-expression
@@ -11663,7 +11659,7 @@
 - source: '3'
   scopes:
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
 - source: '&&'
   scopes:
     - keyword.operator.logical
@@ -12277,7 +12273,7 @@
     - meta.argument
     - string.unquoted.argument
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
 - source: local
   scopes:
     - meta.statement.command.name
@@ -12638,7 +12634,7 @@
 - source: '4'
   scopes:
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
 - source: ']'
   scopes:
     - punctuation.definition.logical-expression
@@ -13025,7 +13021,7 @@
 - source: '0'
   scopes:
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
 - source: ']'
   scopes:
     - punctuation.definition.logical-expression
@@ -13340,7 +13336,7 @@
     - meta.argument
     - string.unquoted.argument
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
   scopesEnd:
     - meta.statement
     - meta.statement.command
@@ -13362,7 +13358,7 @@
     - meta.argument
     - string.unquoted.argument
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
   scopesEnd:
     - meta.statement
     - meta.statement.command
@@ -15937,7 +15933,7 @@
   scopes:
     - string.unquoted.argument
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
   scopesEnd:
     - meta.statement
     - meta.expression.assignment
@@ -17067,7 +17063,7 @@
 - source: '1'
   scopes:
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
 - source: ']'
   scopes:
     - punctuation.definition.logical-expression
@@ -17085,10 +17081,16 @@
     - meta.statement.command.name
     - entity.name.command
     - support.function.builtin
-- source: 'COMPREPLY[0]='
+- source: 'COMPREPLY['
   scopesBegin:
     - meta.argument
+    - string.unquoted.argument
+- source: '0'
   scopes:
+    - constant.numeric
+    - constant.numeric.integer
+- source: ']='
+  scopesEnd:
     - string.unquoted.argument
 - source: $
   scopes:
@@ -23140,7 +23142,7 @@
   scopes:
     - string.unquoted.argument
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
   scopesEnd:
     - meta.statement
     - meta.expression.assignment
@@ -24461,7 +24463,7 @@
     - meta.argument
     - string.unquoted.argument
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
   scopesEnd:
     - meta.statement
     - meta.statement.command
@@ -25002,7 +25004,7 @@
   scopes:
     - string.unquoted.argument
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
   scopesEnd:
     - meta.statement
     - meta.expression.assignment
@@ -26015,7 +26017,7 @@
 - source: '0'
   scopes:
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
 - source: ']'
   scopes:
     - punctuation.definition.logical-expression
@@ -26819,7 +26821,7 @@
 - source: '0'
   scopes:
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
 - source: '||'
   scopes:
     - keyword.operator.logical
@@ -26857,7 +26859,7 @@
 - source: '0'
   scopes:
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
 - source: ']]'
   scopes:
     - punctuation.definition.logical-expression
@@ -27013,7 +27015,11 @@
     - meta.scope.logical-expression
   scopes:
     - punctuation.definition.logical-expression
-- source: 0-9
+- source: '0'
+  scopes:
+    - constant.numeric
+    - constant.numeric.integer
+- source: '-9'
 - source: ']'
   scopes:
     - punctuation.definition.logical-expression
@@ -27118,7 +27124,11 @@
     - meta.scope.logical-expression
   scopes:
     - punctuation.definition.logical-expression
-- source: 0-9
+- source: '0'
+  scopes:
+    - constant.numeric
+    - constant.numeric.integer
+- source: '-9'
 - source: ']'
   scopes:
     - punctuation.definition.logical-expression
@@ -27326,7 +27336,7 @@
 - source: '0'
   scopes:
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
 - source: ']'
   scopes:
     - punctuation.definition.logical-expression
@@ -27554,7 +27564,7 @@
 - source: '0'
   scopes:
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
 - source: ']'
   scopes:
     - punctuation.definition.logical-expression
@@ -28067,7 +28077,7 @@
 - source: '0'
   scopes:
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
 - source: '&&'
   scopesBegin:
     - keyword.operator.logical
@@ -29110,7 +29120,7 @@
     - meta.argument
     - string.unquoted.argument
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
   scopesEnd:
     - meta.statement
     - meta.statement.command
@@ -29453,7 +29463,7 @@
     - meta.argument
     - string.unquoted.argument
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
   scopesEnd:
     - meta.statement
     - meta.statement.command
@@ -29596,7 +29606,7 @@
     - meta.argument
     - string.unquoted.argument
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
   scopesEnd:
     - meta.statement
     - meta.statement.command
@@ -30184,7 +30194,7 @@
 - source: '1'
   scopes:
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
 - source: ']]'
   scopes:
     - punctuation.definition.logical-expression
@@ -30384,7 +30394,7 @@
     - meta.argument
     - string.unquoted.argument
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
   scopesEnd:
     - meta.statement
     - meta.statement.command
@@ -30589,7 +30599,7 @@
   scopes:
     - string.unquoted.argument
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
   scopesEnd:
     - meta.statement
     - meta.expression.assignment
@@ -31406,7 +31416,7 @@
 - source: '0'
   scopes:
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
 - source: ']]'
   scopes:
     - punctuation.definition.logical-expression
@@ -31871,7 +31881,7 @@
 - source: '2'
   scopes:
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
 - source: ']]'
   scopes:
     - punctuation.definition.logical-expression
@@ -32633,7 +32643,7 @@
 - source: '0'
   scopes:
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
 - source: ']'
   scopes:
     - punctuation.definition.logical-expression
@@ -32894,7 +32904,7 @@
 - source: '0'
   scopes:
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
 - source: '||'
   scopes:
     - keyword.operator.logical
@@ -33090,7 +33100,7 @@
     - meta.argument
     - string.unquoted.argument
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
   scopesEnd:
     - meta.scope.case-clause-body
     - meta.statement
@@ -33142,7 +33152,7 @@
     - meta.argument
     - string.unquoted.argument
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
   scopesEnd:
     - meta.scope.case-clause-body
     - meta.statement
@@ -33189,7 +33199,7 @@
     - meta.argument
     - string.unquoted.argument
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
   scopesEnd:
     - meta.statement
     - meta.statement.command
@@ -33878,7 +33888,7 @@
     - meta.argument
     - string.unquoted.argument
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
   scopesEnd:
     - meta.statement
     - meta.statement.command
@@ -34510,7 +34520,7 @@
 - source: '4'
   scopes:
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
 - source: ']'
   scopes:
     - punctuation.definition.logical-expression
@@ -34990,7 +35000,7 @@
 - source: '0'
   scopes:
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
 - source: ']'
   scopes:
     - punctuation.definition.logical-expression
@@ -35573,7 +35583,7 @@
 - source: '0'
   scopes:
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
 - source: ']'
   scopes:
     - punctuation.definition.logical-expression
@@ -40715,8 +40725,6 @@
 - source: '2'
   scopes:
     - string.unquoted.argument
-    - constant.numeric
-    - constant.numeric.decimal
 - source: \"
   scopes:
     - constant.character.escape
@@ -40988,7 +40996,7 @@
     - meta.argument
     - string.unquoted.argument
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
   scopesEnd:
     - meta.statement
     - meta.statement.command
@@ -41220,7 +41228,7 @@
     - meta.argument
     - string.unquoted.argument
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
   scopesEnd:
     - meta.statement
     - meta.statement.command
@@ -41388,7 +41396,7 @@
     - meta.argument
     - string.unquoted.argument
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
   scopesEnd:
     - meta.statement
     - meta.statement.command
@@ -41755,7 +41763,7 @@
     - meta.argument
     - string.unquoted.argument
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
   scopesEnd:
     - meta.statement
     - meta.statement.command
@@ -41901,8 +41909,6 @@
 - source: '3'
   scopes:
     - string.unquoted.argument
-    - constant.numeric
-    - constant.numeric.decimal
 - source: \"
   scopes:
     - constant.character.escape
@@ -41926,7 +41932,7 @@
     - meta.argument
     - string.unquoted.argument
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
   scopesEnd:
     - meta.statement
     - meta.statement.command
@@ -42035,7 +42041,7 @@
     - meta.argument
     - string.unquoted.argument
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
   scopesEnd:
     - meta.statement
     - meta.statement.command
@@ -42134,7 +42140,7 @@
     - meta.argument
     - string.unquoted.argument
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
   scopesEnd:
     - meta.scope.case-clause-body
     - meta.statement
@@ -42552,7 +42558,7 @@
 - source: '0'
   scopes:
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
 - source: '&&'
   scopes:
     - keyword.operator.logical
@@ -42680,7 +42686,7 @@
 - source: '2'
   scopes:
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
 - source: ']'
   scopes:
     - punctuation.definition.logical-expression
@@ -42968,7 +42974,7 @@
     - meta.argument
     - string.unquoted.argument
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
   scopesEnd:
     - meta.statement
     - meta.statement.command
@@ -44560,7 +44566,7 @@
 - source: '1'
   scopes:
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
   scopesEnd:
     - meta.argument
     - string.unquoted.argument
@@ -45039,7 +45045,7 @@
     - meta.argument
     - string.unquoted.argument
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
   scopesEnd:
     - meta.scope.case-clause-body
     - meta.statement
@@ -46156,7 +46162,7 @@
 - source: '0'
   scopes:
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
 - source: '||'
   scopes:
     - keyword.operator.logical
@@ -47258,7 +47264,7 @@
 - source: '1'
   scopes:
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
 - source: ']'
   scopes:
     - punctuation.definition.logical-expression
@@ -47311,7 +47317,7 @@
   scopes:
     - string.unquoted.argument
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
   scopesEnd:
     - meta.statement
     - meta.statement.command
@@ -47505,7 +47511,7 @@
 - source: '4'
   scopes:
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
 - source: '||'
   scopes:
     - keyword.operator.logical
@@ -47541,7 +47547,7 @@
 - source: '4'
   scopes:
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
 - source: '&&'
   scopes:
     - keyword.operator.logical
@@ -47726,7 +47732,7 @@
 - source: '0'
   scopes:
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
 - source: ']'
   scopes:
     - punctuation.definition.logical-expression
@@ -48062,7 +48068,7 @@
 - source: '4'
   scopes:
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
 - source: ']]'
   scopes:
     - punctuation.definition.logical-expression
@@ -48344,7 +48350,7 @@
 - source: '3'
   scopes:
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
 - source: '&&'
   scopes:
     - keyword.operator.logical
@@ -48958,7 +48964,7 @@
     - meta.argument
     - string.unquoted.argument
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
 - source: local
   scopes:
     - meta.statement.command.name
@@ -49319,7 +49325,7 @@
 - source: '4'
   scopes:
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
 - source: ']'
   scopes:
     - punctuation.definition.logical-expression
@@ -49706,7 +49712,7 @@
 - source: '0'
   scopes:
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
 - source: ']'
   scopes:
     - punctuation.definition.logical-expression
@@ -50021,7 +50027,7 @@
     - meta.argument
     - string.unquoted.argument
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
   scopesEnd:
     - meta.statement
     - meta.statement.command
@@ -50043,7 +50049,7 @@
     - meta.argument
     - string.unquoted.argument
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
   scopesEnd:
     - meta.statement
     - meta.statement.command
@@ -52618,7 +52624,7 @@
   scopes:
     - string.unquoted.argument
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
   scopesEnd:
     - meta.statement
     - meta.expression.assignment
@@ -53748,7 +53754,7 @@
 - source: '1'
   scopes:
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
 - source: ']'
   scopes:
     - punctuation.definition.logical-expression
@@ -53766,10 +53772,16 @@
     - meta.statement.command.name
     - entity.name.command
     - support.function.builtin
-- source: 'COMPREPLY[0]='
+- source: 'COMPREPLY['
   scopesBegin:
     - meta.argument
+    - string.unquoted.argument
+- source: '0'
   scopes:
+    - constant.numeric
+    - constant.numeric.integer
+- source: ']='
+  scopesEnd:
     - string.unquoted.argument
 - source: $
   scopes:
@@ -59821,7 +59833,7 @@
   scopes:
     - string.unquoted.argument
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
   scopesEnd:
     - meta.statement
     - meta.expression.assignment
@@ -61142,7 +61154,7 @@
     - meta.argument
     - string.unquoted.argument
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
   scopesEnd:
     - meta.statement
     - meta.statement.command
@@ -61683,7 +61695,7 @@
   scopes:
     - string.unquoted.argument
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
   scopesEnd:
     - meta.statement
     - meta.expression.assignment
@@ -62696,7 +62708,7 @@
 - source: '0'
   scopes:
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
 - source: ']'
   scopes:
     - punctuation.definition.logical-expression
@@ -63500,7 +63512,7 @@
 - source: '0'
   scopes:
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
 - source: '||'
   scopes:
     - keyword.operator.logical
@@ -63538,7 +63550,7 @@
 - source: '0'
   scopes:
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
 - source: ']]'
   scopes:
     - punctuation.definition.logical-expression
@@ -63694,7 +63706,11 @@
     - meta.scope.logical-expression
   scopes:
     - punctuation.definition.logical-expression
-- source: 0-9
+- source: '0'
+  scopes:
+    - constant.numeric
+    - constant.numeric.integer
+- source: '-9'
 - source: ']'
   scopes:
     - punctuation.definition.logical-expression
@@ -63799,7 +63815,11 @@
     - meta.scope.logical-expression
   scopes:
     - punctuation.definition.logical-expression
-- source: 0-9
+- source: '0'
+  scopes:
+    - constant.numeric
+    - constant.numeric.integer
+- source: '-9'
 - source: ']'
   scopes:
     - punctuation.definition.logical-expression
@@ -64007,7 +64027,7 @@
 - source: '0'
   scopes:
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
 - source: ']'
   scopes:
     - punctuation.definition.logical-expression
@@ -64235,7 +64255,7 @@
 - source: '0'
   scopes:
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
 - source: ']'
   scopes:
     - punctuation.definition.logical-expression
@@ -64748,7 +64768,7 @@
 - source: '0'
   scopes:
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
 - source: '&&'
   scopesBegin:
     - keyword.operator.logical
@@ -65791,7 +65811,7 @@
     - meta.argument
     - string.unquoted.argument
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
   scopesEnd:
     - meta.statement
     - meta.statement.command
@@ -66134,7 +66154,7 @@
     - meta.argument
     - string.unquoted.argument
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
   scopesEnd:
     - meta.statement
     - meta.statement.command
@@ -66277,7 +66297,7 @@
     - meta.argument
     - string.unquoted.argument
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
   scopesEnd:
     - meta.statement
     - meta.statement.command
@@ -66865,7 +66885,7 @@
 - source: '1'
   scopes:
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
 - source: ']]'
   scopes:
     - punctuation.definition.logical-expression
@@ -67065,7 +67085,7 @@
     - meta.argument
     - string.unquoted.argument
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
   scopesEnd:
     - meta.statement
     - meta.statement.command
@@ -67270,7 +67290,7 @@
   scopes:
     - string.unquoted.argument
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
   scopesEnd:
     - meta.statement
     - meta.expression.assignment
@@ -68087,7 +68107,7 @@
 - source: '0'
   scopes:
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
 - source: ']]'
   scopes:
     - punctuation.definition.logical-expression
@@ -68552,7 +68572,7 @@
 - source: '2'
   scopes:
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
 - source: ']]'
   scopes:
     - punctuation.definition.logical-expression
@@ -69314,7 +69334,7 @@
 - source: '0'
   scopes:
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
 - source: ']'
   scopes:
     - punctuation.definition.logical-expression
@@ -69575,7 +69595,7 @@
 - source: '0'
   scopes:
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
 - source: '||'
   scopes:
     - keyword.operator.logical
@@ -69771,7 +69791,7 @@
     - meta.argument
     - string.unquoted.argument
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
   scopesEnd:
     - meta.scope.case-clause-body
     - meta.statement
@@ -69823,7 +69843,7 @@
     - meta.argument
     - string.unquoted.argument
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
   scopesEnd:
     - meta.scope.case-clause-body
     - meta.statement
@@ -69870,7 +69890,7 @@
     - meta.argument
     - string.unquoted.argument
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
   scopesEnd:
     - meta.statement
     - meta.statement.command
@@ -70551,7 +70571,7 @@
     - meta.argument
     - string.unquoted.argument
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
   scopesEnd:
     - meta.statement
     - meta.statement.command
@@ -71183,7 +71203,7 @@
 - source: '4'
   scopes:
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
 - source: ']'
   scopes:
     - punctuation.definition.logical-expression
@@ -71663,7 +71683,7 @@
 - source: '0'
   scopes:
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
 - source: ']'
   scopes:
     - punctuation.definition.logical-expression
@@ -72246,7 +72266,7 @@
 - source: '0'
   scopes:
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
 - source: ']'
   scopes:
     - punctuation.definition.logical-expression
@@ -74252,7 +74272,7 @@
 - source: '0'
   scopes:
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
 - source: ']]'
   scopes:
     - punctuation.definition.logical-expression
@@ -75266,7 +75286,7 @@
     - meta.argument
     - string.unquoted.argument
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
   scopesEnd:
     - meta.statement
     - meta.statement.command
@@ -75369,7 +75389,7 @@
     - meta.argument
     - string.unquoted.argument
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
   scopesEnd:
     - meta.statement
     - meta.statement.command
@@ -75667,7 +75687,7 @@
     - meta.argument
     - string.unquoted.argument
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
   scopesEnd:
     - meta.statement
     - meta.statement.command
@@ -76129,7 +76149,7 @@
     - meta.argument
     - string.unquoted.argument
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
   scopesEnd:
     - meta.statement
     - meta.statement.command
@@ -76338,7 +76358,7 @@
     - meta.argument
     - string.unquoted.argument
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
   scopesEnd:
     - meta.statement
     - meta.statement.command
@@ -76685,7 +76705,7 @@
     - meta.argument
     - string.unquoted.argument
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
   scopesEnd:
     - meta.statement
     - meta.statement.command
@@ -77220,7 +77240,7 @@
     - meta.argument
     - string.unquoted.argument
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
   scopesEnd:
     - meta.statement
     - meta.statement.command
@@ -77526,7 +77546,7 @@
     - meta.argument
     - string.unquoted.argument
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
   scopesEnd:
     - meta.statement
     - meta.statement.command
@@ -79506,7 +79526,7 @@
 - source: '0'
   scopes:
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
 - source: ']'
   scopes:
     - punctuation.definition.logical-expression
@@ -79531,7 +79551,7 @@
     - meta.argument
     - string.unquoted.argument
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
   scopesEnd:
     - meta.statement
     - meta.statement.command
@@ -80044,7 +80064,7 @@
     - meta.argument
     - string.unquoted.argument
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
   scopesEnd:
     - meta.statement
     - meta.statement.command
@@ -80610,7 +80630,7 @@
   scopes:
     - string.unquoted.argument
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
 - source: <<<
   scopesBegin:
     - meta.herestring
@@ -80787,7 +80807,7 @@
     - meta.argument
     - string.unquoted.argument
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
   scopesEnd:
     - meta.statement
     - meta.statement.command
@@ -81080,7 +81100,7 @@
     - meta.argument
     - string.unquoted.argument
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
   scopesEnd:
     - meta.statement
     - meta.statement.command
@@ -81102,7 +81122,7 @@
     - meta.argument
     - string.unquoted.argument
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
   scopesEnd:
     - meta.statement
     - meta.statement.command
@@ -81664,15 +81684,8 @@
     - constant.other.option
   scopesEnd:
     - string.unquoted.argument
-- source: +
-  scopesBegin:
-    - meta.argument
-    - string.unquoted.argument
-- source: '1'
+- source: '+1'
   scopes:
-    - constant.numeric
-    - constant.numeric.decimal
-  scopesEnd:
     - meta.argument
     - string.unquoted.argument
 - source: '-'
@@ -82673,7 +82686,7 @@
     - meta.argument
     - string.unquoted.argument
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
   scopesEnd:
     - meta.statement
     - meta.statement.command
@@ -85873,7 +85886,7 @@
     - meta.argument
     - string.unquoted.argument
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
   scopesEnd:
     - meta.statement
     - meta.statement.command
@@ -85895,7 +85908,7 @@
     - meta.argument
     - string.unquoted.argument
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
   scopesEnd:
     - meta.statement
     - meta.statement.command
@@ -86359,7 +86372,7 @@
     - meta.argument
     - string.unquoted.argument
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
   scopesEnd:
     - meta.statement
     - meta.statement.command
@@ -87191,7 +87204,7 @@
     - meta.argument
     - string.unquoted.argument
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
   scopesEnd:
     - meta.statement
     - meta.statement.command
@@ -87319,7 +87332,7 @@
     - meta.argument
     - string.unquoted.argument
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
   scopesEnd:
     - meta.statement
     - meta.statement.command
@@ -87497,7 +87510,7 @@
     - meta.argument
     - string.unquoted.argument
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
   scopesEnd:
     - meta.statement
     - meta.statement.command
@@ -88912,7 +88925,7 @@
     - meta.argument
     - string.unquoted.argument
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
   scopesEnd:
     - meta.statement
     - meta.statement.command
@@ -90301,7 +90314,7 @@
     - meta.argument
     - string.unquoted.argument
     - constant.numeric
-    - constant.numeric.decimal
+    - constant.numeric.integer
   scopesEnd:
     - meta.statement
     - meta.statement.command
