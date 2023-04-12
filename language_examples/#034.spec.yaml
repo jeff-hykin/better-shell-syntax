@@ -79,6 +79,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '"'
@@ -157,11 +158,13 @@
     - meta.statement.command.name.quoted
     - string.quoted.double
     - punctuation.definition.string.begin
+    - entity.name.function.call
     - entity.name.command
 - source: $
   scopesBegin:
     - meta.statement.command.name.continuation
     - string.quoted.double
+    - entity.name.function.call
     - entity.name.command
   scopes:
     - punctuation.definition.variable
@@ -190,11 +193,13 @@
   scopesEnd:
     - meta.statement.command.name.continuation
     - string.quoted.double
+    - entity.name.function.call
     - entity.name.command
 - source: '"'
   scopes:
     - string.quoted.double
     - punctuation.definition.string.end
+    - entity.name.function.call
     - entity.name.command
   scopesEnd:
     - meta.statement.command.name
@@ -224,11 +229,13 @@
     - meta.statement.command.name.quoted
     - string.quoted.double
     - punctuation.definition.string.begin
+    - entity.name.function.call
     - entity.name.command
 - source: $
   scopesBegin:
     - meta.statement.command.name.continuation
     - string.quoted.double
+    - entity.name.function.call
     - entity.name.command
   scopes:
     - punctuation.definition.variable
@@ -257,11 +264,13 @@
   scopesEnd:
     - meta.statement.command.name.continuation
     - string.quoted.double
+    - entity.name.function.call
     - entity.name.command
 - source: '"'
   scopes:
     - string.quoted.double
     - punctuation.definition.string.end
+    - entity.name.function.call
     - entity.name.command
   scopesEnd:
     - meta.statement.command.name
@@ -297,6 +306,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '"'
@@ -319,11 +329,13 @@
     - meta.statement.command.name.quoted
     - string.quoted.double
     - punctuation.definition.string.begin
+    - entity.name.function.call
     - entity.name.command
 - source: $
   scopesBegin:
     - meta.statement.command.name.continuation
     - string.quoted.double
+    - entity.name.function.call
     - entity.name.command
   scopes:
     - punctuation.definition.variable
@@ -352,11 +364,13 @@
   scopesEnd:
     - meta.statement.command.name.continuation
     - string.quoted.double
+    - entity.name.function.call
     - entity.name.command
 - source: '"'
   scopes:
     - string.quoted.double
     - punctuation.definition.string.end
+    - entity.name.function.call
     - entity.name.command
   scopesEnd:
     - meta.statement.command.name
@@ -386,11 +400,13 @@
     - meta.statement.command.name.quoted
     - string.quoted.double
     - punctuation.definition.string.begin
+    - entity.name.function.call
     - entity.name.command
 - source: $
   scopesBegin:
     - meta.statement.command.name.continuation
     - string.quoted.double
+    - entity.name.function.call
     - entity.name.command
   scopes:
     - punctuation.definition.variable
@@ -419,11 +435,13 @@
   scopesEnd:
     - meta.statement.command.name.continuation
     - string.quoted.double
+    - entity.name.function.call
     - entity.name.command
 - source: '"'
   scopes:
     - string.quoted.double
     - punctuation.definition.string.end
+    - entity.name.function.call
     - entity.name.command
   scopesEnd:
     - meta.statement.command.name
@@ -453,11 +471,13 @@
     - meta.statement.command.name.quoted
     - string.quoted.double
     - punctuation.definition.string.begin
+    - entity.name.function.call
     - entity.name.command
 - source: $
   scopesBegin:
     - meta.statement.command.name.continuation
     - string.quoted.double
+    - entity.name.function.call
     - entity.name.command
   scopes:
     - punctuation.definition.variable
@@ -486,11 +506,13 @@
   scopesEnd:
     - meta.statement.command.name.continuation
     - string.quoted.double
+    - entity.name.function.call
     - entity.name.command
 - source: '"'
   scopes:
     - string.quoted.double
     - punctuation.definition.string.end
+    - entity.name.function.call
     - entity.name.command
   scopesEnd:
     - meta.statement.command.name

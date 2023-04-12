@@ -80,6 +80,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '"'
   scopesBegin:
@@ -111,6 +112,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -163,6 +165,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -191,6 +194,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -236,6 +240,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '"'
   scopesBegin:
@@ -267,6 +272,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -319,6 +325,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -347,6 +354,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -569,6 +577,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -629,6 +638,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -688,6 +698,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '"'
@@ -720,6 +731,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: tee
   scopesBegin:
@@ -757,6 +769,7 @@
 - source: return
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - keyword.control.return
 - source: '0'
@@ -777,6 +790,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '"'
@@ -803,6 +817,7 @@
 - source: echo
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '"'
@@ -821,6 +836,7 @@
 - source: return
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - keyword.control.return
 - source: '1'
@@ -923,6 +939,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '"'
@@ -949,6 +966,7 @@
 - source: echo
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '"'
@@ -967,6 +985,7 @@
 - source: return
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - keyword.control.return
 - source: '1'
@@ -1089,6 +1108,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '"'
   scopesBegin:
@@ -1131,6 +1151,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: rm
   scopes:
@@ -1243,6 +1264,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '"'
   scopesBegin:

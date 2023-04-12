@@ -122,6 +122,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '"'
@@ -155,6 +156,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - keyword.control.return
 - source: '0'

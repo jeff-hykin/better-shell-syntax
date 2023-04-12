@@ -100,6 +100,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '"'
   scopesBegin:
@@ -142,6 +143,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: rm
   scopes:

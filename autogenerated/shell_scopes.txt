@@ -19,6 +19,8 @@ constant.other.option.dash.shell
 constant.other.option.shell
 entity.name.command
 entity.name.command.shell
+entity.name.function.call
+entity.name.function.call.shell
 entity.name.function.shell
 keyword.control.$0.shell
 keyword.control.shell

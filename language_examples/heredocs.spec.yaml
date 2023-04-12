@@ -8,6 +8,7 @@
     - meta.statement
     - meta.statement.command
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: ;
@@ -22,6 +23,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: <<-
   scopesBegin:
@@ -42,6 +44,7 @@
 - source: cat
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: <<-
   scopesBegin:
@@ -64,6 +67,7 @@
 - source: cat
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: <<-
   scopesBegin:
@@ -86,6 +90,7 @@
 - source: cat
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '<<'
   scopesBegin:
@@ -108,6 +113,7 @@
 - source: cat
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '<<'
   scopesBegin:
@@ -138,6 +144,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '"'
@@ -164,6 +171,7 @@
 - source: cat
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '<<'
   scopesBegin:
@@ -192,6 +200,7 @@
 - source: echo
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '"'
@@ -218,6 +227,7 @@
 - source: echo
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '"'
@@ -244,6 +254,7 @@
 - source: cat
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: <<-
   scopesBegin:
@@ -272,6 +283,7 @@
 - source: echo
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '"'

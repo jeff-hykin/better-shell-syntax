@@ -289,4 +289,5 @@
     - meta.statement
     - meta.statement.command
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command

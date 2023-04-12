@@ -42,6 +42,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '"'
   scopesBegin:
@@ -99,6 +100,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -210,6 +212,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: install
   scopesBegin:
@@ -238,6 +241,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: /opencv-3.2.0/
@@ -261,6 +265,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: build
   scopesBegin:
@@ -283,6 +288,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: build
@@ -306,6 +312,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: \
   scopes:
@@ -323,6 +330,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: /opencv.zip
   scopesBegin:
@@ -345,6 +353,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: /opencv_contrib.zip
   scopes:
@@ -429,6 +438,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '"'
@@ -455,6 +465,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -481,6 +492,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '9'
@@ -496,6 +508,7 @@
 - source: exec
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '8'
@@ -517,6 +530,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -578,6 +592,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: setaf
   scopesBegin:
@@ -627,6 +642,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: setaf
   scopesBegin:
@@ -676,6 +692,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: sgr0
   scopes:
@@ -700,6 +717,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -727,6 +745,7 @@
 - source: sed
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: ''''
   scopesBegin:
@@ -744,6 +763,7 @@
 - source: sed
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: ''''
   scopesBegin:
@@ -765,6 +785,7 @@
 - source: read
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '-'
@@ -819,6 +840,7 @@
 - source: echo
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
   scopesEnd:
@@ -882,6 +904,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '1'

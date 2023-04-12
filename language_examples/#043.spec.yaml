@@ -56,6 +56,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: blah
@@ -115,16 +116,19 @@
     - meta.statement.command.name.quoted
     - string.quoted.single
     - punctuation.definition.string.begin
+    - entity.name.function.call
     - entity.name.command
 - source: '#'
   scopes:
     - meta.statement.command.name.continuation
     - string.quoted.single
+    - entity.name.function.call
     - entity.name.command
 - source: ''''
   scopes:
     - string.quoted.single
     - punctuation.definition.string.end
+    - entity.name.function.call
     - entity.name.command
   scopesEnd:
     - meta.statement
@@ -137,6 +141,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: blah

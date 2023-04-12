@@ -415,9 +415,9 @@ require_relative './tokens.rb'
             ]
         ) 
     end
-    unquoted_command_prefix = generateUnquotedArugment["entity.name.command"]
+    unquoted_command_prefix = generateUnquotedArugment["entity.name.function.call entity.name.command"]
     grammar[:start_of_double_quoted_command_name] = Pattern.new(
-        tag_as: "meta.statement.command.name.quoted string.quoted.double punctuation.definition.string.begin entity.name.command",
+        tag_as: "meta.statement.command.name.quoted string.quoted.double punctuation.definition.string.begin entity.name.function.call entity.name.command",
         match: Pattern.new(
             Pattern.new(
                 basic_possible_command_start
@@ -429,7 +429,7 @@ require_relative './tokens.rb'
     )
     
     grammar[:start_of_single_quoted_command_name] = Pattern.new(
-        tag_as: "meta.statement.command.name.quoted string.quoted.single punctuation.definition.string.begin entity.name.command",
+        tag_as: "meta.statement.command.name.quoted string.quoted.single punctuation.definition.string.begin entity.name.function.call entity.name.command",
         match: Pattern.new(
             Pattern.new(
                 basic_possible_command_start
@@ -441,7 +441,7 @@ require_relative './tokens.rb'
     )
     
     grammar[:continuation_of_double_quoted_command_name] = PatternRange.new(
-        tag_content_as: "meta.statement.command.name.continuation string.quoted.double entity.name.command",
+        tag_content_as: "meta.statement.command.name.continuation string.quoted.double entity.name.function.call entity.name.command",
         start_pattern: Pattern.new(
             Pattern.new(
                 /\G/
@@ -449,7 +449,7 @@ require_relative './tokens.rb'
         ),
         end_pattern: Pattern.new(
             match: "\"",
-            tag_as: "string.quoted.double punctuation.definition.string.end.shell entity.name.command",
+            tag_as: "string.quoted.double punctuation.definition.string.end.shell entity.name.function.call entity.name.command",
         ),
         includes: [
             Pattern.new(
@@ -462,7 +462,7 @@ require_relative './tokens.rb'
     )
     
     grammar[:continuation_of_single_quoted_command_name] = PatternRange.new(
-        tag_content_as: "meta.statement.command.name.continuation string.quoted.single entity.name.command",
+        tag_content_as: "meta.statement.command.name.continuation string.quoted.single entity.name.function.call entity.name.command",
         start_pattern: Pattern.new(
             Pattern.new(
                 /\G/
@@ -470,7 +470,7 @@ require_relative './tokens.rb'
         ),
         end_pattern: Pattern.new(
             match: "\'",
-            tag_as: "string.quoted.single punctuation.definition.string.end.shell entity.name.command",
+            tag_as: "string.quoted.single punctuation.definition.string.end.shell entity.name.function.call entity.name.command",
         ),
     )
     
@@ -481,7 +481,7 @@ require_relative './tokens.rb'
                 possible_command_start
             ).then(
                 modifier.or(
-                    tag_as: "entity.name.command",
+                    tag_as: "entity.name.function.call entity.name.command",
                     match: lookAheadToAvoid(/"|'|\\\n?$/).then(/[^!'" \t\n\r]+?/), # start of unquoted command
                     includes: [
                         Pattern.new(
@@ -585,11 +585,11 @@ require_relative './tokens.rb'
                             
                             Pattern.new(
                                 match: any_builtin_control_flow,
-                                tag_as: "entity.name.command keyword.control.$match",
+                                tag_as: "entity.name.function.call entity.name.command keyword.control.$match",
                             ),
                             Pattern.new(
                                 match: any_builtin_name,
-                                tag_as: "entity.name.command support.function.builtin",
+                                tag_as: "entity.name.function.call entity.name.command support.function.builtin",
                             ),
                             :variable,
                             
@@ -598,7 +598,7 @@ require_relative './tokens.rb'
                             # 
                             Pattern.new(
                                 lookBehindFor(/\G|'|"|\}|\)/).then(
-                                    tag_as: "entity.name.command",
+                                    tag_as: "entity.name.function.call entity.name.command",
                                     match: /[^ \n\t\r"'=;#$!&\|`\)\{]+/,
                                 ),
                             ),
@@ -613,15 +613,15 @@ require_relative './tokens.rb'
                                     ).then(
                                         maybe(
                                             match: /\$/,
-                                            tag_as: "meta.statement.command.name.quoted punctuation.definition.string entity.name.command",
+                                            tag_as: "meta.statement.command.name.quoted punctuation.definition.string entity.name.function.call entity.name.command",
                                         ).then(
                                             reference: "start_quote",
                                             match: Pattern.new(
                                                 Pattern.new(
-                                                    tag_as: "meta.statement.command.name.quoted string.quoted.double punctuation.definition.string.begin entity.name.command",
+                                                    tag_as: "meta.statement.command.name.quoted string.quoted.double punctuation.definition.string.begin entity.name.function.call entity.name.command",
                                                     match: /"/
                                                 ).or(
-                                                    tag_as: "meta.statement.command.name.quoted string.quoted.single punctuation.definition.string.begin entity.name.command",
+                                                    tag_as: "meta.statement.command.name.quoted string.quoted.single punctuation.definition.string.begin entity.name.function.call entity.name.command",
                                                     match: /'/,
                                                 )
                                             )
