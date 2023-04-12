@@ -355,8 +355,8 @@ require_relative './tokens.rb'
     )
     
     possible_pre_command_characters   = /(?:^|;|\||&|!|\(|\{|\`)/
-    basic_possible_command_start      = lookAheadToAvoid(/(?:!|%|&|\||\(|\)|\{|\[|<|>|#|\n|$|;|[ \t])/)
-    possible_argument_start  = lookAheadToAvoid(/(?:%|&|\||\(|\[|#|\n|$|;)/)
+    basic_possible_command_start      = lookAheadToAvoid(/(?:!|&|\||\(|\)|\{|\[|<|>|#|\n|$|;|[ \t])/)
+    possible_argument_start  = lookAheadToAvoid(/(?:&|\||\(|\[|#|\n|$|;)/)
     command_end              = lookAheadFor(/;|\||&|\n|\)|\`|\{|\}|[ \t]*#|\]/).lookBehindToAvoid(/\\/)
     command_continuation     = lookBehindToAvoid(/ |\t|;|\||&|\n|\{|#/)
     unquoted_string_end      = lookAheadFor(/ |\t|;|\||&|$|\n|\)|\`/)
@@ -729,7 +729,7 @@ require_relative './tokens.rb'
         # 
         PatternRange.new(
             tag_as: "meta.scope.group",
-            start_pattern: Pattern.new(
+            start_pattern: lookBehindToAvoid(/[^ \t]/).then(
                     tag_as: "punctuation.definition.group",
                     match: /{/
                 ),

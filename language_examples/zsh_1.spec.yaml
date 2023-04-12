@@ -3748,10 +3748,13 @@
     - meta.statement.command.name
     - entity.name.command
     - support.function.builtin
-- source: ' %s'
-- source: '"'
+- source: '%s'
   scopesBegin:
     - meta.argument
+  scopes:
+    - string.unquoted.argument
+- source: '"'
+  scopesBegin:
     - string.quoted.double
   scopes:
     - punctuation.definition.string.begin
@@ -4557,10 +4560,13 @@
     - meta.statement.command.name
     - entity.name.command
     - support.function.builtin
-- source: ' %d'
-- source: '"'
+- source: '%d'
   scopesBegin:
     - meta.argument
+  scopes:
+    - string.unquoted.argument
+- source: '"'
+  scopesBegin:
     - string.quoted.double
   scopes:
     - punctuation.definition.string.begin
@@ -11424,12 +11430,11 @@
 - source: '2'
   scopes:
     - variable.parameter.positional
-  scopesEnd:
-    - meta.argument
-- source: ' %s'
+- source: '%s'
+  scopes:
+    - string.unquoted.argument
 - source: '"'
   scopesBegin:
-    - meta.argument
     - string.quoted.double
   scopes:
     - punctuation.definition.string.begin
@@ -11506,12 +11511,11 @@
 - source: '2'
   scopes:
     - variable.parameter.positional
-  scopesEnd:
-    - meta.argument
-- source: ' %q'
+- source: '%q'
+  scopes:
+    - string.unquoted.argument
 - source: '"'
   scopesBegin:
-    - meta.argument
     - string.quoted.double
   scopes:
     - punctuation.definition.string.begin
@@ -11585,12 +11589,10 @@
 - source: '2'
   scopes:
     - variable.parameter.positional
-  scopesEnd:
-    - meta.argument
-- source: ' %q'
+- source: '%q'
+  scopes:
+    - string.unquoted.argument
 - source: $
-  scopesBegin:
-    - meta.argument
   scopes:
     - punctuation.definition.variable
 - source: '{'
@@ -11748,12 +11750,11 @@
 - source: '2'
   scopes:
     - variable.parameter.positional
-  scopesEnd:
-    - meta.argument
-- source: ' %q'
+- source: '%q'
+  scopes:
+    - string.unquoted.argument
 - source: '"'
   scopesBegin:
-    - meta.argument
     - string.quoted.double
   scopes:
     - punctuation.definition.string.begin
@@ -11822,12 +11823,11 @@
 - source: '2'
   scopes:
     - variable.parameter.positional
-  scopesEnd:
-    - meta.argument
-- source: ' %q'
+- source: '%q'
+  scopes:
+    - string.unquoted.argument
 - source: '"'
   scopesBegin:
-    - meta.argument
     - string.quoted.double
   scopes:
     - punctuation.definition.string.begin
@@ -12795,10 +12795,12 @@
     - meta.statement.command.name
     - entity.name.command
     - support.function.builtin
-- source: ' %s'
-- source: $
+- source: '%s'
   scopesBegin:
     - meta.argument
+  scopes:
+    - string.unquoted.argument
+- source: $
   scopes:
     - punctuation.definition.variable
     - variable.parameter.positional
@@ -34649,10 +34651,12 @@
     - meta.statement.command.name
     - entity.name.command
     - support.function.builtin
-- source: ' %s'
-- source: $
+- source: '%s'
   scopesBegin:
     - meta.argument
+  scopes:
+    - string.unquoted.argument
+- source: $
   scopes:
     - punctuation.definition.variable
     - variable.other.normal
@@ -40439,10 +40443,13 @@
     - meta.statement.command.name
     - entity.name.command
     - support.function.builtin
-- source: ' %s'
-- source: '"'
+- source: '%s'
   scopesBegin:
     - meta.argument
+  scopes:
+    - string.unquoted.argument
+- source: '"'
+  scopesBegin:
     - string.quoted.double
   scopes:
     - punctuation.definition.string.begin
@@ -41248,10 +41255,13 @@
     - meta.statement.command.name
     - entity.name.command
     - support.function.builtin
-- source: ' %d'
-- source: '"'
+- source: '%d'
   scopesBegin:
     - meta.argument
+  scopes:
+    - string.unquoted.argument
+- source: '"'
+  scopesBegin:
     - string.quoted.double
   scopes:
     - punctuation.definition.string.begin
@@ -48115,12 +48125,11 @@
 - source: '2'
   scopes:
     - variable.parameter.positional
-  scopesEnd:
-    - meta.argument
-- source: ' %s'
+- source: '%s'
+  scopes:
+    - string.unquoted.argument
 - source: '"'
   scopesBegin:
-    - meta.argument
     - string.quoted.double
   scopes:
     - punctuation.definition.string.begin
@@ -48197,12 +48206,11 @@
 - source: '2'
   scopes:
     - variable.parameter.positional
-  scopesEnd:
-    - meta.argument
-- source: ' %q'
+- source: '%q'
+  scopes:
+    - string.unquoted.argument
 - source: '"'
   scopesBegin:
-    - meta.argument
     - string.quoted.double
   scopes:
     - punctuation.definition.string.begin
@@ -48276,12 +48284,10 @@
 - source: '2'
   scopes:
     - variable.parameter.positional
-  scopesEnd:
-    - meta.argument
-- source: ' %q'
+- source: '%q'
+  scopes:
+    - string.unquoted.argument
 - source: $
-  scopesBegin:
-    - meta.argument
   scopes:
     - punctuation.definition.variable
 - source: '{'
@@ -48439,12 +48445,11 @@
 - source: '2'
   scopes:
     - variable.parameter.positional
-  scopesEnd:
-    - meta.argument
-- source: ' %q'
+- source: '%q'
+  scopes:
+    - string.unquoted.argument
 - source: '"'
   scopesBegin:
-    - meta.argument
     - string.quoted.double
   scopes:
     - punctuation.definition.string.begin
@@ -48513,12 +48518,11 @@
 - source: '2'
   scopes:
     - variable.parameter.positional
-  scopesEnd:
-    - meta.argument
-- source: ' %q'
+- source: '%q'
+  scopes:
+    - string.unquoted.argument
 - source: '"'
   scopesBegin:
-    - meta.argument
     - string.quoted.double
   scopes:
     - punctuation.definition.string.begin
@@ -49486,10 +49490,12 @@
     - meta.statement.command.name
     - entity.name.command
     - support.function.builtin
-- source: ' %s'
-- source: $
+- source: '%s'
   scopesBegin:
     - meta.argument
+  scopes:
+    - string.unquoted.argument
+- source: $
   scopes:
     - punctuation.definition.variable
     - variable.parameter.positional
@@ -71332,10 +71338,12 @@
     - meta.statement.command.name
     - entity.name.command
     - support.function.builtin
-- source: ' %s'
-- source: $
+- source: '%s'
   scopesBegin:
     - meta.argument
+  scopes:
+    - string.unquoted.argument
+- source: $
   scopes:
     - punctuation.definition.variable
     - variable.other.normal
