@@ -26,7 +26,7 @@ Before                     | After
 The screenshots were taken with [PolaCode 2022](https://marketplace.visualstudio.com/items?itemName=jeff-hykin.polacode-2019) with the XD Theme (MixItUp variant) and the [XD font](https://github.com/jeff-hykin/xd-font)
 
 ## Contributing
-If you'd like to help improve the syntax, take a look at `source/languages` and look at the `generate.rb` files. And make sure to take a look at `CONTRIBUTING.md` to get a better idea of how code works.
+If you'd like to help improve the syntax, `main.rb` is where all the magic happens and `CONTRIBUTING.md` explains how the code works.
 
 ## What if I see a highlighting bug?
 Post an issue on https://github.com/jeff-hykin/better-shell-syntax
