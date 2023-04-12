@@ -218,6 +218,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '-'
@@ -241,6 +242,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: +v
@@ -466,6 +468,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -645,6 +648,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -688,6 +692,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -735,6 +740,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -776,6 +782,7 @@
 - source: complete
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -815,6 +822,7 @@
 - source: complete
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -867,6 +875,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -907,6 +916,7 @@
 - source: complete
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -957,6 +967,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -1001,6 +1012,7 @@
 - source: complete
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -1040,6 +1052,7 @@
 - source: complete
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -1077,6 +1090,7 @@
 - source: complete
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -1114,6 +1128,7 @@
 - source: complete
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -1153,6 +1168,7 @@
 - source: complete
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -1193,6 +1209,7 @@
 - source: complete
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -1232,6 +1249,7 @@
 - source: complete
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -1276,6 +1294,7 @@
 - source: complete
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -1316,6 +1335,7 @@
 - source: complete
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -1353,6 +1373,7 @@
 - source: complete
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -1391,6 +1412,7 @@
 - source: complete
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -1429,6 +1451,7 @@
 - source: complete
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -1471,6 +1494,7 @@
 - source: complete
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -1510,6 +1534,7 @@
 - source: complete
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -1555,6 +1580,7 @@
 - source: complete
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -1595,6 +1621,7 @@
 - source: complete
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -1636,6 +1663,7 @@
 - source: complete
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -1676,6 +1704,7 @@
 - source: complete
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -1713,6 +1742,7 @@
 - source: complete
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -1750,6 +1780,7 @@
 - source: complete
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -1787,6 +1818,7 @@
 - source: complete
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -1824,6 +1856,7 @@
 - source: complete
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -1863,6 +1896,7 @@
 - source: complete
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -1900,6 +1934,7 @@
 - source: complete
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -1937,6 +1972,7 @@
 - source: complete
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -1974,6 +2010,7 @@
 - source: complete
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -2013,6 +2050,7 @@
 - source: complete
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -2064,6 +2102,7 @@
 - source: complete
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -2101,6 +2140,7 @@
 - source: complete
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -2151,6 +2191,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -2202,6 +2243,7 @@
 - source: complete
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -2239,6 +2281,7 @@
 - source: complete
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -2276,6 +2319,7 @@
 - source: complete
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -2313,6 +2357,7 @@
 - source: complete
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -2350,6 +2395,7 @@
 - source: complete
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -2387,6 +2433,7 @@
 - source: complete
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -2424,6 +2471,7 @@
 - source: complete
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -2461,6 +2509,7 @@
 - source: complete
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -2498,6 +2547,7 @@
 - source: complete
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -2539,6 +2589,7 @@
 - source: complete
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -2579,6 +2630,7 @@
 - source: complete
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -2616,6 +2668,7 @@
 - source: complete
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -2655,6 +2708,7 @@
 - source: complete
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -2692,6 +2746,7 @@
 - source: complete
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -2729,6 +2784,7 @@
 - source: complete
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -2767,6 +2823,7 @@
 - source: complete
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -2827,6 +2884,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -2868,6 +2926,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -2949,6 +3008,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -3025,6 +3085,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -3060,6 +3121,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -3095,6 +3157,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -3130,6 +3193,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -3165,6 +3229,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -3197,6 +3262,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -3232,6 +3298,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -3268,6 +3335,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -3328,6 +3396,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '-'
@@ -3385,6 +3454,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: $
@@ -3498,6 +3568,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -3611,6 +3682,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: \'
@@ -3719,6 +3791,7 @@
 - source: _quote_readline_by_ref
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '"'
   scopesBegin:
@@ -3746,6 +3819,7 @@
 - source: printf
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '%s'
@@ -3815,6 +3889,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: echo
@@ -3927,6 +4002,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '-'
@@ -4014,6 +4090,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: $
@@ -4061,6 +4138,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: $
@@ -4211,6 +4289,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '"'
@@ -4301,6 +4380,7 @@
 - source: return
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - keyword.control.return
 - source: '2'
@@ -4449,6 +4529,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '"'
@@ -4533,6 +4614,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - keyword.control.return
 - source: '1'
@@ -4558,6 +4640,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '%d'
@@ -4629,6 +4712,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '"'
@@ -4704,6 +4788,7 @@
 - source: return
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - keyword.control.return
 - source: '1'
@@ -4779,6 +4864,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '-'
@@ -4821,6 +4907,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: $
@@ -4893,6 +4980,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: $((
@@ -4959,6 +5047,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '"'
@@ -5071,6 +5160,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - keyword.control.return
 - source: '1'
@@ -5159,6 +5249,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '-'
@@ -5201,6 +5292,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: $
@@ -5240,6 +5332,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '3'
@@ -5268,6 +5361,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '"'
@@ -5349,6 +5443,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - keyword.control.return
 - source: '1'
@@ -5389,6 +5484,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '"'
@@ -5448,6 +5544,7 @@
 - source: return
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - keyword.control.return
 - source: '1'
@@ -5680,6 +5777,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: $
@@ -6076,6 +6174,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: $
@@ -6162,6 +6261,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: $
@@ -6282,6 +6382,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - keyword.control.break
 - source: '2'
@@ -6347,6 +6448,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: $
@@ -6443,6 +6545,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: $
@@ -6490,6 +6593,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: $
@@ -6620,6 +6724,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '"'
   scopesBegin:
@@ -7563,6 +7668,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -7937,6 +8043,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: vcword
   scopesBegin:
@@ -7960,6 +8067,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '"'
@@ -8334,6 +8442,7 @@
     - meta.statement
     - meta.statement.command
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '&'
   scopes:
@@ -8343,6 +8452,7 @@
     - meta.statement
     - meta.statement.command
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: ;
   scopes:
@@ -8353,6 +8463,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - keyword.control.return
 - source: '1'
@@ -8382,6 +8493,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '"'
@@ -8410,6 +8522,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '"'
   scopesBegin:
@@ -9111,6 +9224,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '"'
   scopesBegin:
@@ -9277,6 +9391,7 @@
 - source: __reassemble_comp_words_by_ref
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '"'
   scopesBegin:
@@ -9377,6 +9492,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '"'
@@ -9549,6 +9665,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '"'
@@ -10373,6 +10490,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '"'
@@ -10430,6 +10548,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '"'
@@ -10597,6 +10716,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '"'
   scopesBegin:
@@ -11409,6 +11529,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '-'
@@ -11490,6 +11611,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '-'
@@ -11568,6 +11690,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '-'
@@ -11729,6 +11852,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '-'
@@ -11802,6 +11926,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '-'
@@ -11945,6 +12070,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: $
@@ -12050,6 +12176,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: compopt
@@ -12075,6 +12202,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -12120,6 +12248,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -12232,6 +12361,7 @@
 - source: _tilde
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '"'
   scopesBegin:
@@ -12266,6 +12396,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - keyword.control.return
 - source: '0'
@@ -12307,6 +12438,7 @@
 - source: _quote_readline_by_ref
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '"'
   scopesBegin:
@@ -12382,6 +12514,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -12439,6 +12572,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '-'
@@ -12494,6 +12628,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: ''''
@@ -12793,6 +12928,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '%s'
@@ -12820,6 +12956,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: ''''
   scopesBegin:
@@ -12908,6 +13045,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -13039,6 +13177,7 @@
   scopes:
     - meta.statement.command
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: COMPREPLY
   scopesBegin:
@@ -13331,6 +13470,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - keyword.control.return
 - source: '0'
@@ -13353,6 +13493,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - keyword.control.return
 - source: '1'
@@ -13468,6 +13609,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -13530,6 +13672,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: ''''
   scopesBegin:
@@ -13555,6 +13698,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -13673,6 +13817,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -14007,6 +14152,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -14042,6 +14188,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -14157,6 +14304,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -14192,6 +14340,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -14342,6 +14491,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -14421,6 +14571,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -14491,6 +14642,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '"'
   scopesBegin:
@@ -14604,6 +14756,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -14632,6 +14785,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -14772,6 +14926,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -14800,6 +14955,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: ''''
@@ -14841,6 +14997,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -14974,6 +15131,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -15002,6 +15160,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: ls
@@ -15043,6 +15202,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -15156,6 +15316,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -15184,6 +15345,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: ''''
@@ -15225,6 +15387,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -15367,6 +15530,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -15707,6 +15871,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: PATH=
@@ -15765,6 +15930,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: ''''
   scopesBegin:
@@ -15809,6 +15975,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -16063,6 +16230,7 @@
     - meta.statement
     - meta.statement.command
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '#'
   scopesBegin:
@@ -16095,6 +16263,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -16226,6 +16395,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - keyword.control.return
 - source: $
@@ -16576,6 +16746,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: $
@@ -16667,6 +16838,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: $
@@ -16845,6 +17017,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: cur=
@@ -16961,6 +17134,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -17081,6 +17255,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: 'COMPREPLY['
@@ -17124,6 +17299,7 @@
 - source: return
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - keyword.control.return
 - source: $
@@ -17262,6 +17438,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -17381,6 +17558,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -17544,6 +17722,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -17663,6 +17842,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -17826,6 +18006,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -18005,6 +18186,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -18142,6 +18324,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: getent
@@ -18187,6 +18370,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -18262,6 +18446,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: perl
@@ -18307,6 +18492,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -18451,6 +18637,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -18568,6 +18755,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: getent
@@ -18613,6 +18801,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -18692,6 +18881,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: perl
@@ -18737,6 +18927,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -18881,6 +19072,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -19083,6 +19275,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: ''''
@@ -19132,6 +19325,7 @@
     - meta.statement
     - meta.statement.command
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '|'
   scopes:
@@ -19141,6 +19335,7 @@
     - meta.statement
     - meta.statement.command
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '|'
   scopes:
@@ -19150,6 +19345,7 @@
     - meta.statement
     - meta.statement.command
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: )
   scopes:
@@ -19171,6 +19367,7 @@
     - meta.statement
     - meta.statement.command
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: )
   scopes:
@@ -19280,6 +19477,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: ''''
@@ -19329,6 +19527,7 @@
     - meta.statement
     - meta.statement.command
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '|'
   scopes:
@@ -19338,6 +19537,7 @@
     - meta.statement
     - meta.statement.command
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '|'
   scopes:
@@ -19347,6 +19547,7 @@
     - meta.statement
     - meta.statement.command
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: )
   scopes:
@@ -19407,6 +19608,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -19559,6 +19761,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -19587,6 +19790,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: ls
@@ -19629,6 +19833,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -19766,6 +19971,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -19820,6 +20026,7 @@
   scopes:
     - meta.statement.command
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
   scopesEnd:
     - meta.statement
@@ -19836,6 +20043,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: ''''
   scopesBegin:
@@ -20039,6 +20247,7 @@
     - meta.statement
     - meta.statement.command
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - keyword.control.return
 - source: elif
@@ -20275,6 +20484,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '"'
   scopesBegin:
@@ -20345,6 +20555,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -20422,6 +20633,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -20652,6 +20864,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '"'
   scopesBegin:
@@ -20722,6 +20935,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -20842,6 +21056,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '"'
   scopesBegin:
@@ -20912,6 +21127,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -21002,6 +21218,7 @@
     - meta.statement
     - meta.statement.command
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: ;
   scopes:
@@ -21054,6 +21271,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -21175,6 +21393,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -21207,6 +21426,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -21245,6 +21465,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '2'
   scopesBegin:
@@ -21374,6 +21595,7 @@
     - meta.statement
     - meta.statement.command
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: ;
   scopes:
@@ -21426,6 +21648,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -21523,6 +21746,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -21555,6 +21779,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -21593,6 +21818,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '2'
   scopesBegin:
@@ -21760,6 +21986,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -21941,6 +22168,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -21991,6 +22219,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: ''''
   scopesBegin:
@@ -22068,6 +22297,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: ''''
   scopesBegin:
@@ -22109,6 +22339,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: ''''
   scopesBegin:
@@ -22150,6 +22381,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: ''''
   scopesBegin:
@@ -22191,6 +22423,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: ''''
   scopesBegin:
@@ -22251,6 +22484,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: ls
@@ -22377,6 +22611,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -22503,6 +22738,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '-'
@@ -22562,6 +22798,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '-'
@@ -22601,6 +22838,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '"'
   scopesBegin:
@@ -22619,6 +22857,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '-'
@@ -22674,6 +22913,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '-'
@@ -22713,6 +22953,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '"'
   scopesBegin:
@@ -22731,6 +22972,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '-'
@@ -22786,6 +23028,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '-'
@@ -23032,6 +23275,7 @@
   scopes:
     - meta.statement.command
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - keyword.control.break
   scopesEnd:
@@ -23105,6 +23349,7 @@
 - source: __reassemble_comp_words_by_ref
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '"'
   scopesBegin:
@@ -23386,6 +23631,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -23445,6 +23691,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -23467,6 +23714,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: ''''
   scopesBegin:
@@ -23622,6 +23870,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -23680,6 +23929,7 @@
   scopes:
     - meta.statement.command
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
   scopesEnd:
     - meta.statement
@@ -23692,6 +23942,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: ''''
   scopesBegin:
@@ -23851,6 +24102,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -24042,6 +24294,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -24192,6 +24445,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -24285,6 +24539,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -24350,6 +24605,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '"'
   scopesBegin:
@@ -24398,6 +24654,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -24458,6 +24715,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - keyword.control.return
 - source: '0'
@@ -24482,6 +24740,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -24509,6 +24768,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -24806,6 +25066,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: $
   scopesBegin:
@@ -24832,6 +25093,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: ':'
   scopes:
@@ -25021,6 +25283,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '"'
@@ -25231,6 +25494,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '"'
@@ -25294,6 +25558,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '"'
@@ -25347,6 +25612,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '"'
@@ -25435,6 +25701,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: ''''
@@ -25482,6 +25749,7 @@
     - meta.statement
     - meta.statement.command
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: ;
@@ -25826,11 +26094,13 @@
     - meta.statement.command.name.quoted
     - string.quoted.double
     - punctuation.definition.string.begin
+    - entity.name.function.call
     - entity.name.command
 - source: $
   scopesBegin:
     - meta.statement.command.name.continuation
     - string.quoted.double
+    - entity.name.function.call
     - entity.name.command
   scopes:
     - punctuation.definition.variable
@@ -25850,11 +26120,13 @@
   scopesEnd:
     - meta.statement.command.name.continuation
     - string.quoted.double
+    - entity.name.function.call
     - entity.name.command
 - source: '"'
   scopes:
     - string.quoted.double
     - punctuation.definition.string.end
+    - entity.name.function.call
     - entity.name.command
   scopesEnd:
     - meta.statement
@@ -26136,6 +26408,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: ''''
   scopesBegin:
@@ -26199,6 +26472,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -26336,6 +26610,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: i
   scopes:
@@ -26535,6 +26810,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: /etc/known_hosts2
   scopesBegin:
@@ -27416,6 +27692,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: ''''
   scopesBegin:
@@ -28137,6 +28414,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -28259,6 +28537,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -28462,6 +28741,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: avahi-browse
@@ -28570,6 +28850,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -28667,6 +28948,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -28709,6 +28991,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -28755,6 +29038,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -28945,6 +29229,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -29078,6 +29363,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '"'
   scopesBegin:
@@ -29115,6 +29401,7 @@
 - source: return
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - keyword.control.return
 - source: '0'
@@ -29147,6 +29434,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -29269,6 +29557,7 @@
 - source: _get_comp_words_by_ref
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: cur
   scopes:
@@ -29363,6 +29652,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -29458,6 +29748,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - keyword.control.return
 - source: '0'
@@ -29479,6 +29770,7 @@
     - meta.statement
     - meta.statement.command
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '#'
   scopesBegin:
@@ -29587,6 +29879,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -29601,6 +29894,7 @@
 - source: return
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - keyword.control.return
 - source: '0'
@@ -29650,6 +29944,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: mark-directories
   scopes:
@@ -29667,6 +29962,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: 'y'
@@ -29712,6 +30008,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: mark-symlinked-directories
   scopes:
@@ -29729,6 +30026,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: 'y'
@@ -29888,6 +30186,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -30086,6 +30385,7 @@
     - meta.statement.command
     - meta.statement.command.name
   scopes:
+    - entity.name.function.call
     - entity.name.command
 - source: '='
 - source: $
@@ -30139,6 +30439,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -30389,6 +30690,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - keyword.control.return
 - source: '0'
@@ -30418,6 +30720,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -30448,6 +30751,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -30498,6 +30802,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -30726,6 +31031,7 @@
   scopes:
     - meta.statement.command
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - keyword.control.break
   scopesEnd:
@@ -30746,6 +31052,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: $
   scopesBegin:
@@ -31099,6 +31406,7 @@
   scopes:
     - meta.statement.command
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - keyword.control.break
   scopesEnd:
@@ -31316,6 +31624,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: 'COMP_WORDS[i]'
@@ -31387,6 +31696,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: cur
   scopes:
@@ -31436,6 +31746,7 @@
   scopes:
     - meta.statement.command
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: COMPREPLY
   scopesBegin:
@@ -31459,6 +31770,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -31559,6 +31871,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -31633,6 +31946,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -32262,6 +32576,7 @@
     - meta.statement
     - meta.statement.command
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '|'
   scopes:
@@ -32271,6 +32586,7 @@
     - meta.statement
     - meta.statement.command
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: )
   scopes:
@@ -32368,6 +32684,7 @@
     - meta.statement
     - meta.statement.command
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: fi
   scopes:
@@ -32528,6 +32845,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: compgen
@@ -32662,6 +32980,7 @@
     - meta.statement
     - meta.statement.command
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: fi
   scopes:
@@ -32686,6 +33005,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -32790,6 +33110,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: $
   scopesBegin:
@@ -32831,6 +33152,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -32985,6 +33307,7 @@
 - source: _get_comp_words_by_ref
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -33008,6 +33331,7 @@
 - source: _split_longopt
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
   scopesEnd:
     - meta.statement
@@ -33081,6 +33405,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -33095,6 +33420,7 @@
 - source: return
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - keyword.control.return
 - source: '0'
@@ -33142,12 +33468,14 @@
     - meta.statement
     - meta.statement.command
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: return
   scopes:
     - keyword.control.return
   scopesEnd:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '0'
   scopes:
@@ -33194,6 +33522,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - keyword.control.return
 - source: '0'
@@ -33281,6 +33610,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -33351,6 +33681,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -33386,6 +33717,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -33497,6 +33829,7 @@
     - meta.statement
     - meta.statement.command
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '|'
   scopes:
@@ -33506,6 +33839,7 @@
     - meta.statement
     - meta.statement.command
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: )
   scopes:
@@ -33530,6 +33864,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -33551,6 +33886,7 @@
     - meta.statement
     - meta.statement.command
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: fi
   scopes:
@@ -33590,6 +33926,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: cut
   scopesBegin:
@@ -33702,6 +34039,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: $
   scopesBegin:
@@ -33725,6 +34063,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -33777,6 +34116,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: i
@@ -33859,6 +34199,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: cur
   scopes:
@@ -33867,6 +34208,7 @@
 - source: _expand
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
   scopesEnd:
     - meta.statement
@@ -33883,6 +34225,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - keyword.control.return
 - source: '0'
@@ -33922,6 +34265,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '"'
   scopesBegin:
@@ -34156,6 +34500,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -34190,6 +34535,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '"'
   scopesBegin:
@@ -34244,6 +34590,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '-'
@@ -34283,6 +34630,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: ''''
@@ -34343,6 +34691,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: xspec=
@@ -34649,6 +34998,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '%s'
@@ -34676,6 +35026,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: ''''
   scopesBegin:
@@ -34758,6 +35109,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: compgen
@@ -34864,6 +35216,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '-'
@@ -34920,6 +35273,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: ''''
@@ -35020,6 +35374,7 @@
   scopes:
     - meta.statement.command
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: COMPREPLY
   scopesBegin:
@@ -35103,6 +35458,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -35178,6 +35534,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: line
@@ -35466,6 +35823,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: ''''
@@ -35605,6 +35963,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: complete
@@ -35666,6 +36025,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: complete
@@ -35736,6 +36096,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: list
@@ -35846,6 +36207,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: ls
@@ -35983,6 +36345,7 @@
     - meta.statement
     - meta.statement.command
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '|'
   scopes:
@@ -36014,6 +36377,7 @@
     - meta.statement
     - meta.statement.command
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '|'
   scopes:
@@ -36023,6 +36387,7 @@
     - meta.statement
     - meta.statement.command
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '|'
   scopes:
@@ -36032,6 +36397,7 @@
     - meta.statement
     - meta.statement.command
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: )
   scopes:
@@ -36046,6 +36412,7 @@
     - meta.statement
     - meta.statement.command
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: )
   scopes:
@@ -36099,6 +36466,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '"'
@@ -36242,6 +36610,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: ls
@@ -36379,6 +36748,7 @@
     - meta.statement
     - meta.statement.command
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '|'
   scopes:
@@ -36410,6 +36780,7 @@
     - meta.statement
     - meta.statement.command
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '|'
   scopes:
@@ -36419,6 +36790,7 @@
     - meta.statement
     - meta.statement.command
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '|'
   scopes:
@@ -36428,6 +36800,7 @@
     - meta.statement
     - meta.statement.command
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: )
   scopes:
@@ -36442,6 +36815,7 @@
     - meta.statement
     - meta.statement.command
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: )
   scopes:
@@ -36495,6 +36869,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '"'
@@ -36534,6 +36909,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: i
@@ -36595,6 +36971,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: ~/.bash_completion
@@ -36604,6 +36981,7 @@
 - source: unset
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '-'
@@ -36623,6 +37001,7 @@
 - source: unset
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: UNAME
@@ -36637,6 +37016,7 @@
 - source: set
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: $
@@ -36653,6 +37033,7 @@
 - source: unset
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: BASH_COMPLETION_ORIGINAL_V_VALUE
@@ -36913,6 +37294,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '-'
@@ -36936,6 +37318,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: +v
@@ -37161,6 +37544,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -37340,6 +37724,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -37383,6 +37768,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -37430,6 +37816,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -37471,6 +37858,7 @@
 - source: complete
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -37510,6 +37898,7 @@
 - source: complete
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -37562,6 +37951,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -37602,6 +37992,7 @@
 - source: complete
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -37652,6 +38043,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -37696,6 +38088,7 @@
 - source: complete
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -37735,6 +38128,7 @@
 - source: complete
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -37772,6 +38166,7 @@
 - source: complete
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -37809,6 +38204,7 @@
 - source: complete
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -37848,6 +38244,7 @@
 - source: complete
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -37888,6 +38285,7 @@
 - source: complete
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -37927,6 +38325,7 @@
 - source: complete
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -37971,6 +38370,7 @@
 - source: complete
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -38011,6 +38411,7 @@
 - source: complete
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -38048,6 +38449,7 @@
 - source: complete
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -38086,6 +38488,7 @@
 - source: complete
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -38124,6 +38527,7 @@
 - source: complete
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -38166,6 +38570,7 @@
 - source: complete
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -38205,6 +38610,7 @@
 - source: complete
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -38250,6 +38656,7 @@
 - source: complete
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -38290,6 +38697,7 @@
 - source: complete
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -38331,6 +38739,7 @@
 - source: complete
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -38371,6 +38780,7 @@
 - source: complete
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -38408,6 +38818,7 @@
 - source: complete
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -38445,6 +38856,7 @@
 - source: complete
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -38482,6 +38894,7 @@
 - source: complete
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -38519,6 +38932,7 @@
 - source: complete
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -38558,6 +38972,7 @@
 - source: complete
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -38595,6 +39010,7 @@
 - source: complete
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -38632,6 +39048,7 @@
 - source: complete
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -38669,6 +39086,7 @@
 - source: complete
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -38708,6 +39126,7 @@
 - source: complete
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -38759,6 +39178,7 @@
 - source: complete
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -38796,6 +39216,7 @@
 - source: complete
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -38846,6 +39267,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -38897,6 +39319,7 @@
 - source: complete
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -38934,6 +39357,7 @@
 - source: complete
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -38971,6 +39395,7 @@
 - source: complete
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -39008,6 +39433,7 @@
 - source: complete
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -39045,6 +39471,7 @@
 - source: complete
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -39082,6 +39509,7 @@
 - source: complete
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -39119,6 +39547,7 @@
 - source: complete
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -39156,6 +39585,7 @@
 - source: complete
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -39193,6 +39623,7 @@
 - source: complete
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -39234,6 +39665,7 @@
 - source: complete
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -39274,6 +39706,7 @@
 - source: complete
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -39311,6 +39744,7 @@
 - source: complete
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -39350,6 +39784,7 @@
 - source: complete
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -39387,6 +39822,7 @@
 - source: complete
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -39424,6 +39860,7 @@
 - source: complete
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -39462,6 +39899,7 @@
 - source: complete
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -39522,6 +39960,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -39563,6 +40002,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -39644,6 +40084,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -39720,6 +40161,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -39755,6 +40197,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -39790,6 +40233,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -39825,6 +40269,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -39860,6 +40305,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -39892,6 +40338,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -39927,6 +40374,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -39963,6 +40411,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -40023,6 +40472,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '-'
@@ -40080,6 +40530,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: $
@@ -40193,6 +40644,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -40306,6 +40758,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: \'
@@ -40414,6 +40867,7 @@
 - source: _quote_readline_by_ref
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '"'
   scopesBegin:
@@ -40441,6 +40895,7 @@
 - source: printf
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '%s'
@@ -40510,6 +40965,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: echo
@@ -40622,6 +41078,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '-'
@@ -40709,6 +41166,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: $
@@ -40756,6 +41214,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: $
@@ -40906,6 +41365,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '"'
@@ -40996,6 +41456,7 @@
 - source: return
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - keyword.control.return
 - source: '2'
@@ -41144,6 +41605,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '"'
@@ -41228,6 +41690,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - keyword.control.return
 - source: '1'
@@ -41253,6 +41716,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '%d'
@@ -41324,6 +41788,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '"'
@@ -41399,6 +41864,7 @@
 - source: return
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - keyword.control.return
 - source: '1'
@@ -41474,6 +41940,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '-'
@@ -41516,6 +41983,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: $
@@ -41588,6 +42056,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: $((
@@ -41654,6 +42123,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '"'
@@ -41766,6 +42236,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - keyword.control.return
 - source: '1'
@@ -41854,6 +42325,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '-'
@@ -41896,6 +42368,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: $
@@ -41935,6 +42408,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '3'
@@ -41963,6 +42437,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '"'
@@ -42044,6 +42519,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - keyword.control.return
 - source: '1'
@@ -42084,6 +42560,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '"'
@@ -42143,6 +42620,7 @@
 - source: return
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - keyword.control.return
 - source: '1'
@@ -42375,6 +42853,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: $
@@ -42771,6 +43250,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: $
@@ -42857,6 +43337,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: $
@@ -42977,6 +43458,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - keyword.control.break
 - source: '2'
@@ -43042,6 +43524,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: $
@@ -43138,6 +43621,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: $
@@ -43185,6 +43669,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: $
@@ -43315,6 +43800,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '"'
   scopesBegin:
@@ -44258,6 +44744,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -44632,6 +45119,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: vcword
   scopesBegin:
@@ -44655,6 +45143,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '"'
@@ -45029,6 +45518,7 @@
     - meta.statement
     - meta.statement.command
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '&'
   scopes:
@@ -45038,6 +45528,7 @@
     - meta.statement
     - meta.statement.command
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: ;
   scopes:
@@ -45048,6 +45539,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - keyword.control.return
 - source: '1'
@@ -45077,6 +45569,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '"'
@@ -45105,6 +45598,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '"'
   scopesBegin:
@@ -45806,6 +46300,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '"'
   scopesBegin:
@@ -45972,6 +46467,7 @@
 - source: __reassemble_comp_words_by_ref
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '"'
   scopesBegin:
@@ -46072,6 +46568,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '"'
@@ -46244,6 +46741,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '"'
@@ -47068,6 +47566,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '"'
@@ -47125,6 +47624,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '"'
@@ -47292,6 +47792,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '"'
   scopesBegin:
@@ -48104,6 +48605,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '-'
@@ -48185,6 +48687,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '-'
@@ -48263,6 +48766,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '-'
@@ -48424,6 +48928,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '-'
@@ -48497,6 +49002,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '-'
@@ -48640,6 +49146,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: $
@@ -48745,6 +49252,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: compopt
@@ -48770,6 +49278,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -48815,6 +49324,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -48927,6 +49437,7 @@
 - source: _tilde
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '"'
   scopesBegin:
@@ -48961,6 +49472,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - keyword.control.return
 - source: '0'
@@ -49002,6 +49514,7 @@
 - source: _quote_readline_by_ref
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '"'
   scopesBegin:
@@ -49077,6 +49590,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -49134,6 +49648,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '-'
@@ -49189,6 +49704,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: ''''
@@ -49488,6 +50004,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '%s'
@@ -49515,6 +50032,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: ''''
   scopesBegin:
@@ -49603,6 +50121,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -49734,6 +50253,7 @@
   scopes:
     - meta.statement.command
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: COMPREPLY
   scopesBegin:
@@ -50026,6 +50546,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - keyword.control.return
 - source: '0'
@@ -50048,6 +50569,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - keyword.control.return
 - source: '1'
@@ -50163,6 +50685,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -50225,6 +50748,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: ''''
   scopesBegin:
@@ -50250,6 +50774,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -50368,6 +50893,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -50702,6 +51228,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -50737,6 +51264,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -50852,6 +51380,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -50887,6 +51416,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -51037,6 +51567,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -51116,6 +51647,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -51186,6 +51718,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '"'
   scopesBegin:
@@ -51299,6 +51832,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -51327,6 +51861,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -51467,6 +52002,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -51495,6 +52031,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: ''''
@@ -51536,6 +52073,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -51669,6 +52207,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -51697,6 +52236,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: ls
@@ -51738,6 +52278,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -51851,6 +52392,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -51879,6 +52421,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: ''''
@@ -51920,6 +52463,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -52062,6 +52606,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -52402,6 +52947,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: PATH=
@@ -52460,6 +53006,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: ''''
   scopesBegin:
@@ -52504,6 +53051,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -52758,6 +53306,7 @@
     - meta.statement
     - meta.statement.command
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '#'
   scopesBegin:
@@ -52790,6 +53339,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -52921,6 +53471,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - keyword.control.return
 - source: $
@@ -53271,6 +53822,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: $
@@ -53362,6 +53914,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: $
@@ -53540,6 +54093,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: cur=
@@ -53656,6 +54210,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -53776,6 +54331,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: 'COMPREPLY['
@@ -53819,6 +54375,7 @@
 - source: return
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - keyword.control.return
 - source: $
@@ -53957,6 +54514,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -54076,6 +54634,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -54239,6 +54798,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -54358,6 +54918,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -54521,6 +55082,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -54700,6 +55262,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -54837,6 +55400,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: getent
@@ -54882,6 +55446,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -54957,6 +55522,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: perl
@@ -55002,6 +55568,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -55146,6 +55713,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -55263,6 +55831,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: getent
@@ -55308,6 +55877,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -55387,6 +55957,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: perl
@@ -55432,6 +56003,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -55576,6 +56148,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -55778,6 +56351,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: ''''
@@ -55827,6 +56401,7 @@
     - meta.statement
     - meta.statement.command
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '|'
   scopes:
@@ -55836,6 +56411,7 @@
     - meta.statement
     - meta.statement.command
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '|'
   scopes:
@@ -55845,6 +56421,7 @@
     - meta.statement
     - meta.statement.command
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: )
   scopes:
@@ -55866,6 +56443,7 @@
     - meta.statement
     - meta.statement.command
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: )
   scopes:
@@ -55975,6 +56553,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: ''''
@@ -56024,6 +56603,7 @@
     - meta.statement
     - meta.statement.command
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '|'
   scopes:
@@ -56033,6 +56613,7 @@
     - meta.statement
     - meta.statement.command
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '|'
   scopes:
@@ -56042,6 +56623,7 @@
     - meta.statement
     - meta.statement.command
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: )
   scopes:
@@ -56102,6 +56684,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -56254,6 +56837,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -56282,6 +56866,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: ls
@@ -56324,6 +56909,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -56461,6 +57047,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -56515,6 +57102,7 @@
   scopes:
     - meta.statement.command
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
   scopesEnd:
     - meta.statement
@@ -56531,6 +57119,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: ''''
   scopesBegin:
@@ -56734,6 +57323,7 @@
     - meta.statement
     - meta.statement.command
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - keyword.control.return
 - source: elif
@@ -56970,6 +57560,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '"'
   scopesBegin:
@@ -57040,6 +57631,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -57117,6 +57709,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -57347,6 +57940,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '"'
   scopesBegin:
@@ -57417,6 +58011,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -57537,6 +58132,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '"'
   scopesBegin:
@@ -57607,6 +58203,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -57697,6 +58294,7 @@
     - meta.statement
     - meta.statement.command
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: ;
   scopes:
@@ -57749,6 +58347,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -57870,6 +58469,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -57902,6 +58502,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -57940,6 +58541,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '2'
   scopesBegin:
@@ -58069,6 +58671,7 @@
     - meta.statement
     - meta.statement.command
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: ;
   scopes:
@@ -58121,6 +58724,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -58218,6 +58822,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -58250,6 +58855,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -58288,6 +58894,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '2'
   scopesBegin:
@@ -58455,6 +59062,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -58636,6 +59244,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -58686,6 +59295,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: ''''
   scopesBegin:
@@ -58763,6 +59373,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: ''''
   scopesBegin:
@@ -58804,6 +59415,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: ''''
   scopesBegin:
@@ -58845,6 +59457,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: ''''
   scopesBegin:
@@ -58886,6 +59499,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: ''''
   scopesBegin:
@@ -58946,6 +59560,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: ls
@@ -59072,6 +59687,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -59198,6 +59814,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '-'
@@ -59257,6 +59874,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '-'
@@ -59296,6 +59914,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '"'
   scopesBegin:
@@ -59314,6 +59933,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '-'
@@ -59369,6 +59989,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '-'
@@ -59408,6 +60029,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '"'
   scopesBegin:
@@ -59426,6 +60048,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '-'
@@ -59481,6 +60104,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '-'
@@ -59727,6 +60351,7 @@
   scopes:
     - meta.statement.command
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - keyword.control.break
   scopesEnd:
@@ -59800,6 +60425,7 @@
 - source: __reassemble_comp_words_by_ref
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '"'
   scopesBegin:
@@ -60081,6 +60707,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -60140,6 +60767,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -60162,6 +60790,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: ''''
   scopesBegin:
@@ -60317,6 +60946,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -60375,6 +61005,7 @@
   scopes:
     - meta.statement.command
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
   scopesEnd:
     - meta.statement
@@ -60387,6 +61018,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: ''''
   scopesBegin:
@@ -60546,6 +61178,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -60737,6 +61370,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -60887,6 +61521,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -60980,6 +61615,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -61045,6 +61681,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '"'
   scopesBegin:
@@ -61093,6 +61730,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -61153,6 +61791,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - keyword.control.return
 - source: '0'
@@ -61177,6 +61816,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -61204,6 +61844,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -61501,6 +62142,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: $
   scopesBegin:
@@ -61527,6 +62169,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: ':'
   scopes:
@@ -61716,6 +62359,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '"'
@@ -61926,6 +62570,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '"'
@@ -61989,6 +62634,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '"'
@@ -62042,6 +62688,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '"'
@@ -62130,6 +62777,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: ''''
@@ -62177,6 +62825,7 @@
     - meta.statement
     - meta.statement.command
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: ;
@@ -62521,11 +63170,13 @@
     - meta.statement.command.name.quoted
     - string.quoted.double
     - punctuation.definition.string.begin
+    - entity.name.function.call
     - entity.name.command
 - source: $
   scopesBegin:
     - meta.statement.command.name.continuation
     - string.quoted.double
+    - entity.name.function.call
     - entity.name.command
   scopes:
     - punctuation.definition.variable
@@ -62545,11 +63196,13 @@
   scopesEnd:
     - meta.statement.command.name.continuation
     - string.quoted.double
+    - entity.name.function.call
     - entity.name.command
 - source: '"'
   scopes:
     - string.quoted.double
     - punctuation.definition.string.end
+    - entity.name.function.call
     - entity.name.command
   scopesEnd:
     - meta.statement
@@ -62831,6 +63484,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: ''''
   scopesBegin:
@@ -62894,6 +63548,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -63031,6 +63686,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: i
   scopes:
@@ -63230,6 +63886,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: /etc/known_hosts2
   scopesBegin:
@@ -64111,6 +64768,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: ''''
   scopesBegin:
@@ -64832,6 +65490,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -64954,6 +65613,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -65157,6 +65817,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: avahi-browse
@@ -65265,6 +65926,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -65362,6 +66024,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -65404,6 +66067,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -65450,6 +66114,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -65640,6 +66305,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -65773,6 +66439,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '"'
   scopesBegin:
@@ -65810,6 +66477,7 @@
 - source: return
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - keyword.control.return
 - source: '0'
@@ -65842,6 +66510,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -65964,6 +66633,7 @@
 - source: _get_comp_words_by_ref
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: cur
   scopes:
@@ -66058,6 +66728,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -66153,6 +66824,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - keyword.control.return
 - source: '0'
@@ -66174,6 +66846,7 @@
     - meta.statement
     - meta.statement.command
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '#'
   scopesBegin:
@@ -66282,6 +66955,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -66296,6 +66970,7 @@
 - source: return
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - keyword.control.return
 - source: '0'
@@ -66345,6 +67020,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: mark-directories
   scopes:
@@ -66362,6 +67038,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: 'y'
@@ -66407,6 +67084,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: mark-symlinked-directories
   scopes:
@@ -66424,6 +67102,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: 'y'
@@ -66583,6 +67262,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -66781,6 +67461,7 @@
     - meta.statement.command
     - meta.statement.command.name
   scopes:
+    - entity.name.function.call
     - entity.name.command
 - source: '='
 - source: $
@@ -66834,6 +67515,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -67084,6 +67766,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - keyword.control.return
 - source: '0'
@@ -67113,6 +67796,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -67143,6 +67827,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -67193,6 +67878,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -67421,6 +68107,7 @@
   scopes:
     - meta.statement.command
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - keyword.control.break
   scopesEnd:
@@ -67441,6 +68128,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: $
   scopesBegin:
@@ -67794,6 +68482,7 @@
   scopes:
     - meta.statement.command
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - keyword.control.break
   scopesEnd:
@@ -68011,6 +68700,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: 'COMP_WORDS[i]'
@@ -68082,6 +68772,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: cur
   scopes:
@@ -68131,6 +68822,7 @@
   scopes:
     - meta.statement.command
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: COMPREPLY
   scopesBegin:
@@ -68154,6 +68846,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -68254,6 +68947,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -68328,6 +69022,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -68957,6 +69652,7 @@
     - meta.statement
     - meta.statement.command
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '|'
   scopes:
@@ -68966,6 +69662,7 @@
     - meta.statement
     - meta.statement.command
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: )
   scopes:
@@ -69063,6 +69760,7 @@
     - meta.statement
     - meta.statement.command
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: fi
   scopes:
@@ -69223,6 +69921,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: compgen
@@ -69357,6 +70056,7 @@
     - meta.statement
     - meta.statement.command
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: fi
   scopes:
@@ -69381,6 +70081,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -69485,6 +70186,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: $
   scopesBegin:
@@ -69526,6 +70228,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -69680,6 +70383,7 @@
 - source: _get_comp_words_by_ref
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -69703,6 +70407,7 @@
 - source: _split_longopt
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
   scopesEnd:
     - meta.statement
@@ -69776,6 +70481,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -69790,6 +70496,7 @@
 - source: return
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - keyword.control.return
 - source: '0'
@@ -69837,12 +70544,14 @@
     - meta.statement
     - meta.statement.command
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: return
   scopes:
     - keyword.control.return
   scopesEnd:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '0'
   scopes:
@@ -69889,6 +70598,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - keyword.control.return
 - source: '0'
@@ -69968,6 +70678,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -70038,6 +70749,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -70073,6 +70785,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -70184,6 +70897,7 @@
     - meta.statement
     - meta.statement.command
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '|'
   scopes:
@@ -70193,6 +70907,7 @@
     - meta.statement
     - meta.statement.command
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: )
   scopes:
@@ -70217,6 +70932,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -70238,6 +70954,7 @@
     - meta.statement
     - meta.statement.command
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: fi
   scopes:
@@ -70277,6 +70994,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: cut
   scopesBegin:
@@ -70389,6 +71107,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: $
   scopesBegin:
@@ -70412,6 +71131,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -70464,6 +71184,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: i
@@ -70546,6 +71267,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: cur
   scopes:
@@ -70554,6 +71276,7 @@
 - source: _expand
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
   scopesEnd:
     - meta.statement
@@ -70570,6 +71293,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - keyword.control.return
 - source: '0'
@@ -70609,6 +71333,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '"'
   scopesBegin:
@@ -70843,6 +71568,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -70877,6 +71603,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '"'
   scopesBegin:
@@ -70931,6 +71658,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '-'
@@ -70970,6 +71698,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: ''''
@@ -71030,6 +71759,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: xspec=
@@ -71336,6 +72066,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '%s'
@@ -71363,6 +72094,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: ''''
   scopesBegin:
@@ -71445,6 +72177,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: compgen
@@ -71551,6 +72284,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '-'
@@ -71607,6 +72341,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: ''''
@@ -71707,6 +72442,7 @@
   scopes:
     - meta.statement.command
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: COMPREPLY
   scopesBegin:
@@ -71790,6 +72526,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -71865,6 +72602,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: line
@@ -72153,6 +72891,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: ''''
@@ -72292,6 +73031,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: complete
@@ -72353,6 +73093,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: complete
@@ -72423,6 +73164,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: list
@@ -72533,6 +73275,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: ls
@@ -72670,6 +73413,7 @@
     - meta.statement
     - meta.statement.command
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '|'
   scopes:
@@ -72701,6 +73445,7 @@
     - meta.statement
     - meta.statement.command
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '|'
   scopes:
@@ -72710,6 +73455,7 @@
     - meta.statement
     - meta.statement.command
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '|'
   scopes:
@@ -72719,6 +73465,7 @@
     - meta.statement
     - meta.statement.command
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: )
   scopes:
@@ -72733,6 +73480,7 @@
     - meta.statement
     - meta.statement.command
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: )
   scopes:
@@ -72786,6 +73534,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '"'
@@ -72929,6 +73678,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: ls
@@ -73066,6 +73816,7 @@
     - meta.statement
     - meta.statement.command
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '|'
   scopes:
@@ -73097,6 +73848,7 @@
     - meta.statement
     - meta.statement.command
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '|'
   scopes:
@@ -73106,6 +73858,7 @@
     - meta.statement
     - meta.statement.command
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '|'
   scopes:
@@ -73115,6 +73868,7 @@
     - meta.statement
     - meta.statement.command
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: )
   scopes:
@@ -73129,6 +73883,7 @@
     - meta.statement
     - meta.statement.command
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: )
   scopes:
@@ -73182,6 +73937,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '"'
@@ -73221,6 +73977,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: i
@@ -73282,6 +74039,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: ~/.bash_completion
@@ -73291,6 +74049,7 @@
 - source: unset
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '-'
@@ -73310,6 +74069,7 @@
 - source: unset
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: UNAME
@@ -73324,6 +74084,7 @@
 - source: set
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: $
@@ -73340,6 +74101,7 @@
 - source: unset
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: BASH_COMPLETION_ORIGINAL_V_VALUE
@@ -73528,6 +74290,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '"'
   scopesBegin:
@@ -73545,6 +74308,7 @@
     - meta.statement
     - meta.statement.command
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: )
   scopes:
@@ -73600,6 +74364,7 @@
     - meta.statement
     - meta.statement.command
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: )
   scopes:
@@ -73648,6 +74413,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -73675,6 +74441,7 @@
     - meta.statement
     - meta.statement.command
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: )
   scopes:
@@ -73725,6 +74492,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '"'
@@ -73781,6 +74549,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '"'
@@ -73949,6 +74718,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '"'
@@ -73968,6 +74738,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '"'
   scopesBegin:
@@ -73986,6 +74757,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '"'
   scopesBegin:
@@ -74045,6 +74817,7 @@
     - meta.statement
     - meta.statement.command
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: pwd
@@ -74052,6 +74825,7 @@
     - meta.statement
     - meta.statement.command
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: )
@@ -74072,6 +74846,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '"'
@@ -74122,6 +74897,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '"'
@@ -74348,6 +75124,7 @@
     - meta.statement
     - meta.statement.command
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: )
   scopes:
@@ -74372,6 +75149,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '"'
@@ -74504,6 +75282,7 @@
     - meta.statement
     - meta.statement.command
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: )
   scopes:
@@ -74522,6 +75301,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -74636,6 +75416,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '"'
@@ -74708,6 +75489,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '"'
@@ -74865,6 +75647,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '"'
   scopesBegin:
@@ -74928,6 +75711,7 @@
     - meta.statement
     - meta.statement.command
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: )
   scopes:
@@ -75098,12 +75882,14 @@
     - meta.statement
     - meta.statement.command
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
   scopes:
     - keyword.control.break
 - source: basename
   scopesEnd:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '"'
   scopesBegin:
@@ -75135,6 +75921,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: ''''
   scopesBegin:
@@ -75270,6 +76057,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '"'
   scopesBegin:
@@ -75287,6 +76075,7 @@
 - source: exit
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '1'
@@ -75330,6 +76119,7 @@
     - meta.statement
     - meta.statement.command
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: )
   scopes:
@@ -75366,6 +76156,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '"'
   scopesBegin:
@@ -75390,6 +76181,7 @@
 - source: exit
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '1'
@@ -75469,6 +76261,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '"'
   scopesBegin:
@@ -75518,6 +76311,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '"'
   scopesBegin:
@@ -75656,6 +76450,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '"'
   scopesBegin:
@@ -75688,6 +76483,7 @@
 - source: exit
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '1'
@@ -75736,6 +76532,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '-'
@@ -75781,6 +76578,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '"'
@@ -75799,6 +76597,7 @@
     - meta.statement
     - meta.statement.command
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: )
   scopes:
@@ -75830,6 +76629,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '"'
@@ -75848,6 +76648,7 @@
     - meta.statement
     - meta.statement.command
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: )
   scopes:
@@ -75895,6 +76696,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '>&2'
@@ -76027,6 +76829,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '"'
   scopesBegin:
@@ -76117,6 +76920,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '"'
@@ -76150,6 +76954,7 @@
 - source: return
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - keyword.control.return
 - source: '0'
@@ -76222,6 +77027,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '"'
   scopesBegin:
@@ -76319,6 +77125,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '"'
@@ -76359,6 +77166,7 @@
 - source: return
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - keyword.control.return
 - source: '0'
@@ -76469,6 +77277,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '"'
   scopesBegin:
@@ -76571,6 +77380,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '"'
@@ -76603,6 +77413,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: ''''
   scopesBegin:
@@ -76673,6 +77484,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '"'
@@ -76706,6 +77518,7 @@
 - source: return
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - keyword.control.return
 - source: '0'
@@ -76754,6 +77567,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '"'
   scopesBegin:
@@ -76813,6 +77627,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '"'
   scopesBegin:
@@ -77009,6 +77824,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '"'
   scopesBegin:
@@ -77115,6 +77931,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '"'
   scopesBegin:
@@ -77217,6 +78034,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '"'
@@ -77241,6 +78059,7 @@
 - source: return
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - keyword.control.return
 - source: '0'
@@ -77277,6 +78096,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '"'
   scopesBegin:
@@ -77317,6 +78137,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '"'
   scopesBegin:
@@ -77426,6 +78247,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '"'
   scopesBegin:
@@ -77515,6 +78337,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '"'
@@ -77547,6 +78370,7 @@
 - source: return
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - keyword.control.return
 - source: '0'
@@ -77615,6 +78439,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '"'
@@ -77744,6 +78569,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '"'
@@ -77776,6 +78602,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: ''''
   scopesBegin:
@@ -77877,6 +78704,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '"'
@@ -77993,6 +78821,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '-'
@@ -78094,6 +78923,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '"'
@@ -78275,6 +79105,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '"'
   scopesBegin:
@@ -78460,6 +79291,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '"'
@@ -78577,6 +79409,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '"'
   scopesBegin:
@@ -78783,6 +79616,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '"'
   scopesBegin:
@@ -78852,6 +79686,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '"'
@@ -78884,6 +79719,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -78956,11 +79792,13 @@
     - meta.statement.command.name.quoted
     - string.quoted.double
     - punctuation.definition.string.begin
+    - entity.name.function.call
     - entity.name.command
 - source: $
   scopesBegin:
     - meta.statement.command.name.continuation
     - string.quoted.double
+    - entity.name.function.call
     - entity.name.command
   scopes:
     - punctuation.definition.variable
@@ -78980,11 +79818,13 @@
   scopesEnd:
     - meta.statement.command.name.continuation
     - string.quoted.double
+    - entity.name.function.call
     - entity.name.command
 - source: '"'
   scopes:
     - string.quoted.double
     - punctuation.definition.string.end
+    - entity.name.function.call
     - entity.name.command
   scopesEnd:
     - meta.statement.command.name
@@ -79089,6 +79929,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '"'
@@ -79191,6 +80032,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '"'
   scopesBegin:
@@ -79298,6 +80140,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '"'
@@ -79330,6 +80173,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -79358,6 +80202,7 @@
     - meta.statement
     - meta.statement.command
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: )
   scopes:
@@ -79395,6 +80240,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '"'
   scopesBegin:
@@ -79456,6 +80302,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '-'
@@ -79552,6 +80399,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - keyword.control.return
 - source: '1'
@@ -79574,6 +80422,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '"'
@@ -79632,6 +80481,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '"'
   scopesBegin:
@@ -79678,6 +80528,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '"'
@@ -79874,6 +80725,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '"'
   scopesBegin:
@@ -79905,6 +80757,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '"'
   scopesBegin:
@@ -79945,6 +80798,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -80041,6 +80895,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '"'
@@ -80065,6 +80920,7 @@
 - source: return
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - keyword.control.return
 - source: '0'
@@ -80175,6 +81031,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '"'
   scopesBegin:
@@ -80339,6 +81196,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '"'
   scopesBegin:
@@ -80383,6 +81241,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '"'
   scopesBegin:
@@ -80487,6 +81346,7 @@
     - meta.statement
     - meta.statement.command
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: )
@@ -80526,6 +81386,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '"'
   scopesBegin:
@@ -80598,6 +81459,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -80676,6 +81538,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '"'
@@ -80808,6 +81671,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - keyword.control.return
 - source: '1'
@@ -80856,6 +81720,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -80922,6 +81787,7 @@
     - meta.statement
     - meta.statement.command
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '|'
   scopes:
@@ -80932,6 +81798,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -80974,6 +81841,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -81077,6 +81945,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '"'
@@ -81101,6 +81970,7 @@
 - source: return
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - keyword.control.return
 - source: '0'
@@ -81123,6 +81993,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - keyword.control.return
 - source: '2'
@@ -81260,6 +82131,7 @@
     - meta.statement
     - meta.statement.command
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: )
   scopes:
@@ -81315,6 +82187,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '"'
   scopesBegin:
@@ -81347,6 +82220,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '"'
   scopesBegin:
@@ -81394,6 +82268,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '"'
   scopesBegin:
@@ -81441,6 +82316,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '"'
   scopesBegin:
@@ -81533,6 +82409,7 @@
     - meta.statement
     - meta.statement.command
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: )
   scopes:
@@ -81619,6 +82496,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '"'
   scopesBegin:
@@ -81805,6 +82683,7 @@
     - meta.statement
     - meta.statement.command
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: )
   scopes:
@@ -81827,6 +82706,7 @@
     - meta.statement
     - meta.statement.command
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: )
   scopes:
@@ -81889,6 +82769,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '"'
@@ -81907,6 +82788,7 @@
 - source: git
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: clone
   scopesBegin:
@@ -81954,6 +82836,7 @@
     - meta.statement
     - meta.statement.command
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: ;
   scopes:
@@ -81967,6 +82850,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '"'
@@ -81994,6 +82878,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '"'
@@ -82026,6 +82911,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: fetch
   scopes:
@@ -82043,6 +82929,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: reset
   scopes:
@@ -82082,6 +82969,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -82109,6 +82997,7 @@
     - meta.statement
     - meta.statement.command
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: )
   scopes:
@@ -82125,6 +83014,7 @@
 - source: touch
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '"'
   scopesBegin:
@@ -82142,6 +83032,7 @@
     - meta.statement
     - meta.statement.command
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: )
   scopes:
@@ -82234,6 +83125,7 @@
     - meta.statement
     - meta.statement.command
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: )
   scopes:
@@ -82302,6 +83194,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '"'
   scopesBegin:
@@ -82340,6 +83233,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -82386,6 +83280,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: ''''
   scopesBegin:
@@ -82434,6 +83329,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '"'
   scopesBegin:
@@ -82531,6 +83427,7 @@
     - meta.statement
     - meta.statement.command
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: )
@@ -82647,6 +83544,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '"'
@@ -82687,6 +83585,7 @@
 - source: return
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - keyword.control.return
 - source: '0'
@@ -82723,6 +83622,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '"'
   scopesBegin:
@@ -82854,6 +83754,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -82895,6 +83796,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -82980,6 +83882,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '"'
@@ -83024,6 +83927,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '"'
@@ -83172,6 +84076,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '"'
   scopesBegin:
@@ -83231,6 +84136,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '"'
   scopesBegin:
@@ -83430,6 +84336,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '"'
   scopesBegin:
@@ -83507,6 +84414,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '"'
@@ -83593,6 +84501,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '"'
   scopesBegin:
@@ -83639,6 +84548,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '-'
@@ -83960,6 +84870,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '"'
   scopesBegin:
@@ -84040,6 +84951,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '"'
@@ -84093,6 +85005,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '"'
   scopesBegin:
@@ -84173,6 +85086,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '-'
@@ -84249,6 +85163,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '"'
   scopesBegin:
@@ -84362,6 +85277,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '"'
@@ -84493,6 +85409,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '-'
@@ -84847,11 +85764,13 @@
     - meta.statement.command.name.quoted
     - string.quoted.double
     - punctuation.definition.string.begin
+    - entity.name.function.call
     - entity.name.command
 - source: $
   scopesBegin:
     - meta.statement.command.name.continuation
     - string.quoted.double
+    - entity.name.function.call
     - entity.name.command
   scopes:
     - punctuation.definition.variable
@@ -84862,14 +85781,17 @@
   scopesEnd:
     - meta.statement.command.name.continuation
     - string.quoted.double
+    - entity.name.function.call
     - entity.name.command
 - source: '"'
   scopes:
     - string.quoted.double
     - punctuation.definition.string.end
+    - entity.name.function.call
     - entity.name.command
 - source: return
   scopes:
+    - entity.name.function.call
     - entity.name.command
     - keyword.control.return
   scopesEnd:
@@ -84924,6 +85846,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '"'
   scopesBegin:
@@ -85001,6 +85924,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '"'
   scopesBegin:
@@ -85085,6 +86009,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '"'
@@ -85117,6 +86042,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: ''''
   scopesBegin:
@@ -85246,11 +86172,13 @@
     - meta.statement.command.name.quoted
     - string.quoted.double
     - punctuation.definition.string.begin
+    - entity.name.function.call
     - entity.name.command
 - source: $
   scopesBegin:
     - meta.statement.command.name.continuation
     - string.quoted.double
+    - entity.name.function.call
     - entity.name.command
   scopes:
     - punctuation.definition.variable
@@ -85261,14 +86189,17 @@
   scopesEnd:
     - meta.statement.command.name.continuation
     - string.quoted.double
+    - entity.name.function.call
     - entity.name.command
 - source: '"'
   scopes:
     - string.quoted.double
     - punctuation.definition.string.end
+    - entity.name.function.call
     - entity.name.command
 - source: return
   scopes:
+    - entity.name.function.call
     - entity.name.command
     - keyword.control.return
   scopesEnd:
@@ -85331,6 +86262,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '"'
   scopesBegin:
@@ -85447,6 +86379,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '"'
@@ -85503,11 +86436,13 @@
     - meta.statement.command.name.quoted
     - string.quoted.double
     - punctuation.definition.string.begin
+    - entity.name.function.call
     - entity.name.command
 - source: $
   scopesBegin:
     - meta.statement.command.name.continuation
     - string.quoted.double
+    - entity.name.function.call
     - entity.name.command
   scopes:
     - punctuation.definition.variable
@@ -85518,11 +86453,13 @@
   scopesEnd:
     - meta.statement.command.name.continuation
     - string.quoted.double
+    - entity.name.function.call
     - entity.name.command
 - source: '"'
   scopes:
     - string.quoted.double
     - punctuation.definition.string.end
+    - entity.name.function.call
     - entity.name.command
   scopesEnd:
     - meta.statement
@@ -85609,6 +86546,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '"'
   scopesBegin:
@@ -85704,6 +86642,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '"'
   scopesBegin:
@@ -85738,6 +86677,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '"'
@@ -85887,6 +86827,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - keyword.control.return
 - source: '0'
@@ -85909,6 +86850,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - keyword.control.return
 - source: '1'
@@ -85983,6 +86925,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -86031,6 +86974,7 @@
     - meta.statement
     - meta.statement.command
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: )
   scopes:
@@ -86117,6 +87061,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '"'
   scopesBegin:
@@ -86180,6 +87125,7 @@
     - meta.statement
     - meta.statement.command
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: )
   scopes:
@@ -86256,6 +87202,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '"'
   scopesBegin:
@@ -86304,6 +87251,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -86338,6 +87286,7 @@
     - meta.statement
     - meta.statement.command
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: else
   scopes:
@@ -86348,6 +87297,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '"'
@@ -86373,6 +87323,7 @@
 - source: return
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - keyword.control.return
 - source: '1'
@@ -86462,6 +87413,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '-'
@@ -86558,6 +87510,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '"'
@@ -86590,6 +87543,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -86629,6 +87583,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -86722,6 +87677,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '"'
@@ -86853,6 +87809,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '"'
   scopesBegin:
@@ -86951,6 +87908,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: asdf_hook_fun
@@ -86961,22 +87919,26 @@
   scopesBegin:
     - meta.statement.command.name
   scopes:
+    - entity.name.function.call
     - entity.name.command
 - source: ''''
   scopes:
     - meta.statement.command.name.quoted
     - string.quoted.single
     - punctuation.definition.string.begin
+    - entity.name.function.call
     - entity.name.command
 - source: al
   scopes:
     - meta.statement.command.name.continuation
     - string.quoted.single
+    - entity.name.function.call
     - entity.name.command
 - source: ''''
   scopes:
     - string.quoted.single
     - punctuation.definition.string.end
+    - entity.name.function.call
     - entity.name.command
   scopesEnd:
     - meta.statement.command.name
@@ -87022,6 +87984,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '"'
   scopesBegin:
@@ -87109,6 +88072,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '"'
   scopesBegin:
@@ -87140,6 +88104,7 @@
 - source: shim_plugin_versions
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '"'
   scopesBegin:
@@ -87179,6 +88144,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -87225,6 +88191,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: ''''
   scopesBegin:
@@ -87268,6 +88235,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '"'
   scopesBegin:
@@ -87307,6 +88275,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -87352,6 +88321,7 @@
     - meta.statement
     - meta.statement.command
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '|'
   scopes:
@@ -87362,6 +88332,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -87404,6 +88375,7 @@
     - meta.statement
     - meta.statement.command
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: )
   scopes:
@@ -87450,6 +88422,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -87472,6 +88445,7 @@
     - meta.statement
     - meta.statement.command
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: )
   scopes:
@@ -87484,6 +88458,7 @@
     - meta.statement
     - meta.statement.command
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: )
   scopes:
@@ -87502,6 +88477,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -87531,6 +88507,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: echo
   scopes:
@@ -87619,6 +88596,7 @@
     - meta.statement
     - meta.statement.command
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: )
@@ -87666,6 +88644,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '-'
@@ -87725,6 +88704,7 @@
     - meta.statement
     - meta.statement.command
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: )
   scopes:
@@ -87861,6 +88841,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '-'
@@ -88152,6 +89133,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '"'
   scopesBegin:
@@ -88215,6 +89197,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '-'
@@ -88283,6 +89266,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '-'
@@ -88481,6 +89465,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '-'
@@ -88652,6 +89637,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '"'
@@ -88683,6 +89669,7 @@
 - source: return
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - keyword.control.return
   scopesEnd:
@@ -88747,6 +89734,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '"'
   scopesBegin:
@@ -88844,6 +89832,7 @@
     - meta.statement
     - meta.statement.command
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: )
   scopes:
@@ -88888,6 +89877,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '"'
@@ -88926,6 +89916,7 @@
 - source: return
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - keyword.control.return
 - source: '1'
@@ -88978,6 +89969,7 @@
     - meta.statement
     - meta.statement.command
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: )
   scopes:
@@ -89051,6 +90043,7 @@
     - meta.statement
     - meta.statement.command
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: )
   scopes:
@@ -89154,6 +90147,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '-'
@@ -89217,6 +90211,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '"'
   scopesBegin:
@@ -89357,6 +90352,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '"'
@@ -89389,6 +90385,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '-'
   scopesBegin:
@@ -89417,6 +90414,7 @@
     - meta.statement
     - meta.statement.command
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: )
   scopes:
@@ -89481,6 +90479,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '-'
@@ -89591,6 +90590,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '"'
   scopesBegin:
@@ -89648,6 +90648,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '"'
   scopesBegin:
@@ -89762,11 +90763,13 @@
     - meta.statement.command.name.quoted
     - string.quoted.double
     - punctuation.definition.string.begin
+    - entity.name.function.call
     - entity.name.command
 - source: $
   scopesBegin:
     - meta.statement.command.name.continuation
     - string.quoted.double
+    - entity.name.function.call
     - entity.name.command
   scopes:
     - punctuation.definition.variable
@@ -89777,11 +90780,13 @@
   scopesEnd:
     - meta.statement.command.name.continuation
     - string.quoted.double
+    - entity.name.function.call
     - entity.name.command
 - source: '"'
   scopes:
     - string.quoted.double
     - punctuation.definition.string.end
+    - entity.name.function.call
     - entity.name.command
   scopesEnd:
     - meta.statement.command.name
@@ -89845,6 +90850,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '"'
   scopesBegin:
@@ -89885,6 +90891,7 @@
 - source: return
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - keyword.control.return
 - source: $
@@ -89943,6 +90950,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '"'
   scopesBegin:
@@ -90019,6 +91027,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '"'
@@ -90068,6 +91077,7 @@
 - source: echo
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '"'
@@ -90086,6 +91096,7 @@
 - source: echo
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '"'
@@ -90103,6 +91114,7 @@
 - source: echo
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '"'
@@ -90151,6 +91163,7 @@
 - source: echo
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '"'
@@ -90168,6 +91181,7 @@
 - source: echo
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '"'
@@ -90194,6 +91208,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '"'
@@ -90227,6 +91242,7 @@
 - source: echo
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '"'
@@ -90255,6 +91271,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - support.function.builtin
 - source: '"'
@@ -90272,6 +91289,7 @@
 - source: shim_plugin_versions
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
 - source: '"'
   scopesBegin:
@@ -90315,6 +91333,7 @@
     - meta.statement.command
   scopes:
     - meta.statement.command.name
+    - entity.name.function.call
     - entity.name.command
     - keyword.control.return
 - source: '126'
