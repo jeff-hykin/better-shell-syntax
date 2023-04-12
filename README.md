@@ -20,8 +20,10 @@ Just install the VS Code extension and the changes will automatically be applied
 
 Before                     | After
 :-------------------------:|:-------------------------:
-![before](https://user-images.githubusercontent.com/17692058/60762004-edc1b680-a01a-11e9-83e9-55dc02659b5c.png) | ![after](https://user-images.githubusercontent.com/17692058/60762005-f9ad7880-a01a-11e9-996f-136584164e57.png)
-The screenshots were taken with [PolaCode 2019](https://marketplace.visualstudio.com/items?itemName=jeff-hykin.polacode-2019) with the XD Theme with the Input Mono font
+| ![old_code](https://user-images.githubusercontent.com/17692058/231317033-b6e1737c-40a1-47e7-8787-c0a3c85452af.png) | ![new_code](https://user-images.githubusercontent.com/17692058/231317056-a1ee36fa-1a77-4f8d-8190-04d4be44100a.png) |
+
+
+The screenshots were taken with [PolaCode 2022](https://marketplace.visualstudio.com/items?itemName=jeff-hykin.polacode-2019) with the XD Theme (MixItUp variant) and the [XD font](https://github.com/jeff-hykin/xd-font)
 
 ## Contributing
 If you'd like to help improve the syntax, take a look at `source/languages` and look at the `generate.rb` files. And make sure to take a look at `CONTRIBUTING.md` to get a better idea of how code works.
