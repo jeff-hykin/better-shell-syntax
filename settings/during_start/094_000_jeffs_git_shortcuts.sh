@@ -466,16 +466,16 @@ git_squash_to () {
 }
 
 git_delete_submodule () {
-    path="$1"
-    if ! [ -d "$path" ]
+    the_path="$1"
+    if ! [ -d "$the_path" ]
     then
-        echo "I don't see that folder/path. So this method might not work perfectly"
+        echo "I don't see that folder/the_path. So this method might not work perfectly"
         echo "press enter to continue, ctrl+C to cancel"
         read A
     fi
-    git submodule deinit -f "$path"
-    rm -rf ".git/modules/$path"
-    git rm -f "$path"
+    # git submodule deinit -f "$the_path"
+    rm -rf ".git/modules/$the_path"
+    git rm -f "$the_path"
 }
 
 # self submodule
