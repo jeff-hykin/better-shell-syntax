@@ -494,7 +494,9 @@ git_push_all_branches_to_url () {
         branch_name=${branch#*/}
         
         # Checkout each branch
-        git checkout -b "$branch_name" "$branch" || git checkout "$branch_name"
+        if ! git checkout -b "$branch_name" "$branch" || git checkout "$branch_name"; then
+            break
+        fi
 
         # Push the rewritten branch to the target repository
         if ! git push "$temp_remote_name" "$branch_name"; then
