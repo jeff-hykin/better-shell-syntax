@@ -478,6 +478,34 @@ git_delete_submodule () {
     git rm -f "$the_path"
 }
 
+git_push_all_branches_to_url () {
+    url="$1"
+    
+    temp_remote_name="@__temp_origin__"
+    git remote remove "$temp_remote_name" 2>/dev/null
+    # Add the target repository as a remote
+    git remote add "$temp_remote_name" "$url"
+
+    # Fetch the remote branches
+    git fetch "$temp_remote_name"
+    
+    # Try pushing
+    for branch in $(git branch -r | grep -v HEAD | grep -v "$temp_remote_name"); do
+        branch_name=${branch#*/}
+        
+        # Checkout each branch
+        git checkout -b "$branch_name" "$branch" || git checkout "$branch_name"
+
+        # Push the rewritten branch to the target repository
+        if ! git push "$temp_remote_name" "$branch_name"; then
+            echo "An error occurred while pushing branch: $branch_name"
+            break
+        fi
+    done
+    
+    git remote remove "$temp_remote_name"
+}
+
 # self submodule
 # git submodule add -b jirl --name "jirl" -- https://github.com/jeff-hykin/model_racer.git ./source/jirl
 
