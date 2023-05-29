@@ -478,6 +478,10 @@ git_delete_submodule () {
     git rm -f "$the_path"
 }
 
+git_list_exclusively_local_commits () {
+    git log --oneline --branches --not origin
+}
+
 git_push_all_branches_to_url () {
     url="$1"
     
