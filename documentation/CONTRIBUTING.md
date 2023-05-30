@@ -122,6 +122,8 @@ phrase = Pattern.new(
 )
 ```
 
+For `$base` and `$self` (which I HIGHLY recommend AVOIDING) use `includes: [ :$base, :$self ]`. 
+
 ## Readable Regex Guide
 
 Regex is pretty hard to read, so this repo uses a library to help.
@@ -133,7 +135,7 @@ Regex is pretty hard to read, so this repo uses a library to help.
 - `.or(*attributes)` adds an alternation (`|`)
   - example: `Pattern.new(/foo/).or(/bar/)` => `/foo|(?:bar)/`
   - please note you may need more shy groups depending on order
-    `Pattern.new(/foo/).or(/bar/).maybe(@spaces)` becomes (simplified) `/(?:foo|bar)\s*/` NOT `/(?:foo|bar\s*)/` 
+    `Pattern.new(/foo/).or(/bar/).maybe(@spaces)` becomes (simplified) `/(?:foo|bar)\s*/` NOT `/(?:foo|bar\s*)/`
 - `maybe(*attributes)` or `.maybe(*attributes)` causes the pattern to match zero or one times (`?`)
   - example `maybe(/foo/)` => `/(?:foo)?/`
 - `zeroOrMoreOf(*attributes)` or `.zeroOrMoreOf(*attributes)` causes the pattern to be matched zero or more times (`*`)
@@ -173,11 +175,31 @@ Pattern.new(
     should_fully_match:   [ "example text", ],
     should_not_partial_match: [ "example text", ],
     should_not_fully_match:   [ "example text", ],
+    # NOTE! `should_not_fully_match` does mean `should_partial_match`
+    #       its just an "IF does full match THEN throw error"
     
     # typical arguments
     match: //,     # regex or another pattern
-    tag_as: "",    # string (textmate scope, which can contain space-sperated scopes)
-    comment: "",   # a comment that will show up in the final generated-grammar file (rarely used)
+    tag_as: "",    # string; a textmate scope
+    # Whats a textmate scope? see https://code.visualstudio.com/api/language-extensions/syntax-highlight-guide#textmate-tokens-and-scopes)
+    # NOTE! this grammar contains two special scope-tools
+    # $match and $reference()
+    # for example: 
+        # Pattern.new(
+        #     match: /and|or|not/, # keyword operator names
+        #     tag_as: "keyword.operator.wordlike.$match",
+        #     # ^this will be equivlent to:
+        #     #   "keyword.operator.wordlike.and"
+        #     #   "keyword.operator.wordlike.or"
+        #     #   "keyword.operator.wordlike.not"
+        #     # depending on which one is matched at runtime
+        # )
+    # $reference() is very similar to $match
+        # Pattern.new(
+        #     reference: "blah",
+        #     match: /and|or|not/, # keyword operator names
+        #     tag_as: "keyword.operator.wordlike.$reference(blah)",
+        # )
     includes: [
         :other_pattern_name,
         # alternatively include Pattern.new OR PatternRange.new directly
@@ -226,6 +248,7 @@ Pattern.new(
     reference: "", # to create a name that can be referenced later for (regex backreferences)
     preserve_references?: false, # default=false, setting to true will allow for 
     # reference name conflict. Usually the names are scrambled to prevent name-conflict
+    comment: "", # a comment that will show up in the final generated-grammar file (rarely used)
     
     # 
     # internal API (dont use directly, but listed here for comprehesiveness sake)
@@ -237,6 +260,7 @@ Pattern.new(
     placeholder: "name", # useful for recursive includes or patterns; grammar[:a_pattern] will return a placeholder
                          # if the pattern has not been created yet (e.g. grammar[:a_pattern] = a_pattern)
                          # when a grammar is exported unresolved placeholders will throw an error
+    patterns: [ Pattern.new() ], # this is used to implement oneOf()
     adjectives: [ :isAKeyword, ],   # a list of adjectives that describe the pattern, part of an untested grammar.tokenMatching() feature
     pattern_filter: ->(pattern) {}, # part of untested grammar.tokenMatching() feature, only works with placeholders
 )
