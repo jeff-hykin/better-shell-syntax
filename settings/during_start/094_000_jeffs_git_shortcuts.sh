@@ -371,6 +371,19 @@ git_delete_tag () {
     git tag --delete "$tag_name"
 }
 
+git_list_tags () {
+    pattern="$1"
+    # if no args, list all 
+    if [ -z "$pattern" ]
+    then
+        git tag | cat
+    # if pattern
+    else
+        # ex: "pattern*" for prefix search
+        git tag --list "$pattern" | cat
+    fi
+}
+
 # 
 # misc
 # 
