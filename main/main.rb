@@ -284,8 +284,7 @@ require_relative './tokens.rb'
     )
     
     grammar[:modifiers] = modifier = Pattern.new(
-        # TODO: generate this using @tokens
-        match: /(?<=^|;|&|[ \t])(?:export|declare|typeset|local|readonly)(?=[ \t]|;|&|$)/,
+        match: /(?<=^|;|&|[ \t])(?:#{@tokens.representationsThat(:areModifiers).join("|")})(?=[ \t]|;|&|$)/,
         tag_as: "storage.modifier.$match",
     )
     
@@ -387,8 +386,7 @@ require_relative './tokens.rb'
     
     grammar[:keyword] = [
         Pattern.new(
-            # TODO: generate this using @tokens
-            match: /(?<=^|;|&| |\t)(?:then|else|elif|fi|for|in|do|done|select|case|continue|esac|while|until|return)(?= |\t|;|&|$)/,
+            match: /(?<=^|;|&| |\t)(?:#{@tokens.representationsThat(:areControlFlow).join("|")})(?= |\t|;|&|$)/,
             tag_as: "keyword.control.$match",
         ),
         # modifier
@@ -546,7 +544,8 @@ require_relative './tokens.rb'
     )
     keywords = @tokens.representationsThat(:areShellReservedWords, :areNotModifiers)
     keyword_patterns = /#{keywords.map { |each| each+'\W|'+each+'\$' } .join('|')}/
-    valid_after_patterns = /#{['if','elif','then', 'else', 'while', 'until', 'do'].map { |each| '^'+each+' | '+each+' |\t'+each+' ' } .join('|')}/
+    control_prefix_commands = @tokens.representationsThat(:areControlFlow, :areFollowedByACommand)
+    valid_after_patterns = /#{control_prefix_commands.map { |each| '^'+each+' | '+each+' |\t'+each+' ' } .join('|')}/
     grammar[:normal_statement] = PatternRange.new(
         zeroLengthStart?: true,
         zeroLengthEnd?: true,

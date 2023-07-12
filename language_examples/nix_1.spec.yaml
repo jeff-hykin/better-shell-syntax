@@ -14197,6 +14197,7 @@
     - meta.statement.command.name
     - entity.name.function.call
     - entity.name.command
+    - keyword.control.continue
 - source: fi
   scopes:
     - keyword.control
