@@ -1,0 +1,119 @@
+- source: if
+  scopesBegin:
+    - meta.scope.if-block
+  scopes:
+    - keyword.control
+- source: x
+  scopes:
+    - meta.statement
+    - meta.statement.command
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+- source: ;
+  scopes:
+    - punctuation.terminator.statement.semicolon
+- source: then
+  scopes:
+    - keyword.control.then
+- source: x
+  scopes:
+    - meta.statement
+    - meta.statement.command
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+- source: ;
+  scopes:
+    - punctuation.terminator.statement.semicolon
+- source: elif
+  scopes:
+    - keyword.control.elif
+- source: x
+  scopes:
+    - meta.statement
+    - meta.statement.command
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+- source: ;
+  scopes:
+    - punctuation.terminator.statement.semicolon
+- source: then
+  scopes:
+    - keyword.control.then
+- source: x
+  scopes:
+    - meta.statement
+    - meta.statement.command
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+- source: ;
+  scopes:
+    - punctuation.terminator.statement.semicolon
+- source: fi
+  scopes:
+    - keyword.control
+  scopesEnd:
+    - meta.scope.if-block
+- source: while
+  scopesBegin:
+    - meta.scope.while-loop
+  scopes:
+    - keyword.control
+- source: x
+  scopes:
+    - meta.statement
+    - meta.statement.command
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+- source: ;
+  scopes:
+    - punctuation.terminator.statement.semicolon
+- source: do
+  scopes:
+    - keyword.control.do
+- source: x
+  scopes:
+    - meta.statement
+    - meta.statement.command
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+- source: ;
+  scopes:
+    - punctuation.terminator.statement.semicolon
+- source: done
+  scopesBegin:
+    - keyword.control
+- source: until
+  scopesEnd:
+    - keyword.control
+- source: x
+  scopes:
+    - meta.statement
+    - meta.statement.command
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+- source: ;
+  scopes:
+    - punctuation.terminator.statement.semicolon
+- source: do
+  scopes:
+    - keyword.control.do
+- source: x
+  scopes:
+    - meta.statement
+    - meta.statement.command
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+- source: ;
+  scopes:
+    - punctuation.terminator.statement.semicolon
+- source: done
+  scopes:
+    - keyword.control
