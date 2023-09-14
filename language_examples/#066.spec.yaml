@@ -56,14 +56,14 @@
     - meta.argument
     - string.unquoted.argument
   scopesEnd:
+    - meta.scope.case-clause-body
     - meta.statement
     - meta.statement.command
-- source: ;
+- source: ;&
   scopes:
-    - punctuation.terminator.statement.semicolon
-- source: '&'
-  scopes:
-    - punctuation.separator.statement.background
+    - punctuation.terminator.case-clause
+  scopesEnd:
+    - meta.scope.case-clause
 - source: '#'
   scopesBegin:
     - comment.line.number-sign
@@ -72,16 +72,21 @@
 - source: ' Fall through'
   scopesEnd:
     - comment.line.number-sign
-- source: ye*
+- source: ye
+  scopesBegin:
+    - meta.scope.case-clause
+    - meta.scope.case-pattern
+- source: '*'
   scopes:
-    - meta.statement
-    - meta.statement.command
-    - meta.statement.command.name
-    - entity.name.function.call
-    - entity.name.command
+    - keyword.operator.glob
 - source: )
+  scopes:
+    - punctuation.definition.case-pattern
+  scopesEnd:
+    - meta.scope.case-pattern
 - source: echo
   scopesBegin:
+    - meta.scope.case-clause-body
     - meta.statement
     - meta.statement.command
   scopes:
@@ -97,13 +102,23 @@
     - meta.scope.case-clause-body
     - meta.statement
     - meta.statement.command
-- source: ;;
+- source: ;;&
   scopes:
     - punctuation.terminator.case-clause
-- source: '& # Continue checking'
+  scopesEnd:
+    - meta.scope.case-clause
+- source: '#'
   scopesBegin:
+    - comment.line.number-sign
+  scopes:
+    - punctuation.definition.comment
+- source: ' Continue checking'
+  scopesEnd:
+    - comment.line.number-sign
+- source: 'yes'
+  scopesBegin:
+    - meta.scope.case-clause
     - meta.scope.case-pattern
-- source: '    yes'
 - source: '*'
   scopes:
     - keyword.operator.glob
