@@ -1,0 +1,191 @@
+- source: '#!'
+  scopesBegin:
+    - comment.line.number-sign
+    - meta.shebang
+  scopes:
+    - punctuation.definition.comment.shebang
+- source: /usr/bin/env bash
+  scopesEnd:
+    - comment.line.number-sign
+    - meta.shebang
+- source: case
+  scopesBegin:
+    - meta.scope.case-block
+  scopes:
+    - keyword.control
+- source: ''''
+  scopesBegin:
+    - string.quoted.single
+  scopes:
+    - punctuation.definition.string.begin
+- source: 'yes'
+- source: ''''
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - string.quoted.single
+- source: in
+  scopesBegin:
+    - meta.scope.case-body
+  scopes:
+    - keyword.control
+- source: 'y'
+  scopesBegin:
+    - meta.scope.case-clause
+    - meta.scope.case-pattern
+- source: '*'
+  scopes:
+    - keyword.operator.glob
+- source: )
+  scopes:
+    - punctuation.definition.case-pattern
+  scopesEnd:
+    - meta.scope.case-pattern
+- source: echo
+  scopesBegin:
+    - meta.scope.case-clause-body
+    - meta.statement
+    - meta.statement.command
+  scopes:
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+    - support.function.builtin
+- source: 'y'
+  scopes:
+    - meta.argument
+    - string.unquoted.argument
+  scopesEnd:
+    - meta.statement
+    - meta.statement.command
+- source: ;
+  scopes:
+    - punctuation.terminator.statement.semicolon
+- source: '&'
+  scopes:
+    - punctuation.separator.statement.background
+- source: '#'
+  scopesBegin:
+    - comment.line.number-sign
+  scopes:
+    - punctuation.definition.comment
+- source: ' Fall through'
+  scopesEnd:
+    - comment.line.number-sign
+- source: ye*
+  scopes:
+    - meta.statement
+    - meta.statement.command
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+- source: )
+- source: echo
+  scopesBegin:
+    - meta.statement
+    - meta.statement.command
+  scopes:
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+    - support.function.builtin
+- source: ye
+  scopes:
+    - meta.argument
+    - string.unquoted.argument
+  scopesEnd:
+    - meta.scope.case-clause-body
+    - meta.statement
+    - meta.statement.command
+- source: ;;
+  scopes:
+    - punctuation.terminator.case-clause
+- source: '& # Continue checking'
+  scopesBegin:
+    - meta.scope.case-pattern
+- source: '    yes'
+- source: '*'
+  scopes:
+    - keyword.operator.glob
+- source: )
+  scopes:
+    - punctuation.definition.case-pattern
+  scopesEnd:
+    - meta.scope.case-pattern
+- source: echo
+  scopesBegin:
+    - meta.scope.case-clause-body
+    - meta.statement
+    - meta.statement.command
+  scopes:
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+    - support.function.builtin
+- source: 'yes'
+  scopes:
+    - meta.argument
+    - string.unquoted.argument
+  scopesEnd:
+    - meta.scope.case-clause-body
+    - meta.statement
+    - meta.statement.command
+- source: ;;
+  scopes:
+    - punctuation.terminator.case-clause
+  scopesEnd:
+    - meta.scope.case-clause
+- source: '#'
+  scopesBegin:
+    - comment.line.number-sign
+  scopes:
+    - punctuation.definition.comment
+- source: ' Stop here'
+  scopesEnd:
+    - comment.line.number-sign
+- source: '*'
+  scopesBegin:
+    - meta.scope.case-clause
+    - meta.scope.case-pattern
+  scopes:
+    - keyword.operator.glob
+- source: )
+  scopes:
+    - punctuation.definition.case-pattern
+  scopesEnd:
+    - meta.scope.case-pattern
+- source: echo
+  scopesBegin:
+    - meta.scope.case-clause-body
+    - meta.statement
+    - meta.statement.command
+  scopes:
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+    - support.function.builtin
+- source: 'no'
+  scopes:
+    - meta.argument
+    - string.unquoted.argument
+  scopesEnd:
+    - meta.scope.case-clause-body
+    - meta.statement
+    - meta.statement.command
+- source: ;;
+  scopes:
+    - punctuation.terminator.case-clause
+  scopesEnd:
+    - meta.scope.case-clause
+- source: '#'
+  scopesBegin:
+    - comment.line.number-sign
+  scopes:
+    - punctuation.definition.comment
+- source: ' Unreachable'
+  scopesEnd:
+    - meta.scope.case-body
+    - comment.line.number-sign
+- source: esac
+  scopes:
+    - keyword.control
