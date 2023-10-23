@@ -479,16 +479,50 @@ git_squash_to () {
 }
 
 git_delete_submodule () {
-    path="$1"
-    if ! [ -d "$path" ]
+    the_path="$1"
+    if ! [ -d "$the_path" ]
     then
-        echo "I don't see that folder/path. So this method might not work perfectly"
+        echo "I don't see that folder/the_path. So this method might not work perfectly"
         echo "press enter to continue, ctrl+C to cancel"
         read A
     fi
-    git submodule deinit -f "$path"
-    rm -rf ".git/modules/$path"
-    git rm -f "$path"
+    # git submodule deinit -f "$the_path"
+    rm -rf ".git/modules/$the_path"
+    git rm -f "$the_path"
+}
+
+git_list_exclusively_local_commits () {
+    git log --oneline --branches --not origin
+}
+
+git_push_all_branches_to_url () {
+    url="$1"
+    
+    temp_remote_name="@__temp_origin__"
+    git remote remove "$temp_remote_name" 2>/dev/null
+    # Add the target repository as a remote
+    git remote add "$temp_remote_name" "$url"
+
+    # Fetch the remote branches
+    git fetch "$temp_remote_name"
+    
+    # Try pushing
+    for branch in $(git branch -r | grep -v HEAD | grep -v "$temp_remote_name"); do
+        branch_name=${branch#*/}
+        
+        # Checkout each branch
+        if ! git checkout -b "$branch_name" "$branch" || git checkout "$branch_name"; then
+            break
+        fi
+
+        # Push the rewritten branch to the target repository
+        if ! git push "$temp_remote_name" "$branch_name"; then
+            echo "An error occurred while pushing branch: $branch_name"
+            break
+        fi
+    done
+    
+    git remote remove "$temp_remote_name"
 }
 
 # self submodule
