@@ -3,7 +3,7 @@
 echo ""
 echo "If you've still got a problem after this"
 if [ "$(uname)" = "Darwin" ] 
-then
+then 
     echo "take a look here: https://nixos.org/manual/nix/stable/installation/installing-binary.html#macos"
 else
     echo "take a look here: https://nixos.org/manual/nix/stable/installation/installing-binary.html#linux"
