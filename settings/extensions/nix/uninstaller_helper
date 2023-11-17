@@ -3,7 +3,7 @@
 echo ""
 echo "If you've still got a problem after this"
 if [ "$(uname)" = "Darwin" ] 
-then
+then 
     echo "take a look here: https://nixos.org/manual/nix/stable/installation/installing-binary.html#macos"
 else
     echo "take a look here: https://nixos.org/manual/nix/stable/installation/installing-binary.html#linux"
@@ -20,7 +20,6 @@ fi
 
 if [ "$(uname)" = "Darwin" ] 
 then
-    # TODO: make sure this fully removes LaunchDaemon: org.nixos.darwin-store
     sudo launchctl bootout system/org.nixos.darwin-store
     
     # check if file exists
