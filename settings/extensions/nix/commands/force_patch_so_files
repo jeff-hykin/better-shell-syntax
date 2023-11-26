@@ -1,4 +1,4 @@
-#!/usr/bin/env -S deno run --allow-all
+#!/usr/bin/env -S deno run --no-lock --allow-all
 const { FileSystem } = await import(`https://deno.land/x/quickr@0.6.3/main/file_system.js`)
 const { OperatingSystem } = await import(`https://deno.land/x/quickr@0.6.3/main/operating_system.js`)
 const { Console } = await import(`https://deno.land/x/quickr@0.6.3/main/console.js`)
