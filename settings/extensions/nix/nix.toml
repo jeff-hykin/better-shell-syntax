@@ -394,7 +394,7 @@ from = "c00039f697caa02208a01e7712bfe11c484cceca"
 # 
 [[packages]]
 load = [ "deno",]
-from = "ce6aa13369b667ac2542593170993504932eb836"
+from = "c10d7026fbae24c51e87586c6b6e4c46c0365007"
 
 [[packages]]
 load = [ "nix",]
