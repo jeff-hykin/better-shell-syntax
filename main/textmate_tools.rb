@@ -91,6 +91,9 @@ class Symbol
     end
 end
 
+def word_pattern()
+    return /[a-zA-Z0-9\-_']/
+end
 class TokenHelper
     attr_accessor :tokens
     def initialize(tokens, for_each_token:nil)
@@ -137,8 +140,25 @@ class TokenHelper
     end
     
     def lookBehindToAvoidWordsThat(*adjectives)
+        names = self.representationsThat(*adjectives)
+        return lookAheadToAvoid(word_pattern).oneOf([
+            # good case: no partial match
+            lookBehindToAvoid(/#{names.join("|")}/),
+            # good case: partial match but was only an ending prefix
+            lookBehindFor(/#{names.map{ |each| "#{word_pattern.to_s[7...-1]}#{each}" }.join("|")}/),
+            # all other cases are invalid
+        ])
+    end
+
+    def lookAheadToAvoidWordsThat(*adjectives)
         array_of_invalid_names = self.representationsThat(*adjectives)
-        return lookBehindToAvoid(/#{array_of_invalid_names.map { |each| '\W'+each+'[\\t ]|^'+each+'[\\t ]|\W'+each+'$|^'+each+'$' } .join('|')}/)
+        return lookBehindToAvoid(word_pattern).oneOf([
+            # good case: no partial match
+            lookAheadToAvoid(/#{names.join("|")}/),
+            # good case: partial match but was only an ending prefix
+            lookAheadFor(/#{names.map{ |each| /#{each}#{word_pattern.to_s[7...-1]}/ }.join('|')}/),
+            # all other cases are invalid
+        ])
     end
 
     def that(*adjectives)
