@@ -92,7 +92,7 @@ class Symbol
 end
 
 def word_pattern()
-    return /[a-zA-Z0-9\-_']/
+    return /\w/
 end
 class TokenHelper
     attr_accessor :tokens
