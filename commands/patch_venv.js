@@ -1,6 +1,6 @@
 // WIP 
 
-
+// also see: https://discourse.nixos.org/t/auto-patch-downloaded-binaries/7124
 import { FileSystem, glob } from "https://deno.land/x/quickr@0.6.31/main/file_system.js"
 import { Console } from "https://deno.land/x/quickr@0.6.31/main/console.js"
 import { run, Stdout, Stderr } from "https://deno.land/x/quickr@0.6.31/main/run.js"
