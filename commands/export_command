@@ -26,7 +26,7 @@ if (FileSystem.isAbsolutePath(commandName)) {
     }
 }
 
-const envVars = Object.entries(Deno.env.toObject()).map(([key,value])=>`${key}='${shellEscape(value)}'`).join("\n")
+const envVars = Object.entries(Deno.env.toObject()).map(([key,value])=>`export ${key}='${shellEscape(value)}'`).join("\n")
 const folder = `${projectRoot}/external`
 const exePath = `${folder}/${commandName}`
 await FileSystem.write({
