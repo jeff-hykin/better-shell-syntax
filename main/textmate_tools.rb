@@ -91,6 +91,9 @@ class Symbol
     end
 end
 
+def word_pattern()
+    return /\w/
+end
 class TokenHelper
     attr_accessor :tokens
     def initialize(tokens, for_each_token:nil)
@@ -131,14 +134,31 @@ class TokenHelper
         return matches.map do |each| each[:representation] end
     end
 
-    def lookBehindToAvoidWordsThat(*adjectives)
+    def lookBehindForWordsThat(*adjectives)
         array_of_invalid_names = self.representationsThat(*adjectives)
-        return Pattern.new(/\b/).lookBehindToAvoid(/#{array_of_invalid_names.map { |each| '\W'+each+'|^'+each } .join('|')}/)
+        return Pattern.new(/[\\t ]/).lookBehindFor(/#{array_of_invalid_names.map { |each| '\W'+each+'[\\t ]|^'+each+'[\\t ]|\W'+each+'$|^'+each+'$' } .join('|')}/)
+    end
+    
+    def lookBehindToAvoidWordsThat(*adjectives)
+        names = self.representationsThat(*adjectives)
+        return lookAheadToAvoid(word_pattern).oneOf([
+            # good case: no partial match
+            lookBehindToAvoid(/#{names.join("|")}/),
+            # good case: partial match but was only an ending prefix
+            lookBehindFor(/#{names.map{ |each| "#{word_pattern.to_s[7...-1]}#{each}" }.join("|")}/),
+            # all other cases are invalid
+        ])
     end
 
     def lookAheadToAvoidWordsThat(*adjectives)
         array_of_invalid_names = self.representationsThat(*adjectives)
-        return Pattern.new(/\b/).lookAheadToAvoid(/#{array_of_invalid_names.map { |each| each+'\W|'+each+'\$' } .join('|')}/)
+        return lookBehindToAvoid(word_pattern).oneOf([
+            # good case: no partial match
+            lookAheadToAvoid(/#{names.join("|")}/),
+            # good case: partial match but was only an ending prefix
+            lookAheadFor(/#{names.map{ |each| /#{each}#{word_pattern.to_s[7...-1]}/ }.join('|')}/),
+            # all other cases are invalid
+        ])
     end
 
     def that(*adjectives)

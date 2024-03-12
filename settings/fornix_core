@@ -77,7 +77,9 @@ then
         if [ -n "$(command -v "nix-env")" ]
         then
             # this is the 21.05 release
-            nix-env -i coreutils -I nixpkgs=https://github.com/NixOS/nixpkgs/archive/a7ecde854aee5c4c7cd6177f54a99d2c1ff28a31.tar.gz
+            nix-env -i coreutils -I nixpkgs=https://github.com/NixOS/nixpkgs/archive/a7ecde854aee5c4c7cd6177f54a99d2c1ff28a31.tar.gz || \
+                nix-env -iA nixpkgs.coreutils -I nixpkgs=https://github.com/NixOS/nixpkgs/archive/a7ecde854aee5c4c7cd6177f54a99d2c1ff28a31.tar.gz ||
+                nix-env -f "<nixpkgs>" -iA coreutils -I nixpkgs=https://github.com/NixOS/nixpkgs/archive/a7ecde854aee5c4c7cd6177f54a99d2c1ff28a31.tar.gz
         fi
     fi
     
@@ -95,30 +97,21 @@ then
     # 
     # run all the #establish_extension.sh files
     # 
-    if [ "$__temp_var__realpath_works" = "true" ]
-    then
-        # this loop is so stupidly complicated because of many inherent-to-shell reasons, for example: https://stackoverflow.com/questions/13726764/while-loop-subshell-dilemma-in-bash
-        for_each_item_in="$FORNIX_FOLDER/settings/extensions/"; [ -z "$__NESTED_WHILE_COUNTER" ] && __NESTED_WHILE_COUNTER=0;__NESTED_WHILE_COUNTER="$((__NESTED_WHILE_COUNTER + 1))"; trap 'rm -rf "$__temp_var__temp_folder"' EXIT; __temp_var__temp_folder="$(mktemp -d)"; mkfifo "$__temp_var__temp_folder/pipe_for_while_$__NESTED_WHILE_COUNTER"; (find "$for_each_item_in" -maxdepth 1 ! -path . -print0 2>/dev/null | sort -z > "$__temp_var__temp_folder/pipe_for_while_$__NESTED_WHILE_COUNTER" &); while read -d $'\0' each
-        do
-            __temp_var__file_path="$each/#establish_extension.sh"
-            # check if file exists
-            if [ -f "$__temp_var__file_path" ]
-            then
-                __fornix_debug_message "        loading: $__temp_var__file_path"
-                # tell the scripts what file they're inside of
-                export __THIS_FORNIX_EXTENSION_FILEPATH__="$__temp_var__file_path"
-                export __THIS_FORNIX_EXTENSION_FOLDERPATH__="$each"
-                . "$__temp_var__file_path"
-            fi
-            unset __temp_var__file_path
-        done < "$__temp_var__temp_folder/pipe_for_while_$__NESTED_WHILE_COUNTER";__NESTED_WHILE_COUNTER="$((__NESTED_WHILE_COUNTER - 1))"
-    else
-        echo 'Warning: skipping establish_extension'
-        echo '    It looks like either you dont have a `realpath` command or the realpath'
-        echo '    you do have doesnt support --relative-to= and/or --canonicalize-missing'
-        echo '    this `'"$(which realpath)"'` is what I get after running `which realpath`'
-        echo "    because realpath isn't working, I will be skipping the establish_extension/ "
-    fi
+    # this loop is so stupidly complicated because of many inherent-to-shell reasons, for example: https://stackoverflow.com/questions/13726764/while-loop-subshell-dilemma-in-bash
+    for_each_item_in="$FORNIX_FOLDER/settings/extensions/"; [ -z "$__NESTED_WHILE_COUNTER" ] && __NESTED_WHILE_COUNTER=0;__NESTED_WHILE_COUNTER="$((__NESTED_WHILE_COUNTER + 1))"; trap 'rm -rf "$__temp_var__temp_folder"' EXIT; __temp_var__temp_folder="$(mktemp -d)"; mkfifo "$__temp_var__temp_folder/pipe_for_while_$__NESTED_WHILE_COUNTER"; (find "$for_each_item_in" -maxdepth 1 ! -path . -print0 2>/dev/null | sort -z > "$__temp_var__temp_folder/pipe_for_while_$__NESTED_WHILE_COUNTER" &); while read -d $'\0' each
+    do
+        __temp_var__file_path="$each/#establish_extension.sh"
+        # check if file exists
+        if [ -f "$__temp_var__file_path" ]
+        then
+            __fornix_debug_message "        loading: $__temp_var__file_path"
+            # tell the scripts what file they're inside of
+            export __THIS_FORNIX_EXTENSION_FILEPATH__="$__temp_var__file_path"
+            export __THIS_FORNIX_EXTENSION_FOLDERPATH__="$each"
+            . "$__temp_var__file_path"
+        fi
+        unset __temp_var__file_path
+    done < "$__temp_var__temp_folder/pipe_for_while_$__NESTED_WHILE_COUNTER";__NESTED_WHILE_COUNTER="$((__NESTED_WHILE_COUNTER - 1))"
     unset __temp_var__realpath_works
     __fornix_debug_message "    Finished running the #establish_extension.sh in every folder inside settings/extensions/"
     

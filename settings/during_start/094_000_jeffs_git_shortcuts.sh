@@ -30,9 +30,15 @@ git_checkout () {
 
 git_checkout_pr () {
     pr_number="$1"
-    git_delete_branch '@__temp__/pull_request'
-    git fetch origin "pull/$pr_number/head:@__temp__/pull_request"
-    git checkout '@__temp__/pull_request'
+    if [ -z "$pr_number" ]
+    then
+        echo "whats the PR number?"
+        read pr_number
+    fi
+    temp_pr_name='@__temp__/pull_request'
+    git_delete_branch "$temp_pr_name"
+    git fetch origin "pull/$pr_number/head:$temp_pr_name"
+    git checkout "$temp_pr_name"
 }
 
 git_commit_hashes () {
@@ -40,7 +46,7 @@ git_commit_hashes () {
 }
 
 git_log () {
-    git log --first-parent --date=short --pretty=format:"%Cblue%ad %h%Cgreen %s %Creset%d"
+    git --no-pager log --reverse --first-parent --date=short --pretty=format:"%Cblue%ad %h%Cgreen %s %Creset%d" "$@"
 }
 
 git_current_commit_hash () {
@@ -65,7 +71,7 @@ git_squash_to () {
 git_squash () {
     args="$@"
     git reset --soft HEAD~2 && git add -A && git commit -m "$args" && echo "squash complete"
-    git_log | head -n5
+    git_log | tail -n5
 }
 
 # 
@@ -365,6 +371,19 @@ git_delete_tag () {
     git tag --delete "$tag_name"
 }
 
+git_list_tags () {
+    pattern="$1"
+    # if no args, list all 
+    if [ -z "$pattern" ]
+    then
+        git tag | cat
+    # if pattern
+    else
+        # ex: "pattern*" for prefix search
+        git tag --list "$pattern" | cat
+    fi
+}
+
 # 
 # misc
 # 
@@ -451,6 +470,59 @@ git_list_untracked_or_ignored () {
 
 git_url_of_origin () {
     git config --get remote.origin.url
+}
+
+git_squash_to () {
+    commit_hash="$1"
+    commit_message="$2"
+    git reset --soft "$commit_hash" && git add -A && git commit -m "$commit_message" && echo "squash complete"
+}
+
+git_delete_submodule () {
+    the_path="$1"
+    if ! [ -d "$the_path" ]
+    then
+        echo "I don't see that folder/the_path. So this method might not work perfectly"
+        echo "press enter to continue, ctrl+C to cancel"
+        read A
+    fi
+    # git submodule deinit -f "$the_path"
+    rm -rf ".git/modules/$the_path"
+    git rm -f "$the_path"
+}
+
+git_list_exclusively_local_commits () {
+    git log --oneline --branches --not origin
+}
+
+git_push_all_branches_to_url () {
+    url="$1"
+    
+    temp_remote_name="@__temp_origin__"
+    git remote remove "$temp_remote_name" 2>/dev/null
+    # Add the target repository as a remote
+    git remote add "$temp_remote_name" "$url"
+
+    # Fetch the remote branches
+    git fetch "$temp_remote_name"
+    
+    # Try pushing
+    for branch in $(git branch -r | grep -v HEAD | grep -v "$temp_remote_name"); do
+        branch_name=${branch#*/}
+        
+        # Checkout each branch
+        if ! git checkout -b "$branch_name" "$branch" || git checkout "$branch_name"; then
+            break
+        fi
+
+        # Push the rewritten branch to the target repository
+        if ! git push "$temp_remote_name" "$branch_name"; then
+            echo "An error occurred while pushing branch: $branch_name"
+            break
+        fi
+    done
+    
+    git remote remove "$temp_remote_name"
 }
 
 # self submodule
