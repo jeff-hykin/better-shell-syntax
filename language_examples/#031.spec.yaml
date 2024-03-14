@@ -97,12 +97,26 @@
   scopes:
     - punctuation.definition.group
   scopesEnd:
+    - meta.scope.for-loop
     - meta.scope.group
-- source: ') # <- check this'
-  scopesBegin:
+- source: )
+  scopes:
+    - punctuation.definition.evaluation.parens.end
+  scopesEnd:
     - meta.statement
+    - meta.expression.assignment
+    - string.interpolated.dollar
+- source: '#'
+  scopesBegin:
+    - comment.line.number-sign
+  scopes:
+    - punctuation.definition.comment
+- source: ' <- check this'
+  scopesEnd:
+    - comment.line.number-sign
 - source: A
   scopesBegin:
+    - meta.statement
     - meta.expression.assignment
   scopes:
     - variable.other.assignment
