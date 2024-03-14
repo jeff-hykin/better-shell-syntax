@@ -647,7 +647,7 @@ require_relative './tokens.rb'
                     :option,
                     :argument,
                     # :custom_commands,
-                    :statement_context,
+                    # :statement_context,
                     :string,
                 ],
             ),
@@ -1143,7 +1143,7 @@ require_relative './tokens.rb'
                                 match: lookBehindToAvoid(/</).then(/<<-/),
                                 tag_as: "keyword.operator.heredoc",
                             ).then(std_space).then(
-                                match: /[^"']+?/, # can create problems
+                                match: /[^"' \t]+/, # can create problems
                                 reference: "delimiter",
                                 tag_as: "punctuation.definition.string.heredoc",
                             ).lookAheadFor(/\s|;|&|<|"|'/).then(
@@ -1176,7 +1176,7 @@ require_relative './tokens.rb'
                                 match: lookBehindToAvoid(/</).then(/<</).lookAheadToAvoid(/</),
                                 tag_as: "keyword.operator.heredoc",
                             ).then(std_space).then(
-                                match: /[^"']+?/, # can create problems
+                                match: /[^"' \t]+/, # can create problems
                                 reference: "delimiter",
                                 tag_as: "punctuation.definition.string.heredoc",
                             ).lookAheadFor(/\s|;|&|<|"|'/).then(
