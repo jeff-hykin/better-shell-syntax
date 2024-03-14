@@ -23,13 +23,18 @@
   scopes:
     - punctuation.section.arithmetic
 - source: i
+  scopes:
+    - variable.other.normal
 - source: '='
   scopes:
     - keyword.operator.arithmetic
 - source: '0'
   scopes:
     - constant.numeric.integer
-- source: ; i
+- source: '; '
+- source: i
+  scopes:
+    - variable.other.normal
 - source: <
   scopes:
     - keyword.operator.arithmetic
@@ -61,7 +66,10 @@
   scopes:
     - punctuation.section.bracket.curly.variable.end
     - punctuation.definition.variable
-- source: ; i
+- source: '; '
+- source: i
+  scopes:
+    - variable.other.normal
 - source: ++
   scopes:
     - keyword.operator.arithmetic
@@ -117,13 +125,18 @@
   scopes:
     - punctuation.section.arithmetic
 - source: i
+  scopes:
+    - variable.other.normal
 - source: '='
   scopes:
     - keyword.operator.arithmetic
 - source: '0'
   scopes:
     - constant.numeric.integer
-- source: ; i
+- source: '; '
+- source: i
+  scopes:
+    - variable.other.normal
 - source: <
   scopes:
     - keyword.operator.arithmetic
@@ -155,7 +168,10 @@
   scopes:
     - punctuation.section.bracket.curly.variable.end
     - punctuation.definition.variable
-- source: ; i
+- source: '; '
+- source: i
+  scopes:
+    - variable.other.normal
 - source: ++
   scopes:
     - keyword.operator.arithmetic
@@ -212,13 +228,18 @@
   scopes:
     - punctuation.section.arithmetic
 - source: i
+  scopes:
+    - variable.other.normal
 - source: '='
   scopes:
     - keyword.operator.arithmetic
 - source: '0'
   scopes:
     - constant.numeric.integer
-- source: ; i
+- source: '; '
+- source: i
+  scopes:
+    - variable.other.normal
 - source: <
   scopes:
     - keyword.operator.arithmetic
@@ -250,7 +271,10 @@
   scopes:
     - punctuation.section.bracket.curly.variable.end
     - punctuation.definition.variable
-- source: ; i
+- source: '; '
+- source: i
+  scopes:
+    - variable.other.normal
 - source: ++
   scopes:
     - keyword.operator.arithmetic

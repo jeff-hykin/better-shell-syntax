@@ -1,0 +1,216 @@
+- source: check
+  scopesBegin:
+    - meta.statement
+    - meta.expression.assignment
+  scopes:
+    - variable.other.assignment
+- source: '='
+  scopes:
+    - keyword.operator.assignment
+- source: '"'
+  scopesBegin:
+    - string.quoted.double
+  scopes:
+    - punctuation.definition.string.begin
+- source: $(
+  scopesBegin:
+    - string.interpolated.dollar
+  scopes:
+    - punctuation.definition.evaluation.parens.begin
+- source: (
+  scopesBegin:
+    - meta.scope.subshell
+  scopes:
+    - punctuation.definition.subshell
+- source: xcode-\select
+  scopesBegin:
+    - meta.statement
+    - meta.statement.command
+  scopes:
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+- source: '-'
+  scopesBegin:
+    - string.unquoted.argument
+  scopes:
+    - constant.other.option.dash
+- source: '-install'
+  scopes:
+    - constant.other.option
+  scopesEnd:
+    - meta.statement
+    - meta.statement.command
+    - string.unquoted.argument
+- source: )
+  scopes:
+    - punctuation.definition.subshell
+  scopesEnd:
+    - meta.scope.subshell
+- source: 2>&1
+  scopes:
+    - keyword.operator.redirect
+- source: )
+  scopes:
+    - punctuation.definition.evaluation.parens.end
+  scopesEnd:
+    - string.interpolated.dollar
+- source: '"'
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - meta.expression.assignment
+    - string.quoted.double
+- source: echo
+  scopesBegin:
+    - meta.statement.command
+  scopes:
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+    - support.function.builtin
+- source: $
+  scopesBegin:
+    - meta.argument
+  scopes:
+    - punctuation.definition.variable
+    - variable.other.normal
+- source: check
+  scopes:
+    - variable.other.normal
+  scopesEnd:
+    - meta.statement.command
+    - meta.argument
+- source: str
+  scopesBegin:
+    - meta.expression.assignment
+  scopes:
+    - variable.other.assignment
+- source: '='
+  scopes:
+    - keyword.operator.assignment
+- source: '"'
+  scopesBegin:
+    - string.quoted.double
+  scopes:
+    - punctuation.definition.string.begin
+- source: 'xcode-select: note: install requested for command line developer tools'
+- source: '"'
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - meta.statement
+    - meta.expression.assignment
+    - string.quoted.double
+- source: while
+  scopesBegin:
+    - meta.scope.while-loop
+  scopes:
+    - keyword.control
+- source: '[['
+  scopesBegin:
+    - meta.scope.logical-expression
+  scopes:
+    - punctuation.definition.logical-expression
+- source: '"'
+  scopesBegin:
+    - string.quoted.double
+  scopes:
+    - punctuation.definition.string.begin
+- source: $
+  scopes:
+    - punctuation.definition.variable
+    - variable.other.normal
+- source: check
+  scopes:
+    - variable.other.normal
+- source: '"'
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - string.quoted.double
+- source: '=='
+  scopes:
+    - keyword.operator.logical
+- source: '"'
+  scopesBegin:
+    - string.quoted.double
+  scopes:
+    - punctuation.definition.string.begin
+- source: $
+  scopes:
+    - punctuation.definition.variable
+    - variable.other.normal
+- source: str
+  scopes:
+    - variable.other.normal
+- source: '"'
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - string.quoted.double
+- source: ']]'
+  scopes:
+    - punctuation.definition.logical-expression
+  scopesEnd:
+    - meta.scope.logical-expression
+- source: ;
+  scopes:
+    - punctuation.terminator.statement.semicolon
+- source: do
+  scopes:
+    - keyword.control.do
+- source: xcode-select
+  scopesBegin:
+    - meta.statement
+    - meta.statement.command
+  scopes:
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+- source: '-'
+  scopesBegin:
+    - string.unquoted.argument
+  scopes:
+    - constant.other.option.dash
+- source: '-install'
+  scopes:
+    - constant.other.option
+  scopesEnd:
+    - string.unquoted.argument
+- source: echo
+  scopes:
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+    - support.function.builtin
+- source: '"'
+  scopesBegin:
+    - meta.argument
+    - string.quoted.double
+  scopes:
+    - punctuation.definition.string.begin
+- source: waiting for xcode command line tools to be installed
+- source: '"'
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - meta.argument
+    - string.quoted.double
+- source: sleep
+  scopes:
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+- source: '10'
+  scopes:
+    - meta.argument
+    - string.unquoted.argument
+    - constant.numeric
+    - constant.numeric.integer
+  scopesEnd:
+    - meta.statement
+    - meta.statement.command
+- source: done
+  scopes:
+    - keyword.control

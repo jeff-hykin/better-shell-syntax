@@ -4986,10 +4986,11 @@
 - source: $((
   scopesBegin:
     - meta.argument
-    - string.other.math
   scopes:
     - punctuation.definition.evaluation.arithmetic.begin
 - source: $
+  scopesBegin:
+    - string.other.math
   scopes:
     - punctuation.definition.variable
     - variable.parameter.positional
@@ -5022,6 +5023,8 @@
 - source: '2'
   scopes:
     - constant.numeric.integer
+  scopesEnd:
+    - string.other.math
 - source: ))
   scopes:
     - punctuation.definition.evaluation.arithmetic.end
@@ -5029,7 +5032,6 @@
     - meta.statement
     - meta.statement.command
     - meta.argument
-    - string.other.math
 - source: '|'
   scopesBegin:
     - keyword.operator.pipe
@@ -5861,7 +5863,9 @@
     - meta.arithmetic
   scopes:
     - punctuation.section.arithmetic
-- source: ' i'
+- source: i
+  scopes:
+    - variable.other.normal
 - source: '='
   scopes:
     - keyword.operator.arithmetic
@@ -5871,14 +5875,19 @@
 - source: ','
   scopes:
     - keyword.operator.arithmetic
-- source: ' j'
+- source: j
+  scopes:
+    - variable.other.normal
 - source: '='
   scopes:
     - keyword.operator.arithmetic
 - source: '0'
   scopes:
     - constant.numeric.integer
-- source: '; i '
+- source: '; '
+- source: i
+  scopes:
+    - variable.other.normal
 - source: <
   scopes:
     - keyword.operator.arithmetic
@@ -5910,14 +5919,19 @@
   scopes:
     - punctuation.section.bracket.curly.variable.end
     - punctuation.definition.variable
-- source: ; i
+- source: '; '
+- source: i
+  scopes:
+    - variable.other.normal
 - source: ++
   scopesBegin:
     - keyword.operator.arithmetic
 - source: ','
   scopesEnd:
     - keyword.operator.arithmetic
-- source: ' j'
+- source: j
+  scopes:
+    - variable.other.normal
 - source: ++
   scopes:
     - keyword.operator.arithmetic
@@ -6116,6 +6130,8 @@
   scopes:
     - punctuation.section.arithmetic
 - source: j
+  scopes:
+    - variable.other.normal
 - source: '--'
   scopes:
     - keyword.operator.arithmetic
@@ -6361,6 +6377,8 @@
   scopes:
     - punctuation.section.arithmetic
 - source: i
+  scopes:
+    - variable.other.normal
 - source: ++
   scopes:
     - keyword.operator.arithmetic
@@ -6830,22 +6848,32 @@
     - meta.arithmetic
   scopes:
     - punctuation.section.arithmetic
-- source: ' i '
+- source: i
+  scopes:
+    - variable.other.normal
 - source: '='
   scopes:
     - keyword.operator.arithmetic
 - source: '0'
   scopes:
     - constant.numeric.integer
-- source: '; i '
+- source: '; '
+- source: i
+  scopes:
+    - variable.other.normal
 - source: <=
   scopes:
     - keyword.operator.arithmetic
-- source: ' cword; '
+- source: cword
+  scopes:
+    - variable.other.normal
+- source: '; '
 - source: ++
   scopes:
     - keyword.operator.arithmetic
-- source: 'i '
+- source: i
+  scopes:
+    - variable.other.normal
 - source: ))
   scopes:
     - punctuation.section.arithmetic
@@ -7130,6 +7158,8 @@
   scopes:
     - punctuation.section.arithmetic
 - source: index
+  scopes:
+    - variable.other.normal
 - source: '--'
   scopes:
     - keyword.operator.arithmetic
@@ -7370,26 +7400,33 @@
   scopes:
     - keyword.operator.assignment
 - source: $((
+  scopes:
+    - punctuation.definition.evaluation.arithmetic.begin
+- source: index
   scopesBegin:
     - string.other.math
   scopes:
-    - punctuation.definition.evaluation.arithmetic.begin
-- source: ' index '
+    - variable.other.normal
 - source: '-'
   scopes:
     - keyword.operator.arithmetic
-- source: ' old_size '
+- source: old_size
+  scopes:
+    - variable.other.normal
 - source: +
   scopes:
     - keyword.operator.arithmetic
-- source: ' new_size '
+- source: new_size
+  scopes:
+    - variable.other.normal
+  scopesEnd:
+    - string.other.math
 - source: ))
   scopes:
     - punctuation.definition.evaluation.arithmetic.end
   scopesEnd:
     - meta.statement
     - meta.expression.assignment
-    - string.other.math
 - source: fi
   scopes:
     - keyword.control
@@ -9796,22 +9833,32 @@
     - meta.arithmetic
   scopes:
     - punctuation.section.arithmetic
-- source: ' i '
+- source: i
+  scopes:
+    - variable.other.normal
 - source: '='
   scopes:
     - keyword.operator.arithmetic
 - source: '0'
   scopes:
     - constant.numeric.integer
-- source: '; i '
+- source: '; '
+- source: i
+  scopes:
+    - variable.other.normal
 - source: <=
   scopes:
     - keyword.operator.arithmetic
-- source: ' cword; '
+- source: cword
+  scopes:
+    - variable.other.normal
+- source: '; '
 - source: ++
   scopes:
     - keyword.operator.arithmetic
-- source: 'i '
+- source: i
+  scopes:
+    - variable.other.normal
 - source: ))
   scopes:
     - punctuation.section.arithmetic
@@ -10096,6 +10143,8 @@
   scopes:
     - punctuation.section.arithmetic
 - source: index
+  scopes:
+    - variable.other.normal
 - source: '--'
   scopes:
     - keyword.operator.arithmetic
@@ -10336,26 +10385,33 @@
   scopes:
     - keyword.operator.assignment
 - source: $((
+  scopes:
+    - punctuation.definition.evaluation.arithmetic.begin
+- source: index
   scopesBegin:
     - string.other.math
   scopes:
-    - punctuation.definition.evaluation.arithmetic.begin
-- source: ' index '
+    - variable.other.normal
 - source: '-'
   scopes:
     - keyword.operator.arithmetic
-- source: ' old_size '
+- source: old_size
+  scopes:
+    - variable.other.normal
 - source: +
   scopes:
     - keyword.operator.arithmetic
-- source: ' new_size '
+- source: new_size
+  scopes:
+    - variable.other.normal
+  scopesEnd:
+    - string.other.math
 - source: ))
   scopes:
     - punctuation.definition.evaluation.arithmetic.end
   scopesEnd:
     - meta.statement
     - meta.expression.assignment
-    - string.other.math
 - source: fi
   scopes:
     - keyword.control
@@ -11148,19 +11204,21 @@
   scopes:
     - punctuation.definition.logical-expression
 - source: $((
-  scopesBegin:
-    - string.other.math
   scopes:
     - punctuation.definition.evaluation.arithmetic.begin
 - source: '--'
+  scopesBegin:
+    - string.other.math
   scopes:
     - keyword.operator.arithmetic
 - source: i
+  scopes:
+    - variable.other.normal
+  scopesEnd:
+    - string.other.math
 - source: ))
   scopes:
     - punctuation.definition.evaluation.arithmetic.end
-  scopesEnd:
-    - string.other.math
 - source: '-ge'
   scopes:
     - keyword.operator.logical
@@ -13885,14 +13943,19 @@
     - meta.arithmetic
   scopes:
     - punctuation.section.arithmetic
-- source: ' i'
+- source: i
+  scopes:
+    - variable.other.normal
 - source: '='
   scopes:
     - keyword.operator.arithmetic
 - source: '0'
   scopes:
     - constant.numeric.integer
-- source: '; i '
+- source: '; '
+- source: i
+  scopes:
+    - variable.other.normal
 - source: <
   scopes:
     - keyword.operator.arithmetic
@@ -13924,7 +13987,10 @@
   scopes:
     - punctuation.section.bracket.curly.variable.end
     - punctuation.definition.variable
-- source: ; i
+- source: '; '
+- source: i
+  scopes:
+    - variable.other.normal
 - source: ++
   scopes:
     - keyword.operator.arithmetic
@@ -23146,18 +23212,29 @@
     - meta.arithmetic
   scopes:
     - punctuation.section.arithmetic
-- source: ' i'
+- source: i
+  scopes:
+    - variable.other.normal
 - source: '='
   scopes:
     - keyword.operator.arithmetic
 - source: '1'
   scopes:
     - constant.numeric.integer
-- source: '; i '
+- source: '; '
+- source: i
+  scopes:
+    - variable.other.normal
 - source: <
   scopes:
     - keyword.operator.arithmetic
-- source: ' COMP_CWORD; i'
+- source: COMP_CWORD
+  scopes:
+    - variable.other.normal
+- source: '; '
+- source: i
+  scopes:
+    - variable.other.normal
 - source: ++
   scopes:
     - keyword.operator.arithmetic
@@ -23516,11 +23593,11 @@
   scopes:
     - keyword.operator.assignment
 - source: $((
-  scopesBegin:
-    - string.other.math
   scopes:
     - punctuation.definition.evaluation.arithmetic.begin
 - source: $
+  scopesBegin:
+    - string.other.math
   scopes:
     - punctuation.definition.variable
     - variable.other.normal
@@ -23533,13 +23610,14 @@
 - source: '1'
   scopes:
     - constant.numeric.integer
+  scopesEnd:
+    - string.other.math
 - source: ))
   scopes:
     - punctuation.definition.evaluation.arithmetic.end
   scopesEnd:
     - meta.statement
     - meta.expression.assignment
-    - string.other.math
 - source: done
   scopes:
     - keyword.control
@@ -28173,14 +28251,19 @@
     - meta.arithmetic
   scopes:
     - punctuation.section.arithmetic
-- source: ' i'
+- source: i
+  scopes:
+    - variable.other.normal
 - source: '='
   scopes:
     - keyword.operator.arithmetic
 - source: '0'
   scopes:
     - constant.numeric.integer
-- source: '; i '
+- source: '; '
+- source: i
+  scopes:
+    - variable.other.normal
 - source: <
   scopes:
     - keyword.operator.arithmetic
@@ -28212,7 +28295,10 @@
   scopes:
     - punctuation.section.bracket.curly.variable.end
     - punctuation.definition.variable
-- source: ; i
+- source: '; '
+- source: i
+  scopes:
+    - variable.other.normal
 - source: ++
   scopes:
     - keyword.operator.arithmetic
@@ -30920,18 +31006,29 @@
     - meta.arithmetic
   scopes:
     - punctuation.section.arithmetic
-- source: ' i'
+- source: i
+  scopes:
+    - variable.other.normal
 - source: '='
   scopes:
     - keyword.operator.arithmetic
 - source: '1'
   scopes:
     - constant.numeric.integer
-- source: '; i '
+- source: '; '
+- source: i
+  scopes:
+    - variable.other.normal
 - source: <=
   scopes:
     - keyword.operator.arithmetic
-- source: ' COMP_CWORD; i'
+- source: COMP_CWORD
+  scopes:
+    - variable.other.normal
+- source: '; '
+- source: i
+  scopes:
+    - variable.other.normal
 - source: ++
   scopes:
     - keyword.operator.arithmetic
@@ -31234,14 +31331,19 @@
     - meta.arithmetic
   scopes:
     - punctuation.section.arithmetic
-- source: ' i'
+- source: i
+  scopes:
+    - variable.other.normal
 - source: '='
   scopes:
     - keyword.operator.arithmetic
 - source: '0'
   scopes:
     - constant.numeric.integer
-- source: '; i '
+- source: '; '
+- source: i
+  scopes:
+    - variable.other.normal
 - source: <=
   scopes:
     - keyword.operator.arithmetic
@@ -31266,7 +31368,10 @@
   scopes:
     - punctuation.section.bracket.curly.variable.end
     - punctuation.definition.variable
-- source: ; i
+- source: '; '
+- source: i
+  scopes:
+    - variable.other.normal
 - source: ++
   scopes:
     - keyword.operator.arithmetic
@@ -31465,11 +31570,13 @@
   scopes:
     - keyword.operator.assignment
 - source: $((
+  scopes:
+    - punctuation.definition.evaluation.arithmetic.begin
+- source: COMP_POINT
   scopesBegin:
     - string.other.math
   scopes:
-    - punctuation.definition.evaluation.arithmetic.begin
-- source: ' COMP_POINT '
+    - variable.other.normal
 - source: '-'
   scopes:
     - keyword.operator.arithmetic
@@ -31480,13 +31587,14 @@
 - source: char_offset
   scopes:
     - variable.other.normal
+  scopesEnd:
+    - string.other.math
 - source: ))
   scopes:
     - punctuation.definition.evaluation.arithmetic.end
   scopesEnd:
     - meta.statement
     - meta.expression.assignment
-    - string.other.math
 - source: '#'
   scopesBegin:
     - comment.line.number-sign
@@ -31505,18 +31613,25 @@
     - meta.arithmetic
   scopes:
     - punctuation.section.arithmetic
-- source: ' i'
+- source: i
+  scopes:
+    - variable.other.normal
 - source: '='
   scopes:
     - keyword.operator.arithmetic
 - source: '0'
   scopes:
     - constant.numeric.integer
-- source: '; i '
+- source: '; '
+- source: i
+  scopes:
+    - variable.other.normal
 - source: <=
   scopes:
     - keyword.operator.arithmetic
-- source: ' COMP_CWORD '
+- source: COMP_CWORD
+  scopes:
+    - variable.other.normal
 - source: '-'
   scopes:
     - keyword.operator.arithmetic
@@ -31527,7 +31642,10 @@
 - source: word_offset
   scopes:
     - variable.other.normal
-- source: ; i
+- source: '; '
+- source: i
+  scopes:
+    - variable.other.normal
 - source: ++
   scopes:
     - keyword.operator.arithmetic
@@ -31599,11 +31717,23 @@
     - meta.arithmetic
   scopes:
     - punctuation.section.arithmetic
-- source: ' i; i '
+- source: i
+  scopes:
+    - variable.other.normal
+- source: '; '
+- source: i
+  scopes:
+    - variable.other.normal
 - source: <=
   scopes:
     - keyword.operator.arithmetic
-- source: ' COMP_CWORD; i'
+- source: COMP_CWORD
+  scopes:
+    - variable.other.normal
+- source: '; '
+- source: i
+  scopes:
+    - variable.other.normal
 - source: ++
   scopes:
     - keyword.operator.arithmetic
@@ -31652,11 +31782,11 @@
   scopes:
     - keyword.operator.assignment
 - source: $((
-  scopesBegin:
-    - string.other.math
   scopes:
     - punctuation.definition.evaluation.arithmetic.begin
 - source: $
+  scopesBegin:
+    - string.other.math
   scopes:
     - punctuation.definition.variable
     - variable.other.normal
@@ -31673,11 +31803,11 @@
 - source: word_offset
   scopes:
     - variable.other.normal
+  scopesEnd:
+    - string.other.math
 - source: ))
   scopes:
     - punctuation.definition.evaluation.arithmetic.end
-  scopesEnd:
-    - string.other.math
 - source: COMPREPLY
   scopes:
     - variable.other.assignment
@@ -42062,10 +42192,11 @@
 - source: $((
   scopesBegin:
     - meta.argument
-    - string.other.math
   scopes:
     - punctuation.definition.evaluation.arithmetic.begin
 - source: $
+  scopesBegin:
+    - string.other.math
   scopes:
     - punctuation.definition.variable
     - variable.parameter.positional
@@ -42098,6 +42229,8 @@
 - source: '2'
   scopes:
     - constant.numeric.integer
+  scopesEnd:
+    - string.other.math
 - source: ))
   scopes:
     - punctuation.definition.evaluation.arithmetic.end
@@ -42105,7 +42238,6 @@
     - meta.statement
     - meta.statement.command
     - meta.argument
-    - string.other.math
 - source: '|'
   scopesBegin:
     - keyword.operator.pipe
@@ -42937,7 +43069,9 @@
     - meta.arithmetic
   scopes:
     - punctuation.section.arithmetic
-- source: ' i'
+- source: i
+  scopes:
+    - variable.other.normal
 - source: '='
   scopes:
     - keyword.operator.arithmetic
@@ -42947,14 +43081,19 @@
 - source: ','
   scopes:
     - keyword.operator.arithmetic
-- source: ' j'
+- source: j
+  scopes:
+    - variable.other.normal
 - source: '='
   scopes:
     - keyword.operator.arithmetic
 - source: '0'
   scopes:
     - constant.numeric.integer
-- source: '; i '
+- source: '; '
+- source: i
+  scopes:
+    - variable.other.normal
 - source: <
   scopes:
     - keyword.operator.arithmetic
@@ -42986,14 +43125,19 @@
   scopes:
     - punctuation.section.bracket.curly.variable.end
     - punctuation.definition.variable
-- source: ; i
+- source: '; '
+- source: i
+  scopes:
+    - variable.other.normal
 - source: ++
   scopesBegin:
     - keyword.operator.arithmetic
 - source: ','
   scopesEnd:
     - keyword.operator.arithmetic
-- source: ' j'
+- source: j
+  scopes:
+    - variable.other.normal
 - source: ++
   scopes:
     - keyword.operator.arithmetic
@@ -43192,6 +43336,8 @@
   scopes:
     - punctuation.section.arithmetic
 - source: j
+  scopes:
+    - variable.other.normal
 - source: '--'
   scopes:
     - keyword.operator.arithmetic
@@ -43437,6 +43583,8 @@
   scopes:
     - punctuation.section.arithmetic
 - source: i
+  scopes:
+    - variable.other.normal
 - source: ++
   scopes:
     - keyword.operator.arithmetic
@@ -43906,22 +44054,32 @@
     - meta.arithmetic
   scopes:
     - punctuation.section.arithmetic
-- source: ' i '
+- source: i
+  scopes:
+    - variable.other.normal
 - source: '='
   scopes:
     - keyword.operator.arithmetic
 - source: '0'
   scopes:
     - constant.numeric.integer
-- source: '; i '
+- source: '; '
+- source: i
+  scopes:
+    - variable.other.normal
 - source: <=
   scopes:
     - keyword.operator.arithmetic
-- source: ' cword; '
+- source: cword
+  scopes:
+    - variable.other.normal
+- source: '; '
 - source: ++
   scopes:
     - keyword.operator.arithmetic
-- source: 'i '
+- source: i
+  scopes:
+    - variable.other.normal
 - source: ))
   scopes:
     - punctuation.section.arithmetic
@@ -44206,6 +44364,8 @@
   scopes:
     - punctuation.section.arithmetic
 - source: index
+  scopes:
+    - variable.other.normal
 - source: '--'
   scopes:
     - keyword.operator.arithmetic
@@ -44446,26 +44606,33 @@
   scopes:
     - keyword.operator.assignment
 - source: $((
+  scopes:
+    - punctuation.definition.evaluation.arithmetic.begin
+- source: index
   scopesBegin:
     - string.other.math
   scopes:
-    - punctuation.definition.evaluation.arithmetic.begin
-- source: ' index '
+    - variable.other.normal
 - source: '-'
   scopes:
     - keyword.operator.arithmetic
-- source: ' old_size '
+- source: old_size
+  scopes:
+    - variable.other.normal
 - source: +
   scopes:
     - keyword.operator.arithmetic
-- source: ' new_size '
+- source: new_size
+  scopes:
+    - variable.other.normal
+  scopesEnd:
+    - string.other.math
 - source: ))
   scopes:
     - punctuation.definition.evaluation.arithmetic.end
   scopesEnd:
     - meta.statement
     - meta.expression.assignment
-    - string.other.math
 - source: fi
   scopes:
     - keyword.control
@@ -46872,22 +47039,32 @@
     - meta.arithmetic
   scopes:
     - punctuation.section.arithmetic
-- source: ' i '
+- source: i
+  scopes:
+    - variable.other.normal
 - source: '='
   scopes:
     - keyword.operator.arithmetic
 - source: '0'
   scopes:
     - constant.numeric.integer
-- source: '; i '
+- source: '; '
+- source: i
+  scopes:
+    - variable.other.normal
 - source: <=
   scopes:
     - keyword.operator.arithmetic
-- source: ' cword; '
+- source: cword
+  scopes:
+    - variable.other.normal
+- source: '; '
 - source: ++
   scopes:
     - keyword.operator.arithmetic
-- source: 'i '
+- source: i
+  scopes:
+    - variable.other.normal
 - source: ))
   scopes:
     - punctuation.section.arithmetic
@@ -47172,6 +47349,8 @@
   scopes:
     - punctuation.section.arithmetic
 - source: index
+  scopes:
+    - variable.other.normal
 - source: '--'
   scopes:
     - keyword.operator.arithmetic
@@ -47412,26 +47591,33 @@
   scopes:
     - keyword.operator.assignment
 - source: $((
+  scopes:
+    - punctuation.definition.evaluation.arithmetic.begin
+- source: index
   scopesBegin:
     - string.other.math
   scopes:
-    - punctuation.definition.evaluation.arithmetic.begin
-- source: ' index '
+    - variable.other.normal
 - source: '-'
   scopes:
     - keyword.operator.arithmetic
-- source: ' old_size '
+- source: old_size
+  scopes:
+    - variable.other.normal
 - source: +
   scopes:
     - keyword.operator.arithmetic
-- source: ' new_size '
+- source: new_size
+  scopes:
+    - variable.other.normal
+  scopesEnd:
+    - string.other.math
 - source: ))
   scopes:
     - punctuation.definition.evaluation.arithmetic.end
   scopesEnd:
     - meta.statement
     - meta.expression.assignment
-    - string.other.math
 - source: fi
   scopes:
     - keyword.control
@@ -48224,19 +48410,21 @@
   scopes:
     - punctuation.definition.logical-expression
 - source: $((
-  scopesBegin:
-    - string.other.math
   scopes:
     - punctuation.definition.evaluation.arithmetic.begin
 - source: '--'
+  scopesBegin:
+    - string.other.math
   scopes:
     - keyword.operator.arithmetic
 - source: i
+  scopes:
+    - variable.other.normal
+  scopesEnd:
+    - string.other.math
 - source: ))
   scopes:
     - punctuation.definition.evaluation.arithmetic.end
-  scopesEnd:
-    - string.other.math
 - source: '-ge'
   scopes:
     - keyword.operator.logical
@@ -50961,14 +51149,19 @@
     - meta.arithmetic
   scopes:
     - punctuation.section.arithmetic
-- source: ' i'
+- source: i
+  scopes:
+    - variable.other.normal
 - source: '='
   scopes:
     - keyword.operator.arithmetic
 - source: '0'
   scopes:
     - constant.numeric.integer
-- source: '; i '
+- source: '; '
+- source: i
+  scopes:
+    - variable.other.normal
 - source: <
   scopes:
     - keyword.operator.arithmetic
@@ -51000,7 +51193,10 @@
   scopes:
     - punctuation.section.bracket.curly.variable.end
     - punctuation.definition.variable
-- source: ; i
+- source: '; '
+- source: i
+  scopes:
+    - variable.other.normal
 - source: ++
   scopes:
     - keyword.operator.arithmetic
@@ -60222,18 +60418,29 @@
     - meta.arithmetic
   scopes:
     - punctuation.section.arithmetic
-- source: ' i'
+- source: i
+  scopes:
+    - variable.other.normal
 - source: '='
   scopes:
     - keyword.operator.arithmetic
 - source: '1'
   scopes:
     - constant.numeric.integer
-- source: '; i '
+- source: '; '
+- source: i
+  scopes:
+    - variable.other.normal
 - source: <
   scopes:
     - keyword.operator.arithmetic
-- source: ' COMP_CWORD; i'
+- source: COMP_CWORD
+  scopes:
+    - variable.other.normal
+- source: '; '
+- source: i
+  scopes:
+    - variable.other.normal
 - source: ++
   scopes:
     - keyword.operator.arithmetic
@@ -60592,11 +60799,11 @@
   scopes:
     - keyword.operator.assignment
 - source: $((
-  scopesBegin:
-    - string.other.math
   scopes:
     - punctuation.definition.evaluation.arithmetic.begin
 - source: $
+  scopesBegin:
+    - string.other.math
   scopes:
     - punctuation.definition.variable
     - variable.other.normal
@@ -60609,13 +60816,14 @@
 - source: '1'
   scopes:
     - constant.numeric.integer
+  scopesEnd:
+    - string.other.math
 - source: ))
   scopes:
     - punctuation.definition.evaluation.arithmetic.end
   scopesEnd:
     - meta.statement
     - meta.expression.assignment
-    - string.other.math
 - source: done
   scopes:
     - keyword.control
@@ -65249,14 +65457,19 @@
     - meta.arithmetic
   scopes:
     - punctuation.section.arithmetic
-- source: ' i'
+- source: i
+  scopes:
+    - variable.other.normal
 - source: '='
   scopes:
     - keyword.operator.arithmetic
 - source: '0'
   scopes:
     - constant.numeric.integer
-- source: '; i '
+- source: '; '
+- source: i
+  scopes:
+    - variable.other.normal
 - source: <
   scopes:
     - keyword.operator.arithmetic
@@ -65288,7 +65501,10 @@
   scopes:
     - punctuation.section.bracket.curly.variable.end
     - punctuation.definition.variable
-- source: ; i
+- source: '; '
+- source: i
+  scopes:
+    - variable.other.normal
 - source: ++
   scopes:
     - keyword.operator.arithmetic
@@ -67996,18 +68212,29 @@
     - meta.arithmetic
   scopes:
     - punctuation.section.arithmetic
-- source: ' i'
+- source: i
+  scopes:
+    - variable.other.normal
 - source: '='
   scopes:
     - keyword.operator.arithmetic
 - source: '1'
   scopes:
     - constant.numeric.integer
-- source: '; i '
+- source: '; '
+- source: i
+  scopes:
+    - variable.other.normal
 - source: <=
   scopes:
     - keyword.operator.arithmetic
-- source: ' COMP_CWORD; i'
+- source: COMP_CWORD
+  scopes:
+    - variable.other.normal
+- source: '; '
+- source: i
+  scopes:
+    - variable.other.normal
 - source: ++
   scopes:
     - keyword.operator.arithmetic
@@ -68310,14 +68537,19 @@
     - meta.arithmetic
   scopes:
     - punctuation.section.arithmetic
-- source: ' i'
+- source: i
+  scopes:
+    - variable.other.normal
 - source: '='
   scopes:
     - keyword.operator.arithmetic
 - source: '0'
   scopes:
     - constant.numeric.integer
-- source: '; i '
+- source: '; '
+- source: i
+  scopes:
+    - variable.other.normal
 - source: <=
   scopes:
     - keyword.operator.arithmetic
@@ -68342,7 +68574,10 @@
   scopes:
     - punctuation.section.bracket.curly.variable.end
     - punctuation.definition.variable
-- source: ; i
+- source: '; '
+- source: i
+  scopes:
+    - variable.other.normal
 - source: ++
   scopes:
     - keyword.operator.arithmetic
@@ -68541,11 +68776,13 @@
   scopes:
     - keyword.operator.assignment
 - source: $((
+  scopes:
+    - punctuation.definition.evaluation.arithmetic.begin
+- source: COMP_POINT
   scopesBegin:
     - string.other.math
   scopes:
-    - punctuation.definition.evaluation.arithmetic.begin
-- source: ' COMP_POINT '
+    - variable.other.normal
 - source: '-'
   scopes:
     - keyword.operator.arithmetic
@@ -68556,13 +68793,14 @@
 - source: char_offset
   scopes:
     - variable.other.normal
+  scopesEnd:
+    - string.other.math
 - source: ))
   scopes:
     - punctuation.definition.evaluation.arithmetic.end
   scopesEnd:
     - meta.statement
     - meta.expression.assignment
-    - string.other.math
 - source: '#'
   scopesBegin:
     - comment.line.number-sign
@@ -68581,18 +68819,25 @@
     - meta.arithmetic
   scopes:
     - punctuation.section.arithmetic
-- source: ' i'
+- source: i
+  scopes:
+    - variable.other.normal
 - source: '='
   scopes:
     - keyword.operator.arithmetic
 - source: '0'
   scopes:
     - constant.numeric.integer
-- source: '; i '
+- source: '; '
+- source: i
+  scopes:
+    - variable.other.normal
 - source: <=
   scopes:
     - keyword.operator.arithmetic
-- source: ' COMP_CWORD '
+- source: COMP_CWORD
+  scopes:
+    - variable.other.normal
 - source: '-'
   scopes:
     - keyword.operator.arithmetic
@@ -68603,7 +68848,10 @@
 - source: word_offset
   scopes:
     - variable.other.normal
-- source: ; i
+- source: '; '
+- source: i
+  scopes:
+    - variable.other.normal
 - source: ++
   scopes:
     - keyword.operator.arithmetic
@@ -68675,11 +68923,23 @@
     - meta.arithmetic
   scopes:
     - punctuation.section.arithmetic
-- source: ' i; i '
+- source: i
+  scopes:
+    - variable.other.normal
+- source: '; '
+- source: i
+  scopes:
+    - variable.other.normal
 - source: <=
   scopes:
     - keyword.operator.arithmetic
-- source: ' COMP_CWORD; i'
+- source: COMP_CWORD
+  scopes:
+    - variable.other.normal
+- source: '; '
+- source: i
+  scopes:
+    - variable.other.normal
 - source: ++
   scopes:
     - keyword.operator.arithmetic
@@ -68728,11 +68988,11 @@
   scopes:
     - keyword.operator.assignment
 - source: $((
-  scopesBegin:
-    - string.other.math
   scopes:
     - punctuation.definition.evaluation.arithmetic.begin
 - source: $
+  scopesBegin:
+    - string.other.math
   scopes:
     - punctuation.definition.variable
     - variable.other.normal
@@ -68749,11 +69009,11 @@
 - source: word_offset
   scopes:
     - variable.other.normal
+  scopesEnd:
+    - string.other.math
 - source: ))
   scopes:
     - punctuation.definition.evaluation.arithmetic.end
-  scopesEnd:
-    - string.other.math
 - source: COMPREPLY
   scopes:
     - variable.other.assignment

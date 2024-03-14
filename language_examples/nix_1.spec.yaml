@@ -1837,10 +1837,13 @@
 - source: $((
   scopesBegin:
     - meta.argument
-    - string.other.math
   scopes:
     - punctuation.definition.evaluation.arithmetic.begin
-- source: 'NIX_FIRST_BUILD_UID '
+- source: NIX_FIRST_BUILD_UID
+  scopesBegin:
+    - string.other.math
+  scopes:
+    - variable.other.normal
 - source: +
   scopes:
     - keyword.operator.arithmetic
@@ -1857,6 +1860,8 @@
 - source: '1'
   scopes:
     - constant.numeric.integer
+  scopesEnd:
+    - string.other.math
 - source: ))
   scopes:
     - punctuation.definition.evaluation.arithmetic.end
@@ -1864,7 +1869,6 @@
     - meta.statement
     - meta.statement.command
     - meta.argument
-    - string.other.math
 - source: '}'
   scopes:
     - punctuation.definition.group
@@ -5022,6 +5026,8 @@
   scopes:
     - punctuation.section.arithmetic
 - source: _remind_num
+  scopes:
+    - variable.other.normal
 - source: '='
   scopes:
     - keyword.operator.arithmetic
@@ -5068,7 +5074,9 @@
     - meta.arithmetic
   scopes:
     - punctuation.section.arithmetic
-- source: ' _remind_num '
+- source: _remind_num
+  scopes:
+    - variable.other.normal
 - source: '>'
   scopes:
     - keyword.operator.arithmetic
@@ -5714,6 +5722,8 @@
   scopes:
     - punctuation.section.arithmetic
 - source: _remind_num
+  scopes:
+    - variable.other.normal
 - source: ++
   scopes:
     - keyword.operator.arithmetic
@@ -15814,11 +15824,11 @@
   scopes:
     - keyword.operator.assignment
 - source: $((
-  scopesBegin:
-    - string.other.math
   scopes:
     - punctuation.definition.evaluation.arithmetic.begin
 - source: $
+  scopesBegin:
+    - string.other.math
   scopes:
     - punctuation.definition.variable
     - variable.other.normal
@@ -15831,11 +15841,11 @@
 - source: '1'
   scopes:
     - constant.numeric.integer
+  scopesEnd:
+    - string.other.math
 - source: ))
   scopes:
     - punctuation.definition.evaluation.arithmetic.end
-  scopesEnd:
-    - string.other.math
 - source: line_number_after
   scopes:
     - variable.other.assignment
@@ -15843,11 +15853,11 @@
   scopes:
     - keyword.operator.assignment
 - source: $((
-  scopesBegin:
-    - string.other.math
   scopes:
     - punctuation.definition.evaluation.arithmetic.begin
 - source: $
+  scopesBegin:
+    - string.other.math
   scopes:
     - punctuation.definition.variable
     - variable.other.normal
@@ -15860,11 +15870,11 @@
 - source: '1'
   scopes:
     - constant.numeric.integer
+  scopesEnd:
+    - string.other.math
 - source: ))
   scopes:
     - punctuation.definition.evaluation.arithmetic.end
-  scopesEnd:
-    - string.other.math
 - source: new_top_half
   scopes:
     - variable.other.assignment

@@ -171,25 +171,24 @@
 					]
 				},
 				{
-					"begin": "\\({2}",
-					"beginCaptures": {
-						"0": {
-							"name": "punctuation.definition.string.begin.shell"
-						}
-					},
-					"end": "\\){2}",
-					"endCaptures": {
-						"0": {
-							"name": "punctuation.definition.string.end.shell"
-						}
-					},
-					"name": "string.other.math.shell",
-					"patterns": [
-						{
-							"include": "#math"
-						}
-					]
-				},
+                    "match": "(\\$\\({2})(.+)(\\)\\s*\\))",
+                    "captures": {
+                        "1": {
+                            "name": "punctuation.definition.evaluation.arithmetic.begin.shell"
+                        },
+                        "2": {
+                            "name": "string.other.math.shell",
+                            "patterns": [
+                                {
+                                    "include": "#math"
+                                }
+                            ]
+                        },
+                        "3": {
+                            "name": "punctuation.definition.evaluation.arithmetic.end.shell"
+                        }
+                    }
+                },
 				{
 					"begin": "\\(",
 					"beginCaptures": {
@@ -739,26 +738,25 @@
 		},
 		"interpolation": {
 			"patterns": [
-				{
-					"begin": "\\$\\({2}",
-					"beginCaptures": {
-						"0": {
+                {
+                    "match": "(\\$\\({2})(.+)(\\)\\s*\\))",
+                    "captures": {
+						"1": {
 							"name": "punctuation.definition.evaluation.arithmetic.begin.shell"
-						}
-					},
-					"end": "\\)\\s*\\)",
-					"endCaptures": {
-						"0": {
+						},
+						"2": {
+							"name": "string.other.math.shell",
+							"patterns": [
+								{
+									"include": "#math"
+								}
+							]
+						},
+						"3": {
 							"name": "punctuation.definition.evaluation.arithmetic.end.shell"
 						}
-					},
-					"name": "string.other.math.shell",
-					"patterns": [
-						{
-							"include": "#math"
-						}
-					]
-				},
+					}
+                },
 				{
 					"begin": "`",
 					"beginCaptures": {
@@ -1031,7 +1029,11 @@
 				{
 					"match": "\\d+",
 					"name": "constant.numeric.integer.shell"
-				}
+				},
+                {
+                    "match": "(?<!\\w)(?:[a-zA-Z_0-9]+)(?!\\w)",
+                    "name": "variable.other.normal.shell"
+                }
 			]
 		},
 		"pathname": {
