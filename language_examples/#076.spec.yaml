@@ -119,9 +119,17 @@
 - source: '|'
   scopes:
     - keyword.operator.pipe
-- source: ' echo '
+- source: echo
+  scopesBegin:
+    - meta.statement.command
+  scopes:
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+    - support.function.builtin
 - source: ''''
   scopesBegin:
+    - meta.argument
     - string.quoted.single
   scopes:
     - punctuation.definition.string.begin
@@ -130,6 +138,8 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
+    - meta.statement.command
+    - meta.argument
     - string.quoted.single
 - source: '    require ''yaml'''
   scopesBegin:

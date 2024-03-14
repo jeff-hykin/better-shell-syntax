@@ -1067,6 +1067,15 @@ require_relative './tokens.rb'
         # 
         # heredocs
         # 
+            grammar[:redirect_fix] = Pattern.new(
+                Pattern.new(
+                    tag_as: "keyword.operator.redirect",
+                    match: />>?/,
+                ).then(std_space).then(
+                    tag_as: "string.unquoted.argument",
+                    match: valid_literal_characters,
+                )
+            )
             generateHeredocRanges = ->(name_pattern, tag_content_as:nil, includes:[]) do
                 [
                     # <<-"HEREDOC"
@@ -1088,7 +1097,8 @@ require_relative './tokens.rb'
                             ).then(
                                 match: /.*/,
                                 includes: [
-                                    :normal_statement_context,
+                                    :redirect_fix,
+                                    :normal_statement_inner,
                                 ],
                             )
                         ),
@@ -1121,7 +1131,8 @@ require_relative './tokens.rb'
                             ).then(
                                 match: /.*/,
                                 includes: [
-                                    :normal_statement_context,
+                                    :redirect_fix,
+                                    :normal_statement_inner,
                                 ],
                             )
                         ),
@@ -1149,7 +1160,8 @@ require_relative './tokens.rb'
                             ).lookAheadFor(/\s|;|&|<|"|'/).then(
                                 match: /.*/,
                                 includes: [
-                                    :normal_statement_context,
+                                    :redirect_fix,
+                                    :normal_statement_inner,
                                 ],
                             )
                         ),
@@ -1182,7 +1194,8 @@ require_relative './tokens.rb'
                             ).lookAheadFor(/\s|;|&|<|"|'/).then(
                                 match: /.*/,
                                 includes: [
-                                    :normal_statement_context,
+                                    :redirect_fix,
+                                    :normal_statement_inner,
                                 ],
                             )
                         ),

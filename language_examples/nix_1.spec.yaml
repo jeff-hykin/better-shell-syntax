@@ -16658,10 +16658,20 @@
     - keyword.operator.redirect
 - source: '"'
   scopesBegin:
-    - string.quoted.double
+    - meta.statement.command
+    - meta.statement.command.name
   scopes:
+    - meta.statement.command.name.quoted
+    - string.quoted.double
     - punctuation.definition.string.begin
+    - entity.name.function.call
+    - entity.name.command
 - source: $
+  scopesBegin:
+    - meta.statement.command.name.continuation
+    - string.quoted.double
+    - entity.name.function.call
+    - entity.name.command
   scopes:
     - punctuation.definition.variable
     - variable.other.normal
@@ -16669,11 +16679,20 @@
   scopes:
     - variable.other.normal
 - source: /nix.conf
+  scopesEnd:
+    - meta.statement.command.name.continuation
+    - string.quoted.double
+    - entity.name.function.call
+    - entity.name.command
 - source: '"'
   scopes:
-    - punctuation.definition.string.end
-  scopesEnd:
     - string.quoted.double
+    - punctuation.definition.string.end
+    - entity.name.function.call
+    - entity.name.command
+  scopesEnd:
+    - meta.statement.command
+    - meta.statement.command.name
 - source: $
   scopesBegin:
     - string.unquoted.heredoc.no-indent

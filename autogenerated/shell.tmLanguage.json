@@ -707,7 +707,10 @@
             "4": {
               "patterns": [
                 {
-                  "include": "#normal_statement_context"
+                  "include": "#redirect_fix"
+                },
+                {
+                  "include": "#normal_statement_inner"
                 }
               ]
             }
@@ -737,7 +740,10 @@
             "4": {
               "patterns": [
                 {
-                  "include": "#normal_statement_context"
+                  "include": "#redirect_fix"
+                },
+                {
+                  "include": "#normal_statement_inner"
                 }
               ]
             }
@@ -765,7 +771,10 @@
             "3": {
               "patterns": [
                 {
-                  "include": "#normal_statement_context"
+                  "include": "#redirect_fix"
+                },
+                {
+                  "include": "#normal_statement_inner"
                 }
               ]
             }
@@ -801,7 +810,10 @@
             "3": {
               "patterns": [
                 {
-                  "include": "#normal_statement_context"
+                  "include": "#redirect_fix"
+                },
+                {
+                  "include": "#normal_statement_inner"
                 }
               ]
             }
@@ -1751,6 +1763,17 @@
           "name": "keyword.operator.pipe.shell"
         }
       ]
+    },
+    "redirect_fix": {
+      "match": "(?:(>>?)(?:[ \\t]*+)([^ \t\n'&;<>\\(\\)\\$`\\\\\"\\|]+))",
+      "captures": {
+        "1": {
+          "name": "keyword.operator.redirect.shell"
+        },
+        "2": {
+          "name": "string.unquoted.argument.shell"
+        }
+      }
     },
     "redirect_number": {
       "match": "(?<=[ \\t])(?:(?:(1)|(2)|(\\d+))(?=>))",
