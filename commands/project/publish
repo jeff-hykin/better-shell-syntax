@@ -2,3 +2,5 @@
 
 vsce publish --pat "$1" && echo "published on VSCE"
 ovsx publish -p "$2" && echo "published on OVSX"
+
+git_new_tag "$(jq '.version' ./package.json)"
