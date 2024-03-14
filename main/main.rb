@@ -951,7 +951,7 @@ require_relative './tokens.rb'
                                 match: /"|'/,
                                 reference: "start_quote"
                             ).then(std_space).then(
-                                match: name_pattern,
+                                match: /[^"']+?/, # can create problems
                                 reference: "delimiter",
                                 tag_as: "punctuation.definition.string.heredoc",
                             ).lookAheadFor(/\s|;|&|<|"|'/).matchResultOf(
@@ -984,7 +984,7 @@ require_relative './tokens.rb'
                                 match: /"|'/,
                                 reference: "start_quote"
                             ).then(std_space).then(
-                                match: name_pattern,
+                                match: /[^"']+?/, # can create problems
                                 reference: "delimiter",
                                 tag_as: "punctuation.definition.string.heredoc",
                             ).lookAheadFor(/\s|;|&|<|"|'/).matchResultOf(
@@ -1014,7 +1014,7 @@ require_relative './tokens.rb'
                                 match: lookBehindToAvoid(/</).then(/<<-/),
                                 tag_as: "keyword.operator.heredoc",
                             ).then(std_space).then(
-                                match: name_pattern,
+                                match: /[^"']+?/, # can create problems
                                 reference: "delimiter",
                                 tag_as: "punctuation.definition.string.heredoc",
                             ).lookAheadFor(/\s|;|&|<|"|'/).then(
@@ -1047,7 +1047,7 @@ require_relative './tokens.rb'
                                 match: lookBehindToAvoid(/</).then(/<</).lookAheadToAvoid(/</),
                                 tag_as: "keyword.operator.heredoc",
                             ).then(std_space).then(
-                                match: name_pattern,
+                                match: /[^"']+?/, # can create problems
                                 reference: "delimiter",
                                 tag_as: "punctuation.definition.string.heredoc",
                             ).lookAheadFor(/\s|;|&|<|"|'/).then(

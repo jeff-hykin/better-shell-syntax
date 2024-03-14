@@ -1,0 +1,165 @@
+- source: read
+  scopesBegin:
+    - meta.statement
+    - meta.statement.command
+  scopes:
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+    - support.function.builtin
+- source: '-'
+  scopesBegin:
+    - string.unquoted.argument
+  scopes:
+    - constant.other.option.dash
+- source: r
+  scopes:
+    - constant.other.option
+- source: '-'
+  scopes:
+    - constant.other.option.dash
+- source: d
+  scopes:
+    - constant.other.option
+  scopesEnd:
+    - string.unquoted.argument
+- source: ''''
+  scopesBegin:
+    - meta.argument
+    - string.quoted.single
+  scopes:
+    - punctuation.definition.string.begin
+- source: ''''
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - string.quoted.single
+- source: env_ruby
+  scopes:
+    - string.unquoted.argument
+- source: '<<'
+  scopes:
+    - keyword.operator.heredoc
+- source: ''''
+- source: '=cut'
+  scopes:
+    - punctuation.definition.string.heredoc
+- source: ''''
+- source: '    require ''yaml'''
+  scopesBegin:
+    - string.quoted.heredoc.no-indent
+- source: '    input=STDIN.readlines.join'
+- source: '    # default to UTF-8 for the dbs sake'
+- source: '    env = {''LANG'' => ''en_US.UTF-8''}'
+- source: '    input.split(''_FILE_SEPERATOR_'').each do |yml|'
+- source: '       yml.strip!'
+- source: '       begin'
+- source: '         env.merge!(YAML.load(yml)[''env''] || {})'
+- source: '       rescue Psych::SyntaxError => e'
+- source: '        puts e'
+- source: '        puts "*ERROR."'
+- source: '       rescue => e'
+- source: '        puts yml'
+- source: '        p e'
+- source: '       end'
+- source: '    end'
+- source: '    env.each{|k,v| puts "*ERROR." if v.is_a?(Hash)}'
+- source: '    puts env.map{|k,v| "-e\n#{k}=#{v}" }.join("\n")'
+  scopesEnd:
+    - string.quoted.heredoc.no-indent
+- source: '=cut'
+  scopes:
+    - punctuation.definition.string.heredoc
+  scopesEnd:
+    - meta.argument
+- source: read
+  scopes:
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+    - support.function.builtin
+- source: '-'
+  scopesBegin:
+    - string.unquoted.argument
+  scopes:
+    - constant.other.option.dash
+- source: r
+  scopes:
+    - constant.other.option
+- source: '-'
+  scopes:
+    - constant.other.option.dash
+- source: d
+  scopes:
+    - constant.other.option
+  scopesEnd:
+    - string.unquoted.argument
+- source: ''''
+  scopesBegin:
+    - meta.argument
+    - string.quoted.single
+  scopes:
+    - punctuation.definition.string.begin
+- source: ''''
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - string.quoted.single
+- source: env_ruby
+  scopes:
+    - string.unquoted.argument
+- source: '<<'
+  scopes:
+    - keyword.operator.heredoc
+- source: ''''
+- source: '=cut'
+  scopes:
+    - punctuation.definition.string.heredoc
+- source: ''''
+- source: '|'
+  scopes:
+    - keyword.operator.pipe
+- source: ' echo '
+- source: ''''
+  scopesBegin:
+    - string.quoted.single
+  scopes:
+    - punctuation.definition.string.begin
+- source: hello
+- source: ''''
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - string.quoted.single
+- source: '    require ''yaml'''
+  scopesBegin:
+    - string.quoted.heredoc.no-indent
+- source: '    input=STDIN.readlines.join'
+- source: '    # default to UTF-8 for the dbs sake'
+- source: '    env = {''LANG'' => ''en_US.UTF-8''}'
+- source: '    input.split(''_FILE_SEPERATOR_'').each do |yml|'
+- source: '       yml.strip!'
+- source: '       begin'
+- source: '         env.merge!(YAML.load(yml)[''env''] || {})'
+- source: '       rescue Psych::SyntaxError => e'
+- source: '        puts e'
+- source: '        puts "*ERROR."'
+- source: '       rescue => e'
+- source: '        puts yml'
+- source: '        p e'
+- source: '       end'
+- source: '    end'
+- source: '    env.each{|k,v| puts "*ERROR." if v.is_a?(Hash)}'
+- source: '    puts env.map{|k,v| "-e\n#{k}=#{v}" }.join("\n")'
+  scopesEnd:
+    - string.quoted.heredoc.no-indent
+- source: '=cut'
+  scopes:
+    - punctuation.definition.string.heredoc
+  scopesEnd:
+    - meta.argument
+- source: howdy
+  scopes:
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
