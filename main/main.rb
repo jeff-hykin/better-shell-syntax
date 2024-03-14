@@ -209,7 +209,7 @@ require_relative './tokens.rb'
     
     # function thing() {}
     # thing() {}
-    function_name_pattern = /[^ \t\n\r\(\)=]+/ 
+    function_name_pattern = /[^ \t\n\r\(\)="']+/ 
     # ^ what is actually allowed by POSIX is not the same as what shells actually allow
     # so this pattern tries to be as flexible as possible
     grammar[:function_definition] = PatternRange.new(
