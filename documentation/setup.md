@@ -3,7 +3,7 @@
 ### If you're an Experienced/Senior Dev
 
 - (Don't git clone)
-- Run this: `setup_or_copy=setup branch=master eval "$(curl -fsSL git.io/JE2Zm || wget -qO- git.io/JE2Zm)"`
+- Run this: `setup_or_copy=setup eval "$(curl -fsSL https://github.com/jeff-hykin/better-shell-syntax || wget -qO- https://github.com/jeff-hykin/better-shell-syntax)"`
 - If you're on Windows, run it inside WSL (Ubuntu 20.04 preferably)
 - If you're a responsible human being and therefore don't want run a sketchy internet script, props to you 👍. Take a look at the "What is that `eval` command doing?" section at the bottom and you'll be able to run the commands yourself.
 
@@ -13,7 +13,7 @@
     - open up your terminal/console app
     - use `cd` to get to the folder where you want this project ([tutorial on how to use cd here](https://github.com/jeff-hykin/fornix/blob/b6fd3313beda4f80b7051211cb790a4f34da590a/documentation/images/cd_tutorial.gif))
     - (If you get errors on the next step -> keep reading)
-    - Type this inside your terminal/console <br>`eval "$(curl -fsSL git.io/JE2Zm || wget -qO- git.io/JE2Zm)"`<br>[press enter]
+    - Type this inside your terminal/console <br>`setup_or_copy=setup eval "$(curl -fsSL https://github.com/jeff-hykin/better-shell-syntax || wget -qO- https://github.com/jeff-hykin/better-shell-syntax)"`<br>[press enter]
     - Possible errors:
         - On MacOS, if your hard drive is encrypted on BigSur, you might need to [follow these steps](https://stackoverflow.com/questions/67115985/error-installing-nix-on-macos-catalina-and-big-sur-on-filevault-encrypted-boot-v#comment120393385_67115986)
         - On Linux, if you're running a *really* barebones system that somehow doesn't have either `curl` or `wget`, install curl or wget and rerun the previous step
