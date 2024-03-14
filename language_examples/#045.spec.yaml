@@ -17,9 +17,9 @@
     - punctuation.section.function.definition
 - source: if
   scopesBegin:
-    - meta.scope.if-block
+    - meta.statement
   scopes:
-    - keyword.control
+    - keyword.control.if
 - source: '['
   scopesBegin:
     - meta.scope.logical-expression
@@ -60,6 +60,7 @@
   scopes:
     - punctuation.definition.logical-expression
   scopesEnd:
+    - meta.statement
     - meta.scope.logical-expression
 - source: '|'
   scopesBegin:
@@ -173,9 +174,8 @@
     - punctuation.terminator.statement.semicolon
 - source: fi
   scopes:
-    - keyword.control
-  scopesEnd:
-    - meta.scope.if-block
+    - meta.statement
+    - keyword.control.fi
 - source: )
   scopes:
     - punctuation.definition.group

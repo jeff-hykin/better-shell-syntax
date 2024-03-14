@@ -1029,9 +1029,9 @@
     - punctuation.section.function.definition
 - source: if
   scopesBegin:
-    - meta.scope.if-block
+    - meta.statement
   scopes:
-    - keyword.control
+    - keyword.control.if
 - source: '['
   scopesBegin:
     - meta.scope.logical-expression
@@ -1072,6 +1072,7 @@
   scopes:
     - punctuation.definition.logical-expression
   scopesEnd:
+    - meta.statement
     - meta.scope.logical-expression
 - source: ;
   scopes:
@@ -1120,9 +1121,7 @@
     - meta.statement.command
 - source: fi
   scopes:
-    - keyword.control
-  scopesEnd:
-    - meta.scope.if-block
+    - keyword.control.fi
 - source: '}'
   scopes:
     - punctuation.definition.group
@@ -1146,9 +1145,9 @@
     - punctuation.section.function.definition
 - source: if
   scopesBegin:
-    - meta.scope.if-block
+    - meta.statement
   scopes:
-    - keyword.control
+    - keyword.control.if
 - source: '['
   scopesBegin:
     - meta.scope.logical-expression
@@ -1182,6 +1181,7 @@
   scopes:
     - punctuation.definition.logical-expression
   scopesEnd:
+    - meta.statement
     - meta.scope.logical-expression
 - source: ;
   scopes:
@@ -1230,9 +1230,7 @@
     - meta.statement.command
 - source: fi
   scopes:
-    - keyword.control
-  scopesEnd:
-    - meta.scope.if-block
+    - keyword.control.fi
 - source: '}'
   scopes:
     - punctuation.definition.group
@@ -1256,9 +1254,9 @@
     - punctuation.section.function.definition
 - source: if
   scopesBegin:
-    - meta.scope.if-block
+    - meta.statement
   scopes:
-    - keyword.control
+    - keyword.control.if
 - source: '['
   scopesBegin:
     - meta.scope.logical-expression
@@ -1322,6 +1320,7 @@
   scopes:
     - punctuation.definition.logical-expression
   scopesEnd:
+    - meta.statement
     - meta.scope.logical-expression
 - source: ;
   scopes:
@@ -1370,9 +1369,7 @@
     - meta.statement.command
 - source: fi
   scopes:
-    - keyword.control
-  scopesEnd:
-    - meta.scope.if-block
+    - keyword.control.fi
 - source: '}'
   scopes:
     - punctuation.definition.group
@@ -1396,9 +1393,9 @@
     - punctuation.section.function.definition
 - source: if
   scopesBegin:
-    - meta.scope.if-block
+    - meta.statement
   scopes:
-    - keyword.control
+    - keyword.control.if
 - source: '['
   scopesBegin:
     - meta.scope.logical-expression
@@ -1462,6 +1459,7 @@
   scopes:
     - punctuation.definition.logical-expression
   scopesEnd:
+    - meta.statement
     - meta.scope.logical-expression
 - source: ;
   scopes:
@@ -1510,9 +1508,7 @@
     - meta.statement.command
 - source: fi
   scopes:
-    - keyword.control
-  scopesEnd:
-    - meta.scope.if-block
+    - keyword.control.fi
 - source: '}'
   scopes:
     - punctuation.definition.group
@@ -10856,15 +10852,21 @@
     - punctuation.section.function.definition
 - source: for
   scopesBegin:
-    - meta.scope.for-in-loop
+    - meta.statement
   scopes:
-    - keyword.control
+    - keyword.control.for
 - source: i
+  scopesBegin:
+    - meta.statement.command
   scopes:
-    - variable.other.loop
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
 - source: in
+  scopesBegin:
+    - meta.argument
   scopes:
-    - keyword.control
+    - string.unquoted.argument
 - source: $(
   scopesBegin:
     - string.interpolated.dollar
@@ -10909,6 +10911,9 @@
   scopes:
     - punctuation.definition.evaluation.parens.end
   scopesEnd:
+    - meta.statement
+    - meta.statement.command
+    - meta.argument
     - string.interpolated.dollar
 - source: ;
   scopes:
@@ -10947,9 +10952,7 @@
     - string.quoted.double
 - source: done
   scopes:
-    - keyword.control
-  scopesEnd:
-    - meta.scope.for-in-loop
+    - keyword.control.done
 - source: '}'
   scopes:
     - punctuation.definition.group
@@ -11800,9 +11803,9 @@
     - punctuation.section.function.definition
 - source: if
   scopesBegin:
-    - meta.scope.if-block
+    - meta.statement
   scopes:
-    - keyword.control
+    - keyword.control.if
 - source: '['
   scopesBegin:
     - meta.scope.logical-expression
@@ -11846,6 +11849,7 @@
   scopes:
     - punctuation.definition.logical-expression
   scopesEnd:
+    - meta.statement
     - meta.scope.logical-expression
 - source: ;
   scopes:
@@ -11975,9 +11979,7 @@
     - string.quoted.double
 - source: fi
   scopes:
-    - keyword.control
-  scopesEnd:
-    - meta.scope.if-block
+    - keyword.control.fi
 - source: '}'
   scopes:
     - punctuation.definition.group
@@ -12001,12 +12003,11 @@
     - punctuation.section.function.definition
 - source: if
   scopesBegin:
-    - meta.scope.if-block
+    - meta.statement
   scopes:
-    - keyword.control
+    - keyword.control.if
 - source: command
   scopesBegin:
-    - meta.statement
     - meta.statement.command
   scopes:
     - meta.statement.command.name
@@ -12148,9 +12149,7 @@
     - meta.scope.if-block
 - source: fi
   scopes:
-    - keyword.control
-  scopesEnd:
-    - meta.scope.if-block
+    - keyword.control.fi
 - source: '}'
   scopes:
     - punctuation.definition.group
@@ -15337,6 +15336,7 @@
     - punctuation.section.function.definition
 - source: extract_nix_profile_injection
   scopesBegin:
+    - meta.statement
     - meta.function
   scopes:
     - entity.name.function
@@ -16327,8 +16327,12 @@
     - punctuation.definition.group
     - punctuation.section.function.definition
   scopesEnd:
+    - meta.statement
+    - meta.function
     - meta.function.body
 - source: restore_profile
+  scopesBegin:
+    - meta.function
   scopes:
     - entity.name.function
 - source: (

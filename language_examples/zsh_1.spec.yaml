@@ -3852,7 +3852,6 @@
     - punctuation.definition.group
     - punctuation.section.function.definition
   scopesEnd:
-    - meta.function
     - meta.function.body
 - source: '#'
   scopesBegin:
@@ -3860,7 +3859,12 @@
   scopes:
     - punctuation.definition.comment
 - source: ' quote_readline()'
+  scopesEnd:
+    - meta.function
+    - comment.line.number-sign
 - source: '#'
+  scopesBegin:
+    - comment.line.number-sign
   scopes:
     - punctuation.definition.comment
 - source: ' This function shell-dequotes the argument'
@@ -3993,12 +3997,11 @@
     - punctuation.section.function.definition
 - source: if
   scopesBegin:
-    - meta.scope.if-block
+    - meta.statement
   scopes:
-    - keyword.control
+    - keyword.control.if
 - source: unset
   scopesBegin:
-    - meta.statement
     - meta.statement.command
   scopes:
     - meta.statement.command.name
@@ -4187,9 +4190,7 @@
     - meta.scope.if-block
 - source: fi
   scopes:
-    - keyword.control
-  scopesEnd:
-    - meta.scope.if-block
+    - keyword.control.fi
 - source: '}'
   scopes:
     - punctuation.definition.group
@@ -4252,15 +4253,14 @@
     - punctuation.section.function.definition
 - source: if
   scopesBegin:
-    - meta.scope.if-block
+    - meta.statement
   scopes:
-    - keyword.control
+    - keyword.control.if
 - source: '!'
   scopes:
     - keyword.operator.pipe
 - source: ((
   scopesBegin:
-    - meta.statement
     - meta.arithmetic
   scopes:
     - punctuation.section.arithmetic
@@ -4394,9 +4394,7 @@
     - meta.statement.command
 - source: fi
   scopes:
-    - keyword.control
-  scopesEnd:
-    - meta.scope.if-block
+    - keyword.control.fi
 - source: while
   scopesBegin:
     - meta.scope.while-loop
@@ -6655,7 +6653,6 @@
     - punctuation.definition.group
     - punctuation.section.function.definition
   scopesEnd:
-    - meta.function
     - meta.function.body
 - source: '#'
   scopesBegin:
@@ -6663,7 +6660,12 @@
   scopes:
     - punctuation.definition.comment
 - source: ' __reassemble_comp_words_by_ref()'
+  scopesEnd:
+    - meta.function
+    - comment.line.number-sign
 - source: '#'
+  scopesBegin:
+    - comment.line.number-sign
   scopes:
     - punctuation.definition.comment
 - source: ' @param $1 exclude  Characters out of $COMP_WORDBREAKS which should NOT be'
@@ -8330,10 +8332,13 @@
     - keyword.control.do
 - source: case
   scopesBegin:
-    - meta.scope.case-block
+    - meta.statement
   scopes:
-    - keyword.control
+    - keyword.control.case
 - source: $
+  scopesBegin:
+    - meta.statement.command
+    - meta.statement.command.name
   scopes:
     - punctuation.definition.variable
 - source: '{'
@@ -8354,81 +8359,77 @@
   scopes:
     - punctuation.section.bracket.curly.variable.end
     - punctuation.definition.variable
+  scopesEnd:
+    - meta.statement.command.name
 - source: in
-  scopesBegin:
-    - meta.scope.case-body
   scopes:
-    - keyword.control
+    - meta.argument
+    - string.unquoted.argument
 - source: cur
-  scopesBegin:
-    - meta.scope.case-clause
-    - meta.scope.case-pattern
-- source: )
   scopes:
-    - punctuation.definition.case-pattern
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
   scopesEnd:
-    - meta.scope.case-pattern
-- source: '   vcur=cur '
-  scopes:
-    - meta.scope.case-clause-body
-- source: ;;
-  scopes:
-    - punctuation.terminator.case-clause
+    - meta.statement
+    - meta.statement.command
+- source: ')   vcur=cur '
+- source: ;
+  scopesBegin:
+    - punctuation.terminator.statement.semicolon
+- source: ;
+  scopesEnd:
+    - punctuation.terminator.statement.semicolon
 - source: prev
+  scopes:
+    - meta.statement
+    - meta.statement.command
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+- source: ')  vprev=prev '
+- source: ;
   scopesBegin:
-    - meta.scope.case-pattern
-- source: )
-  scopes:
-    - punctuation.definition.case-pattern
+    - punctuation.terminator.statement.semicolon
+- source: ;
   scopesEnd:
-    - meta.scope.case-pattern
-- source: '  vprev=prev '
-  scopes:
-    - meta.scope.case-clause-body
-- source: ;;
-  scopes:
-    - punctuation.terminator.case-clause
+    - punctuation.terminator.statement.semicolon
 - source: cword
+  scopes:
+    - meta.statement
+    - meta.statement.command
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+- source: ') vcword=cword '
+- source: ;
   scopesBegin:
-    - meta.scope.case-pattern
-- source: )
-  scopes:
-    - punctuation.definition.case-pattern
+    - punctuation.terminator.statement.semicolon
+- source: ;
   scopesEnd:
-    - meta.scope.case-pattern
-- source: ' vcword=cword '
-  scopes:
-    - meta.scope.case-clause-body
-- source: ;;
-  scopes:
-    - punctuation.terminator.case-clause
+    - punctuation.terminator.statement.semicolon
 - source: words
+  scopes:
+    - meta.statement
+    - meta.statement.command
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+- source: ') vwords=words '
+- source: ;
   scopesBegin:
-    - meta.scope.case-pattern
-- source: )
-  scopes:
-    - punctuation.definition.case-pattern
+    - punctuation.terminator.statement.semicolon
+- source: ;
   scopesEnd:
-    - meta.scope.case-pattern
-- source: ' vwords=words '
-  scopes:
-    - meta.scope.case-clause-body
-- source: ;;
-  scopes:
-    - punctuation.terminator.case-clause
+    - punctuation.terminator.statement.semicolon
 - source: '*'
-  scopesBegin:
-    - meta.scope.case-pattern
   scopes:
-    - keyword.operator.glob
-- source: )
-  scopes:
-    - punctuation.definition.case-pattern
-  scopesEnd:
-    - meta.scope.case-pattern
-- source: ' echo '
-  scopesBegin:
-    - meta.scope.case-clause-body
+    - meta.statement
+    - meta.statement.command
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+- source: ') echo '
 - source: '"'
   scopesBegin:
     - string.quoted.double
@@ -8510,23 +8511,21 @@
     - constant.numeric
     - constant.numeric.integer
   scopesEnd:
-    - meta.scope.case-clause-body
     - meta.statement
     - meta.statement.command
-- source: ;;
-  scopes:
-    - punctuation.terminator.case-clause
+- source: ;
+  scopesBegin:
+    - punctuation.terminator.statement.semicolon
+- source: ;
   scopesEnd:
-    - meta.scope.case-body
-    - meta.scope.case-clause
+    - punctuation.terminator.statement.semicolon
 - source: esac
-  scopes:
-    - keyword.control
-  scopesEnd:
-    - meta.scope.case-block
-- source: let
   scopesBegin:
     - meta.statement
+  scopes:
+    - keyword.control.esac
+- source: let
+  scopesBegin:
     - meta.statement.command
   scopes:
     - meta.statement.command.name
@@ -10677,7 +10676,6 @@
     - punctuation.definition.group
     - punctuation.section.function.definition
   scopesEnd:
-    - meta.function
     - meta.function.body
 - source: '#'
   scopesBegin:
@@ -10685,7 +10683,12 @@
   scopes:
     - punctuation.definition.comment
 - source: ' _get_cword()'
+  scopesEnd:
+    - meta.function
+    - comment.line.number-sign
 - source: '#'
+  scopesBegin:
+    - comment.line.number-sign
   scopes:
     - punctuation.definition.comment
 - source: ' Get word previous to the current word.'
@@ -10733,9 +10736,9 @@
     - punctuation.section.function.definition
 - source: if
   scopesBegin:
-    - meta.scope.if-block
+    - meta.statement
   scopes:
-    - keyword.control
+    - keyword.control.if
 - source: '['
   scopesBegin:
     - meta.scope.logical-expression
@@ -10759,6 +10762,7 @@
   scopes:
     - punctuation.definition.logical-expression
   scopesEnd:
+    - meta.statement
     - meta.scope.logical-expression
 - source: ;
   scopes:
@@ -10818,9 +10822,8 @@
     - punctuation.terminator.statement.semicolon
 - source: fi
   scopes:
-    - keyword.control
-  scopesEnd:
-    - meta.scope.if-block
+    - meta.statement
+    - keyword.control.fi
 - source: '}'
   scopes:
     - punctuation.definition.group
@@ -11317,7 +11320,6 @@
     - punctuation.definition.group
     - punctuation.section.function.definition
   scopesEnd:
-    - meta.function
     - meta.function.body
 - source: '#'
   scopesBegin:
@@ -11325,7 +11327,12 @@
   scopes:
     - punctuation.definition.comment
 - source: ' __ltrim_colon_completions()'
+  scopesEnd:
+    - meta.function
+    - comment.line.number-sign
 - source: '#'
+  scopesBegin:
+    - comment.line.number-sign
   scopes:
     - punctuation.definition.comment
 - source: ' This function quotes the argument in a way so that readline dequoting'
@@ -11454,10 +11461,15 @@
     - punctuation.section.function.definition
 - source: if
   scopesBegin:
-    - meta.scope.if-block
+    - meta.statement
   scopes:
-    - keyword.control
-- source: '[['
+    - keyword.control.if
+- source: '['
+  scopesBegin:
+    - meta.scope.logical-expression
+  scopes:
+    - punctuation.definition.logical-expression
+- source: '['
   scopesBegin:
     - meta.scope.logical-expression
   scopes:
@@ -11509,10 +11521,16 @@
     - punctuation.definition.string.end
   scopesEnd:
     - string.quoted.double
-- source: ']]'
+- source: ']'
   scopes:
     - punctuation.definition.logical-expression
   scopesEnd:
+    - meta.scope.logical-expression
+- source: ']'
+  scopes:
+    - punctuation.definition.logical-expression
+  scopesEnd:
+    - meta.statement
     - meta.scope.logical-expression
 - source: ;
   scopes:
@@ -12031,9 +12049,7 @@
     - string.quoted.double
 - source: fi
   scopes:
-    - keyword.control
-  scopesEnd:
-    - meta.scope.if-block
+    - keyword.control.fi
 - source: '#'
   scopesBegin:
     - comment.line.number-sign
@@ -12173,7 +12189,6 @@
     - punctuation.definition.group
     - punctuation.section.function.definition
   scopesEnd:
-    - meta.function
     - meta.function.body
 - source: '#'
   scopesBegin:
@@ -12181,7 +12196,12 @@
   scopes:
     - punctuation.definition.comment
 - source: ' _quote_readline_by_ref()'
+  scopesEnd:
+    - meta.function
+    - comment.line.number-sign
 - source: '#'
+  scopesBegin:
+    - comment.line.number-sign
   scopes:
     - punctuation.definition.comment
 - source: ' This function turns on "-o filenames" behavior dynamically. It is present'
@@ -12621,12 +12641,11 @@
     - punctuation.definition.group
 - source: while
   scopesBegin:
-    - meta.scope.while-loop
+    - meta.statement
   scopes:
-    - keyword.control
+    - keyword.control.while
 - source: read
   scopesBegin:
-    - meta.statement
     - meta.statement.command
   scopes:
     - meta.statement.command.name
@@ -12714,9 +12733,7 @@
     - meta.argument
 - source: done
   scopes:
-    - keyword.control
-  scopesEnd:
-    - meta.scope.while-loop
+    - keyword.control.done
 - source: '}'
   scopes:
     - punctuation.definition.group
@@ -13325,7 +13342,6 @@
     - punctuation.definition.group
     - punctuation.section.function.definition
   scopesEnd:
-    - meta.function
     - meta.function.body
 - source: '#'
   scopesBegin:
@@ -13333,7 +13349,12 @@
   scopes:
     - punctuation.definition.comment
 - source: ' _filedir()'
+  scopesEnd:
+    - meta.function
+    - comment.line.number-sign
 - source: '#'
+  scopesBegin:
+    - comment.line.number-sign
   scopes:
     - punctuation.definition.comment
 - source: ' This function splits $cur=--foo=bar into $prev=--foo, $cur=bar, making it'
@@ -13369,10 +13390,15 @@
     - punctuation.section.function.definition
 - source: if
   scopesBegin:
-    - meta.scope.if-block
+    - meta.statement
   scopes:
-    - keyword.control
-- source: '[['
+    - keyword.control.if
+- source: '['
+  scopesBegin:
+    - meta.scope.logical-expression
+  scopes:
+    - punctuation.definition.logical-expression
+- source: '['
   scopesBegin:
     - meta.scope.logical-expression
   scopes:
@@ -13410,10 +13436,16 @@
 - source: '*'
   scopes:
     - keyword.operator.glob
-- source: ']]'
+- source: ']'
   scopes:
     - punctuation.definition.logical-expression
   scopesEnd:
+    - meta.scope.logical-expression
+- source: ']'
+  scopes:
+    - punctuation.definition.logical-expression
+  scopesEnd:
+    - meta.statement
     - meta.scope.logical-expression
 - source: ;
   scopes:
@@ -13542,9 +13574,7 @@
     - meta.statement.command
 - source: fi
   scopes:
-    - keyword.control
-  scopesEnd:
-    - meta.scope.if-block
+    - keyword.control.fi
 - source: return
   scopesBegin:
     - meta.statement
@@ -14768,9 +14798,9 @@
     - punctuation.section.function.definition
 - source: if
   scopesBegin:
-    - meta.scope.if-block
+    - meta.statement
   scopes:
-    - keyword.control
+    - keyword.control.if
 - source: '['
   scopesBegin:
     - meta.scope.logical-expression
@@ -14784,6 +14814,7 @@
   scopes:
     - punctuation.definition.logical-expression
   scopesEnd:
+    - meta.statement
     - meta.scope.logical-expression
 - source: ;
   scopes:
@@ -15535,9 +15566,7 @@
     - meta.expression.assignment
 - source: fi
   scopes:
-    - keyword.control
-  scopesEnd:
-    - meta.scope.if-block
+    - keyword.control.fi
 - source: '}'
   scopes:
     - punctuation.definition.group
@@ -16968,7 +16997,6 @@
     - punctuation.definition.group
     - punctuation.section.function.definition
   scopesEnd:
-    - meta.function
     - meta.function.body
 - source: '#'
   scopesBegin:
@@ -16976,7 +17004,12 @@
   scopes:
     - punctuation.definition.comment
 - source: ' __expand_tilde_by_ref()'
+  scopesEnd:
+    - meta.function
+    - comment.line.number-sign
 - source: '#'
+  scopesBegin:
+    - comment.line.number-sign
   scopes:
     - punctuation.definition.comment
 - source: ' This function expands tildes in pathnames'
@@ -17460,6 +17493,7 @@
     - punctuation.separator.statement.and
 - source: _pids
   scopesBegin:
+    - meta.statement
     - meta.function
   scopes:
     - entity.name.function
@@ -17570,6 +17604,7 @@
     - punctuation.definition.group
     - punctuation.section.function.definition
   scopesEnd:
+    - meta.statement
     - meta.function
     - meta.function.body
 - source: '|'
@@ -17580,6 +17615,7 @@
     - keyword.operator.pipe
 - source: _pids
   scopesBegin:
+    - meta.statement
     - meta.function
   scopes:
     - entity.name.function
@@ -17690,6 +17726,7 @@
     - punctuation.definition.group
     - punctuation.section.function.definition
   scopesEnd:
+    - meta.statement
     - meta.function
     - meta.function.body
 - source: '#'
@@ -17744,6 +17781,7 @@
     - punctuation.separator.statement.and
 - source: _pgids
   scopesBegin:
+    - meta.statement
     - meta.function
   scopes:
     - entity.name.function
@@ -17854,6 +17892,7 @@
     - punctuation.definition.group
     - punctuation.section.function.definition
   scopesEnd:
+    - meta.statement
     - meta.function
     - meta.function.body
 - source: '|'
@@ -17864,6 +17903,7 @@
     - keyword.operator.pipe
 - source: _pgids
   scopesBegin:
+    - meta.statement
     - meta.function
   scopes:
     - entity.name.function
@@ -17974,6 +18014,7 @@
     - punctuation.definition.group
     - punctuation.section.function.definition
   scopesEnd:
+    - meta.statement
     - meta.function
     - meta.function.body
 - source: '#'
@@ -18028,6 +18069,7 @@
     - punctuation.separator.statement.and
 - source: _pnames
   scopesBegin:
+    - meta.statement
     - meta.function
   scopes:
     - entity.name.function
@@ -18162,6 +18204,7 @@
     - punctuation.definition.group
     - punctuation.section.function.definition
   scopesEnd:
+    - meta.statement
     - meta.function
     - meta.function.body
 - source: '|'
@@ -18172,6 +18215,7 @@
     - keyword.operator.pipe
 - source: _pnames
   scopesBegin:
+    - meta.statement
     - meta.function
   scopes:
     - entity.name.function
@@ -18343,6 +18387,7 @@
     - punctuation.definition.group
     - punctuation.section.function.definition
   scopesEnd:
+    - meta.statement
     - meta.function
     - meta.function.body
 - source: '#'
@@ -18375,12 +18420,11 @@
     - punctuation.section.function.definition
 - source: if
   scopesBegin:
-    - meta.scope.if-block
+    - meta.statement
   scopes:
-    - keyword.control
+    - keyword.control.if
 - source: type
   scopesBegin:
-    - meta.statement
     - meta.statement.command
   scopes:
     - meta.statement.command.name
@@ -18766,9 +18810,7 @@
     - meta.expression.assignment
 - source: fi
   scopes:
-    - keyword.control
-  scopesEnd:
-    - meta.scope.if-block
+    - keyword.control.fi
 - source: '}'
   scopes:
     - punctuation.definition.group
@@ -18806,12 +18848,11 @@
     - punctuation.section.function.definition
 - source: if
   scopesBegin:
-    - meta.scope.if-block
+    - meta.statement
   scopes:
-    - keyword.control
+    - keyword.control.if
 - source: type
   scopesBegin:
-    - meta.statement
     - meta.statement.command
   scopes:
     - meta.statement.command.name
@@ -19201,9 +19242,7 @@
     - meta.expression.assignment
 - source: fi
   scopes:
-    - keyword.control
-  scopesEnd:
-    - meta.scope.if-block
+    - keyword.control.fi
 - source: '}'
   scopes:
     - punctuation.definition.group
@@ -20229,10 +20268,15 @@
     - punctuation.section.function.definition
 - source: if
   scopesBegin:
-    - meta.scope.if-block
+    - meta.statement
   scopes:
-    - keyword.control
-- source: '[['
+    - keyword.control.if
+- source: '['
+  scopesBegin:
+    - meta.scope.logical-expression
+  scopes:
+    - punctuation.definition.logical-expression
+- source: '['
   scopesBegin:
     - meta.scope.logical-expression
   scopes:
@@ -20283,10 +20327,16 @@
 - source: '*'
   scopes:
     - keyword.operator.glob
-- source: ']]'
+- source: ']'
   scopes:
     - punctuation.definition.logical-expression
   scopesEnd:
+    - meta.scope.logical-expression
+- source: ']'
+  scopes:
+    - punctuation.definition.logical-expression
+  scopesEnd:
+    - meta.statement
     - meta.scope.logical-expression
 - source: ;
   scopes:
@@ -21244,9 +21294,7 @@
     - meta.scope.if-block
 - source: fi
   scopes:
-    - keyword.control
-  scopesEnd:
-    - meta.scope.if-block
+    - keyword.control.fi
 - source: '}'
   scopes:
     - punctuation.definition.group
@@ -21270,16 +21318,17 @@
     - punctuation.section.function.definition
 - source: if
   scopesBegin:
-    - meta.scope.if-block
+    - meta.statement
   scopes:
-    - keyword.control
+    - keyword.control.if
 - source: _complete_as_root
   scopes:
-    - meta.statement
     - meta.statement.command
     - meta.statement.command.name
     - entity.name.function.call
     - entity.name.command
+  scopesEnd:
+    - meta.statement
 - source: ;
   scopes:
     - punctuation.terminator.statement.semicolon
@@ -21621,9 +21670,7 @@
     - meta.expression.assignment
 - source: fi
   scopes:
-    - keyword.control
-  scopesEnd:
-    - meta.scope.if-block
+    - keyword.control.fi
 - source: '}'
   scopes:
     - punctuation.definition.group
@@ -21647,16 +21694,17 @@
     - punctuation.section.function.definition
 - source: if
   scopesBegin:
-    - meta.scope.if-block
+    - meta.statement
   scopes:
-    - keyword.control
+    - keyword.control.if
 - source: _complete_as_root
   scopes:
-    - meta.statement
     - meta.statement.command
     - meta.statement.command.name
     - entity.name.function.call
     - entity.name.command
+  scopesEnd:
+    - meta.statement
 - source: ;
   scopes:
     - punctuation.terminator.statement.semicolon
@@ -21950,9 +21998,7 @@
     - meta.expression.assignment
 - source: fi
   scopes:
-    - keyword.control
-  scopesEnd:
-    - meta.scope.if-block
+    - keyword.control.fi
 - source: '}'
   scopes:
     - punctuation.definition.group
@@ -22849,12 +22895,11 @@
     - punctuation.definition.group
 - source: if
   scopesBegin:
-    - meta.scope.if-block
+    - meta.statement
   scopes:
-    - keyword.control
+    - keyword.control.if
 - source: type
   scopesBegin:
-    - meta.statement
     - meta.statement.command
   scopes:
     - meta.statement.command.name
@@ -23124,9 +23169,7 @@
     - string.quoted.double
 - source: fi
   scopes:
-    - keyword.control
-  scopesEnd:
-    - meta.scope.if-block
+    - keyword.control.fi
 - source: '}'
   scopes:
     - punctuation.definition.group
@@ -25192,7 +25235,6 @@
     - punctuation.definition.group
     - punctuation.section.function.definition
   scopesEnd:
-    - meta.function
     - meta.function.body
 - source: '#'
   scopesBegin:
@@ -25200,7 +25242,12 @@
   scopes:
     - punctuation.definition.comment
 - source: ' _known_hosts()'
+  scopesEnd:
+    - meta.function
+    - comment.line.number-sign
 - source: '#'
+  scopesBegin:
+    - comment.line.number-sign
   scopes:
     - punctuation.definition.comment
 - source: ' Helper function for completing _known_hosts.'
@@ -29490,7 +29537,6 @@
     - punctuation.definition.group
     - punctuation.section.function.definition
   scopesEnd:
-    - meta.function
     - meta.function.body
 - source: '#'
   scopesBegin:
@@ -29499,6 +29545,7 @@
     - punctuation.definition.comment
 - source: ' _known_hosts_real()'
   scopesEnd:
+    - meta.function
     - comment.line.number-sign
 - source: complete
   scopesBegin:
@@ -31754,13 +31801,12 @@
   scopes:
     - punctuation.terminator.statement.semicolon
 - source: done
-  scopes:
-    - keyword.control
-  scopesEnd:
-    - meta.scope.for-loop
-- source: COMP_CWORD
   scopesBegin:
     - meta.statement
+  scopes:
+    - keyword.control.done
+- source: COMP_CWORD
+  scopesBegin:
     - meta.expression.assignment
   scopes:
     - variable.other.assignment
@@ -32505,9 +32551,9 @@
     - comment.line.number-sign
 - source: if
   scopesBegin:
-    - meta.scope.if-block
+    - meta.statement
   scopes:
-    - keyword.control
+    - keyword.control.if
 - source: '['
   scopesBegin:
     - meta.scope.logical-expression
@@ -32574,6 +32620,7 @@
   scopes:
     - punctuation.definition.logical-expression
   scopesEnd:
+    - meta.statement
     - meta.scope.logical-expression
 - source: ;
   scopes:
@@ -33034,9 +33081,8 @@
     - punctuation.terminator.statement.semicolon
 - source: fi
   scopes:
-    - keyword.control
-  scopesEnd:
-    - meta.scope.if-block
+    - meta.statement
+    - keyword.control.fi
 - source: elif
   scopes:
     - keyword.control.elif
@@ -33109,15 +33155,10 @@
   scopesEnd:
     - meta.scope.if-block
 - source: '}'
-  scopes:
-    - punctuation.definition.group
-    - punctuation.section.function.definition
-  scopesEnd:
-    - meta.function
-    - meta.function.body
-- source: complete
   scopesBegin:
     - meta.statement
+- source: complete
+  scopesBegin:
     - meta.statement.command
   scopes:
     - meta.statement.command.name
@@ -34697,12 +34738,11 @@
     - punctuation.definition.group
 - source: while
   scopesBegin:
-    - meta.scope.while-loop
+    - meta.statement
   scopes:
-    - keyword.control
+    - keyword.control.while
 - source: read
   scopesBegin:
-    - meta.statement
     - meta.statement.command
   scopes:
     - meta.statement.command.name
@@ -34774,9 +34814,7 @@
     - meta.argument
 - source: done
   scopes:
-    - keyword.control
-  scopesEnd:
-    - meta.scope.while-loop
+    - keyword.control.done
 - source: '}'
   scopes:
     - punctuation.definition.group
@@ -34857,14 +34895,16 @@
   scopes:
     - string.unquoted.argument
   scopesEnd:
-    - meta.statement
     - meta.expression.assignment
 - source: if
-  scopesBegin:
-    - meta.scope.if-block
   scopes:
-    - keyword.control
-- source: '[['
+    - keyword.control.if
+- source: '['
+  scopesBegin:
+    - meta.scope.logical-expression
+  scopes:
+    - punctuation.definition.logical-expression
+- source: '['
   scopesBegin:
     - meta.scope.logical-expression
   scopes:
@@ -34885,10 +34925,16 @@
 - source: '*'
   scopes:
     - keyword.operator.glob
-- source: ']]'
+- source: ']'
   scopes:
     - punctuation.definition.logical-expression
   scopesEnd:
+    - meta.scope.logical-expression
+- source: ']'
+  scopes:
+    - punctuation.definition.logical-expression
+  scopesEnd:
+    - meta.statement
     - meta.scope.logical-expression
 - source: ;
   scopes:
@@ -34942,9 +34988,7 @@
     - meta.expression.assignment
 - source: fi
   scopes:
-    - keyword.control
-  scopesEnd:
-    - meta.scope.if-block
+    - keyword.control.fi
 - source: '['
   scopesBegin:
     - meta.statement
@@ -35323,12 +35367,11 @@
     - punctuation.definition.group
 - source: while
   scopesBegin:
-    - meta.scope.while-loop
+    - meta.statement
   scopes:
-    - keyword.control
+    - keyword.control.while
 - source: read
   scopesBegin:
-    - meta.statement
     - meta.statement.command
   scopes:
     - meta.statement.command.name
@@ -35417,9 +35460,7 @@
     - meta.argument
 - source: done
   scopes:
-    - keyword.control
-  scopesEnd:
-    - meta.scope.while-loop
+    - keyword.control.done
 - source: '}'
   scopes:
     - punctuation.definition.group
@@ -35641,12 +35682,11 @@
     - punctuation.definition.subshell
 - source: while
   scopesBegin:
-    - meta.scope.while-loop
+    - meta.statement
   scopes:
-    - keyword.control
+    - keyword.control.while
 - source: read
   scopesBegin:
-    - meta.statement
     - meta.statement.command
   scopes:
     - meta.statement.command.name
@@ -35930,9 +35970,7 @@
     - meta.expression.assignment
 - source: done
   scopes:
-    - keyword.control
-  scopesEnd:
-    - meta.scope.while-loop
+    - keyword.control.done
 - source: printf
   scopesBegin:
     - meta.statement
@@ -41044,7 +41082,6 @@
     - punctuation.definition.group
     - punctuation.section.function.definition
   scopesEnd:
-    - meta.function
     - meta.function.body
 - source: '#'
   scopesBegin:
@@ -41052,7 +41089,12 @@
   scopes:
     - punctuation.definition.comment
 - source: ' quote_readline()'
+  scopesEnd:
+    - meta.function
+    - comment.line.number-sign
 - source: '#'
+  scopesBegin:
+    - comment.line.number-sign
   scopes:
     - punctuation.definition.comment
 - source: ' This function shell-dequotes the argument'
@@ -41185,12 +41227,11 @@
     - punctuation.section.function.definition
 - source: if
   scopesBegin:
-    - meta.scope.if-block
+    - meta.statement
   scopes:
-    - keyword.control
+    - keyword.control.if
 - source: unset
   scopesBegin:
-    - meta.statement
     - meta.statement.command
   scopes:
     - meta.statement.command.name
@@ -41379,9 +41420,7 @@
     - meta.scope.if-block
 - source: fi
   scopes:
-    - keyword.control
-  scopesEnd:
-    - meta.scope.if-block
+    - keyword.control.fi
 - source: '}'
   scopes:
     - punctuation.definition.group
@@ -41444,15 +41483,14 @@
     - punctuation.section.function.definition
 - source: if
   scopesBegin:
-    - meta.scope.if-block
+    - meta.statement
   scopes:
-    - keyword.control
+    - keyword.control.if
 - source: '!'
   scopes:
     - keyword.operator.pipe
 - source: ((
   scopesBegin:
-    - meta.statement
     - meta.arithmetic
   scopes:
     - punctuation.section.arithmetic
@@ -41586,9 +41624,7 @@
     - meta.statement.command
 - source: fi
   scopes:
-    - keyword.control
-  scopesEnd:
-    - meta.scope.if-block
+    - keyword.control.fi
 - source: while
   scopesBegin:
     - meta.scope.while-loop
@@ -43847,7 +43883,6 @@
     - punctuation.definition.group
     - punctuation.section.function.definition
   scopesEnd:
-    - meta.function
     - meta.function.body
 - source: '#'
   scopesBegin:
@@ -43855,7 +43890,12 @@
   scopes:
     - punctuation.definition.comment
 - source: ' __reassemble_comp_words_by_ref()'
+  scopesEnd:
+    - meta.function
+    - comment.line.number-sign
 - source: '#'
+  scopesBegin:
+    - comment.line.number-sign
   scopes:
     - punctuation.definition.comment
 - source: ' @param $1 exclude  Characters out of $COMP_WORDBREAKS which should NOT be'
@@ -45522,10 +45562,13 @@
     - keyword.control.do
 - source: case
   scopesBegin:
-    - meta.scope.case-block
+    - meta.statement
   scopes:
-    - keyword.control
+    - keyword.control.case
 - source: $
+  scopesBegin:
+    - meta.statement.command
+    - meta.statement.command.name
   scopes:
     - punctuation.definition.variable
 - source: '{'
@@ -45546,81 +45589,77 @@
   scopes:
     - punctuation.section.bracket.curly.variable.end
     - punctuation.definition.variable
+  scopesEnd:
+    - meta.statement.command.name
 - source: in
-  scopesBegin:
-    - meta.scope.case-body
   scopes:
-    - keyword.control
+    - meta.argument
+    - string.unquoted.argument
 - source: cur
-  scopesBegin:
-    - meta.scope.case-clause
-    - meta.scope.case-pattern
-- source: )
   scopes:
-    - punctuation.definition.case-pattern
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
   scopesEnd:
-    - meta.scope.case-pattern
-- source: '   vcur=cur '
-  scopes:
-    - meta.scope.case-clause-body
-- source: ;;
-  scopes:
-    - punctuation.terminator.case-clause
+    - meta.statement
+    - meta.statement.command
+- source: ')   vcur=cur '
+- source: ;
+  scopesBegin:
+    - punctuation.terminator.statement.semicolon
+- source: ;
+  scopesEnd:
+    - punctuation.terminator.statement.semicolon
 - source: prev
+  scopes:
+    - meta.statement
+    - meta.statement.command
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+- source: ')  vprev=prev '
+- source: ;
   scopesBegin:
-    - meta.scope.case-pattern
-- source: )
-  scopes:
-    - punctuation.definition.case-pattern
+    - punctuation.terminator.statement.semicolon
+- source: ;
   scopesEnd:
-    - meta.scope.case-pattern
-- source: '  vprev=prev '
-  scopes:
-    - meta.scope.case-clause-body
-- source: ;;
-  scopes:
-    - punctuation.terminator.case-clause
+    - punctuation.terminator.statement.semicolon
 - source: cword
+  scopes:
+    - meta.statement
+    - meta.statement.command
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+- source: ') vcword=cword '
+- source: ;
   scopesBegin:
-    - meta.scope.case-pattern
-- source: )
-  scopes:
-    - punctuation.definition.case-pattern
+    - punctuation.terminator.statement.semicolon
+- source: ;
   scopesEnd:
-    - meta.scope.case-pattern
-- source: ' vcword=cword '
-  scopes:
-    - meta.scope.case-clause-body
-- source: ;;
-  scopes:
-    - punctuation.terminator.case-clause
+    - punctuation.terminator.statement.semicolon
 - source: words
+  scopes:
+    - meta.statement
+    - meta.statement.command
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+- source: ') vwords=words '
+- source: ;
   scopesBegin:
-    - meta.scope.case-pattern
-- source: )
-  scopes:
-    - punctuation.definition.case-pattern
+    - punctuation.terminator.statement.semicolon
+- source: ;
   scopesEnd:
-    - meta.scope.case-pattern
-- source: ' vwords=words '
-  scopes:
-    - meta.scope.case-clause-body
-- source: ;;
-  scopes:
-    - punctuation.terminator.case-clause
+    - punctuation.terminator.statement.semicolon
 - source: '*'
-  scopesBegin:
-    - meta.scope.case-pattern
   scopes:
-    - keyword.operator.glob
-- source: )
-  scopes:
-    - punctuation.definition.case-pattern
-  scopesEnd:
-    - meta.scope.case-pattern
-- source: ' echo '
-  scopesBegin:
-    - meta.scope.case-clause-body
+    - meta.statement
+    - meta.statement.command
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+- source: ') echo '
 - source: '"'
   scopesBegin:
     - string.quoted.double
@@ -45702,23 +45741,21 @@
     - constant.numeric
     - constant.numeric.integer
   scopesEnd:
-    - meta.scope.case-clause-body
     - meta.statement
     - meta.statement.command
-- source: ;;
-  scopes:
-    - punctuation.terminator.case-clause
+- source: ;
+  scopesBegin:
+    - punctuation.terminator.statement.semicolon
+- source: ;
   scopesEnd:
-    - meta.scope.case-body
-    - meta.scope.case-clause
+    - punctuation.terminator.statement.semicolon
 - source: esac
-  scopes:
-    - keyword.control
-  scopesEnd:
-    - meta.scope.case-block
-- source: let
   scopesBegin:
     - meta.statement
+  scopes:
+    - keyword.control.esac
+- source: let
+  scopesBegin:
     - meta.statement.command
   scopes:
     - meta.statement.command.name
@@ -47869,7 +47906,6 @@
     - punctuation.definition.group
     - punctuation.section.function.definition
   scopesEnd:
-    - meta.function
     - meta.function.body
 - source: '#'
   scopesBegin:
@@ -47877,7 +47913,12 @@
   scopes:
     - punctuation.definition.comment
 - source: ' _get_cword()'
+  scopesEnd:
+    - meta.function
+    - comment.line.number-sign
 - source: '#'
+  scopesBegin:
+    - comment.line.number-sign
   scopes:
     - punctuation.definition.comment
 - source: ' Get word previous to the current word.'
@@ -47925,9 +47966,9 @@
     - punctuation.section.function.definition
 - source: if
   scopesBegin:
-    - meta.scope.if-block
+    - meta.statement
   scopes:
-    - keyword.control
+    - keyword.control.if
 - source: '['
   scopesBegin:
     - meta.scope.logical-expression
@@ -47951,6 +47992,7 @@
   scopes:
     - punctuation.definition.logical-expression
   scopesEnd:
+    - meta.statement
     - meta.scope.logical-expression
 - source: ;
   scopes:
@@ -48010,9 +48052,8 @@
     - punctuation.terminator.statement.semicolon
 - source: fi
   scopes:
-    - keyword.control
-  scopesEnd:
-    - meta.scope.if-block
+    - meta.statement
+    - keyword.control.fi
 - source: '}'
   scopes:
     - punctuation.definition.group
@@ -48509,7 +48550,6 @@
     - punctuation.definition.group
     - punctuation.section.function.definition
   scopesEnd:
-    - meta.function
     - meta.function.body
 - source: '#'
   scopesBegin:
@@ -48517,7 +48557,12 @@
   scopes:
     - punctuation.definition.comment
 - source: ' __ltrim_colon_completions()'
+  scopesEnd:
+    - meta.function
+    - comment.line.number-sign
 - source: '#'
+  scopesBegin:
+    - comment.line.number-sign
   scopes:
     - punctuation.definition.comment
 - source: ' This function quotes the argument in a way so that readline dequoting'
@@ -48646,10 +48691,15 @@
     - punctuation.section.function.definition
 - source: if
   scopesBegin:
-    - meta.scope.if-block
+    - meta.statement
   scopes:
-    - keyword.control
-- source: '[['
+    - keyword.control.if
+- source: '['
+  scopesBegin:
+    - meta.scope.logical-expression
+  scopes:
+    - punctuation.definition.logical-expression
+- source: '['
   scopesBegin:
     - meta.scope.logical-expression
   scopes:
@@ -48701,10 +48751,16 @@
     - punctuation.definition.string.end
   scopesEnd:
     - string.quoted.double
-- source: ']]'
+- source: ']'
   scopes:
     - punctuation.definition.logical-expression
   scopesEnd:
+    - meta.scope.logical-expression
+- source: ']'
+  scopes:
+    - punctuation.definition.logical-expression
+  scopesEnd:
+    - meta.statement
     - meta.scope.logical-expression
 - source: ;
   scopes:
@@ -49223,9 +49279,7 @@
     - string.quoted.double
 - source: fi
   scopes:
-    - keyword.control
-  scopesEnd:
-    - meta.scope.if-block
+    - keyword.control.fi
 - source: '#'
   scopesBegin:
     - comment.line.number-sign
@@ -49365,7 +49419,6 @@
     - punctuation.definition.group
     - punctuation.section.function.definition
   scopesEnd:
-    - meta.function
     - meta.function.body
 - source: '#'
   scopesBegin:
@@ -49373,7 +49426,12 @@
   scopes:
     - punctuation.definition.comment
 - source: ' _quote_readline_by_ref()'
+  scopesEnd:
+    - meta.function
+    - comment.line.number-sign
 - source: '#'
+  scopesBegin:
+    - comment.line.number-sign
   scopes:
     - punctuation.definition.comment
 - source: ' This function turns on "-o filenames" behavior dynamically. It is present'
@@ -49813,12 +49871,11 @@
     - punctuation.definition.group
 - source: while
   scopesBegin:
-    - meta.scope.while-loop
+    - meta.statement
   scopes:
-    - keyword.control
+    - keyword.control.while
 - source: read
   scopesBegin:
-    - meta.statement
     - meta.statement.command
   scopes:
     - meta.statement.command.name
@@ -49906,9 +49963,7 @@
     - meta.argument
 - source: done
   scopes:
-    - keyword.control
-  scopesEnd:
-    - meta.scope.while-loop
+    - keyword.control.done
 - source: '}'
   scopes:
     - punctuation.definition.group
@@ -50517,7 +50572,6 @@
     - punctuation.definition.group
     - punctuation.section.function.definition
   scopesEnd:
-    - meta.function
     - meta.function.body
 - source: '#'
   scopesBegin:
@@ -50525,7 +50579,12 @@
   scopes:
     - punctuation.definition.comment
 - source: ' _filedir()'
+  scopesEnd:
+    - meta.function
+    - comment.line.number-sign
 - source: '#'
+  scopesBegin:
+    - comment.line.number-sign
   scopes:
     - punctuation.definition.comment
 - source: ' This function splits $cur=--foo=bar into $prev=--foo, $cur=bar, making it'
@@ -50561,10 +50620,15 @@
     - punctuation.section.function.definition
 - source: if
   scopesBegin:
-    - meta.scope.if-block
+    - meta.statement
   scopes:
-    - keyword.control
-- source: '[['
+    - keyword.control.if
+- source: '['
+  scopesBegin:
+    - meta.scope.logical-expression
+  scopes:
+    - punctuation.definition.logical-expression
+- source: '['
   scopesBegin:
     - meta.scope.logical-expression
   scopes:
@@ -50602,10 +50666,16 @@
 - source: '*'
   scopes:
     - keyword.operator.glob
-- source: ']]'
+- source: ']'
   scopes:
     - punctuation.definition.logical-expression
   scopesEnd:
+    - meta.scope.logical-expression
+- source: ']'
+  scopes:
+    - punctuation.definition.logical-expression
+  scopesEnd:
+    - meta.statement
     - meta.scope.logical-expression
 - source: ;
   scopes:
@@ -50734,9 +50804,7 @@
     - meta.statement.command
 - source: fi
   scopes:
-    - keyword.control
-  scopesEnd:
-    - meta.scope.if-block
+    - keyword.control.fi
 - source: return
   scopesBegin:
     - meta.statement
@@ -51960,9 +52028,9 @@
     - punctuation.section.function.definition
 - source: if
   scopesBegin:
-    - meta.scope.if-block
+    - meta.statement
   scopes:
-    - keyword.control
+    - keyword.control.if
 - source: '['
   scopesBegin:
     - meta.scope.logical-expression
@@ -51976,6 +52044,7 @@
   scopes:
     - punctuation.definition.logical-expression
   scopesEnd:
+    - meta.statement
     - meta.scope.logical-expression
 - source: ;
   scopes:
@@ -52727,9 +52796,7 @@
     - meta.expression.assignment
 - source: fi
   scopes:
-    - keyword.control
-  scopesEnd:
-    - meta.scope.if-block
+    - keyword.control.fi
 - source: '}'
   scopes:
     - punctuation.definition.group
@@ -54160,7 +54227,6 @@
     - punctuation.definition.group
     - punctuation.section.function.definition
   scopesEnd:
-    - meta.function
     - meta.function.body
 - source: '#'
   scopesBegin:
@@ -54168,7 +54234,12 @@
   scopes:
     - punctuation.definition.comment
 - source: ' __expand_tilde_by_ref()'
+  scopesEnd:
+    - meta.function
+    - comment.line.number-sign
 - source: '#'
+  scopesBegin:
+    - comment.line.number-sign
   scopes:
     - punctuation.definition.comment
 - source: ' This function expands tildes in pathnames'
@@ -54652,6 +54723,7 @@
     - punctuation.separator.statement.and
 - source: _pids
   scopesBegin:
+    - meta.statement
     - meta.function
   scopes:
     - entity.name.function
@@ -54762,6 +54834,7 @@
     - punctuation.definition.group
     - punctuation.section.function.definition
   scopesEnd:
+    - meta.statement
     - meta.function
     - meta.function.body
 - source: '|'
@@ -54772,6 +54845,7 @@
     - keyword.operator.pipe
 - source: _pids
   scopesBegin:
+    - meta.statement
     - meta.function
   scopes:
     - entity.name.function
@@ -54882,6 +54956,7 @@
     - punctuation.definition.group
     - punctuation.section.function.definition
   scopesEnd:
+    - meta.statement
     - meta.function
     - meta.function.body
 - source: '#'
@@ -54936,6 +55011,7 @@
     - punctuation.separator.statement.and
 - source: _pgids
   scopesBegin:
+    - meta.statement
     - meta.function
   scopes:
     - entity.name.function
@@ -55046,6 +55122,7 @@
     - punctuation.definition.group
     - punctuation.section.function.definition
   scopesEnd:
+    - meta.statement
     - meta.function
     - meta.function.body
 - source: '|'
@@ -55056,6 +55133,7 @@
     - keyword.operator.pipe
 - source: _pgids
   scopesBegin:
+    - meta.statement
     - meta.function
   scopes:
     - entity.name.function
@@ -55166,6 +55244,7 @@
     - punctuation.definition.group
     - punctuation.section.function.definition
   scopesEnd:
+    - meta.statement
     - meta.function
     - meta.function.body
 - source: '#'
@@ -55220,6 +55299,7 @@
     - punctuation.separator.statement.and
 - source: _pnames
   scopesBegin:
+    - meta.statement
     - meta.function
   scopes:
     - entity.name.function
@@ -55354,6 +55434,7 @@
     - punctuation.definition.group
     - punctuation.section.function.definition
   scopesEnd:
+    - meta.statement
     - meta.function
     - meta.function.body
 - source: '|'
@@ -55364,6 +55445,7 @@
     - keyword.operator.pipe
 - source: _pnames
   scopesBegin:
+    - meta.statement
     - meta.function
   scopes:
     - entity.name.function
@@ -55535,6 +55617,7 @@
     - punctuation.definition.group
     - punctuation.section.function.definition
   scopesEnd:
+    - meta.statement
     - meta.function
     - meta.function.body
 - source: '#'
@@ -55567,12 +55650,11 @@
     - punctuation.section.function.definition
 - source: if
   scopesBegin:
-    - meta.scope.if-block
+    - meta.statement
   scopes:
-    - keyword.control
+    - keyword.control.if
 - source: type
   scopesBegin:
-    - meta.statement
     - meta.statement.command
   scopes:
     - meta.statement.command.name
@@ -55958,9 +56040,7 @@
     - meta.expression.assignment
 - source: fi
   scopes:
-    - keyword.control
-  scopesEnd:
-    - meta.scope.if-block
+    - keyword.control.fi
 - source: '}'
   scopes:
     - punctuation.definition.group
@@ -55998,12 +56078,11 @@
     - punctuation.section.function.definition
 - source: if
   scopesBegin:
-    - meta.scope.if-block
+    - meta.statement
   scopes:
-    - keyword.control
+    - keyword.control.if
 - source: type
   scopesBegin:
-    - meta.statement
     - meta.statement.command
   scopes:
     - meta.statement.command.name
@@ -56393,9 +56472,7 @@
     - meta.expression.assignment
 - source: fi
   scopes:
-    - keyword.control
-  scopesEnd:
-    - meta.scope.if-block
+    - keyword.control.fi
 - source: '}'
   scopes:
     - punctuation.definition.group
@@ -57421,10 +57498,15 @@
     - punctuation.section.function.definition
 - source: if
   scopesBegin:
-    - meta.scope.if-block
+    - meta.statement
   scopes:
-    - keyword.control
-- source: '[['
+    - keyword.control.if
+- source: '['
+  scopesBegin:
+    - meta.scope.logical-expression
+  scopes:
+    - punctuation.definition.logical-expression
+- source: '['
   scopesBegin:
     - meta.scope.logical-expression
   scopes:
@@ -57475,10 +57557,16 @@
 - source: '*'
   scopes:
     - keyword.operator.glob
-- source: ']]'
+- source: ']'
   scopes:
     - punctuation.definition.logical-expression
   scopesEnd:
+    - meta.scope.logical-expression
+- source: ']'
+  scopes:
+    - punctuation.definition.logical-expression
+  scopesEnd:
+    - meta.statement
     - meta.scope.logical-expression
 - source: ;
   scopes:
@@ -58436,9 +58524,7 @@
     - meta.scope.if-block
 - source: fi
   scopes:
-    - keyword.control
-  scopesEnd:
-    - meta.scope.if-block
+    - keyword.control.fi
 - source: '}'
   scopes:
     - punctuation.definition.group
@@ -58462,16 +58548,17 @@
     - punctuation.section.function.definition
 - source: if
   scopesBegin:
-    - meta.scope.if-block
+    - meta.statement
   scopes:
-    - keyword.control
+    - keyword.control.if
 - source: _complete_as_root
   scopes:
-    - meta.statement
     - meta.statement.command
     - meta.statement.command.name
     - entity.name.function.call
     - entity.name.command
+  scopesEnd:
+    - meta.statement
 - source: ;
   scopes:
     - punctuation.terminator.statement.semicolon
@@ -58813,9 +58900,7 @@
     - meta.expression.assignment
 - source: fi
   scopes:
-    - keyword.control
-  scopesEnd:
-    - meta.scope.if-block
+    - keyword.control.fi
 - source: '}'
   scopes:
     - punctuation.definition.group
@@ -58839,16 +58924,17 @@
     - punctuation.section.function.definition
 - source: if
   scopesBegin:
-    - meta.scope.if-block
+    - meta.statement
   scopes:
-    - keyword.control
+    - keyword.control.if
 - source: _complete_as_root
   scopes:
-    - meta.statement
     - meta.statement.command
     - meta.statement.command.name
     - entity.name.function.call
     - entity.name.command
+  scopesEnd:
+    - meta.statement
 - source: ;
   scopes:
     - punctuation.terminator.statement.semicolon
@@ -59142,9 +59228,7 @@
     - meta.expression.assignment
 - source: fi
   scopes:
-    - keyword.control
-  scopesEnd:
-    - meta.scope.if-block
+    - keyword.control.fi
 - source: '}'
   scopes:
     - punctuation.definition.group
@@ -60041,12 +60125,11 @@
     - punctuation.definition.group
 - source: if
   scopesBegin:
-    - meta.scope.if-block
+    - meta.statement
   scopes:
-    - keyword.control
+    - keyword.control.if
 - source: type
   scopesBegin:
-    - meta.statement
     - meta.statement.command
   scopes:
     - meta.statement.command.name
@@ -60316,9 +60399,7 @@
     - string.quoted.double
 - source: fi
   scopes:
-    - keyword.control
-  scopesEnd:
-    - meta.scope.if-block
+    - keyword.control.fi
 - source: '}'
   scopes:
     - punctuation.definition.group
@@ -62384,7 +62465,6 @@
     - punctuation.definition.group
     - punctuation.section.function.definition
   scopesEnd:
-    - meta.function
     - meta.function.body
 - source: '#'
   scopesBegin:
@@ -62392,7 +62472,12 @@
   scopes:
     - punctuation.definition.comment
 - source: ' _known_hosts()'
+  scopesEnd:
+    - meta.function
+    - comment.line.number-sign
 - source: '#'
+  scopesBegin:
+    - comment.line.number-sign
   scopes:
     - punctuation.definition.comment
 - source: ' Helper function for completing _known_hosts.'
@@ -66682,7 +66767,6 @@
     - punctuation.definition.group
     - punctuation.section.function.definition
   scopesEnd:
-    - meta.function
     - meta.function.body
 - source: '#'
   scopesBegin:
@@ -66691,6 +66775,7 @@
     - punctuation.definition.comment
 - source: ' _known_hosts_real()'
   scopesEnd:
+    - meta.function
     - comment.line.number-sign
 - source: complete
   scopesBegin:
@@ -68946,13 +69031,12 @@
   scopes:
     - punctuation.terminator.statement.semicolon
 - source: done
-  scopes:
-    - keyword.control
-  scopesEnd:
-    - meta.scope.for-loop
-- source: COMP_CWORD
   scopesBegin:
     - meta.statement
+  scopes:
+    - keyword.control.done
+- source: COMP_CWORD
+  scopesBegin:
     - meta.expression.assignment
   scopes:
     - variable.other.assignment
@@ -69697,9 +69781,9 @@
     - comment.line.number-sign
 - source: if
   scopesBegin:
-    - meta.scope.if-block
+    - meta.statement
   scopes:
-    - keyword.control
+    - keyword.control.if
 - source: '['
   scopesBegin:
     - meta.scope.logical-expression
@@ -69766,6 +69850,7 @@
   scopes:
     - punctuation.definition.logical-expression
   scopesEnd:
+    - meta.statement
     - meta.scope.logical-expression
 - source: ;
   scopes:
@@ -70226,9 +70311,8 @@
     - punctuation.terminator.statement.semicolon
 - source: fi
   scopes:
-    - keyword.control
-  scopesEnd:
-    - meta.scope.if-block
+    - meta.statement
+    - keyword.control.fi
 - source: elif
   scopes:
     - keyword.control.elif
@@ -70301,15 +70385,10 @@
   scopesEnd:
     - meta.scope.if-block
 - source: '}'
-  scopes:
-    - punctuation.definition.group
-    - punctuation.section.function.definition
-  scopesEnd:
-    - meta.function
-    - meta.function.body
-- source: complete
   scopesBegin:
     - meta.statement
+- source: complete
+  scopesBegin:
     - meta.statement.command
   scopes:
     - meta.statement.command.name
@@ -71881,12 +71960,11 @@
     - punctuation.definition.group
 - source: while
   scopesBegin:
-    - meta.scope.while-loop
+    - meta.statement
   scopes:
-    - keyword.control
+    - keyword.control.while
 - source: read
   scopesBegin:
-    - meta.statement
     - meta.statement.command
   scopes:
     - meta.statement.command.name
@@ -71958,9 +72036,7 @@
     - meta.argument
 - source: done
   scopes:
-    - keyword.control
-  scopesEnd:
-    - meta.scope.while-loop
+    - keyword.control.done
 - source: '}'
   scopes:
     - punctuation.definition.group
@@ -72041,14 +72117,16 @@
   scopes:
     - string.unquoted.argument
   scopesEnd:
-    - meta.statement
     - meta.expression.assignment
 - source: if
-  scopesBegin:
-    - meta.scope.if-block
   scopes:
-    - keyword.control
-- source: '[['
+    - keyword.control.if
+- source: '['
+  scopesBegin:
+    - meta.scope.logical-expression
+  scopes:
+    - punctuation.definition.logical-expression
+- source: '['
   scopesBegin:
     - meta.scope.logical-expression
   scopes:
@@ -72069,10 +72147,16 @@
 - source: '*'
   scopes:
     - keyword.operator.glob
-- source: ']]'
+- source: ']'
   scopes:
     - punctuation.definition.logical-expression
   scopesEnd:
+    - meta.scope.logical-expression
+- source: ']'
+  scopes:
+    - punctuation.definition.logical-expression
+  scopesEnd:
+    - meta.statement
     - meta.scope.logical-expression
 - source: ;
   scopes:
@@ -72126,9 +72210,7 @@
     - meta.expression.assignment
 - source: fi
   scopes:
-    - keyword.control
-  scopesEnd:
-    - meta.scope.if-block
+    - keyword.control.fi
 - source: '['
   scopesBegin:
     - meta.statement
@@ -72507,12 +72589,11 @@
     - punctuation.definition.group
 - source: while
   scopesBegin:
-    - meta.scope.while-loop
+    - meta.statement
   scopes:
-    - keyword.control
+    - keyword.control.while
 - source: read
   scopesBegin:
-    - meta.statement
     - meta.statement.command
   scopes:
     - meta.statement.command.name
@@ -72601,9 +72682,7 @@
     - meta.argument
 - source: done
   scopes:
-    - keyword.control
-  scopesEnd:
-    - meta.scope.while-loop
+    - keyword.control.done
 - source: '}'
   scopes:
     - punctuation.definition.group
@@ -72825,12 +72904,11 @@
     - punctuation.definition.subshell
 - source: while
   scopesBegin:
-    - meta.scope.while-loop
+    - meta.statement
   scopes:
-    - keyword.control
+    - keyword.control.while
 - source: read
   scopesBegin:
-    - meta.statement
     - meta.statement.command
   scopes:
     - meta.statement.command.name
@@ -73114,9 +73192,7 @@
     - meta.expression.assignment
 - source: done
   scopes:
-    - keyword.control
-  scopesEnd:
-    - meta.scope.while-loop
+    - keyword.control.done
 - source: printf
   scopesBegin:
     - meta.statement
@@ -74841,9 +74917,9 @@
     - punctuation.section.function.definition
 - source: if
   scopesBegin:
-    - meta.scope.if-block
+    - meta.statement
   scopes:
-    - keyword.control
+    - keyword.control.if
 - source: '['
   scopesBegin:
     - meta.scope.logical-expression
@@ -74873,6 +74949,7 @@
   scopes:
     - punctuation.definition.logical-expression
   scopesEnd:
+    - meta.statement
     - meta.scope.logical-expression
 - source: ;
   scopes:
@@ -75069,9 +75146,7 @@
     - string.interpolated.dollar
 - source: fi
   scopes:
-    - keyword.control
-  scopesEnd:
-    - meta.scope.if-block
+    - keyword.control.fi
 - source: echo
   scopesBegin:
     - meta.statement
@@ -76755,12 +76830,11 @@
     - punctuation.section.function.definition
 - source: if
   scopesBegin:
-    - meta.scope.if-block
+    - meta.statement
   scopes:
-    - keyword.control
+    - keyword.control.if
 - source: test
   scopesBegin:
-    - meta.statement
     - meta.statement.command
   scopes:
     - meta.statement.command.name
@@ -76898,9 +76972,7 @@
     - string.quoted.double
 - source: fi
   scopes:
-    - keyword.control
-  scopesEnd:
-    - meta.scope.if-block
+    - keyword.control.fi
 - source: '}'
   scopes:
     - punctuation.definition.group
@@ -88283,6 +88355,7 @@
     - punctuation.section.function.definition
 - source: get_shim_versions
   scopesBegin:
+    - meta.statement
     - meta.function
   scopes:
     - entity.name.function
@@ -88445,8 +88518,12 @@
     - punctuation.definition.group
     - punctuation.section.function.definition
   scopesEnd:
+    - meta.statement
+    - meta.function
     - meta.function.body
 - source: preset_versions
+  scopesBegin:
+    - meta.function
   scopes:
     - entity.name.function
 - source: (

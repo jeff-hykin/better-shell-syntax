@@ -17,6 +17,7 @@
     - punctuation.section.function.definition
 - source: extract_nix_profile_injection
   scopesBegin:
+    - meta.statement
     - meta.function
   scopes:
     - entity.name.function
@@ -1007,8 +1008,12 @@
     - punctuation.definition.group
     - punctuation.section.function.definition
   scopesEnd:
+    - meta.statement
+    - meta.function
     - meta.function.body
 - source: restore_profile
+  scopesBegin:
+    - meta.function
   scopes:
     - entity.name.function
 - source: (

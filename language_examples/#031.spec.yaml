@@ -14,9 +14,9 @@
     - punctuation.definition.evaluation.parens.begin
 - source: for
   scopesBegin:
-    - meta.scope.for-loop
+    - meta.statement
   scopes:
-    - keyword.control
+    - keyword.control.for
 - source: ((
   scopesBegin:
     - meta.arithmetic
@@ -77,6 +77,7 @@
   scopes:
     - punctuation.section.arithmetic
   scopesEnd:
+    - meta.statement
     - meta.arithmetic
 - source: ;
   scopes:
@@ -97,7 +98,6 @@
   scopes:
     - punctuation.definition.group
   scopesEnd:
-    - meta.scope.for-loop
     - meta.scope.group
 - source: )
   scopes:
@@ -130,9 +130,9 @@
     - punctuation.definition.evaluation.parens.begin
 - source: for
   scopesBegin:
-    - meta.scope.for-loop
+    - meta.statement
   scopes:
-    - keyword.control
+    - keyword.control.for
 - source: ((
   scopesBegin:
     - meta.arithmetic
@@ -193,6 +193,7 @@
   scopes:
     - punctuation.section.arithmetic
   scopesEnd:
+    - meta.statement
     - meta.arithmetic
 - source: ;
   scopes:
@@ -209,9 +210,7 @@
     - entity.name.command
 - source: done
   scopes:
-    - keyword.control
-  scopesEnd:
-    - meta.scope.for-loop
+    - keyword.control.done
 - source: )
   scopes:
     - punctuation.definition.evaluation.parens.end

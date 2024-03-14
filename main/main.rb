@@ -204,8 +204,6 @@ require_relative './tokens.rb'
         ).or(
             match: /&/,
             tag_as: "punctuation.separator.statement.background"
-        ).or(
-            /\n/
         )
     statement_end = /[|&;]/
     
@@ -283,6 +281,7 @@ require_relative './tokens.rb'
                     :initial_context,
                 ],
             ),
+            :initial_context,
         ],
     )
     

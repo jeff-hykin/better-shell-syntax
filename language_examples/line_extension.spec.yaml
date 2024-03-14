@@ -1,0 +1,67 @@
+- source: sudo
+  scopesBegin:
+    - meta.statement
+    - meta.statement.command
+  scopes:
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+- source: apt-get
+  scopesBegin:
+    - meta.argument
+    - string.unquoted.argument
+- source: update
+  scopesEnd:
+    - meta.statement
+    - meta.statement.command
+    - meta.argument
+    - string.unquoted.argument
+- source: '&&'
+  scopes:
+    - punctuation.separator.statement.and
+- source: sudo
+  scopesBegin:
+    - meta.statement
+    - meta.statement.command
+  scopes:
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+- source: apt-get
+  scopesBegin:
+    - meta.argument
+    - string.unquoted.argument
+- source: install
+  scopesEnd:
+    - meta.argument
+    - string.unquoted.argument
+- source: '-'
+  scopesBegin:
+    - string.unquoted.argument
+  scopes:
+    - constant.other.option.dash
+- source: 'y'
+  scopes:
+    - constant.other.option
+  scopesEnd:
+    - string.unquoted.argument
+- source: \
+  scopesBegin:
+    - meta.argument
+  scopes:
+    - constant.character.escape.line-continuation
+- source: node
+  scopes:
+    - string.unquoted.argument
+- source: \
+  scopes:
+    - constant.character.escape.line-continuation
+- source: something
+  scopes:
+    - string.unquoted.argument
+- source: \
+  scopes:
+    - constant.character.escape.line-continuation
+- source: somthin-somethin
+  scopes:
+    - string.unquoted.argument

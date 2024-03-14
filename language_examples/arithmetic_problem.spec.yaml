@@ -158,11 +158,12 @@
   scopes:
     - punctuation.terminator.statement.semicolon
 - source: do
+  scopesBegin:
+    - meta.statement
   scopes:
     - keyword.control.do
 - source: xcode-select
   scopesBegin:
-    - meta.statement
     - meta.statement.command
   scopes:
     - meta.statement.command.name

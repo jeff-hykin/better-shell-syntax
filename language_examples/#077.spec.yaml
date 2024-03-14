@@ -1,0 +1,973 @@
+- source: '#'
+  scopesBegin:
+    - comment.line.number-sign
+  scopes:
+    - punctuation.definition.comment
+- source: ' Use fd (https://github.com/sharkdp/fd) instead of the default find'
+- source: '#'
+  scopes:
+    - punctuation.definition.comment
+- source: ' command for listing path candidates.'
+- source: '#'
+  scopes:
+    - punctuation.definition.comment
+- source: ' - The first argument to the function ($1) is the base path to start traversal'
+- source: '#'
+  scopes:
+    - punctuation.definition.comment
+- source: ' - See the source code (completion.{bash,zsh}) for the details.'
+  scopesEnd:
+    - comment.line.number-sign
+- source: _fzf_compgen_path
+  scopesBegin:
+    - meta.function
+  scopes:
+    - entity.name.function
+- source: (
+  scopesBegin:
+    - punctuation.definition.arguments
+- source: )
+  scopesEnd:
+    - punctuation.definition.arguments
+- source: '{'
+  scopesBegin:
+    - meta.function.body
+  scopes:
+    - punctuation.definition.group
+    - punctuation.section.function.definition
+- source: fd
+  scopesBegin:
+    - meta.statement
+    - meta.statement.command
+  scopes:
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+- source: '-'
+  scopesBegin:
+    - string.unquoted.argument
+  scopes:
+    - constant.other.option.dash
+- source: '-hidden'
+  scopes:
+    - constant.other.option
+- source: '-'
+  scopes:
+    - constant.other.option.dash
+- source: '-follow'
+  scopes:
+    - constant.other.option
+- source: '-'
+  scopes:
+    - constant.other.option.dash
+- source: '-exclude'
+  scopes:
+    - constant.other.option
+  scopesEnd:
+    - string.unquoted.argument
+- source: '"'
+  scopesBegin:
+    - meta.argument
+    - string.quoted.double
+  scopes:
+    - punctuation.definition.string.begin
+- source: .git
+- source: '"'
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - string.quoted.double
+- source: .
+  scopes:
+    - string.unquoted.argument
+- source: '"'
+  scopesBegin:
+    - string.quoted.double
+  scopes:
+    - punctuation.definition.string.begin
+- source: $
+  scopes:
+    - punctuation.definition.variable
+    - variable.parameter.positional
+- source: '1'
+  scopes:
+    - variable.parameter.positional
+- source: '"'
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - meta.statement
+    - meta.statement.command
+    - meta.argument
+    - string.quoted.double
+- source: '}'
+  scopes:
+    - punctuation.definition.group
+    - punctuation.section.function.definition
+  scopesEnd:
+    - meta.function
+    - meta.function.body
+- source: '#'
+  scopesBegin:
+    - comment.line.number-sign
+  scopes:
+    - punctuation.definition.comment
+- source: ' Use fd to generate the list for directory completion'
+  scopesEnd:
+    - comment.line.number-sign
+- source: _fzf_compgen_dir
+  scopesBegin:
+    - meta.function
+  scopes:
+    - entity.name.function
+- source: (
+  scopesBegin:
+    - punctuation.definition.arguments
+- source: )
+  scopesEnd:
+    - punctuation.definition.arguments
+- source: '{'
+  scopesBegin:
+    - meta.function.body
+  scopes:
+    - punctuation.definition.group
+    - punctuation.section.function.definition
+- source: fd
+  scopesBegin:
+    - meta.statement
+    - meta.statement.command
+  scopes:
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+- source: '-'
+  scopesBegin:
+    - string.unquoted.argument
+  scopes:
+    - constant.other.option.dash
+- source: '-type'
+  scopes:
+    - constant.other.option
+  scopesEnd:
+    - string.unquoted.argument
+- source: d
+  scopes:
+    - meta.argument
+    - string.unquoted.argument
+- source: '-'
+  scopesBegin:
+    - string.unquoted.argument
+  scopes:
+    - constant.other.option.dash
+- source: '-hidden'
+  scopes:
+    - constant.other.option
+- source: '-'
+  scopes:
+    - constant.other.option.dash
+- source: '-follow'
+  scopes:
+    - constant.other.option
+- source: '-'
+  scopes:
+    - constant.other.option.dash
+- source: '-exclude'
+  scopes:
+    - constant.other.option
+  scopesEnd:
+    - string.unquoted.argument
+- source: '"'
+  scopesBegin:
+    - meta.argument
+    - string.quoted.double
+  scopes:
+    - punctuation.definition.string.begin
+- source: .git
+- source: '"'
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - string.quoted.double
+- source: .
+  scopes:
+    - string.unquoted.argument
+- source: '"'
+  scopesBegin:
+    - string.quoted.double
+  scopes:
+    - punctuation.definition.string.begin
+- source: $
+  scopes:
+    - punctuation.definition.variable
+    - variable.parameter.positional
+- source: '1'
+  scopes:
+    - variable.parameter.positional
+- source: '"'
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - meta.statement
+    - meta.statement.command
+    - meta.argument
+    - string.quoted.double
+- source: '}'
+  scopes:
+    - punctuation.definition.group
+    - punctuation.section.function.definition
+  scopesEnd:
+    - meta.function
+    - meta.function.body
+- source: '#'
+  scopesBegin:
+    - comment.line.number-sign
+  scopes:
+    - punctuation.definition.comment
+- source: ' export NVM_DIR="$HOME/.config/nvm"'
+- source: '#'
+  scopes:
+    - punctuation.definition.comment
+- source: ' [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm'
+- source: '#'
+  scopes:
+    - punctuation.definition.comment
+- source: ' [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion'
+- source: '#'
+  scopes:
+    - punctuation.definition.comment
+- source: ' Use fd and fzf to get the args to a command.'
+- source: '#'
+  scopes:
+    - punctuation.definition.comment
+- source: ' Works only with zsh'
+- source: '#'
+  scopes:
+    - punctuation.definition.comment
+- source: ' Examples:'
+- source: '#'
+  scopes:
+    - punctuation.definition.comment
+- source: ' f mv # To move files. You can write the destination after selecting the files.'
+- source: '#'
+  scopes:
+    - punctuation.definition.comment
+- source: ' f ''echo Selected:'''
+- source: '#'
+  scopes:
+    - punctuation.definition.comment
+- source: ' f ''echo Selected music:'' --extension mp3'
+- source: '#'
+  scopes:
+    - punctuation.definition.comment
+- source: ' fm rm # To rm files in current directory'
+  scopesEnd:
+    - comment.line.number-sign
+- source: f
+  scopesBegin:
+    - meta.function
+  scopes:
+    - entity.name.function
+- source: (
+  scopesBegin:
+    - punctuation.definition.arguments
+- source: )
+  scopesEnd:
+    - punctuation.definition.arguments
+- source: '{'
+  scopesBegin:
+    - meta.function.body
+  scopes:
+    - punctuation.definition.group
+    - punctuation.section.function.definition
+- source: sels
+  scopesBegin:
+    - meta.statement
+    - meta.expression.assignment
+  scopes:
+    - variable.other.assignment
+- source: '='
+  scopes:
+    - keyword.operator.assignment
+- source: (
+  scopes:
+    - punctuation
+- source: '"'
+  scopesBegin:
+    - string.quoted.double
+  scopes:
+    - punctuation.definition.string.begin
+- source: $
+  scopes:
+    - punctuation.definition.variable
+- source: '{'
+  scopes:
+    - punctuation.section.bracket.curly.variable.begin
+    - punctuation.definition.variable
+- source: (
+  scopesBegin:
+    - meta.parameter-expansion
+- source: '@'
+  scopes:
+    - keyword.operator.expansion
+- source: f
+  scopes:
+    - variable.other.normal
+- source: )$(
+- source: fd
+  scopes:
+    - variable.other.normal
+- source: '"'
+  scopesBegin:
+    - string.quoted.double
+  scopes:
+    - punctuation.definition.string.begin
+- source: $
+  scopes:
+    - punctuation.definition.variable
+- source: '{'
+  scopes:
+    - punctuation.section.bracket.curly.variable.begin
+    - punctuation.definition.variable
+- source: fd_default
+  scopesBegin:
+    - meta.parameter-expansion
+  scopes:
+    - variable.other.normal
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
+  scopesEnd:
+    - meta.parameter-expansion
+- source: '}'
+  scopes:
+    - punctuation.section.bracket.curly.variable.end
+    - punctuation.definition.variable
+- source: '"'
+  scopes:
+    - punctuation.definition.string.end
+- source: '"'
+  scopes:
+    - punctuation.definition.string.begin
+- source: $
+  scopes:
+    - punctuation.definition.variable
+- source: '{'
+  scopes:
+    - punctuation.section.bracket.curly.variable.begin
+    - punctuation.definition.variable
+- source: '@'
+  scopesBegin:
+    - meta.parameter-expansion
+    - keyword.operator.expansion
+- source: ':'
+  scopesEnd:
+    - keyword.operator.expansion
+- source: '2'
+  scopes:
+    - variable.other.normal
+  scopesEnd:
+    - meta.parameter-expansion
+- source: '}'
+  scopes:
+    - punctuation.section.bracket.curly.variable.end
+    - punctuation.definition.variable
+- source: '"'
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - string.quoted.double
+- source: '| '
+- source: fzf
+  scopes:
+    - variable.other.normal
+- source: )
+  scopesEnd:
+    - meta.parameter-expansion
+- source: '}'
+  scopes:
+    - punctuation.section.bracket.curly.variable.end
+    - punctuation.definition.variable
+- source: '"'
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - string.quoted.double
+- source: )
+  scopes:
+    - punctuation
+  scopesEnd:
+    - meta.expression.assignment
+- source: test
+  scopesBegin:
+    - meta.statement.command
+  scopes:
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+    - support.function.builtin
+- source: '-'
+  scopesBegin:
+    - string.unquoted.argument
+  scopes:
+    - constant.other.option.dash
+- source: 'n'
+  scopes:
+    - constant.other.option
+  scopesEnd:
+    - string.unquoted.argument
+- source: '"'
+  scopesBegin:
+    - meta.argument
+    - string.quoted.double
+  scopes:
+    - punctuation.definition.string.begin
+- source: $
+  scopes:
+    - punctuation.definition.variable
+    - variable.other.normal
+- source: sels
+  scopes:
+    - variable.other.normal
+- source: '"'
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - meta.statement
+    - meta.statement.command
+    - meta.argument
+    - string.quoted.double
+- source: '&&'
+  scopes:
+    - punctuation.separator.statement.and
+- source: print
+  scopesBegin:
+    - meta.statement
+    - meta.statement.command
+  scopes:
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+    - support.function.builtin
+- source: '-'
+  scopesBegin:
+    - string.unquoted.argument
+  scopes:
+    - constant.other.option.dash
+- source: z
+  scopes:
+    - constant.other.option
+- source: '-'
+  scopes:
+    - constant.other.option.dash
+- source: '-'
+  scopes:
+    - constant.other.option
+  scopesEnd:
+    - string.unquoted.argument
+- source: '"'
+  scopesBegin:
+    - meta.argument
+    - string.quoted.double
+  scopes:
+    - punctuation.definition.string.begin
+- source: $
+  scopes:
+    - punctuation.definition.variable
+    - variable.parameter.positional
+- source: '1'
+  scopes:
+    - variable.parameter.positional
+- source: $
+  scopes:
+    - punctuation.definition.variable
+- source: '{'
+  scopes:
+    - punctuation.section.bracket.curly.variable.begin
+    - punctuation.definition.variable
+- source: sels
+  scopesBegin:
+    - meta.parameter-expansion
+  scopes:
+    - variable.other.normal
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
+- source: ':'
+  scopes:
+    - keyword.operator.expansion
+- source: q
+  scopes:
+    - variable.other.normal
+- source: ':'
+  scopes:
+    - keyword.operator.expansion
+- source: q
+  scopes:
+    - variable.other.normal
+  scopesEnd:
+    - meta.parameter-expansion
+- source: '}'
+  scopes:
+    - punctuation.section.bracket.curly.variable.end
+    - punctuation.definition.variable
+- source: '"'
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - meta.statement
+    - meta.statement.command
+    - meta.argument
+    - string.quoted.double
+- source: '}'
+  scopes:
+    - punctuation.definition.group
+    - punctuation.section.function.definition
+  scopesEnd:
+    - meta.function
+    - meta.function.body
+- source: '#'
+  scopesBegin:
+    - comment.line.number-sign
+  scopes:
+    - punctuation.definition.comment
+- source: ' Like f, but not recursive.'
+  scopesEnd:
+    - comment.line.number-sign
+- source: fm
+  scopesBegin:
+    - meta.function
+  scopes:
+    - entity.name.function
+- source: (
+  scopesBegin:
+    - punctuation.definition.arguments
+- source: )
+  scopesEnd:
+    - punctuation.definition.arguments
+- source: 'f '
+- source: '"'
+  scopesBegin:
+    - string.quoted.double
+  scopes:
+    - punctuation.definition.string.begin
+- source: $
+  scopes:
+    - punctuation.definition.variable
+    - variable.parameter.positional.all
+- source: '@'
+  scopes:
+    - variable.parameter.positional.all
+- source: '"'
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - string.quoted.double
+- source: ' --max-depth 1'
+- source: '#'
+  scopesBegin:
+    - comment.line.number-sign
+  scopes:
+    - punctuation.definition.comment
+- source: ' Deps'
+  scopesEnd:
+    - comment.line.number-sign
+- source: alias
+  scopesBegin:
+    - meta.expression.assignment
+  scopes:
+    - storage.type.alias
+- source: fz
+  scopes:
+    - variable.other.assignment
+- source: '='
+  scopes:
+    - keyword.operator.assignment
+- source: '"'
+  scopesBegin:
+    - string.quoted.double
+  scopes:
+    - punctuation.definition.string.begin
+- source: >-
+    fzf-noempty --bind
+    'tab:toggle,shift-tab:toggle+beginning-of-line+kill-line,ctrl-j:toggle+beginning-of-line+kill-line,ctrl-t:top'
+    --color=light -1 -m
+- source: '"'
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - meta.expression.assignment
+    - string.quoted.double
+- source: fzf-noempty
+  scopesBegin:
+    - meta.function
+  scopes:
+    - entity.name.function
+- source: (
+  scopesBegin:
+    - punctuation.definition.arguments
+- source: )
+  scopesEnd:
+    - punctuation.definition.arguments
+- source: '{'
+  scopesBegin:
+    - meta.function.body
+  scopes:
+    - punctuation.definition.group
+    - punctuation.section.function.definition
+- source: local
+  scopesBegin:
+    - meta.statement
+    - meta.expression.assignment
+  scopes:
+    - storage.modifier.local
+- source: in
+  scopes:
+    - variable.other.assignment
+- source: '='
+  scopes:
+    - keyword.operator.assignment
+- source: '"'
+  scopesBegin:
+    - string.quoted.double
+  scopes:
+    - punctuation.definition.string.begin
+- source: $(
+  scopesBegin:
+    - string.interpolated.dollar
+  scopes:
+    - punctuation.definition.evaluation.parens.begin
+- source: <
+  scopes:
+    - keyword.operator.redirect
+- source: /dev/stdin
+- source: )
+  scopes:
+    - punctuation.definition.evaluation.parens.end
+  scopesEnd:
+    - string.interpolated.dollar
+- source: '"'
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - meta.expression.assignment
+    - string.quoted.double
+- source: test
+  scopesBegin:
+    - meta.statement.command
+  scopes:
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+    - support.function.builtin
+- source: '-'
+  scopesBegin:
+    - string.unquoted.argument
+  scopes:
+    - constant.other.option.dash
+- source: z
+  scopes:
+    - constant.other.option
+  scopesEnd:
+    - string.unquoted.argument
+- source: '"'
+  scopesBegin:
+    - meta.argument
+    - string.quoted.double
+  scopes:
+    - punctuation.definition.string.begin
+- source: $
+  scopes:
+    - punctuation.definition.variable
+    - variable.other.normal
+- source: in
+  scopes:
+    - variable.other.normal
+- source: '"'
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - meta.statement
+    - meta.statement.command
+    - meta.argument
+    - string.quoted.double
+- source: '&&'
+  scopes:
+    - punctuation.separator.statement.and
+- source: (
+  scopesBegin:
+    - meta.statement
+    - meta.scope.subshell
+  scopes:
+    - punctuation.definition.subshell
+- source: exit
+  scopesBegin:
+    - meta.statement
+    - meta.statement.command
+  scopes:
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+    - support.function.builtin
+- source: '130'
+  scopes:
+    - meta.argument
+    - string.unquoted.argument
+    - constant.numeric
+    - constant.numeric.integer
+  scopesEnd:
+    - meta.statement
+    - meta.statement.command
+- source: )
+  scopes:
+    - punctuation.definition.subshell
+  scopesEnd:
+    - meta.statement
+    - meta.scope.subshell
+- source: '|'
+  scopesBegin:
+    - keyword.operator.pipe
+- source: '|'
+  scopesEnd:
+    - keyword.operator.pipe
+- source: '{'
+  scopesBegin:
+    - meta.scope.group
+  scopes:
+    - punctuation.definition.group
+- source: ec
+  scopesBegin:
+    - meta.statement
+    - meta.statement.command
+  scopes:
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+- source: '"'
+  scopesBegin:
+    - meta.argument
+    - string.quoted.double
+  scopes:
+    - punctuation.definition.string.begin
+- source: $
+  scopes:
+    - punctuation.definition.variable
+    - variable.other.normal
+- source: in
+  scopes:
+    - variable.other.normal
+- source: '"'
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - meta.statement
+    - meta.statement.command
+    - meta.argument
+    - string.quoted.double
+- source: '|'
+  scopes:
+    - keyword.operator.pipe
+- source: fzf
+  scopesBegin:
+    - meta.statement
+    - meta.statement.command
+  scopes:
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+- source: '"'
+  scopesBegin:
+    - meta.argument
+    - string.quoted.double
+  scopes:
+    - punctuation.definition.string.begin
+- source: $
+  scopes:
+    - punctuation.definition.variable
+    - variable.parameter.positional.all
+- source: '@'
+  scopes:
+    - variable.parameter.positional.all
+- source: '"'
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - meta.statement
+    - meta.statement.command
+    - meta.argument
+    - string.quoted.double
+- source: '}'
+  scopes:
+    - punctuation.definition.group
+  scopesEnd:
+    - meta.scope.group
+- source: '}'
+  scopes:
+    - punctuation.definition.group
+    - punctuation.section.function.definition
+  scopesEnd:
+    - meta.function
+    - meta.function.body
+- source: ec
+  scopes:
+    - entity.name.function
+- source: (
+  scopesBegin:
+    - punctuation.definition.arguments
+- source: )
+  scopesEnd:
+    - punctuation.definition.arguments
+- source: '{'
+  scopesBegin:
+    - meta.function.body
+  scopes:
+    - punctuation.definition.group
+    - punctuation.section.function.definition
+- source: if
+  scopesBegin:
+    - meta.statement
+  scopes:
+    - keyword.control.if
+- source: '['
+  scopesBegin:
+    - meta.scope.logical-expression
+  scopes:
+    - punctuation.definition.logical-expression
+- source: '['
+  scopesBegin:
+    - meta.scope.logical-expression
+  scopes:
+    - punctuation.definition.logical-expression
+- source: '-n'
+  scopes:
+    - keyword.operator.logical
+- source: $
+  scopes:
+    - punctuation.definition.variable
+    - variable.other.normal
+- source: ZSH_VERSION
+  scopes:
+    - variable.other.normal
+- source: ']'
+  scopes:
+    - punctuation.definition.logical-expression
+  scopesEnd:
+    - meta.scope.logical-expression
+- source: ']'
+  scopes:
+    - punctuation.definition.logical-expression
+  scopesEnd:
+    - meta.statement
+    - meta.scope.logical-expression
+- source: then
+  scopes:
+    - keyword.control.then
+- source: print
+  scopesBegin:
+    - meta.statement
+    - meta.statement.command
+  scopes:
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+    - support.function.builtin
+- source: '-'
+  scopesBegin:
+    - string.unquoted.argument
+  scopes:
+    - constant.other.option.dash
+- source: r
+  scopes:
+    - constant.other.option
+- source: '-'
+  scopes:
+    - constant.other.option.dash
+- source: '-'
+  scopes:
+    - constant.other.option
+  scopesEnd:
+    - string.unquoted.argument
+- source: '"'
+  scopesBegin:
+    - meta.argument
+    - string.quoted.double
+  scopes:
+    - punctuation.definition.string.begin
+- source: $
+  scopes:
+    - punctuation.definition.variable
+    - variable.parameter.positional.all
+- source: '@'
+  scopes:
+    - variable.parameter.positional.all
+- source: '"'
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - meta.statement
+    - meta.statement.command
+    - meta.argument
+    - string.quoted.double
+- source: else
+  scopes:
+    - keyword.control.else
+- source: echo
+  scopesBegin:
+    - meta.statement
+    - meta.statement.command
+  scopes:
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+    - support.function.builtin
+- source: '-'
+  scopesBegin:
+    - string.unquoted.argument
+  scopes:
+    - constant.other.option.dash
+- source: E
+  scopes:
+    - constant.other.option
+- source: '-'
+  scopes:
+    - constant.other.option.dash
+- source: '-'
+  scopes:
+    - constant.other.option
+  scopesEnd:
+    - string.unquoted.argument
+- source: '"'
+  scopesBegin:
+    - meta.argument
+    - string.quoted.double
+  scopes:
+    - punctuation.definition.string.begin
+- source: $
+  scopes:
+    - punctuation.definition.variable
+    - variable.parameter.positional.all
+- source: '@'
+  scopes:
+    - variable.parameter.positional.all
+- source: '"'
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - meta.statement
+    - meta.statement.command
+    - meta.argument
+    - string.quoted.double
+- source: fi
+  scopes:
+    - keyword.control.fi
+- source: '}'
+  scopes:
+    - punctuation.definition.group
+    - punctuation.section.function.definition
