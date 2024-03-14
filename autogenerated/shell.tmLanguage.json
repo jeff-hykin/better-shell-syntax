@@ -17,7 +17,7 @@
   ],
   "repository": {
     "alias_statement": {
-      "begin": "(alias)(?:[ \\t]*+)(?:(?:[ \\t]*+)(?:(?:((?<=^|;|&|[ \\t])(?:readonly|declare|typeset|export|local)(?=[ \\t]|;|&|$))(?:[ \\t]*+))?)(?:((?<!\\w)(?:[a-zA-Z_0-9-]+)(?!\\w))(?:(?:(\\[)((?:(?:(?:\\$?)(?:(?<!\\w)(?:[a-zA-Z_0-9-]+)(?!\\w))|@)|\\*))(\\]))?))(?:(?:(\\=)|(\\+\\=))|(\\-\\=)))",
+      "begin": "(alias)(?:[ \\t]*+)(?:(?:[ \\t]*+)(?:(?:((?<=^|;|&|[ \\t])(?:readonly|declare|typeset|export|local)(?=[ \\t]|;|&|$))(?:[ \\t]*+)(?:(?:((?<!\\w)-\\w+\\b)(?:[ \\t]*+))?))?)(?:((?<!\\w)(?:[a-zA-Z_0-9-]+)(?!\\w))(?:(?:(\\[)((?:(?:(?:(?:\\$?)(?:(?<!\\w)(?:[a-zA-Z_0-9-]+)(?!\\w))|@)|\\*)|(-?\\d+)))(\\]))?))(?:(?:(\\=)|(\\+\\=))|(\\-\\=)))",
       "end": "(?:(?= |\\t|$)|(?:(?:(?:(;)|(&&))|(\\|\\|))|(&)))",
       "beginCaptures": {
         "1": {
@@ -27,24 +27,30 @@
           "name": "storage.modifier.$2.shell"
         },
         "3": {
-          "name": "variable.other.assignment.shell"
+          "name": "string.unquoted.argument.shell constant.other.option.shell"
         },
         "4": {
-          "name": "punctuation.definition.array.access.shell"
-        },
-        "5": {
           "name": "variable.other.assignment.shell"
         },
-        "6": {
+        "5": {
           "name": "punctuation.definition.array.access.shell"
         },
+        "6": {
+          "name": "variable.other.assignment.shell"
+        },
         "7": {
-          "name": "keyword.operator.assignment.shell"
+          "name": "constant.numeric.shell constant.numeric.integer.shell"
         },
         "8": {
-          "name": "keyword.operator.assignment.compound.shell"
+          "name": "punctuation.definition.array.access.shell"
         },
         "9": {
+          "name": "keyword.operator.assignment.shell"
+        },
+        "10": {
+          "name": "keyword.operator.assignment.compound.shell"
+        },
+        "11": {
           "name": "keyword.operator.assignment.compound.shell"
         }
       },
@@ -124,34 +130,40 @@
     "assignment": {
       "patterns": [
         {
-          "begin": "(?:[ \\t]*+)(?:(?:((?<=^|;|&|[ \\t])(?:readonly|declare|typeset|export|local)(?=[ \\t]|;|&|$))(?:[ \\t]*+))?)(?:((?<!\\w)(?:[a-zA-Z_0-9-]+)(?!\\w))(?:(?:(\\[)((?:(?:(?:\\$?)(?:(?<!\\w)(?:[a-zA-Z_0-9-]+)(?!\\w))|@)|\\*))(\\]))?))(?:(?:(\\=)|(\\+\\=))|(\\-\\=))(?:[ \\t]*+)(\\()",
+          "begin": "(?:[ \\t]*+)(?:(?:((?<=^|;|&|[ \\t])(?:readonly|declare|typeset|export|local)(?=[ \\t]|;|&|$))(?:[ \\t]*+)(?:(?:((?<!\\w)-\\w+\\b)(?:[ \\t]*+))?))?)(?:((?<!\\w)(?:[a-zA-Z_0-9-]+)(?!\\w))(?:(?:(\\[)((?:(?:(?:(?:\\$?)(?:(?<!\\w)(?:[a-zA-Z_0-9-]+)(?!\\w))|@)|\\*)|(-?\\d+)))(\\]))?))(?:(?:(\\=)|(\\+\\=))|(\\-\\=))(?:[ \\t]*+)(\\()",
           "end": "\\)",
           "beginCaptures": {
             "1": {
               "name": "storage.modifier.$1.shell"
             },
             "2": {
-              "name": "variable.other.assignment.shell"
+              "name": "string.unquoted.argument.shell constant.other.option.shell"
             },
             "3": {
-              "name": "punctuation.definition.array.access.shell"
-            },
-            "4": {
               "name": "variable.other.assignment.shell"
             },
-            "5": {
+            "4": {
               "name": "punctuation.definition.array.access.shell"
             },
+            "5": {
+              "name": "variable.other.assignment.shell"
+            },
             "6": {
-              "name": "keyword.operator.assignment.shell"
+              "name": "constant.numeric.shell constant.numeric.integer.shell"
             },
             "7": {
-              "name": "keyword.operator.assignment.compound.shell"
+              "name": "punctuation.definition.array.access.shell"
             },
             "8": {
-              "name": "keyword.operator.assignment.compound.shell"
+              "name": "keyword.operator.assignment.shell"
             },
             "9": {
+              "name": "keyword.operator.assignment.compound.shell"
+            },
+            "10": {
+              "name": "keyword.operator.assignment.compound.shell"
+            },
+            "11": {
               "name": "punctuation.shell"
             }
           },
@@ -171,31 +183,37 @@
           ]
         },
         {
-          "begin": "(?:[ \\t]*+)(?:(?:((?<=^|;|&|[ \\t])(?:readonly|declare|typeset|export|local)(?=[ \\t]|;|&|$))(?:[ \\t]*+))?)(?:((?<!\\w)(?:[a-zA-Z_0-9-]+)(?!\\w))(?:(?:(\\[)((?:(?:(?:\\$?)(?:(?<!\\w)(?:[a-zA-Z_0-9-]+)(?!\\w))|@)|\\*))(\\]))?))(?:(?:(\\=)|(\\+\\=))|(\\-\\=))",
+          "begin": "(?:[ \\t]*+)(?:(?:((?<=^|;|&|[ \\t])(?:readonly|declare|typeset|export|local)(?=[ \\t]|;|&|$))(?:[ \\t]*+)(?:(?:((?<!\\w)-\\w+\\b)(?:[ \\t]*+))?))?)(?:((?<!\\w)(?:[a-zA-Z_0-9-]+)(?!\\w))(?:(?:(\\[)((?:(?:(?:(?:\\$?)(?:(?<!\\w)(?:[a-zA-Z_0-9-]+)(?!\\w))|@)|\\*)|(-?\\d+)))(\\]))?))(?:(?:(\\=)|(\\+\\=))|(\\-\\=))",
           "end": "(?:(?= |\\t|$)|(?:(?:(?:(;)|(&&))|(\\|\\|))|(&)))",
           "beginCaptures": {
             "1": {
               "name": "storage.modifier.$1.shell"
             },
             "2": {
-              "name": "variable.other.assignment.shell"
+              "name": "string.unquoted.argument.shell constant.other.option.shell"
             },
             "3": {
-              "name": "punctuation.definition.array.access.shell"
-            },
-            "4": {
               "name": "variable.other.assignment.shell"
             },
-            "5": {
+            "4": {
               "name": "punctuation.definition.array.access.shell"
             },
+            "5": {
+              "name": "variable.other.assignment.shell"
+            },
             "6": {
-              "name": "keyword.operator.assignment.shell"
+              "name": "constant.numeric.shell constant.numeric.integer.shell"
             },
             "7": {
-              "name": "keyword.operator.assignment.compound.shell"
+              "name": "punctuation.definition.array.access.shell"
             },
             "8": {
+              "name": "keyword.operator.assignment.shell"
+            },
+            "9": {
+              "name": "keyword.operator.assignment.compound.shell"
+            },
+            "10": {
               "name": "keyword.operator.assignment.compound.shell"
             }
           },

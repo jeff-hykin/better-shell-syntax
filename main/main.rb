@@ -293,7 +293,14 @@ require_relative './tokens.rb'
     
     normal_assignment = PatternRange.new(
             tag_as: "meta.expression.assignment",
-            start_pattern: assignment_start = std_space.maybe(modifier.then(std_space)).then(
+            start_pattern: assignment_start = std_space.maybe(
+                modifier.then(std_space).maybe(
+                    Pattern.new(
+                        match:/(?<!\w)-\w+\b/,
+                        tag_as: "string.unquoted.argument constant.other.option",
+                    ).then(std_space)
+                )
+            ).then(
                     Pattern.new(
                         match: variable_name,
                         tag_as: "variable.other.assignment",
@@ -302,7 +309,10 @@ require_relative './tokens.rb'
                             match: "[",
                             tag_as: "punctuation.definition.array.access",
                         ).then(
-                            match: maybe("$").then(variable_name).or("@").or("*"),
+                            match: maybe("$").then(variable_name).or("@").or("*").or(
+                                match: /-?\d+/,
+                                tag_as: "constant.numeric constant.numeric.integer",
+                            ),
                             tag_as: "variable.other.assignment",
                         ).then(
                             match: "]",

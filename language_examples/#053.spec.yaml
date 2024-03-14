@@ -1,26 +1,22 @@
 - source: declare
   scopesBegin:
     - meta.statement
-    - meta.statement.command
+    - meta.expression.assignment
   scopes:
-    - meta.statement.command.name
     - storage.modifier.declare
-- source: '-'
-  scopesBegin:
+- source: '-A'
+  scopes:
     - string.unquoted.argument
-  scopes:
-    - constant.other.option.dash
-- source: A
-  scopes:
     - constant.other.option
-  scopesEnd:
-    - string.unquoted.argument
-- source: fileKeyFileMap=
-  scopesBegin:
-    - meta.argument
+- source: fileKeyFileMap
   scopes:
-    - string.unquoted.argument
+    - variable.other.assignment
+- source: '='
+  scopes:
+    - keyword.operator.assignment
 - source: (
+  scopes:
+    - punctuation
 - source: '['
   scopes:
     - string.unquoted.argument
@@ -46,9 +42,10 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
-    - meta.argument
     - string.quoted.double
-- source: ' ['
+- source: '['
+  scopes:
+    - string.unquoted.argument
 - source: '"'
   scopesBegin:
     - string.quoted.double
@@ -73,10 +70,10 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
-    - meta.statement
-    - meta.statement.command
     - string.quoted.double
 - source: ']='
+  scopes:
+    - string.unquoted.argument
 - source: '"'
   scopesBegin:
     - string.quoted.double
@@ -103,13 +100,18 @@
   scopesEnd:
     - string.quoted.double
 - source: )
+  scopes:
+    - punctuation
+  scopesEnd:
+    - meta.expression.assignment
 - source: logexit
   scopes:
-    - meta.statement
     - meta.statement.command
     - meta.statement.command.name
     - entity.name.function.call
     - entity.name.command
+  scopesEnd:
+    - meta.statement
 - source: '#'
   scopesBegin:
     - comment.line.number-sign

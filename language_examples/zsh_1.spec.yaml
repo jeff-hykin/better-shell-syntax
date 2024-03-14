@@ -30234,25 +30234,19 @@
 - source: local
   scopesBegin:
     - meta.statement
-    - meta.statement.command
+    - meta.expression.assignment
   scopes:
-    - meta.statement.command.name
     - storage.modifier.local
-- source: '-'
-  scopesBegin:
+- source: '-r'
+  scopes:
     - string.unquoted.argument
-  scopes:
-    - constant.other.option.dash
-- source: r
-  scopes:
     - constant.other.option
-  scopesEnd:
-    - string.unquoted.argument
-- source: mark_dirs=
-  scopesBegin:
-    - meta.argument
+- source: mark_dirs
   scopes:
-    - string.unquoted.argument
+    - variable.other.assignment
+- source: '='
+  scopes:
+    - keyword.operator.assignment
 - source: $(
   scopesBegin:
     - string.interpolated.dollar
@@ -30296,27 +30290,20 @@
   scopes:
     - punctuation.definition.evaluation.parens.end
   scopesEnd:
-    - meta.argument
     - string.interpolated.dollar
 - source: local
   scopes:
-    - meta.statement.command.name
     - storage.modifier.local
-- source: '-'
-  scopesBegin:
+- source: '-r'
+  scopes:
     - string.unquoted.argument
-  scopes:
-    - constant.other.option.dash
-- source: r
-  scopes:
     - constant.other.option
-  scopesEnd:
-    - string.unquoted.argument
-- source: mark_symdirs=
-  scopesBegin:
-    - meta.argument
+- source: mark_symdirs
   scopes:
-    - string.unquoted.argument
+    - variable.other.assignment
+- source: '='
+  scopes:
+    - keyword.operator.assignment
 - source: $(
   scopesBegin:
     - string.interpolated.dollar
@@ -30361,8 +30348,7 @@
     - punctuation.definition.evaluation.parens.end
   scopesEnd:
     - meta.statement
-    - meta.statement.command
-    - meta.argument
+    - meta.expression.assignment
     - string.interpolated.dollar
 - source: '#'
   scopesBegin:
@@ -67783,25 +67769,19 @@
 - source: local
   scopesBegin:
     - meta.statement
-    - meta.statement.command
+    - meta.expression.assignment
   scopes:
-    - meta.statement.command.name
     - storage.modifier.local
-- source: '-'
-  scopesBegin:
+- source: '-r'
+  scopes:
     - string.unquoted.argument
-  scopes:
-    - constant.other.option.dash
-- source: r
-  scopes:
     - constant.other.option
-  scopesEnd:
-    - string.unquoted.argument
-- source: mark_dirs=
-  scopesBegin:
-    - meta.argument
+- source: mark_dirs
   scopes:
-    - string.unquoted.argument
+    - variable.other.assignment
+- source: '='
+  scopes:
+    - keyword.operator.assignment
 - source: $(
   scopesBegin:
     - string.interpolated.dollar
@@ -67845,27 +67825,20 @@
   scopes:
     - punctuation.definition.evaluation.parens.end
   scopesEnd:
-    - meta.argument
     - string.interpolated.dollar
 - source: local
   scopes:
-    - meta.statement.command.name
     - storage.modifier.local
-- source: '-'
-  scopesBegin:
+- source: '-r'
+  scopes:
     - string.unquoted.argument
-  scopes:
-    - constant.other.option.dash
-- source: r
-  scopes:
     - constant.other.option
-  scopesEnd:
-    - string.unquoted.argument
-- source: mark_symdirs=
-  scopesBegin:
-    - meta.argument
+- source: mark_symdirs
   scopes:
-    - string.unquoted.argument
+    - variable.other.assignment
+- source: '='
+  scopes:
+    - keyword.operator.assignment
 - source: $(
   scopesBegin:
     - string.interpolated.dollar
@@ -67910,8 +67883,7 @@
     - punctuation.definition.evaluation.parens.end
   scopesEnd:
     - meta.statement
-    - meta.statement.command
-    - meta.argument
+    - meta.expression.assignment
     - string.interpolated.dollar
 - source: '#'
   scopesBegin:

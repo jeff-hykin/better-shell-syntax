@@ -15,26 +15,22 @@
 - source: local
   scopesBegin:
     - meta.statement
-    - meta.statement.command
+    - meta.expression.assignment
   scopes:
-    - meta.statement.command.name
     - storage.modifier.local
-- source: '-'
-  scopesBegin:
+- source: '-a'
+  scopes:
     - string.unquoted.argument
-  scopes:
-    - constant.other.option.dash
-- source: a
-  scopes:
     - constant.other.option
-  scopesEnd:
-    - string.unquoted.argument
-- source: arr=
-  scopesBegin:
-    - meta.argument
+- source: arr
   scopes:
-    - string.unquoted.argument
+    - variable.other.assignment
+- source: '='
+  scopes:
+    - keyword.operator.assignment
 - source: (
+  scopes:
+    - punctuation
 - source: ''''
   scopesBegin:
     - string.quoted.single
@@ -45,14 +41,14 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
-    - meta.statement
-    - meta.statement.command
-    - meta.argument
     - string.quoted.single
 - source: )
+  scopes:
+    - punctuation
+  scopesEnd:
+    - meta.expression.assignment
 - source: echo
   scopesBegin:
-    - meta.statement
     - meta.statement.command
   scopes:
     - meta.statement.command.name
@@ -87,57 +83,40 @@
 - source: local
   scopesBegin:
     - meta.statement
-    - meta.statement.command
+    - meta.expression.assignment
   scopes:
-    - meta.statement.command.name
     - storage.modifier.local
-- source: '-'
-  scopesBegin:
+- source: '-a'
+  scopes:
     - string.unquoted.argument
-  scopes:
-    - constant.other.option.dash
-- source: a
-  scopes:
     - constant.other.option
-  scopesEnd:
-    - string.unquoted.argument
-- source: arr=
-  scopesBegin:
-    - meta.argument
+- source: arr
   scopes:
-    - string.unquoted.argument
+    - variable.other.assignment
+- source: '='
+  scopes:
+    - keyword.operator.assignment
 - source: (
-  scopesEnd:
-    - meta.argument
+  scopes:
+    - punctuation
 - source: ''''
   scopesBegin:
-    - meta.statement.command.name
-  scopes:
-    - meta.statement.command.name.quoted
     - string.quoted.single
+  scopes:
     - punctuation.definition.string.begin
-    - entity.name.function.call
-    - entity.name.command
 - source: '#'
-  scopes:
-    - meta.statement.command.name.continuation
-    - string.quoted.single
-    - entity.name.function.call
-    - entity.name.command
 - source: ''''
   scopes:
-    - string.quoted.single
     - punctuation.definition.string.end
-    - entity.name.function.call
-    - entity.name.command
   scopesEnd:
-    - meta.statement
-    - meta.statement.command
-    - meta.statement.command.name
+    - string.quoted.single
 - source: )
+  scopes:
+    - punctuation
+  scopesEnd:
+    - meta.expression.assignment
 - source: echo
   scopesBegin:
-    - meta.statement
     - meta.statement.command
   scopes:
     - meta.statement.command.name
