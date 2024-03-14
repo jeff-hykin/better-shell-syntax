@@ -58,14 +58,12 @@
     - punctuation.definition.array
 - source: '1'
   scopesBegin:
-    - string.unquoted.argument
     - constant.numeric
     - constant.numeric.integer
 - source: '3'
 - source: '4'
 - source: '10'
   scopesEnd:
-    - string.unquoted.argument
     - constant.numeric
     - constant.numeric.integer
 - source: )

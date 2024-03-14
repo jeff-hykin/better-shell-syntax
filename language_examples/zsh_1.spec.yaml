@@ -8840,9 +8840,12 @@
 - source: (
   scopes:
     - punctuation.definition.array
-- source: '-v'
-  scopes:
-    - string.unquoted.argument
+- source: '-'
+  scopesBegin:
+    - string.unquoted
+- source: v
+  scopesEnd:
+    - string.unquoted
 - source: $
   scopes:
     - punctuation.definition.variable
@@ -8964,9 +8967,12 @@
 - source: (
   scopes:
     - punctuation.definition.array
-- source: '-v'
-  scopes:
-    - string.unquoted.argument
+- source: '-'
+  scopesBegin:
+    - string.unquoted
+- source: v
+  scopesEnd:
+    - string.unquoted
 - source: $
   scopes:
     - punctuation.definition.variable
@@ -9088,9 +9094,12 @@
 - source: (
   scopes:
     - punctuation.definition.array
-- source: '-v'
-  scopes:
-    - string.unquoted.argument
+- source: '-'
+  scopesBegin:
+    - string.unquoted
+- source: v
+  scopesEnd:
+    - string.unquoted
 - source: $
   scopes:
     - punctuation.definition.variable
@@ -9230,9 +9239,12 @@
 - source: (
   scopes:
     - punctuation.definition.array
-- source: '-a'
-  scopes:
-    - string.unquoted.argument
+- source: '-'
+  scopesBegin:
+    - string.unquoted
+- source: a
+  scopesEnd:
+    - string.unquoted
 - source: $
   scopes:
     - punctuation.definition.variable
@@ -27298,14 +27310,18 @@
   scopes:
     - variable.other.normal
 - source: /
-  scopesBegin:
-    - string.unquoted.argument
+  scopes:
+    - string.unquoted
 - source: '*'
   scopes:
-    - variable.language.special.wildcard
-- source: pub
+    - keyword.operator.glob
+- source: p
+  scopesBegin:
+    - string.unquoted
+- source: u
+- source: b
   scopesEnd:
-    - string.unquoted.argument
+    - string.unquoted
 - source: )
   scopes:
     - punctuation.definition.array
@@ -46319,9 +46335,12 @@
 - source: (
   scopes:
     - punctuation.definition.array
-- source: '-v'
-  scopes:
-    - string.unquoted.argument
+- source: '-'
+  scopesBegin:
+    - string.unquoted
+- source: v
+  scopesEnd:
+    - string.unquoted
 - source: $
   scopes:
     - punctuation.definition.variable
@@ -46443,9 +46462,12 @@
 - source: (
   scopes:
     - punctuation.definition.array
-- source: '-v'
-  scopes:
-    - string.unquoted.argument
+- source: '-'
+  scopesBegin:
+    - string.unquoted
+- source: v
+  scopesEnd:
+    - string.unquoted
 - source: $
   scopes:
     - punctuation.definition.variable
@@ -46567,9 +46589,12 @@
 - source: (
   scopes:
     - punctuation.definition.array
-- source: '-v'
-  scopes:
-    - string.unquoted.argument
+- source: '-'
+  scopesBegin:
+    - string.unquoted
+- source: v
+  scopesEnd:
+    - string.unquoted
 - source: $
   scopes:
     - punctuation.definition.variable
@@ -46709,9 +46734,12 @@
 - source: (
   scopes:
     - punctuation.definition.array
-- source: '-a'
-  scopes:
-    - string.unquoted.argument
+- source: '-'
+  scopesBegin:
+    - string.unquoted
+- source: a
+  scopesEnd:
+    - string.unquoted
 - source: $
   scopes:
     - punctuation.definition.variable
@@ -64777,14 +64805,18 @@
   scopes:
     - variable.other.normal
 - source: /
-  scopesBegin:
-    - string.unquoted.argument
+  scopes:
+    - string.unquoted
 - source: '*'
   scopes:
-    - variable.language.special.wildcard
-- source: pub
+    - keyword.operator.glob
+- source: p
+  scopesBegin:
+    - string.unquoted
+- source: u
+- source: b
   scopesEnd:
-    - string.unquoted.argument
+    - string.unquoted
 - source: )
   scopes:
     - punctuation.definition.array

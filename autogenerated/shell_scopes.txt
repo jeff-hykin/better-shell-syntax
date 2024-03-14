@@ -127,7 +127,7 @@ punctuation.terminator.statement.semicolon.shell
 punctuation.whitespace.comment.leading.shell
 storage.modifier.$0.shell
 storage.modifier.$1.shell
-storage.modifier.$2.shell
+storage.modifier.$4.shell
 storage.type.alias.shell
 storage.type.function.shell
 string.interpolated.backtick.shell
@@ -151,7 +151,6 @@ string.unquoted.herestring.shell
 string.unquoted.pattern.shell
 string.unquoted.shell
 support.function.builtin.shell
-tesing5.shell
 variable.language.special.at.shell
 variable.language.special.quantifier.plus.shell
 variable.language.special.quantifier.question.shell

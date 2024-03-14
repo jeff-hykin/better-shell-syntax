@@ -287,6 +287,10 @@ require_relative './tokens.rb'
         ],
     )
     
+    simple_option = Pattern.new(
+        match:/(?<!\w)-\w+\b/,
+        tag_as: "string.unquoted.argument constant.other.option",
+    )
     grammar[:modifiers] = modifier = Pattern.new(
         match: /(?<=^|;|&|[ \t])(?:#{@tokens.representationsThat(:areModifiers).join("|")})(?=[ \t]|;|&|$)/,
         tag_as: "storage.modifier.$match",
@@ -295,11 +299,13 @@ require_relative './tokens.rb'
     normal_assignment = PatternRange.new(
             tag_as: "meta.expression.assignment",
             start_pattern: assignment_start = std_space.maybe(
-                modifier.then(std_space).maybe(
-                    Pattern.new(
-                        match:/(?<!\w)-\w+\b/,
-                        tag_as: "string.unquoted.argument constant.other.option",
-                    ).then(std_space)
+                modifier.then(std_space).then(
+                    match: zeroOrMoreOf(
+                        simple_option.then(std_space)
+                    ),
+                    includes: [
+                        simple_option,
+                    ],
                 )
             ).then(
                     Pattern.new(
@@ -344,10 +350,19 @@ require_relative './tokens.rb'
     ]
     grammar[:alias_statement] = PatternRange.new(
         tag_as: "meta.expression.assignment",
-        start_pattern:  Pattern.new(
+        start_pattern: Pattern.new(
+            Pattern.new(
                 match: /alias/,
                 tag_as: "storage.type.alias"
-            ).then(std_space).then(assignment_start),
+            ).then(std_space).then(
+                match: zeroOrMoreOf(
+                    simple_option.then(std_space)
+                ),
+                includes: [
+                    simple_option
+                ]
+            ).then(assignment_start),
+        ),
         end_pattern: assignment_end,
         includes: [ :normal_statement_context ]
     )
@@ -646,7 +661,6 @@ require_relative './tokens.rb'
             :normal_statement_context,
         ]
     grammar[:array_value] = PatternRange.new(
-        tag_as: "tesing5",
         start_pattern: assignment_start.then(std_space).then(
             match:"(",
             tag_as: "punctuation.definition.array",
@@ -681,10 +695,7 @@ require_relative './tokens.rb'
         start_pattern: grammar[:modifiers],
         end_pattern: /\n/,
         includes: [
-            Pattern.new(
-                match:/(?<!\w)-\w+\b/,
-                tag_as: "string.unquoted.argument constant.other.option",
-            ),
+            simple_option,
             :array_value,
             Pattern.new(
                 Pattern.new(

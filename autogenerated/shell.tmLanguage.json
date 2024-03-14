@@ -17,40 +17,59 @@
   ],
   "repository": {
     "alias_statement": {
-      "begin": "(alias)(?:[ \\t]*+)(?:(?:[ \\t]*+)(?:(?:((?<=^|;|&|[ \\t])(?:readonly|declare|typeset|export|local)(?=[ \\t]|;|&|$))(?:[ \\t]*+)(?:(?:((?<!\\w)-\\w+\\b)(?:[ \\t]*+))?))?)(?:((?<!\\w)(?:[a-zA-Z_0-9-]+)(?!\\w))(?:(?:(\\[)((?:(?:(?:(?:\\$?)(?:(?<!\\w)(?:[a-zA-Z_0-9-]+)(?!\\w))|@)|\\*)|(-?\\d+)))(\\]))?))(?:(?:(\\=)|(\\+\\=))|(\\-\\=)))",
+      "begin": "(?:(alias)(?:[ \\t]*+)((?:(?:((?<!\\w)-\\w+\\b)(?:[ \\t]*+))*))(?:(?:[ \\t]*+)(?:(?:((?<=^|;|&|[ \\t])(?:readonly|declare|typeset|export|local)(?=[ \\t]|;|&|$))(?:[ \\t]*+)((?:(?:((?<!\\w)-\\w+\\b)(?:[ \\t]*+))*)))?)(?:((?<!\\w)(?:[a-zA-Z_0-9-]+)(?!\\w))(?:(?:(\\[)((?:(?:(?:(?:\\$?)(?:(?<!\\w)(?:[a-zA-Z_0-9-]+)(?!\\w))|@)|\\*)|(-?\\d+)))(\\]))?))(?:(?:(\\=)|(\\+\\=))|(\\-\\=))))",
       "end": "(?:(?= |\\t|$)|(?:(?:(?:(;)|(&&))|(\\|\\|))|(&)))",
       "beginCaptures": {
         "1": {
           "name": "storage.type.alias.shell"
         },
         "2": {
-          "name": "storage.modifier.$2.shell"
+          "patterns": [
+            {
+              "match": "(?<!\\w)-\\w+\\b",
+              "name": "string.unquoted.argument.shell constant.other.option.shell"
+            }
+          ]
         },
         "3": {
           "name": "string.unquoted.argument.shell constant.other.option.shell"
         },
         "4": {
-          "name": "variable.other.assignment.shell"
+          "name": "storage.modifier.$4.shell"
         },
         "5": {
-          "name": "punctuation.definition.array.access.shell"
+          "patterns": [
+            {
+              "match": "(?<!\\w)-\\w+\\b",
+              "name": "string.unquoted.argument.shell constant.other.option.shell"
+            }
+          ]
         },
         "6": {
-          "name": "variable.other.assignment.shell"
+          "name": "string.unquoted.argument.shell constant.other.option.shell"
         },
         "7": {
-          "name": "constant.numeric.shell constant.numeric.integer.shell"
+          "name": "variable.other.assignment.shell"
         },
         "8": {
           "name": "punctuation.definition.array.access.shell"
         },
         "9": {
-          "name": "keyword.operator.assignment.shell"
+          "name": "variable.other.assignment.shell"
         },
         "10": {
-          "name": "keyword.operator.assignment.compound.shell"
+          "name": "constant.numeric.shell constant.numeric.integer.shell"
         },
         "11": {
+          "name": "punctuation.definition.array.access.shell"
+        },
+        "12": {
+          "name": "keyword.operator.assignment.shell"
+        },
+        "13": {
+          "name": "keyword.operator.assignment.compound.shell"
+        },
+        "14": {
           "name": "keyword.operator.assignment.compound.shell"
         }
       },
@@ -128,40 +147,48 @@
       ]
     },
     "array_value": {
-      "begin": "(?:[ \\t]*+)(?:(?:((?<=^|;|&|[ \\t])(?:readonly|declare|typeset|export|local)(?=[ \\t]|;|&|$))(?:[ \\t]*+)(?:(?:((?<!\\w)-\\w+\\b)(?:[ \\t]*+))?))?)(?:((?<!\\w)(?:[a-zA-Z_0-9-]+)(?!\\w))(?:(?:(\\[)((?:(?:(?:(?:\\$?)(?:(?<!\\w)(?:[a-zA-Z_0-9-]+)(?!\\w))|@)|\\*)|(-?\\d+)))(\\]))?))(?:(?:(\\=)|(\\+\\=))|(\\-\\=))(?:[ \\t]*+)(\\()",
+      "begin": "(?:[ \\t]*+)(?:(?:((?<=^|;|&|[ \\t])(?:readonly|declare|typeset|export|local)(?=[ \\t]|;|&|$))(?:[ \\t]*+)((?:(?:((?<!\\w)-\\w+\\b)(?:[ \\t]*+))*)))?)(?:((?<!\\w)(?:[a-zA-Z_0-9-]+)(?!\\w))(?:(?:(\\[)((?:(?:(?:(?:\\$?)(?:(?<!\\w)(?:[a-zA-Z_0-9-]+)(?!\\w))|@)|\\*)|(-?\\d+)))(\\]))?))(?:(?:(\\=)|(\\+\\=))|(\\-\\=))(?:[ \\t]*+)(\\()",
       "end": "\\)",
       "beginCaptures": {
         "1": {
           "name": "storage.modifier.$1.shell"
         },
         "2": {
-          "name": "string.unquoted.argument.shell constant.other.option.shell"
+          "patterns": [
+            {
+              "match": "(?<!\\w)-\\w+\\b",
+              "name": "string.unquoted.argument.shell constant.other.option.shell"
+            }
+          ]
         },
         "3": {
-          "name": "variable.other.assignment.shell"
+          "name": "string.unquoted.argument.shell constant.other.option.shell"
         },
         "4": {
-          "name": "punctuation.definition.array.access.shell"
-        },
-        "5": {
           "name": "variable.other.assignment.shell"
         },
-        "6": {
-          "name": "constant.numeric.shell constant.numeric.integer.shell"
-        },
-        "7": {
+        "5": {
           "name": "punctuation.definition.array.access.shell"
         },
+        "6": {
+          "name": "variable.other.assignment.shell"
+        },
+        "7": {
+          "name": "constant.numeric.shell constant.numeric.integer.shell"
+        },
         "8": {
-          "name": "keyword.operator.assignment.shell"
+          "name": "punctuation.definition.array.access.shell"
         },
         "9": {
-          "name": "keyword.operator.assignment.compound.shell"
+          "name": "keyword.operator.assignment.shell"
         },
         "10": {
           "name": "keyword.operator.assignment.compound.shell"
         },
         "11": {
+          "name": "keyword.operator.assignment.compound.shell"
+        },
+        "12": {
           "name": "punctuation.definition.array.shell"
         }
       },
@@ -170,7 +197,6 @@
           "name": "punctuation.definition.array.shell"
         }
       },
-      "name": "tesing5.shell",
       "patterns": [
         {
           "include": "#comment"
@@ -206,37 +232,45 @@
           "include": "#array_value"
         },
         {
-          "begin": "(?:[ \\t]*+)(?:(?:((?<=^|;|&|[ \\t])(?:readonly|declare|typeset|export|local)(?=[ \\t]|;|&|$))(?:[ \\t]*+)(?:(?:((?<!\\w)-\\w+\\b)(?:[ \\t]*+))?))?)(?:((?<!\\w)(?:[a-zA-Z_0-9-]+)(?!\\w))(?:(?:(\\[)((?:(?:(?:(?:\\$?)(?:(?<!\\w)(?:[a-zA-Z_0-9-]+)(?!\\w))|@)|\\*)|(-?\\d+)))(\\]))?))(?:(?:(\\=)|(\\+\\=))|(\\-\\=))",
+          "begin": "(?:[ \\t]*+)(?:(?:((?<=^|;|&|[ \\t])(?:readonly|declare|typeset|export|local)(?=[ \\t]|;|&|$))(?:[ \\t]*+)((?:(?:((?<!\\w)-\\w+\\b)(?:[ \\t]*+))*)))?)(?:((?<!\\w)(?:[a-zA-Z_0-9-]+)(?!\\w))(?:(?:(\\[)((?:(?:(?:(?:\\$?)(?:(?<!\\w)(?:[a-zA-Z_0-9-]+)(?!\\w))|@)|\\*)|(-?\\d+)))(\\]))?))(?:(?:(\\=)|(\\+\\=))|(\\-\\=))",
           "end": "(?:(?= |\\t|$)|(?:(?:(?:(;)|(&&))|(\\|\\|))|(&)))",
           "beginCaptures": {
             "1": {
               "name": "storage.modifier.$1.shell"
             },
             "2": {
-              "name": "string.unquoted.argument.shell constant.other.option.shell"
+              "patterns": [
+                {
+                  "match": "(?<!\\w)-\\w+\\b",
+                  "name": "string.unquoted.argument.shell constant.other.option.shell"
+                }
+              ]
             },
             "3": {
-              "name": "variable.other.assignment.shell"
+              "name": "string.unquoted.argument.shell constant.other.option.shell"
             },
             "4": {
-              "name": "punctuation.definition.array.access.shell"
-            },
-            "5": {
               "name": "variable.other.assignment.shell"
             },
-            "6": {
-              "name": "constant.numeric.shell constant.numeric.integer.shell"
-            },
-            "7": {
+            "5": {
               "name": "punctuation.definition.array.access.shell"
             },
+            "6": {
+              "name": "variable.other.assignment.shell"
+            },
+            "7": {
+              "name": "constant.numeric.shell constant.numeric.integer.shell"
+            },
             "8": {
-              "name": "keyword.operator.assignment.shell"
+              "name": "punctuation.definition.array.access.shell"
             },
             "9": {
-              "name": "keyword.operator.assignment.compound.shell"
+              "name": "keyword.operator.assignment.shell"
             },
             "10": {
+              "name": "keyword.operator.assignment.compound.shell"
+            },
+            "11": {
               "name": "keyword.operator.assignment.compound.shell"
             }
           },

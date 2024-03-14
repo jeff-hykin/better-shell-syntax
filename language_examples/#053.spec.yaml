@@ -22,7 +22,8 @@
     - punctuation.definition.bracket
 - source: '""'
   scopes:
-    - punctuation.support.type.property-name
+    - string.unquoted
+    - entity.other.attribute-name
 - source: ']'
   scopes:
     - punctuation.definition.bracket
@@ -41,35 +42,17 @@
     - string.quoted.double
 - source: '['
   scopes:
-    - string.unquoted.argument
-- source: '"'
-  scopesBegin:
-    - string.quoted.double
+    - punctuation.definition.bracket
+- source: '"${VAR2}"'
   scopes:
-    - punctuation.definition.string.begin
-- source: $
+    - string.unquoted
+    - entity.other.attribute-name
+- source: ']'
   scopes:
-    - punctuation.definition.variable
-- source: '{'
+    - punctuation.definition.bracket
+- source: '='
   scopes:
-    - punctuation.section.bracket.curly.variable.begin
-    - punctuation.definition.variable
-- source: VAR2
-  scopes:
-    - meta.parameter-expansion
-    - variable.other.normal
-- source: '}'
-  scopes:
-    - punctuation.section.bracket.curly.variable.end
-    - punctuation.definition.variable
-- source: '"'
-  scopes:
-    - punctuation.definition.string.end
-  scopesEnd:
-    - string.quoted.double
-- source: ']='
-  scopes:
-    - string.unquoted.argument
+    - punctuation.definition.assignment
 - source: '"'
   scopesBegin:
     - string.quoted.double
