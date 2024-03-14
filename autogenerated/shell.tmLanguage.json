@@ -1548,7 +1548,7 @@
       }
     },
     "numeric_literal": {
-      "match": "(?:[ \\t]*+)(?<==| |\\t|^|\\{|\\(|\\[)(?:(?:(?:(?:(0[xX][0-9A-Fa-f]+)|(0\\d+))|(\\d{1,2}#[0-9a-zA-Z@_]+))|(-?\\d+\\.\\d+))|(-?\\d+))(?!>)",
+      "match": "(?<==| |\\t|^|\\{|\\(|\\[)(?:(?:(?:(?:(0[xX][0-9A-Fa-f]+)|(0\\d+))|(\\d{1,2}#[0-9a-zA-Z@_]+))|(-?\\d+(?:\\.\\d+)+))|(-?\\d+))(?= |\\t|$|\\}|\\)|;)",
       "captures": {
         "1": {
           "name": "constant.numeric.shell constant.numeric.hex.shell"
@@ -1560,7 +1560,7 @@
           "name": "constant.numeric.shell constant.numeric.other.shell"
         },
         "4": {
-          "name": "constant.numeric.shell constant.numeric.integer.shell"
+          "name": "constant.numeric.shell constant.numeric.decimal.shell"
         },
         "5": {
           "name": "constant.numeric.shell constant.numeric.integer.shell"

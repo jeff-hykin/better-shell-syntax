@@ -147,19 +147,13 @@
     - constant.other.option
   scopesEnd:
     - string.unquoted.argument
-- source: '3'
-  scopesBegin:
+- source: 3-
+  scopes:
     - meta.argument
     - string.unquoted.argument
-  scopes:
-    - constant.numeric
-    - constant.numeric.integer
-- source: '-'
   scopesEnd:
     - meta.statement
     - meta.statement.command
-    - meta.argument
-    - string.unquoted.argument
 - source: )
   scopes:
     - punctuation.definition.evaluation.parens.end

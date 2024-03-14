@@ -9,6 +9,7 @@ constant.character.escape.octal.shell
 constant.character.escape.shell
 constant.language.$0.shell
 constant.language.$1.shell
+constant.numeric.decimal.shell
 constant.numeric.hex.shell
 constant.numeric.integer.shell
 constant.numeric.octal.shell

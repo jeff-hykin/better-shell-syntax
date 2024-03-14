@@ -1,0 +1,21 @@
+- source: VAR1
+  scopesBegin:
+    - meta.statement
+    - meta.expression.assignment
+  scopes:
+    - variable.other.assignment
+- source: '='
+  scopes:
+    - keyword.operator.assignment
+- source: xxx000
+  scopes:
+    - string.unquoted.argument
+- source: VAR2
+  scopes:
+    - variable.other.assignment
+- source: '='
+  scopes:
+    - keyword.operator.assignment
+- source: 000xxx
+  scopes:
+    - string.unquoted.argument

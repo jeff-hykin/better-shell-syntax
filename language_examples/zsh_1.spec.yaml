@@ -17324,16 +17324,10 @@
     - entity.name.function.call
     - entity.name.command
     - support.function.builtin
-- source: 'COMPREPLY['
+- source: 'COMPREPLY[0]='
   scopesBegin:
     - meta.argument
-    - string.unquoted.argument
-- source: '0'
   scopes:
-    - constant.numeric
-    - constant.numeric.integer
-- source: ']='
-  scopesEnd:
     - string.unquoted.argument
 - source: $
   scopes:
@@ -27371,11 +27365,7 @@
     - meta.scope.logical-expression
   scopes:
     - punctuation.definition.logical-expression
-- source: '0'
-  scopes:
-    - constant.numeric
-    - constant.numeric.integer
-- source: '-9'
+- source: 0-9
 - source: ']'
   scopes:
     - punctuation.definition.logical-expression
@@ -27480,11 +27470,7 @@
     - meta.scope.logical-expression
   scopes:
     - punctuation.definition.logical-expression
-- source: '0'
-  scopes:
-    - constant.numeric
-    - constant.numeric.integer
-- source: '-9'
+- source: 0-9
 - source: ']'
   scopes:
     - punctuation.definition.logical-expression
@@ -54530,16 +54516,10 @@
     - entity.name.function.call
     - entity.name.command
     - support.function.builtin
-- source: 'COMPREPLY['
+- source: 'COMPREPLY[0]='
   scopesBegin:
     - meta.argument
-    - string.unquoted.argument
-- source: '0'
   scopes:
-    - constant.numeric
-    - constant.numeric.integer
-- source: ']='
-  scopesEnd:
     - string.unquoted.argument
 - source: $
   scopes:
@@ -64577,11 +64557,7 @@
     - meta.scope.logical-expression
   scopes:
     - punctuation.definition.logical-expression
-- source: '0'
-  scopes:
-    - constant.numeric
-    - constant.numeric.integer
-- source: '-9'
+- source: 0-9
 - source: ']'
   scopes:
     - punctuation.definition.logical-expression
@@ -64686,11 +64662,7 @@
     - meta.scope.logical-expression
   scopes:
     - punctuation.definition.logical-expression
-- source: '0'
-  scopes:
-    - constant.numeric
-    - constant.numeric.integer
-- source: '-9'
+- source: 0-9
 - source: ']'
   scopes:
     - punctuation.definition.logical-expression

@@ -123,7 +123,7 @@ require_relative './tokens.rb'
     std_space = Pattern.new(/[ \t]*+/)
     
     # this numeric_literal was stolen from C++, has been cleaned up some, but could have a few dangling oddities
-    grammar[:numeric_literal] = std_space.lookBehindFor(/=| |\t|^|\{|\(|\[/).then(
+    grammar[:numeric_literal] = lookBehindFor(/=| |\t|^|\{|\(|\[/).then(
         Pattern.new(
             match: /0[xX][0-9A-Fa-f]+/,
             tag_as: "constant.numeric constant.numeric.hex"
@@ -134,13 +134,16 @@ require_relative './tokens.rb'
             match: /\d{1,2}#[0-9a-zA-Z@_]+/,
             tag_as: "constant.numeric constant.numeric.other"
         ).or(
-            match: /-?\d+\.\d+/,
-            tag_as: "constant.numeric constant.numeric.integer"
+            match: /-?\d+(?:\.\d+)/,
+            tag_as: "constant.numeric constant.numeric.decimal"
+        ).or(
+            match: /-?\d+(?:\.\d+)+/,
+            tag_as: "constant.numeric constant.numeric.version"
         ).or(
             match: /-?\d+/,
             tag_as: "constant.numeric constant.numeric.integer"
         )
-    ).lookAheadToAvoid(/>/)
+    ).lookAheadFor(/ |\t|$|\}|\)|;/)
     grammar[:redirect_number] = lookBehindFor(/[ \t]/).then(
         oneOf([
             Pattern.new(
