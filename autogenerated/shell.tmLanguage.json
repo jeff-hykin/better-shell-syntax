@@ -269,62 +269,150 @@
       "match": "\\b(?:true|false)\\b",
       "name": "constant.language.$0.shell"
     },
-    "case-clause": {
-      "patterns": [
-        {
-          "begin": "(?=\\S)",
-          "end": ";;&?|;&",
-          "endCaptures": {
-            "0": {
-              "name": "punctuation.terminator.case-clause.shell"
-            }
-          },
-          "name": "meta.scope.case-clause.shell",
+    "case_pattern": {
+      "begin": "(?:(\\bcase\\b)(?:[ \\t]*+)(.+)(?:[ \\t]*+)(\\bin\\b))",
+      "end": "\\besac\\b",
+      "beginCaptures": {
+        "1": {
+          "name": "keyword.control.case.shell"
+        },
+        "2": {
           "patterns": [
             {
-              "begin": "\\(|(?=\\S)",
-              "beginCaptures": {
-                "0": {
-                  "name": "punctuation.definition.case-pattern.shell"
-                }
-              },
-              "end": "\\)",
-              "endCaptures": {
-                "0": {
-                  "name": "punctuation.definition.case-pattern.shell"
-                }
-              },
-              "name": "meta.scope.case-pattern.shell",
-              "patterns": [
-                {
-                  "match": "\\|",
-                  "name": "punctuation.separator.pipe-sign.shell"
-                },
-                {
-                  "include": "#string"
-                },
-                {
-                  "include": "#variable"
-                },
-                {
-                  "include": "#interpolation"
-                },
-                {
-                  "include": "#pathname"
-                }
-              ]
-            },
-            {
-              "begin": "(?<=\\))",
-              "end": "(?=;;&?|;&)",
-              "name": "meta.scope.case-clause-body.shell",
-              "patterns": [
-                {
-                  "include": "#initial_context"
-                }
-              ]
+              "include": "#initial_context"
             }
           ]
+        },
+        "3": {
+          "name": "keyword.control.in.shell"
+        }
+      },
+      "endCaptures": {
+        "0": {
+          "name": "keyword.control.esac.shell"
+        }
+      },
+      "name": "meta.case.shell",
+      "patterns": [
+        {
+          "include": "#comment"
+        },
+        {
+          "match": "(?:[ \\t]*+)(\\* *\\))",
+          "captures": {
+            "1": {
+              "name": "keyword.operator.pattern.case.default.shell"
+            }
+          }
+        },
+        {
+          "begin": "(?<!\\))(?!(?:[ \\t]*+)(?:esac\\b|$))",
+          "end": "(?:(?=\\besac\\b)|(\\)))",
+          "beginCaptures": {
+          },
+          "endCaptures": {
+            "1": {
+              "name": "keyword.operator.pattern.case.shell"
+            }
+          },
+          "name": "meta.case.entry.pattern.shell",
+          "patterns": [
+            {
+              "include": "#case_pattern_context"
+            }
+          ]
+        },
+        {
+          "begin": "(?<=\\))",
+          "end": "(?:(;;)|(?=\\besac\\b))",
+          "beginCaptures": {
+          },
+          "endCaptures": {
+            "1": {
+              "name": "punctuation.terminator.statement.case.shell"
+            }
+          },
+          "name": "meta.case.entry.body.shell",
+          "patterns": [
+            {
+              "include": "#normal_statement_inner"
+            },
+            {
+              "include": "#initial_context"
+            }
+          ]
+        }
+      ]
+    },
+    "case_pattern_context": {
+      "patterns": [
+        {
+          "match": "\\*",
+          "name": "variable.language.special.quantifier.star.shell keyword.operator.quantifier.star.shell punctuation.definition.arbitrary-repetition.shell punctuation.definition.regex.arbitrary-repetition.shell"
+        },
+        {
+          "match": "\\+",
+          "name": "variable.language.special.quantifier.plus.shell keyword.operator.quantifier.plus.shell punctuation.definition.arbitrary-repetition.shell punctuation.definition.regex.arbitrary-repetition.shell"
+        },
+        {
+          "match": "\\?",
+          "name": "variable.language.special.quantifier.question.shell keyword.operator.quantifier.question.shell punctuation.definition.arbitrary-repetition.shell punctuation.definition.regex.arbitrary-repetition.shell"
+        },
+        {
+          "match": "@",
+          "name": "variable.language.special.at.shell keyword.operator.at.shell punctuation.definition.regex.at.shell"
+        },
+        {
+          "match": "\\|",
+          "name": "keyword.operator.orvariable.language.special.or.shell keyword.operator.alternation.ruby.shell punctuation.definition.regex.alternation.shell punctuation.separator.regex.alternation.shell"
+        },
+        {
+          "begin": "\\(",
+          "end": "\\)",
+          "beginCaptures": {
+            "0": {
+              "name": "punctuation.definition.group.shell punctuation.definition.regex.group.shell"
+            }
+          },
+          "endCaptures": {
+            "0": {
+              "name": "punctuation.definition.group.shell punctuation.definition.regex.group.shell"
+            }
+          },
+          "name": "meta.parenthese.shell",
+          "patterns": [
+            {
+              "include": "#case_pattern_context"
+            }
+          ]
+        },
+        {
+          "begin": "\\[",
+          "end": "\\]",
+          "beginCaptures": {
+            "0": {
+              "name": "punctuation.definition.character-class.shell"
+            }
+          },
+          "endCaptures": {
+            "0": {
+              "name": "punctuation.definition.character-class.shell"
+            }
+          },
+          "name": "string.regexp.character-class.shell",
+          "patterns": [
+            {
+              "match": "\\\\.",
+              "name": "constant.character.escape.shell"
+            }
+          ]
+        },
+        {
+          "include": "#string"
+        },
+        {
+          "match": "[^) \\t\\n\\[\\?\\*\\|\\@]",
+          "name": "string.unquoted.pattern.shell string.regexp.unquoted.shell"
         }
       ]
     },
@@ -814,6 +902,9 @@
           "include": "#logical_expression_single"
         },
         {
+          "include": "#case_pattern"
+        },
+        {
           "include": "#misc_ranges"
         },
         {
@@ -1205,44 +1296,6 @@
           ]
         },
         {
-          "begin": "(?<=^|;|&|\\s)case(?=\\s|;|&|$)",
-          "beginCaptures": {
-            "0": {
-              "name": "keyword.control.shell"
-            }
-          },
-          "end": "(?<=^|;|&|\\s)esac(?=\\s|;|&|$)",
-          "endCaptures": {
-            "0": {
-              "name": "keyword.control.shell"
-            }
-          },
-          "name": "meta.scope.case-block.shell",
-          "patterns": [
-            {
-              "begin": "(?<=^|;|&|\\s)in(?=\\s|;|&|$)",
-              "beginCaptures": {
-                "0": {
-                  "name": "keyword.control.shell"
-                }
-              },
-              "end": "(?<=^|;|&|\\s)(?=esac(\\s|;|&|$))",
-              "name": "meta.scope.case-body.shell",
-              "patterns": [
-                {
-                  "include": "#comment"
-                },
-                {
-                  "include": "#case-clause"
-                }
-              ]
-            },
-            {
-              "include": "#initial_context"
-            }
-          ]
-        },
-        {
           "begin": "(?<=^|;|&|\\s)if(?=\\s|;|&|$)",
           "beginCaptures": {
             "0": {
@@ -1379,6 +1432,68 @@
       "name": "meta.statement.shell",
       "patterns": [
         {
+          "include": "#normal_statement_inner"
+        }
+      ]
+    },
+    "normal_statement_context": {
+      "patterns": [
+        {
+          "include": "#comment"
+        },
+        {
+          "include": "#pipeline"
+        },
+        {
+          "include": "#normal_statement_seperator"
+        },
+        {
+          "include": "#misc_ranges"
+        },
+        {
+          "include": "#boolean"
+        },
+        {
+          "include": "#redirect_number"
+        },
+        {
+          "include": "#numeric_literal"
+        },
+        {
+          "include": "#string"
+        },
+        {
+          "include": "#variable"
+        },
+        {
+          "include": "#interpolation"
+        },
+        {
+          "include": "#heredoc"
+        },
+        {
+          "include": "#herestring"
+        },
+        {
+          "include": "#redirection"
+        },
+        {
+          "include": "#pathname"
+        },
+        {
+          "include": "#keyword"
+        },
+        {
+          "include": "#support"
+        }
+      ]
+    },
+    "normal_statement_inner": {
+      "patterns": [
+        {
+          "include": "#case_pattern"
+        },
+        {
           "include": "#function_definition"
         },
         {
@@ -1478,58 +1593,6 @@
         },
         {
           "include": "#normal_statement_context"
-        }
-      ]
-    },
-    "normal_statement_context": {
-      "patterns": [
-        {
-          "include": "#comment"
-        },
-        {
-          "include": "#pipeline"
-        },
-        {
-          "include": "#normal_statement_seperator"
-        },
-        {
-          "include": "#misc_ranges"
-        },
-        {
-          "include": "#boolean"
-        },
-        {
-          "include": "#redirect_number"
-        },
-        {
-          "include": "#numeric_literal"
-        },
-        {
-          "include": "#string"
-        },
-        {
-          "include": "#variable"
-        },
-        {
-          "include": "#interpolation"
-        },
-        {
-          "include": "#heredoc"
-        },
-        {
-          "include": "#herestring"
-        },
-        {
-          "include": "#redirection"
-        },
-        {
-          "include": "#pathname"
-        },
-        {
-          "include": "#keyword"
-        },
-        {
-          "include": "#support"
         }
       ]
     },

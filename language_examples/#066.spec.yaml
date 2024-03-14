@@ -10,9 +10,9 @@
     - meta.shebang
 - source: case
   scopesBegin:
-    - meta.scope.case-block
+    - meta.case
   scopes:
-    - keyword.control
+    - keyword.control.case
 - source: ''''
   scopesBegin:
     - string.quoted.single
@@ -25,26 +25,28 @@
   scopesEnd:
     - string.quoted.single
 - source: in
-  scopesBegin:
-    - meta.scope.case-body
   scopes:
-    - keyword.control
+    - keyword.control.in
 - source: 'y'
   scopesBegin:
-    - meta.scope.case-clause
-    - meta.scope.case-pattern
+    - meta.case.entry.pattern
+  scopes:
+    - string.unquoted.pattern
+    - string.regexp.unquoted
 - source: '*'
   scopes:
-    - keyword.operator.glob
+    - variable.language.special.quantifier.star
+    - keyword.operator.quantifier.star
+    - punctuation.definition.arbitrary-repetition
+    - punctuation.definition.regex.arbitrary-repetition
 - source: )
   scopes:
-    - punctuation.definition.case-pattern
+    - keyword.operator.pattern.case
   scopesEnd:
-    - meta.scope.case-pattern
+    - meta.case.entry.pattern
 - source: echo
   scopesBegin:
-    - meta.scope.case-clause-body
-    - meta.statement
+    - meta.case.entry.body
     - meta.statement.command
   scopes:
     - meta.statement.command.name
@@ -56,14 +58,13 @@
     - meta.argument
     - string.unquoted.argument
   scopesEnd:
-    - meta.scope.case-clause-body
-    - meta.statement
     - meta.statement.command
-- source: ;&
+- source: ;
   scopes:
-    - punctuation.terminator.case-clause
-  scopesEnd:
-    - meta.scope.case-clause
+    - punctuation.terminator.statement.semicolon
+- source: '&'
+  scopes:
+    - punctuation.separator.statement.background
 - source: '#'
   scopesBegin:
     - comment.line.number-sign
@@ -72,22 +73,15 @@
 - source: ' Fall through'
   scopesEnd:
     - comment.line.number-sign
-- source: ye
-  scopesBegin:
-    - meta.scope.case-clause
-    - meta.scope.case-pattern
-- source: '*'
+- source: ye*
   scopes:
-    - keyword.operator.glob
+    - meta.statement.command
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
 - source: )
-  scopes:
-    - punctuation.definition.case-pattern
-  scopesEnd:
-    - meta.scope.case-pattern
 - source: echo
   scopesBegin:
-    - meta.scope.case-clause-body
-    - meta.statement
     - meta.statement.command
   scopes:
     - meta.statement.command.name
@@ -99,57 +93,71 @@
     - meta.argument
     - string.unquoted.argument
   scopesEnd:
-    - meta.scope.case-clause-body
-    - meta.statement
-    - meta.statement.command
-- source: ;;&
-  scopes:
-    - punctuation.terminator.case-clause
-  scopesEnd:
-    - meta.scope.case-clause
-- source: '#'
-  scopesBegin:
-    - comment.line.number-sign
-  scopes:
-    - punctuation.definition.comment
-- source: ' Continue checking'
-  scopesEnd:
-    - comment.line.number-sign
-- source: 'yes'
-  scopesBegin:
-    - meta.scope.case-clause
-    - meta.scope.case-pattern
-- source: '*'
-  scopes:
-    - keyword.operator.glob
-- source: )
-  scopes:
-    - punctuation.definition.case-pattern
-  scopesEnd:
-    - meta.scope.case-pattern
-- source: echo
-  scopesBegin:
-    - meta.scope.case-clause-body
-    - meta.statement
-    - meta.statement.command
-  scopes:
-    - meta.statement.command.name
-    - entity.name.function.call
-    - entity.name.command
-    - support.function.builtin
-- source: 'yes'
-  scopes:
-    - meta.argument
-    - string.unquoted.argument
-  scopesEnd:
-    - meta.scope.case-clause-body
-    - meta.statement
     - meta.statement.command
 - source: ;;
   scopes:
-    - punctuation.terminator.case-clause
+    - punctuation.terminator.statement.case
   scopesEnd:
-    - meta.scope.case-clause
+    - meta.case.entry.body
+- source: '&'
+  scopesBegin:
+    - meta.case.entry.pattern
+    - string.unquoted.pattern
+    - string.regexp.unquoted
+- source: '#'
+- source: C
+- source: o
+- source: 'n'
+- source: t
+- source: i
+- source: 'n'
+- source: u
+- source: e
+- source: c
+- source: h
+- source: e
+- source: c
+- source: k
+- source: i
+- source: 'n'
+- source: g
+- source: 'y'
+- source: e
+- source: s
+  scopesEnd:
+    - string.unquoted.pattern
+    - string.regexp.unquoted
+- source: '*'
+  scopes:
+    - variable.language.special.quantifier.star
+    - keyword.operator.quantifier.star
+    - punctuation.definition.arbitrary-repetition
+    - punctuation.definition.regex.arbitrary-repetition
+- source: )
+  scopes:
+    - keyword.operator.pattern.case
+  scopesEnd:
+    - meta.case.entry.pattern
+- source: echo
+  scopesBegin:
+    - meta.case.entry.body
+    - meta.statement.command
+  scopes:
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+    - support.function.builtin
+- source: 'yes'
+  scopes:
+    - meta.argument
+    - string.unquoted.argument
+  scopesEnd:
+    - meta.statement.command
+- source: ;;
+  scopes:
+    - punctuation.terminator.statement.case
+  scopesEnd:
+    - meta.case.entry.body
 - source: '#'
   scopesBegin:
     - comment.line.number-sign
@@ -158,21 +166,12 @@
 - source: ' Stop here'
   scopesEnd:
     - comment.line.number-sign
-- source: '*'
-  scopesBegin:
-    - meta.scope.case-clause
-    - meta.scope.case-pattern
+- source: '*)'
   scopes:
-    - keyword.operator.glob
-- source: )
-  scopes:
-    - punctuation.definition.case-pattern
-  scopesEnd:
-    - meta.scope.case-pattern
+    - keyword.operator.pattern.case.default
 - source: echo
   scopesBegin:
-    - meta.scope.case-clause-body
-    - meta.statement
+    - meta.case.entry.body
     - meta.statement.command
   scopes:
     - meta.statement.command.name
@@ -184,14 +183,12 @@
     - meta.argument
     - string.unquoted.argument
   scopesEnd:
-    - meta.scope.case-clause-body
-    - meta.statement
     - meta.statement.command
 - source: ;;
   scopes:
-    - punctuation.terminator.case-clause
+    - punctuation.terminator.statement.case
   scopesEnd:
-    - meta.scope.case-clause
+    - meta.case.entry.body
 - source: '#'
   scopesBegin:
     - comment.line.number-sign
@@ -199,8 +196,7 @@
     - punctuation.definition.comment
 - source: ' Unreachable'
   scopesEnd:
-    - meta.scope.case-body
     - comment.line.number-sign
 - source: esac
   scopes:
-    - keyword.control
+    - keyword.control.esac

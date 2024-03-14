@@ -1,0 +1,763 @@
+- source: '#!'
+  scopesBegin:
+    - comment.line.number-sign
+    - meta.shebang
+  scopes:
+    - punctuation.definition.comment.shebang
+- source: /bin/sh
+  scopesEnd:
+    - meta.shebang
+- source: '#'
+  scopes:
+    - punctuation.definition.comment
+- source: ' The following line is valid shell code but everything after it is highlighted as a quote'
+  scopesEnd:
+    - comment.line.number-sign
+- source: case
+  scopesBegin:
+    - meta.case
+  scopes:
+    - keyword.control.case
+- source: 'a '
+- source: in
+  scopes:
+    - keyword.control.in
+- source: b
+  scopesBegin:
+    - meta.case.entry.pattern
+  scopes:
+    - string.unquoted.pattern
+    - string.regexp.unquoted
+- source: )
+  scopes:
+    - keyword.operator.pattern.case
+  scopesEnd:
+    - meta.case.entry.pattern
+- source: printf
+  scopesBegin:
+    - meta.case.entry.body
+    - meta.statement.command
+  scopes:
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+    - support.function.builtin
+- source: ''''
+  scopesBegin:
+    - meta.argument
+    - string.quoted.single
+  scopes:
+    - punctuation.definition.string.begin
+- source: '%s '
+- source: ''''
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - string.quoted.single
+- source: c
+  scopes:
+    - string.unquoted.argument
+  scopesEnd:
+    - meta.statement.command
+    - meta.argument
+- source: ;
+  scopes:
+    - punctuation.terminator.statement.semicolon
+  scopesEnd:
+    - meta.case.entry.body
+- source: esac
+  scopes:
+    - keyword.control.esac
+  scopesEnd:
+    - meta.case
+- source: '&'
+  scopes:
+    - punctuation.separator.statement.background
+- source: test
+  scopesBegin:
+    - meta.statement
+    - meta.expression.assignment
+  scopes:
+    - variable.other.assignment
+- source: '='
+  scopes:
+    - keyword.operator.assignment
+- source: '"'
+  scopesBegin:
+    - string.quoted.double
+  scopes:
+    - punctuation.definition.string.begin
+- source: $(
+  scopesBegin:
+    - string.interpolated.dollar
+  scopes:
+    - punctuation.definition.evaluation.parens.begin
+- source: case
+  scopesBegin:
+    - meta.case
+  scopes:
+    - keyword.control.case
+- source: 'a '
+- source: in
+  scopes:
+    - keyword.control.in
+- source: b
+  scopesBegin:
+    - meta.case.entry.pattern
+  scopes:
+    - string.unquoted.pattern
+    - string.regexp.unquoted
+- source: )
+  scopes:
+    - keyword.operator.pattern.case
+  scopesEnd:
+    - meta.case.entry.pattern
+- source: printf
+  scopesBegin:
+    - meta.case.entry.body
+    - meta.statement.command
+  scopes:
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+    - support.function.builtin
+- source: ''''
+  scopesBegin:
+    - meta.argument
+    - string.quoted.single
+  scopes:
+    - punctuation.definition.string.begin
+- source: '%s '
+- source: ''''
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - string.quoted.single
+- source: c
+  scopes:
+    - string.unquoted.argument
+  scopesEnd:
+    - meta.statement.command
+    - meta.argument
+- source: ;
+  scopes:
+    - punctuation.terminator.statement.semicolon
+  scopesEnd:
+    - meta.case.entry.body
+- source: esac
+  scopes:
+    - keyword.control.esac
+  scopesEnd:
+    - meta.case
+- source: )
+  scopes:
+    - punctuation.definition.evaluation.parens.end
+  scopesEnd:
+    - string.interpolated.dollar
+- source: '"'
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - meta.statement
+    - meta.expression.assignment
+    - string.quoted.double
+- source: case
+  scopesBegin:
+    - meta.case
+  scopes:
+    - keyword.control.case
+- source: $
+  scopes:
+    - punctuation.definition.variable
+    - variable.parameter.positional
+- source: '1'
+  scopes:
+    - variable.parameter.positional
+- source: in
+  scopes:
+    - keyword.control.in
+- source: r
+  scopesBegin:
+    - meta.case.entry.pattern
+    - string.unquoted.pattern
+    - string.regexp.unquoted
+- source: e
+- source: q
+  scopesEnd:
+    - string.unquoted.pattern
+    - string.regexp.unquoted
+- source: '*'
+  scopes:
+    - variable.language.special.quantifier.star
+    - keyword.operator.quantifier.star
+    - punctuation.definition.arbitrary-repetition
+    - punctuation.definition.regex.arbitrary-repetition
+- source: )
+  scopes:
+    - keyword.operator.pattern.case
+  scopesEnd:
+    - meta.case.entry.pattern
+- source: .
+  scopesBegin:
+    - meta.case.entry.body
+    - meta.statement.command
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+    - support.function.builtin
+- source: .
+- source: .
+  scopesEnd:
+    - meta.statement.command
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+    - support.function.builtin
+- source: ;;
+  scopes:
+    - punctuation.terminator.statement.case
+  scopesEnd:
+    - meta.case.entry.body
+- source: m
+  scopesBegin:
+    - meta.case.entry.pattern
+    - string.unquoted.pattern
+    - string.regexp.unquoted
+- source: e
+- source: t
+  scopesEnd:
+    - string.unquoted.pattern
+    - string.regexp.unquoted
+- source: '*'
+  scopes:
+    - variable.language.special.quantifier.star
+    - keyword.operator.quantifier.star
+    - punctuation.definition.arbitrary-repetition
+    - punctuation.definition.regex.arbitrary-repetition
+- source: '|'
+  scopes:
+    - keyword.operator.orvariable.language.special.or
+    - keyword.operator.alternation.ruby
+    - punctuation.definition.regex.alternation
+    - punctuation.separator.regex.alternation
+- source: m
+  scopesBegin:
+    - string.unquoted.pattern
+    - string.regexp.unquoted
+- source: e
+- source: e
+- source: t
+  scopesEnd:
+    - string.unquoted.pattern
+    - string.regexp.unquoted
+- source: '*'
+  scopes:
+    - variable.language.special.quantifier.star
+    - keyword.operator.quantifier.star
+    - punctuation.definition.arbitrary-repetition
+    - punctuation.definition.regex.arbitrary-repetition
+- source: )
+  scopes:
+    - keyword.operator.pattern.case
+  scopesEnd:
+    - meta.case.entry.pattern
+- source: .
+  scopesBegin:
+    - meta.case.entry.body
+    - meta.statement.command
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+    - support.function.builtin
+- source: .
+- source: .
+  scopesEnd:
+    - meta.statement.command
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+    - support.function.builtin
+- source: ;;
+  scopes:
+    - punctuation.terminator.statement.case
+  scopesEnd:
+    - meta.case.entry.body
+- source: '*)'
+  scopes:
+    - keyword.operator.pattern.case.default
+- source: '#'
+  scopesBegin:
+    - meta.case.entry.body
+    - comment.line.number-sign
+  scopes:
+    - punctuation.definition.comment
+- source: ' You should have a default one too.'
+  scopesEnd:
+    - meta.case.entry.body
+    - comment.line.number-sign
+- source: esac
+  scopes:
+    - keyword.control.esac
+  scopesEnd:
+    - meta.case
+- source: shopt
+  scopesBegin:
+    - meta.statement
+    - meta.statement.command
+  scopes:
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+- source: '-'
+  scopesBegin:
+    - string.unquoted.argument
+  scopes:
+    - constant.other.option.dash
+- source: s
+  scopes:
+    - constant.other.option
+  scopesEnd:
+    - string.unquoted.argument
+- source: extglob
+  scopes:
+    - meta.argument
+    - string.unquoted.argument
+  scopesEnd:
+    - meta.statement
+    - meta.statement.command
+- source: for
+  scopesBegin:
+    - meta.scope.for-in-loop
+  scopes:
+    - keyword.control
+- source: arg
+  scopes:
+    - variable.other.loop
+- source: in
+  scopes:
+    - keyword.control
+- source: ' apple be cd meet o mississippi'
+- source: do
+  scopes:
+    - keyword.control.do
+- source: '#'
+  scopesBegin:
+    - comment.line.number-sign
+  scopes:
+    - punctuation.definition.comment
+- source: ' call functions based on arguments'
+  scopesEnd:
+    - comment.line.number-sign
+- source: case
+  scopesBegin:
+    - meta.case
+  scopes:
+    - keyword.control.case
+- source: '"'
+  scopesBegin:
+    - string.quoted.double
+  scopes:
+    - punctuation.definition.string.begin
+- source: $
+  scopes:
+    - punctuation.definition.variable
+    - variable.other.normal
+- source: arg
+  scopes:
+    - variable.other.normal
+- source: '"'
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - string.quoted.double
+- source: in
+  scopes:
+    - keyword.control.in
+- source: a
+  scopesBegin:
+    - meta.case.entry.pattern
+  scopes:
+    - string.unquoted.pattern
+    - string.regexp.unquoted
+- source: '*'
+  scopes:
+    - variable.language.special.quantifier.star
+    - keyword.operator.quantifier.star
+    - punctuation.definition.arbitrary-repetition
+    - punctuation.definition.regex.arbitrary-repetition
+- source: )
+  scopes:
+    - keyword.operator.pattern.case
+  scopesEnd:
+    - meta.case.entry.pattern
+- source: foo
+  scopesBegin:
+    - meta.case.entry.body
+  scopes:
+    - meta.statement.command
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+- source: ;;
+  scopes:
+    - punctuation.terminator.statement.case
+  scopesEnd:
+    - meta.case.entry.body
+- source: '#'
+  scopesBegin:
+    - comment.line.number-sign
+  scopes:
+    - punctuation.definition.comment
+- source: ' matches anything starting with "a"'
+  scopesEnd:
+    - comment.line.number-sign
+- source: b
+  scopesBegin:
+    - meta.case.entry.pattern
+  scopes:
+    - string.unquoted.pattern
+    - string.regexp.unquoted
+- source: '?'
+  scopes:
+    - variable.language.special.quantifier.question
+    - keyword.operator.quantifier.question
+    - punctuation.definition.arbitrary-repetition
+    - punctuation.definition.regex.arbitrary-repetition
+- source: )
+  scopes:
+    - keyword.operator.pattern.case
+  scopesEnd:
+    - meta.case.entry.pattern
+- source: bar
+  scopesBegin:
+    - meta.case.entry.body
+  scopes:
+    - meta.statement.command
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+- source: ;;
+  scopes:
+    - punctuation.terminator.statement.case
+  scopesEnd:
+    - meta.case.entry.body
+- source: '#'
+  scopesBegin:
+    - comment.line.number-sign
+  scopes:
+    - punctuation.definition.comment
+- source: ' matches any two-character string starting with "b"'
+  scopesEnd:
+    - comment.line.number-sign
+- source: c
+  scopesBegin:
+    - meta.case.entry.pattern
+  scopes:
+    - string.unquoted.pattern
+    - string.regexp.unquoted
+- source: '['
+  scopesBegin:
+    - string.regexp.character-class
+  scopes:
+    - punctuation.definition.character-class
+- source: de
+- source: ']'
+  scopes:
+    - punctuation.definition.character-class
+  scopesEnd:
+    - string.regexp.character-class
+- source: )
+  scopes:
+    - keyword.operator.pattern.case
+  scopesEnd:
+    - meta.case.entry.pattern
+- source: baz
+  scopesBegin:
+    - meta.case.entry.body
+  scopes:
+    - meta.statement.command
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+- source: ;;
+  scopes:
+    - punctuation.terminator.statement.case
+  scopesEnd:
+    - meta.case.entry.body
+- source: '#'
+  scopesBegin:
+    - comment.line.number-sign
+  scopes:
+    - punctuation.definition.comment
+- source: ' matches "cd" or "ce"'
+  scopesEnd:
+    - comment.line.number-sign
+- source: m
+  scopesBegin:
+    - meta.case.entry.pattern
+    - string.unquoted.pattern
+    - string.regexp.unquoted
+- source: e
+  scopesEnd:
+    - string.unquoted.pattern
+    - string.regexp.unquoted
+- source: '?'
+  scopes:
+    - variable.language.special.quantifier.question
+    - keyword.operator.quantifier.question
+    - punctuation.definition.arbitrary-repetition
+    - punctuation.definition.regex.arbitrary-repetition
+- source: (
+  scopesBegin:
+    - meta.parenthese
+  scopes:
+    - punctuation.definition.group
+    - punctuation.definition.regex.group
+- source: e
+  scopes:
+    - string.unquoted.pattern
+    - string.regexp.unquoted
+- source: )
+  scopes:
+    - punctuation.definition.group
+    - punctuation.definition.regex.group
+  scopesEnd:
+    - meta.parenthese
+- source: t
+  scopes:
+    - string.unquoted.pattern
+    - string.regexp.unquoted
+- source: )
+  scopes:
+    - keyword.operator.pattern.case
+  scopesEnd:
+    - meta.case.entry.pattern
+- source: qux
+  scopesBegin:
+    - meta.case.entry.body
+  scopes:
+    - meta.statement.command
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+- source: ;;
+  scopes:
+    - punctuation.terminator.statement.case
+  scopesEnd:
+    - meta.case.entry.body
+- source: '#'
+  scopesBegin:
+    - comment.line.number-sign
+  scopes:
+    - punctuation.definition.comment
+- source: ' matches "met" or "meet"'
+  scopesEnd:
+    - comment.line.number-sign
+- source: '@'
+  scopesBegin:
+    - meta.case.entry.pattern
+  scopes:
+    - variable.language.special.at
+    - keyword.operator.at
+    - punctuation.definition.regex.at
+- source: (
+  scopesBegin:
+    - meta.parenthese
+  scopes:
+    - punctuation.definition.group
+    - punctuation.definition.regex.group
+- source: a
+  scopes:
+    - string.unquoted.pattern
+    - string.regexp.unquoted
+- source: '|'
+  scopes:
+    - keyword.operator.orvariable.language.special.or
+    - keyword.operator.alternation.ruby
+    - punctuation.definition.regex.alternation
+    - punctuation.separator.regex.alternation
+- source: e
+  scopes:
+    - string.unquoted.pattern
+    - string.regexp.unquoted
+- source: '|'
+  scopes:
+    - keyword.operator.orvariable.language.special.or
+    - keyword.operator.alternation.ruby
+    - punctuation.definition.regex.alternation
+    - punctuation.separator.regex.alternation
+- source: i
+  scopes:
+    - string.unquoted.pattern
+    - string.regexp.unquoted
+- source: '|'
+  scopes:
+    - keyword.operator.orvariable.language.special.or
+    - keyword.operator.alternation.ruby
+    - punctuation.definition.regex.alternation
+    - punctuation.separator.regex.alternation
+- source: o
+  scopes:
+    - string.unquoted.pattern
+    - string.regexp.unquoted
+- source: '|'
+  scopes:
+    - keyword.operator.orvariable.language.special.or
+    - keyword.operator.alternation.ruby
+    - punctuation.definition.regex.alternation
+    - punctuation.separator.regex.alternation
+- source: u
+  scopes:
+    - string.unquoted.pattern
+    - string.regexp.unquoted
+- source: )
+  scopes:
+    - punctuation.definition.group
+    - punctuation.definition.regex.group
+  scopesEnd:
+    - meta.parenthese
+- source: )
+  scopes:
+    - keyword.operator.pattern.case
+  scopesEnd:
+    - meta.case.entry.pattern
+- source: fuzz
+  scopesBegin:
+    - meta.case.entry.body
+  scopes:
+    - meta.statement.command
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+- source: ;;
+  scopes:
+    - punctuation.terminator.statement.case
+  scopesEnd:
+    - meta.case.entry.body
+- source: '#'
+  scopesBegin:
+    - comment.line.number-sign
+  scopes:
+    - punctuation.definition.comment
+- source: ' matches one vowel'
+  scopesEnd:
+    - comment.line.number-sign
+- source: m
+  scopesBegin:
+    - meta.case.entry.pattern
+  scopes:
+    - string.unquoted.pattern
+    - string.regexp.unquoted
+- source: +
+  scopes:
+    - variable.language.special.quantifier.plus
+    - keyword.operator.quantifier.plus
+    - punctuation.definition.arbitrary-repetition
+    - punctuation.definition.regex.arbitrary-repetition
+- source: (
+  scopesBegin:
+    - meta.parenthese
+  scopes:
+    - punctuation.definition.group
+    - punctuation.definition.regex.group
+- source: i
+  scopesBegin:
+    - string.unquoted.pattern
+    - string.regexp.unquoted
+- source: s
+- source: s
+  scopesEnd:
+    - string.unquoted.pattern
+    - string.regexp.unquoted
+- source: )
+  scopes:
+    - punctuation.definition.group
+    - punctuation.definition.regex.group
+  scopesEnd:
+    - meta.parenthese
+- source: '?'
+  scopes:
+    - variable.language.special.quantifier.question
+    - keyword.operator.quantifier.question
+    - punctuation.definition.arbitrary-repetition
+    - punctuation.definition.regex.arbitrary-repetition
+- source: (
+  scopesBegin:
+    - meta.parenthese
+  scopes:
+    - punctuation.definition.group
+    - punctuation.definition.regex.group
+- source: i
+  scopesBegin:
+    - string.unquoted.pattern
+    - string.regexp.unquoted
+- source: p
+- source: p
+- source: i
+  scopesEnd:
+    - string.unquoted.pattern
+    - string.regexp.unquoted
+- source: )
+  scopes:
+    - punctuation.definition.group
+    - punctuation.definition.regex.group
+  scopesEnd:
+    - meta.parenthese
+- source: )
+  scopes:
+    - keyword.operator.pattern.case
+  scopesEnd:
+    - meta.case.entry.pattern
+- source: fizz
+  scopesBegin:
+    - meta.case.entry.body
+  scopes:
+    - meta.statement.command
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+- source: ;;
+  scopes:
+    - punctuation.terminator.statement.case
+  scopesEnd:
+    - meta.case.entry.body
+- source: '#'
+  scopesBegin:
+    - comment.line.number-sign
+  scopes:
+    - punctuation.definition.comment
+- source: ' matches "miss" or "mississippi" or others'
+  scopesEnd:
+    - comment.line.number-sign
+- source: '*              )'
+  scopes:
+    - keyword.operator.pattern.case.default
+- source: bazinga
+  scopesBegin:
+    - meta.case.entry.body
+  scopes:
+    - meta.statement.command
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+- source: ;;
+  scopes:
+    - punctuation.terminator.statement.case
+  scopesEnd:
+    - meta.case.entry.body
+- source: '#'
+  scopesBegin:
+    - comment.line.number-sign
+  scopes:
+    - punctuation.definition.comment
+- source: ' catchall, matches anything not matched above'
+  scopesEnd:
+    - comment.line.number-sign
+- source: esac
+  scopes:
+    - keyword.control.esac
+  scopesEnd:
+    - meta.case
+- source: done
+  scopes:
+    - keyword.control

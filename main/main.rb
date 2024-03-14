@@ -31,6 +31,7 @@ require_relative './tokens.rb'
             :normal_statement_seperator,
             :logical_expression_double,
             :logical_expression_single,
+            :case_pattern,
             :misc_ranges,
             :loop,
             :function_definition,
@@ -548,18 +549,8 @@ require_relative './tokens.rb'
     keyword_patterns = /#{keywords.map { |each| each+'\W|'+each+'\$' } .join('|')}/
     control_prefix_commands = @tokens.representationsThat(:areControlFlow, :areFollowedByACommand)
     valid_after_patterns = /#{control_prefix_commands.map { |each| '^'+each+' | '+each+' |\t'+each+' ' } .join('|')}/
-    grammar[:normal_statement] = PatternRange.new(
-        zeroLengthStart?: true,
-        zeroLengthEnd?: true,
-        tag_as: "meta.statement",
-        # blank lines screw this pattern up, which is what the first lookAheadToAvoid is fixing
-        start_pattern: Pattern.new(
-            lookAheadToAvoid(empty_line).then(
-                lookBehindFor(valid_after_patterns).or(lookBehindFor(possible_pre_command_characters))
-            ).then(std_space).lookAheadToAvoid(keyword_patterns),
-        ),
-        end_pattern: command_end,
-        includes: [
+    grammar[:normal_statement_inner] = [
+            :case_pattern,
             :function_definition,
             :assignment,
             
@@ -653,6 +644,135 @@ require_relative './tokens.rb'
             :line_continuation,
             :normal_statement_context,
         ]
+    grammar[:case_pattern_context] = [
+            Pattern.new(
+                match: /\*/,
+                tag_as: "variable.language.special.quantifier.star keyword.operator.quantifier.star punctuation.definition.arbitrary-repetition punctuation.definition.regex.arbitrary-repetition"
+            ),
+            Pattern.new(
+                match: /\+/,
+                tag_as: "variable.language.special.quantifier.plus keyword.operator.quantifier.plus punctuation.definition.arbitrary-repetition punctuation.definition.regex.arbitrary-repetition"
+            ),
+            Pattern.new(
+                match: /\?/,
+                tag_as: "variable.language.special.quantifier.question keyword.operator.quantifier.question punctuation.definition.arbitrary-repetition punctuation.definition.regex.arbitrary-repetition"
+            ),
+            Pattern.new(
+                match: /@/,
+                tag_as: "variable.language.special.at keyword.operator.at punctuation.definition.regex.at",
+            ),
+            Pattern.new(
+                match: /\|/,
+                tag_as: "keyword.operator.orvariable.language.special.or keyword.operator.alternation.ruby punctuation.definition.regex.alternation punctuation.separator.regex.alternation"
+            ),
+            PatternRange.new(
+                tag_as: "meta.parenthese",
+                start_pattern: Pattern.new(
+                    match: /\(/,
+                    tag_as: "punctuation.definition.group punctuation.definition.regex.group",
+                ),
+                end_pattern: Pattern.new(
+                    match: /\)/,
+                    tag_as: "punctuation.definition.group punctuation.definition.regex.group",
+                ),
+                includes: [
+                    :case_pattern_context,
+                ],
+            ),
+            PatternRange.new(
+                tag_as: "string.regexp.character-class",
+                start_pattern: Pattern.new(
+                    match: /\[/,
+                    tag_as: "punctuation.definition.character-class",
+                ),
+                end_pattern: Pattern.new(
+                    match: /\]/,
+                    tag_as: "punctuation.definition.character-class",
+                ),
+                includes: [
+                    Pattern.new(
+                        match: /\\./,
+                        tag_as: "constant.character.escape.shell",
+                    ),
+                ],
+            ),
+            :string,
+            Pattern.new(
+                match: /[^) \t\n\[\?\*\|\@]/,
+                tag_as: "string.unquoted.pattern string.regexp.unquoted",
+            ),
+        ]
+    grammar[:case_pattern] = PatternRange.new(
+        tag_as: "meta.case",
+        start_pattern: Pattern.new(
+            Pattern.new(
+                tag_as: "keyword.control.case",
+                match: /\bcase\b/,
+            ).then(std_space).then(
+                match:/.+/, # TODO: this could be a problem for inline case statements
+                includes: [
+                    :initial_context
+                ],
+            ).then(std_space).then(
+                match: /\bin\b/,
+                tag_as: "keyword.control.in",
+            )
+        ),
+        end_pattern: Pattern.new(
+            tag_as: "keyword.control.esac",
+            match: /\besac\b/
+        ),
+        includes: [
+            :comment,
+            # hardcode-match default case
+            std_space.then(
+                match: /\* *\)/,
+                tag_as: "keyword.operator.pattern.case.default",
+            ),
+            # pattern part, everything before ")"
+            PatternRange.new(
+                tag_as: "meta.case.entry.pattern",
+                start_pattern: lookBehindToAvoid(/\)/).lookAheadToAvoid(std_space.then(/esac\b|$/)),
+                end_pattern: lookAheadFor(/\besac\b/).or(
+                    match: /\)/,
+                    tag_as: "keyword.operator.pattern.case",
+                ),
+                includes: [
+                    :case_pattern_context,
+                ],
+            ),
+            # after-pattern part 
+            PatternRange.new(
+                tag_as: "meta.case.entry.body",
+                start_pattern: lookBehindFor(/\)/),
+                end_pattern: Pattern.new(
+                    Pattern.new(
+                        match: /;;/,
+                        tag_as: "punctuation.terminator.statement.case",
+                    ).or(
+                        lookAheadFor(/\besac\b/)
+                    )
+                ),
+                includes: [
+                    :normal_statement_inner,
+                    :initial_context,
+                ],
+            ),
+        ],
+    )
+    grammar[:normal_statement] = PatternRange.new(
+        zeroLengthStart?: true,
+        zeroLengthEnd?: true,
+        tag_as: "meta.statement",
+        # blank lines screw this pattern up, which is what the first lookAheadToAvoid is fixing
+        start_pattern: Pattern.new(
+            lookAheadToAvoid(empty_line).then(
+                lookBehindFor(valid_after_patterns).or(lookBehindFor(possible_pre_command_characters))
+            ).then(std_space).lookAheadToAvoid(keyword_patterns),
+        ),
+        end_pattern: command_end,
+        includes: [ :normal_statement_inner ]
+        
     )
     grammar[:custom_commands] = [
     ]

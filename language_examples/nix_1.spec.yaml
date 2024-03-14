@@ -17342,9 +17342,9 @@
     - comment.line.number-sign
 - source: case
   scopesBegin:
-    - meta.scope.case-block
+    - meta.case
   scopes:
-    - keyword.control
+    - keyword.control.case
 - source: '"'
   scopesBegin:
     - string.quoted.double
@@ -17378,17 +17378,20 @@
   scopesEnd:
     - string.quoted.double
 - source: in
-  scopesBegin:
-    - meta.scope.case-body
   scopes:
-    - keyword.control
+    - keyword.control.in
 - source: '#'
   scopesBegin:
     - comment.line.number-sign
   scopes:
     - punctuation.definition.comment
 - source: ' uninstall)'
+  scopesEnd:
+    - comment.line.number-sign
 - source: '#'
+  scopesBegin:
+    - meta.case.entry.body
+    - comment.line.number-sign
   scopes:
     - punctuation.definition.comment
 - source: '     shift'
@@ -17404,49 +17407,49 @@
     - comment.line.number-sign
 - source: '"'
   scopesBegin:
-    - meta.scope.case-clause
-    - meta.scope.case-pattern
-    - string.quoted.double
+    - meta.statement.command
+    - meta.statement.command.name
   scopes:
+    - meta.statement.command.name.quoted
+    - string.quoted.double
     - punctuation.definition.string.begin
+    - entity.name.function.call
+    - entity.name.command
 - source: '"'
   scopes:
-    - punctuation.definition.string.end
-  scopesEnd:
     - string.quoted.double
+    - punctuation.definition.string.end
+    - entity.name.function.call
+    - entity.name.command
+  scopesEnd:
+    - meta.statement.command
+    - meta.statement.command.name
 - source: '|'
   scopes:
-    - punctuation.separator.pipe-sign
+    - keyword.operator.pipe
 - source: install
-- source: )
   scopes:
-    - punctuation.definition.case-pattern
-  scopesEnd:
-    - meta.scope.case-pattern
+    - meta.statement.command
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+- source: )
 - source: main
   scopes:
-    - meta.scope.case-clause-body
-    - meta.statement
     - meta.statement.command
     - meta.statement.command.name
     - entity.name.function.call
     - entity.name.command
 - source: ;;
   scopes:
-    - punctuation.terminator.case-clause
-- source: '*'
-  scopesBegin:
-    - meta.scope.case-pattern
-  scopes:
-    - keyword.operator.glob
-- source: )
-  scopes:
-    - punctuation.definition.case-pattern
+    - punctuation.terminator.statement.case
   scopesEnd:
-    - meta.scope.case-pattern
+    - meta.case.entry.body
+- source: '*)'
+  scopes:
+    - keyword.operator.pattern.case.default
 - source: '#'
   scopesBegin:
-    - meta.scope.case-clause-body
     - comment.line.number-sign
   scopes:
     - punctuation.definition.comment
@@ -17455,7 +17458,7 @@
     - comment.line.number-sign
 - source: failure
   scopesBegin:
-    - meta.statement
+    - meta.case.entry.body
     - meta.statement.command
   scopes:
     - meta.statement.command.name
@@ -17472,17 +17475,14 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
-    - meta.scope.case-clause-body
-    - meta.statement
     - meta.statement.command
     - meta.argument
     - string.quoted.double
 - source: ;;
   scopes:
-    - punctuation.terminator.case-clause
+    - punctuation.terminator.statement.case
   scopesEnd:
-    - meta.scope.case-body
-    - meta.scope.case-clause
+    - meta.case.entry.body
 - source: esac
   scopes:
-    - keyword.control
+    - keyword.control.esac

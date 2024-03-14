@@ -55,65 +55,6 @@
 		}
 	],
 	"repository": {
-		"case-clause": {
-			"patterns": [
-				{
-					"begin": "(?=\\S)",
-					"end": ";;&?|;&",
-					"endCaptures": {
-						"0": {
-							"name": "punctuation.terminator.case-clause.shell"
-						}
-					},
-					"name": "meta.scope.case-clause.shell",
-					"patterns": [
-						{
-							"begin": "\\(|(?=\\S)",
-							"beginCaptures": {
-								"0": {
-									"name": "punctuation.definition.case-pattern.shell"
-								}
-							},
-							"end": "\\)",
-							"endCaptures": {
-								"0": {
-									"name": "punctuation.definition.case-pattern.shell"
-								}
-							},
-							"name": "meta.scope.case-pattern.shell",
-							"patterns": [
-								{
-									"match": "\\|",
-									"name": "punctuation.separator.pipe-sign.shell"
-								},
-								{
-									"include": "#string"
-								},
-								{
-									"include": "#variable"
-								},
-								{
-									"include": "#interpolation"
-								},
-								{
-									"include": "#pathname"
-								}
-							]
-						},
-						{
-							"begin": "(?<=\\))",
-							"end": "(?=;;&?|;&)",
-							"name": "meta.scope.case-clause-body.shell",
-							"patterns": [
-								{
-									"include": "#initial_context"
-								}
-							]
-						}
-					]
-				}
-			]
-		},
 		"comment": {
 			"begin": "(^\\s+)?(?<=^|\\W)(?<!-)(?=#)(?!#{)",
 			"beginCaptures": {
@@ -827,7 +768,7 @@
 		"keyword": {
 			"patterns": [
 				{
-					"match": "(?<=^|;|&|\\s)(then|else|elif|fi|for|in|do|done|select|case|continue|esac|while|until|return)(?=\\s|;|&|$)",
+					"match": "(?<=^|;|&|\\s)(then|else|elif|fi|for|in|do|done|select|continue|esac|while|until|return)(?=\\s|;|&|$)",
 					"name": "keyword.control.shell"
 				},
 				{
@@ -940,44 +881,6 @@
 					},
 					"name": "meta.scope.select-block.shell",
 					"patterns": [
-						{
-							"include": "#initial_context"
-						}
-					]
-				},
-				{
-					"begin": "(?<=^|;|&|\\s)case(?=\\s|;|&|$)",
-					"beginCaptures": {
-						"0": {
-							"name": "keyword.control.shell"
-						}
-					},
-					"end": "(?<=^|;|&|\\s)esac(?=\\s|;|&|$)",
-					"endCaptures": {
-						"0": {
-							"name": "keyword.control.shell"
-						}
-					},
-					"name": "meta.scope.case-block.shell",
-					"patterns": [
-						{
-							"begin": "(?<=^|;|&|\\s)in(?=\\s|;|&|$)",
-							"beginCaptures": {
-								"0": {
-									"name": "keyword.control.shell"
-								}
-							},
-							"end": "(?<=^|;|&|\\s)(?=esac(\\s|;|&|$))",
-							"name": "meta.scope.case-body.shell",
-							"patterns": [
-								{
-									"include": "#comment"
-								},
-								{
-									"include": "#case-clause"
-								}
-							]
-						},
 						{
 							"include": "#initial_context"
 						}

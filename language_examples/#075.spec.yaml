@@ -10,29 +10,36 @@
     - meta.shebang
 - source: case
   scopesBegin:
-    - meta.scope.case-block
+    - meta.case
   scopes:
-    - keyword.control
-- source: ' a '
+    - keyword.control.case
+- source: 'a '
 - source: in
-  scopesBegin:
-    - meta.scope.case-body
   scopes:
-    - keyword.control
+    - keyword.control.in
 - source: b
   scopesBegin:
-    - meta.scope.case-clause
-    - meta.scope.case-pattern
+    - meta.case.entry.pattern
+  scopes:
+    - string.unquoted.pattern
+    - string.regexp.unquoted
 - source: )
   scopes:
-    - punctuation.definition.case-pattern
+    - keyword.operator.pattern.case
   scopesEnd:
-    - meta.scope.case-pattern
-- source: ' echo '
+    - meta.case.entry.pattern
+- source: echo
   scopesBegin:
-    - meta.scope.case-clause-body
+    - meta.case.entry.body
+    - meta.statement.command
+  scopes:
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+    - support.function.builtin
 - source: '"'
   scopesBegin:
+    - meta.argument
     - string.quoted.double
   scopes:
     - punctuation.definition.string.begin
@@ -41,10 +48,15 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
+    - meta.case.entry.body
+    - meta.statement.command
+    - meta.argument
     - string.quoted.double
 - source: esac
   scopes:
     - keyword.control.esac
+  scopesEnd:
+    - meta.case
 - source: echo
   scopesBegin:
     - meta.statement

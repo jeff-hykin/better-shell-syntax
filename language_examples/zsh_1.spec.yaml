@@ -544,9 +544,9 @@
     - meta.expression.assignment
 - source: case
   scopesBegin:
-    - meta.scope.case-block
+    - meta.case
   scopes:
-    - keyword.control
+    - keyword.control.case
 - source: $
   scopes:
     - punctuation.definition.variable
@@ -563,49 +563,93 @@
     - punctuation.section.bracket.curly.variable.end
     - punctuation.definition.variable
 - source: in
-  scopesBegin:
-    - meta.scope.case-body
   scopes:
-    - keyword.control
-- source: Linux
+    - keyword.control.in
+- source: L
   scopesBegin:
-    - meta.scope.case-clause
-    - meta.scope.case-pattern
+    - meta.case.entry.pattern
+    - string.unquoted.pattern
+    - string.regexp.unquoted
+- source: i
+- source: 'n'
+- source: u
+- source: x
+  scopesEnd:
+    - string.unquoted.pattern
+    - string.regexp.unquoted
 - source: '|'
   scopes:
-    - punctuation.separator.pipe-sign
-- source: GNU
+    - keyword.operator.orvariable.language.special.or
+    - keyword.operator.alternation.ruby
+    - punctuation.definition.regex.alternation
+    - punctuation.separator.regex.alternation
+- source: G
+  scopesBegin:
+    - string.unquoted.pattern
+    - string.regexp.unquoted
+- source: 'N'
+- source: U
+  scopesEnd:
+    - string.unquoted.pattern
+    - string.regexp.unquoted
 - source: '|'
   scopes:
-    - punctuation.separator.pipe-sign
-- source: GNU/
+    - keyword.operator.orvariable.language.special.or
+    - keyword.operator.alternation.ruby
+    - punctuation.definition.regex.alternation
+    - punctuation.separator.regex.alternation
+- source: G
+  scopesBegin:
+    - string.unquoted.pattern
+    - string.regexp.unquoted
+- source: 'N'
+- source: U
+- source: /
+  scopesEnd:
+    - string.unquoted.pattern
+    - string.regexp.unquoted
 - source: '*'
   scopes:
-    - keyword.operator.glob
+    - variable.language.special.quantifier.star
+    - keyword.operator.quantifier.star
+    - punctuation.definition.arbitrary-repetition
+    - punctuation.definition.regex.arbitrary-repetition
 - source: )
   scopes:
-    - punctuation.definition.case-pattern
+    - keyword.operator.pattern.case
   scopesEnd:
-    - meta.scope.case-pattern
-- source: ' USERLAND=GNU '
+    - meta.case.entry.pattern
+- source: USERLAND
+  scopesBegin:
+    - meta.case.entry.body
+    - meta.expression.assignment
   scopes:
-    - meta.scope.case-clause-body
+    - variable.other.assignment
+- source: '='
+  scopes:
+    - keyword.operator.assignment
+- source: GNU
+  scopes:
+    - string.unquoted.argument
+  scopesEnd:
+    - meta.expression.assignment
 - source: ;;
   scopes:
-    - punctuation.terminator.case-clause
-- source: '*'
-  scopesBegin:
-    - meta.scope.case-pattern
-  scopes:
-    - keyword.operator.glob
-- source: )
-  scopes:
-    - punctuation.definition.case-pattern
+    - punctuation.terminator.statement.case
   scopesEnd:
-    - meta.scope.case-pattern
-- source: ' USERLAND='
+    - meta.case.entry.body
+- source: '*)'
+  scopes:
+    - keyword.operator.pattern.case.default
+- source: USERLAND
   scopesBegin:
-    - meta.scope.case-clause-body
+    - meta.case.entry.body
+    - meta.expression.assignment
+  scopes:
+    - variable.other.assignment
+- source: '='
+  scopes:
+    - keyword.operator.assignment
 - source: $
   scopes:
     - punctuation.definition.variable
@@ -622,18 +666,17 @@
     - punctuation.section.bracket.curly.variable.end
     - punctuation.definition.variable
   scopesEnd:
-    - meta.scope.case-clause-body
+    - meta.expression.assignment
 - source: ;;
   scopes:
-    - punctuation.terminator.case-clause
+    - punctuation.terminator.statement.case
   scopesEnd:
-    - meta.scope.case-body
-    - meta.scope.case-clause
+    - meta.case.entry.body
 - source: esac
   scopes:
-    - keyword.control
+    - keyword.control.esac
   scopesEnd:
-    - meta.scope.case-block
+    - meta.case
 - source: '#'
   scopesBegin:
     - comment.line.number-sign
@@ -4425,9 +4468,9 @@
     - keyword.control.do
 - source: case
   scopesBegin:
-    - meta.scope.case-block
+    - meta.case
   scopes:
-    - keyword.control
+    - keyword.control.case
 - source: $
   scopes:
     - punctuation.definition.variable
@@ -4436,25 +4479,31 @@
   scopes:
     - variable.parameter.positional
 - source: in
-  scopesBegin:
-    - meta.scope.case-body
   scopes:
-    - keyword.control
-- source: '-a'
+    - keyword.control.in
+- source: '-'
   scopesBegin:
-    - meta.scope.case-clause
-    - meta.scope.case-pattern
+    - meta.case.entry.pattern
+    - string.unquoted.pattern
+    - string.regexp.unquoted
+- source: a
+  scopesEnd:
+    - string.unquoted.pattern
+    - string.regexp.unquoted
 - source: '*'
   scopes:
-    - keyword.operator.glob
+    - variable.language.special.quantifier.star
+    - keyword.operator.quantifier.star
+    - punctuation.definition.arbitrary-repetition
+    - punctuation.definition.regex.arbitrary-repetition
 - source: )
   scopes:
-    - punctuation.definition.case-pattern
+    - keyword.operator.pattern.case
   scopesEnd:
-    - meta.scope.case-pattern
+    - meta.case.entry.pattern
 - source: '#'
   scopesBegin:
-    - meta.scope.case-clause-body
+    - meta.case.entry.body
     - comment.line.number-sign
   scopes:
     - punctuation.definition.comment
@@ -4634,7 +4683,6 @@
     - meta.scope.group
 - source: printf
   scopesBegin:
-    - meta.statement
     - meta.statement.command
   scopes:
     - meta.statement.command.name
@@ -4682,7 +4730,6 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
-    - meta.statement
     - meta.statement.command
     - meta.argument
     - string.quoted.double
@@ -4692,7 +4739,12 @@
 - source: '>'
   scopes:
     - keyword.operator.redirect
-- source: ' /dev/null '
+- source: /dev/null
+  scopes:
+    - meta.statement.command
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
 - source: '|'
   scopesBegin:
     - keyword.operator.pipe
@@ -4858,7 +4910,6 @@
     - punctuation.separator.statement.and
 - source: unset
   scopesBegin:
-    - meta.statement
     - meta.statement.command
   scopes:
     - meta.statement.command.name
@@ -4892,7 +4943,6 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
-    - meta.statement
     - meta.statement.command
     - meta.argument
     - string.quoted.double
@@ -4901,7 +4951,6 @@
     - punctuation.separator.statement.and
 - source: eval
   scopesBegin:
-    - meta.statement
     - meta.statement.command
   scopes:
     - meta.statement.command.name
@@ -4965,7 +5014,6 @@
     - constant.character.escape
 - source: \)
   scopesEnd:
-    - meta.statement
     - meta.statement.command
     - meta.argument
     - constant.character.escape
@@ -4974,7 +5022,6 @@
     - punctuation.separator.statement.and
 - source: shift
   scopesBegin:
-    - meta.statement
     - meta.statement.command
   scopes:
     - meta.statement.command.name
@@ -5027,7 +5074,6 @@
   scopes:
     - punctuation.definition.evaluation.arithmetic.end
   scopesEnd:
-    - meta.statement
     - meta.statement.command
     - meta.argument
 - source: '|'
@@ -5179,22 +5225,29 @@
   scopes:
     - punctuation.definition.group
   scopesEnd:
-    - meta.scope.case-clause-body
     - meta.scope.group
 - source: ;;
   scopes:
-    - punctuation.terminator.case-clause
-- source: '-v'
+    - punctuation.terminator.statement.case
+  scopesEnd:
+    - meta.case.entry.body
+- source: '-'
   scopesBegin:
-    - meta.scope.case-pattern
+    - meta.case.entry.pattern
+    - string.unquoted.pattern
+    - string.regexp.unquoted
+- source: v
+  scopesEnd:
+    - string.unquoted.pattern
+    - string.regexp.unquoted
 - source: )
   scopes:
-    - punctuation.definition.case-pattern
+    - keyword.operator.pattern.case
   scopesEnd:
-    - meta.scope.case-pattern
+    - meta.case.entry.pattern
 - source: '#'
   scopesBegin:
-    - meta.scope.case-clause-body
+    - meta.case.entry.body
     - comment.line.number-sign
   scopes:
     - punctuation.definition.comment
@@ -5245,7 +5298,6 @@
     - punctuation.separator.statement.and
 - source: unset
   scopesBegin:
-    - meta.statement
     - meta.statement.command
   scopes:
     - meta.statement.command.name
@@ -5279,7 +5331,6 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
-    - meta.statement
     - meta.statement.command
     - meta.argument
     - string.quoted.double
@@ -5288,7 +5339,6 @@
     - punctuation.separator.statement.and
 - source: eval
   scopesBegin:
-    - meta.statement
     - meta.statement.command
   scopes:
     - meta.statement.command.name
@@ -5320,7 +5370,6 @@
   scopes:
     - constant.character.escape
   scopesEnd:
-    - meta.statement
     - meta.statement.command
     - meta.argument
 - source: '&&'
@@ -5462,25 +5511,18 @@
   scopes:
     - punctuation.definition.group
   scopesEnd:
-    - meta.scope.case-clause-body
     - meta.scope.group
 - source: ;;
   scopes:
-    - punctuation.terminator.case-clause
-- source: '*'
-  scopesBegin:
-    - meta.scope.case-pattern
-  scopes:
-    - keyword.operator.glob
-- source: )
-  scopes:
-    - punctuation.definition.case-pattern
+    - punctuation.terminator.statement.case
   scopesEnd:
-    - meta.scope.case-pattern
+    - meta.case.entry.body
+- source: '*)'
+  scopes:
+    - keyword.operator.pattern.case.default
 - source: echo
   scopesBegin:
-    - meta.scope.case-clause-body
-    - meta.statement
+    - meta.case.entry.body
     - meta.statement.command
   scopes:
     - meta.statement.command.name
@@ -5554,20 +5596,17 @@
     - constant.numeric
     - constant.numeric.integer
   scopesEnd:
-    - meta.scope.case-clause-body
-    - meta.statement
     - meta.statement.command
 - source: ;;
   scopes:
-    - punctuation.terminator.case-clause
+    - punctuation.terminator.statement.case
   scopesEnd:
-    - meta.scope.case-body
-    - meta.scope.case-clause
+    - meta.case.entry.body
 - source: esac
   scopes:
-    - keyword.control
+    - keyword.control.esac
   scopesEnd:
-    - meta.scope.case-block
+    - meta.case
 - source: done
   scopes:
     - keyword.control
@@ -8152,9 +8191,9 @@
     - keyword.control.do
 - source: case
   scopesBegin:
-    - meta.scope.case-block
+    - meta.case
   scopes:
-    - keyword.control
+    - keyword.control.case
 - source: $
   scopes:
     - punctuation.definition.variable
@@ -8163,22 +8202,28 @@
   scopes:
     - variable.other.normal
 - source: in
-  scopesBegin:
-    - meta.scope.case-body
   scopes:
-    - keyword.control
+    - keyword.control.in
 - source: c
   scopesBegin:
-    - meta.scope.case-clause
-    - meta.scope.case-pattern
+    - meta.case.entry.pattern
+  scopes:
+    - string.unquoted.pattern
+    - string.regexp.unquoted
 - source: )
   scopes:
-    - punctuation.definition.case-pattern
+    - keyword.operator.pattern.case
   scopesEnd:
-    - meta.scope.case-pattern
-- source: ' vcur='
+    - meta.case.entry.pattern
+- source: vcur
   scopesBegin:
-    - meta.scope.case-clause-body
+    - meta.case.entry.body
+    - meta.expression.assignment
+  scopes:
+    - variable.other.assignment
+- source: '='
+  scopes:
+    - keyword.operator.assignment
 - source: $
   scopes:
     - punctuation.definition.variable
@@ -8187,21 +8232,32 @@
   scopes:
     - variable.other.normal
   scopesEnd:
-    - meta.scope.case-clause-body
+    - meta.expression.assignment
 - source: ;;
   scopes:
-    - punctuation.terminator.case-clause
+    - punctuation.terminator.statement.case
+  scopesEnd:
+    - meta.case.entry.body
 - source: i
   scopesBegin:
-    - meta.scope.case-pattern
+    - meta.case.entry.pattern
+  scopes:
+    - string.unquoted.pattern
+    - string.regexp.unquoted
 - source: )
   scopes:
-    - punctuation.definition.case-pattern
+    - keyword.operator.pattern.case
   scopesEnd:
-    - meta.scope.case-pattern
-- source: ' vcword='
+    - meta.case.entry.pattern
+- source: vcword
   scopesBegin:
-    - meta.scope.case-clause-body
+    - meta.case.entry.body
+    - meta.expression.assignment
+  scopes:
+    - variable.other.assignment
+- source: '='
+  scopes:
+    - keyword.operator.assignment
 - source: $
   scopes:
     - punctuation.definition.variable
@@ -8210,21 +8266,32 @@
   scopes:
     - variable.other.normal
   scopesEnd:
-    - meta.scope.case-clause-body
+    - meta.expression.assignment
 - source: ;;
   scopes:
-    - punctuation.terminator.case-clause
+    - punctuation.terminator.statement.case
+  scopesEnd:
+    - meta.case.entry.body
 - source: 'n'
   scopesBegin:
-    - meta.scope.case-pattern
+    - meta.case.entry.pattern
+  scopes:
+    - string.unquoted.pattern
+    - string.regexp.unquoted
 - source: )
   scopes:
-    - punctuation.definition.case-pattern
+    - keyword.operator.pattern.case
   scopesEnd:
-    - meta.scope.case-pattern
-- source: ' exclude='
+    - meta.case.entry.pattern
+- source: exclude
   scopesBegin:
-    - meta.scope.case-clause-body
+    - meta.case.entry.body
+    - meta.expression.assignment
+  scopes:
+    - variable.other.assignment
+- source: '='
+  scopes:
+    - keyword.operator.assignment
 - source: $
   scopes:
     - punctuation.definition.variable
@@ -8233,21 +8300,32 @@
   scopes:
     - variable.other.normal
   scopesEnd:
-    - meta.scope.case-clause-body
+    - meta.expression.assignment
 - source: ;;
   scopes:
-    - punctuation.terminator.case-clause
+    - punctuation.terminator.statement.case
+  scopesEnd:
+    - meta.case.entry.body
 - source: p
   scopesBegin:
-    - meta.scope.case-pattern
+    - meta.case.entry.pattern
+  scopes:
+    - string.unquoted.pattern
+    - string.regexp.unquoted
 - source: )
   scopes:
-    - punctuation.definition.case-pattern
+    - keyword.operator.pattern.case
   scopesEnd:
-    - meta.scope.case-pattern
-- source: ' vprev='
+    - meta.case.entry.pattern
+- source: vprev
   scopesBegin:
-    - meta.scope.case-clause-body
+    - meta.case.entry.body
+    - meta.expression.assignment
+  scopes:
+    - variable.other.assignment
+- source: '='
+  scopes:
+    - keyword.operator.assignment
 - source: $
   scopes:
     - punctuation.definition.variable
@@ -8256,21 +8334,32 @@
   scopes:
     - variable.other.normal
   scopesEnd:
-    - meta.scope.case-clause-body
+    - meta.expression.assignment
 - source: ;;
   scopes:
-    - punctuation.terminator.case-clause
+    - punctuation.terminator.statement.case
+  scopesEnd:
+    - meta.case.entry.body
 - source: w
   scopesBegin:
-    - meta.scope.case-pattern
+    - meta.case.entry.pattern
+  scopes:
+    - string.unquoted.pattern
+    - string.regexp.unquoted
 - source: )
   scopes:
-    - punctuation.definition.case-pattern
+    - keyword.operator.pattern.case
   scopesEnd:
-    - meta.scope.case-pattern
-- source: ' vwords='
+    - meta.case.entry.pattern
+- source: vwords
   scopesBegin:
-    - meta.scope.case-clause-body
+    - meta.case.entry.body
+    - meta.expression.assignment
+  scopes:
+    - variable.other.assignment
+- source: '='
+  scopes:
+    - keyword.operator.assignment
 - source: $
   scopes:
     - punctuation.definition.variable
@@ -8279,18 +8368,17 @@
   scopes:
     - variable.other.normal
   scopesEnd:
-    - meta.scope.case-clause-body
+    - meta.expression.assignment
 - source: ;;
   scopes:
-    - punctuation.terminator.case-clause
+    - punctuation.terminator.statement.case
   scopesEnd:
-    - meta.scope.case-body
-    - meta.scope.case-clause
+    - meta.case.entry.body
 - source: esac
   scopes:
-    - keyword.control
+    - keyword.control.esac
   scopesEnd:
-    - meta.scope.case-block
+    - meta.case
 - source: done
   scopesBegin:
     - keyword.control
@@ -8333,12 +8421,10 @@
 - source: case
   scopesBegin:
     - meta.statement
+    - meta.case
   scopes:
     - keyword.control.case
 - source: $
-  scopesBegin:
-    - meta.statement.command
-    - meta.statement.command.name
   scopes:
     - punctuation.definition.variable
 - source: '{'
@@ -8359,79 +8445,165 @@
   scopes:
     - punctuation.section.bracket.curly.variable.end
     - punctuation.definition.variable
-  scopesEnd:
-    - meta.statement.command.name
 - source: in
   scopes:
-    - meta.argument
-    - string.unquoted.argument
+    - keyword.control.in
+- source: c
+  scopesBegin:
+    - meta.case.entry.pattern
+    - string.unquoted.pattern
+    - string.regexp.unquoted
+- source: u
+- source: r
+  scopesEnd:
+    - string.unquoted.pattern
+    - string.regexp.unquoted
+- source: )
+  scopes:
+    - keyword.operator.pattern.case
+  scopesEnd:
+    - meta.case.entry.pattern
+- source: vcur
+  scopesBegin:
+    - meta.case.entry.body
+    - meta.expression.assignment
+  scopes:
+    - variable.other.assignment
+- source: '='
+  scopes:
+    - keyword.operator.assignment
 - source: cur
   scopes:
-    - meta.statement.command.name
-    - entity.name.function.call
-    - entity.name.command
+    - string.unquoted.argument
   scopesEnd:
-    - meta.statement
-    - meta.statement.command
-- source: ')   vcur=cur '
-- source: ;
+    - meta.expression.assignment
+- source: ;;
+  scopes:
+    - punctuation.terminator.statement.case
+  scopesEnd:
+    - meta.case.entry.body
+- source: p
   scopesBegin:
-    - punctuation.terminator.statement.semicolon
-- source: ;
+    - meta.case.entry.pattern
+    - string.unquoted.pattern
+    - string.regexp.unquoted
+- source: r
+- source: e
+- source: v
   scopesEnd:
-    - punctuation.terminator.statement.semicolon
+    - string.unquoted.pattern
+    - string.regexp.unquoted
+- source: )
+  scopes:
+    - keyword.operator.pattern.case
+  scopesEnd:
+    - meta.case.entry.pattern
+- source: vprev
+  scopesBegin:
+    - meta.case.entry.body
+    - meta.expression.assignment
+  scopes:
+    - variable.other.assignment
+- source: '='
+  scopes:
+    - keyword.operator.assignment
 - source: prev
   scopes:
-    - meta.statement
-    - meta.statement.command
-    - meta.statement.command.name
-    - entity.name.function.call
-    - entity.name.command
-- source: ')  vprev=prev '
-- source: ;
-  scopesBegin:
-    - punctuation.terminator.statement.semicolon
-- source: ;
+    - string.unquoted.argument
   scopesEnd:
-    - punctuation.terminator.statement.semicolon
+    - meta.expression.assignment
+- source: ;;
+  scopes:
+    - punctuation.terminator.statement.case
+  scopesEnd:
+    - meta.case.entry.body
+- source: c
+  scopesBegin:
+    - meta.case.entry.pattern
+    - string.unquoted.pattern
+    - string.regexp.unquoted
+- source: w
+- source: o
+- source: r
+- source: d
+  scopesEnd:
+    - string.unquoted.pattern
+    - string.regexp.unquoted
+- source: )
+  scopes:
+    - keyword.operator.pattern.case
+  scopesEnd:
+    - meta.case.entry.pattern
+- source: vcword
+  scopesBegin:
+    - meta.case.entry.body
+    - meta.expression.assignment
+  scopes:
+    - variable.other.assignment
+- source: '='
+  scopes:
+    - keyword.operator.assignment
 - source: cword
   scopes:
-    - meta.statement
-    - meta.statement.command
-    - meta.statement.command.name
-    - entity.name.function.call
-    - entity.name.command
-- source: ') vcword=cword '
-- source: ;
-  scopesBegin:
-    - punctuation.terminator.statement.semicolon
-- source: ;
+    - string.unquoted.argument
   scopesEnd:
-    - punctuation.terminator.statement.semicolon
+    - meta.expression.assignment
+- source: ;;
+  scopes:
+    - punctuation.terminator.statement.case
+  scopesEnd:
+    - meta.case.entry.body
+- source: w
+  scopesBegin:
+    - meta.case.entry.pattern
+    - string.unquoted.pattern
+    - string.regexp.unquoted
+- source: o
+- source: r
+- source: d
+- source: s
+  scopesEnd:
+    - string.unquoted.pattern
+    - string.regexp.unquoted
+- source: )
+  scopes:
+    - keyword.operator.pattern.case
+  scopesEnd:
+    - meta.case.entry.pattern
+- source: vwords
+  scopesBegin:
+    - meta.case.entry.body
+    - meta.expression.assignment
+  scopes:
+    - variable.other.assignment
+- source: '='
+  scopes:
+    - keyword.operator.assignment
 - source: words
   scopes:
-    - meta.statement
-    - meta.statement.command
-    - meta.statement.command.name
-    - entity.name.function.call
-    - entity.name.command
-- source: ') vwords=words '
-- source: ;
-  scopesBegin:
-    - punctuation.terminator.statement.semicolon
-- source: ;
+    - string.unquoted.argument
   scopesEnd:
-    - punctuation.terminator.statement.semicolon
-- source: '*'
+    - meta.expression.assignment
+- source: ;;
   scopes:
-    - meta.statement
+    - punctuation.terminator.statement.case
+  scopesEnd:
+    - meta.case.entry.body
+- source: '*)'
+  scopes:
+    - keyword.operator.pattern.case.default
+- source: echo
+  scopesBegin:
+    - meta.case.entry.body
     - meta.statement.command
+  scopes:
     - meta.statement.command.name
     - entity.name.function.call
     - entity.name.command
-- source: ') echo '
+    - support.function.builtin
 - source: '"'
   scopesBegin:
+    - meta.argument
     - string.quoted.double
   scopes:
     - punctuation.definition.string.begin
@@ -8474,30 +8646,23 @@
     - punctuation.definition.string.end
   scopesEnd:
     - string.quoted.double
-- source: ' \'
-- source: 1>
+- source: \
   scopes:
-    - meta.statement
+    - constant.character.escape.line-continuation
+- source: '1'
+  scopes:
+    - keyword.operator.redirect.stdout
+- source: '>&2'
+  scopes:
+    - keyword.operator.redirect
+  scopesEnd:
     - meta.statement.command
-    - meta.statement.command.name
-    - entity.name.function.call
-    - entity.name.command
-- source: '&'
-  scopes:
-    - punctuation.separator.statement.background
-- source: '2'
-  scopes:
-    - meta.statement
-    - meta.statement.command
-    - meta.statement.command.name
-    - entity.name.function.call
-    - entity.name.command
+    - meta.argument
 - source: ;
   scopes:
     - punctuation.terminator.statement.semicolon
 - source: return
   scopesBegin:
-    - meta.statement
     - meta.statement.command
   scopes:
     - meta.statement.command.name
@@ -8511,19 +8676,17 @@
     - constant.numeric
     - constant.numeric.integer
   scopesEnd:
-    - meta.statement
     - meta.statement.command
-- source: ;
-  scopesBegin:
-    - punctuation.terminator.statement.semicolon
-- source: ;
+- source: ;;
+  scopes:
+    - punctuation.terminator.statement.case
   scopesEnd:
-    - punctuation.terminator.statement.semicolon
+    - meta.case.entry.body
 - source: esac
-  scopesBegin:
-    - meta.statement
   scopes:
     - keyword.control.esac
+  scopesEnd:
+    - meta.case
 - source: let
   scopesBegin:
     - meta.statement.command
@@ -25448,9 +25611,9 @@
     - keyword.control.do
 - source: case
   scopesBegin:
-    - meta.scope.case-block
+    - meta.case
   scopes:
-    - keyword.control
+    - keyword.control.case
 - source: $
   scopes:
     - punctuation.definition.variable
@@ -25459,22 +25622,28 @@
   scopes:
     - variable.other.normal
 - source: in
-  scopesBegin:
-    - meta.scope.case-body
   scopes:
-    - keyword.control
+    - keyword.control.in
 - source: a
   scopesBegin:
-    - meta.scope.case-clause
-    - meta.scope.case-pattern
+    - meta.case.entry.pattern
+  scopes:
+    - string.unquoted.pattern
+    - string.regexp.unquoted
 - source: )
   scopes:
-    - punctuation.definition.case-pattern
+    - keyword.operator.pattern.case
   scopesEnd:
-    - meta.scope.case-pattern
-- source: ' aliases='
+    - meta.case.entry.pattern
+- source: aliases
   scopesBegin:
-    - meta.scope.case-clause-body
+    - meta.case.entry.body
+    - meta.expression.assignment
+  scopes:
+    - variable.other.assignment
+- source: '='
+  scopes:
+    - keyword.operator.assignment
 - source: ''''
   scopesBegin:
     - string.quoted.single
@@ -25485,22 +25654,33 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
-    - meta.scope.case-clause-body
+    - meta.expression.assignment
     - string.quoted.single
 - source: ;;
   scopes:
-    - punctuation.terminator.case-clause
+    - punctuation.terminator.statement.case
+  scopesEnd:
+    - meta.case.entry.body
 - source: c
   scopesBegin:
-    - meta.scope.case-pattern
+    - meta.case.entry.pattern
+  scopes:
+    - string.unquoted.pattern
+    - string.regexp.unquoted
 - source: )
   scopes:
-    - punctuation.definition.case-pattern
+    - keyword.operator.pattern.case
   scopesEnd:
-    - meta.scope.case-pattern
-- source: ' suffix='
+    - meta.case.entry.pattern
+- source: suffix
   scopesBegin:
-    - meta.scope.case-clause-body
+    - meta.case.entry.body
+    - meta.expression.assignment
+  scopes:
+    - variable.other.assignment
+- source: '='
+  scopes:
+    - keyword.operator.assignment
 - source: ''''
   scopesBegin:
     - string.quoted.single
@@ -25511,22 +25691,33 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
-    - meta.scope.case-clause-body
+    - meta.expression.assignment
     - string.quoted.single
 - source: ;;
   scopes:
-    - punctuation.terminator.case-clause
+    - punctuation.terminator.statement.case
+  scopesEnd:
+    - meta.case.entry.body
 - source: F
   scopesBegin:
-    - meta.scope.case-pattern
+    - meta.case.entry.pattern
+  scopes:
+    - string.unquoted.pattern
+    - string.regexp.unquoted
 - source: )
   scopes:
-    - punctuation.definition.case-pattern
+    - keyword.operator.pattern.case
   scopesEnd:
-    - meta.scope.case-pattern
-- source: ' configfile='
+    - meta.case.entry.pattern
+- source: configfile
   scopesBegin:
-    - meta.scope.case-clause-body
+    - meta.case.entry.body
+    - meta.expression.assignment
+  scopes:
+    - variable.other.assignment
+- source: '='
+  scopes:
+    - keyword.operator.assignment
 - source: $
   scopes:
     - punctuation.definition.variable
@@ -25535,21 +25726,32 @@
   scopes:
     - variable.other.normal
   scopesEnd:
-    - meta.scope.case-clause-body
+    - meta.expression.assignment
 - source: ;;
   scopes:
-    - punctuation.terminator.case-clause
+    - punctuation.terminator.statement.case
+  scopesEnd:
+    - meta.case.entry.body
 - source: p
   scopesBegin:
-    - meta.scope.case-pattern
+    - meta.case.entry.pattern
+  scopes:
+    - string.unquoted.pattern
+    - string.regexp.unquoted
 - source: )
   scopes:
-    - punctuation.definition.case-pattern
+    - keyword.operator.pattern.case
   scopesEnd:
-    - meta.scope.case-pattern
-- source: ' prefix='
+    - meta.case.entry.pattern
+- source: prefix
   scopesBegin:
-    - meta.scope.case-clause-body
+    - meta.case.entry.body
+    - meta.expression.assignment
+  scopes:
+    - variable.other.assignment
+- source: '='
+  scopes:
+    - keyword.operator.assignment
 - source: $
   scopes:
     - punctuation.definition.variable
@@ -25558,18 +25760,17 @@
   scopes:
     - variable.other.normal
   scopesEnd:
-    - meta.scope.case-clause-body
+    - meta.expression.assignment
 - source: ;;
   scopes:
-    - punctuation.terminator.case-clause
+    - punctuation.terminator.statement.case
   scopesEnd:
-    - meta.scope.case-body
-    - meta.scope.case-clause
+    - meta.case.entry.body
 - source: esac
   scopes:
-    - keyword.control
+    - keyword.control.esac
   scopesEnd:
-    - meta.scope.case-block
+    - meta.case
 - source: done
   scopes:
     - keyword.control
@@ -33514,9 +33715,9 @@
     - meta.expression.assignment
 - source: case
   scopesBegin:
-    - meta.scope.case-block
+    - meta.case
   scopes:
-    - keyword.control
+    - keyword.control.case
 - source: '"'
   scopesBegin:
     - string.quoted.double
@@ -33535,30 +33736,62 @@
   scopesEnd:
     - string.quoted.double
 - source: in
-  scopesBegin:
-    - meta.scope.case-body
   scopes:
-    - keyword.control
-- source: '--'
+    - keyword.control.in
+- source: '-'
   scopesBegin:
-    - meta.scope.case-clause
-    - meta.scope.case-pattern
+    - meta.case.entry.pattern
+    - string.unquoted.pattern
+    - string.regexp.unquoted
+- source: '-'
+  scopesEnd:
+    - string.unquoted.pattern
+    - string.regexp.unquoted
 - source: '*'
   scopes:
-    - keyword.operator.glob
-- source: '[Dd][Ii][Rr]'
+    - variable.language.special.quantifier.star
+    - keyword.operator.quantifier.star
+    - punctuation.definition.arbitrary-repetition
+    - punctuation.definition.regex.arbitrary-repetition
+- source: '['
+  scopesBegin:
+    - string.regexp.character-class
+  scopes:
+    - punctuation.definition.character-class
+- source: Dd
+- source: ']'
+  scopesBegin:
+    - punctuation.definition.character-class
+- source: '['
+  scopesEnd:
+    - punctuation.definition.character-class
+- source: Ii
+- source: ']'
+  scopesBegin:
+    - punctuation.definition.character-class
+- source: '['
+  scopesEnd:
+    - punctuation.definition.character-class
+- source: Rr
+- source: ']'
+  scopes:
+    - punctuation.definition.character-class
+  scopesEnd:
+    - string.regexp.character-class
 - source: '*'
   scopes:
-    - keyword.operator.glob
+    - variable.language.special.quantifier.star
+    - keyword.operator.quantifier.star
+    - punctuation.definition.arbitrary-repetition
+    - punctuation.definition.regex.arbitrary-repetition
 - source: )
   scopes:
-    - punctuation.definition.case-pattern
+    - keyword.operator.pattern.case
   scopesEnd:
-    - meta.scope.case-pattern
+    - meta.case.entry.pattern
 - source: _filedir
   scopesBegin:
-    - meta.scope.case-clause-body
-    - meta.statement
+    - meta.case.entry.body
     - meta.statement.command
   scopes:
     - meta.statement.command.name
@@ -33587,42 +33820,131 @@
     - constant.numeric
     - constant.numeric.integer
   scopesEnd:
-    - meta.scope.case-clause-body
-    - meta.statement
     - meta.statement.command
 - source: ;;
   scopes:
-    - punctuation.terminator.case-clause
-- source: '--'
+    - punctuation.terminator.statement.case
+  scopesEnd:
+    - meta.case.entry.body
+- source: '-'
   scopesBegin:
-    - meta.scope.case-pattern
+    - meta.case.entry.pattern
+    - string.unquoted.pattern
+    - string.regexp.unquoted
+- source: '-'
+  scopesEnd:
+    - string.unquoted.pattern
+    - string.regexp.unquoted
 - source: '*'
   scopes:
-    - keyword.operator.glob
-- source: '[Ff][Ii][Ll][Ee]'
+    - variable.language.special.quantifier.star
+    - keyword.operator.quantifier.star
+    - punctuation.definition.arbitrary-repetition
+    - punctuation.definition.regex.arbitrary-repetition
+- source: '['
+  scopesBegin:
+    - string.regexp.character-class
+  scopes:
+    - punctuation.definition.character-class
+- source: Ff
+- source: ']'
+  scopesBegin:
+    - punctuation.definition.character-class
+- source: '['
+  scopesEnd:
+    - punctuation.definition.character-class
+- source: Ii
+- source: ']'
+  scopesBegin:
+    - punctuation.definition.character-class
+- source: '['
+  scopesEnd:
+    - punctuation.definition.character-class
+- source: Ll
+- source: ']'
+  scopesBegin:
+    - punctuation.definition.character-class
+- source: '['
+  scopesEnd:
+    - punctuation.definition.character-class
+- source: Ee
+- source: ']'
+  scopes:
+    - punctuation.definition.character-class
+  scopesEnd:
+    - string.regexp.character-class
 - source: '*'
   scopes:
-    - keyword.operator.glob
+    - variable.language.special.quantifier.star
+    - keyword.operator.quantifier.star
+    - punctuation.definition.arbitrary-repetition
+    - punctuation.definition.regex.arbitrary-repetition
 - source: '|'
   scopes:
-    - punctuation.separator.pipe-sign
-- source: '--'
+    - keyword.operator.orvariable.language.special.or
+    - keyword.operator.alternation.ruby
+    - punctuation.definition.regex.alternation
+    - punctuation.separator.regex.alternation
+- source: '-'
+  scopesBegin:
+    - string.unquoted.pattern
+    - string.regexp.unquoted
+- source: '-'
+  scopesEnd:
+    - string.unquoted.pattern
+    - string.regexp.unquoted
 - source: '*'
   scopes:
-    - keyword.operator.glob
-- source: '[Pp][Aa][Tt][Hh]'
+    - variable.language.special.quantifier.star
+    - keyword.operator.quantifier.star
+    - punctuation.definition.arbitrary-repetition
+    - punctuation.definition.regex.arbitrary-repetition
+- source: '['
+  scopesBegin:
+    - string.regexp.character-class
+  scopes:
+    - punctuation.definition.character-class
+- source: Pp
+- source: ']'
+  scopesBegin:
+    - punctuation.definition.character-class
+- source: '['
+  scopesEnd:
+    - punctuation.definition.character-class
+- source: Aa
+- source: ']'
+  scopesBegin:
+    - punctuation.definition.character-class
+- source: '['
+  scopesEnd:
+    - punctuation.definition.character-class
+- source: Tt
+- source: ']'
+  scopesBegin:
+    - punctuation.definition.character-class
+- source: '['
+  scopesEnd:
+    - punctuation.definition.character-class
+- source: Hh
+- source: ']'
+  scopes:
+    - punctuation.definition.character-class
+  scopesEnd:
+    - string.regexp.character-class
 - source: '*'
   scopes:
-    - keyword.operator.glob
+    - variable.language.special.quantifier.star
+    - keyword.operator.quantifier.star
+    - punctuation.definition.arbitrary-repetition
+    - punctuation.definition.regex.arbitrary-repetition
 - source: )
   scopes:
-    - punctuation.definition.case-pattern
+    - keyword.operator.pattern.case
   scopesEnd:
-    - meta.scope.case-pattern
+    - meta.case.entry.pattern
 - source: _filedir
   scopesBegin:
-    - meta.scope.case-clause-body
-    - meta.statement
+    - meta.case.entry.body
     - meta.statement.command
     - meta.statement.command.name
     - entity.name.function.call
@@ -33641,20 +33963,17 @@
     - constant.numeric
     - constant.numeric.integer
   scopesEnd:
-    - meta.scope.case-clause-body
-    - meta.statement
     - meta.statement.command
 - source: ;;
   scopes:
-    - punctuation.terminator.case-clause
+    - punctuation.terminator.statement.case
   scopesEnd:
-    - meta.scope.case-body
-    - meta.scope.case-clause
+    - meta.case.entry.body
 - source: esac
   scopes:
-    - keyword.control
+    - keyword.control.esac
   scopesEnd:
-    - meta.scope.case-block
+    - meta.case
 - source: $
   scopesBegin:
     - meta.statement
@@ -37774,9 +38093,9 @@
     - meta.expression.assignment
 - source: case
   scopesBegin:
-    - meta.scope.case-block
+    - meta.case
   scopes:
-    - keyword.control
+    - keyword.control.case
 - source: $
   scopes:
     - punctuation.definition.variable
@@ -37793,49 +38112,93 @@
     - punctuation.section.bracket.curly.variable.end
     - punctuation.definition.variable
 - source: in
-  scopesBegin:
-    - meta.scope.case-body
   scopes:
-    - keyword.control
-- source: Linux
+    - keyword.control.in
+- source: L
   scopesBegin:
-    - meta.scope.case-clause
-    - meta.scope.case-pattern
+    - meta.case.entry.pattern
+    - string.unquoted.pattern
+    - string.regexp.unquoted
+- source: i
+- source: 'n'
+- source: u
+- source: x
+  scopesEnd:
+    - string.unquoted.pattern
+    - string.regexp.unquoted
 - source: '|'
   scopes:
-    - punctuation.separator.pipe-sign
-- source: GNU
+    - keyword.operator.orvariable.language.special.or
+    - keyword.operator.alternation.ruby
+    - punctuation.definition.regex.alternation
+    - punctuation.separator.regex.alternation
+- source: G
+  scopesBegin:
+    - string.unquoted.pattern
+    - string.regexp.unquoted
+- source: 'N'
+- source: U
+  scopesEnd:
+    - string.unquoted.pattern
+    - string.regexp.unquoted
 - source: '|'
   scopes:
-    - punctuation.separator.pipe-sign
-- source: GNU/
+    - keyword.operator.orvariable.language.special.or
+    - keyword.operator.alternation.ruby
+    - punctuation.definition.regex.alternation
+    - punctuation.separator.regex.alternation
+- source: G
+  scopesBegin:
+    - string.unquoted.pattern
+    - string.regexp.unquoted
+- source: 'N'
+- source: U
+- source: /
+  scopesEnd:
+    - string.unquoted.pattern
+    - string.regexp.unquoted
 - source: '*'
   scopes:
-    - keyword.operator.glob
+    - variable.language.special.quantifier.star
+    - keyword.operator.quantifier.star
+    - punctuation.definition.arbitrary-repetition
+    - punctuation.definition.regex.arbitrary-repetition
 - source: )
   scopes:
-    - punctuation.definition.case-pattern
+    - keyword.operator.pattern.case
   scopesEnd:
-    - meta.scope.case-pattern
-- source: ' USERLAND=GNU '
+    - meta.case.entry.pattern
+- source: USERLAND
+  scopesBegin:
+    - meta.case.entry.body
+    - meta.expression.assignment
   scopes:
-    - meta.scope.case-clause-body
+    - variable.other.assignment
+- source: '='
+  scopes:
+    - keyword.operator.assignment
+- source: GNU
+  scopes:
+    - string.unquoted.argument
+  scopesEnd:
+    - meta.expression.assignment
 - source: ;;
   scopes:
-    - punctuation.terminator.case-clause
-- source: '*'
-  scopesBegin:
-    - meta.scope.case-pattern
-  scopes:
-    - keyword.operator.glob
-- source: )
-  scopes:
-    - punctuation.definition.case-pattern
+    - punctuation.terminator.statement.case
   scopesEnd:
-    - meta.scope.case-pattern
-- source: ' USERLAND='
+    - meta.case.entry.body
+- source: '*)'
+  scopes:
+    - keyword.operator.pattern.case.default
+- source: USERLAND
   scopesBegin:
-    - meta.scope.case-clause-body
+    - meta.case.entry.body
+    - meta.expression.assignment
+  scopes:
+    - variable.other.assignment
+- source: '='
+  scopes:
+    - keyword.operator.assignment
 - source: $
   scopes:
     - punctuation.definition.variable
@@ -37852,18 +38215,17 @@
     - punctuation.section.bracket.curly.variable.end
     - punctuation.definition.variable
   scopesEnd:
-    - meta.scope.case-clause-body
+    - meta.expression.assignment
 - source: ;;
   scopes:
-    - punctuation.terminator.case-clause
+    - punctuation.terminator.statement.case
   scopesEnd:
-    - meta.scope.case-body
-    - meta.scope.case-clause
+    - meta.case.entry.body
 - source: esac
   scopes:
-    - keyword.control
+    - keyword.control.esac
   scopesEnd:
-    - meta.scope.case-block
+    - meta.case
 - source: '#'
   scopesBegin:
     - comment.line.number-sign
@@ -41655,9 +42017,9 @@
     - keyword.control.do
 - source: case
   scopesBegin:
-    - meta.scope.case-block
+    - meta.case
   scopes:
-    - keyword.control
+    - keyword.control.case
 - source: $
   scopes:
     - punctuation.definition.variable
@@ -41666,25 +42028,31 @@
   scopes:
     - variable.parameter.positional
 - source: in
-  scopesBegin:
-    - meta.scope.case-body
   scopes:
-    - keyword.control
-- source: '-a'
+    - keyword.control.in
+- source: '-'
   scopesBegin:
-    - meta.scope.case-clause
-    - meta.scope.case-pattern
+    - meta.case.entry.pattern
+    - string.unquoted.pattern
+    - string.regexp.unquoted
+- source: a
+  scopesEnd:
+    - string.unquoted.pattern
+    - string.regexp.unquoted
 - source: '*'
   scopes:
-    - keyword.operator.glob
+    - variable.language.special.quantifier.star
+    - keyword.operator.quantifier.star
+    - punctuation.definition.arbitrary-repetition
+    - punctuation.definition.regex.arbitrary-repetition
 - source: )
   scopes:
-    - punctuation.definition.case-pattern
+    - keyword.operator.pattern.case
   scopesEnd:
-    - meta.scope.case-pattern
+    - meta.case.entry.pattern
 - source: '#'
   scopesBegin:
-    - meta.scope.case-clause-body
+    - meta.case.entry.body
     - comment.line.number-sign
   scopes:
     - punctuation.definition.comment
@@ -41864,7 +42232,6 @@
     - meta.scope.group
 - source: printf
   scopesBegin:
-    - meta.statement
     - meta.statement.command
   scopes:
     - meta.statement.command.name
@@ -41912,7 +42279,6 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
-    - meta.statement
     - meta.statement.command
     - meta.argument
     - string.quoted.double
@@ -41922,7 +42288,12 @@
 - source: '>'
   scopes:
     - keyword.operator.redirect
-- source: ' /dev/null '
+- source: /dev/null
+  scopes:
+    - meta.statement.command
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
 - source: '|'
   scopesBegin:
     - keyword.operator.pipe
@@ -42088,7 +42459,6 @@
     - punctuation.separator.statement.and
 - source: unset
   scopesBegin:
-    - meta.statement
     - meta.statement.command
   scopes:
     - meta.statement.command.name
@@ -42122,7 +42492,6 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
-    - meta.statement
     - meta.statement.command
     - meta.argument
     - string.quoted.double
@@ -42131,7 +42500,6 @@
     - punctuation.separator.statement.and
 - source: eval
   scopesBegin:
-    - meta.statement
     - meta.statement.command
   scopes:
     - meta.statement.command.name
@@ -42195,7 +42563,6 @@
     - constant.character.escape
 - source: \)
   scopesEnd:
-    - meta.statement
     - meta.statement.command
     - meta.argument
     - constant.character.escape
@@ -42204,7 +42571,6 @@
     - punctuation.separator.statement.and
 - source: shift
   scopesBegin:
-    - meta.statement
     - meta.statement.command
   scopes:
     - meta.statement.command.name
@@ -42257,7 +42623,6 @@
   scopes:
     - punctuation.definition.evaluation.arithmetic.end
   scopesEnd:
-    - meta.statement
     - meta.statement.command
     - meta.argument
 - source: '|'
@@ -42409,22 +42774,29 @@
   scopes:
     - punctuation.definition.group
   scopesEnd:
-    - meta.scope.case-clause-body
     - meta.scope.group
 - source: ;;
   scopes:
-    - punctuation.terminator.case-clause
-- source: '-v'
+    - punctuation.terminator.statement.case
+  scopesEnd:
+    - meta.case.entry.body
+- source: '-'
   scopesBegin:
-    - meta.scope.case-pattern
+    - meta.case.entry.pattern
+    - string.unquoted.pattern
+    - string.regexp.unquoted
+- source: v
+  scopesEnd:
+    - string.unquoted.pattern
+    - string.regexp.unquoted
 - source: )
   scopes:
-    - punctuation.definition.case-pattern
+    - keyword.operator.pattern.case
   scopesEnd:
-    - meta.scope.case-pattern
+    - meta.case.entry.pattern
 - source: '#'
   scopesBegin:
-    - meta.scope.case-clause-body
+    - meta.case.entry.body
     - comment.line.number-sign
   scopes:
     - punctuation.definition.comment
@@ -42475,7 +42847,6 @@
     - punctuation.separator.statement.and
 - source: unset
   scopesBegin:
-    - meta.statement
     - meta.statement.command
   scopes:
     - meta.statement.command.name
@@ -42509,7 +42880,6 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
-    - meta.statement
     - meta.statement.command
     - meta.argument
     - string.quoted.double
@@ -42518,7 +42888,6 @@
     - punctuation.separator.statement.and
 - source: eval
   scopesBegin:
-    - meta.statement
     - meta.statement.command
   scopes:
     - meta.statement.command.name
@@ -42550,7 +42919,6 @@
   scopes:
     - constant.character.escape
   scopesEnd:
-    - meta.statement
     - meta.statement.command
     - meta.argument
 - source: '&&'
@@ -42692,25 +43060,18 @@
   scopes:
     - punctuation.definition.group
   scopesEnd:
-    - meta.scope.case-clause-body
     - meta.scope.group
 - source: ;;
   scopes:
-    - punctuation.terminator.case-clause
-- source: '*'
-  scopesBegin:
-    - meta.scope.case-pattern
-  scopes:
-    - keyword.operator.glob
-- source: )
-  scopes:
-    - punctuation.definition.case-pattern
+    - punctuation.terminator.statement.case
   scopesEnd:
-    - meta.scope.case-pattern
+    - meta.case.entry.body
+- source: '*)'
+  scopes:
+    - keyword.operator.pattern.case.default
 - source: echo
   scopesBegin:
-    - meta.scope.case-clause-body
-    - meta.statement
+    - meta.case.entry.body
     - meta.statement.command
   scopes:
     - meta.statement.command.name
@@ -42784,20 +43145,17 @@
     - constant.numeric
     - constant.numeric.integer
   scopesEnd:
-    - meta.scope.case-clause-body
-    - meta.statement
     - meta.statement.command
 - source: ;;
   scopes:
-    - punctuation.terminator.case-clause
+    - punctuation.terminator.statement.case
   scopesEnd:
-    - meta.scope.case-body
-    - meta.scope.case-clause
+    - meta.case.entry.body
 - source: esac
   scopes:
-    - keyword.control
+    - keyword.control.esac
   scopesEnd:
-    - meta.scope.case-block
+    - meta.case
 - source: done
   scopes:
     - keyword.control
@@ -45382,9 +45740,9 @@
     - keyword.control.do
 - source: case
   scopesBegin:
-    - meta.scope.case-block
+    - meta.case
   scopes:
-    - keyword.control
+    - keyword.control.case
 - source: $
   scopes:
     - punctuation.definition.variable
@@ -45393,22 +45751,28 @@
   scopes:
     - variable.other.normal
 - source: in
-  scopesBegin:
-    - meta.scope.case-body
   scopes:
-    - keyword.control
+    - keyword.control.in
 - source: c
   scopesBegin:
-    - meta.scope.case-clause
-    - meta.scope.case-pattern
+    - meta.case.entry.pattern
+  scopes:
+    - string.unquoted.pattern
+    - string.regexp.unquoted
 - source: )
   scopes:
-    - punctuation.definition.case-pattern
+    - keyword.operator.pattern.case
   scopesEnd:
-    - meta.scope.case-pattern
-- source: ' vcur='
+    - meta.case.entry.pattern
+- source: vcur
   scopesBegin:
-    - meta.scope.case-clause-body
+    - meta.case.entry.body
+    - meta.expression.assignment
+  scopes:
+    - variable.other.assignment
+- source: '='
+  scopes:
+    - keyword.operator.assignment
 - source: $
   scopes:
     - punctuation.definition.variable
@@ -45417,21 +45781,32 @@
   scopes:
     - variable.other.normal
   scopesEnd:
-    - meta.scope.case-clause-body
+    - meta.expression.assignment
 - source: ;;
   scopes:
-    - punctuation.terminator.case-clause
+    - punctuation.terminator.statement.case
+  scopesEnd:
+    - meta.case.entry.body
 - source: i
   scopesBegin:
-    - meta.scope.case-pattern
+    - meta.case.entry.pattern
+  scopes:
+    - string.unquoted.pattern
+    - string.regexp.unquoted
 - source: )
   scopes:
-    - punctuation.definition.case-pattern
+    - keyword.operator.pattern.case
   scopesEnd:
-    - meta.scope.case-pattern
-- source: ' vcword='
+    - meta.case.entry.pattern
+- source: vcword
   scopesBegin:
-    - meta.scope.case-clause-body
+    - meta.case.entry.body
+    - meta.expression.assignment
+  scopes:
+    - variable.other.assignment
+- source: '='
+  scopes:
+    - keyword.operator.assignment
 - source: $
   scopes:
     - punctuation.definition.variable
@@ -45440,21 +45815,32 @@
   scopes:
     - variable.other.normal
   scopesEnd:
-    - meta.scope.case-clause-body
+    - meta.expression.assignment
 - source: ;;
   scopes:
-    - punctuation.terminator.case-clause
+    - punctuation.terminator.statement.case
+  scopesEnd:
+    - meta.case.entry.body
 - source: 'n'
   scopesBegin:
-    - meta.scope.case-pattern
+    - meta.case.entry.pattern
+  scopes:
+    - string.unquoted.pattern
+    - string.regexp.unquoted
 - source: )
   scopes:
-    - punctuation.definition.case-pattern
+    - keyword.operator.pattern.case
   scopesEnd:
-    - meta.scope.case-pattern
-- source: ' exclude='
+    - meta.case.entry.pattern
+- source: exclude
   scopesBegin:
-    - meta.scope.case-clause-body
+    - meta.case.entry.body
+    - meta.expression.assignment
+  scopes:
+    - variable.other.assignment
+- source: '='
+  scopes:
+    - keyword.operator.assignment
 - source: $
   scopes:
     - punctuation.definition.variable
@@ -45463,21 +45849,32 @@
   scopes:
     - variable.other.normal
   scopesEnd:
-    - meta.scope.case-clause-body
+    - meta.expression.assignment
 - source: ;;
   scopes:
-    - punctuation.terminator.case-clause
+    - punctuation.terminator.statement.case
+  scopesEnd:
+    - meta.case.entry.body
 - source: p
   scopesBegin:
-    - meta.scope.case-pattern
+    - meta.case.entry.pattern
+  scopes:
+    - string.unquoted.pattern
+    - string.regexp.unquoted
 - source: )
   scopes:
-    - punctuation.definition.case-pattern
+    - keyword.operator.pattern.case
   scopesEnd:
-    - meta.scope.case-pattern
-- source: ' vprev='
+    - meta.case.entry.pattern
+- source: vprev
   scopesBegin:
-    - meta.scope.case-clause-body
+    - meta.case.entry.body
+    - meta.expression.assignment
+  scopes:
+    - variable.other.assignment
+- source: '='
+  scopes:
+    - keyword.operator.assignment
 - source: $
   scopes:
     - punctuation.definition.variable
@@ -45486,21 +45883,32 @@
   scopes:
     - variable.other.normal
   scopesEnd:
-    - meta.scope.case-clause-body
+    - meta.expression.assignment
 - source: ;;
   scopes:
-    - punctuation.terminator.case-clause
+    - punctuation.terminator.statement.case
+  scopesEnd:
+    - meta.case.entry.body
 - source: w
   scopesBegin:
-    - meta.scope.case-pattern
+    - meta.case.entry.pattern
+  scopes:
+    - string.unquoted.pattern
+    - string.regexp.unquoted
 - source: )
   scopes:
-    - punctuation.definition.case-pattern
+    - keyword.operator.pattern.case
   scopesEnd:
-    - meta.scope.case-pattern
-- source: ' vwords='
+    - meta.case.entry.pattern
+- source: vwords
   scopesBegin:
-    - meta.scope.case-clause-body
+    - meta.case.entry.body
+    - meta.expression.assignment
+  scopes:
+    - variable.other.assignment
+- source: '='
+  scopes:
+    - keyword.operator.assignment
 - source: $
   scopes:
     - punctuation.definition.variable
@@ -45509,18 +45917,17 @@
   scopes:
     - variable.other.normal
   scopesEnd:
-    - meta.scope.case-clause-body
+    - meta.expression.assignment
 - source: ;;
   scopes:
-    - punctuation.terminator.case-clause
+    - punctuation.terminator.statement.case
   scopesEnd:
-    - meta.scope.case-body
-    - meta.scope.case-clause
+    - meta.case.entry.body
 - source: esac
   scopes:
-    - keyword.control
+    - keyword.control.esac
   scopesEnd:
-    - meta.scope.case-block
+    - meta.case
 - source: done
   scopesBegin:
     - keyword.control
@@ -45563,12 +45970,10 @@
 - source: case
   scopesBegin:
     - meta.statement
+    - meta.case
   scopes:
     - keyword.control.case
 - source: $
-  scopesBegin:
-    - meta.statement.command
-    - meta.statement.command.name
   scopes:
     - punctuation.definition.variable
 - source: '{'
@@ -45589,79 +45994,165 @@
   scopes:
     - punctuation.section.bracket.curly.variable.end
     - punctuation.definition.variable
-  scopesEnd:
-    - meta.statement.command.name
 - source: in
   scopes:
-    - meta.argument
-    - string.unquoted.argument
+    - keyword.control.in
+- source: c
+  scopesBegin:
+    - meta.case.entry.pattern
+    - string.unquoted.pattern
+    - string.regexp.unquoted
+- source: u
+- source: r
+  scopesEnd:
+    - string.unquoted.pattern
+    - string.regexp.unquoted
+- source: )
+  scopes:
+    - keyword.operator.pattern.case
+  scopesEnd:
+    - meta.case.entry.pattern
+- source: vcur
+  scopesBegin:
+    - meta.case.entry.body
+    - meta.expression.assignment
+  scopes:
+    - variable.other.assignment
+- source: '='
+  scopes:
+    - keyword.operator.assignment
 - source: cur
   scopes:
-    - meta.statement.command.name
-    - entity.name.function.call
-    - entity.name.command
+    - string.unquoted.argument
   scopesEnd:
-    - meta.statement
-    - meta.statement.command
-- source: ')   vcur=cur '
-- source: ;
+    - meta.expression.assignment
+- source: ;;
+  scopes:
+    - punctuation.terminator.statement.case
+  scopesEnd:
+    - meta.case.entry.body
+- source: p
   scopesBegin:
-    - punctuation.terminator.statement.semicolon
-- source: ;
+    - meta.case.entry.pattern
+    - string.unquoted.pattern
+    - string.regexp.unquoted
+- source: r
+- source: e
+- source: v
   scopesEnd:
-    - punctuation.terminator.statement.semicolon
+    - string.unquoted.pattern
+    - string.regexp.unquoted
+- source: )
+  scopes:
+    - keyword.operator.pattern.case
+  scopesEnd:
+    - meta.case.entry.pattern
+- source: vprev
+  scopesBegin:
+    - meta.case.entry.body
+    - meta.expression.assignment
+  scopes:
+    - variable.other.assignment
+- source: '='
+  scopes:
+    - keyword.operator.assignment
 - source: prev
   scopes:
-    - meta.statement
-    - meta.statement.command
-    - meta.statement.command.name
-    - entity.name.function.call
-    - entity.name.command
-- source: ')  vprev=prev '
-- source: ;
-  scopesBegin:
-    - punctuation.terminator.statement.semicolon
-- source: ;
+    - string.unquoted.argument
   scopesEnd:
-    - punctuation.terminator.statement.semicolon
+    - meta.expression.assignment
+- source: ;;
+  scopes:
+    - punctuation.terminator.statement.case
+  scopesEnd:
+    - meta.case.entry.body
+- source: c
+  scopesBegin:
+    - meta.case.entry.pattern
+    - string.unquoted.pattern
+    - string.regexp.unquoted
+- source: w
+- source: o
+- source: r
+- source: d
+  scopesEnd:
+    - string.unquoted.pattern
+    - string.regexp.unquoted
+- source: )
+  scopes:
+    - keyword.operator.pattern.case
+  scopesEnd:
+    - meta.case.entry.pattern
+- source: vcword
+  scopesBegin:
+    - meta.case.entry.body
+    - meta.expression.assignment
+  scopes:
+    - variable.other.assignment
+- source: '='
+  scopes:
+    - keyword.operator.assignment
 - source: cword
   scopes:
-    - meta.statement
-    - meta.statement.command
-    - meta.statement.command.name
-    - entity.name.function.call
-    - entity.name.command
-- source: ') vcword=cword '
-- source: ;
-  scopesBegin:
-    - punctuation.terminator.statement.semicolon
-- source: ;
+    - string.unquoted.argument
   scopesEnd:
-    - punctuation.terminator.statement.semicolon
+    - meta.expression.assignment
+- source: ;;
+  scopes:
+    - punctuation.terminator.statement.case
+  scopesEnd:
+    - meta.case.entry.body
+- source: w
+  scopesBegin:
+    - meta.case.entry.pattern
+    - string.unquoted.pattern
+    - string.regexp.unquoted
+- source: o
+- source: r
+- source: d
+- source: s
+  scopesEnd:
+    - string.unquoted.pattern
+    - string.regexp.unquoted
+- source: )
+  scopes:
+    - keyword.operator.pattern.case
+  scopesEnd:
+    - meta.case.entry.pattern
+- source: vwords
+  scopesBegin:
+    - meta.case.entry.body
+    - meta.expression.assignment
+  scopes:
+    - variable.other.assignment
+- source: '='
+  scopes:
+    - keyword.operator.assignment
 - source: words
   scopes:
-    - meta.statement
-    - meta.statement.command
-    - meta.statement.command.name
-    - entity.name.function.call
-    - entity.name.command
-- source: ') vwords=words '
-- source: ;
-  scopesBegin:
-    - punctuation.terminator.statement.semicolon
-- source: ;
+    - string.unquoted.argument
   scopesEnd:
-    - punctuation.terminator.statement.semicolon
-- source: '*'
+    - meta.expression.assignment
+- source: ;;
   scopes:
-    - meta.statement
+    - punctuation.terminator.statement.case
+  scopesEnd:
+    - meta.case.entry.body
+- source: '*)'
+  scopes:
+    - keyword.operator.pattern.case.default
+- source: echo
+  scopesBegin:
+    - meta.case.entry.body
     - meta.statement.command
+  scopes:
     - meta.statement.command.name
     - entity.name.function.call
     - entity.name.command
-- source: ') echo '
+    - support.function.builtin
 - source: '"'
   scopesBegin:
+    - meta.argument
     - string.quoted.double
   scopes:
     - punctuation.definition.string.begin
@@ -45704,30 +46195,23 @@
     - punctuation.definition.string.end
   scopesEnd:
     - string.quoted.double
-- source: ' \'
-- source: 1>
+- source: \
   scopes:
-    - meta.statement
+    - constant.character.escape.line-continuation
+- source: '1'
+  scopes:
+    - keyword.operator.redirect.stdout
+- source: '>&2'
+  scopes:
+    - keyword.operator.redirect
+  scopesEnd:
     - meta.statement.command
-    - meta.statement.command.name
-    - entity.name.function.call
-    - entity.name.command
-- source: '&'
-  scopes:
-    - punctuation.separator.statement.background
-- source: '2'
-  scopes:
-    - meta.statement
-    - meta.statement.command
-    - meta.statement.command.name
-    - entity.name.function.call
-    - entity.name.command
+    - meta.argument
 - source: ;
   scopes:
     - punctuation.terminator.statement.semicolon
 - source: return
   scopesBegin:
-    - meta.statement
     - meta.statement.command
   scopes:
     - meta.statement.command.name
@@ -45741,19 +46225,17 @@
     - constant.numeric
     - constant.numeric.integer
   scopesEnd:
-    - meta.statement
     - meta.statement.command
-- source: ;
-  scopesBegin:
-    - punctuation.terminator.statement.semicolon
-- source: ;
+- source: ;;
+  scopes:
+    - punctuation.terminator.statement.case
   scopesEnd:
-    - punctuation.terminator.statement.semicolon
+    - meta.case.entry.body
 - source: esac
-  scopesBegin:
-    - meta.statement
   scopes:
     - keyword.control.esac
+  scopesEnd:
+    - meta.case
 - source: let
   scopesBegin:
     - meta.statement.command
@@ -62678,9 +63160,9 @@
     - keyword.control.do
 - source: case
   scopesBegin:
-    - meta.scope.case-block
+    - meta.case
   scopes:
-    - keyword.control
+    - keyword.control.case
 - source: $
   scopes:
     - punctuation.definition.variable
@@ -62689,22 +63171,28 @@
   scopes:
     - variable.other.normal
 - source: in
-  scopesBegin:
-    - meta.scope.case-body
   scopes:
-    - keyword.control
+    - keyword.control.in
 - source: a
   scopesBegin:
-    - meta.scope.case-clause
-    - meta.scope.case-pattern
+    - meta.case.entry.pattern
+  scopes:
+    - string.unquoted.pattern
+    - string.regexp.unquoted
 - source: )
   scopes:
-    - punctuation.definition.case-pattern
+    - keyword.operator.pattern.case
   scopesEnd:
-    - meta.scope.case-pattern
-- source: ' aliases='
+    - meta.case.entry.pattern
+- source: aliases
   scopesBegin:
-    - meta.scope.case-clause-body
+    - meta.case.entry.body
+    - meta.expression.assignment
+  scopes:
+    - variable.other.assignment
+- source: '='
+  scopes:
+    - keyword.operator.assignment
 - source: ''''
   scopesBegin:
     - string.quoted.single
@@ -62715,22 +63203,33 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
-    - meta.scope.case-clause-body
+    - meta.expression.assignment
     - string.quoted.single
 - source: ;;
   scopes:
-    - punctuation.terminator.case-clause
+    - punctuation.terminator.statement.case
+  scopesEnd:
+    - meta.case.entry.body
 - source: c
   scopesBegin:
-    - meta.scope.case-pattern
+    - meta.case.entry.pattern
+  scopes:
+    - string.unquoted.pattern
+    - string.regexp.unquoted
 - source: )
   scopes:
-    - punctuation.definition.case-pattern
+    - keyword.operator.pattern.case
   scopesEnd:
-    - meta.scope.case-pattern
-- source: ' suffix='
+    - meta.case.entry.pattern
+- source: suffix
   scopesBegin:
-    - meta.scope.case-clause-body
+    - meta.case.entry.body
+    - meta.expression.assignment
+  scopes:
+    - variable.other.assignment
+- source: '='
+  scopes:
+    - keyword.operator.assignment
 - source: ''''
   scopesBegin:
     - string.quoted.single
@@ -62741,22 +63240,33 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
-    - meta.scope.case-clause-body
+    - meta.expression.assignment
     - string.quoted.single
 - source: ;;
   scopes:
-    - punctuation.terminator.case-clause
+    - punctuation.terminator.statement.case
+  scopesEnd:
+    - meta.case.entry.body
 - source: F
   scopesBegin:
-    - meta.scope.case-pattern
+    - meta.case.entry.pattern
+  scopes:
+    - string.unquoted.pattern
+    - string.regexp.unquoted
 - source: )
   scopes:
-    - punctuation.definition.case-pattern
+    - keyword.operator.pattern.case
   scopesEnd:
-    - meta.scope.case-pattern
-- source: ' configfile='
+    - meta.case.entry.pattern
+- source: configfile
   scopesBegin:
-    - meta.scope.case-clause-body
+    - meta.case.entry.body
+    - meta.expression.assignment
+  scopes:
+    - variable.other.assignment
+- source: '='
+  scopes:
+    - keyword.operator.assignment
 - source: $
   scopes:
     - punctuation.definition.variable
@@ -62765,21 +63275,32 @@
   scopes:
     - variable.other.normal
   scopesEnd:
-    - meta.scope.case-clause-body
+    - meta.expression.assignment
 - source: ;;
   scopes:
-    - punctuation.terminator.case-clause
+    - punctuation.terminator.statement.case
+  scopesEnd:
+    - meta.case.entry.body
 - source: p
   scopesBegin:
-    - meta.scope.case-pattern
+    - meta.case.entry.pattern
+  scopes:
+    - string.unquoted.pattern
+    - string.regexp.unquoted
 - source: )
   scopes:
-    - punctuation.definition.case-pattern
+    - keyword.operator.pattern.case
   scopesEnd:
-    - meta.scope.case-pattern
-- source: ' prefix='
+    - meta.case.entry.pattern
+- source: prefix
   scopesBegin:
-    - meta.scope.case-clause-body
+    - meta.case.entry.body
+    - meta.expression.assignment
+  scopes:
+    - variable.other.assignment
+- source: '='
+  scopes:
+    - keyword.operator.assignment
 - source: $
   scopes:
     - punctuation.definition.variable
@@ -62788,18 +63309,17 @@
   scopes:
     - variable.other.normal
   scopesEnd:
-    - meta.scope.case-clause-body
+    - meta.expression.assignment
 - source: ;;
   scopes:
-    - punctuation.terminator.case-clause
+    - punctuation.terminator.statement.case
   scopesEnd:
-    - meta.scope.case-body
-    - meta.scope.case-clause
+    - meta.case.entry.body
 - source: esac
   scopes:
-    - keyword.control
+    - keyword.control.esac
   scopesEnd:
-    - meta.scope.case-block
+    - meta.case
 - source: done
   scopes:
     - keyword.control
@@ -70744,9 +71264,9 @@
     - meta.expression.assignment
 - source: case
   scopesBegin:
-    - meta.scope.case-block
+    - meta.case
   scopes:
-    - keyword.control
+    - keyword.control.case
 - source: '"'
   scopesBegin:
     - string.quoted.double
@@ -70765,30 +71285,62 @@
   scopesEnd:
     - string.quoted.double
 - source: in
-  scopesBegin:
-    - meta.scope.case-body
   scopes:
-    - keyword.control
-- source: '--'
+    - keyword.control.in
+- source: '-'
   scopesBegin:
-    - meta.scope.case-clause
-    - meta.scope.case-pattern
+    - meta.case.entry.pattern
+    - string.unquoted.pattern
+    - string.regexp.unquoted
+- source: '-'
+  scopesEnd:
+    - string.unquoted.pattern
+    - string.regexp.unquoted
 - source: '*'
   scopes:
-    - keyword.operator.glob
-- source: '[Dd][Ii][Rr]'
+    - variable.language.special.quantifier.star
+    - keyword.operator.quantifier.star
+    - punctuation.definition.arbitrary-repetition
+    - punctuation.definition.regex.arbitrary-repetition
+- source: '['
+  scopesBegin:
+    - string.regexp.character-class
+  scopes:
+    - punctuation.definition.character-class
+- source: Dd
+- source: ']'
+  scopesBegin:
+    - punctuation.definition.character-class
+- source: '['
+  scopesEnd:
+    - punctuation.definition.character-class
+- source: Ii
+- source: ']'
+  scopesBegin:
+    - punctuation.definition.character-class
+- source: '['
+  scopesEnd:
+    - punctuation.definition.character-class
+- source: Rr
+- source: ']'
+  scopes:
+    - punctuation.definition.character-class
+  scopesEnd:
+    - string.regexp.character-class
 - source: '*'
   scopes:
-    - keyword.operator.glob
+    - variable.language.special.quantifier.star
+    - keyword.operator.quantifier.star
+    - punctuation.definition.arbitrary-repetition
+    - punctuation.definition.regex.arbitrary-repetition
 - source: )
   scopes:
-    - punctuation.definition.case-pattern
+    - keyword.operator.pattern.case
   scopesEnd:
-    - meta.scope.case-pattern
+    - meta.case.entry.pattern
 - source: _filedir
   scopesBegin:
-    - meta.scope.case-clause-body
-    - meta.statement
+    - meta.case.entry.body
     - meta.statement.command
   scopes:
     - meta.statement.command.name
@@ -70817,42 +71369,131 @@
     - constant.numeric
     - constant.numeric.integer
   scopesEnd:
-    - meta.scope.case-clause-body
-    - meta.statement
     - meta.statement.command
 - source: ;;
   scopes:
-    - punctuation.terminator.case-clause
-- source: '--'
+    - punctuation.terminator.statement.case
+  scopesEnd:
+    - meta.case.entry.body
+- source: '-'
   scopesBegin:
-    - meta.scope.case-pattern
+    - meta.case.entry.pattern
+    - string.unquoted.pattern
+    - string.regexp.unquoted
+- source: '-'
+  scopesEnd:
+    - string.unquoted.pattern
+    - string.regexp.unquoted
 - source: '*'
   scopes:
-    - keyword.operator.glob
-- source: '[Ff][Ii][Ll][Ee]'
+    - variable.language.special.quantifier.star
+    - keyword.operator.quantifier.star
+    - punctuation.definition.arbitrary-repetition
+    - punctuation.definition.regex.arbitrary-repetition
+- source: '['
+  scopesBegin:
+    - string.regexp.character-class
+  scopes:
+    - punctuation.definition.character-class
+- source: Ff
+- source: ']'
+  scopesBegin:
+    - punctuation.definition.character-class
+- source: '['
+  scopesEnd:
+    - punctuation.definition.character-class
+- source: Ii
+- source: ']'
+  scopesBegin:
+    - punctuation.definition.character-class
+- source: '['
+  scopesEnd:
+    - punctuation.definition.character-class
+- source: Ll
+- source: ']'
+  scopesBegin:
+    - punctuation.definition.character-class
+- source: '['
+  scopesEnd:
+    - punctuation.definition.character-class
+- source: Ee
+- source: ']'
+  scopes:
+    - punctuation.definition.character-class
+  scopesEnd:
+    - string.regexp.character-class
 - source: '*'
   scopes:
-    - keyword.operator.glob
+    - variable.language.special.quantifier.star
+    - keyword.operator.quantifier.star
+    - punctuation.definition.arbitrary-repetition
+    - punctuation.definition.regex.arbitrary-repetition
 - source: '|'
   scopes:
-    - punctuation.separator.pipe-sign
-- source: '--'
+    - keyword.operator.orvariable.language.special.or
+    - keyword.operator.alternation.ruby
+    - punctuation.definition.regex.alternation
+    - punctuation.separator.regex.alternation
+- source: '-'
+  scopesBegin:
+    - string.unquoted.pattern
+    - string.regexp.unquoted
+- source: '-'
+  scopesEnd:
+    - string.unquoted.pattern
+    - string.regexp.unquoted
 - source: '*'
   scopes:
-    - keyword.operator.glob
-- source: '[Pp][Aa][Tt][Hh]'
+    - variable.language.special.quantifier.star
+    - keyword.operator.quantifier.star
+    - punctuation.definition.arbitrary-repetition
+    - punctuation.definition.regex.arbitrary-repetition
+- source: '['
+  scopesBegin:
+    - string.regexp.character-class
+  scopes:
+    - punctuation.definition.character-class
+- source: Pp
+- source: ']'
+  scopesBegin:
+    - punctuation.definition.character-class
+- source: '['
+  scopesEnd:
+    - punctuation.definition.character-class
+- source: Aa
+- source: ']'
+  scopesBegin:
+    - punctuation.definition.character-class
+- source: '['
+  scopesEnd:
+    - punctuation.definition.character-class
+- source: Tt
+- source: ']'
+  scopesBegin:
+    - punctuation.definition.character-class
+- source: '['
+  scopesEnd:
+    - punctuation.definition.character-class
+- source: Hh
+- source: ']'
+  scopes:
+    - punctuation.definition.character-class
+  scopesEnd:
+    - string.regexp.character-class
 - source: '*'
   scopes:
-    - keyword.operator.glob
+    - variable.language.special.quantifier.star
+    - keyword.operator.quantifier.star
+    - punctuation.definition.arbitrary-repetition
+    - punctuation.definition.regex.arbitrary-repetition
 - source: )
   scopes:
-    - punctuation.definition.case-pattern
+    - keyword.operator.pattern.case
   scopesEnd:
-    - meta.scope.case-pattern
+    - meta.case.entry.pattern
 - source: _filedir
   scopesBegin:
-    - meta.scope.case-clause-body
-    - meta.statement
+    - meta.case.entry.body
     - meta.statement.command
     - meta.statement.command.name
     - entity.name.function.call
@@ -70871,20 +71512,17 @@
     - constant.numeric
     - constant.numeric.integer
   scopesEnd:
-    - meta.scope.case-clause-body
-    - meta.statement
     - meta.statement.command
 - source: ;;
   scopes:
-    - punctuation.terminator.case-clause
+    - punctuation.terminator.statement.case
   scopesEnd:
-    - meta.scope.case-body
-    - meta.scope.case-clause
+    - meta.case.entry.body
 - source: esac
   scopes:
-    - keyword.control
+    - keyword.control.esac
   scopesEnd:
-    - meta.scope.case-block
+    - meta.case
 - source: $
   scopesBegin:
     - meta.statement
@@ -84152,9 +84790,9 @@
     - comment.line.number-sign
 - source: case
   scopesBegin:
-    - meta.scope.case-block
+    - meta.case
   scopes:
-    - keyword.control
+    - keyword.control.case
 - source: $
   scopes:
     - punctuation.definition.variable
@@ -84163,26 +84801,28 @@
   scopes:
     - variable.other.normal
 - source: in
-  scopesBegin:
-    - meta.scope.case-body
   scopes:
-    - keyword.control
+    - keyword.control.in
 - source: /
   scopesBegin:
-    - meta.scope.case-clause
-    - meta.scope.case-pattern
+    - meta.case.entry.pattern
+  scopes:
+    - string.unquoted.pattern
+    - string.regexp.unquoted
 - source: '*'
   scopes:
-    - keyword.operator.glob
+    - variable.language.special.quantifier.star
+    - keyword.operator.quantifier.star
+    - punctuation.definition.arbitrary-repetition
+    - punctuation.definition.regex.arbitrary-repetition
 - source: )
   scopes:
-    - punctuation.definition.case-pattern
+    - keyword.operator.pattern.case
   scopesEnd:
-    - meta.scope.case-pattern
+    - meta.case.entry.pattern
 - source: echo
   scopesBegin:
-    - meta.scope.case-clause-body
-    - meta.statement
+    - meta.case.entry.body
     - meta.statement.command
   scopes:
     - meta.statement.command.name
@@ -84206,28 +84846,20 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
-    - meta.scope.case-clause-body
-    - meta.statement
     - meta.statement.command
     - meta.argument
     - string.quoted.double
 - source: ;;
   scopes:
-    - punctuation.terminator.case-clause
-- source: '*'
-  scopesBegin:
-    - meta.scope.case-pattern
-  scopes:
-    - keyword.operator.glob
-- source: )
-  scopes:
-    - punctuation.definition.case-pattern
+    - punctuation.terminator.statement.case
   scopesEnd:
-    - meta.scope.case-pattern
+    - meta.case.entry.body
+- source: '*)'
+  scopes:
+    - keyword.operator.pattern.case.default
 - source: echo
   scopesBegin:
-    - meta.scope.case-clause-body
-    - meta.statement
+    - meta.case.entry.body
     - meta.statement.command
   scopes:
     - meta.statement.command.name
@@ -84259,22 +84891,19 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
-    - meta.scope.case-clause-body
-    - meta.statement
     - meta.statement.command
     - meta.argument
     - string.quoted.double
 - source: ;;
   scopes:
-    - punctuation.terminator.case-clause
+    - punctuation.terminator.statement.case
   scopesEnd:
-    - meta.scope.case-body
-    - meta.scope.case-clause
+    - meta.case.entry.body
 - source: esac
   scopes:
-    - keyword.control
+    - keyword.control.esac
   scopesEnd:
-    - meta.scope.case-block
+    - meta.case
 - source: '}'
   scopes:
     - punctuation.definition.group

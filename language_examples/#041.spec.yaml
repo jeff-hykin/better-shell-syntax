@@ -90,9 +90,9 @@
     - string.quoted.double
 - source: case
   scopesBegin:
-    - meta.scope.case-block
+    - meta.case
   scopes:
-    - keyword.control
+    - keyword.control.case
 - source: '"'
   scopesBegin:
     - string.quoted.double
@@ -122,23 +122,22 @@
   scopesEnd:
     - string.quoted.double
 - source: in
-  scopesBegin:
-    - meta.scope.case-body
   scopes:
-    - keyword.control
+    - keyword.control.in
 - source: '1'
   scopesBegin:
-    - meta.scope.case-clause
-    - meta.scope.case-pattern
+    - meta.case.entry.pattern
+  scopes:
+    - string.unquoted.pattern
+    - string.regexp.unquoted
 - source: )
   scopes:
-    - punctuation.definition.case-pattern
+    - keyword.operator.pattern.case
   scopesEnd:
-    - meta.scope.case-pattern
+    - meta.case.entry.pattern
 - source: local
   scopesBegin:
-    - meta.scope.case-clause-body
-    - meta.statement
+    - meta.case.entry.body
     - meta.expression.assignment
   scopes:
     - storage.modifier.local
@@ -185,25 +184,37 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
-    - meta.scope.case-clause-body
-    - meta.statement
     - meta.statement.command
     - meta.argument
     - string.quoted.double
 - source: ;;
   scopes:
-    - punctuation.terminator.case-clause
+    - punctuation.terminator.statement.case
+  scopesEnd:
+    - meta.case.entry.body
 - source: '2'
   scopesBegin:
-    - meta.scope.case-pattern
+    - meta.case.entry.pattern
+  scopes:
+    - string.unquoted.pattern
+    - string.regexp.unquoted
 - source: )
   scopes:
-    - punctuation.definition.case-pattern
+    - keyword.operator.pattern.case
   scopesEnd:
-    - meta.scope.case-pattern
-- source: '  local bbb='
+    - meta.case.entry.pattern
+- source: local
   scopesBegin:
-    - meta.scope.case-clause-body
+    - meta.case.entry.body
+    - meta.expression.assignment
+  scopes:
+    - storage.modifier.local
+- source: bbb
+  scopes:
+    - variable.other.assignment
+- source: '='
+  scopes:
+    - keyword.operator.assignment
 - source: '"'
   scopesBegin:
     - string.quoted.double
@@ -218,9 +229,10 @@
 - source: ;
   scopes:
     - punctuation.terminator.statement.semicolon
+  scopesEnd:
+    - meta.expression.assignment
 - source: echo
   scopesBegin:
-    - meta.statement
     - meta.statement.command
   scopes:
     - meta.statement.command.name
@@ -244,27 +256,37 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
-    - meta.scope.case-clause-body
-    - meta.statement
     - meta.statement.command
     - meta.argument
     - string.quoted.double
 - source: ;;
   scopes:
-    - punctuation.terminator.case-clause
+    - punctuation.terminator.statement.case
+  scopesEnd:
+    - meta.case.entry.body
 - source: '3'
   scopesBegin:
-    - meta.scope.case-pattern
+    - meta.case.entry.pattern
+  scopes:
+    - string.unquoted.pattern
+    - string.regexp.unquoted
 - source: )
   scopes:
-    - punctuation.definition.case-pattern
+    - keyword.operator.pattern.case
   scopesEnd:
-    - meta.scope.case-pattern
-- source: '  printf '
+    - meta.case.entry.pattern
+- source: printf
   scopesBegin:
-    - meta.scope.case-clause-body
+    - meta.case.entry.body
+    - meta.statement.command
+  scopes:
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+    - support.function.builtin
 - source: '"'
   scopesBegin:
+    - meta.argument
     - string.quoted.double
   scopes:
     - punctuation.definition.string.begin
@@ -286,26 +308,29 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
-    - meta.scope.case-clause-body
+    - meta.statement.command
+    - meta.argument
     - string.quoted.double
 - source: ;;
   scopes:
-    - punctuation.terminator.case-clause
-- source: '*'
-  scopesBegin:
-    - meta.scope.case-pattern
-  scopes:
-    - keyword.operator.glob
-- source: )
-  scopes:
-    - punctuation.definition.case-pattern
+    - punctuation.terminator.statement.case
   scopesEnd:
-    - meta.scope.case-pattern
-- source: '  echo '
+    - meta.case.entry.body
+- source: '*)'
+  scopes:
+    - keyword.operator.pattern.case.default
+- source: echo
   scopesBegin:
-    - meta.scope.case-clause-body
+    - meta.case.entry.body
+    - meta.statement.command
+  scopes:
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+    - support.function.builtin
 - source: '"'
   scopesBegin:
+    - meta.argument
     - string.quoted.double
   scopes:
     - punctuation.definition.string.begin
@@ -320,19 +345,19 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
-    - meta.scope.case-clause-body
+    - meta.statement.command
+    - meta.argument
     - string.quoted.double
 - source: ;;
   scopes:
-    - punctuation.terminator.case-clause
+    - punctuation.terminator.statement.case
   scopesEnd:
-    - meta.scope.case-body
-    - meta.scope.case-clause
+    - meta.case.entry.body
 - source: esac
   scopes:
-    - keyword.control
+    - keyword.control.esac
   scopesEnd:
-    - meta.scope.case-block
+    - meta.case
 - source: '}'
   scopes:
     - punctuation.definition.group
