@@ -12,7 +12,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: '#'
   scopesBegin:
     - comment.line.number-sign
@@ -107,7 +107,7 @@
     - comment.line.number-sign
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: readonly
   scopes:
     - storage.modifier.readonly

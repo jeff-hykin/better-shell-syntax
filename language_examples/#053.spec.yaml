@@ -16,23 +16,19 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: '['
   scopes:
-    - string.unquoted.argument
-- source: '"'
-  scopesBegin:
-    - string.quoted.double
+    - punctuation.definition.bracket
+- source: '""'
   scopes:
-    - punctuation.definition.string.begin
-- source: '"'
+    - punctuation.support.type.property-name
+- source: ']'
   scopes:
-    - punctuation.definition.string.end
-  scopesEnd:
-    - string.quoted.double
-- source: ']='
+    - punctuation.definition.bracket
+- source: '='
   scopes:
-    - string.unquoted.argument
+    - punctuation.definition.assignment
 - source: '"'
   scopesBegin:
     - string.quoted.double
@@ -101,7 +97,7 @@
     - string.quoted.double
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.expression.assignment
 - source: logexit

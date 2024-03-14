@@ -31,7 +31,6 @@
 - source: args
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
@@ -39,7 +38,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: '"'
   scopesBegin:
     - string.quoted.double
@@ -60,10 +59,9 @@
     - string.quoted.double
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: '#'
   scopesBegin:
     - comment.line.number-sign

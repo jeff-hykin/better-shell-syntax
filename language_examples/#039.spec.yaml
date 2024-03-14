@@ -17,33 +17,20 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
-    - meta.expression.assignment
     - string.quoted.double
 - source: declare
-  scopesBegin:
-    - meta.statement.command
   scopes:
-    - meta.statement.command.name
     - storage.modifier.declare
-- source: '-'
-  scopesBegin:
+- source: '-A'
+  scopes:
     - string.unquoted.argument
-  scopes:
-    - constant.other.option.dash
-- source: A
-  scopes:
     - constant.other.option
-  scopesEnd:
-    - string.unquoted.argument
 - source: ASSOC_ARRAY
   scopes:
-    - meta.argument
-    - string.unquoted.argument
+    - variable.other.assignment
   scopesEnd:
-    - meta.statement.command
-- source: ASSOC_ARRAY
-  scopesBegin:
     - meta.expression.assignment
+- source: ASSOC_ARRAY
   scopes:
     - variable.other.assignment
 - source: '='
@@ -51,7 +38,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: '[item1]='
   scopes:
     - string.unquoted.argument
@@ -137,4 +124,4 @@
     - variable.other.normal
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array

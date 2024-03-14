@@ -418,25 +418,18 @@
 - source: /usr/local/etc/bash_completion.d
   scopes:
     - string.unquoted.argument
-  scopesEnd:
-    - meta.expression.assignment
 - source: readonly
-  scopesBegin:
-    - meta.statement.command
   scopes:
-    - meta.statement.command.name
     - storage.modifier.readonly
 - source: BASH_COMPLETION
   scopesBegin:
-    - meta.argument
-    - string.unquoted.argument
+    - variable.other.assignment
 - source: BASH_COMPLETION_DIR
 - source: BASH_COMPLETION_COMPAT_DIR
   scopesEnd:
     - meta.statement
-    - meta.statement.command
-    - meta.argument
-    - string.unquoted.argument
+    - meta.expression.assignment
+    - variable.other.assignment
 - source: '#'
   scopesBegin:
     - comment.line.number-sign
@@ -6808,21 +6801,23 @@
     - string.unquoted.argument
 - source: cword
   scopesEnd:
-    - meta.argument
-    - string.unquoted.argument
-- source: local
-  scopes:
-    - meta.statement.command.name
-    - storage.modifier.local
-- source: i
-  scopesBegin:
-    - meta.argument
-    - string.unquoted.argument
-- source: cur2
-  scopesEnd:
     - meta.statement.command
     - meta.argument
     - string.unquoted.argument
+- source: local
+  scopesBegin:
+    - meta.statement
+    - meta.expression.assignment
+  scopes:
+    - storage.modifier.local
+- source: i
+  scopesBegin:
+    - variable.other.assignment
+- source: cur2
+  scopesEnd:
+    - meta.statement
+    - meta.expression.assignment
+    - variable.other.assignment
 - source: local
   scopesBegin:
     - meta.expression.assignment
@@ -6850,8 +6845,12 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
+    - meta.expression.assignment
     - string.quoted.double
 - source: local
+  scopesBegin:
+    - meta.statement
+    - meta.expression.assignment
   scopes:
     - storage.modifier.local
 - source: index
@@ -6880,10 +6879,8 @@
     - meta.expression.assignment
     - string.quoted.double
 - source: for
-  scopesBegin:
-    - meta.scope.for-loop
   scopes:
-    - keyword.control
+    - keyword.control.for
 - source: ((
   scopesBegin:
     - meta.arithmetic
@@ -6919,6 +6916,7 @@
   scopes:
     - punctuation.section.arithmetic
   scopesEnd:
+    - meta.statement
     - meta.arithmetic
 - source: ;
   scopes:
@@ -7393,8 +7391,12 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
+    - meta.expression.assignment
     - string.quoted.double
 - source: local
+  scopesBegin:
+    - meta.statement
+    - meta.expression.assignment
   scopes:
     - storage.modifier.local
 - source: new_size
@@ -7433,8 +7435,12 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
+    - meta.statement
+    - meta.expression.assignment
     - string.quoted.double
 - source: index
+  scopesBegin:
+    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
@@ -7475,9 +7481,7 @@
     - meta.scope.if-block
 - source: done
   scopes:
-    - keyword.control
-  scopesEnd:
-    - meta.scope.for-loop
+    - keyword.control.done
 - source: if
   scopesBegin:
     - meta.scope.if-block
@@ -7686,13 +7690,12 @@
 - source: local
   scopesBegin:
     - meta.statement
-    - meta.statement.command
+    - meta.statement
+    - meta.expression.assignment
   scopes:
-    - meta.statement.command.name
     - storage.modifier.local
 - source: '"'
   scopesBegin:
-    - meta.argument
     - string.quoted.double
   scopes:
     - punctuation.definition.string.begin
@@ -7733,16 +7736,15 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
-    - meta.statement
-    - meta.statement.command
-    - meta.argument
     - string.quoted.double
 - source: '&&'
   scopes:
     - punctuation.separator.statement.and
+  scopesEnd:
+    - meta.statement
+    - meta.expression.assignment
 - source: _upvars
   scopesBegin:
-    - meta.statement
     - meta.statement.command
   scopes:
     - meta.statement.command.name
@@ -8067,28 +8069,34 @@
     - constant.numeric
     - constant.numeric.integer
   scopesEnd:
+    - meta.statement.command
     - meta.argument
     - string.unquoted.argument
 - source: local
+  scopesBegin:
+    - meta.statement
+    - meta.expression.assignment
   scopes:
-    - meta.statement.command.name
     - storage.modifier.local
 - source: cur
   scopesBegin:
-    - meta.argument
-    - string.unquoted.argument
+    - variable.other.assignment
 - source: cword
-- source: words=
+- source: words
   scopesEnd:
-    - string.unquoted.argument
+    - variable.other.assignment
+- source: '='
+  scopes:
+    - keyword.operator.assignment
 - source: (
-  scopesEnd:
-    - meta.statement.command
-    - meta.argument
-- source: )
-- source: local
   scopesBegin:
+    - punctuation.definition.array
+- source: )
+  scopesEnd:
+    - meta.statement
     - meta.expression.assignment
+    - punctuation.definition.array
+- source: local
   scopes:
     - storage.modifier.local
 - source: upargs
@@ -8099,10 +8107,10 @@
     - keyword.operator.assignment
 - source: (
   scopesBegin:
-    - punctuation
+    - punctuation.definition.array
 - source: )
   scopesEnd:
-    - punctuation
+    - punctuation.definition.array
 - source: upvars
   scopes:
     - variable.other.assignment
@@ -8111,11 +8119,10 @@
     - keyword.operator.assignment
 - source: (
   scopesBegin:
-    - punctuation
+    - punctuation.definition.array
 - source: )
   scopesEnd:
-    - meta.expression.assignment
-    - punctuation
+    - punctuation.definition.array
 - source: vcur
   scopesBegin:
     - meta.statement.command
@@ -8789,7 +8796,6 @@
 - source: upvars
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: +=
@@ -8797,7 +8803,7 @@
     - keyword.operator.assignment.compound
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: '"'
   scopesBegin:
     - string.quoted.double
@@ -8817,17 +8823,15 @@
     - string.quoted.double
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: ;
   scopes:
     - punctuation.terminator.statement.semicolon
 - source: upargs
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: +=
@@ -8835,7 +8839,7 @@
     - keyword.operator.assignment.compound
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: '-v'
   scopes:
     - string.unquoted.argument
@@ -8865,10 +8869,9 @@
     - string.quoted.double
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: ;
   scopes:
     - punctuation.terminator.statement.semicolon
@@ -8917,7 +8920,6 @@
 - source: upvars
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: +=
@@ -8925,7 +8927,7 @@
     - keyword.operator.assignment.compound
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: '"'
   scopesBegin:
     - string.quoted.double
@@ -8945,17 +8947,15 @@
     - string.quoted.double
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: ;
   scopes:
     - punctuation.terminator.statement.semicolon
 - source: upargs
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: +=
@@ -8963,7 +8963,7 @@
     - keyword.operator.assignment.compound
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: '-v'
   scopes:
     - string.unquoted.argument
@@ -8993,10 +8993,9 @@
     - string.quoted.double
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: ;
   scopes:
     - punctuation.terminator.statement.semicolon
@@ -9045,7 +9044,6 @@
 - source: upvars
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: +=
@@ -9053,7 +9051,7 @@
     - keyword.operator.assignment.compound
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: '"'
   scopesBegin:
     - string.quoted.double
@@ -9073,17 +9071,15 @@
     - string.quoted.double
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: ;
   scopes:
     - punctuation.terminator.statement.semicolon
 - source: upargs
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: +=
@@ -9091,7 +9087,7 @@
     - keyword.operator.assignment.compound
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: '-v'
   scopes:
     - string.unquoted.argument
@@ -9139,10 +9135,9 @@
     - string.quoted.double
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: ;
   scopes:
     - punctuation.terminator.statement.semicolon
@@ -9191,7 +9186,6 @@
 - source: upvars
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: +=
@@ -9199,7 +9193,7 @@
     - keyword.operator.assignment.compound
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: '"'
   scopesBegin:
     - string.quoted.double
@@ -9219,17 +9213,15 @@
     - string.quoted.double
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: ;
   scopes:
     - punctuation.terminator.statement.semicolon
 - source: upargs
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: +=
@@ -9237,7 +9229,7 @@
     - keyword.operator.assignment.compound
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: '-a'
   scopes:
     - string.unquoted.argument
@@ -9313,10 +9305,9 @@
     - string.quoted.double
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: ;
   scopes:
     - punctuation.terminator.statement.semicolon
@@ -9371,13 +9362,12 @@
 - source: local
   scopesBegin:
     - meta.statement
-    - meta.statement.command
+    - meta.statement
+    - meta.expression.assignment
   scopes:
-    - meta.statement.command.name
     - storage.modifier.local
 - source: '"'
   scopesBegin:
-    - meta.argument
     - string.quoted.double
   scopes:
     - punctuation.definition.string.begin
@@ -9410,24 +9400,15 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
-    - meta.statement
-    - meta.statement.command
-    - meta.argument
     - string.quoted.double
 - source: '&&'
   scopes:
     - punctuation.separator.statement.and
 - source: _upvars
-  scopesBegin:
-    - meta.statement
-    - meta.statement.command
   scopes:
-    - meta.statement.command.name
-    - entity.name.function.call
-    - entity.name.command
+    - variable.other.assignment
 - source: '"'
   scopesBegin:
-    - meta.argument
     - string.quoted.double
   scopes:
     - punctuation.definition.string.begin
@@ -9461,8 +9442,8 @@
     - punctuation.definition.string.end
   scopesEnd:
     - meta.statement
-    - meta.statement.command
-    - meta.argument
+    - meta.statement
+    - meta.expression.assignment
     - string.quoted.double
 - source: '}'
   scopes:
@@ -9575,19 +9556,21 @@
     - meta.expression.assignment
 - source: local
   scopesBegin:
-    - meta.statement.command
+    - meta.statement
+    - meta.expression.assignment
   scopes:
-    - meta.statement.command.name
     - storage.modifier.local
 - source: cword
   scopesBegin:
-    - meta.argument
-    - string.unquoted.argument
+    - variable.other.assignment
 - source: words
   scopesEnd:
-    - meta.argument
-    - string.unquoted.argument
+    - meta.statement
+    - meta.expression.assignment
+    - variable.other.assignment
 - source: __reassemble_comp_words_by_ref
+  scopesBegin:
+    - meta.statement.command
   scopes:
     - meta.statement.command.name
     - entity.name.function.call
@@ -9919,16 +9902,16 @@
 - source: local
   scopesBegin:
     - meta.statement
-    - meta.statement.command
+    - meta.statement
+    - meta.expression.assignment
   scopes:
-    - meta.statement.command.name
     - storage.modifier.local
 - source: i
   scopes:
-    - meta.argument
-    - string.unquoted.argument
+    - variable.other.assignment
   scopesEnd:
-    - meta.statement.command
+    - meta.statement
+    - meta.expression.assignment
 - source: local
   scopesBegin:
     - meta.expression.assignment
@@ -9956,8 +9939,12 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
+    - meta.expression.assignment
     - string.quoted.double
 - source: local
+  scopesBegin:
+    - meta.statement
+    - meta.expression.assignment
   scopes:
     - storage.modifier.local
 - source: index
@@ -9986,10 +9973,8 @@
     - meta.expression.assignment
     - string.quoted.double
 - source: for
-  scopesBegin:
-    - meta.scope.for-loop
   scopes:
-    - keyword.control
+    - keyword.control.for
 - source: ((
   scopesBegin:
     - meta.arithmetic
@@ -10025,6 +10010,7 @@
   scopes:
     - punctuation.section.arithmetic
   scopesEnd:
+    - meta.statement
     - meta.arithmetic
 - source: ;
   scopes:
@@ -10499,8 +10485,12 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
+    - meta.expression.assignment
     - string.quoted.double
 - source: local
+  scopesBegin:
+    - meta.statement
+    - meta.expression.assignment
   scopes:
     - storage.modifier.local
 - source: new_size
@@ -10539,8 +10529,12 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
+    - meta.statement
+    - meta.expression.assignment
     - string.quoted.double
 - source: index
+  scopesBegin:
+    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
@@ -10581,9 +10575,7 @@
     - meta.scope.if-block
 - source: done
   scopes:
-    - keyword.control
-  scopesEnd:
-    - meta.scope.for-loop
+    - keyword.control.done
 - source: if
   scopesBegin:
     - meta.scope.if-block
@@ -11259,6 +11251,7 @@
 - source: local
   scopesBegin:
     - meta.statement
+    - meta.statement
     - meta.expression.assignment
   scopes:
     - storage.modifier.local
@@ -11319,7 +11312,12 @@
     - punctuation.section.bracket.curly.variable.end
     - punctuation.definition.variable
     - variable.parameter.positional
+  scopesEnd:
+    - meta.statement
+    - meta.expression.assignment
 - source: local
+  scopesBegin:
+    - meta.expression.assignment
   scopes:
     - storage.modifier.local
 - source: i
@@ -12646,25 +12644,27 @@
     - string.unquoted.argument
     - constant.numeric
     - constant.numeric.integer
-- source: local
-  scopes:
-    - meta.statement.command.name
-    - storage.modifier.local
-- source: '-'
-  scopesBegin:
-    - string.unquoted.argument
-  scopes:
-    - constant.other.option.dash
-- source: a
-  scopes:
-    - constant.other.option
   scopesEnd:
+    - meta.statement.command
+- source: local
+  scopesBegin:
+    - meta.statement
+    - meta.expression.assignment
+  scopes:
+    - storage.modifier.local
+- source: '-a'
+  scopes:
     - string.unquoted.argument
+    - constant.other.option
 - source: toks
   scopes:
-    - meta.argument
-    - string.unquoted.argument
+    - variable.other.assignment
+  scopesEnd:
+    - meta.statement
+    - meta.expression.assignment
 - source: local
+  scopesBegin:
+    - meta.statement.command
   scopes:
     - meta.statement.command.name
     - storage.modifier.local
@@ -12706,8 +12706,6 @@
     - meta.statement.command
     - meta.argument
 - source: toks
-  scopesBegin:
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
@@ -12715,7 +12713,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: $
   scopes:
     - punctuation.definition.variable
@@ -12909,10 +12907,9 @@
     - string.interpolated.dollar
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: if
   scopesBegin:
     - meta.scope.if-block
@@ -13235,6 +13232,8 @@
     - punctuation.section.bracket.curly.variable.end
     - punctuation.definition.variable
     - variable.parameter.positional
+  scopesEnd:
+    - meta.expression.assignment
 - source: toks
   scopes:
     - variable.other.assignment
@@ -13243,7 +13242,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: $
   scopes:
     - punctuation.definition.variable
@@ -13350,10 +13349,9 @@
     - string.interpolated.dollar
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: fi
   scopes:
     - keyword.control
@@ -13418,8 +13416,6 @@
     - entity.name.function.call
     - entity.name.command
 - source: COMPREPLY
-  scopesBegin:
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
@@ -13427,7 +13423,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: '"'
   scopesBegin:
     - string.quoted.double
@@ -13496,10 +13492,9 @@
     - string.quoted.double
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: '}'
   scopes:
     - punctuation.definition.group
@@ -14048,7 +14043,6 @@
 - source: COMPREPLY
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
@@ -14056,7 +14050,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: $(
   scopesBegin:
     - string.interpolated.dollar
@@ -14122,10 +14116,9 @@
     - string.interpolated.dollar
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: for
   scopesBegin:
     - meta.scope.for-loop
@@ -14315,8 +14308,12 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
+    - meta.expression.assignment
     - string.quoted.single
 - source: local
+  scopesBegin:
+    - meta.statement
+    - meta.expression.assignment
   scopes:
     - storage.modifier.local
 - source: PATH
@@ -14343,6 +14340,7 @@
     - punctuation.definition.string.end
   scopesEnd:
     - meta.statement
+    - meta.statement
     - meta.expression.assignment
     - string.quoted.double
 - source: '#'
@@ -14356,7 +14354,6 @@
 - source: COMPREPLY
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
@@ -14364,7 +14361,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: '"'
   scopesBegin:
     - string.quoted.double
@@ -14493,10 +14490,9 @@
     - string.interpolated.dollar
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: '#'
   scopesBegin:
     - comment.line.number-sign
@@ -14508,7 +14504,6 @@
 - source: COMPREPLY
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
@@ -14516,7 +14511,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: '"'
   scopesBegin:
     - string.quoted.double
@@ -14680,10 +14675,9 @@
     - string.interpolated.dollar
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: '#'
   scopesBegin:
     - comment.line.number-sign
@@ -14695,7 +14689,6 @@
 - source: COMPREPLY
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
@@ -14703,7 +14696,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: '"'
   scopesBegin:
     - string.quoted.double
@@ -14809,7 +14802,7 @@
     - string.interpolated.dollar
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: COMPREPLY
   scopes:
     - variable.other.assignment
@@ -14818,7 +14811,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: $(
   scopesBegin:
     - string.interpolated.dollar
@@ -14893,9 +14886,7 @@
     - string.interpolated.dollar
 - source: )
   scopes:
-    - punctuation
-  scopesEnd:
-    - meta.expression.assignment
+    - punctuation.definition.array
 - source: __ltrim_colon_completions
   scopesBegin:
     - meta.statement.command
@@ -14996,7 +14987,6 @@
 - source: COMPREPLY
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
@@ -15004,7 +14994,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: $(
   scopesBegin:
     - string.interpolated.dollar
@@ -15128,10 +15118,9 @@
     - string.interpolated.dollar
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: elif
   scopes:
     - keyword.control.elif
@@ -15166,7 +15155,6 @@
 - source: COMPREPLY
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
@@ -15174,7 +15162,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: $(
   scopesBegin:
     - string.interpolated.dollar
@@ -15333,10 +15321,9 @@
     - string.interpolated.dollar
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: elif
   scopes:
     - keyword.control.elif
@@ -15371,7 +15358,6 @@
 - source: COMPREPLY
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
@@ -15379,7 +15365,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: $(
   scopesBegin:
     - string.interpolated.dollar
@@ -15538,10 +15524,9 @@
     - string.interpolated.dollar
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: else
   scopes:
     - keyword.control.else
@@ -15556,7 +15541,6 @@
 - source: COMPREPLY
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
@@ -15564,7 +15548,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: $(
   scopesBegin:
     - string.interpolated.dollar
@@ -15723,10 +15707,9 @@
     - string.interpolated.dollar
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: fi
   scopes:
     - keyword.control.fi
@@ -15768,7 +15751,6 @@
 - source: COMPREPLY
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
@@ -15776,7 +15758,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: $(
   scopesBegin:
     - string.interpolated.dollar
@@ -15851,10 +15833,9 @@
     - string.interpolated.dollar
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: '}'
   scopes:
     - punctuation.definition.group
@@ -16109,7 +16090,6 @@
 - source: COMPREPLY
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
@@ -16117,7 +16097,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: $(
   scopesBegin:
     - string.interpolated.dollar
@@ -16212,7 +16192,7 @@
     - string.interpolated.dollar
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: COMPREPLY
   scopes:
     - variable.other.assignment
@@ -16221,7 +16201,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: $(
   scopesBegin:
     - string.interpolated.dollar
@@ -16296,10 +16276,9 @@
     - string.interpolated.dollar
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: '}'
   scopes:
     - punctuation.definition.group
@@ -16501,7 +16480,6 @@
 - source: COMPREPLY
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
@@ -16509,7 +16487,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: $(
   scopesBegin:
     - string.interpolated.dollar
@@ -16604,8 +16582,10 @@
     - string.interpolated.dollar
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: result
+  scopesBegin:
+    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
@@ -17376,6 +17356,8 @@
   scopes:
     - punctuation.section.bracket.curly.variable.end
     - punctuation.definition.variable
+  scopesEnd:
+    - meta.expression.assignment
 - source: COMPREPLY
   scopes:
     - variable.other.assignment
@@ -17384,7 +17366,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: $(
   scopesBegin:
     - string.interpolated.dollar
@@ -17459,9 +17441,7 @@
     - string.interpolated.dollar
 - source: )
   scopes:
-    - punctuation
-  scopesEnd:
-    - meta.expression.assignment
+    - punctuation.definition.array
 - source: '['
   scopesBegin:
     - meta.scope.logical-expression
@@ -17675,7 +17655,6 @@
 - source: COMPREPLY
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
@@ -17683,7 +17662,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: $(
   scopesBegin:
     - string.interpolated.dollar
@@ -17758,10 +17737,9 @@
     - string.interpolated.dollar
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: '}'
   scopes:
     - punctuation.definition.group
@@ -17797,7 +17775,6 @@
 - source: COMPREPLY
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
@@ -17805,7 +17782,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: $(
   scopesBegin:
     - string.interpolated.dollar
@@ -17880,10 +17857,9 @@
     - string.interpolated.dollar
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: '}'
   scopes:
     - punctuation.definition.group
@@ -17963,7 +17939,6 @@
 - source: COMPREPLY
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
@@ -17971,7 +17946,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: $(
   scopesBegin:
     - string.interpolated.dollar
@@ -18046,10 +18021,9 @@
     - string.interpolated.dollar
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: '}'
   scopes:
     - punctuation.definition.group
@@ -18085,7 +18059,6 @@
 - source: COMPREPLY
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
@@ -18093,7 +18066,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: $(
   scopesBegin:
     - string.interpolated.dollar
@@ -18168,10 +18141,9 @@
     - string.interpolated.dollar
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: '}'
   scopes:
     - punctuation.definition.group
@@ -18251,7 +18223,6 @@
 - source: COMPREPLY
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
@@ -18259,7 +18230,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: $(
   scopesBegin:
     - string.interpolated.dollar
@@ -18358,10 +18329,9 @@
     - string.interpolated.dollar
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: '}'
   scopes:
     - punctuation.definition.group
@@ -18433,7 +18403,6 @@
 - source: COMPREPLY
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
@@ -18441,7 +18410,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: $(
   scopesBegin:
     - string.interpolated.dollar
@@ -18541,10 +18510,9 @@
     - string.interpolated.dollar
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: '}'
   scopes:
     - punctuation.definition.group
@@ -18617,7 +18585,6 @@
 - source: COMPREPLY
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
@@ -18625,7 +18592,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: $(
   scopesBegin:
     - string.interpolated.dollar
@@ -18700,10 +18667,9 @@
     - string.interpolated.dollar
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: elif
   scopes:
     - keyword.control.elif
@@ -18739,7 +18705,6 @@
 - source: COMPREPLY
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
@@ -18747,7 +18712,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: $(
   scopesBegin:
     - string.interpolated.dollar
@@ -18866,10 +18831,9 @@
     - string.interpolated.dollar
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: else
   scopes:
     - keyword.control.else
@@ -18884,7 +18848,6 @@
 - source: COMPREPLY
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
@@ -18892,7 +18855,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: $(
   scopesBegin:
     - string.interpolated.dollar
@@ -18967,10 +18930,9 @@
     - string.interpolated.dollar
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: fi
   scopes:
     - keyword.control.fi
@@ -19045,7 +19007,6 @@
 - source: COMPREPLY
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
@@ -19053,7 +19014,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: $(
   scopesBegin:
     - string.interpolated.dollar
@@ -19132,10 +19093,9 @@
     - string.interpolated.dollar
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: elif
   scopes:
     - keyword.control.elif
@@ -19171,7 +19131,6 @@
 - source: COMPREPLY
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
@@ -19179,7 +19138,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: $(
   scopesBegin:
     - string.interpolated.dollar
@@ -19298,10 +19257,9 @@
     - string.interpolated.dollar
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: else
   scopes:
     - keyword.control.else
@@ -19316,7 +19274,6 @@
 - source: COMPREPLY
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
@@ -19324,7 +19281,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: $(
   scopesBegin:
     - string.interpolated.dollar
@@ -19399,10 +19356,9 @@
     - string.interpolated.dollar
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: fi
   scopes:
     - keyword.control.fi
@@ -19517,6 +19473,8 @@
 - source: /etc/xinetd.d
   scopes:
     - string.unquoted.argument
+  scopesEnd:
+    - meta.expression.assignment
 - source: COMPREPLY
   scopes:
     - variable.other.assignment
@@ -19525,7 +19483,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: $(
   scopesBegin:
     - string.interpolated.dollar
@@ -19646,10 +19604,9 @@
     - string.interpolated.dollar
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: if
   scopesBegin:
     - meta.scope.if-block
@@ -19684,7 +19641,6 @@
 - source: COMPREPLY
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
@@ -19692,7 +19648,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: '"'
   scopesBegin:
     - string.quoted.double
@@ -19838,10 +19794,9 @@
     - string.interpolated.dollar
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: fi
   scopes:
     - keyword.control
@@ -19850,7 +19805,6 @@
 - source: COMPREPLY
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
@@ -19858,7 +19812,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: $(
   scopesBegin:
     - string.interpolated.dollar
@@ -19933,10 +19887,9 @@
     - string.interpolated.dollar
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: '}'
   scopes:
     - punctuation.definition.group
@@ -20003,6 +19956,8 @@
 - source: '1'
   scopes:
     - variable.parameter.positional
+  scopesEnd:
+    - meta.expression.assignment
 - source: COMPREPLY
   scopes:
     - variable.other.assignment
@@ -20011,7 +19966,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: $(
   scopesBegin:
     - string.interpolated.dollar
@@ -20171,10 +20126,9 @@
     - string.interpolated.dollar
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: '}'
   scopes:
     - punctuation.definition.group
@@ -20213,7 +20167,6 @@
 - source: COMPREPLY
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
@@ -20221,7 +20174,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: $(
   scopesBegin:
     - string.interpolated.dollar
@@ -20371,10 +20324,9 @@
     - string.interpolated.dollar
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: '}'
   scopes:
     - punctuation.definition.group
@@ -20581,16 +20533,16 @@
 - source: local
   scopesBegin:
     - meta.statement
-    - meta.statement.command
+    - meta.statement
+    - meta.expression.assignment
   scopes:
-    - meta.statement.command.name
     - storage.modifier.local
 - source: prefix
   scopes:
-    - meta.argument
-    - string.unquoted.argument
+    - variable.other.assignment
   scopesEnd:
-    - meta.statement.command
+    - meta.statement
+    - meta.expression.assignment
 - source: prefix
   scopesBegin:
     - meta.expression.assignment
@@ -20665,7 +20617,12 @@
   scopes:
     - punctuation.section.bracket.curly.variable.end
     - punctuation.definition.variable
+  scopesEnd:
+    - meta.expression.assignment
 - source: local
+  scopesBegin:
+    - meta.statement
+    - meta.expression.assignment
   scopes:
     - storage.modifier.local
 - source: mycur
@@ -20718,11 +20675,14 @@
     - meta.expression.assignment
     - string.quoted.double
 - source: if
-  scopesBegin:
-    - meta.scope.if-block
   scopes:
-    - keyword.control
-- source: '[['
+    - keyword.control.if
+- source: '['
+  scopesBegin:
+    - meta.scope.logical-expression
+  scopes:
+    - punctuation.definition.logical-expression
+- source: '['
   scopesBegin:
     - meta.scope.logical-expression
   scopes:
@@ -20740,10 +20700,16 @@
 - source: '-u'
   scopesEnd:
     - keyword.operator.logical
-- source: ']]'
+- source: ']'
   scopes:
     - punctuation.definition.logical-expression
   scopesEnd:
+    - meta.scope.logical-expression
+- source: ']'
+  scopes:
+    - punctuation.definition.logical-expression
+  scopesEnd:
+    - meta.statement
     - meta.scope.logical-expression
 - source: ;
   scopes:
@@ -20786,6 +20752,7 @@
 - source: local
   scopesBegin:
     - meta.statement
+    - meta.statement
     - meta.expression.assignment
   scopes:
     - storage.modifier.local
@@ -20807,6 +20774,8 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
+    - meta.statement
+    - meta.expression.assignment
     - string.quoted.single.dollar
 - source: COMPREPLY
   scopes:
@@ -20816,7 +20785,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: $(
   scopesBegin:
     - string.interpolated.dollar
@@ -20874,19 +20843,15 @@
     - string.interpolated.dollar
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: fi
   scopes:
-    - keyword.control
-  scopesEnd:
-    - meta.scope.if-block
+    - keyword.control.fi
 - source: COMPREPLY
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
@@ -20894,7 +20859,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: $(
   scopesBegin:
     - string.interpolated.dollar
@@ -20993,10 +20958,9 @@
     - string.interpolated.dollar
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: elif
   scopes:
     - keyword.control.elif
@@ -21052,6 +21016,7 @@
 - source: local
   scopesBegin:
     - meta.statement
+    - meta.statement
     - meta.expression.assignment
   scopes:
     - storage.modifier.local
@@ -21098,11 +21063,14 @@
     - meta.expression.assignment
     - string.quoted.double
 - source: if
-  scopesBegin:
-    - meta.scope.if-block
   scopes:
-    - keyword.control
-- source: '[['
+    - keyword.control.if
+- source: '['
+  scopesBegin:
+    - meta.scope.logical-expression
+  scopes:
+    - punctuation.definition.logical-expression
+- source: '['
   scopesBegin:
     - meta.scope.logical-expression
   scopes:
@@ -21120,10 +21088,16 @@
 - source: '-u'
   scopesEnd:
     - keyword.operator.logical
-- source: ']]'
+- source: ']'
   scopes:
     - punctuation.definition.logical-expression
   scopesEnd:
+    - meta.scope.logical-expression
+- source: ']'
+  scopes:
+    - punctuation.definition.logical-expression
+  scopesEnd:
+    - meta.statement
     - meta.scope.logical-expression
 - source: ;
   scopes:
@@ -21166,6 +21140,7 @@
 - source: local
   scopesBegin:
     - meta.statement
+    - meta.statement
     - meta.expression.assignment
   scopes:
     - storage.modifier.local
@@ -21187,6 +21162,8 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
+    - meta.statement
+    - meta.expression.assignment
     - string.quoted.single.dollar
 - source: COMPREPLY
   scopes:
@@ -21196,7 +21173,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: $(
   scopesBegin:
     - string.interpolated.dollar
@@ -21254,15 +21231,12 @@
     - string.interpolated.dollar
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: fi
   scopes:
-    - keyword.control
-  scopesEnd:
-    - meta.scope.if-block
+    - keyword.control.fi
 - source: else
   scopes:
     - keyword.control.else
@@ -21358,6 +21332,7 @@
 - source: local
   scopesBegin:
     - meta.statement
+    - meta.statement
     - meta.expression.assignment
   scopes:
     - storage.modifier.local
@@ -21379,6 +21354,8 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
+    - meta.statement
+    - meta.expression.assignment
     - string.quoted.single.dollar
 - source: COMPREPLY
   scopes:
@@ -21388,7 +21365,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: $(
   scopesBegin:
     - string.interpolated.dollar
@@ -21446,10 +21423,9 @@
     - string.interpolated.dollar
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: fi
   scopes:
     - keyword.control
@@ -21501,6 +21477,7 @@
 - source: local
   scopesBegin:
     - meta.statement
+    - meta.statement
     - meta.expression.assignment
   scopes:
     - storage.modifier.local
@@ -21522,6 +21499,8 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
+    - meta.statement
+    - meta.expression.assignment
     - string.quoted.single.dollar
 - source: COMPREPLY
   scopes:
@@ -21531,7 +21510,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: $(
   scopesBegin:
     - string.interpolated.dollar
@@ -21613,15 +21592,15 @@
     - string.interpolated.dollar
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: else
   scopes:
     - keyword.control.else
 - source: local
   scopesBegin:
+    - meta.statement
     - meta.statement
     - meta.expression.assignment
   scopes:
@@ -21644,6 +21623,8 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
+    - meta.statement
+    - meta.expression.assignment
     - string.quoted.single.dollar
 - source: COMPREPLY
   scopes:
@@ -21653,7 +21634,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: $(
   scopesBegin:
     - string.interpolated.dollar
@@ -21827,10 +21808,9 @@
     - string.interpolated.dollar
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: fi
   scopes:
     - keyword.control.fi
@@ -21877,6 +21857,7 @@
 - source: local
   scopesBegin:
     - meta.statement
+    - meta.statement
     - meta.expression.assignment
   scopes:
     - storage.modifier.local
@@ -21898,6 +21879,8 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
+    - meta.statement
+    - meta.expression.assignment
     - string.quoted.single.dollar
 - source: COMPREPLY
   scopes:
@@ -21907,7 +21890,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: $(
   scopesBegin:
     - string.interpolated.dollar
@@ -21965,15 +21948,15 @@
     - string.interpolated.dollar
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: else
   scopes:
     - keyword.control.else
 - source: local
   scopesBegin:
+    - meta.statement
     - meta.statement
     - meta.expression.assignment
   scopes:
@@ -21996,6 +21979,8 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
+    - meta.statement
+    - meta.expression.assignment
     - string.quoted.single.dollar
 - source: COMPREPLY
   scopes:
@@ -22005,7 +21990,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: $(
   scopesBegin:
     - string.interpolated.dollar
@@ -22155,10 +22140,9 @@
     - string.interpolated.dollar
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: fi
   scopes:
     - keyword.control.fi
@@ -22200,7 +22184,6 @@
 - source: COMPREPLY
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
@@ -22208,7 +22191,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: '"'
   scopesBegin:
     - string.quoted.double
@@ -22326,10 +22309,9 @@
     - string.interpolated.dollar
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: '}'
   scopes:
     - punctuation.definition.group
@@ -22824,8 +22806,6 @@
   scopes:
     - constant.character.escape.line-continuation
 - source: COMPREPLY
-  scopesBegin:
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
@@ -22833,7 +22813,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: '"'
   scopesBegin:
     - string.quoted.double
@@ -22949,10 +22929,9 @@
     - string.interpolated.dollar
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: '}'
   scopes:
     - punctuation.definition.group
@@ -23861,7 +23840,6 @@
 - source: COMPREPLY
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
@@ -23869,7 +23847,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: $
   scopes:
     - punctuation.definition.variable
@@ -24058,10 +24036,9 @@
     - string.interpolated.dollar
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: '}'
   scopes:
     - punctuation.definition.group
@@ -24100,7 +24077,6 @@
 - source: COMPREPLY
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
@@ -24108,7 +24084,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: $
   scopes:
     - punctuation.definition.variable
@@ -24286,10 +24262,9 @@
     - string.interpolated.dollar
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: '}'
   scopes:
     - punctuation.definition.group
@@ -24325,7 +24300,6 @@
 - source: COMPREPLY
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
@@ -24333,7 +24307,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: '"'
   scopesBegin:
     - string.quoted.double
@@ -24478,10 +24452,9 @@
     - string.interpolated.dollar
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: '}'
   scopes:
     - punctuation.definition.group
@@ -24517,7 +24490,6 @@
 - source: COMPREPLY
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
@@ -24525,7 +24497,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: '"'
   scopesBegin:
     - string.quoted.double
@@ -24670,10 +24642,9 @@
     - string.interpolated.dollar
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: '}'
   scopes:
     - punctuation.definition.group
@@ -24798,8 +24769,6 @@
   scopesEnd:
     - meta.statement.command
 - source: COMPREPLY
-  scopesBegin:
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
@@ -24807,11 +24776,10 @@
     - keyword.operator.assignment
 - source: (
   scopesBegin:
-    - punctuation
+    - punctuation.definition.array
 - source: )
   scopesEnd:
-    - meta.expression.assignment
-    - punctuation
+    - punctuation.definition.array
 - source: _get_comp_words_by_ref
   scopesBegin:
     - meta.statement.command
@@ -24912,7 +24880,6 @@
 - source: COMPREPLY
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
@@ -24920,7 +24887,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: $(
   scopesBegin:
     - string.interpolated.dollar
@@ -24978,10 +24945,9 @@
     - string.interpolated.dollar
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: fi
   scopes:
     - keyword.control
@@ -25127,8 +25093,6 @@
   scopesEnd:
     - meta.statement.command
 - source: COMPREPLY
-  scopesBegin:
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
@@ -25136,12 +25100,11 @@
     - keyword.operator.assignment
 - source: (
   scopesBegin:
-    - punctuation
+    - punctuation.definition.array
 - source: )
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
-    - punctuation
+    - punctuation.definition.array
 - source: '#'
   scopesBegin:
     - comment.line.number-sign
@@ -25491,16 +25454,18 @@
 - source: flag
 - source: prefix
   scopesEnd:
+    - meta.statement.command
     - meta.argument
     - string.unquoted.argument
 - source: local
+  scopesBegin:
+    - meta.statement
+    - meta.expression.assignment
   scopes:
-    - meta.statement.command.name
     - storage.modifier.local
 - source: cur
   scopesBegin:
-    - meta.argument
-    - string.unquoted.argument
+    - variable.other.assignment
 - source: curd
 - source: awkcur
 - source: user
@@ -25509,9 +25474,12 @@
 - source: i
 - source: host
   scopesEnd:
-    - meta.argument
-    - string.unquoted.argument
+    - meta.statement
+    - meta.expression.assignment
+    - variable.other.assignment
 - source: local
+  scopesBegin:
+    - meta.statement.command
   scopes:
     - meta.statement.command.name
     - storage.modifier.local
@@ -25537,6 +25505,7 @@
     - string.unquoted.argument
 - source: local
   scopesBegin:
+    - meta.statement
     - meta.expression.assignment
   scopes:
     - storage.modifier.local
@@ -25548,20 +25517,16 @@
     - keyword.operator.assignment
 - source: '1'
   scopes:
-    - string.unquoted.argument
     - constant.numeric
     - constant.numeric.integer
   scopesEnd:
     - meta.statement
     - meta.expression.assignment
 - source: while
-  scopesBegin:
-    - meta.scope.while-loop
   scopes:
-    - keyword.control
+    - keyword.control.while
 - source: getopts
   scopesBegin:
-    - meta.statement
     - meta.statement.command
   scopes:
     - meta.statement.command.name
@@ -25773,9 +25738,7 @@
     - meta.case
 - source: done
   scopes:
-    - keyword.control
-  scopesEnd:
-    - meta.scope.while-loop
+    - keyword.control.done
 - source: '['
   scopesBegin:
     - meta.statement
@@ -26199,6 +26162,8 @@
   scopes:
     - punctuation.section.bracket.curly.variable.end
     - punctuation.definition.variable
+  scopesEnd:
+    - meta.expression.assignment
 - source: kh
   scopes:
     - variable.other.assignment
@@ -26207,12 +26172,11 @@
     - keyword.operator.assignment
 - source: (
   scopesBegin:
-    - punctuation
+    - punctuation.definition.array
 - source: )
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
-    - punctuation
+    - punctuation.definition.array
 - source: '#'
   scopesBegin:
     - comment.line.number-sign
@@ -26300,7 +26264,6 @@
 - source: config
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
@@ -26308,7 +26271,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: '"'
   scopesBegin:
     - string.quoted.double
@@ -26359,10 +26322,9 @@
     - string.quoted.double
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: else
   scopes:
     - keyword.control.else
@@ -26486,7 +26448,6 @@
 - source: config
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
@@ -26494,7 +26455,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: '"'
   scopesBegin:
     - string.quoted.double
@@ -26545,10 +26506,9 @@
     - string.quoted.double
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: done
   scopes:
     - keyword.control
@@ -26626,6 +26586,7 @@
 - source: local
   scopesBegin:
     - meta.statement
+    - meta.statement
     - meta.expression.assignment
   scopes:
     - storage.modifier.local
@@ -26660,6 +26621,7 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
+    - meta.statement
     - meta.expression.assignment
     - string.quoted.single.dollar
 - source: local
@@ -26708,7 +26670,6 @@
 - source: tmpkh
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
@@ -26716,7 +26677,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: $(
   scopesBegin:
     - string.interpolated.dollar
@@ -26813,10 +26774,9 @@
     - string.interpolated.dollar
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: for
   scopesBegin:
     - meta.scope.for-in-loop
@@ -26975,7 +26935,6 @@
 - source: kh
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
@@ -26983,7 +26942,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: '"'
   scopesBegin:
     - string.quoted.double
@@ -27034,10 +26993,9 @@
     - string.quoted.double
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: done
   scopes:
     - keyword.control
@@ -27183,7 +27141,6 @@
 - source: kh
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
@@ -27191,7 +27148,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: '"'
   scopesBegin:
     - string.quoted.double
@@ -27236,10 +27193,9 @@
     - variable.other.normal
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: done
   scopesBegin:
     - keyword.control
@@ -27291,7 +27247,6 @@
 - source: khd
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
@@ -27299,7 +27254,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: '"'
   scopesBegin:
     - string.quoted.double
@@ -27353,10 +27308,9 @@
     - string.unquoted.argument
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: done
   scopes:
     - keyword.control
@@ -27949,7 +27903,6 @@
 - source: COMPREPLY
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
@@ -27957,7 +27910,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: '"'
   scopesBegin:
     - string.quoted.double
@@ -28106,10 +28059,9 @@
     - string.interpolated.dollar
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: fi
   scopesBegin:
     - keyword.control
@@ -28395,6 +28347,8 @@
   scopes:
     - punctuation.section.bracket.curly.variable.end
     - punctuation.definition.variable
+  scopesEnd:
+    - meta.expression.assignment
 - source: COMPREPLY
   scopes:
     - variable.other.assignment
@@ -28403,7 +28357,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: '"'
   scopesBegin:
     - string.quoted.double
@@ -28448,10 +28402,9 @@
     - variable.other.normal
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: fi
   scopes:
     - keyword.control
@@ -28714,6 +28667,7 @@
 - source: local
   scopesBegin:
     - meta.statement
+    - meta.statement
     - meta.expression.assignment
   scopes:
     - storage.modifier.local
@@ -28801,6 +28755,8 @@
   scopes:
     - punctuation.definition.evaluation.parens.end
   scopesEnd:
+    - meta.statement
+    - meta.expression.assignment
     - string.interpolated.dollar
 - source: COMPREPLY
   scopes:
@@ -28810,7 +28766,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: '"'
   scopesBegin:
     - string.quoted.double
@@ -28995,10 +28951,9 @@
     - string.interpolated.dollar
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: fi
   scopes:
     - keyword.control
@@ -29111,7 +29066,6 @@
 - source: COMPREPLY
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
@@ -29119,7 +29073,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: '"'
   scopesBegin:
     - string.quoted.double
@@ -29421,10 +29375,9 @@
     - string.interpolated.dollar
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: fi
   scopes:
     - keyword.control
@@ -29494,7 +29447,6 @@
 - source: COMPREPLY
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
@@ -29502,7 +29454,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: '"'
   scopesBegin:
     - string.quoted.double
@@ -29668,10 +29620,9 @@
     - string.interpolated.dollar
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: fi
   scopes:
     - keyword.control
@@ -29952,7 +29903,6 @@
 - source: COMPREPLY
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
@@ -29960,7 +29910,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: $(
   scopesBegin:
     - string.interpolated.dollar
@@ -30060,9 +30010,7 @@
     - string.interpolated.dollar
 - source: )
   scopes:
-    - punctuation
-  scopesEnd:
-    - meta.expression.assignment
+    - punctuation.definition.array
 - source: return
   scopesBegin:
     - meta.statement.command
@@ -30234,6 +30182,7 @@
 - source: local
   scopesBegin:
     - meta.statement
+    - meta.statement
     - meta.expression.assignment
   scopes:
     - storage.modifier.local
@@ -30290,8 +30239,12 @@
   scopes:
     - punctuation.definition.evaluation.parens.end
   scopesEnd:
+    - meta.statement
+    - meta.expression.assignment
     - string.interpolated.dollar
 - source: local
+  scopesBegin:
+    - meta.expression.assignment
   scopes:
     - storage.modifier.local
 - source: '-r'
@@ -31504,6 +31457,7 @@
 - source: local
   scopesBegin:
     - meta.statement
+    - meta.statement
     - meta.expression.assignment
   scopes:
     - storage.modifier.local
@@ -31542,10 +31496,8 @@
     - meta.statement
     - meta.expression.assignment
 - source: for
-  scopesBegin:
-    - meta.scope.for-loop
   scopes:
-    - keyword.control
+    - keyword.control.for
 - source: ((
   scopesBegin:
     - meta.arithmetic
@@ -31599,6 +31551,7 @@
   scopes:
     - punctuation.section.arithmetic
   scopesEnd:
+    - meta.statement
     - meta.arithmetic
 - source: ;
   scopes:
@@ -31743,9 +31696,7 @@
     - meta.scope.if-block
 - source: done
   scopes:
-    - keyword.control
-  scopesEnd:
-    - meta.scope.for-loop
+    - keyword.control.done
 - source: COMP_LINE
   scopesBegin:
     - meta.statement
@@ -32027,6 +31978,8 @@
 - source: ))
   scopes:
     - punctuation.definition.evaluation.arithmetic.end
+  scopesEnd:
+    - meta.expression.assignment
 - source: COMPREPLY
   scopes:
     - variable.other.assignment
@@ -32035,11 +31988,10 @@
     - keyword.operator.assignment
 - source: (
   scopesBegin:
-    - punctuation
+    - punctuation.definition.array
 - source: )
   scopesEnd:
-    - meta.expression.assignment
-    - punctuation
+    - punctuation.definition.array
 - source: _get_comp_words_by_ref
   scopesBegin:
     - meta.statement.command
@@ -32098,8 +32050,6 @@
     - entity.name.function.call
     - entity.name.command
 - source: COMPREPLY
-  scopesBegin:
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
@@ -32107,7 +32057,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: $(
   scopesBegin:
     - string.interpolated.dollar
@@ -32165,10 +32115,9 @@
     - string.interpolated.dollar
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: else
   scopes:
     - keyword.control.else
@@ -32958,7 +32907,6 @@
 - source: COMPREPLY
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
@@ -32966,7 +32914,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: '"'
   scopesBegin:
     - string.quoted.double
@@ -33022,10 +32970,9 @@
     - string.quoted.double
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: else
   scopes:
     - keyword.control.else
@@ -33175,6 +33122,8 @@
 - source: ;
   scopes:
     - punctuation.terminator.statement.semicolon
+  scopesEnd:
+    - meta.expression.assignment
 - source: COMPREPLY
   scopes:
     - variable.other.assignment
@@ -33183,7 +33132,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: $(
   scopesBegin:
     - string.interpolated.dollar
@@ -33259,10 +33208,9 @@
     - string.interpolated.dollar
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: ;
   scopes:
     - punctuation.terminator.statement.semicolon
@@ -33431,7 +33379,12 @@
 - source: ':/sbin:/usr/sbin:/usr/local/sbin'
   scopes:
     - string.unquoted.argument
+  scopesEnd:
+    - meta.expression.assignment
 - source: local
+  scopesBegin:
+    - meta.statement
+    - meta.expression.assignment
   scopes:
     - storage.modifier.local
 - source: root_command
@@ -33448,6 +33401,7 @@
   scopes:
     - variable.parameter.positional
   scopesEnd:
+    - meta.statement
     - meta.expression.assignment
 - source: _command
   scopesBegin:
@@ -34052,7 +34006,6 @@
 - source: COMPREPLY
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
@@ -34060,7 +34013,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: $(
   scopesBegin:
     - string.interpolated.dollar
@@ -34246,10 +34199,9 @@
     - string.interpolated.dollar
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: elif
   scopes:
     - keyword.control.elif
@@ -34642,6 +34594,7 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
+    - meta.expression.assignment
     - string.quoted.single.dollar
 - source: COMPREPLY
   scopes:
@@ -34651,11 +34604,10 @@
     - keyword.operator.assignment
 - source: (
   scopesBegin:
-    - punctuation
+    - punctuation.definition.array
 - source: )
   scopesEnd:
-    - meta.expression.assignment
-    - punctuation
+    - punctuation.definition.array
 - source: _get_comp_words_by_ref
   scopesBegin:
     - meta.statement.command
@@ -34884,25 +34836,23 @@
     - meta.expression.assignment
 - source: local
   scopesBegin:
-    - meta.statement.command
+    - meta.statement
+    - meta.expression.assignment
   scopes:
-    - meta.statement.command.name
     - storage.modifier.local
-- source: '-'
-  scopesBegin:
+- source: '-a'
+  scopes:
     - string.unquoted.argument
-  scopes:
-    - constant.other.option.dash
-- source: a
-  scopes:
     - constant.other.option
-  scopesEnd:
-    - string.unquoted.argument
 - source: toks
   scopes:
-    - meta.argument
-    - string.unquoted.argument
+    - variable.other.assignment
+  scopesEnd:
+    - meta.statement
+    - meta.expression.assignment
 - source: local
+  scopesBegin:
+    - meta.statement.command
   scopes:
     - meta.statement.command.name
     - storage.modifier.local
@@ -34913,8 +34863,6 @@
   scopesEnd:
     - meta.statement.command
 - source: toks
-  scopesBegin:
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
@@ -34922,7 +34870,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: $
   scopes:
     - punctuation.definition.variable
@@ -35132,10 +35080,9 @@
     - string.interpolated.dollar
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: '#'
   scopesBegin:
     - comment.line.number-sign
@@ -35187,6 +35134,7 @@
     - string.quoted.double
 - source: local
   scopesBegin:
+    - meta.statement
     - meta.expression.assignment
   scopes:
     - storage.modifier.local
@@ -35198,8 +35146,9 @@
     - keyword.operator.assignment
 - source: '!'
   scopes:
-    - string.unquoted.argument
+    - keyword.operator.pipe
   scopesEnd:
+    - meta.statement
     - meta.expression.assignment
 - source: if
   scopes:
@@ -35525,6 +35474,7 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
+    - meta.expression.assignment
     - string.quoted.double
 - source: toks
   scopes:
@@ -35534,7 +35484,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: $
   scopes:
     - punctuation.definition.variable
@@ -35778,9 +35728,7 @@
     - string.interpolated.dollar
 - source: )
   scopes:
-    - punctuation
-  scopesEnd:
-    - meta.expression.assignment
+    - punctuation.definition.array
 - source: '['
   scopesBegin:
     - meta.scope.logical-expression
@@ -35839,8 +35787,6 @@
     - entity.name.function.call
     - entity.name.command
 - source: COMPREPLY
-  scopesBegin:
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
@@ -35848,7 +35794,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: '"'
   scopesBegin:
     - string.quoted.double
@@ -35886,10 +35832,9 @@
     - string.quoted.double
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: '}'
   scopes:
     - punctuation.definition.group
@@ -35900,7 +35845,6 @@
 - source: list
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
@@ -35908,7 +35852,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: $(
   scopesBegin:
     - string.interpolated.dollar
@@ -36216,6 +36160,8 @@
   scopes:
     - punctuation.section.bracket.curly.variable.end
     - punctuation.definition.variable
+  scopesEnd:
+    - meta.expression.assignment
 - source: list
   scopes:
     - variable.other.assignment
@@ -36224,7 +36170,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: '"'
   scopesBegin:
     - string.quoted.double
@@ -36269,10 +36215,9 @@
     - variable.other.normal
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: done
   scopes:
     - keyword.control.done
@@ -36348,10 +36293,9 @@
     - string.interpolated.dollar
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: '#'
   scopesBegin:
     - comment.line.number-sign
@@ -37953,25 +37897,18 @@
 - source: /usr/local/etc/bash_completion.d
   scopes:
     - string.unquoted.argument
-  scopesEnd:
-    - meta.expression.assignment
 - source: readonly
-  scopesBegin:
-    - meta.statement.command
   scopes:
-    - meta.statement.command.name
     - storage.modifier.readonly
 - source: BASH_COMPLETION
   scopesBegin:
-    - meta.argument
-    - string.unquoted.argument
+    - variable.other.assignment
 - source: BASH_COMPLETION_DIR
 - source: BASH_COMPLETION_COMPAT_DIR
   scopesEnd:
     - meta.statement
-    - meta.statement.command
-    - meta.argument
-    - string.unquoted.argument
+    - meta.expression.assignment
+    - variable.other.assignment
 - source: '#'
   scopesBegin:
     - comment.line.number-sign
@@ -44343,21 +44280,23 @@
     - string.unquoted.argument
 - source: cword
   scopesEnd:
-    - meta.argument
-    - string.unquoted.argument
-- source: local
-  scopes:
-    - meta.statement.command.name
-    - storage.modifier.local
-- source: i
-  scopesBegin:
-    - meta.argument
-    - string.unquoted.argument
-- source: cur2
-  scopesEnd:
     - meta.statement.command
     - meta.argument
     - string.unquoted.argument
+- source: local
+  scopesBegin:
+    - meta.statement
+    - meta.expression.assignment
+  scopes:
+    - storage.modifier.local
+- source: i
+  scopesBegin:
+    - variable.other.assignment
+- source: cur2
+  scopesEnd:
+    - meta.statement
+    - meta.expression.assignment
+    - variable.other.assignment
 - source: local
   scopesBegin:
     - meta.expression.assignment
@@ -44385,8 +44324,12 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
+    - meta.expression.assignment
     - string.quoted.double
 - source: local
+  scopesBegin:
+    - meta.statement
+    - meta.expression.assignment
   scopes:
     - storage.modifier.local
 - source: index
@@ -44415,10 +44358,8 @@
     - meta.expression.assignment
     - string.quoted.double
 - source: for
-  scopesBegin:
-    - meta.scope.for-loop
   scopes:
-    - keyword.control
+    - keyword.control.for
 - source: ((
   scopesBegin:
     - meta.arithmetic
@@ -44454,6 +44395,7 @@
   scopes:
     - punctuation.section.arithmetic
   scopesEnd:
+    - meta.statement
     - meta.arithmetic
 - source: ;
   scopes:
@@ -44928,8 +44870,12 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
+    - meta.expression.assignment
     - string.quoted.double
 - source: local
+  scopesBegin:
+    - meta.statement
+    - meta.expression.assignment
   scopes:
     - storage.modifier.local
 - source: new_size
@@ -44968,8 +44914,12 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
+    - meta.statement
+    - meta.expression.assignment
     - string.quoted.double
 - source: index
+  scopesBegin:
+    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
@@ -45010,9 +44960,7 @@
     - meta.scope.if-block
 - source: done
   scopes:
-    - keyword.control
-  scopesEnd:
-    - meta.scope.for-loop
+    - keyword.control.done
 - source: if
   scopesBegin:
     - meta.scope.if-block
@@ -45221,13 +45169,12 @@
 - source: local
   scopesBegin:
     - meta.statement
-    - meta.statement.command
+    - meta.statement
+    - meta.expression.assignment
   scopes:
-    - meta.statement.command.name
     - storage.modifier.local
 - source: '"'
   scopesBegin:
-    - meta.argument
     - string.quoted.double
   scopes:
     - punctuation.definition.string.begin
@@ -45268,16 +45215,15 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
-    - meta.statement
-    - meta.statement.command
-    - meta.argument
     - string.quoted.double
 - source: '&&'
   scopes:
     - punctuation.separator.statement.and
+  scopesEnd:
+    - meta.statement
+    - meta.expression.assignment
 - source: _upvars
   scopesBegin:
-    - meta.statement
     - meta.statement.command
   scopes:
     - meta.statement.command.name
@@ -45602,28 +45548,34 @@
     - constant.numeric
     - constant.numeric.integer
   scopesEnd:
+    - meta.statement.command
     - meta.argument
     - string.unquoted.argument
 - source: local
+  scopesBegin:
+    - meta.statement
+    - meta.expression.assignment
   scopes:
-    - meta.statement.command.name
     - storage.modifier.local
 - source: cur
   scopesBegin:
-    - meta.argument
-    - string.unquoted.argument
+    - variable.other.assignment
 - source: cword
-- source: words=
+- source: words
   scopesEnd:
-    - string.unquoted.argument
+    - variable.other.assignment
+- source: '='
+  scopes:
+    - keyword.operator.assignment
 - source: (
-  scopesEnd:
-    - meta.statement.command
-    - meta.argument
-- source: )
-- source: local
   scopesBegin:
+    - punctuation.definition.array
+- source: )
+  scopesEnd:
+    - meta.statement
     - meta.expression.assignment
+    - punctuation.definition.array
+- source: local
   scopes:
     - storage.modifier.local
 - source: upargs
@@ -45634,10 +45586,10 @@
     - keyword.operator.assignment
 - source: (
   scopesBegin:
-    - punctuation
+    - punctuation.definition.array
 - source: )
   scopesEnd:
-    - punctuation
+    - punctuation.definition.array
 - source: upvars
   scopes:
     - variable.other.assignment
@@ -45646,11 +45598,10 @@
     - keyword.operator.assignment
 - source: (
   scopesBegin:
-    - punctuation
+    - punctuation.definition.array
 - source: )
   scopesEnd:
-    - meta.expression.assignment
-    - punctuation
+    - punctuation.definition.array
 - source: vcur
   scopesBegin:
     - meta.statement.command
@@ -46324,7 +46275,6 @@
 - source: upvars
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: +=
@@ -46332,7 +46282,7 @@
     - keyword.operator.assignment.compound
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: '"'
   scopesBegin:
     - string.quoted.double
@@ -46352,17 +46302,15 @@
     - string.quoted.double
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: ;
   scopes:
     - punctuation.terminator.statement.semicolon
 - source: upargs
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: +=
@@ -46370,7 +46318,7 @@
     - keyword.operator.assignment.compound
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: '-v'
   scopes:
     - string.unquoted.argument
@@ -46400,10 +46348,9 @@
     - string.quoted.double
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: ;
   scopes:
     - punctuation.terminator.statement.semicolon
@@ -46452,7 +46399,6 @@
 - source: upvars
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: +=
@@ -46460,7 +46406,7 @@
     - keyword.operator.assignment.compound
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: '"'
   scopesBegin:
     - string.quoted.double
@@ -46480,17 +46426,15 @@
     - string.quoted.double
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: ;
   scopes:
     - punctuation.terminator.statement.semicolon
 - source: upargs
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: +=
@@ -46498,7 +46442,7 @@
     - keyword.operator.assignment.compound
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: '-v'
   scopes:
     - string.unquoted.argument
@@ -46528,10 +46472,9 @@
     - string.quoted.double
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: ;
   scopes:
     - punctuation.terminator.statement.semicolon
@@ -46580,7 +46523,6 @@
 - source: upvars
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: +=
@@ -46588,7 +46530,7 @@
     - keyword.operator.assignment.compound
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: '"'
   scopesBegin:
     - string.quoted.double
@@ -46608,17 +46550,15 @@
     - string.quoted.double
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: ;
   scopes:
     - punctuation.terminator.statement.semicolon
 - source: upargs
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: +=
@@ -46626,7 +46566,7 @@
     - keyword.operator.assignment.compound
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: '-v'
   scopes:
     - string.unquoted.argument
@@ -46674,10 +46614,9 @@
     - string.quoted.double
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: ;
   scopes:
     - punctuation.terminator.statement.semicolon
@@ -46726,7 +46665,6 @@
 - source: upvars
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: +=
@@ -46734,7 +46672,7 @@
     - keyword.operator.assignment.compound
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: '"'
   scopesBegin:
     - string.quoted.double
@@ -46754,17 +46692,15 @@
     - string.quoted.double
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: ;
   scopes:
     - punctuation.terminator.statement.semicolon
 - source: upargs
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: +=
@@ -46772,7 +46708,7 @@
     - keyword.operator.assignment.compound
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: '-a'
   scopes:
     - string.unquoted.argument
@@ -46848,10 +46784,9 @@
     - string.quoted.double
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: ;
   scopes:
     - punctuation.terminator.statement.semicolon
@@ -46906,13 +46841,12 @@
 - source: local
   scopesBegin:
     - meta.statement
-    - meta.statement.command
+    - meta.statement
+    - meta.expression.assignment
   scopes:
-    - meta.statement.command.name
     - storage.modifier.local
 - source: '"'
   scopesBegin:
-    - meta.argument
     - string.quoted.double
   scopes:
     - punctuation.definition.string.begin
@@ -46945,24 +46879,15 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
-    - meta.statement
-    - meta.statement.command
-    - meta.argument
     - string.quoted.double
 - source: '&&'
   scopes:
     - punctuation.separator.statement.and
 - source: _upvars
-  scopesBegin:
-    - meta.statement
-    - meta.statement.command
   scopes:
-    - meta.statement.command.name
-    - entity.name.function.call
-    - entity.name.command
+    - variable.other.assignment
 - source: '"'
   scopesBegin:
-    - meta.argument
     - string.quoted.double
   scopes:
     - punctuation.definition.string.begin
@@ -46996,8 +46921,8 @@
     - punctuation.definition.string.end
   scopesEnd:
     - meta.statement
-    - meta.statement.command
-    - meta.argument
+    - meta.statement
+    - meta.expression.assignment
     - string.quoted.double
 - source: '}'
   scopes:
@@ -47110,19 +47035,21 @@
     - meta.expression.assignment
 - source: local
   scopesBegin:
-    - meta.statement.command
+    - meta.statement
+    - meta.expression.assignment
   scopes:
-    - meta.statement.command.name
     - storage.modifier.local
 - source: cword
   scopesBegin:
-    - meta.argument
-    - string.unquoted.argument
+    - variable.other.assignment
 - source: words
   scopesEnd:
-    - meta.argument
-    - string.unquoted.argument
+    - meta.statement
+    - meta.expression.assignment
+    - variable.other.assignment
 - source: __reassemble_comp_words_by_ref
+  scopesBegin:
+    - meta.statement.command
   scopes:
     - meta.statement.command.name
     - entity.name.function.call
@@ -47454,16 +47381,16 @@
 - source: local
   scopesBegin:
     - meta.statement
-    - meta.statement.command
+    - meta.statement
+    - meta.expression.assignment
   scopes:
-    - meta.statement.command.name
     - storage.modifier.local
 - source: i
   scopes:
-    - meta.argument
-    - string.unquoted.argument
+    - variable.other.assignment
   scopesEnd:
-    - meta.statement.command
+    - meta.statement
+    - meta.expression.assignment
 - source: local
   scopesBegin:
     - meta.expression.assignment
@@ -47491,8 +47418,12 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
+    - meta.expression.assignment
     - string.quoted.double
 - source: local
+  scopesBegin:
+    - meta.statement
+    - meta.expression.assignment
   scopes:
     - storage.modifier.local
 - source: index
@@ -47521,10 +47452,8 @@
     - meta.expression.assignment
     - string.quoted.double
 - source: for
-  scopesBegin:
-    - meta.scope.for-loop
   scopes:
-    - keyword.control
+    - keyword.control.for
 - source: ((
   scopesBegin:
     - meta.arithmetic
@@ -47560,6 +47489,7 @@
   scopes:
     - punctuation.section.arithmetic
   scopesEnd:
+    - meta.statement
     - meta.arithmetic
 - source: ;
   scopes:
@@ -48034,8 +47964,12 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
+    - meta.expression.assignment
     - string.quoted.double
 - source: local
+  scopesBegin:
+    - meta.statement
+    - meta.expression.assignment
   scopes:
     - storage.modifier.local
 - source: new_size
@@ -48074,8 +48008,12 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
+    - meta.statement
+    - meta.expression.assignment
     - string.quoted.double
 - source: index
+  scopesBegin:
+    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
@@ -48116,9 +48054,7 @@
     - meta.scope.if-block
 - source: done
   scopes:
-    - keyword.control
-  scopesEnd:
-    - meta.scope.for-loop
+    - keyword.control.done
 - source: if
   scopesBegin:
     - meta.scope.if-block
@@ -48794,6 +48730,7 @@
 - source: local
   scopesBegin:
     - meta.statement
+    - meta.statement
     - meta.expression.assignment
   scopes:
     - storage.modifier.local
@@ -48854,7 +48791,12 @@
     - punctuation.section.bracket.curly.variable.end
     - punctuation.definition.variable
     - variable.parameter.positional
+  scopesEnd:
+    - meta.statement
+    - meta.expression.assignment
 - source: local
+  scopesBegin:
+    - meta.expression.assignment
   scopes:
     - storage.modifier.local
 - source: i
@@ -50181,25 +50123,27 @@
     - string.unquoted.argument
     - constant.numeric
     - constant.numeric.integer
-- source: local
-  scopes:
-    - meta.statement.command.name
-    - storage.modifier.local
-- source: '-'
-  scopesBegin:
-    - string.unquoted.argument
-  scopes:
-    - constant.other.option.dash
-- source: a
-  scopes:
-    - constant.other.option
   scopesEnd:
+    - meta.statement.command
+- source: local
+  scopesBegin:
+    - meta.statement
+    - meta.expression.assignment
+  scopes:
+    - storage.modifier.local
+- source: '-a'
+  scopes:
     - string.unquoted.argument
+    - constant.other.option
 - source: toks
   scopes:
-    - meta.argument
-    - string.unquoted.argument
+    - variable.other.assignment
+  scopesEnd:
+    - meta.statement
+    - meta.expression.assignment
 - source: local
+  scopesBegin:
+    - meta.statement.command
   scopes:
     - meta.statement.command.name
     - storage.modifier.local
@@ -50241,8 +50185,6 @@
     - meta.statement.command
     - meta.argument
 - source: toks
-  scopesBegin:
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
@@ -50250,7 +50192,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: $
   scopes:
     - punctuation.definition.variable
@@ -50444,10 +50386,9 @@
     - string.interpolated.dollar
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: if
   scopesBegin:
     - meta.scope.if-block
@@ -50770,6 +50711,8 @@
     - punctuation.section.bracket.curly.variable.end
     - punctuation.definition.variable
     - variable.parameter.positional
+  scopesEnd:
+    - meta.expression.assignment
 - source: toks
   scopes:
     - variable.other.assignment
@@ -50778,7 +50721,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: $
   scopes:
     - punctuation.definition.variable
@@ -50885,10 +50828,9 @@
     - string.interpolated.dollar
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: fi
   scopes:
     - keyword.control
@@ -50953,8 +50895,6 @@
     - entity.name.function.call
     - entity.name.command
 - source: COMPREPLY
-  scopesBegin:
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
@@ -50962,7 +50902,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: '"'
   scopesBegin:
     - string.quoted.double
@@ -51031,10 +50971,9 @@
     - string.quoted.double
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: '}'
   scopes:
     - punctuation.definition.group
@@ -51583,7 +51522,6 @@
 - source: COMPREPLY
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
@@ -51591,7 +51529,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: $(
   scopesBegin:
     - string.interpolated.dollar
@@ -51657,10 +51595,9 @@
     - string.interpolated.dollar
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: for
   scopesBegin:
     - meta.scope.for-loop
@@ -51850,8 +51787,12 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
+    - meta.expression.assignment
     - string.quoted.single
 - source: local
+  scopesBegin:
+    - meta.statement
+    - meta.expression.assignment
   scopes:
     - storage.modifier.local
 - source: PATH
@@ -51878,6 +51819,7 @@
     - punctuation.definition.string.end
   scopesEnd:
     - meta.statement
+    - meta.statement
     - meta.expression.assignment
     - string.quoted.double
 - source: '#'
@@ -51891,7 +51833,6 @@
 - source: COMPREPLY
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
@@ -51899,7 +51840,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: '"'
   scopesBegin:
     - string.quoted.double
@@ -52028,10 +51969,9 @@
     - string.interpolated.dollar
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: '#'
   scopesBegin:
     - comment.line.number-sign
@@ -52043,7 +51983,6 @@
 - source: COMPREPLY
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
@@ -52051,7 +51990,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: '"'
   scopesBegin:
     - string.quoted.double
@@ -52215,10 +52154,9 @@
     - string.interpolated.dollar
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: '#'
   scopesBegin:
     - comment.line.number-sign
@@ -52230,7 +52168,6 @@
 - source: COMPREPLY
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
@@ -52238,7 +52175,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: '"'
   scopesBegin:
     - string.quoted.double
@@ -52344,7 +52281,7 @@
     - string.interpolated.dollar
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: COMPREPLY
   scopes:
     - variable.other.assignment
@@ -52353,7 +52290,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: $(
   scopesBegin:
     - string.interpolated.dollar
@@ -52428,9 +52365,7 @@
     - string.interpolated.dollar
 - source: )
   scopes:
-    - punctuation
-  scopesEnd:
-    - meta.expression.assignment
+    - punctuation.definition.array
 - source: __ltrim_colon_completions
   scopesBegin:
     - meta.statement.command
@@ -52531,7 +52466,6 @@
 - source: COMPREPLY
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
@@ -52539,7 +52473,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: $(
   scopesBegin:
     - string.interpolated.dollar
@@ -52663,10 +52597,9 @@
     - string.interpolated.dollar
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: elif
   scopes:
     - keyword.control.elif
@@ -52701,7 +52634,6 @@
 - source: COMPREPLY
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
@@ -52709,7 +52641,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: $(
   scopesBegin:
     - string.interpolated.dollar
@@ -52868,10 +52800,9 @@
     - string.interpolated.dollar
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: elif
   scopes:
     - keyword.control.elif
@@ -52906,7 +52837,6 @@
 - source: COMPREPLY
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
@@ -52914,7 +52844,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: $(
   scopesBegin:
     - string.interpolated.dollar
@@ -53073,10 +53003,9 @@
     - string.interpolated.dollar
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: else
   scopes:
     - keyword.control.else
@@ -53091,7 +53020,6 @@
 - source: COMPREPLY
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
@@ -53099,7 +53027,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: $(
   scopesBegin:
     - string.interpolated.dollar
@@ -53258,10 +53186,9 @@
     - string.interpolated.dollar
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: fi
   scopes:
     - keyword.control.fi
@@ -53303,7 +53230,6 @@
 - source: COMPREPLY
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
@@ -53311,7 +53237,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: $(
   scopesBegin:
     - string.interpolated.dollar
@@ -53386,10 +53312,9 @@
     - string.interpolated.dollar
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: '}'
   scopes:
     - punctuation.definition.group
@@ -53644,7 +53569,6 @@
 - source: COMPREPLY
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
@@ -53652,7 +53576,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: $(
   scopesBegin:
     - string.interpolated.dollar
@@ -53747,7 +53671,7 @@
     - string.interpolated.dollar
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: COMPREPLY
   scopes:
     - variable.other.assignment
@@ -53756,7 +53680,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: $(
   scopesBegin:
     - string.interpolated.dollar
@@ -53831,10 +53755,9 @@
     - string.interpolated.dollar
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: '}'
   scopes:
     - punctuation.definition.group
@@ -54036,7 +53959,6 @@
 - source: COMPREPLY
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
@@ -54044,7 +53966,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: $(
   scopesBegin:
     - string.interpolated.dollar
@@ -54139,8 +54061,10 @@
     - string.interpolated.dollar
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: result
+  scopesBegin:
+    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
@@ -54911,6 +54835,8 @@
   scopes:
     - punctuation.section.bracket.curly.variable.end
     - punctuation.definition.variable
+  scopesEnd:
+    - meta.expression.assignment
 - source: COMPREPLY
   scopes:
     - variable.other.assignment
@@ -54919,7 +54845,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: $(
   scopesBegin:
     - string.interpolated.dollar
@@ -54994,9 +54920,7 @@
     - string.interpolated.dollar
 - source: )
   scopes:
-    - punctuation
-  scopesEnd:
-    - meta.expression.assignment
+    - punctuation.definition.array
 - source: '['
   scopesBegin:
     - meta.scope.logical-expression
@@ -55210,7 +55134,6 @@
 - source: COMPREPLY
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
@@ -55218,7 +55141,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: $(
   scopesBegin:
     - string.interpolated.dollar
@@ -55293,10 +55216,9 @@
     - string.interpolated.dollar
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: '}'
   scopes:
     - punctuation.definition.group
@@ -55332,7 +55254,6 @@
 - source: COMPREPLY
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
@@ -55340,7 +55261,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: $(
   scopesBegin:
     - string.interpolated.dollar
@@ -55415,10 +55336,9 @@
     - string.interpolated.dollar
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: '}'
   scopes:
     - punctuation.definition.group
@@ -55498,7 +55418,6 @@
 - source: COMPREPLY
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
@@ -55506,7 +55425,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: $(
   scopesBegin:
     - string.interpolated.dollar
@@ -55581,10 +55500,9 @@
     - string.interpolated.dollar
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: '}'
   scopes:
     - punctuation.definition.group
@@ -55620,7 +55538,6 @@
 - source: COMPREPLY
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
@@ -55628,7 +55545,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: $(
   scopesBegin:
     - string.interpolated.dollar
@@ -55703,10 +55620,9 @@
     - string.interpolated.dollar
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: '}'
   scopes:
     - punctuation.definition.group
@@ -55786,7 +55702,6 @@
 - source: COMPREPLY
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
@@ -55794,7 +55709,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: $(
   scopesBegin:
     - string.interpolated.dollar
@@ -55893,10 +55808,9 @@
     - string.interpolated.dollar
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: '}'
   scopes:
     - punctuation.definition.group
@@ -55968,7 +55882,6 @@
 - source: COMPREPLY
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
@@ -55976,7 +55889,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: $(
   scopesBegin:
     - string.interpolated.dollar
@@ -56076,10 +55989,9 @@
     - string.interpolated.dollar
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: '}'
   scopes:
     - punctuation.definition.group
@@ -56152,7 +56064,6 @@
 - source: COMPREPLY
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
@@ -56160,7 +56071,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: $(
   scopesBegin:
     - string.interpolated.dollar
@@ -56235,10 +56146,9 @@
     - string.interpolated.dollar
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: elif
   scopes:
     - keyword.control.elif
@@ -56274,7 +56184,6 @@
 - source: COMPREPLY
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
@@ -56282,7 +56191,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: $(
   scopesBegin:
     - string.interpolated.dollar
@@ -56401,10 +56310,9 @@
     - string.interpolated.dollar
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: else
   scopes:
     - keyword.control.else
@@ -56419,7 +56327,6 @@
 - source: COMPREPLY
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
@@ -56427,7 +56334,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: $(
   scopesBegin:
     - string.interpolated.dollar
@@ -56502,10 +56409,9 @@
     - string.interpolated.dollar
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: fi
   scopes:
     - keyword.control.fi
@@ -56580,7 +56486,6 @@
 - source: COMPREPLY
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
@@ -56588,7 +56493,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: $(
   scopesBegin:
     - string.interpolated.dollar
@@ -56667,10 +56572,9 @@
     - string.interpolated.dollar
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: elif
   scopes:
     - keyword.control.elif
@@ -56706,7 +56610,6 @@
 - source: COMPREPLY
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
@@ -56714,7 +56617,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: $(
   scopesBegin:
     - string.interpolated.dollar
@@ -56833,10 +56736,9 @@
     - string.interpolated.dollar
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: else
   scopes:
     - keyword.control.else
@@ -56851,7 +56753,6 @@
 - source: COMPREPLY
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
@@ -56859,7 +56760,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: $(
   scopesBegin:
     - string.interpolated.dollar
@@ -56934,10 +56835,9 @@
     - string.interpolated.dollar
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: fi
   scopes:
     - keyword.control.fi
@@ -57052,6 +56952,8 @@
 - source: /etc/xinetd.d
   scopes:
     - string.unquoted.argument
+  scopesEnd:
+    - meta.expression.assignment
 - source: COMPREPLY
   scopes:
     - variable.other.assignment
@@ -57060,7 +56962,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: $(
   scopesBegin:
     - string.interpolated.dollar
@@ -57181,10 +57083,9 @@
     - string.interpolated.dollar
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: if
   scopesBegin:
     - meta.scope.if-block
@@ -57219,7 +57120,6 @@
 - source: COMPREPLY
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
@@ -57227,7 +57127,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: '"'
   scopesBegin:
     - string.quoted.double
@@ -57373,10 +57273,9 @@
     - string.interpolated.dollar
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: fi
   scopes:
     - keyword.control
@@ -57385,7 +57284,6 @@
 - source: COMPREPLY
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
@@ -57393,7 +57291,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: $(
   scopesBegin:
     - string.interpolated.dollar
@@ -57468,10 +57366,9 @@
     - string.interpolated.dollar
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: '}'
   scopes:
     - punctuation.definition.group
@@ -57538,6 +57435,8 @@
 - source: '1'
   scopes:
     - variable.parameter.positional
+  scopesEnd:
+    - meta.expression.assignment
 - source: COMPREPLY
   scopes:
     - variable.other.assignment
@@ -57546,7 +57445,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: $(
   scopesBegin:
     - string.interpolated.dollar
@@ -57706,10 +57605,9 @@
     - string.interpolated.dollar
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: '}'
   scopes:
     - punctuation.definition.group
@@ -57748,7 +57646,6 @@
 - source: COMPREPLY
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
@@ -57756,7 +57653,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: $(
   scopesBegin:
     - string.interpolated.dollar
@@ -57906,10 +57803,9 @@
     - string.interpolated.dollar
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: '}'
   scopes:
     - punctuation.definition.group
@@ -58116,16 +58012,16 @@
 - source: local
   scopesBegin:
     - meta.statement
-    - meta.statement.command
+    - meta.statement
+    - meta.expression.assignment
   scopes:
-    - meta.statement.command.name
     - storage.modifier.local
 - source: prefix
   scopes:
-    - meta.argument
-    - string.unquoted.argument
+    - variable.other.assignment
   scopesEnd:
-    - meta.statement.command
+    - meta.statement
+    - meta.expression.assignment
 - source: prefix
   scopesBegin:
     - meta.expression.assignment
@@ -58200,7 +58096,12 @@
   scopes:
     - punctuation.section.bracket.curly.variable.end
     - punctuation.definition.variable
+  scopesEnd:
+    - meta.expression.assignment
 - source: local
+  scopesBegin:
+    - meta.statement
+    - meta.expression.assignment
   scopes:
     - storage.modifier.local
 - source: mycur
@@ -58253,11 +58154,14 @@
     - meta.expression.assignment
     - string.quoted.double
 - source: if
-  scopesBegin:
-    - meta.scope.if-block
   scopes:
-    - keyword.control
-- source: '[['
+    - keyword.control.if
+- source: '['
+  scopesBegin:
+    - meta.scope.logical-expression
+  scopes:
+    - punctuation.definition.logical-expression
+- source: '['
   scopesBegin:
     - meta.scope.logical-expression
   scopes:
@@ -58275,10 +58179,16 @@
 - source: '-u'
   scopesEnd:
     - keyword.operator.logical
-- source: ']]'
+- source: ']'
   scopes:
     - punctuation.definition.logical-expression
   scopesEnd:
+    - meta.scope.logical-expression
+- source: ']'
+  scopes:
+    - punctuation.definition.logical-expression
+  scopesEnd:
+    - meta.statement
     - meta.scope.logical-expression
 - source: ;
   scopes:
@@ -58321,6 +58231,7 @@
 - source: local
   scopesBegin:
     - meta.statement
+    - meta.statement
     - meta.expression.assignment
   scopes:
     - storage.modifier.local
@@ -58342,6 +58253,8 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
+    - meta.statement
+    - meta.expression.assignment
     - string.quoted.single.dollar
 - source: COMPREPLY
   scopes:
@@ -58351,7 +58264,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: $(
   scopesBegin:
     - string.interpolated.dollar
@@ -58409,19 +58322,15 @@
     - string.interpolated.dollar
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: fi
   scopes:
-    - keyword.control
-  scopesEnd:
-    - meta.scope.if-block
+    - keyword.control.fi
 - source: COMPREPLY
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
@@ -58429,7 +58338,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: $(
   scopesBegin:
     - string.interpolated.dollar
@@ -58528,10 +58437,9 @@
     - string.interpolated.dollar
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: elif
   scopes:
     - keyword.control.elif
@@ -58587,6 +58495,7 @@
 - source: local
   scopesBegin:
     - meta.statement
+    - meta.statement
     - meta.expression.assignment
   scopes:
     - storage.modifier.local
@@ -58633,11 +58542,14 @@
     - meta.expression.assignment
     - string.quoted.double
 - source: if
-  scopesBegin:
-    - meta.scope.if-block
   scopes:
-    - keyword.control
-- source: '[['
+    - keyword.control.if
+- source: '['
+  scopesBegin:
+    - meta.scope.logical-expression
+  scopes:
+    - punctuation.definition.logical-expression
+- source: '['
   scopesBegin:
     - meta.scope.logical-expression
   scopes:
@@ -58655,10 +58567,16 @@
 - source: '-u'
   scopesEnd:
     - keyword.operator.logical
-- source: ']]'
+- source: ']'
   scopes:
     - punctuation.definition.logical-expression
   scopesEnd:
+    - meta.scope.logical-expression
+- source: ']'
+  scopes:
+    - punctuation.definition.logical-expression
+  scopesEnd:
+    - meta.statement
     - meta.scope.logical-expression
 - source: ;
   scopes:
@@ -58701,6 +58619,7 @@
 - source: local
   scopesBegin:
     - meta.statement
+    - meta.statement
     - meta.expression.assignment
   scopes:
     - storage.modifier.local
@@ -58722,6 +58641,8 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
+    - meta.statement
+    - meta.expression.assignment
     - string.quoted.single.dollar
 - source: COMPREPLY
   scopes:
@@ -58731,7 +58652,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: $(
   scopesBegin:
     - string.interpolated.dollar
@@ -58789,15 +58710,12 @@
     - string.interpolated.dollar
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: fi
   scopes:
-    - keyword.control
-  scopesEnd:
-    - meta.scope.if-block
+    - keyword.control.fi
 - source: else
   scopes:
     - keyword.control.else
@@ -58893,6 +58811,7 @@
 - source: local
   scopesBegin:
     - meta.statement
+    - meta.statement
     - meta.expression.assignment
   scopes:
     - storage.modifier.local
@@ -58914,6 +58833,8 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
+    - meta.statement
+    - meta.expression.assignment
     - string.quoted.single.dollar
 - source: COMPREPLY
   scopes:
@@ -58923,7 +58844,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: $(
   scopesBegin:
     - string.interpolated.dollar
@@ -58981,10 +58902,9 @@
     - string.interpolated.dollar
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: fi
   scopes:
     - keyword.control
@@ -59036,6 +58956,7 @@
 - source: local
   scopesBegin:
     - meta.statement
+    - meta.statement
     - meta.expression.assignment
   scopes:
     - storage.modifier.local
@@ -59057,6 +58978,8 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
+    - meta.statement
+    - meta.expression.assignment
     - string.quoted.single.dollar
 - source: COMPREPLY
   scopes:
@@ -59066,7 +58989,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: $(
   scopesBegin:
     - string.interpolated.dollar
@@ -59148,15 +59071,15 @@
     - string.interpolated.dollar
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: else
   scopes:
     - keyword.control.else
 - source: local
   scopesBegin:
+    - meta.statement
     - meta.statement
     - meta.expression.assignment
   scopes:
@@ -59179,6 +59102,8 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
+    - meta.statement
+    - meta.expression.assignment
     - string.quoted.single.dollar
 - source: COMPREPLY
   scopes:
@@ -59188,7 +59113,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: $(
   scopesBegin:
     - string.interpolated.dollar
@@ -59362,10 +59287,9 @@
     - string.interpolated.dollar
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: fi
   scopes:
     - keyword.control.fi
@@ -59412,6 +59336,7 @@
 - source: local
   scopesBegin:
     - meta.statement
+    - meta.statement
     - meta.expression.assignment
   scopes:
     - storage.modifier.local
@@ -59433,6 +59358,8 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
+    - meta.statement
+    - meta.expression.assignment
     - string.quoted.single.dollar
 - source: COMPREPLY
   scopes:
@@ -59442,7 +59369,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: $(
   scopesBegin:
     - string.interpolated.dollar
@@ -59500,15 +59427,15 @@
     - string.interpolated.dollar
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: else
   scopes:
     - keyword.control.else
 - source: local
   scopesBegin:
+    - meta.statement
     - meta.statement
     - meta.expression.assignment
   scopes:
@@ -59531,6 +59458,8 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
+    - meta.statement
+    - meta.expression.assignment
     - string.quoted.single.dollar
 - source: COMPREPLY
   scopes:
@@ -59540,7 +59469,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: $(
   scopesBegin:
     - string.interpolated.dollar
@@ -59690,10 +59619,9 @@
     - string.interpolated.dollar
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: fi
   scopes:
     - keyword.control.fi
@@ -59735,7 +59663,6 @@
 - source: COMPREPLY
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
@@ -59743,7 +59670,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: '"'
   scopesBegin:
     - string.quoted.double
@@ -59861,10 +59788,9 @@
     - string.interpolated.dollar
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: '}'
   scopes:
     - punctuation.definition.group
@@ -60359,8 +60285,6 @@
   scopes:
     - constant.character.escape.line-continuation
 - source: COMPREPLY
-  scopesBegin:
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
@@ -60368,7 +60292,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: '"'
   scopesBegin:
     - string.quoted.double
@@ -60484,10 +60408,9 @@
     - string.interpolated.dollar
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: '}'
   scopes:
     - punctuation.definition.group
@@ -61396,7 +61319,6 @@
 - source: COMPREPLY
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
@@ -61404,7 +61326,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: $
   scopes:
     - punctuation.definition.variable
@@ -61593,10 +61515,9 @@
     - string.interpolated.dollar
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: '}'
   scopes:
     - punctuation.definition.group
@@ -61635,7 +61556,6 @@
 - source: COMPREPLY
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
@@ -61643,7 +61563,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: $
   scopes:
     - punctuation.definition.variable
@@ -61821,10 +61741,9 @@
     - string.interpolated.dollar
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: '}'
   scopes:
     - punctuation.definition.group
@@ -61860,7 +61779,6 @@
 - source: COMPREPLY
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
@@ -61868,7 +61786,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: '"'
   scopesBegin:
     - string.quoted.double
@@ -62013,10 +61931,9 @@
     - string.interpolated.dollar
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: '}'
   scopes:
     - punctuation.definition.group
@@ -62052,7 +61969,6 @@
 - source: COMPREPLY
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
@@ -62060,7 +61976,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: '"'
   scopesBegin:
     - string.quoted.double
@@ -62205,10 +62121,9 @@
     - string.interpolated.dollar
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: '}'
   scopes:
     - punctuation.definition.group
@@ -62333,8 +62248,6 @@
   scopesEnd:
     - meta.statement.command
 - source: COMPREPLY
-  scopesBegin:
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
@@ -62342,11 +62255,10 @@
     - keyword.operator.assignment
 - source: (
   scopesBegin:
-    - punctuation
+    - punctuation.definition.array
 - source: )
   scopesEnd:
-    - meta.expression.assignment
-    - punctuation
+    - punctuation.definition.array
 - source: _get_comp_words_by_ref
   scopesBegin:
     - meta.statement.command
@@ -62447,7 +62359,6 @@
 - source: COMPREPLY
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
@@ -62455,7 +62366,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: $(
   scopesBegin:
     - string.interpolated.dollar
@@ -62513,10 +62424,9 @@
     - string.interpolated.dollar
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: fi
   scopes:
     - keyword.control
@@ -62662,8 +62572,6 @@
   scopesEnd:
     - meta.statement.command
 - source: COMPREPLY
-  scopesBegin:
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
@@ -62671,12 +62579,11 @@
     - keyword.operator.assignment
 - source: (
   scopesBegin:
-    - punctuation
+    - punctuation.definition.array
 - source: )
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
-    - punctuation
+    - punctuation.definition.array
 - source: '#'
   scopesBegin:
     - comment.line.number-sign
@@ -63026,16 +62933,18 @@
 - source: flag
 - source: prefix
   scopesEnd:
+    - meta.statement.command
     - meta.argument
     - string.unquoted.argument
 - source: local
+  scopesBegin:
+    - meta.statement
+    - meta.expression.assignment
   scopes:
-    - meta.statement.command.name
     - storage.modifier.local
 - source: cur
   scopesBegin:
-    - meta.argument
-    - string.unquoted.argument
+    - variable.other.assignment
 - source: curd
 - source: awkcur
 - source: user
@@ -63044,9 +62953,12 @@
 - source: i
 - source: host
   scopesEnd:
-    - meta.argument
-    - string.unquoted.argument
+    - meta.statement
+    - meta.expression.assignment
+    - variable.other.assignment
 - source: local
+  scopesBegin:
+    - meta.statement.command
   scopes:
     - meta.statement.command.name
     - storage.modifier.local
@@ -63072,6 +62984,7 @@
     - string.unquoted.argument
 - source: local
   scopesBegin:
+    - meta.statement
     - meta.expression.assignment
   scopes:
     - storage.modifier.local
@@ -63083,20 +62996,16 @@
     - keyword.operator.assignment
 - source: '1'
   scopes:
-    - string.unquoted.argument
     - constant.numeric
     - constant.numeric.integer
   scopesEnd:
     - meta.statement
     - meta.expression.assignment
 - source: while
-  scopesBegin:
-    - meta.scope.while-loop
   scopes:
-    - keyword.control
+    - keyword.control.while
 - source: getopts
   scopesBegin:
-    - meta.statement
     - meta.statement.command
   scopes:
     - meta.statement.command.name
@@ -63308,9 +63217,7 @@
     - meta.case
 - source: done
   scopes:
-    - keyword.control
-  scopesEnd:
-    - meta.scope.while-loop
+    - keyword.control.done
 - source: '['
   scopesBegin:
     - meta.statement
@@ -63734,6 +63641,8 @@
   scopes:
     - punctuation.section.bracket.curly.variable.end
     - punctuation.definition.variable
+  scopesEnd:
+    - meta.expression.assignment
 - source: kh
   scopes:
     - variable.other.assignment
@@ -63742,12 +63651,11 @@
     - keyword.operator.assignment
 - source: (
   scopesBegin:
-    - punctuation
+    - punctuation.definition.array
 - source: )
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
-    - punctuation
+    - punctuation.definition.array
 - source: '#'
   scopesBegin:
     - comment.line.number-sign
@@ -63835,7 +63743,6 @@
 - source: config
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
@@ -63843,7 +63750,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: '"'
   scopesBegin:
     - string.quoted.double
@@ -63894,10 +63801,9 @@
     - string.quoted.double
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: else
   scopes:
     - keyword.control.else
@@ -64021,7 +63927,6 @@
 - source: config
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
@@ -64029,7 +63934,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: '"'
   scopesBegin:
     - string.quoted.double
@@ -64080,10 +63985,9 @@
     - string.quoted.double
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: done
   scopes:
     - keyword.control
@@ -64161,6 +64065,7 @@
 - source: local
   scopesBegin:
     - meta.statement
+    - meta.statement
     - meta.expression.assignment
   scopes:
     - storage.modifier.local
@@ -64195,6 +64100,7 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
+    - meta.statement
     - meta.expression.assignment
     - string.quoted.single.dollar
 - source: local
@@ -64243,7 +64149,6 @@
 - source: tmpkh
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
@@ -64251,7 +64156,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: $(
   scopesBegin:
     - string.interpolated.dollar
@@ -64348,10 +64253,9 @@
     - string.interpolated.dollar
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: for
   scopesBegin:
     - meta.scope.for-in-loop
@@ -64510,7 +64414,6 @@
 - source: kh
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
@@ -64518,7 +64421,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: '"'
   scopesBegin:
     - string.quoted.double
@@ -64569,10 +64472,9 @@
     - string.quoted.double
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: done
   scopes:
     - keyword.control
@@ -64718,7 +64620,6 @@
 - source: kh
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
@@ -64726,7 +64627,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: '"'
   scopesBegin:
     - string.quoted.double
@@ -64771,10 +64672,9 @@
     - variable.other.normal
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: done
   scopesBegin:
     - keyword.control
@@ -64826,7 +64726,6 @@
 - source: khd
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
@@ -64834,7 +64733,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: '"'
   scopesBegin:
     - string.quoted.double
@@ -64888,10 +64787,9 @@
     - string.unquoted.argument
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: done
   scopes:
     - keyword.control
@@ -65484,7 +65382,6 @@
 - source: COMPREPLY
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
@@ -65492,7 +65389,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: '"'
   scopesBegin:
     - string.quoted.double
@@ -65641,10 +65538,9 @@
     - string.interpolated.dollar
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: fi
   scopesBegin:
     - keyword.control
@@ -65930,6 +65826,8 @@
   scopes:
     - punctuation.section.bracket.curly.variable.end
     - punctuation.definition.variable
+  scopesEnd:
+    - meta.expression.assignment
 - source: COMPREPLY
   scopes:
     - variable.other.assignment
@@ -65938,7 +65836,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: '"'
   scopesBegin:
     - string.quoted.double
@@ -65983,10 +65881,9 @@
     - variable.other.normal
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: fi
   scopes:
     - keyword.control
@@ -66249,6 +66146,7 @@
 - source: local
   scopesBegin:
     - meta.statement
+    - meta.statement
     - meta.expression.assignment
   scopes:
     - storage.modifier.local
@@ -66336,6 +66234,8 @@
   scopes:
     - punctuation.definition.evaluation.parens.end
   scopesEnd:
+    - meta.statement
+    - meta.expression.assignment
     - string.interpolated.dollar
 - source: COMPREPLY
   scopes:
@@ -66345,7 +66245,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: '"'
   scopesBegin:
     - string.quoted.double
@@ -66530,10 +66430,9 @@
     - string.interpolated.dollar
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: fi
   scopes:
     - keyword.control
@@ -66646,7 +66545,6 @@
 - source: COMPREPLY
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
@@ -66654,7 +66552,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: '"'
   scopesBegin:
     - string.quoted.double
@@ -66956,10 +66854,9 @@
     - string.interpolated.dollar
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: fi
   scopes:
     - keyword.control
@@ -67029,7 +66926,6 @@
 - source: COMPREPLY
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
@@ -67037,7 +66933,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: '"'
   scopesBegin:
     - string.quoted.double
@@ -67203,10 +67099,9 @@
     - string.interpolated.dollar
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: fi
   scopes:
     - keyword.control
@@ -67487,7 +67382,6 @@
 - source: COMPREPLY
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
@@ -67495,7 +67389,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: $(
   scopesBegin:
     - string.interpolated.dollar
@@ -67595,9 +67489,7 @@
     - string.interpolated.dollar
 - source: )
   scopes:
-    - punctuation
-  scopesEnd:
-    - meta.expression.assignment
+    - punctuation.definition.array
 - source: return
   scopesBegin:
     - meta.statement.command
@@ -67769,6 +67661,7 @@
 - source: local
   scopesBegin:
     - meta.statement
+    - meta.statement
     - meta.expression.assignment
   scopes:
     - storage.modifier.local
@@ -67825,8 +67718,12 @@
   scopes:
     - punctuation.definition.evaluation.parens.end
   scopesEnd:
+    - meta.statement
+    - meta.expression.assignment
     - string.interpolated.dollar
 - source: local
+  scopesBegin:
+    - meta.expression.assignment
   scopes:
     - storage.modifier.local
 - source: '-r'
@@ -69039,6 +68936,7 @@
 - source: local
   scopesBegin:
     - meta.statement
+    - meta.statement
     - meta.expression.assignment
   scopes:
     - storage.modifier.local
@@ -69077,10 +68975,8 @@
     - meta.statement
     - meta.expression.assignment
 - source: for
-  scopesBegin:
-    - meta.scope.for-loop
   scopes:
-    - keyword.control
+    - keyword.control.for
 - source: ((
   scopesBegin:
     - meta.arithmetic
@@ -69134,6 +69030,7 @@
   scopes:
     - punctuation.section.arithmetic
   scopesEnd:
+    - meta.statement
     - meta.arithmetic
 - source: ;
   scopes:
@@ -69278,9 +69175,7 @@
     - meta.scope.if-block
 - source: done
   scopes:
-    - keyword.control
-  scopesEnd:
-    - meta.scope.for-loop
+    - keyword.control.done
 - source: COMP_LINE
   scopesBegin:
     - meta.statement
@@ -69562,6 +69457,8 @@
 - source: ))
   scopes:
     - punctuation.definition.evaluation.arithmetic.end
+  scopesEnd:
+    - meta.expression.assignment
 - source: COMPREPLY
   scopes:
     - variable.other.assignment
@@ -69570,11 +69467,10 @@
     - keyword.operator.assignment
 - source: (
   scopesBegin:
-    - punctuation
+    - punctuation.definition.array
 - source: )
   scopesEnd:
-    - meta.expression.assignment
-    - punctuation
+    - punctuation.definition.array
 - source: _get_comp_words_by_ref
   scopesBegin:
     - meta.statement.command
@@ -69633,8 +69529,6 @@
     - entity.name.function.call
     - entity.name.command
 - source: COMPREPLY
-  scopesBegin:
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
@@ -69642,7 +69536,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: $(
   scopesBegin:
     - string.interpolated.dollar
@@ -69700,10 +69594,9 @@
     - string.interpolated.dollar
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: else
   scopes:
     - keyword.control.else
@@ -70493,7 +70386,6 @@
 - source: COMPREPLY
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
@@ -70501,7 +70393,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: '"'
   scopesBegin:
     - string.quoted.double
@@ -70557,10 +70449,9 @@
     - string.quoted.double
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: else
   scopes:
     - keyword.control.else
@@ -70710,6 +70601,8 @@
 - source: ;
   scopes:
     - punctuation.terminator.statement.semicolon
+  scopesEnd:
+    - meta.expression.assignment
 - source: COMPREPLY
   scopes:
     - variable.other.assignment
@@ -70718,7 +70611,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: $(
   scopesBegin:
     - string.interpolated.dollar
@@ -70794,10 +70687,9 @@
     - string.interpolated.dollar
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: ;
   scopes:
     - punctuation.terminator.statement.semicolon
@@ -70966,7 +70858,12 @@
 - source: ':/sbin:/usr/sbin:/usr/local/sbin'
   scopes:
     - string.unquoted.argument
+  scopesEnd:
+    - meta.expression.assignment
 - source: local
+  scopesBegin:
+    - meta.statement
+    - meta.expression.assignment
   scopes:
     - storage.modifier.local
 - source: root_command
@@ -70983,6 +70880,7 @@
   scopes:
     - variable.parameter.positional
   scopesEnd:
+    - meta.statement
     - meta.expression.assignment
 - source: _command
   scopesBegin:
@@ -71579,7 +71477,6 @@
 - source: COMPREPLY
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
@@ -71587,7 +71484,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: $(
   scopesBegin:
     - string.interpolated.dollar
@@ -71773,10 +71670,9 @@
     - string.interpolated.dollar
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: elif
   scopes:
     - keyword.control.elif
@@ -72169,6 +72065,7 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
+    - meta.expression.assignment
     - string.quoted.single.dollar
 - source: COMPREPLY
   scopes:
@@ -72178,11 +72075,10 @@
     - keyword.operator.assignment
 - source: (
   scopesBegin:
-    - punctuation
+    - punctuation.definition.array
 - source: )
   scopesEnd:
-    - meta.expression.assignment
-    - punctuation
+    - punctuation.definition.array
 - source: _get_comp_words_by_ref
   scopesBegin:
     - meta.statement.command
@@ -72411,25 +72307,23 @@
     - meta.expression.assignment
 - source: local
   scopesBegin:
-    - meta.statement.command
+    - meta.statement
+    - meta.expression.assignment
   scopes:
-    - meta.statement.command.name
     - storage.modifier.local
-- source: '-'
-  scopesBegin:
+- source: '-a'
+  scopes:
     - string.unquoted.argument
-  scopes:
-    - constant.other.option.dash
-- source: a
-  scopes:
     - constant.other.option
-  scopesEnd:
-    - string.unquoted.argument
 - source: toks
   scopes:
-    - meta.argument
-    - string.unquoted.argument
+    - variable.other.assignment
+  scopesEnd:
+    - meta.statement
+    - meta.expression.assignment
 - source: local
+  scopesBegin:
+    - meta.statement.command
   scopes:
     - meta.statement.command.name
     - storage.modifier.local
@@ -72440,8 +72334,6 @@
   scopesEnd:
     - meta.statement.command
 - source: toks
-  scopesBegin:
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
@@ -72449,7 +72341,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: $
   scopes:
     - punctuation.definition.variable
@@ -72659,10 +72551,9 @@
     - string.interpolated.dollar
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: '#'
   scopesBegin:
     - comment.line.number-sign
@@ -72714,6 +72605,7 @@
     - string.quoted.double
 - source: local
   scopesBegin:
+    - meta.statement
     - meta.expression.assignment
   scopes:
     - storage.modifier.local
@@ -72725,8 +72617,9 @@
     - keyword.operator.assignment
 - source: '!'
   scopes:
-    - string.unquoted.argument
+    - keyword.operator.pipe
   scopesEnd:
+    - meta.statement
     - meta.expression.assignment
 - source: if
   scopes:
@@ -73052,6 +72945,7 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
+    - meta.expression.assignment
     - string.quoted.double
 - source: toks
   scopes:
@@ -73061,7 +72955,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: $
   scopes:
     - punctuation.definition.variable
@@ -73305,9 +73199,7 @@
     - string.interpolated.dollar
 - source: )
   scopes:
-    - punctuation
-  scopesEnd:
-    - meta.expression.assignment
+    - punctuation.definition.array
 - source: '['
   scopesBegin:
     - meta.scope.logical-expression
@@ -73366,8 +73258,6 @@
     - entity.name.function.call
     - entity.name.command
 - source: COMPREPLY
-  scopesBegin:
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
@@ -73375,7 +73265,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: '"'
   scopesBegin:
     - string.quoted.double
@@ -73413,10 +73303,9 @@
     - string.quoted.double
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: '}'
   scopes:
     - punctuation.definition.group
@@ -73427,7 +73316,6 @@
 - source: list
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
@@ -73435,7 +73323,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: $(
   scopesBegin:
     - string.interpolated.dollar
@@ -73743,6 +73631,8 @@
   scopes:
     - punctuation.section.bracket.curly.variable.end
     - punctuation.definition.variable
+  scopesEnd:
+    - meta.expression.assignment
 - source: list
   scopes:
     - variable.other.assignment
@@ -73751,7 +73641,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: '"'
   scopesBegin:
     - string.quoted.double
@@ -73796,10 +73686,9 @@
     - variable.other.normal
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: done
   scopes:
     - keyword.control.done
@@ -73875,10 +73764,9 @@
     - string.interpolated.dollar
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: '#'
   scopesBegin:
     - comment.line.number-sign
@@ -75570,6 +75458,7 @@
 - source: local
   scopesBegin:
     - meta.statement
+    - meta.statement
     - meta.expression.assignment
   scopes:
     - storage.modifier.local
@@ -75605,6 +75494,7 @@
     - punctuation.section.bracket.curly.variable.end
     - punctuation.definition.variable
   scopesEnd:
+    - meta.statement
     - meta.expression.assignment
 - source: export
   scopesBegin:
@@ -76130,7 +76020,12 @@
 - source: '1'
   scopes:
     - variable.parameter.positional
+  scopesEnd:
+    - meta.expression.assignment
 - source: local
+  scopesBegin:
+    - meta.statement
+    - meta.expression.assignment
   scopes:
     - storage.modifier.local
 - source: install_type
@@ -76146,7 +76041,12 @@
 - source: '2'
   scopes:
     - variable.parameter.positional
+  scopesEnd:
+    - meta.statement
+    - meta.expression.assignment
 - source: local
+  scopesBegin:
+    - meta.expression.assignment
   scopes:
     - storage.modifier.local
 - source: version
@@ -76166,16 +76066,16 @@
     - meta.expression.assignment
 - source: local
   scopesBegin:
-    - meta.statement.command
+    - meta.statement
+    - meta.expression.assignment
   scopes:
-    - meta.statement.command.name
     - storage.modifier.local
 - source: install_dir
   scopes:
-    - meta.argument
-    - string.unquoted.argument
+    - variable.other.assignment
   scopesEnd:
-    - meta.statement.command
+    - meta.statement
+    - meta.expression.assignment
 - source: install_dir
   scopesBegin:
     - meta.expression.assignment
@@ -76535,16 +76435,16 @@
     - meta.expression.assignment
 - source: local
   scopesBegin:
-    - meta.statement.command
+    - meta.statement
+    - meta.expression.assignment
   scopes:
-    - meta.statement.command.name
     - storage.modifier.local
 - source: plugin_path
   scopes:
-    - meta.argument
-    - string.unquoted.argument
+    - variable.other.assignment
   scopesEnd:
-    - meta.statement.command
+    - meta.statement
+    - meta.expression.assignment
 - source: plugin_path
   scopesBegin:
     - meta.expression.assignment
@@ -76595,16 +76495,16 @@
     - string.interpolated.dollar
 - source: local
   scopesBegin:
-    - meta.statement.command
+    - meta.statement
+    - meta.expression.assignment
   scopes:
-    - meta.statement.command.name
     - storage.modifier.local
 - source: plugin_installs_path
   scopes:
-    - meta.argument
-    - string.unquoted.argument
+    - variable.other.assignment
   scopesEnd:
-    - meta.statement.command
+    - meta.statement
+    - meta.expression.assignment
 - source: plugin_installs_path
   scopesBegin:
     - meta.expression.assignment
@@ -77155,7 +77055,12 @@
 - source: '1'
   scopes:
     - variable.parameter.positional
+  scopesEnd:
+    - meta.expression.assignment
 - source: local
+  scopesBegin:
+    - meta.statement
+    - meta.expression.assignment
   scopes:
     - storage.modifier.local
 - source: version
@@ -77172,6 +77077,7 @@
   scopes:
     - variable.parameter.positional
   scopesEnd:
+    - meta.statement
     - meta.expression.assignment
 - source: check_if_plugin_exists
   scopesBegin:
@@ -77197,18 +77103,21 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
+    - meta.statement.command
     - meta.argument
     - string.quoted.double
 - source: local
+  scopesBegin:
+    - meta.statement
+    - meta.expression.assignment
   scopes:
-    - meta.statement.command.name
     - storage.modifier.local
 - source: install_path
   scopes:
-    - meta.argument
-    - string.unquoted.argument
+    - variable.other.assignment
   scopesEnd:
-    - meta.statement.command
+    - meta.statement
+    - meta.expression.assignment
 - source: install_path
   scopesBegin:
     - meta.expression.assignment
@@ -77678,7 +77587,12 @@
 - source: '1'
   scopes:
     - variable.parameter.positional
+  scopesEnd:
+    - meta.expression.assignment
 - source: local
+  scopesBegin:
+    - meta.statement
+    - meta.expression.assignment
   scopes:
     - storage.modifier.local
 - source: search_path
@@ -77694,7 +77608,12 @@
 - source: '2'
   scopes:
     - variable.parameter.positional
+  scopesEnd:
+    - meta.statement
+    - meta.expression.assignment
 - source: local
+  scopesBegin:
+    - meta.expression.assignment
   scopes:
     - storage.modifier.local
 - source: legacy_filenames
@@ -77714,16 +77633,16 @@
     - meta.expression.assignment
 - source: local
   scopesBegin:
-    - meta.statement.command
+    - meta.statement
+    - meta.expression.assignment
   scopes:
-    - meta.statement.command.name
     - storage.modifier.local
 - source: asdf_version
   scopes:
-    - meta.argument
-    - string.unquoted.argument
+    - variable.other.assignment
   scopesEnd:
-    - meta.statement.command
+    - meta.statement
+    - meta.expression.assignment
 - source: asdf_version
   scopesBegin:
     - meta.expression.assignment
@@ -77912,16 +77831,16 @@
 - source: local
   scopesBegin:
     - meta.statement
-    - meta.statement.command
+    - meta.statement
+    - meta.expression.assignment
   scopes:
-    - meta.statement.command.name
     - storage.modifier.local
 - source: legacy_version
   scopes:
-    - meta.argument
-    - string.unquoted.argument
+    - variable.other.assignment
   scopesEnd:
-    - meta.statement.command
+    - meta.statement
+    - meta.expression.assignment
 - source: legacy_version
   scopesBegin:
     - meta.expression.assignment
@@ -78142,7 +78061,12 @@
 - source: '1'
   scopes:
     - variable.parameter.positional
+  scopesEnd:
+    - meta.expression.assignment
 - source: local
+  scopesBegin:
+    - meta.statement
+    - meta.expression.assignment
   scopes:
     - storage.modifier.local
 - source: search_path
@@ -78158,20 +78082,15 @@
 - source: '2'
   scopes:
     - variable.parameter.positional
-  scopesEnd:
-    - meta.expression.assignment
 - source: local
-  scopesBegin:
-    - meta.statement.command
   scopes:
-    - meta.statement.command.name
     - storage.modifier.local
 - source: version
   scopes:
-    - meta.argument
-    - string.unquoted.argument
+    - variable.other.assignment
   scopesEnd:
-    - meta.statement.command
+    - meta.statement
+    - meta.expression.assignment
 - source: version
   scopesBegin:
     - meta.expression.assignment
@@ -78265,16 +78184,16 @@
 - source: local
   scopesBegin:
     - meta.statement
-    - meta.statement.command
+    - meta.statement
+    - meta.expression.assignment
   scopes:
-    - meta.statement.command.name
     - storage.modifier.local
 - source: upcase_name
   scopes:
-    - meta.argument
-    - string.unquoted.argument
+    - variable.other.assignment
   scopesEnd:
-    - meta.statement.command
+    - meta.statement
+    - meta.expression.assignment
 - source: upcase_name
   scopesBegin:
     - meta.expression.assignment
@@ -78355,8 +78274,12 @@
   scopes:
     - punctuation.definition.evaluation.parens.end
   scopesEnd:
+    - meta.expression.assignment
     - string.interpolated.dollar
 - source: local
+  scopesBegin:
+    - meta.statement
+    - meta.expression.assignment
   scopes:
     - storage.modifier.local
 - source: version_env_var
@@ -78391,6 +78314,7 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
+    - meta.statement
     - meta.expression.assignment
     - string.quoted.double
 - source: echo
@@ -78452,16 +78376,16 @@
 - source: local
   scopesBegin:
     - meta.statement
-    - meta.statement.command
+    - meta.statement
+    - meta.expression.assignment
   scopes:
-    - meta.statement.command.name
     - storage.modifier.local
 - source: plugin_path
   scopes:
-    - meta.argument
-    - string.unquoted.argument
+    - variable.other.assignment
   scopesEnd:
-    - meta.statement.command
+    - meta.statement
+    - meta.expression.assignment
 - source: plugin_path
   scopesBegin:
     - meta.expression.assignment
@@ -78512,16 +78436,16 @@
     - string.interpolated.dollar
 - source: local
   scopesBegin:
-    - meta.statement.command
+    - meta.statement
+    - meta.expression.assignment
   scopes:
-    - meta.statement.command.name
     - storage.modifier.local
 - source: legacy_config
   scopes:
-    - meta.argument
-    - string.unquoted.argument
+    - variable.other.assignment
   scopesEnd:
-    - meta.statement.command
+    - meta.statement
+    - meta.expression.assignment
 - source: legacy_config
   scopesBegin:
     - meta.expression.assignment
@@ -78566,16 +78490,16 @@
     - string.interpolated.dollar
 - source: local
   scopesBegin:
-    - meta.statement.command
+    - meta.statement
+    - meta.expression.assignment
   scopes:
-    - meta.statement.command.name
     - storage.modifier.local
 - source: legacy_list_filenames_script
   scopes:
-    - meta.argument
-    - string.unquoted.argument
+    - variable.other.assignment
   scopesEnd:
-    - meta.statement.command
+    - meta.statement
+    - meta.expression.assignment
 - source: legacy_list_filenames_script
   scopesBegin:
     - meta.expression.assignment
@@ -78609,8 +78533,12 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
+    - meta.expression.assignment
     - string.quoted.double
 - source: local
+  scopesBegin:
+    - meta.statement
+    - meta.expression.assignment
   scopes:
     - storage.modifier.local
 - source: legacy_filenames
@@ -78628,6 +78556,7 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
+    - meta.statement
     - meta.statement
     - meta.expression.assignment
     - string.quoted.double
@@ -79454,16 +79383,16 @@
     - meta.expression.assignment
 - source: local
   scopesBegin:
-    - meta.statement.command
+    - meta.statement
+    - meta.expression.assignment
   scopes:
-    - meta.statement.command.name
     - storage.modifier.local
 - source: upcase_name
   scopes:
-    - meta.argument
-    - string.unquoted.argument
+    - variable.other.assignment
   scopesEnd:
-    - meta.statement.command
+    - meta.statement
+    - meta.expression.assignment
 - source: upcase_name
   scopesBegin:
     - meta.expression.assignment
@@ -79544,8 +79473,12 @@
   scopes:
     - punctuation.definition.evaluation.parens.end
   scopesEnd:
+    - meta.expression.assignment
     - string.interpolated.dollar
 - source: local
+  scopesBegin:
+    - meta.statement
+    - meta.expression.assignment
   scopes:
     - storage.modifier.local
 - source: version_env_var
@@ -79580,8 +79513,12 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
+    - meta.statement
+    - meta.expression.assignment
     - string.quoted.double
 - source: local
+  scopesBegin:
+    - meta.expression.assignment
   scopes:
     - storage.modifier.local
 - source: version
@@ -79682,7 +79619,12 @@
 - source: '1'
   scopes:
     - variable.parameter.positional
+  scopesEnd:
+    - meta.expression.assignment
 - source: local
+  scopesBegin:
+    - meta.statement
+    - meta.expression.assignment
   scopes:
     - storage.modifier.local
 - source: version
@@ -79699,6 +79641,7 @@
   scopes:
     - variable.parameter.positional
   scopesEnd:
+    - meta.statement
     - meta.statement
     - meta.expression.assignment
 - source: '#'
@@ -79925,6 +79868,7 @@
 - source: local
   scopesBegin:
     - meta.statement
+    - meta.statement
     - meta.expression.assignment
   scopes:
     - storage.modifier.local
@@ -79968,8 +79912,12 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
+    - meta.statement
+    - meta.expression.assignment
     - string.quoted.double
 - source: local
+  scopesBegin:
+    - meta.expression.assignment
   scopes:
     - storage.modifier.local
 - source: version
@@ -80159,6 +80107,7 @@
 - source: local
   scopesBegin:
     - meta.statement
+    - meta.statement
     - meta.expression.assignment
   scopes:
     - storage.modifier.local
@@ -80178,8 +80127,12 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
+    - meta.statement
+    - meta.expression.assignment
     - string.quoted.double
 - source: local
+  scopesBegin:
+    - meta.expression.assignment
   scopes:
     - storage.modifier.local
 - source: version
@@ -80253,6 +80206,7 @@
 - source: local
   scopesBegin:
     - meta.statement
+    - meta.statement
     - meta.expression.assignment
   scopes:
     - storage.modifier.local
@@ -80272,8 +80226,12 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
+    - meta.statement
+    - meta.expression.assignment
     - string.quoted.double
 - source: local
+  scopesBegin:
+    - meta.expression.assignment
   scopes:
     - storage.modifier.local
 - source: version
@@ -80417,7 +80375,12 @@
 - source: '1'
   scopes:
     - variable.parameter.positional
+  scopesEnd:
+    - meta.expression.assignment
 - source: local
+  scopesBegin:
+    - meta.statement
+    - meta.expression.assignment
   scopes:
     - storage.modifier.local
 - source: install_path
@@ -80433,7 +80396,12 @@
 - source: '2'
   scopes:
     - variable.parameter.positional
+  scopesEnd:
+    - meta.statement
+    - meta.expression.assignment
 - source: local
+  scopesBegin:
+    - meta.expression.assignment
   scopes:
     - storage.modifier.local
 - source: executable_path
@@ -80561,17 +80529,17 @@
     - string.interpolated.dollar
 - source: local
   scopesBegin:
-    - meta.statement.command
+    - meta.statement
+    - meta.expression.assignment
   scopes:
-    - meta.statement.command.name
     - storage.modifier.local
 - source: relative_path
   scopes:
-    - meta.argument
-    - string.unquoted.argument
+    - variable.other.assignment
   scopesEnd:
     - meta.statement
-    - meta.statement.command
+    - meta.statement
+    - meta.expression.assignment
 - source: '#'
   scopesBegin:
     - comment.line.number-sign
@@ -80907,7 +80875,12 @@
 - source: '1'
   scopes:
     - variable.parameter.positional
+  scopesEnd:
+    - meta.expression.assignment
 - source: local
+  scopesBegin:
+    - meta.statement
+    - meta.expression.assignment
   scopes:
     - storage.modifier.local
 - source: version
@@ -80923,7 +80896,12 @@
 - source: '2'
   scopes:
     - variable.parameter.positional
+  scopesEnd:
+    - meta.statement
+    - meta.expression.assignment
 - source: local
+  scopesBegin:
+    - meta.expression.assignment
   scopes:
     - storage.modifier.local
 - source: executable_path
@@ -81366,16 +81344,16 @@
 - source: local
   scopesBegin:
     - meta.statement
-    - meta.statement.command
+    - meta.statement
+    - meta.expression.assignment
   scopes:
-    - meta.statement.command.name
     - storage.modifier.local
 - source: install_path
   scopes:
-    - meta.argument
-    - string.unquoted.argument
+    - variable.other.assignment
   scopesEnd:
-    - meta.statement.command
+    - meta.statement
+    - meta.expression.assignment
 - source: install_path
   scopesBegin:
     - meta.expression.assignment
@@ -81547,7 +81525,12 @@
 - source: '1'
   scopes:
     - variable.parameter.positional
+  scopesEnd:
+    - meta.expression.assignment
 - source: local
+  scopesBegin:
+    - meta.statement
+    - meta.expression.assignment
   scopes:
     - storage.modifier.local
 - source: plugin_name
@@ -81564,6 +81547,7 @@
   scopes:
     - variable.parameter.positional
   scopesEnd:
+    - meta.statement
     - meta.statement
     - meta.expression.assignment
 - source: if
@@ -81610,16 +81594,16 @@
 - source: local
   scopesBegin:
     - meta.statement
-    - meta.statement.command
+    - meta.statement
+    - meta.expression.assignment
   scopes:
-    - meta.statement.command.name
     - storage.modifier.local
 - source: version
   scopes:
-    - meta.argument
-    - string.unquoted.argument
+    - variable.other.assignment
   scopesEnd:
-    - meta.statement.command
+    - meta.statement
+    - meta.expression.assignment
 - source: version
   scopesBegin:
     - meta.expression.assignment
@@ -81896,7 +81880,12 @@
 - source: '1'
   scopes:
     - variable.parameter.positional
+  scopesEnd:
+    - meta.expression.assignment
 - source: local
+  scopesBegin:
+    - meta.statement
+    - meta.expression.assignment
   scopes:
     - storage.modifier.local
 - source: plugin_name
@@ -81912,20 +81901,15 @@
 - source: '2'
   scopes:
     - variable.parameter.positional
-  scopesEnd:
-    - meta.expression.assignment
 - source: local
-  scopesBegin:
-    - meta.statement.command
   scopes:
-    - meta.statement.command.name
     - storage.modifier.local
 - source: plugin_path
   scopes:
-    - meta.argument
-    - string.unquoted.argument
+    - variable.other.assignment
   scopesEnd:
-    - meta.statement.command
+    - meta.statement
+    - meta.expression.assignment
 - source: plugin_path
   scopesBegin:
     - meta.expression.assignment
@@ -81976,16 +81960,16 @@
     - string.interpolated.dollar
 - source: local
   scopesBegin:
-    - meta.statement.command
+    - meta.statement
+    - meta.expression.assignment
   scopes:
-    - meta.statement.command.name
     - storage.modifier.local
 - source: parse_legacy_script
   scopes:
-    - meta.argument
-    - string.unquoted.argument
+    - variable.other.assignment
   scopesEnd:
-    - meta.statement.command
+    - meta.statement
+    - meta.expression.assignment
 - source: parse_legacy_script
   scopesBegin:
     - meta.expression.assignment
@@ -82232,16 +82216,16 @@
     - meta.expression.assignment
 - source: local
   scopesBegin:
-    - meta.statement.command
+    - meta.statement
+    - meta.expression.assignment
   scopes:
-    - meta.statement.command.name
     - storage.modifier.local
 - source: search_path
   scopes:
-    - meta.argument
-    - string.unquoted.argument
+    - variable.other.assignment
   scopesEnd:
-    - meta.statement.command
+    - meta.statement
+    - meta.expression.assignment
 - source: search_path
   scopesBegin:
     - meta.expression.assignment
@@ -82271,16 +82255,16 @@
     - string.interpolated.dollar
 - source: local
   scopesBegin:
-    - meta.statement.command
+    - meta.statement
+    - meta.expression.assignment
   scopes:
-    - meta.statement.command.name
     - storage.modifier.local
 - source: version_and_path
   scopes:
-    - meta.argument
-    - string.unquoted.argument
+    - variable.other.assignment
   scopesEnd:
-    - meta.statement.command
+    - meta.statement
+    - meta.expression.assignment
 - source: version_and_path
   scopesBegin:
     - meta.expression.assignment
@@ -82344,16 +82328,16 @@
     - string.interpolated.dollar
 - source: local
   scopesBegin:
-    - meta.statement.command
+    - meta.statement
+    - meta.expression.assignment
   scopes:
-    - meta.statement.command.name
     - storage.modifier.local
 - source: version
   scopes:
-    - meta.argument
-    - string.unquoted.argument
+    - variable.other.assignment
   scopesEnd:
-    - meta.statement.command
+    - meta.statement
+    - meta.expression.assignment
 - source: version
   scopesBegin:
     - meta.expression.assignment
@@ -82516,7 +82500,12 @@
 - source: '1'
   scopes:
     - variable.parameter.positional
+  scopesEnd:
+    - meta.expression.assignment
 - source: local
+  scopesBegin:
+    - meta.statement
+    - meta.expression.assignment
   scopes:
     - storage.modifier.local
 - source: key
@@ -82533,6 +82522,7 @@
   scopes:
     - variable.parameter.positional
   scopesEnd:
+    - meta.statement
     - meta.statement
     - meta.expression.assignment
 - source: if
@@ -82605,16 +82595,16 @@
 - source: local
   scopesBegin:
     - meta.statement
-    - meta.statement.command
+    - meta.statement
+    - meta.expression.assignment
   scopes:
-    - meta.statement.command.name
     - storage.modifier.local
 - source: result
   scopes:
-    - meta.argument
-    - string.unquoted.argument
+    - variable.other.assignment
   scopesEnd:
-    - meta.statement.command
+    - meta.statement
+    - meta.expression.assignment
 - source: result
   scopesBegin:
     - meta.expression.assignment
@@ -82959,7 +82949,12 @@
 - source: '1'
   scopes:
     - variable.parameter.positional
+  scopesEnd:
+    - meta.expression.assignment
 - source: local
+  scopesBegin:
+    - meta.statement
+    - meta.expression.assignment
   scopes:
     - storage.modifier.local
 - source: config_path
@@ -83006,7 +83001,12 @@
   scopes:
     - punctuation.section.bracket.curly.variable.end
     - punctuation.definition.variable
+  scopesEnd:
+    - meta.statement
+    - meta.expression.assignment
 - source: local
+  scopesBegin:
+    - meta.expression.assignment
   scopes:
     - storage.modifier.local
 - source: default_config_path
@@ -83067,16 +83067,16 @@
     - meta.expression.assignment
 - source: local
   scopesBegin:
-    - meta.statement.command
+    - meta.statement
+    - meta.expression.assignment
   scopes:
-    - meta.statement.command.name
     - storage.modifier.local
 - source: local_config_path
   scopes:
-    - meta.argument
-    - string.unquoted.argument
+    - variable.other.assignment
   scopesEnd:
-    - meta.statement.command
+    - meta.statement
+    - meta.expression.assignment
 - source: local_config_path
   scopesBegin:
     - meta.expression.assignment
@@ -83339,16 +83339,16 @@
     - string.quoted.double
 - source: local
   scopesBegin:
-    - meta.statement.command
+    - meta.statement
+    - meta.expression.assignment
   scopes:
-    - meta.statement.command.name
     - storage.modifier.local
 - source: update_file_name
   scopes:
-    - meta.argument
-    - string.unquoted.argument
+    - variable.other.assignment
   scopesEnd:
-    - meta.statement.command
+    - meta.statement
+    - meta.expression.assignment
 - source: update_file_name
   scopesBegin:
     - meta.expression.assignment
@@ -83381,16 +83381,16 @@
 - source: local
   scopesBegin:
     - meta.statement
-    - meta.statement.command
+    - meta.statement
+    - meta.expression.assignment
   scopes:
-    - meta.statement.command.name
     - storage.modifier.local
 - source: find_result
   scopes:
-    - meta.argument
-    - string.unquoted.argument
+    - variable.other.assignment
   scopesEnd:
-    - meta.statement.command
+    - meta.statement
+    - meta.expression.assignment
 - source: find_result
   scopesBegin:
     - meta.expression.assignment
@@ -83569,16 +83569,20 @@
   scopes:
     - meta.argument
     - string.unquoted.argument
+  scopesEnd:
+    - meta.statement.command
 - source: local
+  scopesBegin:
+    - meta.statement
+    - meta.expression.assignment
   scopes:
-    - meta.statement.command.name
     - storage.modifier.local
 - source: repository_path
   scopes:
-    - meta.argument
-    - string.unquoted.argument
+    - variable.other.assignment
   scopesEnd:
-    - meta.statement.command
+    - meta.statement
+    - meta.expression.assignment
 - source: repository_url
   scopesBegin:
     - meta.expression.assignment
@@ -84006,16 +84010,16 @@
     - meta.expression.assignment
 - source: local
   scopesBegin:
-    - meta.statement.command
+    - meta.statement
+    - meta.expression.assignment
   scopes:
-    - meta.statement.command.name
     - storage.modifier.local
 - source: plugin_config
   scopes:
-    - meta.argument
-    - string.unquoted.argument
+    - variable.other.assignment
   scopesEnd:
-    - meta.statement.command
+    - meta.statement
+    - meta.expression.assignment
 - source: plugin_config
   scopesBegin:
     - meta.expression.assignment
@@ -84313,16 +84317,16 @@
     - string.quoted.double
 - source: local
   scopesBegin:
-    - meta.statement.command
+    - meta.statement
+    - meta.expression.assignment
   scopes:
-    - meta.statement.command.name
     - storage.modifier.local
 - source: search_path
   scopes:
-    - meta.argument
-    - string.unquoted.argument
+    - variable.other.assignment
   scopesEnd:
-    - meta.statement.command
+    - meta.statement
+    - meta.expression.assignment
 - source: search_path
   scopesBegin:
     - meta.expression.assignment
@@ -84916,7 +84920,12 @@
 - source: '1'
   scopes:
     - variable.parameter.positional
+  scopesEnd:
+    - meta.expression.assignment
 - source: local
+  scopesBegin:
+    - meta.statement
+    - meta.expression.assignment
   scopes:
     - storage.modifier.local
 - source: version
@@ -84932,7 +84941,12 @@
 - source: '2'
   scopes:
     - variable.parameter.positional
+  scopesEnd:
+    - meta.statement
+    - meta.expression.assignment
 - source: local
+  scopesBegin:
+    - meta.expression.assignment
   scopes:
     - storage.modifier.local
 - source: install_type
@@ -84952,16 +84966,16 @@
     - meta.expression.assignment
 - source: local
   scopesBegin:
-    - meta.statement.command
+    - meta.statement
+    - meta.expression.assignment
   scopes:
-    - meta.statement.command.name
     - storage.modifier.local
 - source: plugin_path
   scopes:
-    - meta.argument
-    - string.unquoted.argument
+    - variable.other.assignment
   scopesEnd:
-    - meta.statement.command
+    - meta.statement
+    - meta.expression.assignment
 - source: plugin_path
   scopesBegin:
     - meta.expression.assignment
@@ -85012,16 +85026,16 @@
     - string.interpolated.dollar
 - source: local
   scopesBegin:
-    - meta.statement.command
+    - meta.statement
+    - meta.expression.assignment
   scopes:
-    - meta.statement.command.name
     - storage.modifier.local
 - source: install_path
   scopes:
-    - meta.argument
-    - string.unquoted.argument
+    - variable.other.assignment
   scopesEnd:
-    - meta.statement.command
+    - meta.statement
+    - meta.expression.assignment
 - source: install_path
   scopesBegin:
     - meta.expression.assignment
@@ -85150,17 +85164,17 @@
 - source: local
   scopesBegin:
     - meta.statement
-    - meta.statement.command
+    - meta.statement
+    - meta.expression.assignment
   scopes:
-    - meta.statement.command.name
     - storage.modifier.local
 - source: space_separated_list_of_bin_paths
   scopes:
-    - meta.argument
-    - string.unquoted.argument
+    - variable.other.assignment
   scopesEnd:
     - meta.statement
-    - meta.statement.command
+    - meta.statement
+    - meta.expression.assignment
 - source: '#'
   scopesBegin:
     - comment.line.number-sign
@@ -85202,7 +85216,12 @@
 - source: install_type
   scopes:
     - variable.other.normal
+  scopesEnd:
+    - meta.expression.assignment
 - source: export
+  scopesBegin:
+    - meta.statement
+    - meta.expression.assignment
   scopes:
     - storage.modifier.export
 - source: ASDF_INSTALL_VERSION
@@ -85218,7 +85237,12 @@
 - source: version
   scopes:
     - variable.other.normal
+  scopesEnd:
+    - meta.statement
+    - meta.expression.assignment
 - source: export
+  scopesBegin:
+    - meta.expression.assignment
   scopes:
     - storage.modifier.export
 - source: ASDF_INSTALL_PATH
@@ -85286,6 +85310,7 @@
 - source: local
   scopesBegin:
     - meta.statement
+    - meta.statement
     - meta.expression.assignment
   scopes:
     - storage.modifier.local
@@ -85310,12 +85335,9 @@
     - string.quoted.double
 - source: fi
   scopes:
-    - keyword.control
-  scopesEnd:
-    - meta.scope.if-block
+    - keyword.control.fi
 - source: echo
   scopesBegin:
-    - meta.statement
     - meta.statement.command
   scopes:
     - meta.statement.command.name
@@ -85339,17 +85361,15 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
-    - meta.statement
     - meta.statement.command
     - meta.argument
     - string.quoted.double
 - source: '}'
-  scopes:
-    - punctuation.definition.group
-    - punctuation.section.function.definition
   scopesEnd:
-    - meta.function.body
+    - meta.statement
 - source: list_plugin_exec_paths
+  scopesBegin:
+    - meta.function
   scopes:
     - entity.name.function
 - source: (
@@ -85383,7 +85403,12 @@
 - source: '1'
   scopes:
     - variable.parameter.positional
+  scopesEnd:
+    - meta.expression.assignment
 - source: local
+  scopesBegin:
+    - meta.statement
+    - meta.expression.assignment
   scopes:
     - storage.modifier.local
 - source: full_version
@@ -85400,6 +85425,7 @@
   scopes:
     - variable.parameter.positional
   scopesEnd:
+    - meta.statement
     - meta.expression.assignment
 - source: check_if_plugin_exists
   scopesBegin:
@@ -85576,6 +85602,7 @@
 - source: local
   scopesBegin:
     - meta.statement
+    - meta.statement
     - meta.expression.assignment
   scopes:
     - storage.modifier.local
@@ -85619,8 +85646,12 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
+    - meta.statement
+    - meta.expression.assignment
     - string.quoted.double
 - source: local
+  scopesBegin:
+    - meta.expression.assignment
   scopes:
     - storage.modifier.local
 - source: version
@@ -85672,6 +85703,7 @@
 - source: local
   scopesBegin:
     - meta.statement
+    - meta.statement
     - meta.expression.assignment
   scopes:
     - storage.modifier.local
@@ -85691,8 +85723,12 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
+    - meta.statement
+    - meta.expression.assignment
     - string.quoted.double
 - source: local
+  scopesBegin:
+    - meta.expression.assignment
   scopes:
     - storage.modifier.local
 - source: version
@@ -85746,16 +85782,16 @@
 - source: local
   scopesBegin:
     - meta.statement
-    - meta.statement.command
+    - meta.statement
+    - meta.expression.assignment
   scopes:
-    - meta.statement.command.name
     - storage.modifier.local
 - source: plugin_shims_path
   scopes:
-    - meta.argument
-    - string.unquoted.argument
+    - variable.other.assignment
   scopesEnd:
-    - meta.statement.command
+    - meta.statement
+    - meta.expression.assignment
 - source: plugin_shims_path
   scopesBegin:
     - meta.expression.assignment
@@ -86036,19 +86072,22 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
+    - meta.statement.command
     - meta.argument
     - meta.herestring
     - string.quoted.double
 - source: local
+  scopesBegin:
+    - meta.statement
+    - meta.expression.assignment
   scopes:
-    - meta.statement.command.name
     - storage.modifier.local
 - source: install_path
   scopes:
-    - meta.argument
-    - string.unquoted.argument
+    - variable.other.assignment
   scopesEnd:
-    - meta.statement.command
+    - meta.statement
+    - meta.expression.assignment
 - source: install_path
   scopesBegin:
     - meta.expression.assignment
@@ -86259,7 +86298,12 @@
 - source: '1'
   scopes:
     - variable.parameter.positional
+  scopesEnd:
+    - meta.expression.assignment
 - source: local
+  scopesBegin:
+    - meta.statement
+    - meta.expression.assignment
   scopes:
     - storage.modifier.local
 - source: full_version
@@ -86275,7 +86319,12 @@
 - source: '2'
   scopes:
     - variable.parameter.positional
+  scopesEnd:
+    - meta.statement
+    - meta.expression.assignment
 - source: local
+  scopesBegin:
+    - meta.expression.assignment
   scopes:
     - storage.modifier.local
 - source: callback
@@ -86437,6 +86486,7 @@
 - source: local
   scopesBegin:
     - meta.statement
+    - meta.statement
     - meta.expression.assignment
   scopes:
     - storage.modifier.local
@@ -86480,8 +86530,12 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
+    - meta.statement
+    - meta.expression.assignment
     - string.quoted.double
 - source: local
+  scopesBegin:
+    - meta.expression.assignment
   scopes:
     - storage.modifier.local
 - source: version
@@ -86533,6 +86587,7 @@
 - source: local
   scopesBegin:
     - meta.statement
+    - meta.statement
     - meta.expression.assignment
   scopes:
     - storage.modifier.local
@@ -86552,8 +86607,12 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
+    - meta.statement
+    - meta.expression.assignment
     - string.quoted.double
 - source: local
+  scopesBegin:
+    - meta.expression.assignment
   scopes:
     - storage.modifier.local
 - source: version
@@ -86722,16 +86781,16 @@
 - source: local
   scopesBegin:
     - meta.statement
-    - meta.statement.command
+    - meta.statement
+    - meta.expression.assignment
   scopes:
-    - meta.statement.command.name
     - storage.modifier.local
 - source: plugin_path
   scopes:
-    - meta.argument
-    - string.unquoted.argument
+    - variable.other.assignment
   scopesEnd:
-    - meta.statement.command
+    - meta.statement
+    - meta.expression.assignment
 - source: plugin_path
   scopesBegin:
     - meta.expression.assignment
@@ -86792,19 +86851,18 @@
 - source: local
   scopesBegin:
     - meta.statement
-    - meta.statement.command
+    - meta.statement
+    - meta.expression.assignment
   scopes:
-    - meta.statement.command.name
     - storage.modifier.local
 - source: path
   scopesBegin:
-    - meta.argument
-    - string.unquoted.argument
+    - variable.other.assignment
 - source: exec_paths
   scopesEnd:
-    - meta.statement.command
-    - meta.argument
-    - string.unquoted.argument
+    - meta.statement
+    - meta.expression.assignment
+    - variable.other.assignment
 - source: exec_paths
   scopesBegin:
     - meta.expression.assignment
@@ -87138,16 +87196,16 @@
 - source: local
   scopesBegin:
     - meta.statement
-    - meta.statement.command
+    - meta.statement
+    - meta.expression.assignment
   scopes:
-    - meta.statement.command.name
     - storage.modifier.local
 - source: install_path
   scopes:
-    - meta.argument
-    - string.unquoted.argument
+    - variable.other.assignment
   scopesEnd:
-    - meta.statement.command
+    - meta.statement
+    - meta.expression.assignment
 - source: install_path
   scopesBegin:
     - meta.expression.assignment
@@ -87410,7 +87468,12 @@
 - source: '1'
   scopes:
     - variable.parameter.positional
+  scopesEnd:
+    - meta.expression.assignment
 - source: local
+  scopesBegin:
+    - meta.statement
+    - meta.expression.assignment
   scopes:
     - storage.modifier.local
 - source: full_version
@@ -87430,16 +87493,20 @@
     - meta.statement
     - meta.expression.assignment
 - source: for
-  scopesBegin:
-    - meta.scope.for-in-loop
   scopes:
-    - keyword.control
+    - keyword.control.for
 - source: bin_path
+  scopesBegin:
+    - meta.statement.command
   scopes:
-    - variable.other.loop
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
 - source: in
+  scopesBegin:
+    - meta.argument
   scopes:
-    - keyword.control
+    - string.unquoted.argument
 - source: $(
   scopesBegin:
     - string.interpolated.dollar
@@ -87491,6 +87558,9 @@
   scopes:
     - punctuation.definition.evaluation.parens.end
   scopesEnd:
+    - meta.statement
+    - meta.statement.command
+    - meta.argument
     - string.interpolated.dollar
 - source: ;
   scopes:
@@ -87618,9 +87688,7 @@
     - meta.scope.for-in-loop
 - source: done
   scopes:
-    - keyword.control
-  scopesEnd:
-    - meta.scope.for-in-loop
+    - keyword.control.done
 - source: '}'
   scopes:
     - punctuation.definition.group
@@ -87807,7 +87875,12 @@
 - source: '1'
   scopes:
     - variable.parameter.positional
+  scopesEnd:
+    - meta.expression.assignment
 - source: local
+  scopesBegin:
+    - meta.statement
+    - meta.expression.assignment
   scopes:
     - storage.modifier.local
 - source: full_version
@@ -87824,6 +87897,7 @@
   scopes:
     - variable.parameter.positional
   scopesEnd:
+    - meta.statement
     - meta.expression.assignment
 - source: grep
   scopesBegin:
@@ -87997,16 +88071,16 @@
     - string.interpolated.dollar
 - source: local
   scopesBegin:
-    - meta.statement.command
+    - meta.statement
+    - meta.expression.assignment
   scopes:
-    - meta.statement.command.name
     - storage.modifier.local
 - source: shim_path
   scopes:
-    - meta.argument
-    - string.unquoted.argument
+    - variable.other.assignment
   scopesEnd:
-    - meta.statement.command
+    - meta.statement
+    - meta.expression.assignment
 - source: shim_path
   scopesBegin:
     - meta.expression.assignment
@@ -88680,16 +88754,16 @@
     - meta.expression.assignment
 - source: local
   scopesBegin:
-    - meta.statement.command
+    - meta.statement
+    - meta.expression.assignment
   scopes:
-    - meta.statement.command.name
     - storage.modifier.local
 - source: hook_cmd
   scopes:
-    - meta.argument
-    - string.unquoted.argument
+    - variable.other.assignment
   scopesEnd:
-    - meta.statement.command
+    - meta.statement
+    - meta.expression.assignment
 - source: hook_cmd
   scopesBegin:
     - meta.expression.assignment
@@ -89478,16 +89552,16 @@
 - source: local
   scopesBegin:
     - meta.statement
-    - meta.statement.command
+    - meta.statement
+    - meta.expression.assignment
   scopes:
-    - meta.statement.command.name
     - storage.modifier.local
 - source: search_path
   scopes:
-    - meta.argument
-    - string.unquoted.argument
+    - variable.other.assignment
   scopesEnd:
-    - meta.statement.command
+    - meta.statement
+    - meta.expression.assignment
 - source: search_path
   scopesBegin:
     - meta.expression.assignment
@@ -89517,16 +89591,16 @@
     - string.interpolated.dollar
 - source: local
   scopesBegin:
-    - meta.statement.command
+    - meta.statement
+    - meta.expression.assignment
   scopes:
-    - meta.statement.command.name
     - storage.modifier.local
 - source: shim_versions
   scopes:
-    - meta.argument
-    - string.unquoted.argument
+    - variable.other.assignment
   scopesEnd:
-    - meta.statement.command
+    - meta.statement
+    - meta.expression.assignment
 - source: IFS
   scopesBegin:
     - meta.expression.assignment
@@ -89625,22 +89699,23 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
+    - meta.statement.command
     - meta.argument
     - meta.herestring
     - string.quoted.double
 - source: local
+  scopesBegin:
+    - meta.statement
+    - meta.expression.assignment
   scopes:
-    - meta.statement.command.name
     - storage.modifier.local
 - source: plugins
   scopes:
-    - meta.argument
-    - string.unquoted.argument
+    - variable.other.assignment
   scopesEnd:
-    - meta.statement.command
-- source: plugins
-  scopesBegin:
+    - meta.statement
     - meta.expression.assignment
+- source: plugins
   scopes:
     - variable.other.assignment
 - source: '='
@@ -89648,12 +89723,11 @@
     - keyword.operator.assignment
 - source: (
   scopesBegin:
-    - punctuation
+    - punctuation.definition.array
 - source: )
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
-    - punctuation
+    - punctuation.definition.array
 - source: for
   scopesBegin:
     - meta.scope.for-in-loop
@@ -89709,15 +89783,19 @@
 - source: local
   scopesBegin:
     - meta.statement
-    - meta.statement.command
+    - meta.statement
+    - meta.expression.assignment
   scopes:
-    - meta.statement.command.name
     - storage.modifier.local
 - source: plugin_name
   scopes:
-    - meta.argument
-    - string.unquoted.argument
+    - variable.other.assignment
+  scopesEnd:
+    - meta.statement
+    - meta.expression.assignment
 - source: local
+  scopesBegin:
+    - meta.statement.command
   scopes:
     - meta.statement.command.name
     - storage.modifier.local
@@ -89897,7 +89975,6 @@
 - source: plugins
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: +=
@@ -89905,7 +89982,7 @@
     - keyword.operator.assignment.compound
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: '"'
   scopesBegin:
     - string.quoted.double
@@ -89925,10 +90002,9 @@
     - string.quoted.double
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: fi
   scopes:
     - keyword.control
@@ -89990,15 +90066,19 @@
 - source: local
   scopesBegin:
     - meta.statement
-    - meta.statement.command
+    - meta.statement
+    - meta.expression.assignment
   scopes:
-    - meta.statement.command.name
     - storage.modifier.local
 - source: version_and_path
   scopes:
-    - meta.argument
-    - string.unquoted.argument
+    - variable.other.assignment
+  scopesEnd:
+    - meta.statement
+    - meta.expression.assignment
 - source: local
+  scopesBegin:
+    - meta.statement.command
   scopes:
     - meta.statement.command.name
     - storage.modifier.local
@@ -90006,15 +90086,23 @@
   scopes:
     - meta.argument
     - string.unquoted.argument
+  scopesEnd:
+    - meta.statement.command
 - source: local
+  scopesBegin:
+    - meta.statement
+    - meta.expression.assignment
   scopes:
-    - meta.statement.command.name
     - storage.modifier.local
 - source: usable_plugin_versions
   scopes:
-    - meta.argument
-    - string.unquoted.argument
+    - variable.other.assignment
+  scopesEnd:
+    - meta.statement
+    - meta.expression.assignment
 - source: local
+  scopesBegin:
+    - meta.statement.command
   scopes:
     - meta.statement.command.name
     - storage.modifier.local
@@ -90333,15 +90421,19 @@
 - source: local
   scopesBegin:
     - meta.statement
-    - meta.statement.command
+    - meta.statement
+    - meta.expression.assignment
   scopes:
-    - meta.statement.command.name
     - storage.modifier.local
 - source: plugin_shim_name
   scopes:
-    - meta.argument
-    - string.unquoted.argument
+    - variable.other.assignment
+  scopesEnd:
+    - meta.statement
+    - meta.expression.assignment
 - source: local
+  scopesBegin:
+    - meta.statement.command
   scopes:
     - meta.statement.command.name
     - storage.modifier.local
@@ -90615,16 +90707,16 @@
 - source: local
   scopesBegin:
     - meta.statement
-    - meta.statement.command
+    - meta.statement
+    - meta.expression.assignment
   scopes:
-    - meta.statement.command.name
     - storage.modifier.local
 - source: shim_name
   scopes:
-    - meta.argument
-    - string.unquoted.argument
+    - variable.other.assignment
   scopesEnd:
-    - meta.statement.command
+    - meta.statement
+    - meta.expression.assignment
 - source: shim_name
   scopesBegin:
     - meta.expression.assignment
@@ -90671,8 +90763,12 @@
   scopes:
     - punctuation.definition.evaluation.parens.end
   scopesEnd:
+    - meta.expression.assignment
     - string.interpolated.dollar
 - source: local
+  scopesBegin:
+    - meta.statement
+    - meta.expression.assignment
   scopes:
     - storage.modifier.local
 - source: shim_exec
@@ -90708,6 +90804,7 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
+    - meta.statement
     - meta.statement
     - meta.expression.assignment
     - string.quoted.double
@@ -90846,16 +90943,16 @@
 - source: local
   scopesBegin:
     - meta.statement
-    - meta.statement.command
+    - meta.statement
+    - meta.expression.assignment
   scopes:
-    - meta.statement.command.name
     - storage.modifier.local
 - source: selected_version
   scopes:
-    - meta.argument
-    - string.unquoted.argument
+    - variable.other.assignment
   scopesEnd:
-    - meta.statement.command
+    - meta.statement
+    - meta.expression.assignment
 - source: selected_version
   scopesBegin:
     - meta.expression.assignment
@@ -91007,15 +91104,19 @@
 - source: local
   scopesBegin:
     - meta.statement
-    - meta.statement.command
+    - meta.statement
+    - meta.expression.assignment
   scopes:
-    - meta.statement.command.name
     - storage.modifier.local
 - source: plugin_name
   scopes:
-    - meta.argument
-    - string.unquoted.argument
+    - variable.other.assignment
+  scopesEnd:
+    - meta.statement
+    - meta.expression.assignment
 - source: local
+  scopesBegin:
+    - meta.statement.command
   scopes:
     - meta.statement.command.name
     - storage.modifier.local
@@ -91023,16 +91124,20 @@
   scopes:
     - meta.argument
     - string.unquoted.argument
+  scopesEnd:
+    - meta.statement.command
 - source: local
+  scopesBegin:
+    - meta.statement
+    - meta.expression.assignment
   scopes:
-    - meta.statement.command.name
     - storage.modifier.local
 - source: plugin_path
   scopes:
-    - meta.argument
-    - string.unquoted.argument
+    - variable.other.assignment
   scopesEnd:
-    - meta.statement.command
+    - meta.statement
+    - meta.expression.assignment
 - source: IFS
   scopesBegin:
     - meta.expression.assignment

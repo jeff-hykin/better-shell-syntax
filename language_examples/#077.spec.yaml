@@ -282,7 +282,6 @@
 - source: sels
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
@@ -290,7 +289,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: '"'
   scopesBegin:
     - string.quoted.double
@@ -398,9 +397,7 @@
     - string.quoted.double
 - source: )
   scopes:
-    - punctuation
-  scopesEnd:
-    - meta.expression.assignment
+    - punctuation.definition.array
 - source: test
   scopesBegin:
     - meta.statement.command

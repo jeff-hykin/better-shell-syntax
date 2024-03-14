@@ -127,60 +127,83 @@
         }
       ]
     },
+    "array_value": {
+      "begin": "(?:[ \\t]*+)(?:(?:((?<=^|;|&|[ \\t])(?:readonly|declare|typeset|export|local)(?=[ \\t]|;|&|$))(?:[ \\t]*+)(?:(?:((?<!\\w)-\\w+\\b)(?:[ \\t]*+))?))?)(?:((?<!\\w)(?:[a-zA-Z_0-9-]+)(?!\\w))(?:(?:(\\[)((?:(?:(?:(?:\\$?)(?:(?<!\\w)(?:[a-zA-Z_0-9-]+)(?!\\w))|@)|\\*)|(-?\\d+)))(\\]))?))(?:(?:(\\=)|(\\+\\=))|(\\-\\=))(?:[ \\t]*+)(\\()",
+      "end": "\\)",
+      "beginCaptures": {
+        "1": {
+          "name": "storage.modifier.$1.shell"
+        },
+        "2": {
+          "name": "string.unquoted.argument.shell constant.other.option.shell"
+        },
+        "3": {
+          "name": "variable.other.assignment.shell"
+        },
+        "4": {
+          "name": "punctuation.definition.array.access.shell"
+        },
+        "5": {
+          "name": "variable.other.assignment.shell"
+        },
+        "6": {
+          "name": "constant.numeric.shell constant.numeric.integer.shell"
+        },
+        "7": {
+          "name": "punctuation.definition.array.access.shell"
+        },
+        "8": {
+          "name": "keyword.operator.assignment.shell"
+        },
+        "9": {
+          "name": "keyword.operator.assignment.compound.shell"
+        },
+        "10": {
+          "name": "keyword.operator.assignment.compound.shell"
+        },
+        "11": {
+          "name": "punctuation.definition.array.shell"
+        }
+      },
+      "endCaptures": {
+        "0": {
+          "name": "punctuation.definition.array.shell"
+        }
+      },
+      "name": "tesing5.shell",
+      "patterns": [
+        {
+          "include": "#comment"
+        },
+        {
+          "match": "(?:(\\[)(.+?)(\\])(\\=))",
+          "captures": {
+            "1": {
+              "name": "punctuation.definition.bracket.shell"
+            },
+            "2": {
+              "name": "string.unquoted.shell entity.other.attribute-name.shell"
+            },
+            "3": {
+              "name": "punctuation.definition.bracket.shell"
+            },
+            "4": {
+              "name": "punctuation.definition.assignment.shell"
+            }
+          }
+        },
+        {
+          "include": "#normal_statement_context"
+        },
+        {
+          "include": "#simple_unquoted"
+        }
+      ]
+    },
     "assignment": {
       "patterns": [
         {
-          "begin": "(?:[ \\t]*+)(?:(?:((?<=^|;|&|[ \\t])(?:readonly|declare|typeset|export|local)(?=[ \\t]|;|&|$))(?:[ \\t]*+)(?:(?:((?<!\\w)-\\w+\\b)(?:[ \\t]*+))?))?)(?:((?<!\\w)(?:[a-zA-Z_0-9-]+)(?!\\w))(?:(?:(\\[)((?:(?:(?:(?:\\$?)(?:(?<!\\w)(?:[a-zA-Z_0-9-]+)(?!\\w))|@)|\\*)|(-?\\d+)))(\\]))?))(?:(?:(\\=)|(\\+\\=))|(\\-\\=))(?:[ \\t]*+)(\\()",
-          "end": "\\)",
-          "beginCaptures": {
-            "1": {
-              "name": "storage.modifier.$1.shell"
-            },
-            "2": {
-              "name": "string.unquoted.argument.shell constant.other.option.shell"
-            },
-            "3": {
-              "name": "variable.other.assignment.shell"
-            },
-            "4": {
-              "name": "punctuation.definition.array.access.shell"
-            },
-            "5": {
-              "name": "variable.other.assignment.shell"
-            },
-            "6": {
-              "name": "constant.numeric.shell constant.numeric.integer.shell"
-            },
-            "7": {
-              "name": "punctuation.definition.array.access.shell"
-            },
-            "8": {
-              "name": "keyword.operator.assignment.shell"
-            },
-            "9": {
-              "name": "keyword.operator.assignment.compound.shell"
-            },
-            "10": {
-              "name": "keyword.operator.assignment.compound.shell"
-            },
-            "11": {
-              "name": "punctuation.shell"
-            }
-          },
-          "endCaptures": {
-            "0": {
-              "name": "punctuation.shell"
-            }
-          },
-          "name": "meta.expression.assignment.shell",
-          "patterns": [
-            {
-              "include": "#comment"
-            },
-            {
-              "include": "#argument_context"
-            }
-          ]
+          "include": "#array_value"
         },
         {
           "begin": "(?:[ \\t]*+)(?:(?:((?<=^|;|&|[ \\t])(?:readonly|declare|typeset|export|local)(?=[ \\t]|;|&|$))(?:[ \\t]*+)(?:(?:((?<!\\w)-\\w+\\b)(?:[ \\t]*+))?))?)(?:((?<!\\w)(?:[a-zA-Z_0-9-]+)(?!\\w))(?:(?:(\\[)((?:(?:(?:(?:\\$?)(?:(?<!\\w)(?:[a-zA-Z_0-9-]+)(?!\\w))|@)|\\*)|(-?\\d+)))(\\]))?))(?:(?:(\\=)|(\\+\\=))|(\\-\\=))",
@@ -1110,11 +1133,14 @@
       },
       "endCaptures": {
       },
-      "name": "meta.assignment.shell",
+      "name": "meta.statement.shell meta.expression.assignment.shell",
       "patterns": [
         {
           "match": "(?<!\\w)-\\w+\\b",
           "name": "string.unquoted.argument.shell constant.other.option.shell"
+        },
+        {
+          "include": "#array_value"
         },
         {
           "match": "(?:((?<!\\w)(?:[a-zA-Z_0-9-]+)(?!\\w))(?:(?:(\\[)((?:(?:(?:(?:\\$?)(?:(?<!\\w)(?:[a-zA-Z_0-9-]+)(?!\\w))|@)|\\*)|(-?\\d+)))(\\]))?)(?:(?:(?:(\\=)|(\\+\\=))|(\\-\\=))?)(?:(?:(?<==| |\\t|^|\\{|\\(|\\[)(?:(?:(?:(?:(?:(0[xX][0-9A-Fa-f]+)|(0\\d+))|(\\d{1,2}#[0-9a-zA-Z@_]+))|(-?\\d+(?:\\.\\d+)))|(-?\\d+(?:\\.\\d+)+))|(-?\\d+))(?= |\\t|$|\\}|\\)|;))?))",
@@ -1921,6 +1947,10 @@
           ]
         }
       }
+    },
+    "simple_unquoted": {
+      "match": "[^ \\t\\n'&;<>\\(\\)\\$`\\\\\"\\|]",
+      "name": "string.unquoted.shell"
     },
     "start_of_command": {
       "match": "(?:(?:[ \\t]*+)(?:(?!(?:!|&|\\||\\(|\\)|\\{|\\[|<|>|#|\\n|$|;|[ \\t]))(?!foreach\\b(?!\\/)|select\\b(?!\\/)|repeat\\b(?!\\/)|until\\b(?!\\/)|while\\b(?!\\/)|case\\b(?!\\/)|done\\b(?!\\/)|elif\\b(?!\\/)|else\\b(?!\\/)|esac\\b(?!\\/)|then\\b(?!\\/)|for\\b(?!\\/)|end\\b(?!\\/)|in\\b(?!\\/)|fi\\b(?!\\/)|do\\b(?!\\/)|if\\b(?!\\/))(?!\\\\\\n?$)))"

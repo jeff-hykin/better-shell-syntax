@@ -11,7 +11,6 @@
 - source: command_args
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
@@ -19,7 +18,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: '"'
   scopesBegin:
     - string.quoted.double
@@ -47,7 +46,7 @@
     - string.quoted.double
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: posts
   scopes:
     - variable.other.assignment
@@ -56,7 +55,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: '1'
   scopesBegin:
     - string.unquoted.argument
@@ -71,9 +70,7 @@
     - constant.numeric.integer
 - source: )
   scopes:
-    - punctuation
-  scopesEnd:
-    - meta.expression.assignment
+    - punctuation.definition.array
 - source: echo
   scopesBegin:
     - meta.statement.command

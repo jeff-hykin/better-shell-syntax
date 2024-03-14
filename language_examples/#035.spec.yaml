@@ -32,8 +32,6 @@
     - meta.argument
     - string.quoted.double
 - source: array_not_ok
-  scopesBegin:
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
@@ -41,7 +39,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: '"'
   scopesBegin:
     - string.quoted.double
@@ -69,7 +67,7 @@
     - string.quoted.double
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: array_ok
   scopes:
     - variable.other.assignment
@@ -78,7 +76,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: '"'
   scopesBegin:
     - string.quoted.double
@@ -106,9 +104,7 @@
     - string.quoted.double
 - source: )
   scopes:
-    - punctuation
-  scopesEnd:
-    - meta.expression.assignment
+    - punctuation.definition.array
 - source: echo
   scopesBegin:
     - meta.statement.command

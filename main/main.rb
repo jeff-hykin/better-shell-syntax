@@ -339,22 +339,7 @@ require_relative './tokens.rb'
             ]
         )
     grammar[:assignment] = [
-        # assignment with ()'s
-        PatternRange.new(
-            tag_as: "meta.expression.assignment",
-            start_pattern: assignment_start.then(std_space).then(
-                match:"(",
-                tag_as: "punctuation",
-            ),
-            end_pattern: Pattern.new(
-                match: ")",
-                tag_as: "punctuation",
-            ),
-            includes: [ 
-                :comment,
-                :argument_context,
-            ]
-        ),
+        :array_value,
         normal_assignment
     ]
     grammar[:alias_statement] = PatternRange.new(
@@ -411,6 +396,10 @@ require_relative './tokens.rb'
     # commands (very complicated becase sadly a command name can span multiple lines)
     # 
     #
+    grammar[:simple_unquoted] = Pattern.new(
+        match: /[^ \t\n#{invalid_literals}]/,
+        tag_as: "string.unquoted",
+    )
     generateUnquotedArugment = ->(tag_as) do
         std_space.then(
             tag_as: tag_as,
@@ -656,8 +645,39 @@ require_relative './tokens.rb'
             :line_continuation,
             :normal_statement_context,
         ]
+    grammar[:array_value] = PatternRange.new(
+        tag_as: "tesing5",
+        start_pattern: assignment_start.then(std_space).then(
+            match:"(",
+            tag_as: "punctuation.definition.array",
+        ),
+        end_pattern: Pattern.new(
+            match: ")",
+            tag_as: "punctuation.definition.array",
+        ),
+        includes: [ 
+            :comment,
+            Pattern.new(
+                Pattern.new(
+                    tag_as: "punctuation.definition.bracket",
+                    match: /\[/,
+                ).then(
+                    match: /.+?/,
+                    tag_as: "string.unquoted entity.other.attribute-name",
+                ).then(
+                    tag_as: "punctuation.definition.bracket",
+                    match: /\]/,
+                ).then(
+                    tag_as: "punctuation.definition.assignment",
+                    match: /\=/,
+                )
+            ),
+            :normal_statement_context,
+            :simple_unquoted,
+        ]
+    )
     grammar[:keyword_var_statement] = PatternRange.new(
-        tag_as: "meta.assignment",
+        tag_as: "meta.statement meta.expression.assignment",
         start_pattern: grammar[:modifiers],
         end_pattern: /\n/,
         includes: [
@@ -665,6 +685,7 @@ require_relative './tokens.rb'
                 match:/(?<!\w)-\w+\b/,
                 tag_as: "string.unquoted.argument constant.other.option",
             ),
+            :array_value,
             Pattern.new(
                 Pattern.new(
                     match: variable_name,

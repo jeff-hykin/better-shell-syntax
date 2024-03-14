@@ -206,7 +206,6 @@
     - keyword.operator.assignment
 - source: '1203'
   scopes:
-    - string.unquoted.argument
     - constant.numeric
     - constant.numeric.integer
   scopesEnd:

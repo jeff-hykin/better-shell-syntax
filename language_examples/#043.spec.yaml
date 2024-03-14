@@ -15,7 +15,6 @@
 - source: local
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
   scopes:
     - storage.modifier.local
 - source: '-a'
@@ -30,7 +29,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: ''''
   scopesBegin:
     - string.quoted.single
@@ -44,9 +43,7 @@
     - string.quoted.single
 - source: )
   scopes:
-    - punctuation
-  scopesEnd:
-    - meta.expression.assignment
+    - punctuation.definition.array
 - source: echo
   scopesBegin:
     - meta.statement.command
@@ -83,7 +80,6 @@
 - source: local
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
   scopes:
     - storage.modifier.local
 - source: '-a'
@@ -98,7 +94,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: ''''
   scopesBegin:
     - string.quoted.single
@@ -112,9 +108,7 @@
     - string.quoted.single
 - source: )
   scopes:
-    - punctuation
-  scopesEnd:
-    - meta.expression.assignment
+    - punctuation.definition.array
 - source: echo
   scopesBegin:
     - meta.statement.command

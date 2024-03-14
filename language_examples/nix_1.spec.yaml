@@ -489,7 +489,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: '"'
   scopesBegin:
     - string.quoted.double
@@ -531,7 +531,7 @@
     - string.quoted.double
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: readonly
   scopes:
     - storage.modifier.readonly
@@ -618,8 +618,6 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
-    - meta.statement
-    - meta.expression.assignment
     - string.quoted.double
 - source: '#'
   scopesBegin:
@@ -627,7 +625,13 @@
   scopes:
     - punctuation.definition.comment
 - source: ' Caution, used both as a comment and inside grep argument (so $ or \+, etc would break things)'
+  scopesEnd:
+    - meta.statement
+    - meta.expression.assignment
+    - comment.line.number-sign
 - source: '#'
+  scopesBegin:
+    - comment.line.number-sign
   scopes:
     - punctuation.definition.comment
 - source: ' Fish has different syntax than zsh/bash, treat it separate'
@@ -667,7 +671,7 @@
     - keyword.operator.assignment
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: '#'
   scopesBegin:
     - comment.line.number-sign
@@ -762,7 +766,7 @@
     - comment.line.number-sign
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: readonly
   scopes:
     - storage.modifier.readonly
@@ -918,9 +922,12 @@
 - source: '='
   scopes:
     - keyword.operator.assignment
-- source: ~root
+- source: '~'
   scopes:
-    - string.unquoted.argument
+    - keyword.operator.tilde
+- source: root
+  scopes:
+    - variable.other.assignment
   scopesEnd:
     - meta.statement
     - meta.expression.assignment
@@ -954,6 +961,7 @@
     - keyword.control.then
 - source: readonly
   scopesBegin:
+    - meta.statement
     - meta.statement
     - meta.expression.assignment
   scopes:
@@ -1007,9 +1015,9 @@
     - string.quoted.single
 - source: fi
   scopes:
-    - keyword.control
+    - keyword.control.fi
   scopesEnd:
-    - meta.scope.if-block
+    - meta.statement
 - source: headless
   scopesBegin:
     - meta.function
@@ -3443,6 +3451,7 @@
 - source: local
   scopesBegin:
     - meta.statement
+    - meta.statement
     - meta.expression.assignment
   scopes:
     - storage.modifier.local
@@ -3462,6 +3471,7 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
+    - meta.statement
     - meta.expression.assignment
     - string.quoted.double
 - source: echo
@@ -4457,8 +4467,12 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
+    - meta.expression.assignment
     - string.quoted.double
 - source: local
+  scopesBegin:
+    - meta.statement
+    - meta.expression.assignment
   scopes:
     - storage.modifier.local
 - source: edit_path
@@ -4483,6 +4497,7 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
+    - meta.statement
     - meta.expression.assignment
     - string.quoted.double
 - source: cat
@@ -5002,7 +5017,6 @@
 - source: _reminders
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
@@ -5010,12 +5024,11 @@
     - keyword.operator.assignment
 - source: (
   scopesBegin:
-    - punctuation
+    - punctuation.definition.array
 - source: )
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
-    - punctuation
+    - punctuation.definition.array
 - source: ((
   scopesBegin:
     - meta.arithmetic
@@ -5469,8 +5482,6 @@
     - meta.argument
     - string.quoted.double
 - source: _reminders
-  scopesBegin:
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: +=
@@ -5478,7 +5489,7 @@
     - keyword.operator.assignment.compound
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: '"'
   scopesBegin:
     - string.quoted.double
@@ -5498,10 +5509,9 @@
     - string.quoted.double
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: if
   scopesBegin:
     - meta.scope.if-block
@@ -5593,7 +5603,6 @@
 - source: _reminders
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: +=
@@ -5601,7 +5610,7 @@
     - keyword.operator.assignment.compound
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: '"'
   scopesBegin:
     - string.quoted.double
@@ -5621,10 +5630,9 @@
     - string.quoted.double
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: done
   scopes:
     - keyword.control
@@ -5648,7 +5656,6 @@
 - source: _reminders
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: +=
@@ -5656,7 +5663,7 @@
     - keyword.operator.assignment.compound
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: '"'
   scopesBegin:
     - string.quoted.double
@@ -5676,10 +5683,9 @@
     - string.quoted.double
 - source: )
   scopes:
-    - punctuation
+    - punctuation.definition.array
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
 - source: fi
   scopes:
     - keyword.control
@@ -5688,7 +5694,6 @@
 - source: _reminders
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: +=
@@ -5696,7 +5701,7 @@
     - keyword.operator.assignment.compound
 - source: (
   scopes:
-    - punctuation
+    - punctuation.definition.array
 - source: '"'
   scopesBegin:
     - string.quoted.double
@@ -5709,9 +5714,7 @@
     - string.quoted.double
 - source: )
   scopes:
-    - punctuation
-  scopesEnd:
-    - meta.expression.assignment
+    - punctuation.definition.array
 - source: ((
   scopesBegin:
     - meta.arithmetic
@@ -5778,8 +5781,12 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
+    - meta.expression.assignment
     - string.quoted.double
 - source: local
+  scopesBegin:
+    - meta.statement
+    - meta.expression.assignment
   scopes:
     - storage.modifier.local
 - source: cmd
@@ -5804,6 +5811,7 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
+    - meta.statement
     - meta.expression.assignment
     - string.quoted.double
 - source: shift
@@ -9197,15 +9205,23 @@
   scopes:
     - meta.argument
     - string.unquoted.argument
+  scopesEnd:
+    - meta.statement.command
 - source: local
+  scopesBegin:
+    - meta.statement
+    - meta.expression.assignment
   scopes:
-    - meta.statement.command.name
     - storage.modifier.local
 - source: username
   scopes:
-    - meta.argument
-    - string.unquoted.argument
+    - variable.other.assignment
+  scopesEnd:
+    - meta.statement
+    - meta.expression.assignment
 - source: local
+  scopesBegin:
+    - meta.statement.command
   scopes:
     - meta.statement.command.name
     - storage.modifier.local
@@ -11172,6 +11188,7 @@
 - source: local
   scopesBegin:
     - meta.statement
+    - meta.statement
     - meta.expression.assignment
   scopes:
     - storage.modifier.local
@@ -11285,11 +11302,14 @@
     - meta.expression.assignment
     - string.quoted.double
 - source: if
-  scopesBegin:
-    - meta.scope.if-block
   scopes:
-    - keyword.control
-- source: '[['
+    - keyword.control.if
+- source: '['
+  scopesBegin:
+    - meta.scope.logical-expression
+  scopes:
+    - punctuation.definition.logical-expression
+- source: '['
   scopesBegin:
     - meta.scope.logical-expression
   scopes:
@@ -11314,10 +11334,16 @@
     - punctuation.definition.string.end
   scopesEnd:
     - string.quoted.double
-- source: ']]'
+- source: ']'
   scopes:
     - punctuation.definition.logical-expression
   scopesEnd:
+    - meta.scope.logical-expression
+- source: ']'
+  scopes:
+    - punctuation.definition.logical-expression
+  scopesEnd:
+    - meta.statement
     - meta.scope.logical-expression
 - source: ;
   scopes:
@@ -11581,9 +11607,7 @@
     - meta.scope.if-block
 - source: fi
   scopes:
-    - keyword.control
-  scopesEnd:
-    - meta.scope.if-block
+    - keyword.control.fi
 - source: _sudo
   scopesBegin:
     - meta.statement
@@ -15078,6 +15102,7 @@
     - string.quoted.double
 - source: export
   scopesBegin:
+    - meta.statement
     - meta.expression.assignment
   scopes:
     - storage.modifier.export
@@ -15087,17 +15112,58 @@
 - source: '='
   scopes:
     - keyword.operator.assignment
-- source: /nix/var/nix/profiles/default/etc/ssl/certs/ca-bundle.crt
+- source: /
+- source: nix
   scopes:
-    - string.unquoted.argument
+    - variable.other.assignment
+- source: /
+- source: var
+  scopes:
+    - variable.other.assignment
+- source: /
+- source: nix
+  scopes:
+    - variable.other.assignment
+- source: /
+- source: profiles
+  scopes:
+    - variable.other.assignment
+- source: /
+- source: default
+  scopes:
+    - variable.other.assignment
+- source: /
+- source: etc
+  scopes:
+    - variable.other.assignment
+- source: /
+- source: ssl
+  scopes:
+    - variable.other.assignment
+- source: /
+- source: certs
+  scopes:
+    - variable.other.assignment
+- source: /
+- source: ca-bundle
+  scopes:
+    - variable.other.assignment
+- source: .
+- source: crt
+  scopes:
+    - variable.other.assignment
   scopesEnd:
     - meta.statement
     - meta.expression.assignment
 - source: fi
-  scopesBegin:
-    - keyword.control
-- source: if
+  scopes:
+    - keyword.control.fi
   scopesEnd:
+    - meta.statement
+- source: if
+  scopesBegin:
+    - meta.scope.if-block
+  scopes:
     - keyword.control
 - source: '['
   scopesBegin:
@@ -15315,11 +15381,10 @@
     - meta.scope.if-block
 - source: '}'
   scopes:
-    - punctuation.definition.group
-    - punctuation.section.function.definition
-  scopesEnd:
-    - meta.function.body
+    - meta.statement
 - source: unsetup_profiles
+  scopesBegin:
+    - meta.function
   scopes:
     - entity.name.function
 - source: (
