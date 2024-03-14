@@ -287,7 +287,7 @@
       "match": "\\b(?:true|false)\\b",
       "name": "constant.language.$0.shell"
     },
-    "case_pattern": {
+    "case_statement": {
       "begin": "(?:(\\bcase\\b)(?:[ \\t]*+)(.+)(?:[ \\t]*+)(\\bin\\b))",
       "end": "\\besac\\b",
       "beginCaptures": {
@@ -336,7 +336,7 @@
           "name": "meta.case.entry.pattern.shell",
           "patterns": [
             {
-              "include": "#case_pattern_context"
+              "include": "#case_statement_context"
             }
           ]
         },
@@ -362,7 +362,7 @@
         }
       ]
     },
-    "case_pattern_context": {
+    "case_statement_context": {
       "patterns": [
         {
           "match": "\\*",
@@ -400,7 +400,7 @@
           "name": "meta.parenthese.shell",
           "patterns": [
             {
-              "include": "#case_pattern_context"
+              "include": "#case_statement_context"
             }
           ]
         },
@@ -932,7 +932,10 @@
           "include": "#logical_expression_single"
         },
         {
-          "include": "#case_pattern"
+          "include": "#keyword_var_statement"
+        },
+        {
+          "include": "#case_statement"
         },
         {
           "include": "#misc_ranges"
@@ -1094,6 +1097,74 @@
         {
           "match": "(?<=^|;|&| |\\t)(?:continue|foreach|return|select|repeat|break|until|while|case|done|elif|else|esac|then|for|end|do|if|fi|in)(?= |\\t|;|&|$)",
           "name": "keyword.control.$0.shell"
+        }
+      ]
+    },
+    "keyword_var_statement": {
+      "begin": "(?<=^|;|&|[ \\t])(?:readonly|declare|typeset|export|local)(?=[ \\t]|;|&|$)",
+      "end": "\\n",
+      "beginCaptures": {
+        "0": {
+          "name": "storage.modifier.$0.shell"
+        }
+      },
+      "endCaptures": {
+      },
+      "name": "meta.assignment.shell",
+      "patterns": [
+        {
+          "match": "(?<!\\w)-\\w+\\b",
+          "name": "string.unquoted.argument.shell constant.other.option.shell"
+        },
+        {
+          "match": "(?:((?<!\\w)(?:[a-zA-Z_0-9-]+)(?!\\w))(?:(?:(\\[)((?:(?:(?:(?:\\$?)(?:(?<!\\w)(?:[a-zA-Z_0-9-]+)(?!\\w))|@)|\\*)|(-?\\d+)))(\\]))?)(?:(?:(?:(\\=)|(\\+\\=))|(\\-\\=))?)(?:(?:(?<==| |\\t|^|\\{|\\(|\\[)(?:(?:(?:(?:(?:(0[xX][0-9A-Fa-f]+)|(0\\d+))|(\\d{1,2}#[0-9a-zA-Z@_]+))|(-?\\d+(?:\\.\\d+)))|(-?\\d+(?:\\.\\d+)+))|(-?\\d+))(?= |\\t|$|\\}|\\)|;))?))",
+          "captures": {
+            "1": {
+              "name": "variable.other.assignment.shell"
+            },
+            "2": {
+              "name": "punctuation.definition.array.access.shell"
+            },
+            "3": {
+              "name": "variable.other.assignment.shell"
+            },
+            "4": {
+              "name": "constant.numeric.shell constant.numeric.integer.shell"
+            },
+            "5": {
+              "name": "punctuation.definition.array.access.shell"
+            },
+            "6": {
+              "name": "keyword.operator.assignment.shell"
+            },
+            "7": {
+              "name": "keyword.operator.assignment.compound.shell"
+            },
+            "8": {
+              "name": "keyword.operator.assignment.compound.shell"
+            },
+            "9": {
+              "name": "constant.numeric.shell constant.numeric.hex.shell"
+            },
+            "10": {
+              "name": "constant.numeric.shell constant.numeric.octal.shell"
+            },
+            "11": {
+              "name": "constant.numeric.shell constant.numeric.other.shell"
+            },
+            "12": {
+              "name": "constant.numeric.shell constant.numeric.decimal.shell"
+            },
+            "13": {
+              "name": "constant.numeric.shell constant.numeric.version.shell"
+            },
+            "14": {
+              "name": "constant.numeric.shell constant.numeric.integer.shell"
+            }
+          }
+        },
+        {
+          "include": "#normal_statement_context"
         }
       ]
     },
@@ -1521,7 +1592,10 @@
     "normal_statement_inner": {
       "patterns": [
         {
-          "include": "#case_pattern"
+          "include": "#keyword_var_statement"
+        },
+        {
+          "include": "#case_statement"
         },
         {
           "include": "#function_definition"

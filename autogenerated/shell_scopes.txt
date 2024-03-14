@@ -56,6 +56,7 @@ keyword.operator.tilde.shell
 keyword.other.shell
 meta.argument.shell
 meta.arithmetic.shell
+meta.assignment.shell
 meta.case.entry.body.shell
 meta.case.entry.pattern.shell
 meta.case.shell

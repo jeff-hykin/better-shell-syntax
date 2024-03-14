@@ -31,7 +31,8 @@ require_relative './tokens.rb'
             :normal_statement_seperator,
             :logical_expression_double,
             :logical_expression_single,
-            :case_pattern,
+            :keyword_var_statement,
+            :case_statement,
             :misc_ranges,
             :loop,
             :function_definition,
@@ -560,7 +561,8 @@ require_relative './tokens.rb'
     control_prefix_commands = @tokens.representationsThat(:areControlFlow, :areFollowedByACommand)
     valid_after_patterns = /#{control_prefix_commands.map { |each| '^'+each+' | '+each+' |\t'+each+' ' } .join('|')}/
     grammar[:normal_statement_inner] = [
-            :case_pattern,
+            :keyword_var_statement,
+            :case_statement,
             :function_definition,
             :assignment,
             
@@ -654,7 +656,52 @@ require_relative './tokens.rb'
             :line_continuation,
             :normal_statement_context,
         ]
-    grammar[:case_pattern_context] = [
+    grammar[:keyword_var_statement] = PatternRange.new(
+        tag_as: "meta.assignment",
+        start_pattern: grammar[:modifiers],
+        end_pattern: /\n/,
+        includes: [
+            Pattern.new(
+                match:/(?<!\w)-\w+\b/,
+                tag_as: "string.unquoted.argument constant.other.option",
+            ),
+            Pattern.new(
+                Pattern.new(
+                    match: variable_name,
+                    tag_as: "variable.other.assignment",
+                ).maybe(
+                    Pattern.new(
+                        match: "[",
+                        tag_as: "punctuation.definition.array.access",
+                    ).then(
+                        match: maybe("$").then(variable_name).or("@").or("*").or(
+                            match: /-?\d+/,
+                            tag_as: "constant.numeric constant.numeric.integer",
+                        ),
+                        tag_as: "variable.other.assignment",
+                    ).then(
+                        match: "]",
+                        tag_as: "punctuation.definition.array.access",
+                    ),
+                ).maybe(
+                    Pattern.new(
+                        match: /\=/,
+                        tag_as: "keyword.operator.assignment",
+                    ).or(
+                        match: /\+\=/,
+                        tag_as: "keyword.operator.assignment.compound",
+                    ).or(
+                        match: /\-\=/,
+                        tag_as: "keyword.operator.assignment.compound",
+                    )
+                ).maybe(
+                    grammar[:numeric_literal]
+                ),
+            ),
+            :normal_statement_context,
+        ],
+    )
+    grammar[:case_statement_context] = [
             Pattern.new(
                 match: /\*/,
                 tag_as: "variable.language.special.quantifier.star keyword.operator.quantifier.star punctuation.definition.arbitrary-repetition punctuation.definition.regex.arbitrary-repetition"
@@ -686,7 +733,7 @@ require_relative './tokens.rb'
                     tag_as: "punctuation.definition.group punctuation.definition.regex.group",
                 ),
                 includes: [
-                    :case_pattern_context,
+                    :case_statement_context,
                 ],
             ),
             PatternRange.new(
@@ -712,7 +759,7 @@ require_relative './tokens.rb'
                 tag_as: "string.unquoted.pattern string.regexp.unquoted",
             ),
         ]
-    grammar[:case_pattern] = PatternRange.new(
+    grammar[:case_statement] = PatternRange.new(
         tag_as: "meta.case",
         start_pattern: Pattern.new(
             Pattern.new(
@@ -748,7 +795,7 @@ require_relative './tokens.rb'
                     tag_as: "keyword.operator.pattern.case",
                 ),
                 includes: [
-                    :case_pattern_context,
+                    :case_statement_context,
                 ],
             ),
             # after-pattern part 
