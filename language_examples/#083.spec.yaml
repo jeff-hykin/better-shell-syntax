@@ -1,0 +1,306 @@
+- source: if
+  scopesBegin:
+    - meta.scope.if-block
+  scopes:
+    - keyword.control
+- source: '[['
+  scopesBegin:
+    - meta.scope.logical-expression
+  scopes:
+    - punctuation.definition.logical-expression
+- source: ' ( '
+- source: $
+  scopes:
+    - punctuation.definition.variable
+    - variable.parameter.positional
+- source: '2'
+  scopes:
+    - variable.parameter.positional
+- source: '=='
+  scopes:
+    - keyword.operator.logical
+- source: '"'
+  scopesBegin:
+    - string.quoted.double
+  scopes:
+    - punctuation.definition.string.begin
+- source: '-i'
+- source: '"'
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - string.quoted.double
+- source: ' ) '
+- source: '||'
+  scopes:
+    - keyword.operator.logical
+- source: ' ( '
+- source: $
+  scopes:
+    - punctuation.definition.variable
+    - variable.parameter.positional
+- source: '2'
+  scopes:
+    - variable.parameter.positional
+- source: '=='
+  scopes:
+    - keyword.operator.logical
+- source: '"'
+  scopesBegin:
+    - string.quoted.double
+  scopes:
+    - punctuation.definition.string.begin
+- source: '-install'
+- source: '"'
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - string.quoted.double
+- source: ' ) '
+- source: '||'
+  scopes:
+    - keyword.operator.logical
+- source: ' ( '
+- source: $
+  scopes:
+    - punctuation.definition.variable
+    - variable.parameter.positional
+- source: '2'
+  scopes:
+    - variable.parameter.positional
+- source: '=='
+  scopes:
+    - keyword.operator.logical
+- source: '"'
+  scopesBegin:
+    - string.quoted.double
+  scopes:
+    - punctuation.definition.string.begin
+- source: '-add'
+- source: '"'
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - string.quoted.double
+- source: ' ) '
+- source: ']]'
+  scopes:
+    - punctuation.definition.logical-expression
+  scopesEnd:
+    - meta.scope.logical-expression
+- source: ;
+  scopes:
+    - punctuation.terminator.statement.semicolon
+- source: then
+  scopes:
+    - keyword.control.then
+- source: VCMD
+  scopesBegin:
+    - meta.statement
+    - meta.expression.assignment
+  scopes:
+    - variable.other.assignment
+- source: '='
+  scopes:
+    - keyword.operator.assignment
+- source: '"'
+  scopesBegin:
+    - string.quoted.double
+  scopes:
+    - punctuation.definition.string.begin
+- source: 'y'
+- source: '"'
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - meta.statement
+    - meta.expression.assignment
+    - string.quoted.double
+- source: if
+  scopesBegin:
+    - meta.scope.if-block
+  scopes:
+    - keyword.control
+- source: '[['
+  scopesBegin:
+    - meta.scope.logical-expression
+  scopes:
+    - punctuation.definition.logical-expression
+- source: $(
+  scopesBegin:
+    - string.interpolated.dollar
+  scopes:
+    - punctuation.definition.evaluation.parens.begin
+- source: (
+  scopesBegin:
+    - meta.scope.subshell
+  scopes:
+    - punctuation.definition.subshell
+- source: $
+  scopesBegin:
+    - meta.statement
+    - meta.statement.command
+    - meta.statement.command.name
+  scopes:
+    - punctuation.definition.variable
+    - variable.language.special
+- source: '#'
+  scopes:
+    - variable.language.special
+  scopesEnd:
+    - meta.statement.command.name
+- source: '-'
+  scopesBegin:
+    - meta.argument
+    - string.unquoted.argument
+- source: '2'
+  scopes:
+    - constant.numeric
+    - constant.numeric.integer
+  scopesEnd:
+    - meta.statement
+    - meta.statement.command
+    - meta.argument
+    - string.unquoted.argument
+- source: )
+  scopes:
+    - punctuation.definition.subshell
+  scopesEnd:
+    - meta.scope.subshell
+- source: )
+  scopes:
+    - punctuation.definition.evaluation.parens.end
+  scopesEnd:
+    - string.interpolated.dollar
+- source: '!='
+  scopes:
+    - keyword.operator.logical
+- source: '1'
+  scopes:
+    - constant.numeric
+    - constant.numeric.integer
+- source: ']]'
+  scopes:
+    - punctuation.definition.logical-expression
+  scopesEnd:
+    - meta.scope.logical-expression
+- source: ;
+  scopes:
+    - punctuation.terminator.statement.semicolon
+- source: then
+  scopes:
+    - keyword.control.then
+- source: PRINT
+  scopesBegin:
+    - meta.statement
+    - meta.statement.command
+  scopes:
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+- source: FATAL
+  scopesBegin:
+    - meta.argument
+  scopes:
+    - string.unquoted.argument
+- source: '"'
+  scopesBegin:
+    - string.quoted.double
+  scopes:
+    - punctuation.definition.string.begin
+- source: 'Expected 1 argument but got '
+- source: $(
+  scopesBegin:
+    - string.interpolated.dollar
+  scopes:
+    - punctuation.definition.evaluation.parens.begin
+- source: (
+  scopesBegin:
+    - meta.scope.subshell
+  scopes:
+    - punctuation.definition.subshell
+- source: $
+  scopesBegin:
+    - meta.statement
+    - meta.statement.command
+    - meta.statement.command.name
+  scopes:
+    - punctuation.definition.variable
+    - variable.language.special
+- source: '#'
+  scopes:
+    - variable.language.special
+  scopesEnd:
+    - meta.statement.command.name
+- source: '-'
+  scopesBegin:
+    - meta.argument
+    - string.unquoted.argument
+- source: '2'
+  scopes:
+    - constant.numeric
+    - constant.numeric.integer
+  scopesEnd:
+    - meta.statement
+    - meta.statement.command
+    - meta.argument
+    - string.unquoted.argument
+- source: )
+  scopes:
+    - punctuation.definition.subshell
+  scopesEnd:
+    - meta.scope.subshell
+- source: )
+  scopes:
+    - punctuation.definition.evaluation.parens.end
+  scopesEnd:
+    - string.interpolated.dollar
+- source: .
+- source: '"'
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - meta.statement
+    - meta.statement.command
+    - meta.argument
+    - string.quoted.double
+- source: ;
+  scopes:
+    - punctuation.terminator.statement.semicolon
+- source: exit
+  scopesBegin:
+    - meta.statement
+    - meta.statement.command
+  scopes:
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+    - support.function.builtin
+- source: '2'
+  scopes:
+    - meta.argument
+    - string.unquoted.argument
+    - constant.numeric
+    - constant.numeric.integer
+  scopesEnd:
+    - meta.statement
+    - meta.statement.command
+- source: ;
+  scopes:
+    - punctuation.terminator.statement.semicolon
+- source: fi
+  scopes:
+    - keyword.control
+  scopesEnd:
+    - meta.scope.if-block
+- source: '#'
+  scopesBegin:
+    - comment.line.number-sign
+  scopes:
+    - punctuation.definition.comment
+- source: ' [..]'
+  scopesEnd:
+    - comment.line.number-sign
+- source: fi
+  scopes:
+    - keyword.control
