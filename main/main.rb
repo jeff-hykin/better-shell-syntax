@@ -31,7 +31,7 @@ require_relative './tokens.rb'
             :normal_statement_seperator,
             :logical_expression_double,
             :logical_expression_single,
-            :keyword_var_statement,
+            :modified_assignment_statement,
             :case_statement,
             :misc_ranges,
             :loop,
@@ -85,6 +85,8 @@ require_relative './tokens.rb'
         ]
     grammar[:logical_expression_context] = [
             :regex_comparison,
+            :arithmetic_dollar,
+            :arithmetic_no_dollar,
             :'logical-expression',
             :logical_expression_single,
             :logical_expression_double,
@@ -296,58 +298,38 @@ require_relative './tokens.rb'
         tag_as: "storage.modifier.$match",
     )
     
-    normal_assignment = PatternRange.new(
-            tag_as: "meta.expression.assignment",
-            start_pattern: assignment_start = std_space.maybe(
-                modifier.then(std_space).then(
-                    match: zeroOrMoreOf(
-                        simple_option.then(std_space)
-                    ),
-                    includes: [
-                        simple_option,
-                    ],
-                )
+    assignment_end = lookAheadFor(/ |\t|$/).or(grammar[:normal_statement_seperator])
+    assignment_start = std_space.then(
+        Pattern.new(
+            match: variable_name,
+            tag_as: "variable.other.assignment",
+        ).maybe(
+            Pattern.new(
+                match: "[",
+                tag_as: "punctuation.definition.array.access",
             ).then(
-                    Pattern.new(
-                        match: variable_name,
-                        tag_as: "variable.other.assignment",
-                    ).maybe(
-                        Pattern.new(
-                            match: "[",
-                            tag_as: "punctuation.definition.array.access",
-                        ).then(
-                            match: maybe("$").then(variable_name).or("@").or("*").or(
-                                match: /-?\d+/,
-                                tag_as: "constant.numeric constant.numeric.integer",
-                            ),
-                            tag_as: "variable.other.assignment",
-                        ).then(
-                            match: "]",
-                            tag_as: "punctuation.definition.array.access",
-                        ),
-                    )
-                ).then(
-                    Pattern.new(
-                        match: /\=/,
-                        tag_as: "keyword.operator.assignment",
-                    ).or(
-                        match: /\+\=/,
-                        tag_as: "keyword.operator.assignment.compound",
-                    ).or(
-                        match: /\-\=/,
-                        tag_as: "keyword.operator.assignment.compound",
-                    )
+                match: maybe("$").then(variable_name).or("@").or("*").or(
+                    match: /-?\d+/,
+                    tag_as: "constant.numeric constant.numeric.integer",
                 ),
-            end_pattern: assignment_end = lookAheadFor(/ |\t|$/).or(grammar[:normal_statement_seperator]),
-            includes: [
-                :comment,
-                :argument_context,
-            ]
+                tag_as: "variable.other.assignment",
+            ).then(
+                match: "]",
+                tag_as: "punctuation.definition.array.access",
+            ),
         )
-    grammar[:assignment] = [
-        :array_value,
-        normal_assignment
-    ]
+    ).then(
+        Pattern.new(
+            match: /\=/,
+            tag_as: "keyword.operator.assignment",
+        ).or(
+            match: /\+\=/,
+            tag_as: "keyword.operator.assignment.compound",
+        ).or(
+            match: /\-\=/,
+            tag_as: "keyword.operator.assignment.compound",
+        )
+    )
     grammar[:alias_statement] = PatternRange.new(
         tag_as: "meta.expression.assignment",
         start_pattern: Pattern.new(
@@ -560,15 +542,15 @@ require_relative './tokens.rb'
             tag_as: "string.unquoted.argument constant.other.option"
         )
     )
+    
     keywords = @tokens.representationsThat(:areShellReservedWords, :areNotModifiers)
     keyword_patterns = /#{keywords.map { |each| each+'\W|'+each+'\$' } .join('|')}/
     control_prefix_commands = @tokens.representationsThat(:areControlFlow, :areFollowedByACommand)
     valid_after_patterns = /#{control_prefix_commands.map { |each| '^'+each+' | '+each+' |\t'+each+' ' } .join('|')}/
     grammar[:normal_statement_inner] = [
-            :keyword_var_statement,
+            :assignment_statement,
             :case_statement,
             :function_definition,
-            :assignment,
             
             # 
             # Command Statement
@@ -589,7 +571,7 @@ require_relative './tokens.rb'
                             # 
                             # builtin commands
                             # 
-                            :modifiers, # TODO: eventually this one thing shouldnt be here
+                            # :modifiers, # TODO: eventually this one thing shouldnt be here
                             
                             Pattern.new(
                                 match: any_builtin_control_flow,
@@ -658,8 +640,18 @@ require_relative './tokens.rb'
                 ],
             ),
             :line_continuation,
+            :arithmetic_double,
             :normal_statement_context,
         ]
+    grammar[:normal_assignment_statement] = PatternRange.new(
+        tag_as: "meta.expression.assignment",
+        start_pattern: assignment_start,
+        end_pattern: assignment_end,
+        includes: [
+            :comment,
+            :argument_context,
+        ]
+    )
     grammar[:array_value] = PatternRange.new(
         start_pattern: assignment_start.then(std_space).then(
             match:"(",
@@ -669,17 +661,26 @@ require_relative './tokens.rb'
             match: ")",
             tag_as: "punctuation.definition.array",
         ),
-        includes: [ 
+        includes: [
             :comment,
             Pattern.new(
                 Pattern.new(
-                    tag_as: "punctuation.definition.bracket",
+                    match: variable_name,
+                    tag_as: "variable.other.assignment.array entity.other.attribute-name",
+                ).then(
+                    match: /\=/,
+                    tag_as: "keyword.operator.assignment punctuation.definition.assignment",
+                )
+            ),
+            Pattern.new(
+                Pattern.new(
+                    tag_as: "punctuation.definition.bracket.named-array",
                     match: /\[/,
                 ).then(
                     match: /.+?/,
-                    tag_as: "string.unquoted entity.other.attribute-name",
+                    tag_as: "string.unquoted entity.other.attribute-name.bracket",
                 ).then(
-                    tag_as: "punctuation.definition.bracket",
+                    tag_as: "punctuation.definition.bracket.named-array",
                     match: /\]/,
                 ).then(
                     tag_as: "punctuation.definition.assignment",
@@ -690,10 +691,10 @@ require_relative './tokens.rb'
             :simple_unquoted,
         ]
     )
-    grammar[:keyword_var_statement] = PatternRange.new(
-        tag_as: "meta.statement meta.expression.assignment",
+    grammar[:modified_assignment_statement] = PatternRange.new(
+        tag_as: "meta.statement meta.expression.assignment.modified",
         start_pattern: grammar[:modifiers],
-        end_pattern: /\n/,
+        end_pattern: command_end,
         includes: [
             simple_option,
             :array_value,
@@ -733,6 +734,11 @@ require_relative './tokens.rb'
             :normal_statement_context,
         ],
     )
+    grammar[:assignment_statement] = [
+        :array_value,
+        :modified_assignment_statement,
+        :normal_assignment_statement,
+    ]
     grammar[:case_statement_context] = [
             Pattern.new(
                 match: /\*/,
@@ -860,7 +866,9 @@ require_relative './tokens.rb'
             ).then(std_space).lookAheadToAvoid(keyword_patterns),
         ),
         end_pattern: command_end,
-        includes: [ :normal_statement_inner ]
+        includes: [
+            :normal_statement_inner,
+        ]
         
     )
     grammar[:custom_commands] = [
@@ -895,45 +903,141 @@ require_relative './tokens.rb'
             :logical_expression_context
         ],
     )
+    
+    generateBrackRanges = ->(meta_tag:nil, punctuation_tag:nil, start_char:nil, stop_char:nil, single:nil, dollar_sign:nil, includes:[]) do
+        dollar_prefix = ""
+        if dollar_sign
+            dollar_prefix = "$"
+            # punctuation_tag = punctuation_tag+".dollar"
+        else
+            # punctuation_tag = punctuation_tag+".no_dollar"
+        end
+        if not single
+            start_pattern = Pattern.new(
+                tag_as: punctuation_tag+".double",
+                match: Pattern.new(dollar_prefix+start_char).then(start_char)
+            )
+            
+            end_pattern = Pattern.new(
+                tag_as: punctuation_tag+".double",
+                match: Pattern.new(stop_char).then(/\s*/).then(stop_char),
+            )
+        else
+            start_pattern = Pattern.new(
+                tag_as: punctuation_tag+".single",
+                match: Pattern.new(dollar_prefix+start_char)
+            )
+            # .lookAheadToAvoid(start_char)
+            
+            end_pattern = Pattern.new(
+                tag_as: punctuation_tag+".single",
+                match: Pattern.new(stop_char),
+            )
+        end
+        
+        base_one = PatternRange.new(
+            tag_as: meta_tag,
+            start_pattern: start_pattern,
+            end_pattern: end_pattern,
+            includes: includes,
+        )
+        
+        [
+            # Pattern.new(
+            #     tag_as: meta_tag,
+            #     match: Pattern.new(
+            #         start_pattern.then(
+            #             match: /[^#{Regexp.escape(start_char)}][^#{Regexp.escape(stop_char)}]*/,
+            #             includes: includes,
+            #         ).then(end_pattern)
+            #     ),
+            # ),
+            base_one
+        ]
+    end
+    
+    grammar[:arithmetic_no_dollar] = generateBrackRanges[
+        meta_tag: "meta.arithmetic",
+        punctuation_tag: "punctuation.section.arithmetic",
+        start_char: "(",
+        stop_char: ")",
+        single: true,
+        dollar_sign: false,
+        includes: [
+            # TODO: add more stuff here
+            # see: http://tiswww.case.edu/php/chet/bash/bashref.html#Shell-Arithmetic
+            :math,
+            :string,
+            # :initial_context,
+        ],
+    ]
+    # grammar[:arithmetic_dollar] = generateBrackRanges[
+    #     meta_tag: "meta.arithmetic",
+    #     punctuation_tag: "punctuation.section.arithmetic",
+    #     start_char: "(",
+    #     stop_char: ")",
+    #     single: false,
+    #     dollar_sign: true,
+    #     includes: [
+    #         # TODO: add more stuff here
+    #         # see: http://tiswww.case.edu/php/chet/bash/bashref.html#Shell-Arithmetic
+    #         :math,
+    #         :string,
+    #         # :initial_context,
+    #     ]
+    # ]
+    grammar[:arithmetic_double] = generateBrackRanges[
+        meta_tag: "meta.arithmetic",
+        punctuation_tag: "punctuation.section.arithmetic",
+        start_char: "(",
+        stop_char: ")",
+        single: false,
+        dollar_sign: false,
+        includes: [
+            # TODO: add more stuff here
+            # see: http://tiswww.case.edu/php/chet/bash/bashref.html#Shell-Arithmetic
+            :math,
+            :string,
+            # :initial_context,
+        ]
+    ]
+    grammar[:subshell_dollar] = generateBrackRanges[
+        meta_tag: "meta.scope.subshell",
+        punctuation_tag: "punctuation.definition.subshell",
+        start_char: "(",
+        stop_char: ")",
+        single: true,
+        dollar_sign: true,
+        includes: [
+            PatternRange.new(
+                tag_as: "meta.parenthese.group",
+                start_pattern: Pattern.new(
+                    match: "(",
+                    tag_as: "punctuation.section.parenthese",
+                ),
+                end_pattern: Pattern.new(
+                    tag_as: "punctuation.section.parenthese",
+                    match: ")",
+                ),
+                includes: [
+                    :initial_context,
+                ],
+            ),
+            :initial_context,
+        ]
+    ]
+    
     grammar[:misc_ranges] = [
         :logical_expression_single,
         :logical_expression_double,
         # 
         # handle (())
         # 
-        PatternRange.new(
-            tag_as: "meta.arithmetic",
-            start_pattern: Pattern.new(
-                    tag_as: "punctuation.section.arithmetic",
-                    match: /\(\(/
-                ),
-            end_pattern: Pattern.new(
-                    tag_as: "punctuation.section.arithmetic",
-                    match: /\)\)/
-                ),
-            includes: [
-                # TODO: add more stuff here
-                # see: http://tiswww.case.edu/php/chet/bash/bashref.html#Shell-Arithmetic
-                :math,
-            ]
-        ),
+        :arithmetic_dollar,
         # 
         # handle ()
         # 
-        PatternRange.new(
-            tag_as: "meta.scope.subshell",
-            start_pattern: Pattern.new(
-                    tag_as: "punctuation.definition.subshell",
-                    match: lookBehindToAvoid("=").then(/\(/)
-                ),
-            end_pattern: Pattern.new(
-                    tag_as: "punctuation.definition.subshell",
-                    match: /\)/
-                ),
-            includes: [
-                :initial_context,
-            ]
-        ),
+        :subshell_dollar,
         # 
         # groups (?) 
         # 
