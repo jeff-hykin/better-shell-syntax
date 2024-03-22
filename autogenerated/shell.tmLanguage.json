@@ -199,6 +199,9 @@
             },
             {
               "include": "#string"
+            },
+            {
+              "include": "#variable"
             }
           ]
         },

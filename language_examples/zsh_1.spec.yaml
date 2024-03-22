@@ -5896,7 +5896,14 @@
 - source: '['
   scopes:
     - punctuation.section.array
-- source: ^$COMP_WORDBREAKS
+- source: ^
+- source: $
+  scopes:
+    - punctuation.definition.variable
+    - variable.other.normal
+- source: COMP_WORDBREAKS
+  scopes:
+    - variable.other.normal
 - source: ']'
   scopes:
     - punctuation.section.array
@@ -6164,7 +6171,13 @@
 - source: '['
   scopes:
     - punctuation.section.array
-- source: $i
+- source: $
+  scopes:
+    - punctuation.definition.variable
+    - variable.other.normal
+- source: i
+  scopes:
+    - variable.other.normal
 - source: ']'
   scopes:
     - punctuation.section.array
@@ -6192,7 +6205,13 @@
 - source: '['
   scopes:
     - punctuation.section.array
-- source: $i
+- source: $
+  scopes:
+    - punctuation.definition.variable
+    - variable.other.normal
+- source: i
+  scopes:
+    - variable.other.normal
 - source: ']'
   scopes:
     - punctuation.section.array
@@ -6205,7 +6224,14 @@
 - source: '['
   scopes:
     - punctuation.section.array
-- source: ^$exclude
+- source: ^
+- source: $
+  scopes:
+    - punctuation.definition.variable
+    - variable.other.normal
+- source: exclude
+  scopes:
+    - variable.other.normal
 - source: ']'
   scopes:
     - punctuation.section.array
@@ -6233,7 +6259,13 @@
 - source: '['
   scopes:
     - punctuation.section.array
-- source: $i
+- source: $
+  scopes:
+    - punctuation.definition.variable
+    - variable.other.normal
+- source: i
+  scopes:
+    - variable.other.normal
 - source: ']'
   scopes:
     - punctuation.section.array
@@ -9859,7 +9891,14 @@
 - source: '['
   scopes:
     - punctuation.section.array
-- source: cword-$2
+- source: cword-
+- source: $
+  scopes:
+    - punctuation.definition.variable
+    - variable.parameter.positional
+- source: '2'
+  scopes:
+    - variable.parameter.positional
 - source: ']'
   scopes:
     - punctuation.section.array
@@ -11590,7 +11629,13 @@
 - source: '['
   scopes:
     - punctuation.section.array
-- source: $i
+- source: $
+  scopes:
+    - punctuation.definition.variable
+    - variable.other.normal
+- source: i
+  scopes:
+    - variable.other.normal
 - source: ']'
   scopes:
     - punctuation.section.array
@@ -31770,7 +31815,13 @@
 - source: '['
   scopes:
     - punctuation.section.array
-- source: $word_offset
+- source: $
+  scopes:
+    - punctuation.definition.variable
+    - variable.other.normal
+- source: word_offset
+  scopes:
+    - variable.other.normal
 - source: ']'
   scopes:
     - punctuation.section.array
@@ -32179,7 +32230,14 @@
 - source: '['
   scopes:
     - punctuation.section.array
-- source: i+$word_offset
+- source: i+
+- source: $
+  scopes:
+    - punctuation.definition.variable
+    - variable.other.normal
+- source: word_offset
+  scopes:
+    - variable.other.normal
 - source: ']'
   scopes:
     - punctuation.section.array
@@ -32884,14 +32942,27 @@
 - source: '['
   scopes:
     - punctuation.section.array
-- source: '${'
+- source: $
+  scopes:
+    - punctuation.definition.variable
+- source: '{'
+  scopes:
+    - punctuation.section.bracket.curly.variable.begin
+    - punctuation.definition.variable
 - source: '#'
+  scopesBegin:
+    - meta.parameter-expansion
   scopes:
     - keyword.operator.expansion
-- source: 'COMP_WORDS['
+- source: COMP_WORDS
+  scopes:
+    - variable.other.normal
+- source: '['
 - source: '@'
   scopes:
     - keyword.operator.expansion
+  scopesEnd:
+    - meta.parameter-expansion
 - source: ']'
   scopes:
     - punctuation.section.array
@@ -32923,14 +32994,27 @@
 - source: '['
   scopes:
     - punctuation.section.array
-- source: '${'
+- source: $
+  scopes:
+    - punctuation.definition.variable
+- source: '{'
+  scopes:
+    - punctuation.section.bracket.curly.variable.begin
+    - punctuation.definition.variable
 - source: '#'
+  scopesBegin:
+    - meta.parameter-expansion
   scopes:
     - keyword.operator.expansion
-- source: 'COMP_WORDS['
+- source: COMP_WORDS
+  scopes:
+    - variable.other.normal
+- source: '['
 - source: '@'
   scopes:
     - keyword.operator.expansion
+  scopesEnd:
+    - meta.parameter-expansion
 - source: ']'
   scopes:
     - punctuation.section.array
@@ -32994,14 +33078,27 @@
 - source: '['
   scopes:
     - punctuation.section.array
-- source: '${'
+- source: $
+  scopes:
+    - punctuation.definition.variable
+- source: '{'
+  scopes:
+    - punctuation.section.bracket.curly.variable.begin
+    - punctuation.definition.variable
 - source: '#'
+  scopesBegin:
+    - meta.parameter-expansion
   scopes:
     - keyword.operator.expansion
-- source: 'COMP_WORDS['
+- source: COMP_WORDS
+  scopes:
+    - variable.other.normal
+- source: '['
 - source: '@'
   scopes:
     - keyword.operator.expansion
+  scopesEnd:
+    - meta.parameter-expansion
 - source: ']'
   scopes:
     - punctuation.section.array
@@ -43950,7 +44047,14 @@
 - source: '['
   scopes:
     - punctuation.section.array
-- source: ^$COMP_WORDBREAKS
+- source: ^
+- source: $
+  scopes:
+    - punctuation.definition.variable
+    - variable.other.normal
+- source: COMP_WORDBREAKS
+  scopes:
+    - variable.other.normal
 - source: ']'
   scopes:
     - punctuation.section.array
@@ -44218,7 +44322,13 @@
 - source: '['
   scopes:
     - punctuation.section.array
-- source: $i
+- source: $
+  scopes:
+    - punctuation.definition.variable
+    - variable.other.normal
+- source: i
+  scopes:
+    - variable.other.normal
 - source: ']'
   scopes:
     - punctuation.section.array
@@ -44246,7 +44356,13 @@
 - source: '['
   scopes:
     - punctuation.section.array
-- source: $i
+- source: $
+  scopes:
+    - punctuation.definition.variable
+    - variable.other.normal
+- source: i
+  scopes:
+    - variable.other.normal
 - source: ']'
   scopes:
     - punctuation.section.array
@@ -44259,7 +44375,14 @@
 - source: '['
   scopes:
     - punctuation.section.array
-- source: ^$exclude
+- source: ^
+- source: $
+  scopes:
+    - punctuation.definition.variable
+    - variable.other.normal
+- source: exclude
+  scopes:
+    - variable.other.normal
 - source: ']'
   scopes:
     - punctuation.section.array
@@ -44287,7 +44410,13 @@
 - source: '['
   scopes:
     - punctuation.section.array
-- source: $i
+- source: $
+  scopes:
+    - punctuation.definition.variable
+    - variable.other.normal
+- source: i
+  scopes:
+    - variable.other.normal
 - source: ']'
   scopes:
     - punctuation.section.array
@@ -47913,7 +48042,14 @@
 - source: '['
   scopes:
     - punctuation.section.array
-- source: cword-$2
+- source: cword-
+- source: $
+  scopes:
+    - punctuation.definition.variable
+    - variable.parameter.positional
+- source: '2'
+  scopes:
+    - variable.parameter.positional
 - source: ']'
   scopes:
     - punctuation.section.array
@@ -49644,7 +49780,13 @@
 - source: '['
   scopes:
     - punctuation.section.array
-- source: $i
+- source: $
+  scopes:
+    - punctuation.definition.variable
+    - variable.other.normal
+- source: i
+  scopes:
+    - variable.other.normal
 - source: ']'
   scopes:
     - punctuation.section.array
@@ -69824,7 +69966,13 @@
 - source: '['
   scopes:
     - punctuation.section.array
-- source: $word_offset
+- source: $
+  scopes:
+    - punctuation.definition.variable
+    - variable.other.normal
+- source: word_offset
+  scopes:
+    - variable.other.normal
 - source: ']'
   scopes:
     - punctuation.section.array
@@ -70233,7 +70381,14 @@
 - source: '['
   scopes:
     - punctuation.section.array
-- source: i+$word_offset
+- source: i+
+- source: $
+  scopes:
+    - punctuation.definition.variable
+    - variable.other.normal
+- source: word_offset
+  scopes:
+    - variable.other.normal
 - source: ']'
   scopes:
     - punctuation.section.array
@@ -70938,14 +71093,27 @@
 - source: '['
   scopes:
     - punctuation.section.array
-- source: '${'
+- source: $
+  scopes:
+    - punctuation.definition.variable
+- source: '{'
+  scopes:
+    - punctuation.section.bracket.curly.variable.begin
+    - punctuation.definition.variable
 - source: '#'
+  scopesBegin:
+    - meta.parameter-expansion
   scopes:
     - keyword.operator.expansion
-- source: 'COMP_WORDS['
+- source: COMP_WORDS
+  scopes:
+    - variable.other.normal
+- source: '['
 - source: '@'
   scopes:
     - keyword.operator.expansion
+  scopesEnd:
+    - meta.parameter-expansion
 - source: ']'
   scopes:
     - punctuation.section.array
@@ -70977,14 +71145,27 @@
 - source: '['
   scopes:
     - punctuation.section.array
-- source: '${'
+- source: $
+  scopes:
+    - punctuation.definition.variable
+- source: '{'
+  scopes:
+    - punctuation.section.bracket.curly.variable.begin
+    - punctuation.definition.variable
 - source: '#'
+  scopesBegin:
+    - meta.parameter-expansion
   scopes:
     - keyword.operator.expansion
-- source: 'COMP_WORDS['
+- source: COMP_WORDS
+  scopes:
+    - variable.other.normal
+- source: '['
 - source: '@'
   scopes:
     - keyword.operator.expansion
+  scopesEnd:
+    - meta.parameter-expansion
 - source: ']'
   scopes:
     - punctuation.section.array
@@ -71048,14 +71229,27 @@
 - source: '['
   scopes:
     - punctuation.section.array
-- source: '${'
+- source: $
+  scopes:
+    - punctuation.definition.variable
+- source: '{'
+  scopes:
+    - punctuation.section.bracket.curly.variable.begin
+    - punctuation.definition.variable
 - source: '#'
+  scopesBegin:
+    - meta.parameter-expansion
   scopes:
     - keyword.operator.expansion
-- source: 'COMP_WORDS['
+- source: COMP_WORDS
+  scopes:
+    - variable.other.normal
+- source: '['
 - source: '@'
   scopes:
     - keyword.operator.expansion
+  scopesEnd:
+    - meta.parameter-expansion
 - source: ']'
   scopes:
     - punctuation.section.array

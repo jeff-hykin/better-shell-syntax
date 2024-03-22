@@ -1154,6 +1154,7 @@ require_relative './tokens.rb'
             includes: [
                 :special_expansion,
                 :string,
+                :variable,
             ]
         ).then(
             match: /\]/,
