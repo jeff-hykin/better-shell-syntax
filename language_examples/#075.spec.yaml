@@ -13,7 +13,7 @@
     - meta.case
   scopes:
     - keyword.control.case
-- source: 'a '
+- source: a
 - source: in
   scopes:
     - keyword.control.in

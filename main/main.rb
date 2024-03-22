@@ -847,7 +847,7 @@ require_relative './tokens.rb'
                 tag_as: "keyword.control.case",
                 match: /\bcase\b/,
             ).then(std_space).then(
-                match:/.+/, # TODO: this could be a problem for inline case statements
+                match:/.+?/, # TODO: this could be a problem for inline case statements
                 includes: [
                     :initial_context
                 ],

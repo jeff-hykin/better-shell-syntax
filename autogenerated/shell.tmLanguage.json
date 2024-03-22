@@ -345,7 +345,7 @@
       "name": "constant.language.$0.shell"
     },
     "case_statement": {
-      "begin": "(?:(\\bcase\\b)(?:[ \\t]*+)(.+)(?:[ \\t]*+)(\\bin\\b))",
+      "begin": "(?:(\\bcase\\b)(?:[ \\t]*+)(.+?)(?:[ \\t]*+)(\\bin\\b))",
       "end": "\\besac\\b",
       "beginCaptures": {
         "1": {
