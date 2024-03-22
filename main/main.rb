@@ -505,7 +505,7 @@ require_relative './tokens.rb'
                             tag_as: "keyword.control.$match",
                         ),
                         Pattern.new(
-                            match: any_builtin_name,
+                            match: any_builtin_name.lookAheadToAvoid(/-/),
                             tag_as: "support.function.builtin",
                         ),
                         :variable,
@@ -596,7 +596,7 @@ require_relative './tokens.rb'
                                 tag_as: "entity.name.function.call entity.name.command keyword.control.$match",
                             ),
                             Pattern.new(
-                                match: any_builtin_name,
+                                match: any_builtin_name.lookAheadToAvoid(/-/),
                                 tag_as: "entity.name.function.call entity.name.command support.function.builtin",
                             ),
                             :variable,
