@@ -321,9 +321,9 @@
     - punctuation.definition.string.begin
 - source: $(
   scopesBegin:
-    - string.interpolated.dollar
+    - meta.scope.subshell
   scopes:
-    - punctuation.definition.evaluation.parens.begin
+    - punctuation.definition.subshell.single
 - source: uname
   scopes:
     - meta.statement
@@ -333,9 +333,9 @@
     - entity.name.command
 - source: )
   scopes:
-    - punctuation.definition.evaluation.parens.end
+    - punctuation.definition.subshell.single
   scopesEnd:
-    - string.interpolated.dollar
+    - meta.scope.subshell
 - source: '"'
   scopes:
     - punctuation.definition.string.end
@@ -728,9 +728,9 @@
     - punctuation.definition.string.begin
 - source: $(
   scopesBegin:
-    - string.interpolated.dollar
+    - meta.scope.subshell
   scopes:
-    - punctuation.definition.evaluation.parens.begin
+    - punctuation.definition.subshell.single
 - source: uname
   scopes:
     - meta.statement
@@ -740,9 +740,9 @@
     - entity.name.command
 - source: )
   scopes:
-    - punctuation.definition.evaluation.parens.end
+    - punctuation.definition.subshell.single
   scopesEnd:
-    - string.interpolated.dollar
+    - meta.scope.subshell
 - source: '"'
   scopes:
     - punctuation.definition.string.end
@@ -1135,9 +1135,9 @@
     - punctuation.definition.string.begin
 - source: $(
   scopesBegin:
-    - string.interpolated.dollar
+    - meta.scope.subshell
   scopes:
-    - punctuation.definition.evaluation.parens.begin
+    - punctuation.definition.subshell.single
 - source: uname
   scopes:
     - meta.statement
@@ -1147,9 +1147,9 @@
     - entity.name.command
 - source: )
   scopes:
-    - punctuation.definition.evaluation.parens.end
+    - punctuation.definition.subshell.single
   scopesEnd:
-    - string.interpolated.dollar
+    - meta.scope.subshell
 - source: '"'
   scopes:
     - punctuation.definition.string.end

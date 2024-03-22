@@ -72,9 +72,9 @@
     - punctuation.definition.string.begin
 - source: $(
   scopesBegin:
-    - string.interpolated.dollar
+    - meta.scope.subshell
   scopes:
-    - punctuation.definition.evaluation.parens.begin
+    - punctuation.definition.subshell.single
 - source: cat
   scopesBegin:
     - meta.statement
@@ -211,9 +211,9 @@
     - string.unquoted.argument
 - source: )
   scopes:
-    - punctuation.definition.evaluation.parens.end
+    - punctuation.definition.subshell.single
   scopesEnd:
-    - string.interpolated.dollar
+    - meta.scope.subshell
 - source: '"'
   scopes:
     - punctuation.definition.string.end
@@ -232,9 +232,9 @@
     - punctuation.definition.string.begin
 - source: $(
   scopesBegin:
-    - string.interpolated.dollar
+    - meta.scope.subshell
   scopes:
-    - punctuation.definition.evaluation.parens.begin
+    - punctuation.definition.subshell.single
 - source: cat
   scopesBegin:
     - meta.statement
@@ -371,9 +371,9 @@
     - string.unquoted.argument
 - source: )
   scopes:
-    - punctuation.definition.evaluation.parens.end
+    - punctuation.definition.subshell.single
   scopesEnd:
-    - string.interpolated.dollar
+    - meta.scope.subshell
 - source: '"'
   scopes:
     - punctuation.definition.string.end
@@ -504,58 +504,104 @@
 - source: '='
   scopes:
     - keyword.operator.assignment
-- source: $((
+- source: $(
+  scopesBegin:
+    - meta.scope.subshell
   scopes:
-    - punctuation.definition.evaluation.arithmetic.begin
+    - punctuation.definition.subshell.single
+- source: (
+  scopesBegin:
+    - meta.parenthese.group
+  scopes:
+    - punctuation.section.parenthese
 - source: $
   scopesBegin:
-    - string.other.math
+    - meta.statement
+    - meta.statement.command
+    - meta.statement.command.name
   scopes:
     - punctuation.definition.variable
     - variable.other.normal
 - source: start_line_number
   scopes:
     - variable.other.normal
+  scopesEnd:
+    - meta.statement.command.name
 - source: '-'
-  scopes:
-    - keyword.operator.arithmetic
+  scopesBegin:
+    - meta.argument
+    - string.unquoted.argument
 - source: '1'
   scopes:
+    - constant.numeric
     - constant.numeric.integer
   scopesEnd:
-    - string.other.math
-- source: ))
+    - meta.statement
+    - meta.statement.command
+    - meta.argument
+    - string.unquoted.argument
+- source: )
   scopes:
-    - punctuation.definition.evaluation.arithmetic.end
+    - punctuation.section.parenthese
+  scopesEnd:
+    - meta.parenthese.group
+- source: )
+  scopes:
+    - punctuation.definition.subshell.single
+  scopesEnd:
+    - meta.scope.subshell
 - source: line_number_after
   scopes:
     - variable.other.assignment
 - source: '='
   scopes:
     - keyword.operator.assignment
-- source: $((
+- source: $(
+  scopesBegin:
+    - meta.scope.subshell
   scopes:
-    - punctuation.definition.evaluation.arithmetic.begin
+    - punctuation.definition.subshell.single
+- source: (
+  scopesBegin:
+    - meta.parenthese.group
+  scopes:
+    - punctuation.section.parenthese
 - source: $
   scopesBegin:
-    - string.other.math
+    - meta.statement
+    - meta.statement.command
+    - meta.statement.command.name
   scopes:
     - punctuation.definition.variable
     - variable.other.normal
 - source: end_line_number
   scopes:
     - variable.other.normal
+  scopesEnd:
+    - meta.statement.command.name
 - source: +
-  scopes:
-    - keyword.operator.arithmetic
+  scopesBegin:
+    - meta.argument
+    - string.unquoted.argument
 - source: '1'
   scopes:
+    - constant.numeric
     - constant.numeric.integer
   scopesEnd:
-    - string.other.math
-- source: ))
+    - meta.statement
+    - meta.statement.command
+    - meta.argument
+    - string.unquoted.argument
+- source: )
   scopes:
-    - punctuation.definition.evaluation.arithmetic.end
+    - punctuation.section.parenthese
+  scopesEnd:
+    - meta.parenthese.group
+- source: )
+  scopes:
+    - punctuation.definition.subshell.single
+  scopesEnd:
+    - meta.scope.subshell
 - source: new_top_half
   scopes:
     - variable.other.assignment
@@ -569,9 +615,9 @@
     - punctuation.definition.string.begin
 - source: $(
   scopesBegin:
-    - string.interpolated.dollar
+    - meta.scope.subshell
   scopes:
-    - punctuation.definition.evaluation.parens.begin
+    - punctuation.definition.subshell.single
 - source: head
   scopesBegin:
     - meta.statement
@@ -602,9 +648,9 @@
     - constant.other.option
 - source: )
   scopes:
-    - punctuation.definition.evaluation.parens.end
+    - punctuation.definition.subshell.single
   scopesEnd:
-    - string.interpolated.dollar
+    - meta.scope.subshell
 - source: '"'
   scopes:
     - punctuation.definition.string.end
@@ -630,9 +676,9 @@
     - variable.other.normal
 - source: $(
   scopesBegin:
-    - string.interpolated.dollar
+    - meta.scope.subshell
   scopes:
-    - punctuation.definition.evaluation.parens.begin
+    - punctuation.definition.subshell.single
 - source: tail
   scopesBegin:
     - meta.statement
@@ -675,9 +721,9 @@
     - string.quoted.double
 - source: )
   scopes:
-    - punctuation.definition.evaluation.parens.end
+    - punctuation.definition.subshell.single
   scopesEnd:
-    - string.interpolated.dollar
+    - meta.scope.subshell
 - source: '"'
   scopes:
     - punctuation.definition.string.end

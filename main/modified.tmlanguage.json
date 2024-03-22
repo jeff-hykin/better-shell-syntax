@@ -89,67 +89,28 @@
 		"compound-command": {
 			"patterns": [
 				{
-					"begin": "\\[{1,2}",
-					"beginCaptures": {
-						"0": {
-							"name": "punctuation.definition.logical-expression.shell"
-						}
-					},
-					"end": "\\]{1,2}",
-					"endCaptures": {
-						"0": {
-							"name": "punctuation.definition.logical-expression.shell"
-						}
-					},
-					"name": "meta.scope.logical-expression.shell",
-					"patterns": [
-						{
-							"include": "#logical-expression"
-						},
-						{
-							"include": "#initial_context"
-						}
-					]
-				},
-				{
-                    "match": "(\\$\\({2})(.+)(\\)\\s*\\))",
-                    "captures": {
-                        "1": {
-                            "name": "punctuation.definition.evaluation.arithmetic.begin.shell"
-                        },
-                        "2": {
-                            "name": "string.other.math.shell",
-                            "patterns": [
-                                {
-                                    "include": "#math"
-                                }
-                            ]
-                        },
-                        "3": {
-                            "name": "punctuation.definition.evaluation.arithmetic.end.shell"
+                    "begin": "\\[",
+                    "beginCaptures": {
+                        "0": {
+                            "name": "punctuation.definition.logical-expression.shell"
                         }
-                    }
+                    },
+                    "end": "\\]",
+                    "endCaptures": {
+                        "0": {
+                            "name": "punctuation.definition.logical-expression.shell"
+                        }
+                    },
+                    "name": "meta.scope.logical-expression.shell",
+                    "patterns": [
+                        {
+                            "include": "#logical-expression"
+                        },
+                        {
+                            "include": "#initial_context"
+                        }
+                    ]
                 },
-				{
-					"begin": "\\(",
-					"beginCaptures": {
-						"0": {
-							"name": "punctuation.definition.subshell.shell"
-						}
-					},
-					"end": "\\)",
-					"endCaptures": {
-						"0": {
-							"name": "punctuation.definition.subshell.shell"
-						}
-					},
-					"name": "meta.scope.subshell.shell",
-					"patterns": [
-						{
-							"include": "#initial_context"
-						}
-					]
-				},
 				{
 					"begin": "(?<=\\s|^){(?=\\s|$)",
 					"beginCaptures": {
@@ -680,23 +641,10 @@
 		"interpolation": {
 			"patterns": [
                 {
-                    "match": "(\\$\\({2})(.+)(\\)\\s*\\))",
-                    "captures": {
-						"1": {
-							"name": "punctuation.definition.evaluation.arithmetic.begin.shell"
-						},
-						"2": {
-							"name": "string.other.math.shell",
-							"patterns": [
-								{
-									"include": "#math"
-								}
-							]
-						},
-						"3": {
-							"name": "punctuation.definition.evaluation.arithmetic.end.shell"
-						}
-					}
+                    "include": "#arithmetic_dollar"
+                },
+                {
+                    "include": "#subshell_dollar"
                 },
 				{
 					"begin": "`",
@@ -742,26 +690,6 @@
 							"include": "#initial_context"
 						}
 					]
-				},
-				{
-					"begin": "\\$\\(",
-					"beginCaptures": {
-						"0": {
-							"name": "punctuation.definition.evaluation.parens.begin.shell"
-						}
-					},
-					"end": "\\)",
-					"endCaptures": {
-						"0": {
-							"name": "punctuation.definition.evaluation.parens.end.shell"
-						}
-					},
-					"name": "string.interpolated.dollar.shell",
-					"patterns": [
-						{
-							"include": "#initial_context"
-						}
-					]
 				}
 			]
 		},
@@ -779,6 +707,9 @@
 		},
 		"logical-expression": {
 			"patterns": [
+                {
+                    "include": "#arithmetic_no_dollar"
+                },
 				{
 					"comment": "do we want a special rule for ( expr )?",
 					"match": "=[=~]?|!=?|<|>|&&|\\|\\|",
@@ -792,26 +723,6 @@
 		},
 		"loop": {
 			"patterns": [
-				{
-					"begin": "(?<=^|;|&|\\s)(for)\\s+(?=\\({2})",
-					"beginCaptures": {
-						"1": {
-							"name": "keyword.control.shell"
-						}
-					},
-					"end": "(?<=^|;|&|\\s)(?:done|(?=\\)))(?=\\s|;|&|$|\\))",
-					"endCaptures": {
-						"0": {
-							"name": "keyword.control.shell"
-						}
-					},
-					"name": "meta.scope.for-loop.shell",
-					"patterns": [
-						{
-							"include": "#initial_context"
-						}
-					]
-				},
 				{
 					"begin": "(?<=^|;|&|\\s)(for)\\s+(.+?)\\s+(in)(?=\\s|;|&|$)",
 					"beginCaptures": {
@@ -890,13 +801,13 @@
 					"begin": "(?<=^|;|&|\\s)if(?=\\s|;|&|$)",
 					"beginCaptures": {
 						"0": {
-							"name": "keyword.control.shell"
+							"name": "keyword.control.if.shell"
 						}
 					},
 					"end": "(?<=^|;|&|\\s)fi(?=\\s|;|&|$)",
 					"endCaptures": {
 						"0": {
-							"name": "keyword.control.shell"
+							"name": "keyword.control.fi.shell"
 						}
 					},
 					"name": "meta.scope.if-block.shell",

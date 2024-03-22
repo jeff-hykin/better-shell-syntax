@@ -1,7 +1,7 @@
 - source: declare
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
+    - meta.expression.assignment.modified
   scopes:
     - storage.modifier.declare
 - source: '-A'
@@ -19,14 +19,14 @@
     - punctuation.definition.array
 - source: '['
   scopes:
-    - punctuation.definition.bracket
+    - punctuation.definition.bracket.named-array
 - source: '""'
   scopes:
     - string.unquoted
-    - entity.other.attribute-name
+    - entity.other.attribute-name.bracket
 - source: ']'
   scopes:
-    - punctuation.definition.bracket
+    - punctuation.definition.bracket.named-array
 - source: '='
   scopes:
     - punctuation.definition.assignment
@@ -42,14 +42,14 @@
     - string.quoted.double
 - source: '['
   scopes:
-    - punctuation.definition.bracket
+    - punctuation.definition.bracket.named-array
 - source: '"${VAR2}"'
   scopes:
     - string.unquoted
-    - entity.other.attribute-name
+    - entity.other.attribute-name.bracket
 - source: ']'
   scopes:
-    - punctuation.definition.bracket
+    - punctuation.definition.bracket.named-array
 - source: '='
   scopes:
     - punctuation.definition.assignment
@@ -82,7 +82,7 @@
   scopes:
     - punctuation.definition.array
   scopesEnd:
-    - meta.expression.assignment
+    - meta.expression.assignment.modified
 - source: logexit
   scopes:
     - meta.statement.command

@@ -34,7 +34,20 @@
 - source: '*'
   scopes:
     - keyword.operator.glob
-- source: '(#qN) '
+- source: (
+  scopesBegin:
+    - meta.arithmetic
+  scopes:
+    - punctuation.section.arithmetic.single
+- source: '#'
+- source: qN
+  scopes:
+    - variable.other.normal
+- source: )
+  scopes:
+    - punctuation.section.arithmetic.single
+  scopesEnd:
+    - meta.arithmetic
 - source: ']]'
   scopes:
     - punctuation.definition.logical-expression

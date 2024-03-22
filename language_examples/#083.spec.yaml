@@ -8,7 +8,11 @@
     - meta.scope.logical-expression
   scopes:
     - punctuation.definition.logical-expression
-- source: ' ( '
+- source: (
+  scopesBegin:
+    - meta.arithmetic
+  scopes:
+    - punctuation.section.arithmetic.single
 - source: $
   scopes:
     - punctuation.definition.variable
@@ -18,7 +22,7 @@
     - variable.parameter.positional
 - source: '=='
   scopes:
-    - keyword.operator.logical
+    - keyword.operator.arithmetic
 - source: '"'
   scopesBegin:
     - string.quoted.double
@@ -30,11 +34,19 @@
     - punctuation.definition.string.end
   scopesEnd:
     - string.quoted.double
-- source: ' ) '
+- source: )
+  scopes:
+    - punctuation.section.arithmetic.single
+  scopesEnd:
+    - meta.arithmetic
 - source: '||'
   scopes:
     - keyword.operator.logical
-- source: ' ( '
+- source: (
+  scopesBegin:
+    - meta.arithmetic
+  scopes:
+    - punctuation.section.arithmetic.single
 - source: $
   scopes:
     - punctuation.definition.variable
@@ -44,7 +56,7 @@
     - variable.parameter.positional
 - source: '=='
   scopes:
-    - keyword.operator.logical
+    - keyword.operator.arithmetic
 - source: '"'
   scopesBegin:
     - string.quoted.double
@@ -56,11 +68,19 @@
     - punctuation.definition.string.end
   scopesEnd:
     - string.quoted.double
-- source: ' ) '
+- source: )
+  scopes:
+    - punctuation.section.arithmetic.single
+  scopesEnd:
+    - meta.arithmetic
 - source: '||'
   scopes:
     - keyword.operator.logical
-- source: ' ( '
+- source: (
+  scopesBegin:
+    - meta.arithmetic
+  scopes:
+    - punctuation.section.arithmetic.single
 - source: $
   scopes:
     - punctuation.definition.variable
@@ -70,7 +90,7 @@
     - variable.parameter.positional
 - source: '=='
   scopes:
-    - keyword.operator.logical
+    - keyword.operator.arithmetic
 - source: '"'
   scopesBegin:
     - string.quoted.double
@@ -82,7 +102,11 @@
     - punctuation.definition.string.end
   scopesEnd:
     - string.quoted.double
-- source: ' ) '
+- source: )
+  scopes:
+    - punctuation.section.arithmetic.single
+  scopesEnd:
+    - meta.arithmetic
 - source: ']]'
   scopes:
     - punctuation.definition.logical-expression
@@ -128,14 +152,14 @@
     - punctuation.definition.logical-expression
 - source: $(
   scopesBegin:
-    - string.interpolated.dollar
-  scopes:
-    - punctuation.definition.evaluation.parens.begin
-- source: (
-  scopesBegin:
     - meta.scope.subshell
   scopes:
-    - punctuation.definition.subshell
+    - punctuation.definition.subshell.single
+- source: (
+  scopesBegin:
+    - meta.parenthese.group
+  scopes:
+    - punctuation.section.parenthese
 - source: $
   scopesBegin:
     - meta.statement
@@ -164,14 +188,14 @@
     - string.unquoted.argument
 - source: )
   scopes:
-    - punctuation.definition.subshell
+    - punctuation.section.parenthese
   scopesEnd:
-    - meta.scope.subshell
+    - meta.parenthese.group
 - source: )
   scopes:
-    - punctuation.definition.evaluation.parens.end
+    - punctuation.definition.subshell.single
   scopesEnd:
-    - string.interpolated.dollar
+    - meta.scope.subshell
 - source: '!='
   scopes:
     - keyword.operator.logical
@@ -211,14 +235,14 @@
 - source: 'Expected 1 argument but got '
 - source: $(
   scopesBegin:
-    - string.interpolated.dollar
-  scopes:
-    - punctuation.definition.evaluation.parens.begin
-- source: (
-  scopesBegin:
     - meta.scope.subshell
   scopes:
-    - punctuation.definition.subshell
+    - punctuation.definition.subshell.single
+- source: (
+  scopesBegin:
+    - meta.parenthese.group
+  scopes:
+    - punctuation.section.parenthese
 - source: $
   scopesBegin:
     - meta.statement
@@ -247,14 +271,14 @@
     - string.unquoted.argument
 - source: )
   scopes:
-    - punctuation.definition.subshell
+    - punctuation.section.parenthese
   scopesEnd:
-    - meta.scope.subshell
+    - meta.parenthese.group
 - source: )
   scopes:
-    - punctuation.definition.evaluation.parens.end
+    - punctuation.definition.subshell.single
   scopesEnd:
-    - string.interpolated.dollar
+    - meta.scope.subshell
 - source: .
 - source: '"'
   scopes:

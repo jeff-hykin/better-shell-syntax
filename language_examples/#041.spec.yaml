@@ -18,7 +18,8 @@
 - source: local
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
+    - meta.statement
+    - meta.expression.assignment.modified
   scopes:
     - storage.modifier.local
 - source: bbb
@@ -37,7 +38,8 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
-    - meta.expression.assignment
+    - meta.statement
+    - meta.expression.assignment.modified
     - string.quoted.double
 - source: printf
   scopesBegin:
@@ -138,7 +140,9 @@
 - source: local
   scopesBegin:
     - meta.case.entry.body
-    - meta.expression.assignment
+    - meta.statement
+    - meta.statement
+    - meta.expression.assignment.modified
   scopes:
     - storage.modifier.local
 - source: bbb
@@ -157,7 +161,9 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
-    - meta.expression.assignment
+    - meta.statement
+    - meta.statement
+    - meta.expression.assignment.modified
     - string.quoted.double
 - source: echo
   scopesBegin:
@@ -206,7 +212,8 @@
 - source: local
   scopesBegin:
     - meta.case.entry.body
-    - meta.expression.assignment
+    - meta.statement
+    - meta.expression.assignment.modified
   scopes:
     - storage.modifier.local
 - source: bbb
@@ -225,12 +232,12 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
+    - meta.statement
+    - meta.expression.assignment.modified
     - string.quoted.double
 - source: ;
   scopes:
     - punctuation.terminator.statement.semicolon
-  scopesEnd:
-    - meta.expression.assignment
 - source: echo
   scopesBegin:
     - meta.statement.command

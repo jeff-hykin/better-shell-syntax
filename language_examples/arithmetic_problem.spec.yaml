@@ -14,14 +14,14 @@
     - punctuation.definition.string.begin
 - source: $(
   scopesBegin:
-    - string.interpolated.dollar
-  scopes:
-    - punctuation.definition.evaluation.parens.begin
-- source: (
-  scopesBegin:
     - meta.scope.subshell
   scopes:
-    - punctuation.definition.subshell
+    - punctuation.definition.subshell.single
+- source: (
+  scopesBegin:
+    - meta.parenthese.group
+  scopes:
+    - punctuation.section.parenthese
 - source: xcode-\select
   scopesBegin:
     - meta.statement
@@ -44,17 +44,17 @@
     - string.unquoted.argument
 - source: )
   scopes:
-    - punctuation.definition.subshell
+    - punctuation.section.parenthese
   scopesEnd:
-    - meta.scope.subshell
+    - meta.parenthese.group
 - source: 2>&1
   scopes:
     - keyword.operator.redirect
 - source: )
   scopes:
-    - punctuation.definition.evaluation.parens.end
+    - punctuation.definition.subshell.single
   scopesEnd:
-    - string.interpolated.dollar
+    - meta.scope.subshell
 - source: '"'
   scopes:
     - punctuation.definition.string.end

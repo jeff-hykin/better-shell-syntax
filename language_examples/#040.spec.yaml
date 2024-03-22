@@ -21,7 +21,8 @@
 - source: local
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
+    - meta.statement
+    - meta.expression.assignment.modified
   scopes:
     - storage.modifier.local
 - source: O
@@ -67,12 +68,8 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
-    - meta.expression.assignment
     - string.quoted.double
 - source: local
-  scopesBegin:
-    - meta.statement
-    - meta.expression.assignment
   scopes:
     - storage.modifier.local
 - source: O
@@ -114,12 +111,8 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
-    - meta.statement
-    - meta.expression.assignment
     - string.quoted.double
 - source: local
-  scopesBegin:
-    - meta.expression.assignment
   scopes:
     - storage.modifier.local
 - source: O
@@ -171,12 +164,8 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
-    - meta.expression.assignment
     - string.quoted.double
 - source: local
-  scopesBegin:
-    - meta.statement
-    - meta.expression.assignment
   scopes:
     - storage.modifier.local
 - source: O
@@ -229,12 +218,8 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
-    - meta.statement
-    - meta.expression.assignment
     - string.quoted.double
 - source: local
-  scopesBegin:
-    - meta.expression.assignment
   scopes:
     - storage.modifier.local
 - source: O
@@ -291,7 +276,8 @@
     - punctuation.definition.string.end
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
+    - meta.statement
+    - meta.expression.assignment.modified
     - string.quoted.double
 - source: '}'
   scopes:

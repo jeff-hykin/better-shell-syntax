@@ -1,7 +1,7 @@
 - source: readonly
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
+    - meta.expression.assignment.modified
   scopes:
     - storage.modifier.readonly
 - source: PROFILE_FISH_PREFIXES

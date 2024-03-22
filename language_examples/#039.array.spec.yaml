@@ -1,0 +1,1539 @@
+- source: var1
+  scopesBegin:
+    - meta.statement
+    - meta.expression.assignment
+  scopes:
+    - variable.other.assignment
+- source: '='
+  scopes:
+    - keyword.operator.assignment
+- source: '"'
+  scopesBegin:
+    - string.quoted.double
+  scopes:
+    - punctuation.definition.string.begin
+- source: Lorem ipsum dolor sit amet
+- source: '"'
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - meta.expression.assignment
+    - string.quoted.double
+- source: declare
+  scopesBegin:
+    - meta.expression.assignment.modified
+  scopes:
+    - storage.modifier.declare
+- source: '-A'
+  scopes:
+    - string.unquoted.argument
+    - constant.other.option
+- source: ASSOC_ARRAY
+  scopes:
+    - variable.other.assignment
+  scopesEnd:
+    - meta.expression.assignment.modified
+- source: ASSOC_ARRAY
+  scopes:
+    - variable.other.assignment
+- source: '='
+  scopes:
+    - keyword.operator.assignment
+- source: (
+  scopes:
+    - punctuation.definition.array
+- source: '['
+  scopes:
+    - punctuation.definition.bracket.named-array
+- source: item1
+  scopes:
+    - string.unquoted
+    - entity.other.attribute-name.bracket
+- source: ']'
+  scopes:
+    - punctuation.definition.bracket.named-array
+- source: '='
+  scopes:
+    - punctuation.definition.assignment
+- source: $
+  scopes:
+    - punctuation.definition.variable
+    - variable.other.normal
+- source: var1
+  scopes:
+    - variable.other.normal
+- source: '['
+  scopes:
+    - punctuation.definition.bracket.named-array
+- source: item2
+  scopes:
+    - string.unquoted
+    - entity.other.attribute-name.bracket
+- source: ']'
+  scopes:
+    - punctuation.definition.bracket.named-array
+- source: '='
+  scopes:
+    - punctuation.definition.assignment
+- source: $'
+  scopesBegin:
+    - string.quoted.single.dollar
+  scopes:
+    - punctuation.definition.string.begin
+- source: '\033[1;94m'
+- source: ''''
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - string.quoted.single.dollar
+- source: '['
+  scopes:
+    - punctuation.definition.bracket.named-array
+- source: item3
+  scopes:
+    - string.unquoted
+    - entity.other.attribute-name.bracket
+- source: ']'
+  scopes:
+    - punctuation.definition.bracket.named-array
+- source: '='
+  scopes:
+    - punctuation.definition.assignment
+- source: '"'
+  scopesBegin:
+    - string.quoted.double
+  scopes:
+    - punctuation.definition.string.begin
+- source: lorem-ipsum
+- source: '"'
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - string.quoted.double
+- source: '['
+  scopes:
+    - punctuation.definition.bracket.named-array
+- source: item4
+  scopes:
+    - string.unquoted
+    - entity.other.attribute-name.bracket
+- source: ']'
+  scopes:
+    - punctuation.definition.bracket.named-array
+- source: '='
+  scopes:
+    - punctuation.definition.assignment
+- source: '100'
+  scopes:
+    - constant.numeric
+    - constant.numeric.integer
+- source: '['
+  scopes:
+    - punctuation.definition.bracket.named-array
+- source: item5
+  scopes:
+    - string.unquoted
+    - entity.other.attribute-name.bracket
+- source: ']'
+  scopes:
+    - punctuation.definition.bracket.named-array
+- source: '='
+  scopes:
+    - punctuation.definition.assignment
+- source: $'
+  scopesBegin:
+    - string.quoted.single.dollar
+  scopes:
+    - punctuation.definition.string.begin
+- source: '\033[1;95m'
+- source: ''''
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - string.quoted.single.dollar
+- source: '['
+  scopes:
+    - punctuation.definition.bracket.named-array
+- source: item6
+  scopes:
+    - string.unquoted
+    - entity.other.attribute-name.bracket
+- source: ']'
+  scopes:
+    - punctuation.definition.bracket.named-array
+- source: '='
+  scopes:
+    - punctuation.definition.assignment
+- source: $'
+  scopesBegin:
+    - string.quoted.single.dollar
+  scopes:
+    - punctuation.definition.string.begin
+- source: '\033[1;93m'
+- source: ''''
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - string.quoted.single.dollar
+- source: '['
+  scopes:
+    - punctuation.definition.bracket.named-array
+- source: item7
+  scopes:
+    - string.unquoted
+    - entity.other.attribute-name.bracket
+- source: ']'
+  scopes:
+    - punctuation.definition.bracket.named-array
+- source: '='
+  scopes:
+    - punctuation.definition.assignment
+- source: $
+  scopes:
+    - punctuation.definition.variable
+    - variable.other.normal
+- source: var1
+  scopes:
+    - variable.other.normal
+- source: )
+  scopes:
+    - punctuation.definition.array
+  scopesEnd:
+    - meta.statement
+- source: '#!'
+  scopesBegin:
+    - comment.line.number-sign
+    - meta.shebang
+  scopes:
+    - punctuation.definition.comment.shebang
+- source: /usr/bin/env bash
+  scopesEnd:
+    - meta.shebang
+- source: '#'
+  scopes:
+    - punctuation.definition.comment
+- source: ' https://wiki.manjaro.org/index.php/Snap'
+- source: '#'
+  scopes:
+    - punctuation.definition.comment
+- source: ' https://packages.ubuntu.com/bionic/gnome/gnome-software-plugin-snap'
+- source: '#'
+  scopes:
+    - punctuation.definition.comment
+- source: ' https://snapcraft.io/docs/installing-snap-on-opensuse'
+- source: '#'
+  scopes:
+    - punctuation.definition.comment
+- source: ' https://software.opensuse.org/download/package?package=snapd&project=system:snappy'
+- source: '#'
+  scopes:
+    - punctuation.definition.comment
+- source: ' https://en.opensuse.org/Snap <-- this is the correct info'
+- source: '#'
+  scopes:
+    - punctuation.definition.comment
+- source: ' https://software.opensuse.org/download/package?package=snapd&project=system:snappy <-- this is not correct'
+- source: '#'
+  scopes:
+    - punctuation.definition.comment
+- source: ' https://packages.debian.org/sid/amd64/snapd/filelist'
+- source: '#'
+  scopes:
+    - punctuation.definition.comment
+- source: ' /usr/bin/snap'
+- source: '#'
+  scopes:
+    - punctuation.definition.comment
+- source: ' /usr/bin/snapctl'
+- source: '#'
+  scopes:
+    - punctuation.definition.comment
+- source: ' /usr/bin/ubuntu-core-launcher'
+  scopesEnd:
+    - comment.line.number-sign
+- source: function
+  scopesBegin:
+    - meta.function
+  scopes:
+    - storage.type.function
+- source: setup_util_snap
+  scopes:
+    - entity.name.function
+- source: (
+  scopesBegin:
+    - punctuation.definition.arguments
+- source: )
+  scopesEnd:
+    - punctuation.definition.arguments
+- source: (
+  scopesBegin:
+    - meta.function.body
+  scopes:
+    - punctuation.definition.group
+    - punctuation.section.function.definition
+- source: source
+  scopesBegin:
+    - meta.statement
+    - meta.statement.command
+  scopes:
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+    - support.function.builtin
+- source: '"'
+  scopesBegin:
+    - meta.argument
+    - string.quoted.double
+  scopes:
+    - punctuation.definition.string.begin
+- source: $
+  scopes:
+    - punctuation.definition.variable
+    - variable.other.normal
+- source: DOROTHY
+  scopes:
+    - variable.other.normal
+- source: /sources/bash.bash
+- source: '"'
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - meta.statement
+    - meta.statement.command
+    - meta.argument
+    - string.quoted.double
+- source: '#'
+  scopesBegin:
+    - comment.line.number-sign
+  scopes:
+    - punctuation.definition.comment
+- source: ' checks'
+  scopesEnd:
+    - comment.line.number-sign
+- source: if
+  scopesBegin:
+    - meta.scope.if-block
+  scopes:
+    - keyword.control
+- source: '!'
+  scopes:
+    - keyword.operator.pipe
+- source: is-linux
+  scopes:
+    - meta.statement
+    - meta.statement.command
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+- source: ;
+  scopes:
+    - punctuation.terminator.statement.semicolon
+- source: then
+  scopes:
+    - keyword.control.then
+- source: echo-style
+  scopesBegin:
+    - meta.statement
+    - meta.statement.command
+  scopes:
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+- source: '-'
+  scopesBegin:
+    - string.unquoted.argument
+  scopes:
+    - constant.other.option.dash
+- source: '-notice='
+  scopesBegin:
+    - constant.other.option
+- source: '"'
+  scopesBegin:
+    - string.quoted.double
+  scopes:
+    - punctuation.definition.string.begin
+- source: '['
+- source: $
+  scopes:
+    - punctuation.definition.variable
+    - variable.parameter.positional
+- source: '0'
+  scopes:
+    - variable.parameter.positional
+- source: '] is only intended to be run on Linux systems, skipping.'
+- source: '"'
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - string.unquoted.argument
+    - constant.other.option
+    - string.quoted.double
+- source: '>'
+  scopesBegin:
+    - meta.argument
+  scopes:
+    - keyword.operator.redirect
+- source: /dev/stderr
+  scopes:
+    - string.unquoted.argument
+  scopesEnd:
+    - meta.argument
+- source: return
+  scopes:
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+    - keyword.control.return
+- source: '0'
+  scopes:
+    - meta.argument
+    - string.unquoted.argument
+    - constant.numeric
+    - constant.numeric.integer
+  scopesEnd:
+    - meta.statement
+    - meta.statement.command
+- source: fi
+  scopes:
+    - keyword.control
+  scopesEnd:
+    - meta.scope.if-block
+- source: '#'
+  scopesBegin:
+    - comment.line.number-sign
+  scopes:
+    - punctuation.definition.comment
+- source: ' setup'
+  scopesEnd:
+    - comment.line.number-sign
+- source: local
+  scopesBegin:
+    - meta.statement
+    - meta.statement
+    - meta.expression.assignment.modified
+  scopes:
+    - storage.modifier.local
+- source: options
+  scopes:
+    - variable.other.assignment
+- source: '='
+  scopes:
+    - keyword.operator.assignment
+- source: (
+  scopes:
+    - punctuation.definition.array
+- source: '--name'
+  scopes:
+    - variable.other.assignment.array
+    - entity.other.attribute-name
+- source: '='
+  scopes:
+    - keyword.operator.assignment
+    - punctuation.definition.assignment
+- source: ''''
+  scopesBegin:
+    - string.quoted.single
+  scopes:
+    - punctuation.definition.string.begin
+- source: snap
+- source: ''''
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - string.quoted.single
+- source: '--cli'
+  scopes:
+    - variable.other.assignment.array
+    - entity.other.attribute-name
+- source: '='
+  scopes:
+    - keyword.operator.assignment
+    - punctuation.definition.assignment
+- source: ''''
+  scopesBegin:
+    - string.quoted.single
+  scopes:
+    - punctuation.definition.string.begin
+- source: snap
+- source: ''''
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - string.quoted.single
+- source: '"'
+  scopesBegin:
+    - string.quoted.double
+  scopes:
+    - punctuation.definition.string.begin
+- source: $
+  scopes:
+    - punctuation.definition.variable
+    - variable.parameter.positional.all
+- source: '@'
+  scopes:
+    - variable.parameter.positional.all
+- source: '"'
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - string.quoted.double
+- source: APT
+  scopes:
+    - variable.other.assignment.array
+    - entity.other.attribute-name
+- source: '='
+  scopes:
+    - keyword.operator.assignment
+    - punctuation.definition.assignment
+- source: ''''
+  scopesBegin:
+    - string.quoted.single
+  scopes:
+    - punctuation.definition.string.begin
+- source: snapd
+- source: ''''
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - string.quoted.single
+- source: '#'
+  scopesBegin:
+    - comment.line.number-sign
+  scopes:
+    - punctuation.definition.comment
+- source: ' UBUNTU'
+  scopesEnd:
+    - comment.line.number-sign
+- source: AUR
+  scopes:
+    - variable.other.assignment.array
+    - entity.other.attribute-name
+- source: '='
+  scopes:
+    - keyword.operator.assignment
+    - punctuation.definition.assignment
+- source: ''''
+  scopesBegin:
+    - string.quoted.single
+  scopes:
+    - punctuation.definition.string.begin
+- source: snapd
+- source: ''''
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - string.quoted.single
+- source: '#'
+  scopesBegin:
+    - comment.line.number-sign
+  scopes:
+    - punctuation.definition.comment
+- source: ' ARCH'
+  scopesEnd:
+    - comment.line.number-sign
+- source: RPM
+  scopes:
+    - variable.other.assignment.array
+    - entity.other.attribute-name
+- source: '='
+  scopes:
+    - keyword.operator.assignment
+    - punctuation.definition.assignment
+- source: ''''
+  scopesBegin:
+    - string.quoted.single
+  scopes:
+    - punctuation.definition.string.begin
+- source: snapd
+- source: ''''
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - string.quoted.single
+- source: '#'
+  scopesBegin:
+    - comment.line.number-sign
+  scopes:
+    - punctuation.definition.comment
+- source: ' FEDORA'
+  scopesEnd:
+    - comment.line.number-sign
+- source: ZYPPER_REPO_ALIAS
+  scopes:
+    - variable.other.assignment.array
+    - entity.other.attribute-name
+- source: '='
+  scopes:
+    - keyword.operator.assignment
+    - punctuation.definition.assignment
+- source: ''''
+  scopesBegin:
+    - string.quoted.single
+  scopes:
+    - punctuation.definition.string.begin
+- source: snappy
+- source: ''''
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - string.quoted.single
+- source: ZYPPER_REPO
+  scopes:
+    - variable.other.assignment.array
+    - entity.other.attribute-name
+- source: '='
+  scopes:
+    - keyword.operator.assignment
+    - punctuation.definition.assignment
+- source: '"'
+  scopesBegin:
+    - string.quoted.double
+  scopes:
+    - punctuation.definition.string.begin
+- source: 'https://download.opensuse.org/repositories/system:snappy/'
+- source: $(
+  scopesBegin:
+    - meta.scope.subshell
+  scopes:
+    - punctuation.definition.subshell.single
+- source: get-opensuse-release
+  scopesBegin:
+    - meta.statement
+    - meta.statement.command
+  scopes:
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+- source: '2'
+  scopesBegin:
+    - meta.argument
+  scopes:
+    - keyword.operator.redirect.stderr
+- source: '>'
+  scopes:
+    - keyword.operator.redirect
+- source: /dev/null
+  scopes:
+    - string.unquoted.argument
+  scopesEnd:
+    - meta.statement
+    - meta.statement.command
+    - meta.argument
+- source: '|'
+  scopesBegin:
+    - keyword.operator.pipe
+- source: '|'
+  scopesEnd:
+    - keyword.operator.pipe
+- source: ':'
+  scopes:
+    - meta.statement
+    - meta.statement.command
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+    - support.function.builtin
+- source: )
+  scopes:
+    - punctuation.definition.subshell.single
+  scopesEnd:
+    - meta.scope.subshell
+- source: /
+- source: '"'
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - string.quoted.double
+- source: ZYPPER
+  scopes:
+    - variable.other.assignment.array
+    - entity.other.attribute-name
+- source: '='
+  scopes:
+    - keyword.operator.assignment
+    - punctuation.definition.assignment
+- source: ''''
+  scopesBegin:
+    - string.quoted.single
+  scopes:
+    - punctuation.definition.string.begin
+- source: snapd
+- source: ''''
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - string.quoted.single
+- source: '#'
+  scopesBegin:
+    - comment.line.number-sign
+  scopes:
+    - punctuation.definition.comment
+- source: ' SUSE'
+  scopesEnd:
+    - comment.line.number-sign
+- source: )
+  scopes:
+    - punctuation.definition.array
+- source: local
+  scopes:
+    - storage.modifier.local
+- source: a
+  scopesBegin:
+    - variable.other.assignment
+- source: options
+  scopesEnd:
+    - variable.other.assignment
+- source: '='
+  scopes:
+    - keyword.operator.assignment
+- source: (
+  scopes:
+    - punctuation.definition.array
+- source: '--name'
+  scopes:
+    - variable.other.assignment.array
+    - entity.other.attribute-name
+- source: '='
+  scopes:
+    - keyword.operator.assignment
+    - punctuation.definition.assignment
+- source: ''''
+  scopesBegin:
+    - string.quoted.single
+  scopes:
+    - punctuation.definition.string.begin
+- source: snap
+- source: ''''
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - string.quoted.single
+- source: '--cli'
+  scopes:
+    - variable.other.assignment.array
+    - entity.other.attribute-name
+- source: '='
+  scopes:
+    - keyword.operator.assignment
+    - punctuation.definition.assignment
+- source: ''''
+  scopesBegin:
+    - string.quoted.single
+  scopes:
+    - punctuation.definition.string.begin
+- source: snap
+- source: ''''
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - string.quoted.single
+- source: '"'
+  scopesBegin:
+    - string.quoted.double
+  scopes:
+    - punctuation.definition.string.begin
+- source: $
+  scopes:
+    - punctuation.definition.variable
+    - variable.parameter.positional.all
+- source: '@'
+  scopes:
+    - variable.parameter.positional.all
+- source: '"'
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - string.quoted.double
+- source: APT
+  scopes:
+    - variable.other.assignment.array
+    - entity.other.attribute-name
+- source: '='
+  scopes:
+    - keyword.operator.assignment
+    - punctuation.definition.assignment
+- source: ''''
+  scopesBegin:
+    - string.quoted.single
+  scopes:
+    - punctuation.definition.string.begin
+- source: snapd
+- source: ''''
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - string.quoted.single
+- source: '#'
+  scopesBegin:
+    - comment.line.number-sign
+  scopes:
+    - punctuation.definition.comment
+- source: ' UBUNTU'
+  scopesEnd:
+    - comment.line.number-sign
+- source: AUR
+  scopes:
+    - variable.other.assignment.array
+    - entity.other.attribute-name
+- source: '='
+  scopes:
+    - keyword.operator.assignment
+    - punctuation.definition.assignment
+- source: ''''
+  scopesBegin:
+    - string.quoted.single
+  scopes:
+    - punctuation.definition.string.begin
+- source: snapd
+- source: ''''
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - string.quoted.single
+- source: '#'
+  scopesBegin:
+    - comment.line.number-sign
+  scopes:
+    - punctuation.definition.comment
+- source: ' ARCH'
+  scopesEnd:
+    - comment.line.number-sign
+- source: RPM
+  scopes:
+    - variable.other.assignment.array
+    - entity.other.attribute-name
+- source: '='
+  scopes:
+    - keyword.operator.assignment
+    - punctuation.definition.assignment
+- source: ''''
+  scopesBegin:
+    - string.quoted.single
+  scopes:
+    - punctuation.definition.string.begin
+- source: snapd
+- source: ''''
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - string.quoted.single
+- source: '#'
+  scopesBegin:
+    - comment.line.number-sign
+  scopes:
+    - punctuation.definition.comment
+- source: ' FEDORA'
+  scopesEnd:
+    - comment.line.number-sign
+- source: ZYPPER_REPO_ALIAS
+  scopes:
+    - variable.other.assignment.array
+    - entity.other.attribute-name
+- source: '='
+  scopes:
+    - keyword.operator.assignment
+    - punctuation.definition.assignment
+- source: ''''
+  scopesBegin:
+    - string.quoted.single
+  scopes:
+    - punctuation.definition.string.begin
+- source: snappy
+- source: ''''
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - string.quoted.single
+- source: ZYPPER_REPO
+  scopes:
+    - variable.other.assignment.array
+    - entity.other.attribute-name
+- source: '='
+  scopes:
+    - keyword.operator.assignment
+    - punctuation.definition.assignment
+- source: '"'
+  scopesBegin:
+    - string.quoted.double
+  scopes:
+    - punctuation.definition.string.begin
+- source: 'https://download.opensuse.org/repositories/system:snappy/'
+- source: $(
+  scopesBegin:
+    - meta.scope.subshell
+  scopes:
+    - punctuation.definition.subshell.single
+- source: get-opensuse-release
+  scopesBegin:
+    - meta.statement
+    - meta.statement.command
+  scopes:
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+- source: '2'
+  scopesBegin:
+    - meta.argument
+  scopes:
+    - keyword.operator.redirect.stderr
+- source: '>'
+  scopes:
+    - keyword.operator.redirect
+- source: /dev/null
+  scopes:
+    - string.unquoted.argument
+  scopesEnd:
+    - meta.statement
+    - meta.statement.command
+    - meta.argument
+- source: '|'
+  scopesBegin:
+    - keyword.operator.pipe
+- source: '|'
+  scopesEnd:
+    - keyword.operator.pipe
+- source: ':'
+  scopes:
+    - meta.statement
+    - meta.statement.command
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+    - support.function.builtin
+- source: )
+  scopes:
+    - punctuation.definition.subshell.single
+  scopesEnd:
+    - meta.scope.subshell
+- source: /
+- source: '"'
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - string.quoted.double
+- source: ZYPPER
+  scopes:
+    - variable.other.assignment.array
+    - entity.other.attribute-name
+- source: '='
+  scopes:
+    - keyword.operator.assignment
+    - punctuation.definition.assignment
+- source: ''''
+  scopesBegin:
+    - string.quoted.single
+  scopes:
+    - punctuation.definition.string.begin
+- source: snapd
+- source: ''''
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - string.quoted.single
+- source: '#'
+  scopesBegin:
+    - comment.line.number-sign
+  scopes:
+    - punctuation.definition.comment
+- source: ' SUSE'
+  scopesEnd:
+    - comment.line.number-sign
+- source: )
+  scopes:
+    - punctuation.definition.array
+  scopesEnd:
+    - meta.statement
+    - meta.expression.assignment.modified
+- source: setup-util
+  scopesBegin:
+    - meta.statement.command
+  scopes:
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+- source: '"'
+  scopesBegin:
+    - meta.argument
+    - string.quoted.double
+  scopes:
+    - punctuation.definition.string.begin
+- source: $
+  scopes:
+    - punctuation.definition.variable
+- source: '{'
+  scopes:
+    - punctuation.section.bracket.curly.variable.begin
+    - punctuation.definition.variable
+- source: options
+  scopesBegin:
+    - meta.parameter-expansion
+  scopes:
+    - variable.other.normal
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+- source: ']'
+  scopes:
+    - punctuation.section.array
+  scopesEnd:
+    - meta.parameter-expansion
+- source: '}'
+  scopes:
+    - punctuation.section.bracket.curly.variable.end
+    - punctuation.definition.variable
+- source: '"'
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - meta.statement
+    - meta.statement.command
+    - meta.argument
+    - string.quoted.double
+- source: '#'
+  scopesBegin:
+    - comment.line.number-sign
+  scopes:
+    - punctuation.definition.comment
+- source: ' if installed, configure'
+  scopesEnd:
+    - comment.line.number-sign
+- source: if
+  scopesBegin:
+    - meta.scope.if-block
+  scopes:
+    - keyword.control
+- source: is-snap
+  scopes:
+    - meta.statement
+    - meta.statement.command
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+- source: ;
+  scopes:
+    - punctuation.terminator.statement.semicolon
+- source: then
+  scopes:
+    - keyword.control.then
+- source: '#'
+  scopesBegin:
+    - comment.line.number-sign
+  scopes:
+    - punctuation.definition.comment
+- source: ' log start'
+  scopesEnd:
+    - comment.line.number-sign
+- source: echo-segment
+  scopesBegin:
+    - meta.statement
+    - meta.statement.command
+  scopes:
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+- source: '-'
+  scopesBegin:
+    - string.unquoted.argument
+  scopes:
+    - constant.other.option.dash
+- source: '-h2='
+  scopesBegin:
+    - constant.other.option
+- source: ''''
+  scopesBegin:
+    - string.quoted.single
+  scopes:
+    - punctuation.definition.string.begin
+- source: Configure snap
+- source: ''''
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - meta.statement
+    - meta.statement.command
+    - string.unquoted.argument
+    - constant.other.option
+    - string.quoted.single
+- source: '#'
+  scopesBegin:
+    - comment.line.number-sign
+  scopes:
+    - punctuation.definition.comment
+- source: ' ensure snap is discoverable to the system'
+  scopesEnd:
+    - comment.line.number-sign
+- source: if
+  scopesBegin:
+    - meta.scope.if-block
+  scopes:
+    - keyword.control
+- source: test
+  scopesBegin:
+    - meta.statement
+    - meta.statement.command
+  scopes:
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+    - support.function.builtin
+- source: '!'
+  scopes:
+    - meta.argument
+    - string.unquoted.argument
+- source: '-'
+  scopesBegin:
+    - string.unquoted.argument
+  scopes:
+    - constant.other.option.dash
+- source: d
+  scopes:
+    - constant.other.option
+  scopesEnd:
+    - string.unquoted.argument
+- source: /snap
+  scopes:
+    - meta.argument
+    - string.unquoted.argument
+  scopesEnd:
+    - meta.statement
+    - meta.statement.command
+- source: ;
+  scopes:
+    - punctuation.terminator.statement.semicolon
+- source: then
+  scopes:
+    - keyword.control.then
+- source: sudo-helper
+  scopesBegin:
+    - meta.statement
+    - meta.statement.command
+  scopes:
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+- source: '-'
+  scopesBegin:
+    - string.unquoted.argument
+  scopes:
+    - constant.other.option.dash
+- source: '-'
+  scopes:
+    - constant.other.option
+  scopesEnd:
+    - string.unquoted.argument
+- source: ln
+  scopes:
+    - meta.argument
+    - string.unquoted.argument
+- source: '-'
+  scopesBegin:
+    - string.unquoted.argument
+  scopes:
+    - constant.other.option.dash
+- source: s
+  scopes:
+    - constant.other.option
+  scopesEnd:
+    - string.unquoted.argument
+- source: /var/lib/snapd/snap
+  scopesBegin:
+    - meta.argument
+    - string.unquoted.argument
+- source: /snap
+  scopesEnd:
+    - meta.statement
+    - meta.statement.command
+    - meta.argument
+    - string.unquoted.argument
+- source: fi
+  scopes:
+    - keyword.control
+  scopesEnd:
+    - meta.scope.if-block
+- source: '#'
+  scopesBegin:
+    - comment.line.number-sign
+  scopes:
+    - punctuation.definition.comment
+- source: ' ensure snap service is running'
+  scopesEnd:
+    - comment.line.number-sign
+- source: if
+  scopesBegin:
+    - meta.scope.if-block
+  scopes:
+    - keyword.control
+- source: service-helper
+  scopesBegin:
+    - meta.statement
+    - meta.statement.command
+  scopes:
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+- source: '-'
+  scopesBegin:
+    - string.unquoted.argument
+  scopes:
+    - constant.other.option.dash
+- source: '-supported'
+  scopes:
+    - constant.other.option
+  scopesEnd:
+    - meta.statement
+    - meta.statement.command
+    - string.unquoted.argument
+- source: ;
+  scopes:
+    - punctuation.terminator.statement.semicolon
+- source: then
+  scopes:
+    - keyword.control.then
+- source: service-helper
+  scopesBegin:
+    - meta.statement
+    - meta.statement.command
+  scopes:
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+- source: '-'
+  scopesBegin:
+    - string.unquoted.argument
+  scopes:
+    - constant.other.option.dash
+- source: '-enable'
+  scopes:
+    - constant.other.option
+- source: '-'
+  scopes:
+    - constant.other.option.dash
+- source: '-start'
+  scopes:
+    - constant.other.option
+- source: '-'
+  scopes:
+    - constant.other.option.dash
+- source: '-'
+  scopes:
+    - constant.other.option
+  scopesEnd:
+    - string.unquoted.argument
+- source: snapd.socket
+  scopesBegin:
+    - meta.argument
+    - string.unquoted.argument
+- source: snapd.apparmor
+  scopesEnd:
+    - meta.statement
+    - meta.statement.command
+    - meta.argument
+    - string.unquoted.argument
+- source: fi
+  scopes:
+    - keyword.control
+  scopesEnd:
+    - meta.scope.if-block
+- source: '#'
+  scopesBegin:
+    - comment.line.number-sign
+  scopes:
+    - punctuation.definition.comment
+- source: ' install snap support for gnome-software (if it exists)'
+  scopesEnd:
+    - comment.line.number-sign
+- source: if
+  scopesBegin:
+    - meta.scope.if-block
+  scopes:
+    - keyword.control
+- source: command-exists
+  scopesBegin:
+    - meta.statement
+    - meta.statement.command
+  scopes:
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+- source: gnome-software
+  scopes:
+    - meta.argument
+    - string.unquoted.argument
+  scopesEnd:
+    - meta.statement
+    - meta.statement.command
+- source: ;
+  scopes:
+    - punctuation.terminator.statement.semicolon
+- source: then
+  scopes:
+    - keyword.control.then
+- source: '#'
+  scopesBegin:
+    - comment.line.number-sign
+  scopes:
+    - punctuation.definition.comment
+- source: ' PAMAC=''gnome-software-snap'' \'
+- source: '#'
+  scopes:
+    - punctuation.definition.comment
+- source: ' Error: target not found: gnome-software-snap'
+  scopesEnd:
+    - comment.line.number-sign
+- source: setup-util
+  scopesBegin:
+    - meta.statement
+    - meta.statement.command
+  scopes:
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+- source: '-'
+  scopesBegin:
+    - string.unquoted.argument
+  scopes:
+    - constant.other.option.dash
+- source: '-optional'
+  scopes:
+    - constant.other.option
+- source: '-'
+  scopes:
+    - constant.other.option.dash
+- source: '-name='
+  scopesBegin:
+    - constant.other.option
+- source: ''''
+  scopesBegin:
+    - string.quoted.single
+  scopes:
+    - punctuation.definition.string.begin
+- source: Snap via Gnome Software
+- source: ''''
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - string.unquoted.argument
+    - constant.other.option
+    - string.quoted.single
+- source: '"'
+  scopesBegin:
+    - meta.argument
+    - string.quoted.double
+  scopes:
+    - punctuation.definition.string.begin
+- source: $
+  scopes:
+    - punctuation.definition.variable
+    - variable.parameter.positional.all
+- source: '@'
+  scopes:
+    - variable.parameter.positional.all
+- source: '"'
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - string.quoted.double
+- source: \
+  scopes:
+    - constant.character.escape.line-continuation
+- source: APT=
+  scopes:
+    - string.unquoted.argument
+- source: ''''
+  scopesBegin:
+    - string.quoted.single
+  scopes:
+    - punctuation.definition.string.begin
+- source: gnome-software-plugin-snap
+- source: ''''
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - meta.statement
+    - meta.statement.command
+    - meta.argument
+    - string.quoted.single
+- source: '#'
+  scopesBegin:
+    - comment.line.number-sign
+  scopes:
+    - punctuation.definition.comment
+- source: ' UBUNTU'
+  scopesEnd:
+    - comment.line.number-sign
+- source: fi
+  scopes:
+    - keyword.control
+  scopesEnd:
+    - meta.scope.if-block
+- source: '#'
+  scopesBegin:
+    - comment.line.number-sign
+  scopes:
+    - punctuation.definition.comment
+- source: ' log success'
+  scopesEnd:
+    - comment.line.number-sign
+- source: echo-segment
+  scopesBegin:
+    - meta.statement
+    - meta.statement.command
+  scopes:
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+- source: '-'
+  scopesBegin:
+    - string.unquoted.argument
+  scopes:
+    - constant.other.option.dash
+- source: '-g2='
+  scopesBegin:
+    - constant.other.option
+- source: ''''
+  scopesBegin:
+    - string.quoted.single
+  scopes:
+    - punctuation.definition.string.begin
+- source: Configure snap
+- source: ''''
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - meta.statement
+    - meta.statement.command
+    - string.unquoted.argument
+    - constant.other.option
+    - string.quoted.single
+- source: fi
+  scopes:
+    - keyword.control
+  scopesEnd:
+    - meta.scope.if-block
+- source: )
+  scopes:
+    - punctuation.definition.group
+    - punctuation.section.function.definition
+  scopesEnd:
+    - meta.function
+    - meta.function.body
+- source: '#'
+  scopesBegin:
+    - comment.line.number-sign
+  scopes:
+    - punctuation.definition.comment
+- source: ' fire if invoked standalone'
+  scopesEnd:
+    - comment.line.number-sign
+- source: if
+  scopesBegin:
+    - meta.scope.if-block
+  scopes:
+    - keyword.control
+- source: test
+  scopesBegin:
+    - meta.statement
+    - meta.statement.command
+  scopes:
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+    - support.function.builtin
+- source: '"'
+  scopesBegin:
+    - meta.argument
+    - string.quoted.double
+  scopes:
+    - punctuation.definition.string.begin
+- source: $
+  scopes:
+    - punctuation.definition.variable
+    - variable.parameter.positional
+- source: '0'
+  scopes:
+    - variable.parameter.positional
+- source: '"'
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - string.quoted.double
+- source: '='
+  scopes:
+    - string.unquoted.argument
+- source: '"'
+  scopesBegin:
+    - string.quoted.double
+  scopes:
+    - punctuation.definition.string.begin
+- source: $
+  scopes:
+    - punctuation.definition.variable
+- source: '{'
+  scopes:
+    - punctuation.section.bracket.curly.variable.begin
+    - punctuation.definition.variable
+- source: BASH_SOURCE
+  scopesBegin:
+    - meta.parameter-expansion
+  scopes:
+    - variable.other.normal
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '0'
+- source: ']'
+  scopes:
+    - punctuation.section.array
+  scopesEnd:
+    - meta.parameter-expansion
+- source: '}'
+  scopes:
+    - punctuation.section.bracket.curly.variable.end
+    - punctuation.definition.variable
+- source: '"'
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - meta.statement
+    - meta.statement.command
+    - meta.argument
+    - string.quoted.double
+- source: ;
+  scopes:
+    - punctuation.terminator.statement.semicolon
+- source: then
+  scopes:
+    - keyword.control.then
+- source: setup_util_snap
+  scopesBegin:
+    - meta.statement
+    - meta.statement.command
+  scopes:
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+- source: '"'
+  scopesBegin:
+    - meta.argument
+    - string.quoted.double
+  scopes:
+    - punctuation.definition.string.begin
+- source: $
+  scopes:
+    - punctuation.definition.variable
+    - variable.parameter.positional.all
+- source: '@'
+  scopes:
+    - variable.parameter.positional.all
+- source: '"'
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - meta.statement
+    - meta.statement.command
+    - meta.argument
+    - string.quoted.double
+- source: fi
+  scopes:
+    - keyword.control

@@ -622,7 +622,8 @@
 - source: local
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
+    - meta.statement
+    - meta.expression.assignment.modified
   scopes:
     - storage.modifier.local
 - source: in
@@ -638,23 +639,24 @@
     - punctuation.definition.string.begin
 - source: $(
   scopesBegin:
-    - string.interpolated.dollar
+    - meta.scope.subshell
   scopes:
-    - punctuation.definition.evaluation.parens.begin
+    - punctuation.definition.subshell.single
 - source: <
   scopes:
     - keyword.operator.redirect
 - source: /dev/stdin
 - source: )
   scopes:
-    - punctuation.definition.evaluation.parens.end
+    - punctuation.definition.subshell.single
   scopesEnd:
-    - string.interpolated.dollar
+    - meta.scope.subshell
 - source: '"'
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
-    - meta.expression.assignment
+    - meta.statement
+    - meta.expression.assignment.modified
     - string.quoted.double
 - source: test
   scopesBegin:
@@ -701,9 +703,9 @@
 - source: (
   scopesBegin:
     - meta.statement
-    - meta.scope.subshell
+    - meta.parenthese.group
   scopes:
-    - punctuation.definition.subshell
+    - punctuation.section.parenthese
 - source: exit
   scopesBegin:
     - meta.statement
@@ -724,10 +726,10 @@
     - meta.statement.command
 - source: )
   scopes:
-    - punctuation.definition.subshell
+    - punctuation.section.parenthese
   scopesEnd:
     - meta.statement
-    - meta.scope.subshell
+    - meta.parenthese.group
 - source: '|'
   scopesBegin:
     - keyword.operator.pipe

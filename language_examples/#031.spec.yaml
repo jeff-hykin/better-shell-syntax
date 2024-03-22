@@ -9,9 +9,9 @@
     - keyword.operator.assignment
 - source: $(
   scopesBegin:
-    - string.interpolated.dollar
+    - meta.scope.subshell
   scopes:
-    - punctuation.definition.evaluation.parens.begin
+    - punctuation.definition.subshell.single
 - source: for
   scopesBegin:
     - meta.statement
@@ -21,7 +21,7 @@
   scopesBegin:
     - meta.arithmetic
   scopes:
-    - punctuation.section.arithmetic
+    - punctuation.section.arithmetic.double
 - source: i
   scopes:
     - variable.other.normal
@@ -75,7 +75,7 @@
     - keyword.operator.arithmetic
 - source: ))
   scopes:
-    - punctuation.section.arithmetic
+    - punctuation.section.arithmetic.double
   scopesEnd:
     - meta.statement
     - meta.arithmetic
@@ -101,11 +101,11 @@
     - meta.scope.group
 - source: )
   scopes:
-    - punctuation.definition.evaluation.parens.end
+    - punctuation.definition.subshell.single
   scopesEnd:
     - meta.statement
     - meta.expression.assignment
-    - string.interpolated.dollar
+    - meta.scope.subshell
 - source: '#'
   scopesBegin:
     - comment.line.number-sign
@@ -125,9 +125,9 @@
     - keyword.operator.assignment
 - source: $(
   scopesBegin:
-    - string.interpolated.dollar
+    - meta.scope.subshell
   scopes:
-    - punctuation.definition.evaluation.parens.begin
+    - punctuation.definition.subshell.single
 - source: for
   scopesBegin:
     - meta.statement
@@ -137,7 +137,7 @@
   scopesBegin:
     - meta.arithmetic
   scopes:
-    - punctuation.section.arithmetic
+    - punctuation.section.arithmetic.double
 - source: i
   scopes:
     - variable.other.normal
@@ -191,7 +191,7 @@
     - keyword.operator.arithmetic
 - source: ))
   scopes:
-    - punctuation.section.arithmetic
+    - punctuation.section.arithmetic.double
   scopesEnd:
     - meta.statement
     - meta.arithmetic
@@ -213,9 +213,9 @@
     - keyword.control.done
 - source: )
   scopes:
-    - punctuation.definition.evaluation.parens.end
+    - punctuation.definition.subshell.single
   scopesEnd:
-    - string.interpolated.dollar
+    - meta.scope.subshell
 - source: A
   scopes:
     - variable.other.assignment
@@ -224,9 +224,9 @@
     - keyword.operator.assignment
 - source: $(
   scopesBegin:
-    - string.interpolated.dollar
+    - meta.scope.subshell
   scopes:
-    - punctuation.definition.evaluation.parens.begin
+    - punctuation.definition.subshell.single
 - source: \
   scopesBegin:
     - meta.statement
@@ -239,7 +239,7 @@
   scopesBegin:
     - meta.arithmetic
   scopes:
-    - punctuation.section.arithmetic
+    - punctuation.section.arithmetic.double
 - source: i
   scopes:
     - variable.other.normal
@@ -293,7 +293,7 @@
     - keyword.operator.arithmetic
 - source: ))
   scopes:
-    - punctuation.section.arithmetic
+    - punctuation.section.arithmetic.double
   scopesEnd:
     - meta.statement
     - meta.arithmetic
@@ -319,4 +319,4 @@
     - meta.scope.group
 - source: )
   scopes:
-    - punctuation.definition.evaluation.parens.end
+    - punctuation.definition.subshell.single

@@ -89,9 +89,9 @@
     - punctuation.definition.string.begin
 - source: $(
   scopesBegin:
-    - string.interpolated.dollar
+    - meta.scope.subshell
   scopes:
-    - punctuation.definition.evaluation.parens.begin
+    - punctuation.definition.subshell.single
 - source: case
   scopesBegin:
     - meta.case
@@ -151,9 +151,9 @@
     - meta.case
 - source: )
   scopes:
-    - punctuation.definition.evaluation.parens.end
+    - punctuation.definition.subshell.single
   scopesEnd:
-    - string.interpolated.dollar
+    - meta.scope.subshell
 - source: '"'
   scopes:
     - punctuation.definition.string.end

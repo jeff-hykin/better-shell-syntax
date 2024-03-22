@@ -191,7 +191,7 @@
 - source: declare
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
+    - meta.expression.assignment.modified
   scopes:
     - storage.modifier.declare
 - source: '-fadsfa'
@@ -209,7 +209,7 @@
     - constant.numeric
     - constant.numeric.integer
   scopesEnd:
-    - meta.expression.assignment
+    - meta.expression.assignment.modified
 - source: set
   scopesBegin:
     - meta.statement.command

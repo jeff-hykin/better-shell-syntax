@@ -1,7 +1,7 @@
 - source: export
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
+    - meta.expression.assignment.modified
   scopes:
     - storage.modifier.export
 - source: PATH
@@ -35,7 +35,7 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
-    - meta.expression.assignment
+    - meta.expression.assignment.modified
     - string.quoted.double
 - source: find
   scopesBegin:
@@ -567,7 +567,7 @@
     - string.interpolated.process-substitution
 - source: export
   scopesBegin:
-    - meta.expression.assignment
+    - meta.expression.assignment.modified
   scopes:
     - storage.modifier.export
 - source: COLOR_BLUE
@@ -583,9 +583,9 @@
     - punctuation.definition.string.begin
 - source: $(
   scopesBegin:
-    - string.interpolated.dollar
+    - meta.scope.subshell
   scopes:
-    - punctuation.definition.evaluation.parens.begin
+    - punctuation.definition.subshell.single
 - source: tput
   scopesBegin:
     - meta.statement
@@ -609,9 +609,9 @@
     - string.unquoted.argument
 - source: )
   scopes:
-    - punctuation.definition.evaluation.parens.end
+    - punctuation.definition.subshell.single
   scopesEnd:
-    - string.interpolated.dollar
+    - meta.scope.subshell
 - source: '"'
   scopes:
     - punctuation.definition.string.end
@@ -633,9 +633,9 @@
     - punctuation.definition.string.begin
 - source: $(
   scopesBegin:
-    - string.interpolated.dollar
+    - meta.scope.subshell
   scopes:
-    - punctuation.definition.evaluation.parens.begin
+    - punctuation.definition.subshell.single
 - source: tput
   scopesBegin:
     - meta.statement
@@ -659,9 +659,9 @@
     - string.unquoted.argument
 - source: )
   scopes:
-    - punctuation.definition.evaluation.parens.end
+    - punctuation.definition.subshell.single
   scopesEnd:
-    - string.interpolated.dollar
+    - meta.scope.subshell
 - source: '"'
   scopes:
     - punctuation.definition.string.end
@@ -683,9 +683,9 @@
     - punctuation.definition.string.begin
 - source: $(
   scopesBegin:
-    - string.interpolated.dollar
+    - meta.scope.subshell
   scopes:
-    - punctuation.definition.evaluation.parens.begin
+    - punctuation.definition.subshell.single
 - source: tput
   scopesBegin:
     - meta.statement
@@ -703,14 +703,14 @@
     - meta.statement.command
 - source: )
   scopes:
-    - punctuation.definition.evaluation.parens.end
+    - punctuation.definition.subshell.single
   scopesEnd:
-    - string.interpolated.dollar
+    - meta.scope.subshell
 - source: '"'
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
-    - meta.expression.assignment
+    - meta.expression.assignment.modified
     - string.quoted.double
 - source: sed
   scopesBegin:

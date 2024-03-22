@@ -88,7 +88,7 @@
 - source: readonly
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
+    - meta.expression.assignment.modified
   scopes:
     - storage.modifier.readonly
 - source: ESC
@@ -228,7 +228,7 @@
     - punctuation.definition.string.end
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
+    - meta.expression.assignment.modified
     - string.quoted.single
 - source: '#'
   scopesBegin:
@@ -245,7 +245,7 @@
 - source: readonly
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
+    - meta.expression.assignment.modified
   scopes:
     - storage.modifier.readonly
 - source: NIX_USER_COUNT
@@ -341,7 +341,7 @@
     - punctuation.definition.string.end
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
+    - meta.expression.assignment.modified
     - string.quoted.double
 - source: '#'
   scopesBegin:
@@ -428,7 +428,7 @@
 - source: readonly
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
+    - meta.expression.assignment.modified
   scopes:
     - storage.modifier.readonly
 - source: NIX_ROOT
@@ -618,6 +618,8 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
+    - meta.statement
+    - meta.expression.assignment.modified
     - string.quoted.double
 - source: '#'
   scopesBegin:
@@ -625,13 +627,7 @@
   scopes:
     - punctuation.definition.comment
 - source: ' Caution, used both as a comment and inside grep argument (so $ or \+, etc would break things)'
-  scopesEnd:
-    - meta.statement
-    - meta.expression.assignment
-    - comment.line.number-sign
 - source: '#'
-  scopesBegin:
-    - comment.line.number-sign
   scopes:
     - punctuation.definition.comment
 - source: ' Fish has different syntax than zsh/bash, treat it separate'
@@ -640,7 +636,7 @@
 - source: readonly
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
+    - meta.expression.assignment.modified
   scopes:
     - storage.modifier.readonly
 - source: PROFILE_FISH_SUFFIX
@@ -834,7 +830,7 @@
     - punctuation.definition.string.end
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
+    - meta.expression.assignment.modified
     - string.quoted.double
 - source: '#'
   scopesBegin:
@@ -855,7 +851,7 @@
 - source: readonly
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
+    - meta.expression.assignment.modified
   scopes:
     - storage.modifier.readonly
 - source: EXTRACTED_NIX_PATH
@@ -871,9 +867,9 @@
     - punctuation.definition.string.begin
 - source: $(
   scopesBegin:
-    - string.interpolated.dollar
+    - meta.scope.subshell
   scopes:
-    - punctuation.definition.evaluation.parens.begin
+    - punctuation.definition.subshell.single
 - source: dirname
   scopesBegin:
     - meta.statement
@@ -905,9 +901,9 @@
     - string.quoted.double
 - source: )
   scopes:
-    - punctuation.definition.evaluation.parens.end
+    - punctuation.definition.subshell.single
   scopesEnd:
-    - string.interpolated.dollar
+    - meta.scope.subshell
 - source: '"'
   scopes:
     - punctuation.definition.string.end
@@ -930,7 +926,7 @@
     - variable.other.assignment
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
+    - meta.expression.assignment.modified
 - source: if
   scopesBegin:
     - meta.scope.if-block
@@ -963,7 +959,7 @@
   scopesBegin:
     - meta.statement
     - meta.statement
-    - meta.expression.assignment
+    - meta.expression.assignment.modified
   scopes:
     - storage.modifier.readonly
 - source: IS_HEADLESS
@@ -983,7 +979,8 @@
     - punctuation.definition.string.end
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
+    - meta.statement
+    - meta.expression.assignment.modified
     - string.quoted.single
 - source: else
   scopes:
@@ -991,7 +988,8 @@
 - source: readonly
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
+    - meta.statement
+    - meta.expression.assignment.modified
   scopes:
     - storage.modifier.readonly
 - source: IS_HEADLESS
@@ -1011,13 +1009,14 @@
     - punctuation.definition.string.end
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
+    - meta.statement
+    - meta.expression.assignment.modified
     - string.quoted.single
 - source: fi
   scopes:
-    - keyword.control.fi
+    - keyword.control
   scopesEnd:
-    - meta.statement
+    - meta.scope.if-block
 - source: headless
   scopesBegin:
     - meta.function
@@ -1277,9 +1276,9 @@
     - punctuation.definition.string.begin
 - source: $(
   scopesBegin:
-    - string.interpolated.dollar
+    - meta.scope.subshell
   scopes:
-    - punctuation.definition.evaluation.parens.begin
+    - punctuation.definition.subshell.single
 - source: uname
   scopesBegin:
     - meta.statement
@@ -1302,9 +1301,9 @@
     - string.unquoted.argument
 - source: )
   scopes:
-    - punctuation.definition.evaluation.parens.end
+    - punctuation.definition.subshell.single
   scopesEnd:
-    - string.interpolated.dollar
+    - meta.scope.subshell
 - source: '"'
   scopes:
     - punctuation.definition.string.end
@@ -1416,9 +1415,9 @@
     - punctuation.definition.string.begin
 - source: $(
   scopesBegin:
-    - string.interpolated.dollar
+    - meta.scope.subshell
   scopes:
-    - punctuation.definition.evaluation.parens.begin
+    - punctuation.definition.subshell.single
 - source: uname
   scopesBegin:
     - meta.statement
@@ -1441,9 +1440,9 @@
     - string.unquoted.argument
 - source: )
   scopes:
-    - punctuation.definition.evaluation.parens.end
+    - punctuation.definition.subshell.single
   scopesEnd:
-    - string.interpolated.dollar
+    - meta.scope.subshell
 - source: '"'
   scopes:
     - punctuation.definition.string.end
@@ -1838,19 +1837,30 @@
     - entity.name.function.call
     - entity.name.command
     - support.function.builtin
-- source: $((
+- source: $(
+  scopesBegin:
+    - meta.argument
+    - meta.scope.subshell
+  scopes:
+    - punctuation.definition.subshell.single
+- source: (
+  scopesBegin:
+    - meta.parenthese.group
+  scopes:
+    - punctuation.section.parenthese
+- source: NIX_FIRST_BUILD_UID
+  scopesBegin:
+    - meta.statement
+    - meta.statement.command
+  scopes:
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+- source: +
   scopesBegin:
     - meta.argument
   scopes:
-    - punctuation.definition.evaluation.arithmetic.begin
-- source: NIX_FIRST_BUILD_UID
-  scopesBegin:
-    - string.other.math
-  scopes:
-    - variable.other.normal
-- source: +
-  scopes:
-    - keyword.operator.arithmetic
+    - string.unquoted.argument
 - source: $
   scopes:
     - punctuation.definition.variable
@@ -1859,20 +1869,30 @@
   scopes:
     - variable.parameter.positional
 - source: '-'
-  scopes:
-    - keyword.operator.arithmetic
+  scopesBegin:
+    - string.unquoted.argument
 - source: '1'
   scopes:
+    - constant.numeric
     - constant.numeric.integer
-  scopesEnd:
-    - string.other.math
-- source: ))
-  scopes:
-    - punctuation.definition.evaluation.arithmetic.end
   scopesEnd:
     - meta.statement
     - meta.statement.command
     - meta.argument
+    - string.unquoted.argument
+- source: )
+  scopes:
+    - punctuation.section.parenthese
+  scopesEnd:
+    - meta.parenthese.group
+- source: )
+  scopes:
+    - punctuation.definition.subshell.single
+  scopesEnd:
+    - meta.statement
+    - meta.statement.command
+    - meta.argument
+    - meta.scope.subshell
 - source: '}'
   scopes:
     - punctuation.definition.group
@@ -2126,9 +2146,9 @@
     - keyword.operator.assignment
 - source: $(
   scopesBegin:
-    - string.interpolated.dollar
+    - meta.scope.subshell
   scopes:
-    - punctuation.definition.evaluation.parens.begin
+    - punctuation.definition.subshell.single
 - source: echo
   scopesBegin:
     - meta.statement
@@ -2213,10 +2233,10 @@
     - meta.statement.command
 - source: )
   scopes:
-    - punctuation.definition.evaluation.parens.end
+    - punctuation.definition.subshell.single
   scopesEnd:
     - meta.expression.assignment
-    - string.interpolated.dollar
+    - meta.scope.subshell
 - source: echo
   scopesBegin:
     - meta.statement.command
@@ -2325,9 +2345,9 @@
     - keyword.operator.assignment
 - source: $(
   scopesBegin:
-    - string.interpolated.dollar
+    - meta.scope.subshell
   scopes:
-    - punctuation.definition.evaluation.parens.begin
+    - punctuation.definition.subshell.single
 - source: echo
   scopesBegin:
     - meta.statement
@@ -2412,10 +2432,10 @@
     - meta.statement.command
 - source: )
   scopes:
-    - punctuation.definition.evaluation.parens.end
+    - punctuation.definition.subshell.single
   scopesEnd:
     - meta.expression.assignment
-    - string.interpolated.dollar
+    - meta.scope.subshell
 - source: echo
   scopesBegin:
     - meta.statement.command
@@ -3114,9 +3134,9 @@
     - punctuation.definition.string.begin
 - source: $(
   scopesBegin:
-    - string.interpolated.dollar
+    - meta.scope.subshell
   scopes:
-    - punctuation.definition.evaluation.parens.begin
+    - punctuation.definition.subshell.single
 - source: get_help
   scopes:
     - meta.statement
@@ -3126,9 +3146,9 @@
     - entity.name.command
 - source: )
   scopes:
-    - punctuation.definition.evaluation.parens.end
+    - punctuation.definition.subshell.single
   scopesEnd:
-    - string.interpolated.dollar
+    - meta.scope.subshell
 - source: '"'
   scopes:
     - punctuation.definition.string.end
@@ -3452,7 +3472,7 @@
   scopesBegin:
     - meta.statement
     - meta.statement
-    - meta.expression.assignment
+    - meta.expression.assignment.modified
   scopes:
     - storage.modifier.local
 - source: prompt
@@ -3472,7 +3492,7 @@
     - punctuation.definition.string.end
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
+    - meta.expression.assignment.modified
     - string.quoted.double
 - source: echo
   scopesBegin:
@@ -4293,7 +4313,8 @@
 - source: local
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
+    - meta.statement
+    - meta.expression.assignment.modified
   scopes:
     - storage.modifier.local
 - source: path
@@ -4319,7 +4340,8 @@
     - punctuation.definition.string.end
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
+    - meta.statement
+    - meta.expression.assignment.modified
     - string.quoted.double
 - source: if
   scopesBegin:
@@ -4442,7 +4464,8 @@
 - source: local
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
+    - meta.statement
+    - meta.expression.assignment.modified
   scopes:
     - storage.modifier.local
 - source: path
@@ -4467,12 +4490,8 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
-    - meta.expression.assignment
     - string.quoted.double
 - source: local
-  scopesBegin:
-    - meta.statement
-    - meta.expression.assignment
   scopes:
     - storage.modifier.local
 - source: edit_path
@@ -4498,7 +4517,7 @@
     - punctuation.definition.string.end
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
+    - meta.expression.assignment.modified
     - string.quoted.double
 - source: cat
   scopesBegin:
@@ -4769,7 +4788,8 @@
 - source: local
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
+    - meta.statement
+    - meta.expression.assignment.modified
   scopes:
     - storage.modifier.local
 - source: do_something_consequential
@@ -4795,7 +4815,8 @@
     - punctuation.definition.string.end
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
+    - meta.statement
+    - meta.expression.assignment.modified
     - string.quoted.double
 - source: if
   scopesBegin:
@@ -4876,9 +4897,9 @@
     - punctuation.definition.string.begin
 - source: $(
   scopesBegin:
-    - string.interpolated.dollar
+    - meta.scope.subshell
   scopes:
-    - punctuation.definition.evaluation.parens.begin
+    - punctuation.definition.subshell.single
 - source: printf
   scopesBegin:
     - meta.statement
@@ -4933,9 +4954,9 @@
     - string.quoted.double
 - source: )
   scopes:
-    - punctuation.definition.evaluation.parens.end
+    - punctuation.definition.subshell.single
   scopesEnd:
-    - string.interpolated.dollar
+    - meta.scope.subshell
 - source: '"'
   scopes:
     - punctuation.definition.string.end
@@ -5027,13 +5048,12 @@
     - punctuation.definition.array
 - source: )
   scopesEnd:
-    - meta.statement
     - punctuation.definition.array
 - source: ((
   scopesBegin:
     - meta.arithmetic
   scopes:
-    - punctuation.section.arithmetic
+    - punctuation.section.arithmetic.double
 - source: _remind_num
   scopes:
     - variable.other.normal
@@ -5045,8 +5065,9 @@
     - constant.numeric.integer
 - source: ))
   scopes:
-    - punctuation.section.arithmetic
+    - punctuation.section.arithmetic.double
   scopesEnd:
+    - meta.statement
     - meta.arithmetic
 - source: remind
   scopesBegin:
@@ -5080,9 +5101,10 @@
     - keyword.control
 - source: ((
   scopesBegin:
+    - meta.statement
     - meta.arithmetic
   scopes:
-    - punctuation.section.arithmetic
+    - punctuation.section.arithmetic.double
 - source: _remind_num
   scopes:
     - variable.other.normal
@@ -5094,8 +5116,9 @@
     - constant.numeric.integer
 - source: ))
   scopes:
-    - punctuation.section.arithmetic
+    - punctuation.section.arithmetic.double
   scopesEnd:
+    - meta.statement
     - meta.arithmetic
 - source: ;
   scopes:
@@ -5719,7 +5742,7 @@
   scopesBegin:
     - meta.arithmetic
   scopes:
-    - punctuation.section.arithmetic
+    - punctuation.section.arithmetic.double
 - source: _remind_num
   scopes:
     - variable.other.normal
@@ -5728,7 +5751,7 @@
     - keyword.operator.arithmetic
 - source: ))
   scopes:
-    - punctuation.section.arithmetic
+    - punctuation.section.arithmetic.double
   scopesEnd:
     - meta.statement
     - meta.arithmetic
@@ -5756,7 +5779,8 @@
 - source: local
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
+    - meta.statement
+    - meta.expression.assignment.modified
   scopes:
     - storage.modifier.local
 - source: expl
@@ -5781,12 +5805,8 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
-    - meta.expression.assignment
     - string.quoted.double
 - source: local
-  scopesBegin:
-    - meta.statement
-    - meta.expression.assignment
   scopes:
     - storage.modifier.local
 - source: cmd
@@ -5812,7 +5832,7 @@
     - punctuation.definition.string.end
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
+    - meta.expression.assignment.modified
     - string.quoted.double
 - source: shift
   scopesBegin:
@@ -6013,7 +6033,8 @@
 - source: local
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
+    - meta.statement
+    - meta.expression.assignment.modified
   scopes:
     - storage.modifier.local
 - source: expl
@@ -6038,7 +6059,8 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
-    - meta.expression.assignment
+    - meta.statement
+    - meta.expression.assignment.modified
     - string.quoted.double
 - source: shift
   scopes:
@@ -6423,7 +6445,7 @@
 - source: readonly
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
+    - meta.expression.assignment.modified
   scopes:
     - storage.modifier.readonly
 - source: SCRATCH
@@ -6434,9 +6456,9 @@
     - keyword.operator.assignment
 - source: $(
   scopesBegin:
-    - string.interpolated.dollar
+    - meta.scope.subshell
   scopes:
-    - punctuation.definition.evaluation.parens.begin
+    - punctuation.definition.subshell.single
 - source: mktemp
   scopesBegin:
     - meta.statement
@@ -6459,11 +6481,11 @@
     - string.unquoted.argument
 - source: )
   scopes:
-    - punctuation.definition.evaluation.parens.end
+    - punctuation.definition.subshell.single
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
-    - string.interpolated.dollar
+    - meta.expression.assignment.modified
+    - meta.scope.subshell
 - source: finish_cleanup
   scopesBegin:
     - meta.function
@@ -6657,9 +6679,9 @@
     - string.unquoted.heredoc.no-indent
 - source: $(
   scopesBegin:
-    - string.interpolated.dollar
+    - meta.scope.subshell
   scopes:
-    - punctuation.definition.evaluation.parens.begin
+    - punctuation.definition.subshell.single
 - source: poly_8_extra_try_me_commands
   scopes:
     - meta.statement
@@ -6669,17 +6691,17 @@
     - entity.name.command
 - source: )
   scopes:
-    - punctuation.definition.evaluation.parens.end
+    - punctuation.definition.subshell.single
   scopesEnd:
-    - string.interpolated.dollar
+    - meta.scope.subshell
 - source: '  $ nix-shell -p nix-info --run "nix-info -m"'
 - source: Thank you for using this installer. If you have any feedback or need
 - source: 'help, don''t hesitate:'
 - source: $(
   scopesBegin:
-    - string.interpolated.dollar
+    - meta.scope.subshell
   scopes:
-    - punctuation.definition.evaluation.parens.begin
+    - punctuation.definition.subshell.single
 - source: contact_us
   scopes:
     - meta.statement
@@ -6689,10 +6711,10 @@
     - entity.name.command
 - source: )
   scopes:
-    - punctuation.definition.evaluation.parens.end
+    - punctuation.definition.subshell.single
   scopesEnd:
     - string.unquoted.heredoc.no-indent
-    - string.interpolated.dollar
+    - meta.scope.subshell
 - source: EOF
   scopes:
     - punctuation.definition.string.heredoc
@@ -6771,9 +6793,9 @@
 - source: 'don''t hesitate:'
 - source: $(
   scopesBegin:
-    - string.interpolated.dollar
+    - meta.scope.subshell
   scopes:
-    - punctuation.definition.evaluation.parens.begin
+    - punctuation.definition.subshell.single
 - source: contact_us
   scopes:
     - meta.statement
@@ -6783,10 +6805,10 @@
     - entity.name.command
 - source: )
   scopes:
-    - punctuation.definition.evaluation.parens.end
+    - punctuation.definition.subshell.single
   scopesEnd:
     - string.unquoted.heredoc.no-indent
-    - string.interpolated.dollar
+    - meta.scope.subshell
 - source: EOF
   scopes:
     - punctuation.definition.string.heredoc
@@ -7682,9 +7704,9 @@
     following
 - source: $(
   scopesBegin:
-    - string.interpolated.dollar
+    - meta.scope.subshell
   scopes:
-    - punctuation.definition.evaluation.parens.begin
+    - punctuation.definition.subshell.single
 - source: shell_source_lines
   scopes:
     - meta.statement
@@ -7694,9 +7716,9 @@
     - entity.name.command
 - source: )
   scopes:
-    - punctuation.definition.evaluation.parens.end
+    - punctuation.definition.subshell.single
   scopesEnd:
-    - string.interpolated.dollar
+    - meta.scope.subshell
 - source: '2. Remove those lines that mention Nix, and save the file'
 - source: '3. Move these backup files to a new location: '
 - source: $
@@ -8636,9 +8658,9 @@
     - keyword.control
 - source: $(
   scopesBegin:
-    - string.interpolated.dollar
+    - meta.scope.subshell
   scopes:
-    - punctuation.definition.evaluation.parens.begin
+    - punctuation.definition.subshell.single
 - source: seq
   scopesBegin:
     - meta.statement
@@ -8676,9 +8698,9 @@
     - string.quoted.double
 - source: )
   scopes:
-    - punctuation.definition.evaluation.parens.end
+    - punctuation.definition.subshell.single
   scopesEnd:
-    - string.interpolated.dollar
+    - meta.scope.subshell
 - source: ;
   scopes:
     - punctuation.terminator.statement.semicolon
@@ -8701,9 +8723,9 @@
     - punctuation.definition.string.begin
 - source: $(
   scopesBegin:
-    - string.interpolated.dollar
+    - meta.scope.subshell
   scopes:
-    - punctuation.definition.evaluation.parens.begin
+    - punctuation.definition.subshell.single
 - source: nix_user_for_core
   scopesBegin:
     - meta.statement
@@ -8735,9 +8757,9 @@
     - string.quoted.double
 - source: )
   scopes:
-    - punctuation.definition.evaluation.parens.end
+    - punctuation.definition.subshell.single
   scopesEnd:
-    - string.interpolated.dollar
+    - meta.scope.subshell
 - source: '"'
   scopes:
     - punctuation.definition.string.end
@@ -8746,9 +8768,9 @@
     - punctuation.definition.string.begin
 - source: $(
   scopesBegin:
-    - string.interpolated.dollar
+    - meta.scope.subshell
   scopes:
-    - punctuation.definition.evaluation.parens.begin
+    - punctuation.definition.subshell.single
 - source: nix_uid_for_core
   scopesBegin:
     - meta.statement
@@ -8780,9 +8802,9 @@
     - string.quoted.double
 - source: )
   scopes:
-    - punctuation.definition.evaluation.parens.end
+    - punctuation.definition.subshell.single
   scopesEnd:
-    - string.interpolated.dollar
+    - meta.scope.subshell
 - source: '"'
   scopes:
     - punctuation.definition.string.end
@@ -8843,15 +8865,19 @@
 - source: local
   scopesBegin:
     - meta.statement
-    - meta.statement.command
+    - meta.statement
+    - meta.expression.assignment.modified
   scopes:
-    - meta.statement.command.name
     - storage.modifier.local
 - source: primary_group_id
   scopes:
-    - meta.argument
-    - string.unquoted.argument
+    - variable.other.assignment
+  scopesEnd:
+    - meta.statement
+    - meta.expression.assignment.modified
 - source: task
+  scopesBegin:
+    - meta.statement.command
   scopes:
     - meta.statement.command.name
     - entity.name.function.call
@@ -8969,9 +8995,9 @@
     - keyword.operator.assignment
 - source: $(
   scopesBegin:
-    - string.interpolated.dollar
+    - meta.scope.subshell
   scopes:
-    - punctuation.definition.evaluation.parens.begin
+    - punctuation.definition.subshell.single
 - source: poly_group_id_get
   scopesBegin:
     - meta.statement
@@ -9003,11 +9029,11 @@
     - string.quoted.double
 - source: )
   scopes:
-    - punctuation.definition.evaluation.parens.end
+    - punctuation.definition.subshell.single
   scopesEnd:
     - meta.statement
     - meta.expression.assignment
-    - string.interpolated.dollar
+    - meta.scope.subshell
 - source: if
   scopesBegin:
     - meta.scope.if-block
@@ -9197,40 +9223,28 @@
 - source: local
   scopesBegin:
     - meta.statement
-    - meta.statement.command
+    - meta.statement
+    - meta.expression.assignment.modified
   scopes:
-    - meta.statement.command.name
     - storage.modifier.local
 - source: coreid
   scopes:
-    - meta.argument
-    - string.unquoted.argument
-  scopesEnd:
-    - meta.statement.command
+    - variable.other.assignment
 - source: local
-  scopesBegin:
-    - meta.statement
-    - meta.expression.assignment
   scopes:
     - storage.modifier.local
 - source: username
   scopes:
     - variable.other.assignment
-  scopesEnd:
-    - meta.statement
-    - meta.expression.assignment
 - source: local
-  scopesBegin:
-    - meta.statement.command
   scopes:
-    - meta.statement.command.name
     - storage.modifier.local
 - source: uid
   scopes:
-    - meta.argument
-    - string.unquoted.argument
+    - variable.other.assignment
   scopesEnd:
-    - meta.statement.command
+    - meta.statement
+    - meta.expression.assignment.modified
 - source: coreid
   scopesBegin:
     - meta.expression.assignment
@@ -9264,9 +9278,9 @@
     - keyword.operator.assignment
 - source: $(
   scopesBegin:
-    - string.interpolated.dollar
+    - meta.scope.subshell
   scopes:
-    - punctuation.definition.evaluation.parens.begin
+    - punctuation.definition.subshell.single
 - source: nix_user_for_core
   scopesBegin:
     - meta.statement
@@ -9298,9 +9312,9 @@
     - string.quoted.double
 - source: )
   scopes:
-    - punctuation.definition.evaluation.parens.end
+    - punctuation.definition.subshell.single
   scopesEnd:
-    - string.interpolated.dollar
+    - meta.scope.subshell
 - source: uid
   scopes:
     - variable.other.assignment
@@ -9309,9 +9323,9 @@
     - keyword.operator.assignment
 - source: $(
   scopesBegin:
-    - string.interpolated.dollar
+    - meta.scope.subshell
   scopes:
-    - punctuation.definition.evaluation.parens.begin
+    - punctuation.definition.subshell.single
 - source: nix_uid_for_core
   scopesBegin:
     - meta.statement
@@ -9343,10 +9357,10 @@
     - string.quoted.double
 - source: )
   scopes:
-    - punctuation.definition.evaluation.parens.end
+    - punctuation.definition.subshell.single
   scopesEnd:
     - meta.expression.assignment
-    - string.interpolated.dollar
+    - meta.scope.subshell
 - source: task
   scopesBegin:
     - meta.statement.command
@@ -9513,9 +9527,9 @@
     - keyword.operator.assignment
 - source: $(
   scopesBegin:
-    - string.interpolated.dollar
+    - meta.scope.subshell
   scopes:
-    - punctuation.definition.evaluation.parens.begin
+    - punctuation.definition.subshell.single
 - source: poly_user_id_get
   scopesBegin:
     - meta.statement
@@ -9547,11 +9561,11 @@
     - string.quoted.double
 - source: )
   scopes:
-    - punctuation.definition.evaluation.parens.end
+    - punctuation.definition.subshell.single
   scopesEnd:
     - meta.statement
     - meta.expression.assignment
-    - string.interpolated.dollar
+    - meta.scope.subshell
 - source: if
   scopesBegin:
     - meta.scope.if-block
@@ -9731,9 +9745,9 @@
     - punctuation.definition.string.begin
 - source: $(
   scopesBegin:
-    - string.interpolated.dollar
+    - meta.scope.subshell
   scopes:
-    - punctuation.definition.evaluation.parens.begin
+    - punctuation.definition.subshell.single
 - source: poly_user_hidden_get
   scopesBegin:
     - meta.statement
@@ -9765,9 +9779,9 @@
     - string.quoted.double
 - source: )
   scopes:
-    - punctuation.definition.evaluation.parens.end
+    - punctuation.definition.subshell.single
   scopesEnd:
-    - string.interpolated.dollar
+    - meta.scope.subshell
 - source: '"'
   scopes:
     - punctuation.definition.string.end
@@ -9903,9 +9917,9 @@
     - punctuation.definition.string.begin
 - source: $(
   scopesBegin:
-    - string.interpolated.dollar
+    - meta.scope.subshell
   scopes:
-    - punctuation.definition.evaluation.parens.begin
+    - punctuation.definition.subshell.single
 - source: poly_user_home_get
   scopesBegin:
     - meta.statement
@@ -9937,9 +9951,9 @@
     - string.quoted.double
 - source: )
   scopes:
-    - punctuation.definition.evaluation.parens.end
+    - punctuation.definition.subshell.single
   scopesEnd:
-    - string.interpolated.dollar
+    - meta.scope.subshell
 - source: '"'
   scopes:
     - punctuation.definition.string.end
@@ -10308,9 +10322,9 @@
     - punctuation.definition.string.begin
 - source: $(
   scopesBegin:
-    - string.interpolated.dollar
+    - meta.scope.subshell
   scopes:
-    - punctuation.definition.evaluation.parens.begin
+    - punctuation.definition.subshell.single
 - source: poly_user_shell_get
   scopesBegin:
     - meta.statement
@@ -10342,9 +10356,9 @@
     - string.quoted.double
 - source: )
   scopes:
-    - punctuation.definition.evaluation.parens.end
+    - punctuation.definition.subshell.single
   scopesEnd:
-    - string.interpolated.dollar
+    - meta.scope.subshell
 - source: '"'
   scopes:
     - punctuation.definition.string.end
@@ -10655,9 +10669,9 @@
     - punctuation.definition.string.begin
 - source: $(
   scopesBegin:
-    - string.interpolated.dollar
+    - meta.scope.subshell
   scopes:
-    - punctuation.definition.evaluation.parens.begin
+    - punctuation.definition.subshell.single
 - source: poly_user_primary_group_get
   scopesBegin:
     - meta.statement
@@ -10689,9 +10703,9 @@
     - string.quoted.double
 - source: )
   scopes:
-    - punctuation.definition.evaluation.parens.end
+    - punctuation.definition.subshell.single
   scopesEnd:
-    - string.interpolated.dollar
+    - meta.scope.subshell
 - source: '"'
   scopes:
     - punctuation.definition.string.end
@@ -10885,9 +10899,9 @@
     - string.unquoted.argument
 - source: $(
   scopesBegin:
-    - string.interpolated.dollar
+    - meta.scope.subshell
   scopes:
-    - punctuation.definition.evaluation.parens.begin
+    - punctuation.definition.subshell.single
 - source: seq
   scopesBegin:
     - meta.statement
@@ -10925,12 +10939,12 @@
     - string.quoted.double
 - source: )
   scopes:
-    - punctuation.definition.evaluation.parens.end
+    - punctuation.definition.subshell.single
   scopesEnd:
     - meta.statement
     - meta.statement.command
     - meta.argument
-    - string.interpolated.dollar
+    - meta.scope.subshell
 - source: ;
   scopes:
     - punctuation.terminator.statement.semicolon
@@ -11189,7 +11203,7 @@
   scopesBegin:
     - meta.statement
     - meta.statement
-    - meta.expression.assignment
+    - meta.expression.assignment.modified
   scopes:
     - storage.modifier.local
 - source: get_chr_own
@@ -11205,9 +11219,9 @@
     - punctuation.definition.string.begin
 - source: $(
   scopesBegin:
-    - string.interpolated.dollar
+    - meta.scope.subshell
   scopes:
-    - punctuation.definition.evaluation.parens.begin
+    - punctuation.definition.subshell.single
 - source: PATH
   scopesBegin:
     - meta.statement
@@ -11224,9 +11238,9 @@
     - punctuation.definition.string.begin
 - source: $(
   scopesBegin:
-    - string.interpolated.dollar
+    - meta.scope.subshell
   scopes:
-    - punctuation.definition.evaluation.parens.begin
+    - punctuation.definition.subshell.single
 - source: getconf
   scopesBegin:
     - meta.statement
@@ -11255,9 +11269,9 @@
     - meta.argument
 - source: )
   scopes:
-    - punctuation.definition.evaluation.parens.end
+    - punctuation.definition.subshell.single
   scopesEnd:
-    - string.interpolated.dollar
+    - meta.scope.subshell
 - source: '"'
   scopes:
     - punctuation.definition.string.end
@@ -11291,25 +11305,23 @@
     - meta.statement.command
 - source: )
   scopes:
-    - punctuation.definition.evaluation.parens.end
+    - punctuation.definition.subshell.single
   scopesEnd:
-    - string.interpolated.dollar
+    - meta.scope.subshell
 - source: '"'
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
+    - meta.statement
+    - meta.expression.assignment.modified
     - string.quoted.double
 - source: if
-  scopes:
-    - keyword.control.if
-- source: '['
   scopesBegin:
-    - meta.scope.logical-expression
+    - meta.scope.if-block
   scopes:
-    - punctuation.definition.logical-expression
-- source: '['
+    - keyword.control
+- source: '[['
   scopesBegin:
     - meta.scope.logical-expression
   scopes:
@@ -11334,16 +11346,10 @@
     - punctuation.definition.string.end
   scopesEnd:
     - string.quoted.double
-- source: ']'
+- source: ']]'
   scopes:
     - punctuation.definition.logical-expression
   scopesEnd:
-    - meta.scope.logical-expression
-- source: ']'
-  scopes:
-    - punctuation.definition.logical-expression
-  scopesEnd:
-    - meta.statement
     - meta.scope.logical-expression
 - source: ;
   scopes:
@@ -11367,9 +11373,9 @@
     - punctuation.definition.string.begin
 - source: $(
   scopesBegin:
-    - string.interpolated.dollar
+    - meta.scope.subshell
   scopes:
-    - punctuation.definition.evaluation.parens.begin
+    - punctuation.definition.subshell.single
 - source: command
   scopesBegin:
     - meta.statement
@@ -11398,9 +11404,9 @@
     - meta.statement.command
 - source: )
   scopes:
-    - punctuation.definition.evaluation.parens.end
+    - punctuation.definition.subshell.single
   scopesEnd:
-    - string.interpolated.dollar
+    - meta.scope.subshell
 - source: '"'
   scopes:
     - punctuation.definition.string.end
@@ -11607,7 +11613,9 @@
     - meta.scope.if-block
 - source: fi
   scopes:
-    - keyword.control.fi
+    - keyword.control
+  scopesEnd:
+    - meta.scope.if-block
 - source: _sudo
   scopesBegin:
     - meta.statement
@@ -12092,9 +12100,9 @@
     - punctuation.definition.string.begin
 - source: $(
   scopesBegin:
-    - string.interpolated.dollar
+    - meta.scope.subshell
   scopes:
-    - punctuation.definition.evaluation.parens.begin
+    - punctuation.definition.subshell.single
 - source: getenforce
   scopes:
     - meta.statement
@@ -12104,9 +12112,9 @@
     - entity.name.command
 - source: )
   scopes:
-    - punctuation.definition.evaluation.parens.end
+    - punctuation.definition.subshell.single
   scopesEnd:
-    - string.interpolated.dollar
+    - meta.scope.subshell
 - source: '"'
   scopes:
     - punctuation.definition.string.end
@@ -12928,9 +12936,9 @@
     - string.quoted.double
 - source: (
   scopesBegin:
-    - meta.scope.subshell
+    - meta.parenthese.group
   scopes:
-    - punctuation.definition.subshell
+    - punctuation.section.parenthese
 - source: cd
   scopesBegin:
     - meta.statement
@@ -13316,10 +13324,10 @@
     - string.quoted.double
 - source: )
   scopes:
-    - punctuation.definition.subshell
+    - punctuation.section.parenthese
   scopesEnd:
     - meta.statement
-    - meta.scope.subshell
+    - meta.parenthese.group
 - source: '}'
   scopes:
     - punctuation.definition.group
@@ -13770,9 +13778,9 @@
     - punctuation.definition.string.begin
 - source: $(
   scopesBegin:
-    - string.interpolated.dollar
+    - meta.scope.subshell
   scopes:
-    - punctuation.definition.evaluation.parens.begin
+    - punctuation.definition.subshell.single
 - source: dirname
   scopesBegin:
     - meta.statement
@@ -13804,9 +13812,9 @@
     - string.quoted.double
 - source: )
   scopes:
-    - punctuation.definition.evaluation.parens.end
+    - punctuation.definition.subshell.single
   scopesEnd:
-    - string.interpolated.dollar
+    - meta.scope.subshell
 - source: '"'
   scopes:
     - punctuation.definition.string.end
@@ -14294,9 +14302,9 @@
     - keyword.operator.assignment
 - source: $(
   scopesBegin:
-    - string.interpolated.dollar
+    - meta.scope.subshell
   scopes:
-    - punctuation.definition.evaluation.parens.begin
+    - punctuation.definition.subshell.single
 - source: dirname
   scopesBegin:
     - meta.statement
@@ -14328,11 +14336,11 @@
     - string.quoted.double
 - source: )
   scopes:
-    - punctuation.definition.evaluation.parens.end
+    - punctuation.definition.subshell.single
   scopesEnd:
     - meta.statement
     - meta.expression.assignment
-    - string.interpolated.dollar
+    - meta.scope.subshell
 - source: if
   scopesBegin:
     - meta.scope.if-block
@@ -14610,9 +14618,9 @@
     - punctuation.definition.string.begin
 - source: $(
   scopesBegin:
-    - string.interpolated.dollar
+    - meta.scope.subshell
   scopes:
-    - punctuation.definition.evaluation.parens.begin
+    - punctuation.definition.subshell.single
 - source: cd
   scopesBegin:
     - meta.statement
@@ -14640,9 +14648,9 @@
     - punctuation.definition.string.begin
 - source: $(
   scopesBegin:
-    - string.interpolated.dollar
+    - meta.scope.subshell
   scopes:
-    - punctuation.definition.evaluation.parens.begin
+    - punctuation.definition.subshell.single
 - source: dirname
   scopesBegin:
     - meta.statement
@@ -14674,9 +14682,9 @@
     - string.quoted.double
 - source: )
   scopes:
-    - punctuation.definition.evaluation.parens.end
+    - punctuation.definition.subshell.single
   scopesEnd:
-    - string.interpolated.dollar
+    - meta.scope.subshell
 - source: '"'
   scopes:
     - punctuation.definition.string.end
@@ -14715,9 +14723,9 @@
     - string.unquoted.argument
 - source: )
   scopes:
-    - punctuation.definition.evaluation.parens.end
+    - punctuation.definition.subshell.single
   scopesEnd:
-    - string.interpolated.dollar
+    - meta.scope.subshell
 - source: '"'
   scopes:
     - punctuation.definition.string.end
@@ -15103,7 +15111,7 @@
 - source: export
   scopesBegin:
     - meta.statement
-    - meta.expression.assignment
+    - meta.expression.assignment.modified
   scopes:
     - storage.modifier.export
 - source: NIX_SSL_CERT_FILE
@@ -15154,16 +15162,13 @@
     - variable.other.assignment
   scopesEnd:
     - meta.statement
-    - meta.expression.assignment
-- source: fi
-  scopes:
-    - keyword.control.fi
-  scopesEnd:
     - meta.statement
-- source: if
+    - meta.expression.assignment.modified
+- source: fi
   scopesBegin:
-    - meta.scope.if-block
-  scopes:
+    - keyword.control
+- source: if
+  scopesEnd:
     - keyword.control
 - source: '['
   scopesBegin:
@@ -15381,10 +15386,11 @@
     - meta.scope.if-block
 - source: '}'
   scopes:
-    - meta.statement
+    - punctuation.definition.group
+    - punctuation.section.function.definition
+  scopesEnd:
+    - meta.function.body
 - source: unsetup_profiles
-  scopesBegin:
-    - meta.function
   scopes:
     - entity.name.function
 - source: (
@@ -15456,9 +15462,9 @@
     - punctuation.definition.string.begin
 - source: $(
   scopesBegin:
-    - string.interpolated.dollar
+    - meta.scope.subshell
   scopes:
-    - punctuation.definition.evaluation.parens.begin
+    - punctuation.definition.subshell.single
 - source: cat
   scopesBegin:
     - meta.statement
@@ -15595,9 +15601,9 @@
     - string.unquoted.argument
 - source: )
   scopes:
-    - punctuation.definition.evaluation.parens.end
+    - punctuation.definition.subshell.single
   scopesEnd:
-    - string.interpolated.dollar
+    - meta.scope.subshell
 - source: '"'
   scopes:
     - punctuation.definition.string.end
@@ -15616,9 +15622,9 @@
     - punctuation.definition.string.begin
 - source: $(
   scopesBegin:
-    - string.interpolated.dollar
+    - meta.scope.subshell
   scopes:
-    - punctuation.definition.evaluation.parens.begin
+    - punctuation.definition.subshell.single
 - source: cat
   scopesBegin:
     - meta.statement
@@ -15755,9 +15761,9 @@
     - string.unquoted.argument
 - source: )
   scopes:
-    - punctuation.definition.evaluation.parens.end
+    - punctuation.definition.subshell.single
   scopesEnd:
-    - string.interpolated.dollar
+    - meta.scope.subshell
 - source: '"'
   scopes:
     - punctuation.definition.string.end
@@ -15888,58 +15894,104 @@
 - source: '='
   scopes:
     - keyword.operator.assignment
-- source: $((
+- source: $(
+  scopesBegin:
+    - meta.scope.subshell
   scopes:
-    - punctuation.definition.evaluation.arithmetic.begin
+    - punctuation.definition.subshell.single
+- source: (
+  scopesBegin:
+    - meta.parenthese.group
+  scopes:
+    - punctuation.section.parenthese
 - source: $
   scopesBegin:
-    - string.other.math
+    - meta.statement
+    - meta.statement.command
+    - meta.statement.command.name
   scopes:
     - punctuation.definition.variable
     - variable.other.normal
 - source: start_line_number
   scopes:
     - variable.other.normal
+  scopesEnd:
+    - meta.statement.command.name
 - source: '-'
-  scopes:
-    - keyword.operator.arithmetic
+  scopesBegin:
+    - meta.argument
+    - string.unquoted.argument
 - source: '1'
   scopes:
+    - constant.numeric
     - constant.numeric.integer
   scopesEnd:
-    - string.other.math
-- source: ))
+    - meta.statement
+    - meta.statement.command
+    - meta.argument
+    - string.unquoted.argument
+- source: )
   scopes:
-    - punctuation.definition.evaluation.arithmetic.end
+    - punctuation.section.parenthese
+  scopesEnd:
+    - meta.parenthese.group
+- source: )
+  scopes:
+    - punctuation.definition.subshell.single
+  scopesEnd:
+    - meta.scope.subshell
 - source: line_number_after
   scopes:
     - variable.other.assignment
 - source: '='
   scopes:
     - keyword.operator.assignment
-- source: $((
+- source: $(
+  scopesBegin:
+    - meta.scope.subshell
   scopes:
-    - punctuation.definition.evaluation.arithmetic.begin
+    - punctuation.definition.subshell.single
+- source: (
+  scopesBegin:
+    - meta.parenthese.group
+  scopes:
+    - punctuation.section.parenthese
 - source: $
   scopesBegin:
-    - string.other.math
+    - meta.statement
+    - meta.statement.command
+    - meta.statement.command.name
   scopes:
     - punctuation.definition.variable
     - variable.other.normal
 - source: end_line_number
   scopes:
     - variable.other.normal
+  scopesEnd:
+    - meta.statement.command.name
 - source: +
-  scopes:
-    - keyword.operator.arithmetic
+  scopesBegin:
+    - meta.argument
+    - string.unquoted.argument
 - source: '1'
   scopes:
+    - constant.numeric
     - constant.numeric.integer
   scopesEnd:
-    - string.other.math
-- source: ))
+    - meta.statement
+    - meta.statement.command
+    - meta.argument
+    - string.unquoted.argument
+- source: )
   scopes:
-    - punctuation.definition.evaluation.arithmetic.end
+    - punctuation.section.parenthese
+  scopesEnd:
+    - meta.parenthese.group
+- source: )
+  scopes:
+    - punctuation.definition.subshell.single
+  scopesEnd:
+    - meta.scope.subshell
 - source: new_top_half
   scopes:
     - variable.other.assignment
@@ -15953,9 +16005,9 @@
     - punctuation.definition.string.begin
 - source: $(
   scopesBegin:
-    - string.interpolated.dollar
+    - meta.scope.subshell
   scopes:
-    - punctuation.definition.evaluation.parens.begin
+    - punctuation.definition.subshell.single
 - source: head
   scopesBegin:
     - meta.statement
@@ -15986,9 +16038,9 @@
     - constant.other.option
 - source: )
   scopes:
-    - punctuation.definition.evaluation.parens.end
+    - punctuation.definition.subshell.single
   scopesEnd:
-    - string.interpolated.dollar
+    - meta.scope.subshell
 - source: '"'
   scopes:
     - punctuation.definition.string.end
@@ -16014,9 +16066,9 @@
     - variable.other.normal
 - source: $(
   scopesBegin:
-    - string.interpolated.dollar
+    - meta.scope.subshell
   scopes:
-    - punctuation.definition.evaluation.parens.begin
+    - punctuation.definition.subshell.single
 - source: tail
   scopesBegin:
     - meta.statement
@@ -16059,9 +16111,9 @@
     - string.quoted.double
 - source: )
   scopes:
-    - punctuation.definition.evaluation.parens.end
+    - punctuation.definition.subshell.single
   scopesEnd:
-    - string.interpolated.dollar
+    - meta.scope.subshell
 - source: '"'
   scopes:
     - punctuation.definition.string.end
@@ -17017,9 +17069,9 @@
 - source: 'Sorry, I don''t know what to do on '
 - source: $(
   scopesBegin:
-    - string.interpolated.dollar
+    - meta.scope.subshell
   scopes:
-    - punctuation.definition.evaluation.parens.begin
+    - punctuation.definition.subshell.single
 - source: uname
   scopes:
     - meta.statement
@@ -17029,9 +17081,9 @@
     - entity.name.command
 - source: )
   scopes:
-    - punctuation.definition.evaluation.parens.end
+    - punctuation.definition.subshell.single
   scopesEnd:
-    - string.interpolated.dollar
+    - meta.scope.subshell
 - source: '"'
   scopes:
     - punctuation.definition.string.end

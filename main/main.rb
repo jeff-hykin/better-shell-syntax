@@ -70,6 +70,7 @@ require_relative './tokens.rb'
             :pathname,
             :keyword,
             :support,
+            :parenthese,
         ]
     grammar[:option_context] = [
             :misc_ranges,
@@ -367,14 +368,13 @@ require_relative './tokens.rb'
     possible_command_start   = basic_possible_command_start.lookAheadToAvoid(
         Regexp.new(
             @tokens.representationsThat(
-                :areShellReservedWords,
-                :areControlFlow
+                :areShellReservedWords || :areControlFlow || :areModifiers
             # escape before putting into regex
             ).map{
                 |value| Regexp.quote(value) 
             # add word-delimiter
             }.map{
-                |value| value + '\b(?!\/)'
+                |value| "#{value} |#{value}$"
             # "OR" join
             }.join("|")
         )
@@ -1001,6 +1001,43 @@ require_relative './tokens.rb'
             # :initial_context,
         ]
     ]
+    grammar[:parenthese] = [
+        # NOTE: right now this maybe-arithmetic doesn't really work because 
+        #       the command pattern will match the whole inner part and then operators
+        #       like minus will be treated as unquoted arguments
+        #       which would require a whole alternative command pattern to work around
+        # 
+        # PatternRange.new(
+        #     tag_as: "meta.parenthese.group.maybe-arithmetic",
+        #     # this is a heuristic since arithmetic it can't be matched properly/reliably
+        #     start_pattern: lookBehindFor(/\(/).then(
+        #         match: "(",
+        #         tag_as: "punctuation.section.parenthese",
+        #     ),
+        #     end_pattern: Pattern.new(
+        #         tag_as: "punctuation.section.parenthese",
+        #         match: ")",
+        #     ),
+        #     includes: [
+        #         :initial_context,
+        #         :math,
+        #     ],
+        # ),
+        PatternRange.new(
+            tag_as: "meta.parenthese.group",
+            start_pattern: Pattern.new(
+                match: "(",
+                tag_as: "punctuation.section.parenthese",
+            ),
+            end_pattern: Pattern.new(
+                tag_as: "punctuation.section.parenthese",
+                match: ")",
+            ),
+            includes: [
+                :initial_context,
+            ],
+        ),
+    ]
     grammar[:subshell_dollar] = generateBrackRanges[
         meta_tag: "meta.scope.subshell",
         punctuation_tag: "punctuation.definition.subshell",
@@ -1009,20 +1046,7 @@ require_relative './tokens.rb'
         single: true,
         dollar_sign: true,
         includes: [
-            PatternRange.new(
-                tag_as: "meta.parenthese.group",
-                start_pattern: Pattern.new(
-                    match: "(",
-                    tag_as: "punctuation.section.parenthese",
-                ),
-                end_pattern: Pattern.new(
-                    tag_as: "punctuation.section.parenthese",
-                    match: ")",
-                ),
-                includes: [
-                    :initial_context,
-                ],
-            ),
+            :parenthese,
             :initial_context,
         ]
     ]
@@ -1030,10 +1054,10 @@ require_relative './tokens.rb'
     grammar[:misc_ranges] = [
         :logical_expression_single,
         :logical_expression_double,
-        # 
-        # handle (())
-        # 
-        :arithmetic_dollar,
+            # # 
+            # # handle (())
+            # # 
+            # :arithmetic_dollar,
         # 
         # handle ()
         # 
