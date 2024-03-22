@@ -2,7 +2,7 @@
   scopesBegin:
     - meta.scope.if-block
   scopes:
-    - keyword.control
+    - keyword.control.if
 - source: 'true'
   scopes:
     - meta.statement
@@ -135,7 +135,7 @@
     - meta.argument
 - source: fi
   scopes:
-    - keyword.control
+    - keyword.control.fi
   scopesEnd:
     - meta.scope.if-block
 - source: echo
@@ -317,7 +317,7 @@
   scopesBegin:
     - meta.scope.if-block
   scopes:
-    - keyword.control
+    - keyword.control.if
 - source: 'true'
   scopes:
     - meta.statement
@@ -530,7 +530,7 @@
     - meta.argument
 - source: fi
   scopes:
-    - keyword.control
+    - keyword.control.fi
   scopesEnd:
     - meta.scope.if-block
 - source: echo

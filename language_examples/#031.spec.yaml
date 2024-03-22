@@ -1,6 +1,5 @@
 - source: A
   scopesBegin:
-    - meta.statement
     - meta.expression.assignment
   scopes:
     - variable.other.assignment
@@ -15,6 +14,7 @@
 - source: for
   scopesBegin:
     - meta.statement
+    - meta.for
   scopes:
     - keyword.control.for
 - source: ((
@@ -31,7 +31,9 @@
 - source: '0'
   scopes:
     - constant.numeric.integer
-- source: '; '
+- source: ;
+  scopes:
+    - punctuation.separator.semicolon.range
 - source: i
   scopes:
     - variable.other.normal
@@ -57,6 +59,8 @@
   scopes:
     - punctuation.section.array
 - source: '@'
+  scopes:
+    - keyword.operator.expansion
 - source: ']'
   scopes:
     - punctuation.section.array
@@ -66,7 +70,9 @@
   scopes:
     - punctuation.section.bracket.curly.variable.end
     - punctuation.definition.variable
-- source: '; '
+- source: ;
+  scopes:
+    - punctuation.separator.semicolon.range
 - source: i
   scopes:
     - variable.other.normal
@@ -78,6 +84,7 @@
     - punctuation.section.arithmetic.double
   scopesEnd:
     - meta.statement
+    - meta.for
     - meta.arithmetic
 - source: ;
   scopes:
@@ -103,7 +110,6 @@
   scopes:
     - punctuation.definition.subshell.single
   scopesEnd:
-    - meta.statement
     - meta.expression.assignment
     - meta.scope.subshell
 - source: '#'
@@ -116,7 +122,6 @@
     - comment.line.number-sign
 - source: A
   scopesBegin:
-    - meta.statement
     - meta.expression.assignment
   scopes:
     - variable.other.assignment
@@ -131,6 +136,7 @@
 - source: for
   scopesBegin:
     - meta.statement
+    - meta.for
   scopes:
     - keyword.control.for
 - source: ((
@@ -147,7 +153,9 @@
 - source: '0'
   scopes:
     - constant.numeric.integer
-- source: '; '
+- source: ;
+  scopes:
+    - punctuation.separator.semicolon.range
 - source: i
   scopes:
     - variable.other.normal
@@ -173,6 +181,8 @@
   scopes:
     - punctuation.section.array
 - source: '@'
+  scopes:
+    - keyword.operator.expansion
 - source: ']'
   scopes:
     - punctuation.section.array
@@ -182,7 +192,9 @@
   scopes:
     - punctuation.section.bracket.curly.variable.end
     - punctuation.definition.variable
-- source: '; '
+- source: ;
+  scopes:
+    - punctuation.separator.semicolon.range
 - source: i
   scopes:
     - variable.other.normal
@@ -194,6 +206,7 @@
     - punctuation.section.arithmetic.double
   scopesEnd:
     - meta.statement
+    - meta.for
     - meta.arithmetic
 - source: ;
   scopes:
@@ -228,11 +241,11 @@
   scopes:
     - punctuation.definition.subshell.single
 - source: \
-  scopesBegin:
-    - meta.statement
   scopes:
     - constant.character.escape.line-continuation
 - source: for
+  scopesBegin:
+    - meta.for
   scopes:
     - keyword.control.for
 - source: ((
@@ -249,7 +262,9 @@
 - source: '0'
   scopes:
     - constant.numeric.integer
-- source: '; '
+- source: ;
+  scopes:
+    - punctuation.separator.semicolon.range
 - source: i
   scopes:
     - variable.other.normal
@@ -275,6 +290,8 @@
   scopes:
     - punctuation.section.array
 - source: '@'
+  scopes:
+    - keyword.operator.expansion
 - source: ']'
   scopes:
     - punctuation.section.array
@@ -284,7 +301,9 @@
   scopes:
     - punctuation.section.bracket.curly.variable.end
     - punctuation.definition.variable
-- source: '; '
+- source: ;
+  scopes:
+    - punctuation.separator.semicolon.range
 - source: i
   scopes:
     - variable.other.normal
@@ -295,7 +314,7 @@
   scopes:
     - punctuation.section.arithmetic.double
   scopesEnd:
-    - meta.statement
+    - meta.for
     - meta.arithmetic
 - source: ;
   scopes:

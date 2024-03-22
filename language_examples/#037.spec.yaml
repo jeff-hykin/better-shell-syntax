@@ -1,6 +1,6 @@
 - source: alias
   scopesBegin:
-    - meta.expression.assignment
+    - meta.expression.assignment.alias
   scopes:
     - storage.type.alias
 - source: brew_list

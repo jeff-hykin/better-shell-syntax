@@ -28,6 +28,7 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
+    - meta.statement
     - meta.statement.command
     - meta.argument
     - string.quoted.double
@@ -107,6 +108,7 @@
     - punctuation.definition.array
 - source: echo
   scopesBegin:
+    - meta.statement
     - meta.statement.command
   scopes:
     - meta.statement.command.name

@@ -1,6 +1,5 @@
 - source: IFS
   scopesBegin:
-    - meta.statement
     - meta.expression.assignment
   scopes:
     - variable.other.assignment
@@ -17,11 +16,10 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
-    - meta.expression.assignment
     - string.quoted.single
 - source: read
   scopesBegin:
-    - meta.statement.command
+    - meta.statement.command.env
   scopes:
     - meta.statement.command.name
     - entity.name.function.call
@@ -68,3 +66,84 @@
 - source: '"'
   scopes:
     - punctuation.definition.string.end
+  scopesEnd:
+    - meta.statement.command.env
+    - meta.argument
+    - meta.herestring
+    - string.quoted.double
+- source: VAR2
+  scopes:
+    - variable.other.assignment
+- source: '='
+  scopes:
+    - keyword.operator.assignment
+- source: '0'
+  scopesBegin:
+    - string.unquoted
+- source: '0'
+- source: '0'
+- source: x
+- source: x
+- source: x
+  scopesEnd:
+    - string.unquoted
+- source: echo
+  scopesBegin:
+    - meta.statement.command.env
+  scopes:
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+    - support.function.builtin
+- source: hi
+  scopes:
+    - meta.argument
+    - string.unquoted.argument
+  scopesEnd:
+    - meta.statement.command.env
+- source: VAR2
+  scopes:
+    - variable.other.assignment
+- source: '='
+  scopes:
+    - keyword.operator.assignment
+- source: '0'
+  scopesBegin:
+    - string.unquoted
+- source: '0'
+- source: '0'
+- source: x
+- source: x
+- source: x
+  scopesEnd:
+    - string.unquoted
+- source: VAR3
+  scopesBegin:
+    - meta.expression.assignment
+  scopes:
+    - variable.other.assignment
+- source: '='
+  scopes:
+    - keyword.operator.assignment
+- source: '0'
+  scopesBegin:
+    - string.unquoted
+- source: '0'
+- source: '0'
+- source: x
+- source: x
+- source: x
+  scopesEnd:
+    - string.unquoted
+- source: echo
+  scopesBegin:
+    - meta.statement.command.env
+  scopes:
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+    - support.function.builtin
+- source: hi
+  scopes:
+    - meta.argument
+    - string.unquoted.argument

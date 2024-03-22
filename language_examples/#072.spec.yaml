@@ -327,16 +327,45 @@
     - meta.statement.command
 - source: for
   scopesBegin:
-    - meta.scope.for-in-loop
+    - meta.for.in
   scopes:
-    - keyword.control
+    - keyword.control.for
 - source: arg
   scopes:
-    - variable.other.loop
+    - variable.other.for
 - source: in
   scopes:
-    - keyword.control
-- source: ' apple be cd meet o mississippi'
+    - keyword.control.in
+- source: a
+  scopesBegin:
+    - string.unquoted
+- source: p
+- source: p
+- source: l
+- source: e
+- source: b
+- source: e
+- source: c
+- source: d
+- source: m
+- source: e
+- source: e
+- source: t
+- source: o
+- source: m
+- source: i
+- source: s
+- source: s
+- source: i
+- source: s
+- source: s
+- source: i
+- source: p
+- source: p
+- source: i
+  scopesEnd:
+    - meta.for.in
+    - string.unquoted
 - source: do
   scopes:
     - keyword.control.do
@@ -760,4 +789,4 @@
     - meta.case
 - source: done
   scopes:
-    - keyword.control
+    - keyword.control.done

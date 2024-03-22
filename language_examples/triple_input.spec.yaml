@@ -8,7 +8,6 @@
     - comment.line.number-sign
 - source: IFS
   scopesBegin:
-    - meta.statement
     - meta.expression.assignment
   scopes:
     - variable.other.assignment
@@ -25,11 +24,10 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
-    - meta.expression.assignment
     - string.quoted.single
 - source: read
   scopesBegin:
-    - meta.statement.command
+    - meta.statement.command.env
   scopes:
     - meta.statement.command.name
     - entity.name.function.call

@@ -1,0 +1,1134 @@
+- source: for
+  scopesBegin:
+    - meta.for.in
+  scopes:
+    - keyword.control.for
+- source: arg
+  scopes:
+    - variable.other.for
+- source: in
+  scopes:
+    - keyword.control.in
+- source: a
+  scopesBegin:
+    - string.unquoted
+- source: p
+- source: p
+- source: l
+- source: e
+- source: b
+- source: e
+- source: c
+- source: d
+- source: m
+- source: e
+- source: e
+- source: t
+- source: o
+- source: m
+- source: i
+- source: s
+- source: s
+- source: i
+- source: s
+- source: s
+- source: i
+- source: p
+- source: p
+- source: i
+  scopesEnd:
+    - meta.for.in
+    - string.unquoted
+- source: do
+  scopes:
+    - keyword.control.do
+- source: '#'
+  scopesBegin:
+    - comment.line.number-sign
+  scopes:
+    - punctuation.definition.comment
+- source: ' call functions based on arguments'
+  scopesEnd:
+    - comment.line.number-sign
+- source: case
+  scopesBegin:
+    - meta.case
+  scopes:
+    - keyword.control.case
+- source: '"'
+  scopesBegin:
+    - string.quoted.double
+  scopes:
+    - punctuation.definition.string.begin
+- source: $
+  scopes:
+    - punctuation.definition.variable
+    - variable.other.normal
+- source: arg
+  scopes:
+    - variable.other.normal
+- source: '"'
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - string.quoted.double
+- source: in
+  scopes:
+    - keyword.control.in
+- source: a
+  scopesBegin:
+    - meta.case.entry.pattern
+  scopes:
+    - string.unquoted.pattern
+    - string.regexp.unquoted
+- source: '*'
+  scopes:
+    - variable.language.special.quantifier.star
+    - keyword.operator.quantifier.star
+    - punctuation.definition.arbitrary-repetition
+    - punctuation.definition.regex.arbitrary-repetition
+- source: )
+  scopes:
+    - keyword.operator.pattern.case
+  scopesEnd:
+    - meta.case.entry.pattern
+- source: foo
+  scopesBegin:
+    - meta.case.entry.body
+  scopes:
+    - meta.statement.command
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+- source: ;;
+  scopes:
+    - punctuation.terminator.statement.case
+  scopesEnd:
+    - meta.case.entry.body
+- source: '#'
+  scopesBegin:
+    - comment.line.number-sign
+  scopes:
+    - punctuation.definition.comment
+- source: ' matches anything starting with "a"'
+  scopesEnd:
+    - comment.line.number-sign
+- source: b
+  scopesBegin:
+    - meta.case.entry.pattern
+  scopes:
+    - string.unquoted.pattern
+    - string.regexp.unquoted
+- source: '?'
+  scopes:
+    - variable.language.special.quantifier.question
+    - keyword.operator.quantifier.question
+    - punctuation.definition.arbitrary-repetition
+    - punctuation.definition.regex.arbitrary-repetition
+- source: )
+  scopes:
+    - keyword.operator.pattern.case
+  scopesEnd:
+    - meta.case.entry.pattern
+- source: bar
+  scopesBegin:
+    - meta.case.entry.body
+  scopes:
+    - meta.statement.command
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+- source: ;;
+  scopes:
+    - punctuation.terminator.statement.case
+  scopesEnd:
+    - meta.case.entry.body
+- source: '#'
+  scopesBegin:
+    - comment.line.number-sign
+  scopes:
+    - punctuation.definition.comment
+- source: ' matches any two-character string starting with "b"'
+  scopesEnd:
+    - comment.line.number-sign
+- source: c
+  scopesBegin:
+    - meta.case.entry.pattern
+  scopes:
+    - string.unquoted.pattern
+    - string.regexp.unquoted
+- source: '['
+  scopesBegin:
+    - string.regexp.character-class
+  scopes:
+    - punctuation.definition.character-class
+- source: de
+- source: ']'
+  scopes:
+    - punctuation.definition.character-class
+  scopesEnd:
+    - string.regexp.character-class
+- source: )
+  scopes:
+    - keyword.operator.pattern.case
+  scopesEnd:
+    - meta.case.entry.pattern
+- source: baz
+  scopesBegin:
+    - meta.case.entry.body
+  scopes:
+    - meta.statement.command
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+- source: ;;
+  scopes:
+    - punctuation.terminator.statement.case
+  scopesEnd:
+    - meta.case.entry.body
+- source: '#'
+  scopesBegin:
+    - comment.line.number-sign
+  scopes:
+    - punctuation.definition.comment
+- source: ' matches "cd" or "ce"'
+  scopesEnd:
+    - comment.line.number-sign
+- source: m
+  scopesBegin:
+    - meta.case.entry.pattern
+    - string.unquoted.pattern
+    - string.regexp.unquoted
+- source: e
+  scopesEnd:
+    - string.unquoted.pattern
+    - string.regexp.unquoted
+- source: '?'
+  scopes:
+    - variable.language.special.quantifier.question
+    - keyword.operator.quantifier.question
+    - punctuation.definition.arbitrary-repetition
+    - punctuation.definition.regex.arbitrary-repetition
+- source: (
+  scopesBegin:
+    - meta.parenthese
+  scopes:
+    - punctuation.definition.group
+    - punctuation.definition.regex.group
+- source: e
+  scopes:
+    - string.unquoted.pattern
+    - string.regexp.unquoted
+- source: )
+  scopes:
+    - punctuation.definition.group
+    - punctuation.definition.regex.group
+  scopesEnd:
+    - meta.parenthese
+- source: t
+  scopes:
+    - string.unquoted.pattern
+    - string.regexp.unquoted
+- source: )
+  scopes:
+    - keyword.operator.pattern.case
+  scopesEnd:
+    - meta.case.entry.pattern
+- source: qux
+  scopesBegin:
+    - meta.case.entry.body
+  scopes:
+    - meta.statement.command
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+- source: ;;
+  scopes:
+    - punctuation.terminator.statement.case
+  scopesEnd:
+    - meta.case.entry.body
+- source: '#'
+  scopesBegin:
+    - comment.line.number-sign
+  scopes:
+    - punctuation.definition.comment
+- source: ' matches "met" or "meet"'
+  scopesEnd:
+    - comment.line.number-sign
+- source: '@'
+  scopesBegin:
+    - meta.case.entry.pattern
+  scopes:
+    - variable.language.special.at
+    - keyword.operator.at
+    - punctuation.definition.regex.at
+- source: (
+  scopesBegin:
+    - meta.parenthese
+  scopes:
+    - punctuation.definition.group
+    - punctuation.definition.regex.group
+- source: a
+  scopes:
+    - string.unquoted.pattern
+    - string.regexp.unquoted
+- source: '|'
+  scopes:
+    - keyword.operator.orvariable.language.special.or
+    - keyword.operator.alternation.ruby
+    - punctuation.definition.regex.alternation
+    - punctuation.separator.regex.alternation
+- source: e
+  scopes:
+    - string.unquoted.pattern
+    - string.regexp.unquoted
+- source: '|'
+  scopes:
+    - keyword.operator.orvariable.language.special.or
+    - keyword.operator.alternation.ruby
+    - punctuation.definition.regex.alternation
+    - punctuation.separator.regex.alternation
+- source: i
+  scopes:
+    - string.unquoted.pattern
+    - string.regexp.unquoted
+- source: '|'
+  scopes:
+    - keyword.operator.orvariable.language.special.or
+    - keyword.operator.alternation.ruby
+    - punctuation.definition.regex.alternation
+    - punctuation.separator.regex.alternation
+- source: o
+  scopes:
+    - string.unquoted.pattern
+    - string.regexp.unquoted
+- source: '|'
+  scopes:
+    - keyword.operator.orvariable.language.special.or
+    - keyword.operator.alternation.ruby
+    - punctuation.definition.regex.alternation
+    - punctuation.separator.regex.alternation
+- source: u
+  scopes:
+    - string.unquoted.pattern
+    - string.regexp.unquoted
+- source: )
+  scopes:
+    - punctuation.definition.group
+    - punctuation.definition.regex.group
+  scopesEnd:
+    - meta.parenthese
+- source: )
+  scopes:
+    - keyword.operator.pattern.case
+  scopesEnd:
+    - meta.case.entry.pattern
+- source: fuzz
+  scopesBegin:
+    - meta.case.entry.body
+  scopes:
+    - meta.statement.command
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+- source: ;;
+  scopes:
+    - punctuation.terminator.statement.case
+  scopesEnd:
+    - meta.case.entry.body
+- source: '#'
+  scopesBegin:
+    - comment.line.number-sign
+  scopes:
+    - punctuation.definition.comment
+- source: ' matches one vowel'
+  scopesEnd:
+    - comment.line.number-sign
+- source: m
+  scopesBegin:
+    - meta.case.entry.pattern
+  scopes:
+    - string.unquoted.pattern
+    - string.regexp.unquoted
+- source: +
+  scopes:
+    - variable.language.special.quantifier.plus
+    - keyword.operator.quantifier.plus
+    - punctuation.definition.arbitrary-repetition
+    - punctuation.definition.regex.arbitrary-repetition
+- source: (
+  scopesBegin:
+    - meta.parenthese
+  scopes:
+    - punctuation.definition.group
+    - punctuation.definition.regex.group
+- source: i
+  scopesBegin:
+    - string.unquoted.pattern
+    - string.regexp.unquoted
+- source: s
+- source: s
+  scopesEnd:
+    - string.unquoted.pattern
+    - string.regexp.unquoted
+- source: )
+  scopes:
+    - punctuation.definition.group
+    - punctuation.definition.regex.group
+  scopesEnd:
+    - meta.parenthese
+- source: '?'
+  scopes:
+    - variable.language.special.quantifier.question
+    - keyword.operator.quantifier.question
+    - punctuation.definition.arbitrary-repetition
+    - punctuation.definition.regex.arbitrary-repetition
+- source: (
+  scopesBegin:
+    - meta.parenthese
+  scopes:
+    - punctuation.definition.group
+    - punctuation.definition.regex.group
+- source: i
+  scopesBegin:
+    - string.unquoted.pattern
+    - string.regexp.unquoted
+- source: p
+- source: p
+- source: i
+  scopesEnd:
+    - string.unquoted.pattern
+    - string.regexp.unquoted
+- source: )
+  scopes:
+    - punctuation.definition.group
+    - punctuation.definition.regex.group
+  scopesEnd:
+    - meta.parenthese
+- source: )
+  scopes:
+    - keyword.operator.pattern.case
+  scopesEnd:
+    - meta.case.entry.pattern
+- source: fizz
+  scopesBegin:
+    - meta.case.entry.body
+  scopes:
+    - meta.statement.command
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+- source: ;;
+  scopes:
+    - punctuation.terminator.statement.case
+  scopesEnd:
+    - meta.case.entry.body
+- source: '#'
+  scopesBegin:
+    - comment.line.number-sign
+  scopes:
+    - punctuation.definition.comment
+- source: ' matches "miss" or "mississippi" or others'
+  scopesEnd:
+    - comment.line.number-sign
+- source: '*              )'
+  scopes:
+    - keyword.operator.pattern.case.default
+- source: bazinga
+  scopesBegin:
+    - meta.case.entry.body
+  scopes:
+    - meta.statement.command
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+- source: ;;
+  scopes:
+    - punctuation.terminator.statement.case
+  scopesEnd:
+    - meta.case.entry.body
+- source: '#'
+  scopesBegin:
+    - comment.line.number-sign
+  scopes:
+    - punctuation.definition.comment
+- source: ' catchall, matches anything not matched above'
+  scopesEnd:
+    - comment.line.number-sign
+- source: esac
+  scopes:
+    - keyword.control.esac
+  scopesEnd:
+    - meta.case
+- source: done
+  scopes:
+    - keyword.control.done
+- source: for
+  scopesBegin:
+    - meta.for
+  scopes:
+    - keyword.control.for
+- source: ((
+  scopesBegin:
+    - meta.arithmetic
+  scopes:
+    - punctuation.section.arithmetic.double
+- source: i
+  scopes:
+    - variable.other.normal
+- source: '='
+  scopes:
+    - keyword.operator.arithmetic
+- source: '0'
+  scopes:
+    - constant.numeric.integer
+- source: ;
+  scopes:
+    - punctuation.separator.semicolon.range
+- source: i
+  scopes:
+    - variable.other.normal
+- source: <
+  scopes:
+    - keyword.operator.arithmetic
+- source: $
+  scopes:
+    - punctuation.definition.variable
+- source: '{'
+  scopes:
+    - punctuation.section.bracket.curly.variable.begin
+    - punctuation.definition.variable
+- source: '#'
+  scopesBegin:
+    - meta.parameter-expansion
+  scopes:
+    - keyword.operator.expansion
+- source: ID
+  scopes:
+    - variable.other.normal
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+  scopes:
+    - keyword.operator.expansion
+- source: ']'
+  scopes:
+    - punctuation.section.array
+  scopesEnd:
+    - meta.parameter-expansion
+- source: '}'
+  scopes:
+    - punctuation.section.bracket.curly.variable.end
+    - punctuation.definition.variable
+- source: ;
+  scopes:
+    - punctuation.separator.semicolon.range
+- source: i
+  scopes:
+    - variable.other.normal
+- source: ++
+  scopes:
+    - keyword.operator.arithmetic
+- source: ))
+  scopes:
+    - punctuation.section.arithmetic.double
+  scopesEnd:
+    - meta.for
+    - meta.arithmetic
+- source: ;
+  scopes:
+    - punctuation.terminator.statement.semicolon
+- source: '{'
+  scopesBegin:
+    - meta.scope.group
+  scopes:
+    - punctuation.definition.group
+- source: do_something
+  scopes:
+    - meta.statement
+    - meta.statement.command
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+- source: '}'
+  scopes:
+    - punctuation.definition.group
+  scopesEnd:
+    - meta.scope.group
+- source: A
+  scopesBegin:
+    - meta.expression.assignment
+  scopes:
+    - variable.other.assignment
+- source: '='
+  scopes:
+    - keyword.operator.assignment
+- source: $(
+  scopesBegin:
+    - meta.scope.subshell
+  scopes:
+    - punctuation.definition.subshell.single
+- source: for
+  scopesBegin:
+    - meta.statement
+    - meta.for
+  scopes:
+    - keyword.control.for
+- source: ((
+  scopesBegin:
+    - meta.arithmetic
+  scopes:
+    - punctuation.section.arithmetic.double
+- source: i
+  scopes:
+    - variable.other.normal
+- source: '='
+  scopes:
+    - keyword.operator.arithmetic
+- source: '0'
+  scopes:
+    - constant.numeric.integer
+- source: ;
+  scopes:
+    - punctuation.separator.semicolon.range
+- source: i
+  scopes:
+    - variable.other.normal
+- source: <
+  scopes:
+    - keyword.operator.arithmetic
+- source: $
+  scopes:
+    - punctuation.definition.variable
+- source: '{'
+  scopes:
+    - punctuation.section.bracket.curly.variable.begin
+    - punctuation.definition.variable
+- source: '#'
+  scopesBegin:
+    - meta.parameter-expansion
+  scopes:
+    - keyword.operator.expansion
+- source: ID
+  scopes:
+    - variable.other.normal
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+  scopes:
+    - keyword.operator.expansion
+- source: ']'
+  scopes:
+    - punctuation.section.array
+  scopesEnd:
+    - meta.parameter-expansion
+- source: '}'
+  scopes:
+    - punctuation.section.bracket.curly.variable.end
+    - punctuation.definition.variable
+- source: ;
+  scopes:
+    - punctuation.separator.semicolon.range
+- source: i
+  scopes:
+    - variable.other.normal
+- source: ++
+  scopes:
+    - keyword.operator.arithmetic
+- source: ))
+  scopes:
+    - punctuation.section.arithmetic.double
+  scopesEnd:
+    - meta.statement
+    - meta.for
+    - meta.arithmetic
+- source: ;
+  scopes:
+    - punctuation.terminator.statement.semicolon
+- source: '{'
+  scopesBegin:
+    - meta.scope.group
+  scopes:
+    - punctuation.definition.group
+- source: do_something
+  scopes:
+    - meta.statement
+    - meta.statement.command
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+- source: '}'
+  scopes:
+    - punctuation.definition.group
+  scopesEnd:
+    - meta.scope.group
+- source: )
+  scopes:
+    - punctuation.definition.subshell.single
+  scopesEnd:
+    - meta.expression.assignment
+    - meta.scope.subshell
+- source: '#'
+  scopesBegin:
+    - comment.line.number-sign
+  scopes:
+    - punctuation.definition.comment
+- source: ' <- check this'
+  scopesEnd:
+    - comment.line.number-sign
+- source: A
+  scopesBegin:
+    - meta.expression.assignment
+  scopes:
+    - variable.other.assignment
+- source: '='
+  scopes:
+    - keyword.operator.assignment
+- source: $(
+  scopesBegin:
+    - meta.scope.subshell
+  scopes:
+    - punctuation.definition.subshell.single
+- source: for
+  scopesBegin:
+    - meta.statement
+    - meta.for
+  scopes:
+    - keyword.control.for
+- source: ((
+  scopesBegin:
+    - meta.arithmetic
+  scopes:
+    - punctuation.section.arithmetic.double
+- source: i
+  scopes:
+    - variable.other.normal
+- source: '='
+  scopes:
+    - keyword.operator.arithmetic
+- source: '0'
+  scopes:
+    - constant.numeric.integer
+- source: ;
+  scopes:
+    - punctuation.separator.semicolon.range
+- source: i
+  scopes:
+    - variable.other.normal
+- source: <
+  scopes:
+    - keyword.operator.arithmetic
+- source: $
+  scopes:
+    - punctuation.definition.variable
+- source: '{'
+  scopes:
+    - punctuation.section.bracket.curly.variable.begin
+    - punctuation.definition.variable
+- source: '#'
+  scopesBegin:
+    - meta.parameter-expansion
+  scopes:
+    - keyword.operator.expansion
+- source: ID
+  scopes:
+    - variable.other.normal
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+  scopes:
+    - keyword.operator.expansion
+- source: ']'
+  scopes:
+    - punctuation.section.array
+  scopesEnd:
+    - meta.parameter-expansion
+- source: '}'
+  scopes:
+    - punctuation.section.bracket.curly.variable.end
+    - punctuation.definition.variable
+- source: ;
+  scopes:
+    - punctuation.separator.semicolon.range
+- source: i
+  scopes:
+    - variable.other.normal
+- source: ++
+  scopes:
+    - keyword.operator.arithmetic
+- source: ))
+  scopes:
+    - punctuation.section.arithmetic.double
+  scopesEnd:
+    - meta.statement
+    - meta.for
+    - meta.arithmetic
+- source: ;
+  scopes:
+    - punctuation.terminator.statement.semicolon
+- source: do
+  scopes:
+    - keyword.control.do
+- source: do_something
+  scopes:
+    - meta.statement
+    - meta.statement.command
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+- source: done
+  scopes:
+    - keyword.control.done
+- source: )
+  scopes:
+    - punctuation.definition.subshell.single
+  scopesEnd:
+    - meta.scope.subshell
+- source: A
+  scopes:
+    - variable.other.assignment
+- source: '='
+  scopes:
+    - keyword.operator.assignment
+- source: $(
+  scopesBegin:
+    - meta.scope.subshell
+  scopes:
+    - punctuation.definition.subshell.single
+- source: \
+  scopes:
+    - constant.character.escape.line-continuation
+- source: for
+  scopesBegin:
+    - meta.for
+  scopes:
+    - keyword.control.for
+- source: ((
+  scopesBegin:
+    - meta.arithmetic
+  scopes:
+    - punctuation.section.arithmetic.double
+- source: i
+  scopes:
+    - variable.other.normal
+- source: '='
+  scopes:
+    - keyword.operator.arithmetic
+- source: '0'
+  scopes:
+    - constant.numeric.integer
+- source: ;
+  scopes:
+    - punctuation.separator.semicolon.range
+- source: i
+  scopes:
+    - variable.other.normal
+- source: <
+  scopes:
+    - keyword.operator.arithmetic
+- source: $
+  scopes:
+    - punctuation.definition.variable
+- source: '{'
+  scopes:
+    - punctuation.section.bracket.curly.variable.begin
+    - punctuation.definition.variable
+- source: '#'
+  scopesBegin:
+    - meta.parameter-expansion
+  scopes:
+    - keyword.operator.expansion
+- source: ID
+  scopes:
+    - variable.other.normal
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+  scopes:
+    - keyword.operator.expansion
+- source: ']'
+  scopes:
+    - punctuation.section.array
+  scopesEnd:
+    - meta.parameter-expansion
+- source: '}'
+  scopes:
+    - punctuation.section.bracket.curly.variable.end
+    - punctuation.definition.variable
+- source: ;
+  scopes:
+    - punctuation.separator.semicolon.range
+- source: i
+  scopes:
+    - variable.other.normal
+- source: ++
+  scopes:
+    - keyword.operator.arithmetic
+- source: ))
+  scopes:
+    - punctuation.section.arithmetic.double
+  scopesEnd:
+    - meta.for
+    - meta.arithmetic
+- source: ;
+  scopes:
+    - punctuation.terminator.statement.semicolon
+- source: '{'
+  scopesBegin:
+    - meta.scope.group
+  scopes:
+    - punctuation.definition.group
+- source: do_something
+  scopes:
+    - meta.statement
+    - meta.statement.command
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+- source: '}'
+  scopes:
+    - punctuation.definition.group
+  scopesEnd:
+    - meta.scope.group
+- source: )
+  scopes:
+    - punctuation.definition.subshell.single
+  scopesEnd:
+    - meta.expression.assignment
+    - meta.scope.subshell
+- source: for
+  scopesBegin:
+    - meta.for.in
+  scopes:
+    - keyword.control.for
+- source: profile_target
+  scopes:
+    - variable.other.for
+- source: in
+  scopes:
+    - keyword.control.in
+- source: '"'
+  scopesBegin:
+    - string.quoted.double
+  scopes:
+    - punctuation.definition.string.begin
+- source: $
+  scopes:
+    - punctuation.definition.variable
+- source: '{'
+  scopes:
+    - punctuation.section.bracket.curly.variable.begin
+    - punctuation.definition.variable
+- source: PROFILE_TARGETS
+  scopesBegin:
+    - meta.parameter-expansion
+  scopes:
+    - variable.other.normal
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+  scopes:
+    - keyword.operator.expansion
+- source: ']'
+  scopes:
+    - punctuation.section.array
+  scopesEnd:
+    - meta.parameter-expansion
+- source: '}'
+  scopes:
+    - punctuation.section.bracket.curly.variable.end
+    - punctuation.definition.variable
+- source: '"'
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - meta.for.in
+    - string.quoted.double
+- source: ;
+  scopes:
+    - punctuation.terminator.statement.semicolon
+- source: do
+  scopes:
+    - keyword.control.do
+- source: '#'
+  scopesBegin:
+    - comment.line.number-sign
+  scopes:
+    - punctuation.definition.comment
+- source: ' TODO: I think it would be good to accumulate a list of all'
+- source: '#'
+  scopes:
+    - punctuation.definition.comment
+- source: '       of the copies so that people don''t hit this 2 or 3x in'
+- source: '#'
+  scopes:
+    - punctuation.definition.comment
+- source: '       a row for different files.'
+  scopesEnd:
+    - comment.line.number-sign
+- source: if
+  scopesBegin:
+    - meta.scope.if-block
+  scopes:
+    - keyword.control.if
+- source: '['
+  scopesBegin:
+    - meta.scope.logical-expression
+  scopes:
+    - punctuation.definition.logical-expression
+- source: '-e'
+  scopes:
+    - keyword.operator.logical
+- source: '"'
+  scopesBegin:
+    - string.quoted.double
+  scopes:
+    - punctuation.definition.string.begin
+- source: $
+  scopes:
+    - punctuation.definition.variable
+    - variable.other.normal
+- source: profile_target
+  scopes:
+    - variable.other.normal
+- source: $
+  scopes:
+    - punctuation.definition.variable
+    - variable.other.normal
+- source: PROFILE_BACKUP_SUFFIX
+  scopes:
+    - variable.other.normal
+- source: '"'
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - string.quoted.double
+- source: ']'
+  scopes:
+    - punctuation.definition.logical-expression
+  scopesEnd:
+    - meta.scope.logical-expression
+- source: ;
+  scopes:
+    - punctuation.terminator.statement.semicolon
+- source: then
+  scopes:
+    - keyword.control.then
+- source: '#'
+  scopesBegin:
+    - comment.line.number-sign
+  scopes:
+    - punctuation.definition.comment
+- source: ' this backup process first released in Nix 2.1'
+  scopesEnd:
+    - comment.line.number-sign
+- source: at_least_one_failed
+  scopesBegin:
+    - meta.expression.assignment
+  scopes:
+    - variable.other.assignment
+- source: '='
+  scopes:
+    - keyword.operator.assignment
+- source: '"'
+  scopesBegin:
+    - string.quoted.double
+  scopes:
+    - punctuation.definition.string.begin
+- source: 'true'
+- source: '"'
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - meta.expression.assignment
+    - string.quoted.double
+- source: failed_check
+  scopesBegin:
+    - meta.statement
+    - meta.statement.command
+  scopes:
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+- source: '"'
+  scopesBegin:
+    - meta.argument
+    - string.quoted.double
+  scopes:
+    - punctuation.definition.string.begin
+- source: $
+  scopes:
+    - punctuation.definition.variable
+    - variable.other.normal
+- source: profile_target
+  scopes:
+    - variable.other.normal
+- source: $
+  scopes:
+    - punctuation.definition.variable
+    - variable.other.normal
+- source: PROFILE_BACKUP_SUFFIX
+  scopes:
+    - variable.other.normal
+- source: ' already exists'
+- source: '"'
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - meta.statement
+    - meta.statement.command
+    - meta.argument
+    - string.quoted.double
+- source: else
+  scopes:
+    - keyword.control.else
+- source: passed_check
+  scopesBegin:
+    - meta.statement
+    - meta.statement.command
+  scopes:
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+- source: '"'
+  scopesBegin:
+    - meta.argument
+    - string.quoted.double
+  scopes:
+    - punctuation.definition.string.begin
+- source: $
+  scopes:
+    - punctuation.definition.variable
+    - variable.other.normal
+- source: profile_target
+  scopes:
+    - variable.other.normal
+- source: $
+  scopes:
+    - punctuation.definition.variable
+    - variable.other.normal
+- source: PROFILE_BACKUP_SUFFIX
+  scopes:
+    - variable.other.normal
+- source: ' does not exist yet'
+- source: '"'
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - meta.statement
+    - meta.statement.command
+    - meta.argument
+    - string.quoted.double
+- source: fi
+  scopes:
+    - keyword.control.fi
+  scopesEnd:
+    - meta.scope.if-block
+- source: done
+  scopes:
+    - keyword.control.done

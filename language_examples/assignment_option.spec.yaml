@@ -1,6 +1,6 @@
 - source: alias
   scopesBegin:
-    - meta.expression.assignment
+    - meta.expression.assignment.alias
   scopes:
     - storage.type.alias
 - source: gswr
@@ -39,7 +39,7 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
-    - meta.expression.assignment
+    - meta.expression.assignment.alias
     - string.quoted.single
 - source: function
   scopesBegin:
@@ -53,7 +53,7 @@
   scopesBegin:
     - meta.scope.if-block
   scopes:
-    - keyword.control
+    - keyword.control.if
 - source: test
   scopesBegin:
     - meta.statement

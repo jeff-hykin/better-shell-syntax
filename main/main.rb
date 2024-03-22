@@ -31,18 +31,21 @@ require_relative './tokens.rb'
             :normal_statement_seperator,
             :logical_expression_double,
             :logical_expression_single,
-            :modified_assignment_statement,
+            :assignment_statement,
             :case_statement,
-            :misc_ranges,
+            :for_statement,
             :loop,
             :function_definition,
+            :line_continuation,
+            :arithmetic_double,
+            :misc_ranges,
             :variable,
             :interpolation,
             :heredoc,
             :herestring,
             :redirection,
             :pathname,
-            :keyword,
+            :floating_keyword,
             :alias_statement,
             # :custom_commands,
             :normal_statement,
@@ -53,7 +56,7 @@ require_relative './tokens.rb'
             match: /\b(?:true|false)\b/,
             tag_as: "constant.language.$match"
         )
-    grammar[:normal_statement_context] = [
+    grammar[:normal_context] = [
             :comment,
             :pipeline,
             :normal_statement_seperator,
@@ -68,7 +71,7 @@ require_relative './tokens.rb'
             :herestring,
             :redirection,
             :pathname,
-            :keyword,
+            :floating_keyword,
             :support,
             :parenthese,
         ]
@@ -81,12 +84,12 @@ require_relative './tokens.rb'
             :herestring,
             :redirection,
             :pathname,
-            :keyword,
+            :floating_keyword,
             :support,
         ]
     grammar[:logical_expression_context] = [
             :regex_comparison,
-            :arithmetic_dollar,
+            # :arithmetic_dollar,
             :arithmetic_no_dollar,
             :'logical-expression',
             :logical_expression_single,
@@ -103,7 +106,7 @@ require_relative './tokens.rb'
             :heredoc,
             :herestring,
             :pathname,
-            :keyword,
+            :floating_keyword,
             :support,
         ]
 #
@@ -332,7 +335,7 @@ require_relative './tokens.rb'
         )
     )
     grammar[:alias_statement] = PatternRange.new(
-        tag_as: "meta.expression.assignment",
+        tag_as: "meta.expression.assignment.alias",
         start_pattern: Pattern.new(
             Pattern.new(
                 match: /alias/,
@@ -347,7 +350,7 @@ require_relative './tokens.rb'
             ).then(assignment_start),
         ),
         end_pattern: assignment_end,
-        includes: [ :normal_statement_context ]
+        includes: [ :normal_context ]
     )
     
     possible_pre_command_characters   = /(?:^|;|\||&|!|\(|\{|\`)/
@@ -374,15 +377,15 @@ require_relative './tokens.rb'
                 |value| Regexp.quote(value) 
             # add word-delimiter
             }.map{
-                |value| "#{value} |#{value}$"
+                |value| "#{value} |#{value}\t|#{value}$"
             # "OR" join
             }.join("|")
         )
     )
     
-    grammar[:keyword] = [
+    grammar[:floating_keyword] = [
         Pattern.new(
-            match: /(?<=^|;|&| |\t)(?:#{@tokens.representationsThat(:areControlFlow).join("|")})(?= |\t|;|&|$)/,
+            match: /(?<=^|;|&| |\t)(?:then|elif|else|done|end|do|if|fi)(?= |\t|;|&|$)/,
             tag_as: "keyword.control.$match",
         ),
         # modifier
@@ -414,29 +417,6 @@ require_relative './tokens.rb'
         ) 
     end
     unquoted_command_prefix = generateUnquotedArugment["entity.name.function.call entity.name.command"]
-    grammar[:start_of_double_quoted_command_name] = Pattern.new(
-        tag_as: "meta.statement.command.name.quoted string.quoted.double punctuation.definition.string.begin entity.name.function.call entity.name.command",
-        match: Pattern.new(
-            Pattern.new(
-                basic_possible_command_start
-            ).maybe(unquoted_command_prefix).oneOf([
-                /\$"/,
-                /"/,
-            ])
-        ),
-    )
-    
-    grammar[:start_of_single_quoted_command_name] = Pattern.new(
-        tag_as: "meta.statement.command.name.quoted string.quoted.single punctuation.definition.string.begin entity.name.function.call entity.name.command",
-        match: Pattern.new(
-            Pattern.new(
-                basic_possible_command_start
-            ).maybe(unquoted_command_prefix).oneOf([
-                /\$'/,
-                /'/,
-            ])
-        ),
-    )
     
     grammar[:continuation_of_double_quoted_command_name] = PatternRange.new(
         tag_content_as: "meta.statement.command.name.continuation string.quoted.double entity.name.function.call entity.name.command",
@@ -506,7 +486,7 @@ require_relative './tokens.rb'
     
     grammar[:argument_context] = [
         generateUnquotedArugment["string.unquoted.argument"],
-        :normal_statement_context,
+        :normal_context,
     ]
     grammar[:argument] = PatternRange.new(
         tag_as: "meta.argument",
@@ -547,86 +527,119 @@ require_relative './tokens.rb'
     keyword_patterns = /#{keywords.map { |each| each+'\W|'+each+'\$' } .join('|')}/
     control_prefix_commands = @tokens.representationsThat(:areControlFlow, :areFollowedByACommand)
     valid_after_patterns = /#{control_prefix_commands.map { |each| '^'+each+' | '+each+' |\t'+each+' ' } .join('|')}/
-    grammar[:normal_statement_inner] = [
-            :assignment_statement,
-            :case_statement,
-            :function_definition,
+    grammar[:typical_statements] = [
+        :assignment_statement,
+        :case_statement,
+        :for_statement,
+        :function_definition,
+        :command_statement,
+        :line_continuation,
+        :arithmetic_double,
+        :normal_context,
+    ]
+    grammar[:command_name_range] = PatternRange.new(
+        tag_as: "meta.statement.command.name",
+        start_pattern: Pattern.new(/\G/,),
+        end_pattern: argument_end,
+        includes: [
+            # 
+            # builtin commands
+            # 
+            # :modifiers, # TODO: eventually this one thing shouldnt be here
+            
+            Pattern.new(
+                match: any_builtin_control_flow,
+                tag_as: "entity.name.function.call entity.name.command keyword.control.$match",
+            ),
+            Pattern.new(
+                match: any_builtin_name.lookAheadToAvoid(/-/),
+                tag_as: "entity.name.function.call entity.name.command support.function.builtin",
+            ),
+            :variable,
             
             # 
-            # Command Statement
+            # unquoted parts of a command name
+            # 
+            Pattern.new(
+                lookBehindToAvoid(/\w/).lookBehindFor(/\G|'|"|\}|\)/).then(
+                    tag_as: "entity.name.function.call entity.name.command",
+                    match: /[^ \n\t\r"'=;#$!&\|`\)\{]+/,
+                ),
+            ),
+            
+            # 
+            # any quotes within a command name
             # 
             PatternRange.new(
-                tag_as: "meta.statement.command",
-                start_pattern: grammar[:start_of_command],
+                start_pattern: Pattern.new(
+                    Pattern.new(
+                        Pattern.new(/\G/).or(command_continuation)
+                    ).then(
+                        maybe(
+                            match: /\$/,
+                            tag_as: "meta.statement.command.name.quoted punctuation.definition.string entity.name.function.call entity.name.command",
+                        ).then(
+                            reference: "start_quote",
+                            match: Pattern.new(
+                                Pattern.new(
+                                    tag_as: "meta.statement.command.name.quoted string.quoted.double punctuation.definition.string.begin entity.name.function.call entity.name.command",
+                                    match: /"/
+                                ).or(
+                                    tag_as: "meta.statement.command.name.quoted string.quoted.single punctuation.definition.string.begin entity.name.function.call entity.name.command",
+                                    match: /'/,
+                                )
+                            )
+                        )
+                    )
+                ),
+                end_pattern: lookBehindToAvoid(/\G/).lookBehindFor(matchResultOf("start_quote")),
+                includes: [
+                    :continuation_of_single_quoted_command_name,
+                    :continuation_of_double_quoted_command_name,
+                ],
+            ),
+            :line_continuation,
+            :simple_unquoted,
+        ],
+    )
+    grammar[:command_statement] = PatternRange.new(
+        tag_as: "meta.statement.command",
+        start_pattern: grammar[:start_of_command],
+        end_pattern: command_end,
+        includes: [
+            # 
+            # Command Name Range
+            # 
+            :command_name_range,
+            
+            # 
+            # everything else after the command name
+            # 
+            :line_continuation,
+            :option,
+            :argument,
+            # :custom_commands,
+            # :statement_context,
+            :string,
+        ],
+    )
+    grammar[:normal_assignment_statement] = PatternRange.new(
+        tag_as: "meta.expression.assignment",
+        start_pattern: assignment_start,
+        end_pattern: command_end,
+        includes: [
+            :comment,
+            :string,
+            :normal_assignment_statement,
+            PatternRange.new(
+                tag_as: "meta.statement.command.env",
+                start_pattern: lookBehindFor(/ |\t/).lookAheadToAvoid(/ |\t|\w+=/),
                 end_pattern: command_end,
                 includes: [
                     # 
                     # Command Name Range
                     # 
-                    PatternRange.new(
-                        tag_as: "meta.statement.command.name",
-                        start_pattern: Pattern.new(/\G/,),
-                        end_pattern: argument_end,
-                        includes: [
-                            # 
-                            # builtin commands
-                            # 
-                            # :modifiers, # TODO: eventually this one thing shouldnt be here
-                            
-                            Pattern.new(
-                                match: any_builtin_control_flow,
-                                tag_as: "entity.name.function.call entity.name.command keyword.control.$match",
-                            ),
-                            Pattern.new(
-                                match: any_builtin_name.lookAheadToAvoid(/-/),
-                                tag_as: "entity.name.function.call entity.name.command support.function.builtin",
-                            ),
-                            :variable,
-                            
-                            # 
-                            # unquoted parts of a command name
-                            # 
-                            Pattern.new(
-                                lookBehindFor(/\G|'|"|\}|\)/).then(
-                                    tag_as: "entity.name.function.call entity.name.command",
-                                    match: /[^ \n\t\r"'=;#$!&\|`\)\{]+/,
-                                ),
-                            ),
-                            
-                            # 
-                            # any quotes within a command name
-                            # 
-                            PatternRange.new(
-                                start_pattern: Pattern.new(
-                                    Pattern.new(
-                                        Pattern.new(/\G/).or(command_continuation)
-                                    ).then(
-                                        maybe(
-                                            match: /\$/,
-                                            tag_as: "meta.statement.command.name.quoted punctuation.definition.string entity.name.function.call entity.name.command",
-                                        ).then(
-                                            reference: "start_quote",
-                                            match: Pattern.new(
-                                                Pattern.new(
-                                                    tag_as: "meta.statement.command.name.quoted string.quoted.double punctuation.definition.string.begin entity.name.function.call entity.name.command",
-                                                    match: /"/
-                                                ).or(
-                                                    tag_as: "meta.statement.command.name.quoted string.quoted.single punctuation.definition.string.begin entity.name.function.call entity.name.command",
-                                                    match: /'/,
-                                                )
-                                            )
-                                        )
-                                    )
-                                ),
-                                end_pattern: lookBehindToAvoid(/\G/).lookBehindFor(matchResultOf("start_quote")),
-                                includes: [
-                                    :continuation_of_single_quoted_command_name,
-                                    :continuation_of_double_quoted_command_name,
-                                ],
-                            ),
-                            :line_continuation,
-                        ],
-                    ),
+                    :command_name_range,
                     
                     # 
                     # everything else after the command name
@@ -639,17 +652,8 @@ require_relative './tokens.rb'
                     :string,
                 ],
             ),
-            :line_continuation,
-            :arithmetic_double,
-            :normal_statement_context,
-        ]
-    grammar[:normal_assignment_statement] = PatternRange.new(
-        tag_as: "meta.expression.assignment",
-        start_pattern: assignment_start,
-        end_pattern: assignment_end,
-        includes: [
-            :comment,
-            :argument_context,
+            :simple_unquoted, 
+            :normal_context,
         ]
     )
     grammar[:array_value] = PatternRange.new(
@@ -666,7 +670,7 @@ require_relative './tokens.rb'
             Pattern.new(
                 Pattern.new(
                     match: variable_name,
-                    tag_as: "variable.other.assignment.array entity.other.attribute-name",
+                     tag_as: "variable.other.assignment.array entity.other.attribute-name",
                 ).then(
                     match: /\=/,
                     tag_as: "keyword.operator.assignment punctuation.definition.assignment",
@@ -687,7 +691,7 @@ require_relative './tokens.rb'
                     match: /\=/,
                 )
             ),
-            :normal_statement_context,
+            :normal_context,
             :simple_unquoted,
         ]
     )
@@ -731,7 +735,7 @@ require_relative './tokens.rb'
                     grammar[:numeric_literal]
                 ),
             ),
-            :normal_statement_context,
+            :normal_context,
         ],
     )
     grammar[:assignment_statement] = [
@@ -797,6 +801,45 @@ require_relative './tokens.rb'
                 tag_as: "string.unquoted.pattern string.regexp.unquoted",
             ),
         ]
+    grammar[:for_statement] = [
+        PatternRange.new(
+            tag_as: "meta.for.in",
+            start_pattern: Pattern.new(
+                Pattern.new(
+                    tag_as: "keyword.control.for",
+                    match: /\bfor\b/,
+                ).then(
+                    std_space.then(
+                        match: variable_name,
+                        tag_as: "variable.other.for",
+                    ).then(std_space).then(
+                        match: /\bin\b/,
+                        tag_as: "keyword.control.in",
+                    )
+                )
+            ),
+            end_pattern: command_end,
+            includes: [
+                :string,
+                :simple_unquoted,
+                :normal_context,
+            ],
+        ),
+        PatternRange.new(
+            tag_as: "meta.for",
+            start_pattern: Pattern.new(
+                Pattern.new(
+                    tag_as: "keyword.control.for",
+                    match: /\bfor\b/,
+                )
+            ),
+            end_pattern: command_end,
+            includes: [
+                :arithmetic_double,
+                :normal_context,
+            ],
+        ),
+    ]
     grammar[:case_statement] = PatternRange.new(
         tag_as: "meta.case",
         start_pattern: Pattern.new(
@@ -849,7 +892,7 @@ require_relative './tokens.rb'
                     )
                 ),
                 includes: [
-                    :normal_statement_inner,
+                    :typical_statements,
                     :initial_context,
                 ],
             ),
@@ -867,7 +910,7 @@ require_relative './tokens.rb'
         ),
         end_pattern: command_end,
         includes: [
-            :normal_statement_inner,
+            :typical_statements,
         ]
         
     )
@@ -1098,6 +1141,25 @@ require_relative './tokens.rb'
         )
     end
     
+    grammar[:special_expansion] = Pattern.new(
+        match: /!|:[-=?]?|\*|@|##|#|%%|%|\//,
+        tag_as: "keyword.operator.expansion",
+    )
+    grammar[:array_access_inline] = Pattern.new(
+        Pattern.new(
+            match: /\[/,
+            tag_as: "punctuation.section.array",
+        ).then(
+            match: /[^\]]+/,
+            includes: [
+                :special_expansion,
+                :string,
+            ]
+        ).then(
+            match: /\]/,
+            tag_as: "punctuation.section.array",
+        )
+    )
     grammar[:variable] = [
         generateVariable(/\@/, "variable.parameter.positional.all"),
         generateVariable(/[0-9]/, "variable.parameter.positional"),
@@ -1119,21 +1181,8 @@ require_relative './tokens.rb'
                     tag_as: "punctuation.section.bracket.curly.variable.end punctuation.definition.variable variable.parameter.positional",
                 ),
             includes: [
-                Pattern.new(
-                    match: /!|:[-=?]?|\*|@|##|#|%%|%|\//,
-                    tag_as: "keyword.operator.expansion",
-                ),
-                Pattern.new(
-                    Pattern.new(
-                        match: /\[/,
-                        tag_as: "punctuation.section.array",
-                    ).then(
-                        match: /[^\]]+/,
-                    ).then(
-                        match: /\]/,
-                        tag_as: "punctuation.section.array",
-                    )
-                ),
+                :special_expansion,
+                :array_access_inline,
                 Pattern.new(
                     match: /[0-9]+/,
                     tag_as: "variable.parameter.positional",
@@ -1164,21 +1213,8 @@ require_relative './tokens.rb'
                     tag_as: "punctuation.section.bracket.curly.variable.end punctuation.definition.variable",
                 ),
             includes: [
-                Pattern.new(
-                    match: /!|:[-=?]?|\*|@|##|#|%%|%|\//,
-                    tag_as: "keyword.operator.expansion",
-                ),
-                Pattern.new(
-                    Pattern.new(
-                        match: /\[/,
-                        tag_as: "punctuation.section.array",
-                    ).then(
-                        match: /[^\]]+/,
-                    ).then(
-                        match: /\]/,
-                        tag_as: "punctuation.section.array",
-                    )
-                ),
+                :special_expansion,
+                :array_access_inline,
                 Pattern.new(
                     match: variable_name,
                     tag_as: "variable.other.normal",
@@ -1305,7 +1341,7 @@ require_relative './tokens.rb'
                                 match: /.*/,
                                 includes: [
                                     :redirect_fix,
-                                    :normal_statement_inner,
+                                    :typical_statements,
                                 ],
                             )
                         ),
@@ -1339,7 +1375,7 @@ require_relative './tokens.rb'
                                 match: /.*/,
                                 includes: [
                                     :redirect_fix,
-                                    :normal_statement_inner,
+                                    :typical_statements,
                                 ],
                             )
                         ),
@@ -1368,7 +1404,7 @@ require_relative './tokens.rb'
                                 match: /.*/,
                                 includes: [
                                     :redirect_fix,
-                                    :normal_statement_inner,
+                                    :typical_statements,
                                 ],
                             )
                         ),
@@ -1402,7 +1438,7 @@ require_relative './tokens.rb'
                                 match: /.*/,
                                 includes: [
                                     :redirect_fix,
-                                    :normal_statement_inner,
+                                    :typical_statements,
                                 ],
                             )
                         ),

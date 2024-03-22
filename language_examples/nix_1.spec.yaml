@@ -353,7 +353,6 @@
     - comment.line.number-sign
 - source: NIX_FIRST_BUILD_UID
   scopesBegin:
-    - meta.statement
     - meta.expression.assignment
   scopes:
     - variable.other.assignment
@@ -410,7 +409,6 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
-    - meta.statement
     - meta.expression.assignment
     - string.quoted.double
 - source: '#'
@@ -931,7 +929,7 @@
   scopesBegin:
     - meta.scope.if-block
   scopes:
-    - keyword.control
+    - keyword.control.if
 - source: '['
   scopesBegin:
     - meta.scope.logical-expression
@@ -1014,7 +1012,7 @@
     - string.quoted.single
 - source: fi
   scopes:
-    - keyword.control
+    - keyword.control.fi
   scopesEnd:
     - meta.scope.if-block
 - source: headless
@@ -1965,7 +1963,7 @@
   scopesBegin:
     - meta.scope.if-block
   scopes:
-    - keyword.control
+    - keyword.control.if
 - source: '['
   scopesBegin:
     - meta.scope.logical-expression
@@ -2054,7 +2052,7 @@
     - string.quoted.double
 - source: fi
   scopes:
-    - keyword.control
+    - keyword.control.fi
   scopesEnd:
     - meta.scope.if-block
 - source: echo
@@ -2137,8 +2135,12 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
+    - meta.statement
+    - meta.expression.assignment
     - string.quoted.double
 - source: header
+  scopesBegin:
+    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
@@ -2239,6 +2241,7 @@
     - meta.scope.subshell
 - source: echo
   scopesBegin:
+    - meta.statement
     - meta.statement.command
   scopes:
     - meta.statement.command.name
@@ -2336,8 +2339,12 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
+    - meta.statement
+    - meta.expression.assignment
     - string.quoted.double
 - source: header
+  scopesBegin:
+    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
@@ -2438,6 +2445,7 @@
     - meta.scope.subshell
 - source: echo
   scopesBegin:
+    - meta.statement
     - meta.statement.command
   scopes:
     - meta.statement.command.name
@@ -3412,7 +3420,7 @@
   scopesBegin:
     - meta.scope.if-block
   scopes:
-    - keyword.control
+    - keyword.control.if
 - source: headless
   scopes:
     - meta.statement
@@ -3465,7 +3473,7 @@
     - meta.statement.command
 - source: fi
   scopes:
-    - keyword.control
+    - keyword.control.fi
   scopesEnd:
     - meta.scope.if-block
 - source: local
@@ -3574,7 +3582,7 @@
   scopesBegin:
     - meta.scope.if-block
   scopes:
-    - keyword.control
+    - keyword.control.if
 - source: '['
   scopesBegin:
     - meta.scope.logical-expression
@@ -3820,7 +3828,7 @@
     - string.quoted.double
 - source: fi
   scopes:
-    - keyword.control
+    - keyword.control.fi
   scopesEnd:
     - meta.scope.if-block
 - source: done
@@ -4347,7 +4355,7 @@
   scopesBegin:
     - meta.scope.if-block
   scopes:
-    - keyword.control
+    - keyword.control.if
 - source: ui_confirm
   scopesBegin:
     - meta.statement
@@ -4437,7 +4445,7 @@
     - string.quoted.double
 - source: fi
   scopes:
-    - keyword.control
+    - keyword.control.fi
   scopesEnd:
     - meta.scope.if-block
 - source: '}'
@@ -4611,7 +4619,7 @@
   scopesBegin:
     - meta.scope.if-block
   scopes:
-    - keyword.control
+    - keyword.control.if
 - source: ui_confirm
   scopesBegin:
     - meta.statement
@@ -4706,7 +4714,7 @@
     - string.quoted.double
 - source: fi
   scopes:
-    - keyword.control
+    - keyword.control.fi
   scopesEnd:
     - meta.scope.if-block
 - source: '}'
@@ -4718,7 +4726,6 @@
     - meta.function.body
 - source: _SERIOUS_BUSINESS
   scopesBegin:
-    - meta.statement
     - meta.expression.assignment
   scopes:
     - variable.other.assignment
@@ -4765,7 +4772,6 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
-    - meta.statement
     - meta.expression.assignment
     - string.quoted.double
 - source: password_confirm
@@ -4822,7 +4828,7 @@
   scopesBegin:
     - meta.scope.if-block
   scopes:
-    - keyword.control
+    - keyword.control.if
 - source: ui_confirm
   scopesBegin:
     - meta.statement
@@ -4989,7 +4995,7 @@
     - meta.statement.command
 - source: fi
   scopes:
-    - keyword.control
+    - keyword.control.fi
   scopesEnd:
     - meta.scope.if-block
 - source: '}'
@@ -5036,8 +5042,6 @@
   scopesEnd:
     - comment.line.number-sign
 - source: _reminders
-  scopesBegin:
-    - meta.statement
   scopes:
     - variable.other.assignment
 - source: '='
@@ -5067,7 +5071,6 @@
   scopes:
     - punctuation.section.arithmetic.double
   scopesEnd:
-    - meta.statement
     - meta.arithmetic
 - source: remind
   scopesBegin:
@@ -5098,10 +5101,9 @@
   scopesBegin:
     - meta.scope.if-block
   scopes:
-    - keyword.control
+    - keyword.control.if
 - source: ((
   scopesBegin:
-    - meta.statement
     - meta.arithmetic
   scopes:
     - punctuation.section.arithmetic.double
@@ -5118,7 +5120,6 @@
   scopes:
     - punctuation.section.arithmetic.double
   scopesEnd:
-    - meta.statement
     - meta.arithmetic
 - source: ;
   scopes:
@@ -5151,15 +5152,15 @@
     - string.quoted.double
 - source: for
   scopesBegin:
-    - meta.scope.for-in-loop
+    - meta.for.in
   scopes:
-    - keyword.control
+    - keyword.control.for
 - source: line
   scopes:
-    - variable.other.loop
+    - variable.other.for
 - source: in
   scopes:
-    - keyword.control
+    - keyword.control.in
 - source: '"'
   scopesBegin:
     - string.quoted.double
@@ -5181,6 +5182,8 @@
   scopes:
     - punctuation.section.array
 - source: '@'
+  scopes:
+    - keyword.operator.expansion
 - source: ']'
   scopes:
     - punctuation.section.array
@@ -5194,6 +5197,7 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
+    - meta.for.in
     - string.quoted.double
 - source: ;
   scopes:
@@ -5235,7 +5239,7 @@
   scopesBegin:
     - meta.scope.if-block
   scopes:
-    - keyword.control
+    - keyword.control.if
 - source: '!'
   scopes:
     - keyword.operator.pipe
@@ -5309,7 +5313,7 @@
   scopesBegin:
     - meta.scope.if-block
   scopes:
-    - keyword.control
+    - keyword.control.if
 - source: read
   scopesBegin:
     - meta.statement
@@ -5385,22 +5389,20 @@
     - string.quoted.single.dollar
 - source: fi
   scopes:
-    - keyword.control
+    - keyword.control.fi
   scopesEnd:
     - meta.scope.if-block
 - source: fi
   scopes:
-    - keyword.control
+    - keyword.control.fi
   scopesEnd:
     - meta.scope.if-block
 - source: done
   scopes:
-    - keyword.control
-  scopesEnd:
-    - meta.scope.for-in-loop
+    - keyword.control.done
 - source: fi
   scopes:
-    - keyword.control
+    - keyword.control.fi
   scopesEnd:
     - meta.scope.if-block
 - source: '}'
@@ -5501,6 +5503,7 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
+    - meta.statement
     - meta.statement.command
     - meta.argument
     - string.quoted.double
@@ -5533,13 +5536,11 @@
 - source: )
   scopes:
     - punctuation.definition.array
-  scopesEnd:
-    - meta.statement
 - source: if
   scopesBegin:
     - meta.scope.if-block
   scopes:
-    - keyword.control
+    - keyword.control.if
 - source: '[['
   scopesBegin:
     - meta.scope.logical-expression
@@ -5624,8 +5625,6 @@
   scopes:
     - keyword.control.do
 - source: _reminders
-  scopesBegin:
-    - meta.statement
   scopes:
     - variable.other.assignment
 - source: +=
@@ -5654,8 +5653,6 @@
 - source: )
   scopes:
     - punctuation.definition.array
-  scopesEnd:
-    - meta.statement
 - source: done
   scopes:
     - keyword.control
@@ -5677,8 +5674,6 @@
   scopesEnd:
     - comment.line.number-sign
 - source: _reminders
-  scopesBegin:
-    - meta.statement
   scopes:
     - variable.other.assignment
 - source: +=
@@ -5707,16 +5702,12 @@
 - source: )
   scopes:
     - punctuation.definition.array
-  scopesEnd:
-    - meta.statement
 - source: fi
   scopes:
-    - keyword.control
+    - keyword.control.fi
   scopesEnd:
     - meta.scope.if-block
 - source: _reminders
-  scopesBegin:
-    - meta.statement
   scopes:
     - variable.other.assignment
 - source: +=
@@ -5740,6 +5731,7 @@
     - punctuation.definition.array
 - source: ((
   scopesBegin:
+    - meta.statement
     - meta.arithmetic
   scopes:
     - punctuation.section.arithmetic.double
@@ -6075,7 +6067,7 @@
   scopesBegin:
     - meta.scope.if-block
   scopes:
-    - keyword.control
+    - keyword.control.if
 - source: '!'
   scopes:
     - keyword.operator.pipe
@@ -6152,11 +6144,11 @@
     - meta.statement.command
     - meta.argument
 - source: fi
-  scopesBegin:
-    - keyword.control
+  scopes:
+    - keyword.control.fi
 - source: if
-  scopesEnd:
-    - keyword.control
+  scopes:
+    - keyword.control.if
 - source: is_root
   scopes:
     - meta.statement
@@ -6233,7 +6225,7 @@
     - string.quoted.double
 - source: fi
   scopes:
-    - keyword.control
+    - keyword.control.fi
   scopesEnd:
     - meta.scope.if-block
 - source: '}'
@@ -6255,7 +6247,7 @@
   scopesBegin:
     - meta.scope.if-block
   scopes:
-    - keyword.control
+    - keyword.control.if
 - source: '[['
   scopesBegin:
     - meta.scope.logical-expression
@@ -6439,7 +6431,7 @@
     - string.quoted.double
 - source: fi
   scopes:
-    - keyword.control
+    - keyword.control.fi
   scopesEnd:
     - meta.scope.if-block
 - source: readonly
@@ -6919,7 +6911,7 @@
   scopesBegin:
     - meta.scope.if-block
   scopes:
-    - keyword.control
+    - keyword.control.if
 - source: type
   scopesBegin:
     - meta.statement
@@ -7007,7 +6999,7 @@
     - string.quoted.double
 - source: fi
   scopes:
-    - keyword.control
+    - keyword.control.fi
   scopesEnd:
     - meta.scope.if-block
 - source: '}'
@@ -7111,15 +7103,15 @@
     - string.quoted.double
 - source: for
   scopesBegin:
-    - meta.scope.for-in-loop
+    - meta.for.in
   scopes:
-    - keyword.control
+    - keyword.control.for
 - source: profile_target
   scopes:
-    - variable.other.loop
+    - variable.other.for
 - source: in
   scopes:
-    - keyword.control
+    - keyword.control.in
 - source: '"'
   scopesBegin:
     - string.quoted.double
@@ -7141,6 +7133,8 @@
   scopes:
     - punctuation.section.array
 - source: '@'
+  scopes:
+    - keyword.operator.expansion
 - source: ']'
   scopes:
     - punctuation.section.array
@@ -7154,6 +7148,7 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
+    - meta.for.in
     - string.quoted.double
 - source: ;
   scopes:
@@ -7181,7 +7176,7 @@
   scopesBegin:
     - meta.scope.if-block
   scopes:
-    - keyword.control
+    - keyword.control.if
 - source: '['
   scopesBegin:
     - meta.scope.logical-expression
@@ -7235,7 +7230,6 @@
     - comment.line.number-sign
 - source: at_least_one_failed
   scopesBegin:
-    - meta.statement
     - meta.expression.assignment
   scopes:
     - variable.other.assignment
@@ -7256,6 +7250,7 @@
     - string.quoted.double
 - source: failed_check
   scopesBegin:
+    - meta.statement
     - meta.statement.command
   scopes:
     - meta.statement.command.name
@@ -7332,19 +7327,17 @@
     - string.quoted.double
 - source: fi
   scopes:
-    - keyword.control
+    - keyword.control.fi
   scopesEnd:
     - meta.scope.if-block
 - source: done
   scopes:
-    - keyword.control
-  scopesEnd:
-    - meta.scope.for-in-loop
+    - keyword.control.done
 - source: if
   scopesBegin:
     - meta.scope.if-block
   scopes:
-    - keyword.control
+    - keyword.control.if
 - source: '['
   scopesBegin:
     - meta.scope.logical-expression
@@ -7409,7 +7402,7 @@
     - meta.statement.command
 - source: fi
   scopes:
-    - keyword.control
+    - keyword.control.fi
   scopesEnd:
     - meta.scope.if-block
 - source: '}'
@@ -7434,9 +7427,8 @@
     - punctuation.definition.group
     - punctuation.section.function.definition
 - source: echo
-  scopesBegin:
-    - meta.statement
   scopes:
+    - meta.statement
     - meta.statement.command
     - meta.statement.command.name
     - entity.name.function.call
@@ -7475,20 +7467,19 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
-    - meta.statement
     - meta.expression.assignment
     - string.quoted.double
 - source: for
   scopesBegin:
-    - meta.scope.for-in-loop
+    - meta.for.in
   scopes:
-    - keyword.control
+    - keyword.control.for
 - source: profile_target
   scopes:
-    - variable.other.loop
+    - variable.other.for
 - source: in
   scopes:
-    - keyword.control
+    - keyword.control.in
 - source: '"'
   scopesBegin:
     - string.quoted.double
@@ -7510,6 +7501,8 @@
   scopes:
     - punctuation.section.array
 - source: '@'
+  scopes:
+    - keyword.operator.expansion
 - source: ']'
   scopes:
     - punctuation.section.array
@@ -7523,6 +7516,7 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
+    - meta.for.in
     - string.quoted.double
 - source: ;
   scopes:
@@ -7534,7 +7528,7 @@
   scopesBegin:
     - meta.scope.if-block
   scopes:
-    - keyword.control
+    - keyword.control.if
 - source: '['
   scopesBegin:
     - meta.scope.logical-expression
@@ -7580,7 +7574,6 @@
     - keyword.control.then
 - source: profiles
   scopesBegin:
-    - meta.statement
     - meta.expression.assignment
   scopes:
     - variable.other.assignment
@@ -7649,19 +7642,16 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
-    - meta.statement
     - meta.expression.assignment
     - string.quoted.double
 - source: fi
   scopes:
-    - keyword.control
+    - keyword.control.fi
   scopesEnd:
     - meta.scope.if-block
 - source: done
   scopes:
-    - keyword.control
-  scopesEnd:
-    - meta.scope.for-in-loop
+    - keyword.control.done
 - source: error
   scopesBegin:
     - meta.statement
@@ -7810,7 +7800,7 @@
   scopesBegin:
     - meta.scope.if-block
   scopes:
-    - keyword.control
+    - keyword.control.if
 - source: '!'
   scopes:
     - keyword.operator.pipe
@@ -7918,7 +7908,7 @@
   scopesBegin:
     - meta.scope.if-block
   scopes:
-    - keyword.control
+    - keyword.control.if
 - source: is_os_linux
   scopes:
     - meta.statement
@@ -8025,7 +8015,7 @@
     - string.quoted.double
 - source: fi
   scopes:
-    - keyword.control
+    - keyword.control.fi
   scopesEnd:
     - meta.scope.if-block
 - source: echo
@@ -8085,7 +8075,7 @@
   scopesBegin:
     - meta.scope.if-block
   scopes:
-    - keyword.control
+    - keyword.control.if
 - source: ui_confirm
   scopesBegin:
     - meta.statement
@@ -8131,7 +8121,7 @@
   scopesBegin:
     - meta.scope.if-block
   scopes:
-    - keyword.control
+    - keyword.control.if
 - source: '!'
   scopes:
     - keyword.operator.pipe
@@ -8232,7 +8222,7 @@
     - string.quoted.double
 - source: fi
   scopes:
-    - keyword.control
+    - keyword.control.fi
   scopesEnd:
     - meta.scope.if-block
 - source: else
@@ -8263,12 +8253,12 @@
     - string.quoted.double
 - source: fi
   scopes:
-    - keyword.control
+    - keyword.control.fi
   scopesEnd:
     - meta.scope.if-block
 - source: fi
   scopes:
-    - keyword.control
+    - keyword.control.fi
   scopesEnd:
     - meta.scope.if-block
 - source: poly_5_assumption_validation
@@ -8501,7 +8491,7 @@
   scopesBegin:
     - meta.scope.if-block
   scopes:
-    - keyword.control
+    - keyword.control.if
 - source: '['
   scopesBegin:
     - meta.scope.logical-expression
@@ -8594,7 +8584,7 @@
     - string.quoted.double
 - source: fi
   scopes:
-    - keyword.control
+    - keyword.control.fi
   scopesEnd:
     - meta.scope.if-block
 - source: subheader
@@ -8647,15 +8637,15 @@
     - string.quoted.double
 - source: for
   scopesBegin:
-    - meta.scope.for-in-loop
+    - meta.for.in
   scopes:
-    - keyword.control
+    - keyword.control.for
 - source: i
   scopes:
-    - variable.other.loop
+    - variable.other.for
 - source: in
   scopes:
-    - keyword.control
+    - keyword.control.in
 - source: $(
   scopesBegin:
     - meta.scope.subshell
@@ -8700,6 +8690,7 @@
   scopes:
     - punctuation.definition.subshell.single
   scopesEnd:
+    - meta.for.in
     - meta.scope.subshell
 - source: ;
   scopes:
@@ -8815,9 +8806,7 @@
     - string.quoted.double
 - source: done
   scopes:
-    - keyword.control
-  scopesEnd:
-    - meta.scope.for-in-loop
+    - keyword.control.done
 - source: echo
   scopesBegin:
     - meta.statement
@@ -8908,7 +8897,7 @@
   scopesBegin:
     - meta.scope.if-block
   scopes:
-    - keyword.control
+    - keyword.control.if
 - source: '!'
   scopes:
     - keyword.operator.pipe
@@ -8986,7 +8975,6 @@
     - keyword.control.else
 - source: primary_group_id
   scopesBegin:
-    - meta.statement
     - meta.expression.assignment
   scopes:
     - variable.other.assignment
@@ -9031,14 +9019,13 @@
   scopes:
     - punctuation.definition.subshell.single
   scopesEnd:
-    - meta.statement
     - meta.expression.assignment
     - meta.scope.subshell
 - source: if
   scopesBegin:
     - meta.scope.if-block
   scopes:
-    - keyword.control
+    - keyword.control.if
 - source: '['
   scopesBegin:
     - meta.scope.logical-expression
@@ -9191,12 +9178,12 @@
     - string.quoted.double
 - source: fi
   scopes:
-    - keyword.control
+    - keyword.control.fi
   scopesEnd:
     - meta.scope.if-block
 - source: fi
   scopes:
-    - keyword.control
+    - keyword.control.fi
   scopesEnd:
     - meta.scope.if-block
 - source: '}'
@@ -9243,6 +9230,7 @@
   scopes:
     - variable.other.assignment
   scopesEnd:
+    - meta.statement
     - meta.statement
     - meta.expression.assignment.modified
 - source: coreid
@@ -9363,6 +9351,7 @@
     - meta.scope.subshell
 - source: task
   scopesBegin:
+    - meta.statement
     - meta.statement.command
   scopes:
     - meta.statement.command.name
@@ -9394,7 +9383,7 @@
   scopesBegin:
     - meta.scope.if-block
   scopes:
-    - keyword.control
+    - keyword.control.if
 - source: '!'
   scopes:
     - keyword.operator.pipe
@@ -9518,7 +9507,6 @@
     - keyword.control.else
 - source: actual_uid
   scopesBegin:
-    - meta.statement
     - meta.expression.assignment
   scopes:
     - variable.other.assignment
@@ -9563,14 +9551,13 @@
   scopes:
     - punctuation.definition.subshell.single
   scopesEnd:
-    - meta.statement
     - meta.expression.assignment
     - meta.scope.subshell
 - source: if
   scopesBegin:
     - meta.scope.if-block
   scopes:
-    - keyword.control
+    - keyword.control.if
 - source: '['
   scopesBegin:
     - meta.scope.logical-expression
@@ -9724,15 +9711,15 @@
     - string.quoted.double
 - source: fi
   scopes:
-    - keyword.control
+    - keyword.control.fi
   scopesEnd:
     - meta.scope.if-block
 - source: fi
-  scopesBegin:
-    - keyword.control
+  scopes:
+    - keyword.control.fi
 - source: if
-  scopesEnd:
-    - keyword.control
+  scopes:
+    - keyword.control.if
 - source: '['
   scopesBegin:
     - meta.scope.logical-expression
@@ -9900,11 +9887,11 @@
     - meta.argument
     - string.quoted.double
 - source: fi
-  scopesBegin:
-    - keyword.control
+  scopes:
+    - keyword.control.fi
 - source: if
-  scopesEnd:
-    - keyword.control
+  scopes:
+    - keyword.control.if
 - source: '['
   scopesBegin:
     - meta.scope.logical-expression
@@ -10080,7 +10067,7 @@
     - string.quoted.double
 - source: fi
   scopes:
-    - keyword.control
+    - keyword.control.fi
   scopesEnd:
     - meta.scope.if-block
 - source: '#'
@@ -10107,7 +10094,7 @@
   scopesBegin:
     - meta.scope.if-block
   scopes:
-    - keyword.control
+    - keyword.control.if
 - source: '!'
   scopes:
     - keyword.operator.pipe
@@ -10305,11 +10292,11 @@
     - meta.argument
     - string.quoted.double
 - source: fi
-  scopesBegin:
-    - keyword.control
+  scopes:
+    - keyword.control.fi
 - source: if
-  scopesEnd:
-    - keyword.control
+  scopes:
+    - keyword.control.if
 - source: '['
   scopesBegin:
     - meta.scope.logical-expression
@@ -10484,11 +10471,11 @@
     - meta.argument
     - string.quoted.double
 - source: fi
-  scopesBegin:
-    - keyword.control
+  scopes:
+    - keyword.control.fi
 - source: if
-  scopesEnd:
-    - keyword.control
+  scopes:
+    - keyword.control.if
 - source: poly_user_in_group_check
   scopesBegin:
     - meta.statement
@@ -10652,11 +10639,11 @@
     - meta.argument
     - string.quoted.double
 - source: fi
-  scopesBegin:
-    - keyword.control
+  scopes:
+    - keyword.control.fi
 - source: if
-  scopesEnd:
-    - keyword.control
+  scopes:
+    - keyword.control.if
 - source: '['
   scopesBegin:
     - meta.scope.logical-expression
@@ -10856,7 +10843,7 @@
     - string.quoted.double
 - source: fi
   scopes:
-    - keyword.control
+    - keyword.control.fi
   scopesEnd:
     - meta.scope.if-block
 - source: '}'
@@ -10883,20 +10870,15 @@
 - source: for
   scopesBegin:
     - meta.statement
+    - meta.for.in
   scopes:
     - keyword.control.for
 - source: i
-  scopesBegin:
-    - meta.statement.command
   scopes:
-    - meta.statement.command.name
-    - entity.name.function.call
-    - entity.name.command
+    - variable.other.for
 - source: in
-  scopesBegin:
-    - meta.argument
   scopes:
-    - string.unquoted.argument
+    - keyword.control.in
 - source: $(
   scopesBegin:
     - meta.scope.subshell
@@ -10942,8 +10924,7 @@
     - punctuation.definition.subshell.single
   scopesEnd:
     - meta.statement
-    - meta.statement.command
-    - meta.argument
+    - meta.for.in
     - meta.scope.subshell
 - source: ;
   scopes:
@@ -11039,7 +11020,7 @@
   scopesBegin:
     - meta.scope.if-block
   scopes:
-    - keyword.control
+    - keyword.control.if
 - source: '['
   scopesBegin:
     - meta.scope.logical-expression
@@ -11224,7 +11205,6 @@
     - punctuation.definition.subshell.single
 - source: PATH
   scopesBegin:
-    - meta.statement
     - meta.expression.assignment
   scopes:
     - variable.other.assignment
@@ -11276,11 +11256,10 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
-    - meta.expression.assignment
     - string.quoted.double
 - source: command
   scopesBegin:
-    - meta.statement.command
+    - meta.statement.command.env
   scopes:
     - meta.statement.command.name
     - entity.name.function.call
@@ -11301,8 +11280,8 @@
     - meta.argument
     - string.unquoted.argument
   scopesEnd:
-    - meta.statement
-    - meta.statement.command
+    - meta.expression.assignment
+    - meta.statement.command.env
 - source: )
   scopes:
     - punctuation.definition.subshell.single
@@ -11320,7 +11299,7 @@
   scopesBegin:
     - meta.scope.if-block
   scopes:
-    - keyword.control
+    - keyword.control.if
 - source: '[['
   scopesBegin:
     - meta.scope.logical-expression
@@ -11359,7 +11338,6 @@
     - keyword.control.then
 - source: get_chr_own
   scopesBegin:
-    - meta.statement
     - meta.expression.assignment
   scopes:
     - variable.other.assignment
@@ -11411,15 +11389,14 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
-    - meta.statement
     - meta.expression.assignment
     - string.quoted.double
 - source: fi
-  scopesBegin:
-    - keyword.control
+  scopes:
+    - keyword.control.fi
 - source: if
-  scopesEnd:
-    - keyword.control
+  scopes:
+    - keyword.control.if
 - source: '[['
   scopesBegin:
     - meta.scope.logical-expression
@@ -11608,12 +11585,12 @@
     - support.function.builtin
 - source: fi
   scopes:
-    - keyword.control
+    - keyword.control.fi
   scopesEnd:
     - meta.scope.if-block
 - source: fi
   scopes:
-    - keyword.control
+    - keyword.control.fi
   scopesEnd:
     - meta.scope.if-block
 - source: _sudo
@@ -12087,7 +12064,7 @@
   scopesBegin:
     - meta.scope.if-block
   scopes:
-    - keyword.control
+    - keyword.control.if
 - source: '['
   scopesBegin:
     - meta.scope.logical-expression
@@ -12176,7 +12153,7 @@
     - meta.argument
 - source: fi
   scopes:
-    - keyword.control
+    - keyword.control.fi
   scopesEnd:
     - meta.scope.if-block
 - source: fi
@@ -12264,7 +12241,7 @@
   scopesBegin:
     - meta.scope.if-block
   scopes:
-    - keyword.control
+    - keyword.control.if
 - source: ui_confirm
   scopesBegin:
     - meta.statement
@@ -12353,15 +12330,15 @@
     - meta.argument
 - source: for
   scopesBegin:
-    - meta.scope.for-in-loop
+    - meta.for.in
   scopes:
-    - keyword.control
+    - keyword.control.for
 - source: profile_target
   scopes:
-    - variable.other.loop
+    - variable.other.for
 - source: in
   scopes:
-    - keyword.control
+    - keyword.control.in
 - source: '"'
   scopesBegin:
     - string.quoted.double
@@ -12383,6 +12360,8 @@
   scopes:
     - punctuation.section.array
 - source: '@'
+  scopes:
+    - keyword.operator.expansion
 - source: ']'
   scopes:
     - punctuation.section.array
@@ -12396,6 +12375,7 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
+    - meta.for.in
     - string.quoted.double
 - source: ;
   scopes:
@@ -12407,7 +12387,7 @@
   scopesBegin:
     - meta.scope.if-block
   scopes:
-    - keyword.control
+    - keyword.control.if
 - source: '['
   scopesBegin:
     - meta.scope.logical-expression
@@ -12505,14 +12485,12 @@
     - meta.argument
 - source: fi
   scopes:
-    - keyword.control
+    - keyword.control.fi
   scopesEnd:
     - meta.scope.if-block
 - source: done
   scopes:
-    - keyword.control
-  scopesEnd:
-    - meta.scope.for-in-loop
+    - keyword.control.done
 - source: poly_1_service_setup_note
   scopes:
     - meta.statement
@@ -12524,7 +12502,7 @@
   scopesBegin:
     - meta.scope.if-block
   scopes:
-    - keyword.control
+    - keyword.control.if
 - source: '!'
   scopes:
     - keyword.operator.pipe
@@ -12585,12 +12563,12 @@
     - meta.argument
 - source: fi
   scopes:
-    - keyword.control
+    - keyword.control.fi
   scopesEnd:
     - meta.scope.if-block
 - source: fi
   scopes:
-    - keyword.control
+    - keyword.control.fi
   scopesEnd:
     - meta.scope.if-block
 - source: '}'
@@ -12641,7 +12619,7 @@
   scopesBegin:
     - meta.scope.if-block
   scopes:
-    - keyword.control
+    - keyword.control.if
 - source: headless
   scopes:
     - meta.statement
@@ -12707,7 +12685,7 @@
     - meta.statement.command
 - source: fi
   scopes:
-    - keyword.control
+    - keyword.control.fi
   scopesEnd:
     - meta.scope.if-block
 - source: cat
@@ -12804,7 +12782,7 @@
   scopesBegin:
     - meta.scope.if-block
   scopes:
-    - keyword.control
+    - keyword.control.if
 - source: ui_confirm
   scopesBegin:
     - meta.statement
@@ -12888,7 +12866,7 @@
     - meta.argument
 - source: fi
   scopes:
-    - keyword.control
+    - keyword.control.fi
   scopesEnd:
     - meta.scope.if-block
 - source: '}'
@@ -13111,7 +13089,7 @@
   scopesBegin:
     - meta.scope.if-block
   scopes:
-    - keyword.control
+    - keyword.control.if
 - source: '['
   scopesBegin:
     - meta.scope.logical-expression
@@ -13220,7 +13198,7 @@
     - meta.argument
 - source: fi
   scopes:
-    - keyword.control
+    - keyword.control.fi
   scopesEnd:
     - meta.scope.if-block
 - source: _sudo
@@ -13553,6 +13531,8 @@
   scopes:
     - punctuation.section.array
 - source: '*'
+  scopes:
+    - keyword.operator.expansion
 - source: ']'
   scopes:
     - punctuation.section.array
@@ -13572,15 +13552,15 @@
     - string.quoted.double
 - source: for
   scopesBegin:
-    - meta.scope.for-in-loop
+    - meta.for.in
   scopes:
-    - keyword.control
+    - keyword.control.for
 - source: profile_target
   scopes:
-    - variable.other.loop
+    - variable.other.for
 - source: in
   scopes:
-    - keyword.control
+    - keyword.control.in
 - source: '"'
   scopesBegin:
     - string.quoted.double
@@ -13602,6 +13582,8 @@
   scopes:
     - punctuation.section.array
 - source: '@'
+  scopes:
+    - keyword.operator.expansion
 - source: ']'
   scopes:
     - punctuation.section.array
@@ -13615,6 +13597,7 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
+    - meta.for.in
     - string.quoted.double
 - source: ;
   scopes:
@@ -13626,7 +13609,7 @@
   scopesBegin:
     - meta.scope.if-block
   scopes:
-    - keyword.control
+    - keyword.control.if
 - source: '['
   scopesBegin:
     - meta.scope.logical-expression
@@ -13764,7 +13747,6 @@
     - comment.line.number-sign
 - source: target_dir
   scopesBegin:
-    - meta.statement
     - meta.expression.assignment
   scopes:
     - variable.other.assignment
@@ -13819,14 +13801,13 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
-    - meta.statement
     - meta.expression.assignment
     - string.quoted.double
 - source: if
   scopesBegin:
     - meta.scope.if-block
   scopes:
-    - keyword.control
+    - keyword.control.if
 - source: '['
   scopesBegin:
     - meta.scope.logical-expression
@@ -13919,15 +13900,15 @@
     - string.quoted.double
 - source: fi
   scopes:
-    - keyword.control
+    - keyword.control.fi
   scopesEnd:
     - meta.scope.if-block
 - source: fi
-  scopesBegin:
-    - keyword.control
+  scopes:
+    - keyword.control.fi
 - source: if
-  scopesEnd:
-    - keyword.control
+  scopes:
+    - keyword.control.if
 - source: '['
   scopesBegin:
     - meta.scope.logical-expression
@@ -14051,14 +14032,12 @@
     - string.quoted.double
 - source: fi
   scopes:
-    - keyword.control
+    - keyword.control.fi
   scopesEnd:
     - meta.scope.if-block
 - source: done
   scopes:
-    - keyword.control
-  scopesEnd:
-    - meta.scope.for-in-loop
+    - keyword.control.done
 - source: task
   scopesBegin:
     - meta.statement
@@ -14106,6 +14085,8 @@
   scopes:
     - punctuation.section.array
 - source: '*'
+  scopes:
+    - keyword.operator.expansion
 - source: ']'
   scopes:
     - punctuation.section.array
@@ -14125,15 +14106,15 @@
     - string.quoted.double
 - source: for
   scopesBegin:
-    - meta.scope.for-in-loop
+    - meta.for.in
   scopes:
-    - keyword.control
+    - keyword.control.for
 - source: fish_prefix
   scopes:
-    - variable.other.loop
+    - variable.other.for
 - source: in
   scopes:
-    - keyword.control
+    - keyword.control.in
 - source: '"'
   scopesBegin:
     - string.quoted.double
@@ -14155,6 +14136,8 @@
   scopes:
     - punctuation.section.array
 - source: '@'
+  scopes:
+    - keyword.operator.expansion
 - source: ']'
   scopes:
     - punctuation.section.array
@@ -14168,6 +14151,7 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
+    - meta.for.in
     - string.quoted.double
 - source: ;
   scopes:
@@ -14179,7 +14163,7 @@
   scopesBegin:
     - meta.scope.if-block
   scopes:
-    - keyword.control
+    - keyword.control.if
 - source: '['
   scopesBegin:
     - meta.scope.logical-expression
@@ -14241,12 +14225,11 @@
     - keyword.control.continue
 - source: fi
   scopes:
-    - keyword.control
+    - keyword.control.fi
   scopesEnd:
     - meta.scope.if-block
 - source: profile_target
   scopesBegin:
-    - meta.statement
     - meta.expression.assignment
   scopes:
     - variable.other.assignment
@@ -14338,14 +14321,13 @@
   scopes:
     - punctuation.definition.subshell.single
   scopesEnd:
-    - meta.statement
     - meta.expression.assignment
     - meta.scope.subshell
 - source: if
   scopesBegin:
     - meta.scope.if-block
   scopes:
-    - keyword.control
+    - keyword.control.if
 - source: '['
   scopesBegin:
     - meta.scope.logical-expression
@@ -14441,7 +14423,7 @@
     - string.quoted.double
 - source: fi
   scopes:
-    - keyword.control
+    - keyword.control.fi
   scopesEnd:
     - meta.scope.if-block
 - source: fish_source_lines
@@ -14517,9 +14499,7 @@
     - string.quoted.double
 - source: done
   scopes:
-    - keyword.control
-  scopesEnd:
-    - meta.scope.for-in-loop
+    - keyword.control.done
 - source: '#'
   scopesBegin:
     - comment.line.number-sign
@@ -14898,7 +14878,7 @@
   scopesBegin:
     - meta.scope.if-block
   scopes:
-    - keyword.control
+    - keyword.control.if
 - source: '['
   scopesBegin:
     - meta.scope.logical-expression
@@ -15165,11 +15145,11 @@
     - meta.statement
     - meta.expression.assignment.modified
 - source: fi
-  scopesBegin:
-    - keyword.control
+  scopes:
+    - keyword.control.fi
 - source: if
-  scopesEnd:
-    - keyword.control
+  scopes:
+    - keyword.control.if
 - source: '['
   scopesBegin:
     - meta.scope.logical-expression
@@ -15240,7 +15220,7 @@
   scopesBegin:
     - meta.scope.if-block
   scopes:
-    - keyword.control
+    - keyword.control.if
 - source: '!'
   scopes:
     - keyword.operator.pipe
@@ -15376,12 +15356,12 @@
     - meta.argument
 - source: fi
   scopes:
-    - keyword.control
+    - keyword.control.fi
   scopesEnd:
     - meta.scope.if-block
 - source: fi
   scopes:
-    - keyword.control
+    - keyword.control.fi
   scopesEnd:
     - meta.scope.if-block
 - source: '}'
@@ -15448,8 +15428,12 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
+    - meta.statement
+    - meta.expression.assignment
     - string.quoted.double
 - source: start_line_number
+  scopesBegin:
+    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
@@ -15768,14 +15752,13 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
-    - meta.statement
     - meta.expression.assignment
     - string.quoted.double
 - source: if
   scopesBegin:
     - meta.scope.if-block
   scopes:
-    - keyword.control
+    - keyword.control.if
 - source: '['
   scopesBegin:
     - meta.scope.logical-expression
@@ -15851,7 +15834,7 @@
   scopesBegin:
     - meta.scope.if-block
   scopes:
-    - keyword.control
+    - keyword.control.if
 - source: '['
   scopesBegin:
     - meta.scope.logical-expression
@@ -15887,7 +15870,6 @@
     - keyword.control.then
 - source: line_number_before
   scopesBegin:
-    - meta.statement
     - meta.expression.assignment
   scopes:
     - variable.other.assignment
@@ -16118,7 +16100,6 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
-    - meta.statement
     - meta.expression.assignment
     - string.quoted.double
 - source: '#'
@@ -16287,7 +16268,7 @@
     - meta.statement.command
 - source: fi
   scopes:
-    - keyword.control
+    - keyword.control.fi
   scopesEnd:
     - meta.scope.if-block
 - source: elif
@@ -16436,7 +16417,7 @@
     - meta.statement.command
 - source: fi
   scopes:
-    - keyword.control
+    - keyword.control.fi
   scopesEnd:
     - meta.scope.if-block
 - source: '}'
@@ -16504,7 +16485,7 @@
   scopesBegin:
     - meta.scope.if-block
   scopes:
-    - keyword.control
+    - keyword.control.if
 - source: '['
   scopesBegin:
     - meta.scope.logical-expression
@@ -16542,7 +16523,7 @@
   scopesBegin:
     - meta.scope.if-block
   scopes:
-    - keyword.control
+    - keyword.control.if
 - source: extract_nix_profile_injection
   scopesBegin:
     - meta.statement
@@ -16632,12 +16613,12 @@
     - string.quoted.double
 - source: fi
   scopes:
-    - keyword.control
+    - keyword.control.fi
   scopesEnd:
     - meta.scope.if-block
 - source: fi
   scopes:
-    - keyword.control
+    - keyword.control.fi
   scopesEnd:
     - meta.scope.if-block
 - source: '}'
@@ -16649,15 +16630,15 @@
     - meta.function.body
 - source: for
   scopesBegin:
-    - meta.scope.for-in-loop
+    - meta.for.in
   scopes:
-    - keyword.control
+    - keyword.control.for
 - source: profile_target
   scopes:
-    - variable.other.loop
+    - variable.other.for
 - source: in
   scopes:
-    - keyword.control
+    - keyword.control.in
 - source: '"'
   scopesBegin:
     - string.quoted.double
@@ -16679,6 +16660,8 @@
   scopes:
     - punctuation.section.array
 - source: '@'
+  scopes:
+    - keyword.operator.expansion
 - source: ']'
   scopes:
     - punctuation.section.array
@@ -16692,6 +16675,7 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
+    - meta.for.in
     - string.quoted.double
 - source: ;
   scopes:
@@ -16730,9 +16714,7 @@
     - string.quoted.double
 - source: done
   scopes:
-    - keyword.control
-  scopesEnd:
-    - meta.scope.for-in-loop
+    - keyword.control.done
 - source: '}'
   scopes:
     - punctuation.definition.group
@@ -16933,7 +16915,7 @@
   scopesBegin:
     - meta.scope.if-block
   scopes:
-    - keyword.control
+    - keyword.control.if
 - source: is_os_darwin
   scopes:
     - meta.statement
@@ -17094,7 +17076,7 @@
     - string.quoted.double
 - source: fi
   scopes:
-    - keyword.control
+    - keyword.control.fi
   scopesEnd:
     - meta.scope.if-block
 - source: welcome_to_nix
@@ -17108,7 +17090,7 @@
   scopesBegin:
     - meta.scope.if-block
   scopes:
-    - keyword.control
+    - keyword.control.if
 - source: '!'
   scopes:
     - keyword.operator.pipe
@@ -17134,7 +17116,7 @@
     - entity.name.command
 - source: fi
   scopes:
-    - keyword.control
+    - keyword.control.fi
   scopesEnd:
     - meta.scope.if-block
 - source: poly_2_passive_remove_artifacts
@@ -17182,7 +17164,7 @@
   scopesBegin:
     - meta.scope.if-block
   scopes:
-    - keyword.control
+    - keyword.control.if
 - source: '!'
   scopes:
     - keyword.operator.pipe
@@ -17273,7 +17255,7 @@
     - meta.statement.command
 - source: fi
   scopes:
-    - keyword.control
+    - keyword.control.fi
   scopesEnd:
     - meta.scope.if-block
 - source: poly_6_prepare_to_install
@@ -17387,7 +17369,7 @@
   scopesBegin:
     - meta.scope.if-block
   scopes:
-    - keyword.control
+    - keyword.control.if
 - source: '['
   scopesBegin:
     - meta.scope.logical-expression
@@ -17465,7 +17447,7 @@
     - string.quoted.double
 - source: fi
   scopes:
-    - keyword.control
+    - keyword.control.fi
   scopesEnd:
     - meta.scope.if-block
 - source: '#'

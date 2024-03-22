@@ -102,6 +102,8 @@
   scopes:
     - punctuation.section.array
 - source: '@'
+  scopes:
+    - keyword.operator.expansion
 - source: ']'
   scopes:
     - punctuation.section.array
@@ -197,6 +199,8 @@
   scopes:
     - punctuation.section.array
 - source: '@'
+  scopes:
+    - keyword.operator.expansion
 - source: ']'
   scopes:
     - punctuation.section.array
@@ -288,6 +292,8 @@
   scopes:
     - punctuation.section.array
 - source: '@'
+  scopes:
+    - keyword.operator.expansion
 - source: ']'
   scopes:
     - punctuation.section.array
@@ -387,6 +393,8 @@
   scopes:
     - punctuation.section.array
 - source: '@'
+  scopes:
+    - keyword.operator.expansion
 - source: ']'
   scopes:
     - punctuation.section.array
@@ -490,6 +498,8 @@
   scopes:
     - punctuation.section.array
 - source: '@'
+  scopes:
+    - keyword.operator.expansion
 - source: ']'
   scopes:
     - punctuation.section.array
@@ -569,6 +579,8 @@
   scopes:
     - punctuation.section.array
 - source: '@'
+  scopes:
+    - keyword.operator.expansion
 - source: ']'
   scopes:
     - punctuation.section.array
@@ -668,6 +680,8 @@
   scopes:
     - punctuation.section.array
 - source: '@'
+  scopes:
+    - keyword.operator.expansion
 - source: ']'
   scopes:
     - punctuation.section.array
@@ -763,6 +777,8 @@
   scopes:
     - punctuation.section.array
 - source: '@'
+  scopes:
+    - keyword.operator.expansion
 - source: ']'
   scopes:
     - punctuation.section.array
@@ -866,6 +882,8 @@
   scopes:
     - punctuation.section.array
 - source: '@'
+  scopes:
+    - keyword.operator.expansion
 - source: ']'
   scopes:
     - punctuation.section.array

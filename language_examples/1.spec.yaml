@@ -155,7 +155,7 @@
   scopesBegin:
     - meta.scope.if-block
   scopes:
-    - keyword.control
+    - keyword.control.if
 - source: '[['
   scopesBegin:
     - meta.scope.logical-expression
@@ -232,7 +232,7 @@
     - meta.argument
 - source: fi
   scopes:
-    - keyword.control
+    - keyword.control.fi
   scopesEnd:
     - meta.scope.if-block
 - source: cd
@@ -392,7 +392,12 @@
 - source: '1'
   scopes:
     - variable.parameter.positional
+  scopesEnd:
+    - meta.statement
+    - meta.expression.assignment
 - source: arg_2
+  scopesBegin:
+    - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
@@ -435,6 +440,7 @@
     - meta.expression.assignment
 - source: cd
   scopesBegin:
+    - meta.statement
     - meta.statement.command
   scopes:
     - meta.statement.command.name
@@ -858,7 +864,7 @@
   scopesBegin:
     - meta.scope.if-block
   scopes:
-    - keyword.control
+    - keyword.control.if
 - source: '[['
   scopesBegin:
     - meta.scope.logical-expression
@@ -918,4 +924,4 @@
     - meta.statement.command
 - source: fi
   scopes:
-    - keyword.control
+    - keyword.control.fi

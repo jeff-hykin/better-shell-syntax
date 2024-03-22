@@ -30,6 +30,7 @@ keyword.control.$0.shell
 keyword.control.case.shell
 keyword.control.esac.shell
 keyword.control.fi.shell
+keyword.control.for.shell
 keyword.control.if.shell
 keyword.control.in.shell
 keyword.control.shell
@@ -63,8 +64,11 @@ meta.arithmetic.shell
 meta.case.entry.body.shell
 meta.case.entry.pattern.shell
 meta.case.shell
+meta.expression.assignment.alias.shell
 meta.expression.assignment.modified.shell
 meta.expression.assignment.shell
+meta.for.in.shell
+meta.for.shell
 meta.function.body.shell
 meta.function.shell
 meta.herestring.shell
@@ -79,6 +83,7 @@ meta.scope.select-block.shell
 meta.scope.subshell
 meta.scope.while-loop.shell
 meta.shebang.shell
+meta.statement.command.env.shell
 meta.statement.command.name.basic.shell
 meta.statement.command.name.continuation
 meta.statement.command.name.quoted.shell
@@ -119,6 +124,7 @@ punctuation.section.bracket.curly.variable.end.shell
 punctuation.section.function.definition.shell
 punctuation.section.parenthese.shell
 punctuation.separator.regex.alternation.shell
+punctuation.separator.semicolon.range
 punctuation.separator.statement.and.shell
 punctuation.separator.statement.background.shell
 punctuation.separator.statement.or.shell
@@ -127,6 +133,7 @@ punctuation.terminator.statement.semicolon.shell
 punctuation.whitespace.comment.leading.shell
 storage.modifier.$0.shell
 storage.modifier.$1.shell
+storage.modifier.shell
 storage.type.alias.shell
 storage.type.function.shell
 string.interpolated.backtick.shell
@@ -156,6 +163,7 @@ variable.language.special.shell
 variable.language.special.wildcard.shell
 variable.other.assignment.array.shell
 variable.other.assignment.shell
+variable.other.for.shell
 variable.other.loop.shell
 variable.other.normal.shell
 variable.parameter.positional.all.shell

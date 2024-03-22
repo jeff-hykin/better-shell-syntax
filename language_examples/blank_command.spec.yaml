@@ -55,7 +55,7 @@
   scopesBegin:
     - meta.scope.if-block
   scopes:
-    - keyword.control
+    - keyword.control.if
 - source: '['
   scopesBegin:
     - meta.scope.logical-expression
@@ -93,7 +93,7 @@
   scopesBegin:
     - meta.scope.if-block
   scopes:
-    - keyword.control
+    - keyword.control.if
 - source: extract_nix_profile_injection
   scopesBegin:
     - meta.statement
@@ -183,12 +183,12 @@
     - string.quoted.double
 - source: fi
   scopes:
-    - keyword.control
+    - keyword.control.fi
   scopesEnd:
     - meta.scope.if-block
 - source: fi
   scopes:
-    - keyword.control
+    - keyword.control.fi
   scopesEnd:
     - meta.scope.if-block
 - source: '}'

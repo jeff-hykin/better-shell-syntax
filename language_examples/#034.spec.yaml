@@ -9,8 +9,6 @@
     - comment.line.number-sign
     - meta.shebang
 - source: command_args
-  scopesBegin:
-    - meta.statement
   scopes:
     - variable.other.assignment
 - source: '='
@@ -71,6 +69,7 @@
     - punctuation.definition.array
 - source: echo
   scopesBegin:
+    - meta.statement
     - meta.statement.command
   scopes:
     - meta.statement.command.name
@@ -94,15 +93,15 @@
     - string.quoted.double
 - source: for
   scopesBegin:
-    - meta.scope.for-in-loop
+    - meta.for.in
   scopes:
-    - keyword.control
+    - keyword.control.for
 - source: post
   scopes:
-    - variable.other.loop
+    - variable.other.for
 - source: in
   scopes:
-    - keyword.control
+    - keyword.control.in
 - source: '"'
   scopesBegin:
     - string.quoted.double
@@ -124,6 +123,8 @@
   scopes:
     - punctuation.section.array
 - source: '@'
+  scopes:
+    - keyword.operator.expansion
 - source: ']'
   scopes:
     - punctuation.section.array
@@ -137,6 +138,7 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
+    - meta.for.in
     - string.quoted.double
 - source: ;
   scopes:
@@ -176,6 +178,8 @@
   scopes:
     - punctuation.section.array
 - source: '@'
+  scopes:
+    - keyword.operator.expansion
 - source: ']'
   scopes:
     - punctuation.section.array
@@ -247,6 +251,8 @@
   scopes:
     - punctuation.section.array
 - source: '@'
+  scopes:
+    - keyword.operator.expansion
 - source: ']'
   scopes:
     - punctuation.section.array
@@ -292,9 +298,7 @@
     - string.quoted.double
 - source: done
   scopes:
-    - keyword.control
-  scopesEnd:
-    - meta.scope.for-in-loop
+    - keyword.control.done
 - source: echo
   scopesBegin:
     - meta.statement
@@ -347,6 +351,8 @@
   scopes:
     - punctuation.section.array
 - source: '@'
+  scopes:
+    - keyword.operator.expansion
 - source: ']'
   scopes:
     - punctuation.section.array
@@ -418,6 +424,8 @@
   scopes:
     - punctuation.section.array
 - source: '@'
+  scopes:
+    - keyword.operator.expansion
 - source: ']'
   scopes:
     - punctuation.section.array
@@ -489,6 +497,8 @@
   scopes:
     - punctuation.section.array
 - source: '@'
+  scopes:
+    - keyword.operator.expansion
 - source: ']'
   scopes:
     - punctuation.section.array
@@ -548,6 +558,8 @@
   scopes:
     - punctuation.section.array
 - source: '@'
+  scopes:
+    - keyword.operator.expansion
 - source: ']'
   scopes:
     - punctuation.section.array

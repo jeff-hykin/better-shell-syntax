@@ -2,7 +2,7 @@
   scopesBegin:
     - meta.scope.if-block
   scopes:
-    - keyword.control
+    - keyword.control.if
 - source: '[['
   scopesBegin:
     - meta.scope.logical-expression
@@ -120,7 +120,6 @@
     - keyword.control.then
 - source: VCMD
   scopesBegin:
-    - meta.statement
     - meta.expression.assignment
   scopes:
     - variable.other.assignment
@@ -137,14 +136,13 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
-    - meta.statement
     - meta.expression.assignment
     - string.quoted.double
 - source: if
   scopesBegin:
     - meta.scope.if-block
   scopes:
-    - keyword.control
+    - keyword.control.if
 - source: '[['
   scopesBegin:
     - meta.scope.logical-expression
@@ -314,7 +312,7 @@
     - punctuation.terminator.statement.semicolon
 - source: fi
   scopes:
-    - keyword.control
+    - keyword.control.fi
   scopesEnd:
     - meta.scope.if-block
 - source: '#'
@@ -327,4 +325,4 @@
     - comment.line.number-sign
 - source: fi
   scopes:
-    - keyword.control
+    - keyword.control.fi

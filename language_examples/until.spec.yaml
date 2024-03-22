@@ -2,7 +2,7 @@
   scopesBegin:
     - meta.scope.if-block
   scopes:
-    - keyword.control
+    - keyword.control.if
 - source: x
   scopes:
     - meta.statement
@@ -54,7 +54,7 @@
     - punctuation.terminator.statement.semicolon
 - source: fi
   scopes:
-    - keyword.control
+    - keyword.control.fi
   scopesEnd:
     - meta.scope.if-block
 - source: while

@@ -833,6 +833,10 @@
 					"name": "constant.numeric.hex.shell"
 				},
 				{
+					"match": ";",
+					"name": "punctuation.separator.semicolon.range"
+				},
+				{
 					"match": "0\\d+",
 					"name": "constant.numeric.octal.shell"
 				},

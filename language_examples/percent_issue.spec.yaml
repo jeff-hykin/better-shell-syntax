@@ -22,6 +22,7 @@
     - meta.argument
     - string.unquoted.argument
   scopesEnd:
+    - meta.statement
     - meta.statement.command
 - source: blah_2
   scopesBegin:

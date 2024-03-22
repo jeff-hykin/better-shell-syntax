@@ -22,7 +22,7 @@
   scopesBegin:
     - meta.scope.if-block
   scopes:
-    - keyword.control
+    - keyword.control.if
 - source: '[['
   scopesBegin:
     - meta.scope.logical-expression

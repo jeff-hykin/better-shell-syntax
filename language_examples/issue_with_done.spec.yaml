@@ -1,6 +1,5 @@
 - source: out
   scopesBegin:
-    - meta.statement
     - meta.expression.assignment
   scopes:
     - variable.other.assignment
@@ -107,7 +106,6 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
-    - meta.statement
     - meta.expression.assignment
     - string.quoted.double
 - source: '#'
@@ -120,7 +118,6 @@
     - comment.line.number-sign
 - source: x
   scopesBegin:
-    - meta.statement
     - meta.expression.assignment
   scopes:
     - variable.other.assignment
@@ -141,6 +138,7 @@
     - string.quoted.double
 - source: echo
   scopesBegin:
+    - meta.statement
     - meta.statement.command
   scopes:
     - meta.statement.command.name
@@ -172,7 +170,6 @@
     - meta.shebang
 - source: some
   scopesBegin:
-    - meta.statement
     - meta.expression.assignment
   scopes:
     - variable.other.assignment
@@ -281,6 +278,7 @@
     - string.quoted.double
 - source: echo
   scopesBegin:
+    - meta.statement
     - meta.statement.command
   scopes:
     - meta.statement.command.name
@@ -305,6 +303,7 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
+    - meta.statement
     - meta.statement.command
     - meta.argument
     - string.quoted.double
@@ -366,18 +365,15 @@
     - keyword.control
 - source: IFS
   scopesBegin:
-    - meta.statement
     - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
   scopes:
     - keyword.operator.assignment
-  scopesEnd:
-    - meta.expression.assignment
 - source: read
   scopesBegin:
-    - meta.statement.command
+    - meta.statement.command.env
   scopes:
     - meta.statement.command.name
     - entity.name.function.call
@@ -398,8 +394,8 @@
     - meta.argument
     - string.unquoted.argument
   scopesEnd:
-    - meta.statement
-    - meta.statement.command
+    - meta.expression.assignment
+    - meta.statement.command.env
 - source: ;
   scopes:
     - punctuation.terminator.statement.semicolon
@@ -508,6 +504,7 @@
     - string.quoted.double
 - source: echo
   scopesBegin:
+    - meta.statement
     - meta.statement.command
   scopes:
     - meta.statement.command.name
@@ -532,6 +529,7 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
+    - meta.statement
     - meta.statement.command
     - meta.argument
     - string.quoted.double
@@ -593,18 +591,15 @@
     - keyword.control
 - source: IFS
   scopesBegin:
-    - meta.statement
     - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
   scopes:
     - keyword.operator.assignment
-  scopesEnd:
-    - meta.expression.assignment
 - source: read
   scopesBegin:
-    - meta.statement.command
+    - meta.statement.command.env
   scopes:
     - meta.statement.command.name
     - entity.name.function.call
@@ -625,8 +620,8 @@
     - meta.argument
     - string.unquoted.argument
   scopesEnd:
-    - meta.statement
-    - meta.statement.command
+    - meta.expression.assignment
+    - meta.statement.command.env
 - source: ;
   scopes:
     - punctuation.terminator.statement.semicolon
@@ -703,6 +698,7 @@
     - string.quoted.double
 - source: echo
   scopesBegin:
+    - meta.statement
     - meta.statement.command
   scopes:
     - meta.statement.command.name
@@ -727,6 +723,7 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
+    - meta.statement
     - meta.statement.command
     - meta.argument
     - string.quoted.double
@@ -788,18 +785,15 @@
     - keyword.control
 - source: IFS
   scopesBegin:
-    - meta.statement
     - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
   scopes:
     - keyword.operator.assignment
-  scopesEnd:
-    - meta.expression.assignment
 - source: read
   scopesBegin:
-    - meta.statement.command
+    - meta.statement.command.env
   scopes:
     - meta.statement.command.name
     - entity.name.function.call
@@ -820,8 +814,8 @@
     - meta.argument
     - string.unquoted.argument
   scopesEnd:
-    - meta.statement
-    - meta.statement.command
+    - meta.expression.assignment
+    - meta.statement.command.env
 - source: ;
   scopes:
     - punctuation.terminator.statement.semicolon
@@ -930,6 +924,7 @@
     - string.quoted.double
 - source: echo
   scopesBegin:
+    - meta.statement
     - meta.statement.command
   scopes:
     - meta.statement.command.name
@@ -954,6 +949,7 @@
   scopes:
     - punctuation.definition.string.end
   scopesEnd:
+    - meta.statement
     - meta.statement.command
     - meta.argument
     - string.quoted.double
@@ -1015,18 +1011,15 @@
     - keyword.control
 - source: IFS
   scopesBegin:
-    - meta.statement
     - meta.expression.assignment
   scopes:
     - variable.other.assignment
 - source: '='
   scopes:
     - keyword.operator.assignment
-  scopesEnd:
-    - meta.expression.assignment
 - source: read
   scopesBegin:
-    - meta.statement.command
+    - meta.statement.command.env
   scopes:
     - meta.statement.command.name
     - entity.name.function.call
@@ -1047,8 +1040,8 @@
     - meta.argument
     - string.unquoted.argument
   scopesEnd:
-    - meta.statement
-    - meta.statement.command
+    - meta.expression.assignment
+    - meta.statement.command.env
 - source: ;
   scopes:
     - punctuation.terminator.statement.semicolon
@@ -1125,6 +1118,7 @@
     - string.quoted.double
 - source: echo
   scopesBegin:
+    - meta.statement
     - meta.statement.command
   scopes:
     - meta.statement.command.name

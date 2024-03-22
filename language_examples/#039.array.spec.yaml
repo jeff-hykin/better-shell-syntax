@@ -1,6 +1,5 @@
 - source: var1
   scopesBegin:
-    - meta.statement
     - meta.expression.assignment
   scopes:
     - variable.other.assignment
@@ -21,6 +20,7 @@
     - string.quoted.double
 - source: declare
   scopesBegin:
+    - meta.statement
     - meta.expression.assignment.modified
   scopes:
     - storage.modifier.declare
@@ -32,6 +32,7 @@
   scopes:
     - variable.other.assignment
   scopesEnd:
+    - meta.statement
     - meta.expression.assignment.modified
 - source: ASSOC_ARRAY
   scopes:
@@ -198,8 +199,6 @@
 - source: )
   scopes:
     - punctuation.definition.array
-  scopesEnd:
-    - meta.statement
 - source: '#!'
   scopesBegin:
     - comment.line.number-sign
@@ -314,7 +313,7 @@
   scopesBegin:
     - meta.scope.if-block
   scopes:
-    - keyword.control
+    - keyword.control.if
 - source: '!'
   scopes:
     - keyword.operator.pipe
@@ -395,7 +394,7 @@
     - meta.statement.command
 - source: fi
   scopes:
-    - keyword.control
+    - keyword.control.fi
   scopesEnd:
     - meta.scope.if-block
 - source: '#'
@@ -973,6 +972,8 @@
   scopes:
     - punctuation.section.array
 - source: '@'
+  scopes:
+    - keyword.operator.expansion
 - source: ']'
   scopes:
     - punctuation.section.array
@@ -1002,7 +1003,7 @@
   scopesBegin:
     - meta.scope.if-block
   scopes:
-    - keyword.control
+    - keyword.control.if
 - source: is-snap
   scopes:
     - meta.statement
@@ -1067,7 +1068,7 @@
   scopesBegin:
     - meta.scope.if-block
   scopes:
-    - keyword.control
+    - keyword.control.if
 - source: test
   scopesBegin:
     - meta.statement
@@ -1148,7 +1149,7 @@
     - string.unquoted.argument
 - source: fi
   scopes:
-    - keyword.control
+    - keyword.control.fi
   scopesEnd:
     - meta.scope.if-block
 - source: '#'
@@ -1163,7 +1164,7 @@
   scopesBegin:
     - meta.scope.if-block
   scopes:
-    - keyword.control
+    - keyword.control.if
 - source: service-helper
   scopesBegin:
     - meta.statement
@@ -1232,7 +1233,7 @@
     - string.unquoted.argument
 - source: fi
   scopes:
-    - keyword.control
+    - keyword.control.fi
   scopesEnd:
     - meta.scope.if-block
 - source: '#'
@@ -1247,7 +1248,7 @@
   scopesBegin:
     - meta.scope.if-block
   scopes:
-    - keyword.control
+    - keyword.control.if
 - source: command-exists
   scopesBegin:
     - meta.statement
@@ -1364,7 +1365,7 @@
     - comment.line.number-sign
 - source: fi
   scopes:
-    - keyword.control
+    - keyword.control.fi
   scopesEnd:
     - meta.scope.if-block
 - source: '#'
@@ -1408,7 +1409,7 @@
     - string.quoted.single
 - source: fi
   scopes:
-    - keyword.control
+    - keyword.control.fi
   scopesEnd:
     - meta.scope.if-block
 - source: )
@@ -1430,7 +1431,7 @@
   scopesBegin:
     - meta.scope.if-block
   scopes:
-    - keyword.control
+    - keyword.control.if
 - source: test
   scopesBegin:
     - meta.statement
@@ -1536,4 +1537,4 @@
     - string.quoted.double
 - source: fi
   scopes:
-    - keyword.control
+    - keyword.control.fi
