@@ -32940,8 +32940,6 @@
   scopes:
     - variable.other.normal
 - source: '['
-  scopes:
-    - punctuation.section.array
 - source: $
   scopes:
     - punctuation.definition.variable
@@ -32958,11 +32956,11 @@
   scopes:
     - variable.other.normal
 - source: '['
+  scopes:
+    - punctuation.section.array
 - source: '@'
   scopes:
     - keyword.operator.expansion
-  scopesEnd:
-    - meta.parameter-expansion
 - source: ']'
   scopes:
     - punctuation.section.array
@@ -32972,7 +32970,16 @@
   scopes:
     - punctuation.section.bracket.curly.variable.end
     - punctuation.definition.variable
-- source: '-1]}'
+- source: '-1'
+  scopes:
+    - variable.other.normal
+- source: ']'
+  scopesEnd:
+    - meta.parameter-expansion
+- source: '}'
+  scopes:
+    - punctuation.section.bracket.curly.variable.end
+    - punctuation.definition.variable
 - source: '"'
   scopes:
     - punctuation.definition.string.end
@@ -32992,8 +32999,6 @@
   scopes:
     - variable.other.normal
 - source: '['
-  scopes:
-    - punctuation.section.array
 - source: $
   scopes:
     - punctuation.definition.variable
@@ -33010,11 +33015,11 @@
   scopes:
     - variable.other.normal
 - source: '['
+  scopes:
+    - punctuation.section.array
 - source: '@'
   scopes:
     - keyword.operator.expansion
-  scopesEnd:
-    - meta.parameter-expansion
 - source: ']'
   scopes:
     - punctuation.section.array
@@ -33024,7 +33029,16 @@
   scopes:
     - punctuation.section.bracket.curly.variable.end
     - punctuation.definition.variable
-- source: '-2]}'
+- source: '-2'
+  scopes:
+    - variable.other.normal
+- source: ']'
+  scopesEnd:
+    - meta.parameter-expansion
+- source: '}'
+  scopes:
+    - punctuation.section.bracket.curly.variable.end
+    - punctuation.definition.variable
 - source: '"'
   scopes:
     - punctuation.definition.string.end
@@ -33076,8 +33090,6 @@
   scopes:
     - variable.other.normal
 - source: '['
-  scopes:
-    - punctuation.section.array
 - source: $
   scopes:
     - punctuation.definition.variable
@@ -33094,11 +33106,11 @@
   scopes:
     - variable.other.normal
 - source: '['
+  scopes:
+    - punctuation.section.array
 - source: '@'
   scopes:
     - keyword.operator.expansion
-  scopesEnd:
-    - meta.parameter-expansion
 - source: ']'
   scopes:
     - punctuation.section.array
@@ -33108,7 +33120,16 @@
   scopes:
     - punctuation.section.bracket.curly.variable.end
     - punctuation.definition.variable
-- source: '-1]}'
+- source: '-1'
+  scopes:
+    - variable.other.normal
+- source: ']'
+  scopesEnd:
+    - meta.parameter-expansion
+- source: '}'
+  scopes:
+    - punctuation.section.bracket.curly.variable.end
+    - punctuation.definition.variable
 - source: '"'
   scopes:
     - punctuation.definition.string.end
@@ -71091,8 +71112,6 @@
   scopes:
     - variable.other.normal
 - source: '['
-  scopes:
-    - punctuation.section.array
 - source: $
   scopes:
     - punctuation.definition.variable
@@ -71109,11 +71128,11 @@
   scopes:
     - variable.other.normal
 - source: '['
+  scopes:
+    - punctuation.section.array
 - source: '@'
   scopes:
     - keyword.operator.expansion
-  scopesEnd:
-    - meta.parameter-expansion
 - source: ']'
   scopes:
     - punctuation.section.array
@@ -71123,7 +71142,16 @@
   scopes:
     - punctuation.section.bracket.curly.variable.end
     - punctuation.definition.variable
-- source: '-1]}'
+- source: '-1'
+  scopes:
+    - variable.other.normal
+- source: ']'
+  scopesEnd:
+    - meta.parameter-expansion
+- source: '}'
+  scopes:
+    - punctuation.section.bracket.curly.variable.end
+    - punctuation.definition.variable
 - source: '"'
   scopes:
     - punctuation.definition.string.end
@@ -71143,8 +71171,6 @@
   scopes:
     - variable.other.normal
 - source: '['
-  scopes:
-    - punctuation.section.array
 - source: $
   scopes:
     - punctuation.definition.variable
@@ -71161,11 +71187,11 @@
   scopes:
     - variable.other.normal
 - source: '['
+  scopes:
+    - punctuation.section.array
 - source: '@'
   scopes:
     - keyword.operator.expansion
-  scopesEnd:
-    - meta.parameter-expansion
 - source: ']'
   scopes:
     - punctuation.section.array
@@ -71175,7 +71201,16 @@
   scopes:
     - punctuation.section.bracket.curly.variable.end
     - punctuation.definition.variable
-- source: '-2]}'
+- source: '-2'
+  scopes:
+    - variable.other.normal
+- source: ']'
+  scopesEnd:
+    - meta.parameter-expansion
+- source: '}'
+  scopes:
+    - punctuation.section.bracket.curly.variable.end
+    - punctuation.definition.variable
 - source: '"'
   scopes:
     - punctuation.definition.string.end
@@ -71227,8 +71262,6 @@
   scopes:
     - variable.other.normal
 - source: '['
-  scopes:
-    - punctuation.section.array
 - source: $
   scopes:
     - punctuation.definition.variable
@@ -71245,11 +71278,11 @@
   scopes:
     - variable.other.normal
 - source: '['
+  scopes:
+    - punctuation.section.array
 - source: '@'
   scopes:
     - keyword.operator.expansion
-  scopesEnd:
-    - meta.parameter-expansion
 - source: ']'
   scopes:
     - punctuation.section.array
@@ -71259,7 +71292,16 @@
   scopes:
     - punctuation.section.bracket.curly.variable.end
     - punctuation.definition.variable
-- source: '-1]}'
+- source: '-1'
+  scopes:
+    - variable.other.normal
+- source: ']'
+  scopesEnd:
+    - meta.parameter-expansion
+- source: '}'
+  scopes:
+    - punctuation.section.bracket.curly.variable.end
+    - punctuation.definition.variable
 - source: '"'
   scopes:
     - punctuation.definition.string.end

@@ -187,7 +187,7 @@
       ]
     },
     "array_access_inline": {
-      "match": "(?:(\\[)([^\\]]+)(\\]))",
+      "match": "(?:(\\[)([^\\[\\]]+)(\\]))",
       "captures": {
         "1": {
           "name": "punctuation.section.array.shell"

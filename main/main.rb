@@ -1150,7 +1150,7 @@ require_relative './tokens.rb'
             match: /\[/,
             tag_as: "punctuation.section.array",
         ).then(
-            match: /[^\]]+/,
+            match: /[^\[\]]+/,
             includes: [
                 :special_expansion,
                 :string,
