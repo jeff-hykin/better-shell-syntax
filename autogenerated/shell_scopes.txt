@@ -112,7 +112,8 @@ punctuation.definition.regex.at.shell
 punctuation.definition.regex.group.shell
 punctuation.definition.string.begin.shell
 punctuation.definition.string.end.shell
-punctuation.definition.string.heredoc.shell
+punctuation.definition.string.heredoc.delimiter.shell
+punctuation.definition.string.heredoc.quote.shell
 punctuation.definition.string.shell
 punctuation.definition.subshell.single.shell
 punctuation.definition.variable.shell
@@ -140,8 +141,8 @@ string.interpolated.backtick.shell
 string.interpolated.process-substitution.shell
 string.quoted.double
 string.quoted.double.shell
-string.quoted.heredoc.indent
-string.quoted.heredoc.no-indent
+string.quoted.heredoc.indent.$3
+string.quoted.heredoc.no-indent.$3
 string.quoted.single
 string.quoted.single.dollar.shell
 string.quoted.single.shell
@@ -149,8 +150,8 @@ string.regexp.character-class.shell
 string.regexp.unquoted.shell
 string.unquoted.argument
 string.unquoted.argument.shell
-string.unquoted.heredoc.indent
-string.unquoted.heredoc.no-indent
+string.unquoted.heredoc.indent.$2
+string.unquoted.heredoc.no-indent.$2
 string.unquoted.herestring.shell
 string.unquoted.pattern.shell
 string.unquoted.shell

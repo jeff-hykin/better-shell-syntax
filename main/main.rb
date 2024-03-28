@@ -1324,20 +1324,24 @@ require_relative './tokens.rb'
                 [
                     # <<-"HEREDOC"
                     PatternRange.new(
-                        tag_content_as: "string.quoted.heredoc.indent",
+                        tag_content_as: "string.quoted.heredoc.indent.$3", # NOTE: the $3 should be $reference(delimiter) but the library is having issues with that
                         start_pattern: Pattern.new(
                             Pattern.new(
                                 match: lookBehindToAvoid(/</).then(/<<-/),
                                 tag_as: "keyword.operator.heredoc",
                             ).then(std_space).then(
                                 match: /"|'/,
-                                reference: "start_quote"
+                                reference: "start_quote",
+                                tag_as: "punctuation.definition.string.heredoc.quote",
                             ).then(std_space).then(
                                 match: /[^"']+?/, # can create problems
                                 reference: "delimiter",
-                                tag_as: "punctuation.definition.string.heredoc",
-                            ).lookAheadFor(/\s|;|&|<|"|'/).matchResultOf(
-                                "start_quote"
+                                tag_as: "punctuation.definition.string.heredoc.delimiter",
+                            ).lookAheadFor(/\s|;|&|<|"|'/).then(
+                                tag_as: "punctuation.definition.string.heredoc.quote",
+                                match: matchResultOf(
+                                    "start_quote"
+                                ),
                             ).then(
                                 match: /.*/,
                                 includes: [
@@ -1347,7 +1351,7 @@ require_relative './tokens.rb'
                             )
                         ),
                         end_pattern: Pattern.new(
-                            tag_as: "punctuation.definition.string.heredoc",
+                            tag_as: "punctuation.definition.string.heredoc.delimiter",
                             match: Pattern.new(
                                 Pattern.new(/^\t*/).matchResultOf(
                                     "delimiter"
@@ -1358,20 +1362,24 @@ require_relative './tokens.rb'
                     ),
                     # <<"HEREDOC"
                     PatternRange.new(
-                        tag_content_as: "string.quoted.heredoc.no-indent",
+                        tag_content_as: "string.quoted.heredoc.no-indent.$3",
                         start_pattern: Pattern.new(
                             Pattern.new(
                                 match: lookBehindToAvoid(/</).then(/<</).lookAheadToAvoid(/</),
                                 tag_as: "keyword.operator.heredoc",
                             ).then(std_space).then(
                                 match: /"|'/,
-                                reference: "start_quote"
+                                reference: "start_quote",
+                                tag_as: "punctuation.definition.string.heredoc.quote",
                             ).then(std_space).then(
                                 match: /[^"']+?/, # can create problems
                                 reference: "delimiter",
-                                tag_as: "punctuation.definition.string.heredoc",
-                            ).lookAheadFor(/\s|;|&|<|"|'/).matchResultOf(
-                                "start_quote"
+                                tag_as: "punctuation.definition.string.heredoc.delimiter",
+                            ).lookAheadFor(/\s|;|&|<|"|'/).then(
+                                tag_as: "punctuation.definition.string.heredoc.quote",
+                                match: matchResultOf(
+                                    "start_quote"
+                                ),
                             ).then(
                                 match: /.*/,
                                 includes: [
@@ -1381,7 +1389,7 @@ require_relative './tokens.rb'
                             )
                         ),
                         end_pattern: Pattern.new(
-                            tag_as: "punctuation.definition.string.heredoc",
+                            tag_as: "punctuation.definition.string.heredoc.delimiter",
                             match: Pattern.new(
                                 Pattern.new(/^/).matchResultOf(
                                     "delimiter"
@@ -1392,7 +1400,7 @@ require_relative './tokens.rb'
                     ),
                     # <<-HEREDOC
                     PatternRange.new(
-                        tag_content_as: "string.unquoted.heredoc.indent",
+                        tag_content_as: "string.unquoted.heredoc.indent.$2",
                         start_pattern: Pattern.new(
                             Pattern.new(
                                 match: lookBehindToAvoid(/</).then(/<<-/),
@@ -1400,7 +1408,7 @@ require_relative './tokens.rb'
                             ).then(std_space).then(
                                 match: /[^"' \t]+/, # can create problems
                                 reference: "delimiter",
-                                tag_as: "punctuation.definition.string.heredoc",
+                                tag_as: "punctuation.definition.string.heredoc.delimiter",
                             ).lookAheadFor(/\s|;|&|<|"|'/).then(
                                 match: /.*/,
                                 includes: [
@@ -1410,7 +1418,7 @@ require_relative './tokens.rb'
                             )
                         ),
                         end_pattern: Pattern.new(
-                            tag_as: "punctuation.definition.string.heredoc",
+                            tag_as: "punctuation.definition.string.heredoc.delimiter",
                             match: Pattern.new(
                                 Pattern.new(/^\t*/).matchResultOf(
                                     "delimiter"
@@ -1426,7 +1434,7 @@ require_relative './tokens.rb'
                     ),
                     # <<HEREDOC
                     PatternRange.new(
-                        tag_content_as: "string.unquoted.heredoc.no-indent",
+                        tag_content_as: "string.unquoted.heredoc.no-indent.$2",
                         start_pattern: Pattern.new(
                             Pattern.new(
                                 match: lookBehindToAvoid(/</).then(/<</).lookAheadToAvoid(/</),
@@ -1434,7 +1442,7 @@ require_relative './tokens.rb'
                             ).then(std_space).then(
                                 match: /[^"' \t]+/, # can create problems
                                 reference: "delimiter",
-                                tag_as: "punctuation.definition.string.heredoc",
+                                tag_as: "punctuation.definition.string.heredoc.delimiter",
                             ).lookAheadFor(/\s|;|&|<|"|'/).then(
                                 match: /.*/,
                                 includes: [
@@ -1444,7 +1452,7 @@ require_relative './tokens.rb'
                             )
                         ),
                         end_pattern: Pattern.new(
-                            tag_as: "punctuation.definition.string.heredoc",
+                            tag_as: "punctuation.definition.string.heredoc.delimiter",
                             match: Pattern.new(
                                 Pattern.new(/^/).matchResultOf(
                                     "delimiter"
