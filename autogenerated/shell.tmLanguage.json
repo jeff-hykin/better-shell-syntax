@@ -442,10 +442,18 @@
           "name": "keyword.operator.orvariable.language.special.or.shell keyword.operator.alternation.ruby.shell punctuation.definition.regex.alternation.shell punctuation.separator.regex.alternation.shell"
         },
         {
-          "begin": "\\(",
+          "match": "\\\\.",
+          "name": "constant.character.escape.shell"
+        },
+        {
+          "match": "(?<=\\tin| in| |\\t|;;)\\(",
+          "name": "keyword.operator.pattern.case.shell"
+        },
+        {
+          "begin": "(?<=\\S)(\\()",
           "end": "\\)",
           "beginCaptures": {
-            "0": {
+            "1": {
               "name": "punctuation.definition.group.shell punctuation.definition.regex.group.shell"
             }
           },
@@ -889,7 +897,7 @@
           },
           "endCaptures": {
             "0": {
-              "name": "punctuation.definition.string.heredoc.delimiter.shell"
+              "name": "punctuation.definition.string.heredoc.$0.shell"
             }
           },
           "contentName": "string.quoted.heredoc.indent.$3",

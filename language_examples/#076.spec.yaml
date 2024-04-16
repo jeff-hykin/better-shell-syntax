@@ -41,13 +41,17 @@
   scopes:
     - keyword.operator.heredoc
 - source: ''''
+  scopes:
+    - punctuation.definition.string.heredoc.quote
 - source: '=cut'
   scopes:
-    - punctuation.definition.string.heredoc
+    - punctuation.definition.string.heredoc.delimiter
 - source: ''''
+  scopes:
+    - punctuation.definition.string.heredoc.quote
 - source: '    require ''yaml'''
   scopesBegin:
-    - string.quoted.heredoc.no-indent
+    - string.quoted.heredoc.no-indent.=cut
 - source: '    input=STDIN.readlines.join'
 - source: '    # default to UTF-8 for the dbs sake'
 - source: '    env = {''LANG'' => ''en_US.UTF-8''}'
@@ -66,10 +70,10 @@
 - source: '    env.each{|k,v| puts "*ERROR." if v.is_a?(Hash)}'
 - source: '    puts env.map{|k,v| "-e\n#{k}=#{v}" }.join("\n")'
   scopesEnd:
-    - string.quoted.heredoc.no-indent
+    - string.quoted.heredoc.no-indent.=cut
 - source: '=cut'
   scopes:
-    - punctuation.definition.string.heredoc
+    - punctuation.definition.string.heredoc.delimiter
   scopesEnd:
     - meta.argument
 - source: read
@@ -112,10 +116,14 @@
   scopes:
     - keyword.operator.heredoc
 - source: ''''
+  scopes:
+    - punctuation.definition.string.heredoc.quote
 - source: '=cut'
   scopes:
-    - punctuation.definition.string.heredoc
+    - punctuation.definition.string.heredoc.delimiter
 - source: ''''
+  scopes:
+    - punctuation.definition.string.heredoc.quote
 - source: '|'
   scopes:
     - keyword.operator.pipe
@@ -143,7 +151,7 @@
     - string.quoted.single
 - source: '    require ''yaml'''
   scopesBegin:
-    - string.quoted.heredoc.no-indent
+    - string.quoted.heredoc.no-indent.=cut
 - source: '    input=STDIN.readlines.join'
 - source: '    # default to UTF-8 for the dbs sake'
 - source: '    env = {''LANG'' => ''en_US.UTF-8''}'
@@ -162,10 +170,10 @@
 - source: '    env.each{|k,v| puts "*ERROR." if v.is_a?(Hash)}'
 - source: '    puts env.map{|k,v| "-e\n#{k}=#{v}" }.join("\n")'
   scopesEnd:
-    - string.quoted.heredoc.no-indent
+    - string.quoted.heredoc.no-indent.=cut
 - source: '=cut'
   scopes:
-    - punctuation.definition.string.heredoc
+    - punctuation.definition.string.heredoc.delimiter
   scopesEnd:
     - meta.argument
 - source: howdy

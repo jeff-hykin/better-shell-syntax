@@ -32,13 +32,13 @@
     - keyword.operator.heredoc
 - source: EOF
   scopes:
-    - punctuation.definition.string.heredoc
+    - punctuation.definition.string.heredoc.delimiter
 - source: "\t\t# My script here"
   scopes:
-    - string.unquoted.heredoc.indent
+    - string.unquoted.heredoc.indent.EOF
 - source: "\tEOF"
   scopes:
-    - punctuation.definition.string.heredoc
+    - punctuation.definition.string.heredoc.delimiter
   scopesEnd:
     - meta.argument
 - source: cat
@@ -52,16 +52,20 @@
   scopes:
     - keyword.operator.heredoc
 - source: ''''
+  scopes:
+    - punctuation.definition.string.heredoc.quote
 - source: EOF
   scopes:
-    - punctuation.definition.string.heredoc
+    - punctuation.definition.string.heredoc.delimiter
 - source: ''''
+  scopes:
+    - punctuation.definition.string.heredoc.quote
 - source: "\t\t# My script here"
   scopes:
-    - string.quoted.heredoc.indent
+    - string.quoted.heredoc.indent.EOF
 - source: "\tEOF"
   scopes:
-    - punctuation.definition.string.heredoc
+    - "punctuation.definition.string.heredoc.\tEOF"
   scopesEnd:
     - meta.argument
 - source: cat
@@ -75,16 +79,20 @@
   scopes:
     - keyword.operator.heredoc
 - source: '"'
+  scopes:
+    - punctuation.definition.string.heredoc.quote
 - source: EOF
   scopes:
-    - punctuation.definition.string.heredoc
+    - punctuation.definition.string.heredoc.delimiter
 - source: '"'
+  scopes:
+    - punctuation.definition.string.heredoc.quote
 - source: "\t\t# My script here"
   scopes:
-    - string.quoted.heredoc.indent
+    - string.quoted.heredoc.indent.EOF
 - source: "\tEOF"
   scopes:
-    - punctuation.definition.string.heredoc
+    - "punctuation.definition.string.heredoc.\tEOF"
   scopesEnd:
     - meta.argument
 - source: cat
@@ -98,16 +106,20 @@
   scopes:
     - keyword.operator.heredoc
 - source: ''''
+  scopes:
+    - punctuation.definition.string.heredoc.quote
 - source: EOF
   scopes:
-    - punctuation.definition.string.heredoc
+    - punctuation.definition.string.heredoc.delimiter
 - source: ''''
+  scopes:
+    - punctuation.definition.string.heredoc.quote
 - source: "\t\t# My script here"
   scopes:
-    - string.quoted.heredoc.no-indent
+    - string.quoted.heredoc.no-indent.EOF
 - source: EOF
   scopes:
-    - punctuation.definition.string.heredoc
+    - punctuation.definition.string.heredoc.delimiter
   scopesEnd:
     - meta.argument
 - source: cat
@@ -122,13 +134,13 @@
     - keyword.operator.heredoc
 - source: EOF
   scopes:
-    - punctuation.definition.string.heredoc
+    - punctuation.definition.string.heredoc.delimiter
 - source: "\t\t# My script here"
   scopes:
-    - string.unquoted.heredoc.no-indent
+    - string.unquoted.heredoc.no-indent.EOF
 - source: EOF
   scopes:
-    - punctuation.definition.string.heredoc
+    - punctuation.definition.string.heredoc.delimiter
   scopesEnd:
     - meta.statement
     - meta.statement.command
@@ -180,7 +192,7 @@
     - keyword.operator.heredoc
 - source: EOF
   scopes:
-    - punctuation.definition.string.heredoc
+    - punctuation.definition.string.heredoc.delimiter
 - source: '>'
   scopes:
     - keyword.operator.redirect
@@ -189,14 +201,14 @@
     - string.unquoted.argument
 - source: multiple line
   scopesBegin:
-    - string.unquoted.heredoc.no-indent
+    - string.unquoted.heredoc.no-indent.EOF
 - source: output into
 - source: a file
   scopesEnd:
-    - string.unquoted.heredoc.no-indent
+    - string.unquoted.heredoc.no-indent.EOF
 - source: EOF
   scopes:
-    - punctuation.definition.string.heredoc
+    - punctuation.definition.string.heredoc.delimiter
   scopesEnd:
     - meta.argument
 - source: echo
@@ -265,7 +277,7 @@
     - keyword.operator.heredoc
 - source: EOF
   scopes:
-    - punctuation.definition.string.heredoc
+    - punctuation.definition.string.heredoc.delimiter
 - source: '>'
   scopes:
     - keyword.operator.redirect
@@ -274,14 +286,14 @@
     - string.unquoted.argument
 - source: "\tmultiple line"
   scopesBegin:
-    - string.unquoted.heredoc.indent
+    - string.unquoted.heredoc.indent.EOF
 - source: "\toutput into"
 - source: "\ta file"
   scopesEnd:
-    - string.unquoted.heredoc.indent
+    - string.unquoted.heredoc.indent.EOF
 - source: "\tEOF"
   scopes:
-    - punctuation.definition.string.heredoc
+    - punctuation.definition.string.heredoc.delimiter
   scopesEnd:
     - meta.argument
 - source: echo
@@ -347,7 +359,7 @@
     - keyword.operator.heredoc
 - source: EOF
   scopes:
-    - punctuation.definition.string.heredoc
+    - punctuation.definition.string.heredoc.delimiter
 - source: '|'
   scopes:
     - keyword.operator.pipe
@@ -366,10 +378,10 @@
     - meta.statement.command
 - source: "\t\t# My script here"
   scopes:
-    - string.unquoted.heredoc.indent
+    - string.unquoted.heredoc.indent.EOF
 - source: "\tEOF"
   scopes:
-    - punctuation.definition.string.heredoc
+    - punctuation.definition.string.heredoc.delimiter
   scopesEnd:
     - meta.argument
 - source: cat
@@ -383,10 +395,14 @@
   scopes:
     - keyword.operator.heredoc
 - source: ''''
+  scopes:
+    - punctuation.definition.string.heredoc.quote
 - source: EOF
   scopes:
-    - punctuation.definition.string.heredoc
+    - punctuation.definition.string.heredoc.delimiter
 - source: ''''
+  scopes:
+    - punctuation.definition.string.heredoc.quote
 - source: '|'
   scopes:
     - keyword.operator.pipe
@@ -405,10 +421,10 @@
     - meta.statement.command
 - source: "\t\t# My script here"
   scopes:
-    - string.quoted.heredoc.indent
+    - string.quoted.heredoc.indent.EOF
 - source: "\tEOF"
   scopes:
-    - punctuation.definition.string.heredoc
+    - "punctuation.definition.string.heredoc.\tEOF"
   scopesEnd:
     - meta.argument
 - source: cat
@@ -422,10 +438,14 @@
   scopes:
     - keyword.operator.heredoc
 - source: '"'
+  scopes:
+    - punctuation.definition.string.heredoc.quote
 - source: EOF
   scopes:
-    - punctuation.definition.string.heredoc
+    - punctuation.definition.string.heredoc.delimiter
 - source: '"'
+  scopes:
+    - punctuation.definition.string.heredoc.quote
 - source: '|'
   scopes:
     - keyword.operator.pipe
@@ -444,10 +464,10 @@
     - meta.statement.command
 - source: "\t\t# My script here"
   scopes:
-    - string.quoted.heredoc.indent
+    - string.quoted.heredoc.indent.EOF
 - source: "\tEOF"
   scopes:
-    - punctuation.definition.string.heredoc
+    - "punctuation.definition.string.heredoc.\tEOF"
   scopesEnd:
     - meta.argument
 - source: cat
@@ -461,10 +481,14 @@
   scopes:
     - keyword.operator.heredoc
 - source: ''''
+  scopes:
+    - punctuation.definition.string.heredoc.quote
 - source: EOF
   scopes:
-    - punctuation.definition.string.heredoc
+    - punctuation.definition.string.heredoc.delimiter
 - source: ''''
+  scopes:
+    - punctuation.definition.string.heredoc.quote
 - source: '|'
   scopes:
     - keyword.operator.pipe
@@ -483,10 +507,10 @@
     - meta.statement.command
 - source: "\t\t# My script here"
   scopes:
-    - string.quoted.heredoc.no-indent
+    - string.quoted.heredoc.no-indent.EOF
 - source: EOF
   scopes:
-    - punctuation.definition.string.heredoc
+    - punctuation.definition.string.heredoc.delimiter
   scopesEnd:
     - meta.argument
 - source: cat
@@ -501,7 +525,7 @@
     - keyword.operator.heredoc
 - source: EOF
   scopes:
-    - punctuation.definition.string.heredoc
+    - punctuation.definition.string.heredoc.delimiter
 - source: '|'
   scopes:
     - keyword.operator.pipe
@@ -520,10 +544,10 @@
     - meta.statement.command
 - source: "\t\t# My script here"
   scopes:
-    - string.unquoted.heredoc.no-indent
+    - string.unquoted.heredoc.no-indent.EOF
 - source: EOF
   scopes:
-    - punctuation.definition.string.heredoc
+    - punctuation.definition.string.heredoc.delimiter
   scopesEnd:
     - meta.statement
     - meta.statement.command
@@ -575,7 +599,7 @@
     - keyword.operator.heredoc
 - source: EOF
   scopes:
-    - punctuation.definition.string.heredoc
+    - punctuation.definition.string.heredoc.delimiter
 - source: '>'
   scopes:
     - keyword.operator.redirect
@@ -600,14 +624,14 @@
     - meta.statement.command
 - source: multiple line
   scopesBegin:
-    - string.unquoted.heredoc.no-indent
+    - string.unquoted.heredoc.no-indent.EOF
 - source: output into
 - source: a file
   scopesEnd:
-    - string.unquoted.heredoc.no-indent
+    - string.unquoted.heredoc.no-indent.EOF
 - source: EOF
   scopes:
-    - punctuation.definition.string.heredoc
+    - punctuation.definition.string.heredoc.delimiter
   scopesEnd:
     - meta.argument
 - source: echo
@@ -676,7 +700,7 @@
     - keyword.operator.heredoc
 - source: EOF
   scopes:
-    - punctuation.definition.string.heredoc
+    - punctuation.definition.string.heredoc.delimiter
 - source: '>'
   scopes:
     - keyword.operator.redirect
@@ -701,14 +725,14 @@
     - meta.statement.command
 - source: "\tmultiple line"
   scopesBegin:
-    - string.unquoted.heredoc.indent
+    - string.unquoted.heredoc.indent.EOF
 - source: "\toutput into"
 - source: "\ta file"
   scopesEnd:
-    - string.unquoted.heredoc.indent
+    - string.unquoted.heredoc.indent.EOF
 - source: "\tEOF"
   scopes:
-    - punctuation.definition.string.heredoc
+    - punctuation.definition.string.heredoc.delimiter
   scopesEnd:
     - meta.argument
 - source: echo

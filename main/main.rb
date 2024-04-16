@@ -1360,7 +1360,7 @@ require_relative './tokens.rb'
                             )
                         ),
                         end_pattern: Pattern.new(
-                            tag_as: "punctuation.definition.string.heredoc.delimiter",
+                            tag_as: "punctuation.definition.string.heredoc.$match",
                             match: Pattern.new(
                                 Pattern.new(/^\t*/).matchResultOf(
                                     "delimiter"

@@ -112,6 +112,7 @@ punctuation.definition.regex.at.shell
 punctuation.definition.regex.group.shell
 punctuation.definition.string.begin.shell
 punctuation.definition.string.end.shell
+punctuation.definition.string.heredoc.$0.shell
 punctuation.definition.string.heredoc.delimiter.shell
 punctuation.definition.string.heredoc.quote.shell
 punctuation.definition.string.shell
