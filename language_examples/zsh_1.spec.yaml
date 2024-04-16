@@ -13004,24 +13004,20 @@
     - meta.scope.group
   scopes:
     - punctuation.definition.group
-- source: '            w'
+- source: while
   scopesBegin:
     - meta.statement
-- source: h
-  scopesBegin:
-    - meta.statement.command
-    - meta.statement.command.name
-    - string.unquoted
-- source: i
-- source: l
-- source: e
-  scopesEnd:
-    - meta.statement.command.name
-    - string.unquoted
-- source: read
+    - meta.while
   scopes:
-    - meta.argument
-    - string.unquoted.argument
+    - keyword.control.while
+- source: r
+  scopesBegin:
+    - string.unquoted
+- source: e
+- source: a
+- source: d
+  scopesEnd:
+    - string.unquoted
 - source: '-'
   scopesBegin:
     - string.unquoted.argument
@@ -13032,13 +13028,15 @@
     - constant.other.option
   scopesEnd:
     - string.unquoted.argument
-- source: tmp
-  scopes:
-    - meta.argument
-    - string.unquoted.argument
+- source: t
+  scopesBegin:
+    - string.unquoted
+- source: m
+- source: p
   scopesEnd:
     - meta.statement
-    - meta.statement.command
+    - meta.while
+    - string.unquoted
 - source: ;
   scopes:
     - punctuation.terminator.statement.semicolon
@@ -35665,24 +35663,20 @@
     - meta.scope.group
   scopes:
     - punctuation.definition.group
-- source: '        w'
+- source: while
   scopesBegin:
     - meta.statement
-- source: h
-  scopesBegin:
-    - meta.statement.command
-    - meta.statement.command.name
-    - string.unquoted
-- source: i
-- source: l
-- source: e
-  scopesEnd:
-    - meta.statement.command.name
-    - string.unquoted
-- source: read
+    - meta.while
   scopes:
-    - meta.argument
-    - string.unquoted.argument
+    - keyword.control.while
+- source: r
+  scopesBegin:
+    - string.unquoted
+- source: e
+- source: a
+- source: d
+  scopesEnd:
+    - string.unquoted
 - source: '-'
   scopesBegin:
     - string.unquoted.argument
@@ -35693,13 +35687,15 @@
     - constant.other.option
   scopesEnd:
     - string.unquoted.argument
-- source: tmp
-  scopes:
-    - meta.argument
-    - string.unquoted.argument
+- source: t
+  scopesBegin:
+    - string.unquoted
+- source: m
+- source: p
   scopesEnd:
     - meta.statement
-    - meta.statement.command
+    - meta.while
+    - string.unquoted
 - source: ;
   scopes:
     - punctuation.terminator.statement.semicolon
@@ -36300,24 +36296,20 @@
     - meta.scope.group
   scopes:
     - punctuation.definition.group
-- source: '        w'
+- source: while
   scopesBegin:
     - meta.statement
-- source: h
-  scopesBegin:
-    - meta.statement.command
-    - meta.statement.command.name
-    - string.unquoted
-- source: i
-- source: l
-- source: e
-  scopesEnd:
-    - meta.statement.command.name
-    - string.unquoted
-- source: read
+    - meta.while
   scopes:
-    - meta.argument
-    - string.unquoted.argument
+    - keyword.control.while
+- source: r
+  scopesBegin:
+    - string.unquoted
+- source: e
+- source: a
+- source: d
+  scopesEnd:
+    - string.unquoted
 - source: '-'
   scopesBegin:
     - string.unquoted.argument
@@ -36328,13 +36320,15 @@
     - constant.other.option
   scopesEnd:
     - string.unquoted.argument
-- source: tmp
-  scopes:
-    - meta.argument
-    - string.unquoted.argument
+- source: t
+  scopesBegin:
+    - string.unquoted
+- source: m
+- source: p
   scopesEnd:
     - meta.statement
-    - meta.statement.command
+    - meta.while
+    - string.unquoted
 - source: ;
   scopes:
     - punctuation.terminator.statement.semicolon
@@ -36614,30 +36608,26 @@
     - meta.parenthese.group
   scopes:
     - punctuation.section.parenthese
-- source: '    w'
+- source: while
   scopesBegin:
     - meta.statement
-- source: h
+    - meta.while
+  scopes:
+    - keyword.control.while
+- source: r
   scopesBegin:
-    - meta.statement.command
-    - meta.statement.command.name
     - string.unquoted
-- source: i
+- source: e
+- source: a
+- source: d
 - source: l
+- source: i
+- source: 'n'
 - source: e
   scopesEnd:
-    - meta.statement.command.name
-    - string.unquoted
-- source: read
-  scopesBegin:
-    - meta.argument
-    - string.unquoted.argument
-- source: line
-  scopesEnd:
     - meta.statement
-    - meta.statement.command
-    - meta.argument
-    - string.unquoted.argument
+    - meta.while
+    - string.unquoted
 - source: do
   scopes:
     - keyword.control.do
@@ -51176,24 +51166,20 @@
     - meta.scope.group
   scopes:
     - punctuation.definition.group
-- source: '            w'
+- source: while
   scopesBegin:
     - meta.statement
-- source: h
-  scopesBegin:
-    - meta.statement.command
-    - meta.statement.command.name
-    - string.unquoted
-- source: i
-- source: l
-- source: e
-  scopesEnd:
-    - meta.statement.command.name
-    - string.unquoted
-- source: read
+    - meta.while
   scopes:
-    - meta.argument
-    - string.unquoted.argument
+    - keyword.control.while
+- source: r
+  scopesBegin:
+    - string.unquoted
+- source: e
+- source: a
+- source: d
+  scopesEnd:
+    - string.unquoted
 - source: '-'
   scopesBegin:
     - string.unquoted.argument
@@ -51204,13 +51190,15 @@
     - constant.other.option
   scopesEnd:
     - string.unquoted.argument
-- source: tmp
-  scopes:
-    - meta.argument
-    - string.unquoted.argument
+- source: t
+  scopesBegin:
+    - string.unquoted
+- source: m
+- source: p
   scopesEnd:
     - meta.statement
-    - meta.statement.command
+    - meta.while
+    - string.unquoted
 - source: ;
   scopes:
     - punctuation.terminator.statement.semicolon
@@ -73829,24 +73817,20 @@
     - meta.scope.group
   scopes:
     - punctuation.definition.group
-- source: '        w'
+- source: while
   scopesBegin:
     - meta.statement
-- source: h
-  scopesBegin:
-    - meta.statement.command
-    - meta.statement.command.name
-    - string.unquoted
-- source: i
-- source: l
-- source: e
-  scopesEnd:
-    - meta.statement.command.name
-    - string.unquoted
-- source: read
+    - meta.while
   scopes:
-    - meta.argument
-    - string.unquoted.argument
+    - keyword.control.while
+- source: r
+  scopesBegin:
+    - string.unquoted
+- source: e
+- source: a
+- source: d
+  scopesEnd:
+    - string.unquoted
 - source: '-'
   scopesBegin:
     - string.unquoted.argument
@@ -73857,13 +73841,15 @@
     - constant.other.option
   scopesEnd:
     - string.unquoted.argument
-- source: tmp
-  scopes:
-    - meta.argument
-    - string.unquoted.argument
+- source: t
+  scopesBegin:
+    - string.unquoted
+- source: m
+- source: p
   scopesEnd:
     - meta.statement
-    - meta.statement.command
+    - meta.while
+    - string.unquoted
 - source: ;
   scopes:
     - punctuation.terminator.statement.semicolon
@@ -74464,24 +74450,20 @@
     - meta.scope.group
   scopes:
     - punctuation.definition.group
-- source: '        w'
+- source: while
   scopesBegin:
     - meta.statement
-- source: h
-  scopesBegin:
-    - meta.statement.command
-    - meta.statement.command.name
-    - string.unquoted
-- source: i
-- source: l
-- source: e
-  scopesEnd:
-    - meta.statement.command.name
-    - string.unquoted
-- source: read
+    - meta.while
   scopes:
-    - meta.argument
-    - string.unquoted.argument
+    - keyword.control.while
+- source: r
+  scopesBegin:
+    - string.unquoted
+- source: e
+- source: a
+- source: d
+  scopesEnd:
+    - string.unquoted
 - source: '-'
   scopesBegin:
     - string.unquoted.argument
@@ -74492,13 +74474,15 @@
     - constant.other.option
   scopesEnd:
     - string.unquoted.argument
-- source: tmp
-  scopes:
-    - meta.argument
-    - string.unquoted.argument
+- source: t
+  scopesBegin:
+    - string.unquoted
+- source: m
+- source: p
   scopesEnd:
     - meta.statement
-    - meta.statement.command
+    - meta.while
+    - string.unquoted
 - source: ;
   scopes:
     - punctuation.terminator.statement.semicolon
@@ -74778,30 +74762,26 @@
     - meta.parenthese.group
   scopes:
     - punctuation.section.parenthese
-- source: '    w'
+- source: while
   scopesBegin:
     - meta.statement
-- source: h
+    - meta.while
+  scopes:
+    - keyword.control.while
+- source: r
   scopesBegin:
-    - meta.statement.command
-    - meta.statement.command.name
     - string.unquoted
-- source: i
+- source: e
+- source: a
+- source: d
 - source: l
+- source: i
+- source: 'n'
 - source: e
   scopesEnd:
-    - meta.statement.command.name
-    - string.unquoted
-- source: read
-  scopesBegin:
-    - meta.argument
-    - string.unquoted.argument
-- source: line
-  scopesEnd:
     - meta.statement
-    - meta.statement.command
-    - meta.argument
-    - string.unquoted.argument
+    - meta.while
+    - string.unquoted
 - source: do
   scopes:
     - keyword.control.do
