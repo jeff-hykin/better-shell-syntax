@@ -764,9 +764,18 @@ require_relative './tokens.rb'
                 match: /\|/,
                 tag_as: "keyword.operator.orvariable.language.special.or keyword.operator.alternation.ruby punctuation.definition.regex.alternation punctuation.separator.regex.alternation"
             ),
+            Pattern.new(
+                match: /\\./,
+                tag_as: "constant.character.escape.shell",
+            ),
+            # this should only match the open paranethese at the very begining see https://github.com/jeff-hykin/better-shell-syntax/issues/
+            Pattern.new(
+                match: lookBehindFor(/\tin| in| |\t|;;/).then(/\(/),
+                tag_as: "keyword.operator.pattern.case",
+            ),
             PatternRange.new(
                 tag_as: "meta.parenthese",
-                start_pattern: Pattern.new(
+                start_pattern: lookBehindFor(/\S/).then(
                     match: /\(/,
                     tag_as: "punctuation.definition.group punctuation.definition.regex.group",
                 ),
