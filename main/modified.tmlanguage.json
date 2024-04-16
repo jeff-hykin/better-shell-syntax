@@ -854,6 +854,30 @@
                 }
 			]
 		},
+		"math_operators": {
+			"patterns": [
+				{
+					"match": "\\+{1,2}|-{1,2}|!|~|\\*{1,2}|/|%|<[<=]?|>[>=]?|==|!=|^|\\|{1,2}|&{1,2}|\\?|\\:|,|=|[*/%+\\-&^|]=|<<=|>>=",
+					"name": "keyword.operator.arithmetic.shell"
+				},
+				{
+					"match": "0[xX][0-9A-Fa-f]+",
+					"name": "constant.numeric.hex.shell"
+				},
+				{
+					"match": "0\\d+",
+					"name": "constant.numeric.octal.shell"
+				},
+				{
+					"match": "\\d{1,2}#[0-9a-zA-Z@_]+",
+					"name": "constant.numeric.other.shell"
+				},
+				{
+					"match": "\\d+",
+					"name": "constant.numeric.integer.shell"
+				}
+			]
+		},
 		"pathname": {
 			"patterns": [
 				{

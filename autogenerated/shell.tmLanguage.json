@@ -1535,6 +1535,30 @@
         }
       ]
     },
+    "math_operators": {
+      "patterns": [
+        {
+          "match": "\\+{1,2}|-{1,2}|!|~|\\*{1,2}|/|%|<[<=]?|>[>=]?|==|!=|^|\\|{1,2}|&{1,2}|\\?|\\:|,|=|[*/%+\\-&^|]=|<<=|>>=",
+          "name": "keyword.operator.arithmetic.shell"
+        },
+        {
+          "match": "0[xX][0-9A-Fa-f]+",
+          "name": "constant.numeric.hex.shell"
+        },
+        {
+          "match": "0\\d+",
+          "name": "constant.numeric.octal.shell"
+        },
+        {
+          "match": "\\d{1,2}#[0-9a-zA-Z@_]+",
+          "name": "constant.numeric.other.shell"
+        },
+        {
+          "match": "\\d+",
+          "name": "constant.numeric.integer.shell"
+        }
+      ]
+    },
     "misc_ranges": {
       "patterns": [
         {
@@ -2178,6 +2202,9 @@
           "include": "#for_statement"
         },
         {
+          "include": "#while_statement"
+        },
+        {
           "include": "#function_definition"
         },
         {
@@ -2315,6 +2342,42 @@
               "name": "variable.other.normal.shell"
             }
           }
+        }
+      ]
+    },
+    "while_statement": {
+      "patterns": [
+        {
+          "begin": "(\\bwhile\\b)",
+          "end": "(?=;|\\||&|\\n|\\)|\\`|\\{|\\}|[ \\t]*#|\\])(?<!\\\\)",
+          "beginCaptures": {
+            "1": {
+              "name": "keyword.control.while.shell"
+            }
+          },
+          "endCaptures": {
+          },
+          "name": "meta.while.shell",
+          "patterns": [
+            {
+              "include": "#line_continuation"
+            },
+            {
+              "include": "#math_operators"
+            },
+            {
+              "include": "#option"
+            },
+            {
+              "include": "#simple_unquoted"
+            },
+            {
+              "include": "#normal_context"
+            },
+            {
+              "include": "#string"
+            }
+          ]
         }
       ]
     }

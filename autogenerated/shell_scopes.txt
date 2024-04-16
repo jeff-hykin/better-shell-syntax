@@ -34,6 +34,7 @@ keyword.control.for.shell
 keyword.control.if.shell
 keyword.control.in.shell
 keyword.control.shell
+keyword.control.while.shell
 keyword.operator.alternation.ruby.shell
 keyword.operator.arithmetic.shell
 keyword.operator.assignment.compound.shell
@@ -91,6 +92,7 @@ meta.statement.command.name.shell
 meta.statement.command.shell
 meta.statement.shell
 meta.structure.extglob.shell
+meta.while.shell
 punctuation.definition.arbitrary-repetition.shell
 punctuation.definition.arguments.shell
 punctuation.definition.array.access.shell

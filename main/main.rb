@@ -531,6 +531,7 @@ require_relative './tokens.rb'
         :assignment_statement,
         :case_statement,
         :for_statement,
+        :while_statement,
         :function_definition,
         :command_statement,
         :line_continuation,
@@ -810,6 +811,26 @@ require_relative './tokens.rb'
                 tag_as: "string.unquoted.pattern string.regexp.unquoted",
             ),
         ]
+    grammar[:while_statement] = [
+        PatternRange.new(
+            tag_as: "meta.while",
+            start_pattern: Pattern.new(
+                Pattern.new(
+                    tag_as: "keyword.control.while",
+                    match: /\bwhile\b/,
+                )
+            ),
+            end_pattern: command_end,
+            includes: [
+                :line_continuation,
+                :math_operators,
+                :option,
+                :simple_unquoted,
+                :normal_context,
+                :string,
+            ],
+        ),
+    ]
     grammar[:for_statement] = [
         PatternRange.new(
             tag_as: "meta.for.in",

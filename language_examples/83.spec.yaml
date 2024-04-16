@@ -1,0 +1,92 @@
+- source: '#!'
+  scopesBegin:
+    - comment.line.number-sign
+    - meta.shebang
+  scopes:
+    - punctuation.definition.comment.shebang
+- source: /usr/bin/env bash
+  scopesEnd:
+    - comment.line.number-sign
+    - meta.shebang
+- source: function
+  scopesBegin:
+    - meta.function
+  scopes:
+    - storage.type.function
+- source: eval_wrapper
+  scopes:
+    - entity.name.function
+- source: '{'
+  scopesBegin:
+    - meta.function.body
+  scopes:
+    - punctuation.definition.group
+    - punctuation.section.function.definition
+- source: while
+  scopesBegin:
+    - meta.statement
+    - meta.while
+  scopes:
+    - keyword.control.while
+- source: t
+  scopesBegin:
+    - string.unquoted
+- source: e
+- source: s
+- source: t
+  scopesEnd:
+    - string.unquoted
+- source: '"'
+  scopesBegin:
+    - string.quoted.double
+  scopes:
+    - punctuation.definition.string.begin
+- source: $
+  scopes:
+    - punctuation.definition.variable
+    - variable.parameter.positional
+- source: '1'
+  scopes:
+    - variable.parameter.positional
+- source: '"'
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - string.quoted.double
+- source: '='
+  scopes:
+    - keyword.operator.arithmetic
+- source: ''''
+  scopesBegin:
+    - string.quoted.single
+  scopes:
+    - punctuation.definition.string.begin
+- source: '--'
+- source: ''''
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - meta.statement
+    - meta.while
+    - string.quoted.single
+- source: ;
+  scopes:
+    - punctuation.terminator.statement.semicolon
+- source: do
+  scopes:
+    - keyword.control.do
+- source: shift
+  scopes:
+    - meta.statement
+    - meta.statement.command
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+    - support.function.builtin
+- source: done
+  scopes:
+    - keyword.control.done
+- source: '}'
+  scopes:
+    - punctuation.definition.group
+    - punctuation.section.function.definition
