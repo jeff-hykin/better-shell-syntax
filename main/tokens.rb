@@ -19,6 +19,8 @@ tokens = [
     { representation: '\\', areInvalidLiterals: true },
     { representation: '"' , areInvalidLiterals: true },
     { representation: '\'', areInvalidLiterals: true },
+    { representation: '<',  areInvalidLiterals: true },
+    { representation: '>',  areInvalidLiterals: true },
     { representation: "case"     , areShellReservedWords: true, areControlFlow: true, },
     { representation: "coproc"   , areShellReservedWords: true, },
     { representation: "do"       , areShellReservedWords: true, areControlFlow: true, areFollowedByACommand: true, },

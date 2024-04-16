@@ -1,0 +1,104 @@
+- source: declare
+  scopesBegin:
+    - meta.statement
+    - meta.expression.assignment.modified
+  scopes:
+    - storage.modifier.declare
+- source: s
+  scopesBegin:
+    - variable.other.assignment
+- source: a
+  scopesEnd:
+    - variable.other.assignment
+- source: '='
+  scopes:
+    - keyword.operator.assignment
+- source: (
+  scopes:
+    - punctuation.definition.array
+- source: a
+  scopesBegin:
+    - string.unquoted
+- source: b
+- source: c
+  scopesEnd:
+    - string.unquoted
+- source: )
+  scopes:
+    - punctuation.definition.array
+  scopesEnd:
+    - meta.statement
+    - meta.expression.assignment.modified
+- source: '{'
+  scopesBegin:
+    - meta.scope.group
+  scopes:
+    - punctuation.definition.group
+- source: s
+  scopesBegin:
+    - meta.statement
+    - meta.expression.assignment
+  scopes:
+    - variable.other.assignment
+- source: '='
+  scopes:
+    - keyword.operator.assignment
+- source: $
+  scopes:
+    - punctuation.definition.variable
+- source: '{'
+  scopes:
+    - punctuation.section.bracket.curly.variable.begin
+    - punctuation.definition.variable
+- source: a
+  scopesBegin:
+    - meta.parameter-expansion
+  scopes:
+    - variable.other.normal
+- source: '['
+- source: '-'
+  scopes:
+    - variable.other.normal
+- source: $
+  scopes:
+    - punctuation.definition.variable
+- source: '{'
+  scopes:
+    - punctuation.section.bracket.curly.variable.begin
+    - punctuation.definition.variable
+- source: '#'
+  scopesBegin:
+    - meta.parameter-expansion
+  scopes:
+    - keyword.operator.expansion
+- source: a
+  scopes:
+    - variable.other.normal
+- source: '['
+  scopes:
+    - punctuation.section.array
+- source: '@'
+  scopes:
+    - keyword.operator.expansion
+- source: ']'
+  scopes:
+    - punctuation.section.array
+  scopesEnd:
+    - meta.parameter-expansion
+- source: '}'
+  scopes:
+    - punctuation.section.bracket.curly.variable.end
+    - punctuation.definition.variable
+- source: ']'
+  scopesEnd:
+    - meta.parameter-expansion
+- source: '}'
+  scopes:
+    - punctuation.section.bracket.curly.variable.end
+    - punctuation.definition.variable
+  scopesEnd:
+    - meta.statement
+    - meta.expression.assignment
+- source: '}'
+  scopes:
+    - punctuation.definition.group

@@ -416,7 +416,6 @@ require_relative './tokens.rb'
             ]
         ) 
     end
-    unquoted_command_prefix = generateUnquotedArugment["entity.name.function.call entity.name.command"]
     
     grammar[:continuation_of_double_quoted_command_name] = PatternRange.new(
         tag_content_as: "meta.statement.command.name.continuation string.quoted.double entity.name.function.call entity.name.command",
@@ -460,7 +459,7 @@ require_relative './tokens.rb'
             ).then(
                 modifier.or(
                     tag_as: "entity.name.function.call entity.name.command",
-                    match: lookAheadToAvoid(/"|'|\\\n?$/).then(/[^!'" \t\n\r]+?/), # start of unquoted command
+                    match: lookAheadToAvoid(/"|'|\\\n?$/).then(/[^!'"<> \t\n\r]+?/), # start of unquoted command
                     includes: [
                         Pattern.new(
                             match: any_builtin_control_flow,
@@ -541,7 +540,7 @@ require_relative './tokens.rb'
     grammar[:command_name_range] = PatternRange.new(
         tag_as: "meta.statement.command.name",
         start_pattern: Pattern.new(/\G/,),
-        end_pattern: argument_end,
+        end_pattern: argument_end.or(lookAheadFor(/</)),
         includes: [
             # 
             # builtin commands
@@ -564,7 +563,7 @@ require_relative './tokens.rb'
             Pattern.new(
                 lookBehindToAvoid(/\w/).lookBehindFor(/\G|'|"|\}|\)/).then(
                     tag_as: "entity.name.function.call entity.name.command",
-                    match: /[^ \n\t\r"'=;#$!&\|`\)\{]+/,
+                    match: /[^ \n\t\r"'=;#$!&\|`\)\{<>]+/,
                 ),
             ),
             
@@ -622,6 +621,7 @@ require_relative './tokens.rb'
             # :custom_commands,
             # :statement_context,
             :string,
+            :heredoc,
         ],
     )
     grammar[:normal_assignment_statement] = PatternRange.new(

@@ -1,0 +1,36 @@
+- source: cat
+  scopesBegin:
+    - meta.statement
+    - meta.statement.command
+  scopes:
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+- source: '<<'
+  scopes:
+    - keyword.operator.heredoc
+- source: EOF
+  scopes:
+    - punctuation.definition.string.heredoc.delimiter
+- source: '|'
+  scopes:
+    - keyword.operator.pipe
+- source: cat
+  scopes:
+    - meta.statement.command
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+- source: '{'
+  scopesBegin:
+    - string.unquoted.heredoc.no-indent.EOF
+- source: '    "jsonObject": {'
+- source: '        "key1": "value1",'
+- source: '        "key2": "value2"'
+- source: '    }'
+- source: '}'
+  scopesEnd:
+    - string.unquoted.heredoc.no-indent.EOF
+- source: EOF
+  scopes:
+    - punctuation.definition.string.heredoc.delimiter
