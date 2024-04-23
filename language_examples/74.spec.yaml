@@ -1,0 +1,173 @@
+- source: '#!'
+  scopesBegin:
+    - comment.line.number-sign
+    - meta.shebang
+  scopes:
+    - punctuation.definition.comment.shebang
+- source: /bin/bash
+  scopesEnd:
+    - comment.line.number-sign
+    - meta.shebang
+- source: declare
+  scopesBegin:
+    - meta.statement
+    - meta.expression.assignment.modified
+  scopes:
+    - storage.modifier.declare
+- source: '-A'
+  scopes:
+    - string.unquoted.argument
+    - constant.other.option
+- source: a
+  scopes:
+    - variable.other.assignment
+- source: '='
+  scopes:
+    - keyword.operator.assignment
+- source: (
+  scopesBegin:
+    - punctuation.definition.array
+- source: )
+  scopesEnd:
+    - meta.statement
+    - meta.expression.assignment.modified
+    - punctuation.definition.array
+- source: ;
+  scopes:
+    - punctuation.terminator.statement.semicolon
+- source: 'a['
+  scopesBegin:
+    - meta.statement
+    - meta.statement.command
+    - meta.statement.command.name
+  scopes:
+    - entity.name.function.call
+    - entity.name.command
+- source: '"'
+  scopes:
+    - meta.statement.command.name.quoted
+    - string.quoted.double
+    - punctuation.definition.string.begin
+    - entity.name.function.call
+    - entity.name.command
+- source: '[]'
+  scopes:
+    - meta.statement.command.name.continuation
+    - string.quoted.double
+    - entity.name.function.call
+    - entity.name.command
+- source: '"'
+  scopes:
+    - string.quoted.double
+    - punctuation.definition.string.end
+    - entity.name.function.call
+    - entity.name.command
+- source: ']'
+  scopes:
+    - entity.name.function.call
+    - entity.name.command
+- source: '='
+  scopesBegin:
+    - string.unquoted
+- source: x
+  scopesEnd:
+    - meta.statement
+    - meta.statement.command
+    - meta.statement.command.name
+    - string.unquoted
+- source: ;
+  scopes:
+    - punctuation.terminator.statement.semicolon
+- source: b
+  scopesBegin:
+    - meta.statement
+    - meta.expression.assignment
+  scopes:
+    - variable.other.assignment
+- source: '='
+  scopes:
+    - keyword.operator.assignment
+- source: $
+  scopes:
+    - punctuation.definition.variable
+- source: '{'
+  scopes:
+    - punctuation.section.bracket.curly.variable.begin
+    - punctuation.definition.variable
+- source: a
+  scopesBegin:
+    - meta.parameter-expansion
+  scopes:
+    - variable.other.normal
+- source: '['
+- source: '"'
+  scopesBegin:
+    - string.quoted.double
+  scopes:
+    - punctuation.definition.string.begin
+- source: '[]'
+- source: '"'
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - string.quoted.double
+- source: ']'
+  scopesEnd:
+    - meta.parameter-expansion
+- source: '}'
+  scopes:
+    - punctuation.section.bracket.curly.variable.end
+    - punctuation.definition.variable
+  scopesEnd:
+    - meta.statement
+    - meta.expression.assignment
+- source: ;
+  scopes:
+    - punctuation.terminator.statement.semicolon
+- source: '#'
+  scopesBegin:
+    - comment.line.number-sign
+  scopes:
+    - punctuation.definition.comment
+- source: ' this is incorrectly highlighted as part of a string'
+  scopesEnd:
+    - comment.line.number-sign
+- source: echo
+  scopesBegin:
+    - meta.statement
+    - meta.statement.command
+  scopes:
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+    - support.function.builtin
+- source: $
+  scopesBegin:
+    - meta.argument
+  scopes:
+    - punctuation.definition.variable
+- source: '{'
+  scopes:
+    - punctuation.section.bracket.curly.variable.begin
+    - punctuation.definition.variable
+- source: b
+  scopes:
+    - meta.parameter-expansion
+    - variable.other.normal
+- source: '}'
+  scopes:
+    - punctuation.section.bracket.curly.variable.end
+    - punctuation.definition.variable
+  scopesEnd:
+    - meta.statement
+    - meta.statement.command
+    - meta.argument
+- source: ;
+  scopes:
+    - punctuation.terminator.statement.semicolon
+- source: '#'
+  scopesBegin:
+    - comment.line.number-sign
+  scopes:
+    - punctuation.definition.comment
+- source: ' this too, it only ends after this double quote: " (this is highlighted as script)'

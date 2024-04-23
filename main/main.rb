@@ -337,7 +337,7 @@ require_relative './tokens.rb'
     grammar[:alias_statement] = PatternRange.new(
         tag_as: "meta.expression.assignment.alias",
         start_pattern: Pattern.new(
-            Pattern.new(
+            std_space.then(
                 match: /alias/,
                 tag_as: "storage.type.alias"
             ).then(std_space).then(
