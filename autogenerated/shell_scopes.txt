@@ -11,6 +11,7 @@ constant.language.$0.shell
 constant.language.$1.shell
 constant.numeric.decimal.shell
 constant.numeric.hex.shell
+constant.numeric.integer.range.shell
 constant.numeric.integer.shell
 constant.numeric.octal.shell
 constant.numeric.other.shell
@@ -54,6 +55,7 @@ keyword.operator.pipe.shell
 keyword.operator.quantifier.plus.shell
 keyword.operator.quantifier.question.shell
 keyword.operator.quantifier.star.shell
+keyword.operator.range.expansion.shell
 keyword.operator.redirect.$3.shell
 keyword.operator.redirect.shell
 keyword.operator.redirect.stderr.shell
@@ -127,6 +129,8 @@ punctuation.section.bracket.curly.variable.begin.shell
 punctuation.section.bracket.curly.variable.end.shell
 punctuation.section.function.definition.shell
 punctuation.section.parenthese.shell
+punctuation.section.range.begin.shell
+punctuation.section.range.end.shell
 punctuation.separator.regex.alternation.shell
 punctuation.separator.semicolon.range
 punctuation.separator.statement.and.shell
@@ -170,5 +174,6 @@ variable.other.assignment.shell
 variable.other.for.shell
 variable.other.loop.shell
 variable.other.normal.shell
+variable.other.range.expansion.shell
 variable.parameter.positional.all.shell
 variable.parameter.positional.shell

@@ -100,6 +100,9 @@
     "argument_context": {
       "patterns": [
         {
+          "include": "#range_expansion"
+        },
+        {
           "match": "(?:[ \\t]*+)((?:[^ \t\n>&;<>\\(\\)\\$`\\\\\"'<\\|]+)(?!>))",
           "captures": {
             "1": {
@@ -153,6 +156,9 @@
               "include": "#math"
             },
             {
+              "include": "#range_expansion"
+            },
+            {
               "include": "#string"
             }
           ]
@@ -180,6 +186,9 @@
               "include": "#math"
             },
             {
+              "include": "#range_expansion"
+            },
+            {
               "include": "#string"
             }
           ]
@@ -196,6 +205,9 @@
           "patterns": [
             {
               "include": "#special_expansion"
+            },
+            {
+              "include": "#range_expansion"
             },
             {
               "include": "#string"
@@ -758,6 +770,9 @@
           "name": "meta.for.in.shell",
           "patterns": [
             {
+              "include": "#range_expansion"
+            },
+            {
               "include": "#string"
             },
             {
@@ -1170,6 +1185,9 @@
           "include": "#normal_statement"
         },
         {
+          "include": "#range_expansion"
+        },
+        {
           "include": "#string"
         },
         {
@@ -1338,6 +1356,9 @@
         },
         {
           "include": "#normal_statement_seperator"
+        },
+        {
+          "include": "#range_expansion"
         },
         {
           "include": "#string"
@@ -1574,7 +1595,7 @@
           "include": "#subshell_dollar"
         },
         {
-          "begin": "(?<![^ \\t])({)",
+          "begin": "(?<![^ \\t])({)(?!\\w|\\$)",
           "end": "}",
           "beginCaptures": {
             "1": {
@@ -1767,6 +1788,9 @@
           "include": "#redirect_number"
         },
         {
+          "include": "#range_expansion"
+        },
+        {
           "include": "#numeric_literal"
         },
         {
@@ -1881,6 +1905,9 @@
           "include": "#misc_ranges"
         },
         {
+          "include": "#range_expansion"
+        },
+        {
           "include": "#string"
         },
         {
@@ -1979,6 +2006,38 @@
           "name": "keyword.operator.pipe.shell"
         }
       ]
+    },
+    "range_expansion": {
+      "match": "(?:(\\{)(?:(\\d+)|(?:(\\$)((?:(?<!\\w)(?:[a-zA-Z_0-9-]+)(?!\\w))(?!\\w))))(,|\\.\\.\\.?)(?:(\\d+)|(?:(\\$)((?:(?<!\\w)(?:[a-zA-Z_0-9-]+)(?!\\w))(?!\\w))))(\\}))",
+      "captures": {
+        "1": {
+          "name": "punctuation.section.range.begin.shell"
+        },
+        "2": {
+          "name": "constant.numeric.integer.range.shell"
+        },
+        "3": {
+          "name": "punctuation.definition.variable.shell variable.other.range.expansion.shell"
+        },
+        "4": {
+          "name": "variable.other.range.expansion.shell"
+        },
+        "5": {
+          "name": "keyword.operator.range.expansion.shell"
+        },
+        "6": {
+          "name": "constant.numeric.integer.range.shell"
+        },
+        "7": {
+          "name": "punctuation.definition.variable.shell variable.other.range.expansion.shell"
+        },
+        "8": {
+          "name": "variable.other.range.expansion.shell"
+        },
+        "9": {
+          "name": "punctuation.section.range.end.shell"
+        }
+      }
     },
     "redirect_fix": {
       "match": "(?:(>>?)(?:[ \\t]*+)([^ \t\n>&;<>\\(\\)\\$`\\\\\"'<\\|]+))",
@@ -2295,6 +2354,9 @@
               "include": "#variable"
             },
             {
+              "include": "#range_expansion"
+            },
+            {
               "include": "#string"
             }
           ]
@@ -2329,6 +2391,9 @@
             },
             {
               "include": "#variable"
+            },
+            {
+              "include": "#range_expansion"
             },
             {
               "include": "#string"

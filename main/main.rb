@@ -49,6 +49,7 @@ require_relative './tokens.rb'
             :alias_statement,
             # :custom_commands,
             :normal_statement,
+            :range_expansion,
             :string,
             :support,
         ]
@@ -63,6 +64,7 @@ require_relative './tokens.rb'
             :misc_ranges,
             :boolean,
             :redirect_number,
+            :range_expansion,
             :numeric_literal,
             :string,
             :variable,
@@ -77,6 +79,7 @@ require_relative './tokens.rb'
         ]
     grammar[:option_context] = [
             :misc_ranges,
+            :range_expansion,
             :string,
             :variable,
             :interpolation,
@@ -100,6 +103,7 @@ require_relative './tokens.rb'
             :numeric_literal,
             :pipeline,
             :normal_statement_seperator,
+            :range_expansion,
             :string,
             :variable,
             :interpolation,
@@ -484,6 +488,7 @@ require_relative './tokens.rb'
     )
     
     grammar[:argument_context] = [
+        :range_expansion,
         generateUnquotedArugment["string.unquoted.argument"],
         :normal_context,
     ]
@@ -850,6 +855,7 @@ require_relative './tokens.rb'
             ),
             end_pattern: command_end,
             includes: [
+                :range_expansion,
                 :string,
                 :simple_unquoted,
                 :normal_context,
@@ -1040,6 +1046,7 @@ require_relative './tokens.rb'
             # TODO: add more stuff here
             # see: http://tiswww.case.edu/php/chet/bash/bashref.html#Shell-Arithmetic
             :math,
+            :range_expansion,
             :string,
             # :initial_context,
         ],
@@ -1070,6 +1077,7 @@ require_relative './tokens.rb'
             # TODO: add more stuff here
             # see: http://tiswww.case.edu/php/chet/bash/bashref.html#Shell-Arithmetic
             :math,
+            :range_expansion,
             :string,
             # :initial_context,
         ]
@@ -1143,7 +1151,7 @@ require_relative './tokens.rb'
             start_pattern: lookBehindToAvoid(/[^ \t]/).then(
                     tag_as: "punctuation.definition.group",
                     match: /{/
-                ),
+                ).lookAheadToAvoid(/\w|\$/), # range-expansion
             end_pattern: Pattern.new(
                     tag_as: "punctuation.definition.group",
                     match: /}/
@@ -1175,6 +1183,39 @@ require_relative './tokens.rb'
         match: /!|:[-=?]?|\*|@|##|#|%%|%|\//,
         tag_as: "keyword.operator.expansion",
     )
+    
+    # static range-expansion
+    grammar[:range_expansion] = Pattern.new(
+        Pattern.new(
+            match: /\{/,
+            tag_as: "punctuation.section.range.begin",
+        ).then(
+            Pattern.new(
+                Pattern.new(
+                    tag_as: "constant.numeric.integer.range",
+                    match: /\d+/,
+                ).or(
+                    generateVariable(variable_name, "variable.other.range.expansion"),
+                )
+            )
+        ).then(
+            match: /,|\.\.\.?/,
+            tag_as: "keyword.operator.range.expansion",
+        ).then(
+            Pattern.new(
+                Pattern.new(
+                    tag_as: "constant.numeric.integer.range",
+                    match: /\d+/,
+                ).or(
+                    generateVariable(variable_name, "variable.other.range.expansion"),
+                )
+            )
+        ).then(
+            match: /\}/,
+            tag_as: "punctuation.section.range.end",
+        )
+    )
+    
     grammar[:array_access_inline] = Pattern.new(
         Pattern.new(
             match: /\[/,
@@ -1183,6 +1224,7 @@ require_relative './tokens.rb'
             match: /[^\[\]]+/,
             includes: [
                 :special_expansion,
+                :range_expansion,
                 :string,
                 :variable,
             ]
@@ -1223,6 +1265,7 @@ require_relative './tokens.rb'
                     tag_as: "variable.other.normal",
                 ),
                 :variable,
+                :range_expansion,
                 :string,
             ]
         ),
@@ -1251,6 +1294,7 @@ require_relative './tokens.rb'
                     tag_as: "variable.other.normal",
                 ),
                 :variable,
+                :range_expansion,
                 :string,
             ]
         ),

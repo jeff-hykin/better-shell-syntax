@@ -46,3 +46,25 @@ for profile_target in "${PROFILE_TARGETS[@]}"; do
         passed_check "$profile_target$PROFILE_BACKUP_SUFFIX does not exist yet"
     fi
 done
+
+#!/bin/bash
+
+echo "Works 1"
+( TEST=$(echo {1..10}); echo "$TEST" )
+
+echo "Works 2"
+( TEST="$(echo {1..10})"; echo "$TEST" )
+
+echo "Works 3"
+( TEST=$(for i in {1..10}; do echo $i; done); echo "$TEST" )
+
+echo "Works 4"
+( TEST="$(for i in $(echo {1..10}); do echo $i; done)"; echo "$TEST" )
+
+echo "Works 5"
+( TEST="$(echo {1..10} | while read line; do echo $line; done)"; echo "$TEST" )
+
+echo "Syntax Highlighting Broken"
+( TEST="$(for i in {1..10}; do echo $i; done)"; echo "$TEST" )
+
+exit 0
