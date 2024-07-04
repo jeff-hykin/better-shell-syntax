@@ -1143,7 +1143,7 @@ require_relative './tokens.rb'
             start_pattern: lookBehindToAvoid(/[^ \t]/).then(
                     tag_as: "punctuation.definition.group",
                     match: /{/
-                ),
+                ).lookAheadToAvoid(/\w|\$/), # range-expansion
             end_pattern: Pattern.new(
                     tag_as: "punctuation.definition.group",
                     match: /}/

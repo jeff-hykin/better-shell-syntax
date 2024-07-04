@@ -1574,7 +1574,7 @@
           "include": "#subshell_dollar"
         },
         {
-          "begin": "(?<![^ \\t])({)",
+          "begin": "(?<![^ \\t])({)(?!\\w|\\$)",
           "end": "}",
           "beginCaptures": {
             "1": {
