@@ -56,7 +56,7 @@ echo "Works 2"
 ( TEST="$(echo {1..10})"; echo "$TEST" )
 
 echo "Works 3"
-( TEST=$(for i in {1..10}; do echo $i; done); echo "$TEST" )
+( TEST=$(for i in "{1..10}"; do echo $i; done); echo "$TEST" )
 
 echo "Works 4"
 ( TEST="$(for i in $(echo {1..10}); do echo $i; done)"; echo "$TEST" )
