@@ -1,7 +1,7 @@
 {
   "name": "better-shellscript-syntax",
   "displayName": "Better Shell Syntax",
-  "version": "1.9.0",
+  "version": "1.10.0",
   "repository": {
     "url": "https://github.com/jeff-hykin/better-shell-syntax",
     "type": "git"
