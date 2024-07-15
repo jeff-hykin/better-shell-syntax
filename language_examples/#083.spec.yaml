@@ -155,40 +155,27 @@
     - punctuation.definition.subshell.single
 - source: (
   scopesBegin:
-    - meta.parenthese.group
+    - meta.arithmetic
   scopes:
-    - punctuation.section.parenthese
+    - punctuation.section.arithmetic
 - source: $
-  scopesBegin:
-    - meta.statement
-    - meta.statement.command
-    - meta.statement.command.name
   scopes:
     - punctuation.definition.variable
     - variable.language.special
 - source: '#'
   scopes:
     - variable.language.special
-  scopesEnd:
-    - meta.statement.command.name
 - source: '-'
-  scopesBegin:
-    - meta.argument
-    - string.unquoted.argument
+  scopes:
+    - keyword.operator.arithmetic
 - source: '2'
   scopes:
-    - constant.numeric
     - constant.numeric.integer
-  scopesEnd:
-    - meta.statement
-    - meta.statement.command
-    - meta.argument
-    - string.unquoted.argument
 - source: )
   scopes:
-    - punctuation.section.parenthese
+    - punctuation.section.arithmetic
   scopesEnd:
-    - meta.parenthese.group
+    - meta.arithmetic
 - source: )
   scopes:
     - punctuation.definition.subshell.single
@@ -238,40 +225,27 @@
     - punctuation.definition.subshell.single
 - source: (
   scopesBegin:
-    - meta.parenthese.group
+    - meta.arithmetic
   scopes:
-    - punctuation.section.parenthese
+    - punctuation.section.arithmetic
 - source: $
-  scopesBegin:
-    - meta.statement
-    - meta.statement.command
-    - meta.statement.command.name
   scopes:
     - punctuation.definition.variable
     - variable.language.special
 - source: '#'
   scopes:
     - variable.language.special
-  scopesEnd:
-    - meta.statement.command.name
 - source: '-'
-  scopesBegin:
-    - meta.argument
-    - string.unquoted.argument
+  scopes:
+    - keyword.operator.arithmetic
 - source: '2'
   scopes:
-    - constant.numeric
     - constant.numeric.integer
-  scopesEnd:
-    - meta.statement
-    - meta.statement.command
-    - meta.argument
-    - string.unquoted.argument
 - source: )
   scopes:
-    - punctuation.section.parenthese
+    - punctuation.section.arithmetic
   scopesEnd:
-    - meta.parenthese.group
+    - meta.arithmetic
 - source: )
   scopes:
     - punctuation.definition.subshell.single

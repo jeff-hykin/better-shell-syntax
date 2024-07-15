@@ -1105,6 +1105,22 @@ require_relative './tokens.rb'
         #     ],
         # ),
         PatternRange.new(
+            tag_as: "meta.arithmetic",
+            start_pattern: lookBehindFor(/\$\(/).then(
+                match: "(",
+                tag_as: "punctuation.section.arithmetic",
+            ),
+            end_pattern: Pattern.new(
+                tag_as: "punctuation.section.arithmetic",
+                match: ")",
+            ),
+            includes: [
+                :math,
+                :range_expansion,
+                :string,
+            ],
+        ),
+        PatternRange.new(
             tag_as: "meta.parenthese.group",
             start_pattern: Pattern.new(
                 match: "(",

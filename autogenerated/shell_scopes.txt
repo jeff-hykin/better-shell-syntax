@@ -123,6 +123,7 @@ punctuation.definition.string.shell
 punctuation.definition.subshell.single.shell
 punctuation.definition.variable.shell
 punctuation.section.arithmetic.double.shell
+punctuation.section.arithmetic.shell
 punctuation.section.arithmetic.single.shell
 punctuation.section.array.shell
 punctuation.section.bracket.curly.variable.begin.shell

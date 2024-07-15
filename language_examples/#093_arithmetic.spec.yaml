@@ -1,0 +1,175 @@
+- source: i
+  scopesBegin:
+    - meta.expression.assignment
+  scopes:
+    - variable.other.assignment
+- source: '='
+  scopes:
+    - keyword.operator.assignment
+- source: $(
+  scopesBegin:
+    - meta.scope.subshell
+  scopes:
+    - punctuation.definition.subshell.single
+- source: (
+  scopesBegin:
+    - meta.arithmetic
+  scopes:
+    - punctuation.section.arithmetic
+- source: '1'
+  scopes:
+    - constant.numeric.integer
+- source: +
+  scopes:
+    - keyword.operator.arithmetic
+- source: '2'
+  scopes:
+    - constant.numeric.integer
+- source: )
+  scopes:
+    - punctuation.section.arithmetic
+  scopesEnd:
+    - meta.arithmetic
+- source: )
+  scopes:
+    - punctuation.definition.subshell.single
+  scopesEnd:
+    - meta.scope.subshell
+- source: i
+  scopes:
+    - variable.other.assignment
+- source: '='
+  scopes:
+    - keyword.operator.assignment
+- source: $(
+  scopesBegin:
+    - meta.scope.subshell
+  scopes:
+    - punctuation.definition.subshell.single
+- source: (
+  scopesBegin:
+    - meta.arithmetic
+  scopes:
+    - punctuation.section.arithmetic
+- source: '1'
+  scopes:
+    - constant.numeric.integer
+- source: '<<'
+  scopes:
+    - keyword.operator.arithmetic
+- source: '2'
+  scopes:
+    - constant.numeric.integer
+- source: )
+  scopes:
+    - punctuation.section.arithmetic
+  scopesEnd:
+    - meta.arithmetic
+- source: )
+  scopes:
+    - punctuation.definition.subshell.single
+  scopesEnd:
+    - meta.scope.subshell
+- source: i
+  scopes:
+    - variable.other.assignment
+- source: '='
+  scopes:
+    - keyword.operator.assignment
+- source: $(
+  scopesBegin:
+    - meta.scope.subshell
+  scopes:
+    - punctuation.definition.subshell.single
+- source: (
+  scopesBegin:
+    - meta.arithmetic
+  scopes:
+    - punctuation.section.arithmetic
+- source: '1'
+  scopes:
+    - constant.numeric.integer
+- source: '<<'
+  scopes:
+    - keyword.operator.arithmetic
+- source: '2'
+  scopes:
+    - constant.numeric.integer
+- source: )
+  scopes:
+    - punctuation.section.arithmetic
+  scopesEnd:
+    - meta.arithmetic
+- source: )
+  scopes:
+    - punctuation.definition.subshell.single
+  scopesEnd:
+    - meta.scope.subshell
+- source: i
+  scopes:
+    - variable.other.assignment
+- source: '='
+  scopes:
+    - keyword.operator.assignment
+- source: $(
+  scopesBegin:
+    - meta.scope.subshell
+  scopes:
+    - punctuation.definition.subshell.single
+- source: (
+  scopesBegin:
+    - meta.arithmetic
+  scopes:
+    - punctuation.section.arithmetic
+- source: '1'
+  scopes:
+    - constant.numeric.integer
+- source: +
+  scopes:
+    - keyword.operator.arithmetic
+- source: '2'
+  scopes:
+    - constant.numeric.integer
+- source: )
+  scopes:
+    - punctuation.section.arithmetic
+  scopesEnd:
+    - meta.arithmetic
+- source: )
+  scopes:
+    - punctuation.definition.subshell.single
+  scopesEnd:
+    - meta.scope.subshell
+- source: i
+  scopes:
+    - variable.other.assignment
+- source: '='
+  scopes:
+    - keyword.operator.assignment
+- source: $(
+  scopesBegin:
+    - meta.scope.subshell
+  scopes:
+    - punctuation.definition.subshell.single
+- source: (
+  scopesBegin:
+    - meta.arithmetic
+  scopes:
+    - punctuation.section.arithmetic
+- source: i
+  scopes:
+    - variable.other.normal
+- source: '<<'
+  scopes:
+    - keyword.operator.arithmetic
+- source: '2'
+  scopes:
+    - constant.numeric.integer
+- source: )
+  scopes:
+    - punctuation.section.arithmetic
+  scopesEnd:
+    - meta.arithmetic
+- source: )
+  scopes:
+    - punctuation.definition.subshell.single

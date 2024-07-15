@@ -1939,6 +1939,32 @@
     "parenthese": {
       "patterns": [
         {
+          "begin": "(?<=\\$\\()(\\()",
+          "end": "\\)",
+          "beginCaptures": {
+            "1": {
+              "name": "punctuation.section.arithmetic.shell"
+            }
+          },
+          "endCaptures": {
+            "0": {
+              "name": "punctuation.section.arithmetic.shell"
+            }
+          },
+          "name": "meta.arithmetic.shell",
+          "patterns": [
+            {
+              "include": "#math"
+            },
+            {
+              "include": "#range_expansion"
+            },
+            {
+              "include": "#string"
+            }
+          ]
+        },
+        {
           "begin": "\\(",
           "end": "\\)",
           "beginCaptures": {

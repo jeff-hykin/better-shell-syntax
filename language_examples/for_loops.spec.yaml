@@ -1132,3 +1132,921 @@
 - source: done
   scopes:
     - keyword.control.done
+- source: '#!'
+  scopesBegin:
+    - comment.line.number-sign
+    - meta.shebang
+  scopes:
+    - punctuation.definition.comment.shebang
+- source: /bin/bash
+  scopesEnd:
+    - comment.line.number-sign
+    - meta.shebang
+- source: echo
+  scopesBegin:
+    - meta.statement
+    - meta.statement.command
+  scopes:
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+    - support.function.builtin
+- source: '"'
+  scopesBegin:
+    - meta.argument
+    - string.quoted.double
+  scopes:
+    - punctuation.definition.string.begin
+- source: Works 1
+- source: '"'
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - meta.statement.command
+    - meta.argument
+    - string.quoted.double
+- source: (
+  scopesBegin:
+    - meta.parenthese.group
+  scopes:
+    - punctuation.section.parenthese
+- source: TEST
+  scopesBegin:
+    - meta.expression.assignment
+  scopes:
+    - variable.other.assignment
+- source: '='
+  scopes:
+    - keyword.operator.assignment
+- source: $(
+  scopesBegin:
+    - meta.scope.subshell
+  scopes:
+    - punctuation.definition.subshell.single
+- source: echo
+  scopesBegin:
+    - meta.statement
+    - meta.statement.command
+  scopes:
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+    - support.function.builtin
+- source: '{'
+  scopesBegin:
+    - meta.argument
+  scopes:
+    - punctuation.section.range.begin
+- source: '1'
+  scopes:
+    - constant.numeric.integer.range
+- source: ..
+  scopes:
+    - keyword.operator.range.expansion
+- source: '10'
+  scopes:
+    - constant.numeric.integer.range
+- source: '}'
+  scopes:
+    - punctuation.section.range.end
+  scopesEnd:
+    - meta.statement
+    - meta.statement.command
+    - meta.argument
+- source: )
+  scopes:
+    - punctuation.definition.subshell.single
+  scopesEnd:
+    - meta.expression.assignment
+    - meta.scope.subshell
+- source: ;
+  scopes:
+    - punctuation.terminator.statement.semicolon
+- source: echo
+  scopesBegin:
+    - meta.statement
+    - meta.statement.command
+  scopes:
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+    - support.function.builtin
+- source: '"'
+  scopesBegin:
+    - meta.argument
+    - string.quoted.double
+  scopes:
+    - punctuation.definition.string.begin
+- source: $
+  scopes:
+    - punctuation.definition.variable
+    - variable.other.normal
+- source: TEST
+  scopes:
+    - variable.other.normal
+- source: '"'
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - meta.statement
+    - meta.statement.command
+    - meta.argument
+    - string.quoted.double
+- source: )
+  scopes:
+    - punctuation.section.parenthese
+  scopesEnd:
+    - meta.parenthese.group
+- source: echo
+  scopesBegin:
+    - meta.statement.command
+  scopes:
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+    - support.function.builtin
+- source: '"'
+  scopesBegin:
+    - meta.argument
+    - string.quoted.double
+  scopes:
+    - punctuation.definition.string.begin
+- source: Works 2
+- source: '"'
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - meta.statement.command
+    - meta.argument
+    - string.quoted.double
+- source: (
+  scopesBegin:
+    - meta.parenthese.group
+  scopes:
+    - punctuation.section.parenthese
+- source: TEST
+  scopesBegin:
+    - meta.expression.assignment
+  scopes:
+    - variable.other.assignment
+- source: '='
+  scopes:
+    - keyword.operator.assignment
+- source: '"'
+  scopesBegin:
+    - string.quoted.double
+  scopes:
+    - punctuation.definition.string.begin
+- source: $(
+  scopesBegin:
+    - meta.scope.subshell
+  scopes:
+    - punctuation.definition.subshell.single
+- source: echo
+  scopesBegin:
+    - meta.statement
+    - meta.statement.command
+  scopes:
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+    - support.function.builtin
+- source: '{'
+  scopesBegin:
+    - meta.argument
+  scopes:
+    - punctuation.section.range.begin
+- source: '1'
+  scopes:
+    - constant.numeric.integer.range
+- source: ..
+  scopes:
+    - keyword.operator.range.expansion
+- source: '10'
+  scopes:
+    - constant.numeric.integer.range
+- source: '}'
+  scopes:
+    - punctuation.section.range.end
+  scopesEnd:
+    - meta.statement
+    - meta.statement.command
+    - meta.argument
+- source: )
+  scopes:
+    - punctuation.definition.subshell.single
+  scopesEnd:
+    - meta.scope.subshell
+- source: '"'
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - meta.expression.assignment
+    - string.quoted.double
+- source: ;
+  scopes:
+    - punctuation.terminator.statement.semicolon
+- source: echo
+  scopesBegin:
+    - meta.statement
+    - meta.statement.command
+  scopes:
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+    - support.function.builtin
+- source: '"'
+  scopesBegin:
+    - meta.argument
+    - string.quoted.double
+  scopes:
+    - punctuation.definition.string.begin
+- source: $
+  scopes:
+    - punctuation.definition.variable
+    - variable.other.normal
+- source: TEST
+  scopes:
+    - variable.other.normal
+- source: '"'
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - meta.statement
+    - meta.statement.command
+    - meta.argument
+    - string.quoted.double
+- source: )
+  scopes:
+    - punctuation.section.parenthese
+  scopesEnd:
+    - meta.parenthese.group
+- source: echo
+  scopesBegin:
+    - meta.statement.command
+  scopes:
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+    - support.function.builtin
+- source: '"'
+  scopesBegin:
+    - meta.argument
+    - string.quoted.double
+  scopes:
+    - punctuation.definition.string.begin
+- source: Works 3
+- source: '"'
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - meta.statement.command
+    - meta.argument
+    - string.quoted.double
+- source: (
+  scopesBegin:
+    - meta.parenthese.group
+  scopes:
+    - punctuation.section.parenthese
+- source: TEST
+  scopesBegin:
+    - meta.expression.assignment
+  scopes:
+    - variable.other.assignment
+- source: '='
+  scopes:
+    - keyword.operator.assignment
+- source: $(
+  scopesBegin:
+    - meta.scope.subshell
+  scopes:
+    - punctuation.definition.subshell.single
+- source: for
+  scopesBegin:
+    - meta.for.in
+  scopes:
+    - keyword.control.for
+- source: i
+  scopes:
+    - variable.other.for
+- source: in
+  scopes:
+    - keyword.control.in
+- source: '"'
+  scopesBegin:
+    - string.quoted.double
+  scopes:
+    - punctuation.definition.string.begin
+- source: '{1..10}'
+- source: '"'
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - meta.for.in
+    - string.quoted.double
+- source: ;
+  scopes:
+    - punctuation.terminator.statement.semicolon
+- source: do
+  scopes:
+    - keyword.control.do
+- source: echo
+  scopesBegin:
+    - meta.statement
+    - meta.statement.command
+  scopes:
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+    - support.function.builtin
+- source: $
+  scopesBegin:
+    - meta.argument
+  scopes:
+    - punctuation.definition.variable
+    - variable.other.normal
+- source: i
+  scopes:
+    - variable.other.normal
+  scopesEnd:
+    - meta.statement
+    - meta.statement.command
+    - meta.argument
+- source: ;
+  scopes:
+    - punctuation.terminator.statement.semicolon
+- source: ' done'
+- source: )
+  scopes:
+    - punctuation.definition.subshell.single
+  scopesEnd:
+    - meta.expression.assignment
+    - meta.scope.subshell
+- source: ;
+  scopes:
+    - punctuation.terminator.statement.semicolon
+- source: echo
+  scopesBegin:
+    - meta.statement
+    - meta.statement.command
+  scopes:
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+    - support.function.builtin
+- source: '"'
+  scopesBegin:
+    - meta.argument
+    - string.quoted.double
+  scopes:
+    - punctuation.definition.string.begin
+- source: $
+  scopes:
+    - punctuation.definition.variable
+    - variable.other.normal
+- source: TEST
+  scopes:
+    - variable.other.normal
+- source: '"'
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - meta.statement
+    - meta.statement.command
+    - meta.argument
+    - string.quoted.double
+- source: )
+  scopes:
+    - punctuation.section.parenthese
+  scopesEnd:
+    - meta.parenthese.group
+- source: echo
+  scopesBegin:
+    - meta.statement.command
+  scopes:
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+    - support.function.builtin
+- source: '"'
+  scopesBegin:
+    - meta.argument
+    - string.quoted.double
+  scopes:
+    - punctuation.definition.string.begin
+- source: Works 4
+- source: '"'
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - meta.statement.command
+    - meta.argument
+    - string.quoted.double
+- source: (
+  scopesBegin:
+    - meta.parenthese.group
+  scopes:
+    - punctuation.section.parenthese
+- source: TEST
+  scopesBegin:
+    - meta.expression.assignment
+  scopes:
+    - variable.other.assignment
+- source: '='
+  scopes:
+    - keyword.operator.assignment
+- source: '"'
+  scopesBegin:
+    - string.quoted.double
+  scopes:
+    - punctuation.definition.string.begin
+- source: $(
+  scopesBegin:
+    - meta.scope.subshell
+  scopes:
+    - punctuation.definition.subshell.single
+- source: for
+  scopesBegin:
+    - meta.for.in
+  scopes:
+    - keyword.control.for
+- source: i
+  scopes:
+    - variable.other.for
+- source: in
+  scopes:
+    - keyword.control.in
+- source: $(
+  scopesBegin:
+    - meta.scope.subshell
+  scopes:
+    - punctuation.definition.subshell.single
+- source: echo
+  scopesBegin:
+    - meta.statement
+    - meta.statement.command
+  scopes:
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+    - support.function.builtin
+- source: '{'
+  scopesBegin:
+    - meta.argument
+  scopes:
+    - punctuation.section.range.begin
+- source: '1'
+  scopes:
+    - constant.numeric.integer.range
+- source: ..
+  scopes:
+    - keyword.operator.range.expansion
+- source: '10'
+  scopes:
+    - constant.numeric.integer.range
+- source: '}'
+  scopes:
+    - punctuation.section.range.end
+  scopesEnd:
+    - meta.statement
+    - meta.statement.command
+    - meta.argument
+- source: )
+  scopes:
+    - punctuation.definition.subshell.single
+  scopesEnd:
+    - meta.for.in
+    - meta.scope.subshell
+- source: ;
+  scopes:
+    - punctuation.terminator.statement.semicolon
+- source: do
+  scopes:
+    - keyword.control.do
+- source: echo
+  scopesBegin:
+    - meta.statement
+    - meta.statement.command
+  scopes:
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+    - support.function.builtin
+- source: $
+  scopesBegin:
+    - meta.argument
+  scopes:
+    - punctuation.definition.variable
+    - variable.other.normal
+- source: i
+  scopes:
+    - variable.other.normal
+  scopesEnd:
+    - meta.statement
+    - meta.statement.command
+    - meta.argument
+- source: ;
+  scopes:
+    - punctuation.terminator.statement.semicolon
+- source: ' done'
+- source: )
+  scopes:
+    - punctuation.definition.subshell.single
+  scopesEnd:
+    - meta.scope.subshell
+- source: '"'
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - meta.expression.assignment
+    - string.quoted.double
+- source: ;
+  scopes:
+    - punctuation.terminator.statement.semicolon
+- source: echo
+  scopesBegin:
+    - meta.statement
+    - meta.statement.command
+  scopes:
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+    - support.function.builtin
+- source: '"'
+  scopesBegin:
+    - meta.argument
+    - string.quoted.double
+  scopes:
+    - punctuation.definition.string.begin
+- source: $
+  scopes:
+    - punctuation.definition.variable
+    - variable.other.normal
+- source: TEST
+  scopes:
+    - variable.other.normal
+- source: '"'
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - meta.statement
+    - meta.statement.command
+    - meta.argument
+    - string.quoted.double
+- source: )
+  scopes:
+    - punctuation.section.parenthese
+  scopesEnd:
+    - meta.parenthese.group
+- source: echo
+  scopesBegin:
+    - meta.statement.command
+  scopes:
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+    - support.function.builtin
+- source: '"'
+  scopesBegin:
+    - meta.argument
+    - string.quoted.double
+  scopes:
+    - punctuation.definition.string.begin
+- source: Works 5
+- source: '"'
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - meta.statement.command
+    - meta.argument
+    - string.quoted.double
+- source: (
+  scopesBegin:
+    - meta.parenthese.group
+  scopes:
+    - punctuation.section.parenthese
+- source: TEST
+  scopesBegin:
+    - meta.expression.assignment
+  scopes:
+    - variable.other.assignment
+- source: '='
+  scopes:
+    - keyword.operator.assignment
+- source: '"'
+  scopesBegin:
+    - string.quoted.double
+  scopes:
+    - punctuation.definition.string.begin
+- source: $(
+  scopesBegin:
+    - meta.scope.subshell
+  scopes:
+    - punctuation.definition.subshell.single
+- source: echo
+  scopesBegin:
+    - meta.statement
+    - meta.statement.command
+  scopes:
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+    - support.function.builtin
+- source: '{'
+  scopesBegin:
+    - meta.argument
+  scopes:
+    - punctuation.section.range.begin
+- source: '1'
+  scopes:
+    - constant.numeric.integer.range
+- source: ..
+  scopes:
+    - keyword.operator.range.expansion
+- source: '10'
+  scopes:
+    - constant.numeric.integer.range
+- source: '}'
+  scopes:
+    - punctuation.section.range.end
+  scopesEnd:
+    - meta.statement
+    - meta.statement.command
+    - meta.argument
+- source: '|'
+  scopes:
+    - keyword.operator.pipe
+- source: while
+  scopesBegin:
+    - meta.scope.while-loop
+  scopes:
+    - keyword.control
+- source: read
+  scopesBegin:
+    - meta.statement
+    - meta.statement.command
+  scopes:
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+    - support.function.builtin
+- source: line
+  scopes:
+    - meta.argument
+    - string.unquoted.argument
+  scopesEnd:
+    - meta.statement
+    - meta.statement.command
+- source: ;
+  scopes:
+    - punctuation.terminator.statement.semicolon
+- source: do
+  scopes:
+    - keyword.control.do
+- source: echo
+  scopesBegin:
+    - meta.statement
+    - meta.statement.command
+  scopes:
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+    - support.function.builtin
+- source: $
+  scopesBegin:
+    - meta.argument
+  scopes:
+    - punctuation.definition.variable
+    - variable.other.normal
+- source: line
+  scopes:
+    - variable.other.normal
+  scopesEnd:
+    - meta.statement
+    - meta.statement.command
+    - meta.argument
+- source: ;
+  scopes:
+    - punctuation.terminator.statement.semicolon
+- source: done
+  scopes:
+    - keyword.control
+  scopesEnd:
+    - meta.scope.while-loop
+- source: )
+  scopes:
+    - punctuation.definition.subshell.single
+  scopesEnd:
+    - meta.scope.subshell
+- source: '"'
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - meta.expression.assignment
+    - string.quoted.double
+- source: ;
+  scopes:
+    - punctuation.terminator.statement.semicolon
+- source: echo
+  scopesBegin:
+    - meta.statement
+    - meta.statement.command
+  scopes:
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+    - support.function.builtin
+- source: '"'
+  scopesBegin:
+    - meta.argument
+    - string.quoted.double
+  scopes:
+    - punctuation.definition.string.begin
+- source: $
+  scopes:
+    - punctuation.definition.variable
+    - variable.other.normal
+- source: TEST
+  scopes:
+    - variable.other.normal
+- source: '"'
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - meta.statement
+    - meta.statement.command
+    - meta.argument
+    - string.quoted.double
+- source: )
+  scopes:
+    - punctuation.section.parenthese
+  scopesEnd:
+    - meta.parenthese.group
+- source: echo
+  scopesBegin:
+    - meta.statement.command
+  scopes:
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+    - support.function.builtin
+- source: '"'
+  scopesBegin:
+    - meta.argument
+    - string.quoted.double
+  scopes:
+    - punctuation.definition.string.begin
+- source: Syntax Highlighting Broken
+- source: '"'
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - meta.statement.command
+    - meta.argument
+    - string.quoted.double
+- source: (
+  scopesBegin:
+    - meta.parenthese.group
+  scopes:
+    - punctuation.section.parenthese
+- source: TEST
+  scopesBegin:
+    - meta.expression.assignment
+  scopes:
+    - variable.other.assignment
+- source: '='
+  scopes:
+    - keyword.operator.assignment
+- source: '"'
+  scopesBegin:
+    - string.quoted.double
+  scopes:
+    - punctuation.definition.string.begin
+- source: $(
+  scopesBegin:
+    - meta.scope.subshell
+  scopes:
+    - punctuation.definition.subshell.single
+- source: for
+  scopesBegin:
+    - meta.for.in
+  scopes:
+    - keyword.control.for
+- source: i
+  scopes:
+    - variable.other.for
+- source: in
+  scopes:
+    - keyword.control.in
+  scopesEnd:
+    - meta.for.in
+- source: '{'
+  scopes:
+    - punctuation.section.range.begin
+- source: '1'
+  scopes:
+    - constant.numeric.integer.range
+- source: ..
+  scopes:
+    - keyword.operator.range.expansion
+- source: '10'
+  scopes:
+    - constant.numeric.integer.range
+- source: '}'
+  scopes:
+    - punctuation.section.range.end
+- source: ;
+  scopes:
+    - punctuation.terminator.statement.semicolon
+- source: do
+  scopes:
+    - keyword.control.do
+- source: echo
+  scopesBegin:
+    - meta.statement
+    - meta.statement.command
+  scopes:
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+    - support.function.builtin
+- source: $
+  scopesBegin:
+    - meta.argument
+  scopes:
+    - punctuation.definition.variable
+    - variable.other.normal
+- source: i
+  scopes:
+    - variable.other.normal
+  scopesEnd:
+    - meta.statement
+    - meta.statement.command
+    - meta.argument
+- source: ;
+  scopes:
+    - punctuation.terminator.statement.semicolon
+- source: ' done'
+- source: )
+  scopes:
+    - punctuation.definition.subshell.single
+  scopesEnd:
+    - meta.scope.subshell
+- source: '"'
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - meta.expression.assignment
+    - string.quoted.double
+- source: ;
+  scopes:
+    - punctuation.terminator.statement.semicolon
+- source: echo
+  scopesBegin:
+    - meta.statement
+    - meta.statement.command
+  scopes:
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+    - support.function.builtin
+- source: '"'
+  scopesBegin:
+    - meta.argument
+    - string.quoted.double
+  scopes:
+    - punctuation.definition.string.begin
+- source: $
+  scopes:
+    - punctuation.definition.variable
+    - variable.other.normal
+- source: TEST
+  scopes:
+    - variable.other.normal
+- source: '"'
+  scopes:
+    - punctuation.definition.string.end
+  scopesEnd:
+    - meta.statement
+    - meta.statement.command
+    - meta.argument
+    - string.quoted.double
+- source: )
+  scopes:
+    - punctuation.section.parenthese
+  scopesEnd:
+    - meta.parenthese.group
+- source: exit
+  scopesBegin:
+    - meta.statement.command
+  scopes:
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+    - support.function.builtin
+- source: '0'
+  scopes:
+    - meta.argument
+    - string.unquoted.argument
+    - constant.numeric
+    - constant.numeric.integer

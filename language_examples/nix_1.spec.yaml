@@ -1843,22 +1843,15 @@
     - punctuation.definition.subshell.single
 - source: (
   scopesBegin:
-    - meta.parenthese.group
+    - meta.arithmetic
   scopes:
-    - punctuation.section.parenthese
+    - punctuation.section.arithmetic
 - source: NIX_FIRST_BUILD_UID
-  scopesBegin:
-    - meta.statement
-    - meta.statement.command
   scopes:
-    - meta.statement.command.name
-    - entity.name.function.call
-    - entity.name.command
+    - variable.other.normal
 - source: +
-  scopesBegin:
-    - meta.argument
   scopes:
-    - string.unquoted.argument
+    - keyword.operator.arithmetic
 - source: $
   scopes:
     - punctuation.definition.variable
@@ -1867,22 +1860,16 @@
   scopes:
     - variable.parameter.positional
 - source: '-'
-  scopesBegin:
-    - string.unquoted.argument
+  scopes:
+    - keyword.operator.arithmetic
 - source: '1'
   scopes:
-    - constant.numeric
     - constant.numeric.integer
-  scopesEnd:
-    - meta.statement
-    - meta.statement.command
-    - meta.argument
-    - string.unquoted.argument
 - source: )
   scopes:
-    - punctuation.section.parenthese
+    - punctuation.section.arithmetic
   scopesEnd:
-    - meta.parenthese.group
+    - meta.arithmetic
 - source: )
   scopes:
     - punctuation.definition.subshell.single
@@ -15883,40 +15870,27 @@
     - punctuation.definition.subshell.single
 - source: (
   scopesBegin:
-    - meta.parenthese.group
+    - meta.arithmetic
   scopes:
-    - punctuation.section.parenthese
+    - punctuation.section.arithmetic
 - source: $
-  scopesBegin:
-    - meta.statement
-    - meta.statement.command
-    - meta.statement.command.name
   scopes:
     - punctuation.definition.variable
     - variable.other.normal
 - source: start_line_number
   scopes:
     - variable.other.normal
-  scopesEnd:
-    - meta.statement.command.name
 - source: '-'
-  scopesBegin:
-    - meta.argument
-    - string.unquoted.argument
+  scopes:
+    - keyword.operator.arithmetic
 - source: '1'
   scopes:
-    - constant.numeric
     - constant.numeric.integer
-  scopesEnd:
-    - meta.statement
-    - meta.statement.command
-    - meta.argument
-    - string.unquoted.argument
 - source: )
   scopes:
-    - punctuation.section.parenthese
+    - punctuation.section.arithmetic
   scopesEnd:
-    - meta.parenthese.group
+    - meta.arithmetic
 - source: )
   scopes:
     - punctuation.definition.subshell.single
@@ -15935,40 +15909,27 @@
     - punctuation.definition.subshell.single
 - source: (
   scopesBegin:
-    - meta.parenthese.group
+    - meta.arithmetic
   scopes:
-    - punctuation.section.parenthese
+    - punctuation.section.arithmetic
 - source: $
-  scopesBegin:
-    - meta.statement
-    - meta.statement.command
-    - meta.statement.command.name
   scopes:
     - punctuation.definition.variable
     - variable.other.normal
 - source: end_line_number
   scopes:
     - variable.other.normal
-  scopesEnd:
-    - meta.statement.command.name
 - source: +
-  scopesBegin:
-    - meta.argument
-    - string.unquoted.argument
+  scopes:
+    - keyword.operator.arithmetic
 - source: '1'
   scopes:
-    - constant.numeric
     - constant.numeric.integer
-  scopesEnd:
-    - meta.statement
-    - meta.statement.command
-    - meta.argument
-    - string.unquoted.argument
 - source: )
   scopes:
-    - punctuation.section.parenthese
+    - punctuation.section.arithmetic
   scopesEnd:
-    - meta.parenthese.group
+    - meta.arithmetic
 - source: )
   scopes:
     - punctuation.definition.subshell.single

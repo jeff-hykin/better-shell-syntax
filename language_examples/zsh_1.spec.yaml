@@ -5152,9 +5152,9 @@
     - punctuation.definition.subshell.single
 - source: (
   scopesBegin:
-    - meta.parenthese.group
+    - meta.arithmetic
   scopes:
-    - punctuation.section.parenthese
+    - punctuation.section.arithmetic
 - source: $
   scopes:
     - punctuation.definition.variable
@@ -5182,12 +5182,17 @@
     - punctuation.section.bracket.curly.variable.end
     - punctuation.definition.variable
     - variable.parameter.positional
-- source: ' + 2'
+- source: +
+  scopes:
+    - keyword.operator.arithmetic
+- source: '2'
+  scopes:
+    - constant.numeric.integer
 - source: )
   scopes:
-    - punctuation.section.parenthese
+    - punctuation.section.arithmetic
   scopesEnd:
-    - meta.parenthese.group
+    - meta.arithmetic
 - source: )
   scopes:
     - punctuation.definition.subshell.single
@@ -7625,34 +7630,29 @@
     - punctuation.definition.subshell.single
 - source: (
   scopesBegin:
-    - meta.parenthese.group
+    - meta.arithmetic
   scopes:
-    - punctuation.section.parenthese
+    - punctuation.section.arithmetic
 - source: index
-  scopesBegin:
-    - meta.statement
-    - meta.statement.command
   scopes:
-    - meta.statement.command.name
-    - entity.name.function.call
-    - entity.name.command
+    - variable.other.normal
 - source: '-'
-  scopesBegin:
-    - meta.argument
-    - string.unquoted.argument
+  scopes:
+    - keyword.operator.arithmetic
 - source: old_size
+  scopes:
+    - variable.other.normal
 - source: +
+  scopes:
+    - keyword.operator.arithmetic
 - source: new_size
-  scopesEnd:
-    - meta.statement
-    - meta.statement.command
-    - meta.argument
-    - string.unquoted.argument
+  scopes:
+    - variable.other.normal
 - source: )
   scopes:
-    - punctuation.section.parenthese
+    - punctuation.section.arithmetic
   scopesEnd:
-    - meta.parenthese.group
+    - meta.arithmetic
 - source: )
   scopes:
     - punctuation.definition.subshell.single
@@ -10744,34 +10744,29 @@
     - punctuation.definition.subshell.single
 - source: (
   scopesBegin:
-    - meta.parenthese.group
+    - meta.arithmetic
   scopes:
-    - punctuation.section.parenthese
+    - punctuation.section.arithmetic
 - source: index
-  scopesBegin:
-    - meta.statement
-    - meta.statement.command
   scopes:
-    - meta.statement.command.name
-    - entity.name.function.call
-    - entity.name.command
+    - variable.other.normal
 - source: '-'
-  scopesBegin:
-    - meta.argument
-    - string.unquoted.argument
+  scopes:
+    - keyword.operator.arithmetic
 - source: old_size
+  scopes:
+    - variable.other.normal
 - source: +
+  scopes:
+    - keyword.operator.arithmetic
 - source: new_size
-  scopesEnd:
-    - meta.statement
-    - meta.statement.command
-    - meta.argument
-    - string.unquoted.argument
+  scopes:
+    - variable.other.normal
 - source: )
   scopes:
-    - punctuation.section.parenthese
+    - punctuation.section.arithmetic
   scopesEnd:
-    - meta.parenthese.group
+    - meta.arithmetic
 - source: )
   scopes:
     - punctuation.definition.subshell.single
@@ -11559,21 +11554,20 @@
     - punctuation.definition.subshell.single
 - source: (
   scopesBegin:
-    - meta.parenthese.group
+    - meta.arithmetic
   scopes:
-    - punctuation.section.parenthese
-- source: '--i'
+    - punctuation.section.arithmetic
+- source: '--'
   scopes:
-    - meta.statement
-    - meta.statement.command
-    - meta.statement.command.name
-    - entity.name.function.call
-    - entity.name.command
+    - keyword.operator.arithmetic
+- source: i
+  scopes:
+    - variable.other.normal
 - source: )
   scopes:
-    - punctuation.section.parenthese
+    - punctuation.section.arithmetic
   scopesEnd:
-    - meta.parenthese.group
+    - meta.arithmetic
 - source: )
   scopes:
     - punctuation.definition.subshell.single
@@ -23959,9 +23953,9 @@
     - punctuation.definition.subshell.single
 - source: (
   scopesBegin:
-    - meta.parenthese.group
+    - meta.arithmetic
   scopes:
-    - punctuation.section.parenthese
+    - punctuation.section.arithmetic
 - source: $
   scopes:
     - punctuation.definition.variable
@@ -23969,12 +23963,17 @@
 - source: args
   scopes:
     - variable.other.normal
-- source: '+1'
+- source: +
+  scopes:
+    - keyword.operator.arithmetic
+- source: '1'
+  scopes:
+    - constant.numeric.integer
 - source: )
   scopes:
-    - punctuation.section.parenthese
+    - punctuation.section.arithmetic
   scopesEnd:
-    - meta.parenthese.group
+    - meta.arithmetic
 - source: )
   scopes:
     - punctuation.definition.subshell.single
@@ -32088,22 +32087,15 @@
     - punctuation.definition.subshell.single
 - source: (
   scopesBegin:
-    - meta.parenthese.group
+    - meta.arithmetic
   scopes:
-    - punctuation.section.parenthese
+    - punctuation.section.arithmetic
 - source: COMP_POINT
-  scopesBegin:
-    - meta.statement
-    - meta.statement.command
   scopes:
-    - meta.statement.command.name
-    - entity.name.function.call
-    - entity.name.command
+    - variable.other.normal
 - source: '-'
-  scopesBegin:
-    - meta.argument
   scopes:
-    - string.unquoted.argument
+    - keyword.operator.arithmetic
 - source: $
   scopes:
     - punctuation.definition.variable
@@ -32111,15 +32103,11 @@
 - source: char_offset
   scopes:
     - variable.other.normal
-  scopesEnd:
-    - meta.statement
-    - meta.statement.command
-    - meta.argument
 - source: )
   scopes:
-    - punctuation.section.parenthese
+    - punctuation.section.arithmetic
   scopesEnd:
-    - meta.parenthese.group
+    - meta.arithmetic
 - source: )
   scopes:
     - punctuation.definition.subshell.single
@@ -32334,27 +32322,19 @@
     - punctuation.definition.subshell.single
 - source: (
   scopesBegin:
-    - meta.parenthese.group
+    - meta.arithmetic
   scopes:
-    - punctuation.section.parenthese
+    - punctuation.section.arithmetic
 - source: $
-  scopesBegin:
-    - meta.statement
-    - meta.statement.command
-    - meta.statement.command.name
   scopes:
     - punctuation.definition.variable
     - variable.other.normal
 - source: COMP_CWORD
   scopes:
     - variable.other.normal
-  scopesEnd:
-    - meta.statement.command.name
 - source: '-'
-  scopesBegin:
-    - meta.argument
   scopes:
-    - string.unquoted.argument
+    - keyword.operator.arithmetic
 - source: $
   scopes:
     - punctuation.definition.variable
@@ -32362,15 +32342,11 @@
 - source: word_offset
   scopes:
     - variable.other.normal
-  scopesEnd:
-    - meta.statement
-    - meta.statement.command
-    - meta.argument
 - source: )
   scopes:
-    - punctuation.section.parenthese
+    - punctuation.section.arithmetic
   scopesEnd:
-    - meta.parenthese.group
+    - meta.arithmetic
 - source: )
   scopes:
     - punctuation.definition.subshell.single
@@ -43314,9 +43290,9 @@
     - punctuation.definition.subshell.single
 - source: (
   scopesBegin:
-    - meta.parenthese.group
+    - meta.arithmetic
   scopes:
-    - punctuation.section.parenthese
+    - punctuation.section.arithmetic
 - source: $
   scopes:
     - punctuation.definition.variable
@@ -43344,12 +43320,17 @@
     - punctuation.section.bracket.curly.variable.end
     - punctuation.definition.variable
     - variable.parameter.positional
-- source: ' + 2'
+- source: +
+  scopes:
+    - keyword.operator.arithmetic
+- source: '2'
+  scopes:
+    - constant.numeric.integer
 - source: )
   scopes:
-    - punctuation.section.parenthese
+    - punctuation.section.arithmetic
   scopesEnd:
-    - meta.parenthese.group
+    - meta.arithmetic
 - source: )
   scopes:
     - punctuation.definition.subshell.single
@@ -45787,34 +45768,29 @@
     - punctuation.definition.subshell.single
 - source: (
   scopesBegin:
-    - meta.parenthese.group
+    - meta.arithmetic
   scopes:
-    - punctuation.section.parenthese
+    - punctuation.section.arithmetic
 - source: index
-  scopesBegin:
-    - meta.statement
-    - meta.statement.command
   scopes:
-    - meta.statement.command.name
-    - entity.name.function.call
-    - entity.name.command
+    - variable.other.normal
 - source: '-'
-  scopesBegin:
-    - meta.argument
-    - string.unquoted.argument
+  scopes:
+    - keyword.operator.arithmetic
 - source: old_size
+  scopes:
+    - variable.other.normal
 - source: +
+  scopes:
+    - keyword.operator.arithmetic
 - source: new_size
-  scopesEnd:
-    - meta.statement
-    - meta.statement.command
-    - meta.argument
-    - string.unquoted.argument
+  scopes:
+    - variable.other.normal
 - source: )
   scopes:
-    - punctuation.section.parenthese
+    - punctuation.section.arithmetic
   scopesEnd:
-    - meta.parenthese.group
+    - meta.arithmetic
 - source: )
   scopes:
     - punctuation.definition.subshell.single
@@ -48906,34 +48882,29 @@
     - punctuation.definition.subshell.single
 - source: (
   scopesBegin:
-    - meta.parenthese.group
+    - meta.arithmetic
   scopes:
-    - punctuation.section.parenthese
+    - punctuation.section.arithmetic
 - source: index
-  scopesBegin:
-    - meta.statement
-    - meta.statement.command
   scopes:
-    - meta.statement.command.name
-    - entity.name.function.call
-    - entity.name.command
+    - variable.other.normal
 - source: '-'
-  scopesBegin:
-    - meta.argument
-    - string.unquoted.argument
+  scopes:
+    - keyword.operator.arithmetic
 - source: old_size
+  scopes:
+    - variable.other.normal
 - source: +
+  scopes:
+    - keyword.operator.arithmetic
 - source: new_size
-  scopesEnd:
-    - meta.statement
-    - meta.statement.command
-    - meta.argument
-    - string.unquoted.argument
+  scopes:
+    - variable.other.normal
 - source: )
   scopes:
-    - punctuation.section.parenthese
+    - punctuation.section.arithmetic
   scopesEnd:
-    - meta.parenthese.group
+    - meta.arithmetic
 - source: )
   scopes:
     - punctuation.definition.subshell.single
@@ -49721,21 +49692,20 @@
     - punctuation.definition.subshell.single
 - source: (
   scopesBegin:
-    - meta.parenthese.group
+    - meta.arithmetic
   scopes:
-    - punctuation.section.parenthese
-- source: '--i'
+    - punctuation.section.arithmetic
+- source: '--'
   scopes:
-    - meta.statement
-    - meta.statement.command
-    - meta.statement.command.name
-    - entity.name.function.call
-    - entity.name.command
+    - keyword.operator.arithmetic
+- source: i
+  scopes:
+    - variable.other.normal
 - source: )
   scopes:
-    - punctuation.section.parenthese
+    - punctuation.section.arithmetic
   scopesEnd:
-    - meta.parenthese.group
+    - meta.arithmetic
 - source: )
   scopes:
     - punctuation.definition.subshell.single
@@ -62121,9 +62091,9 @@
     - punctuation.definition.subshell.single
 - source: (
   scopesBegin:
-    - meta.parenthese.group
+    - meta.arithmetic
   scopes:
-    - punctuation.section.parenthese
+    - punctuation.section.arithmetic
 - source: $
   scopes:
     - punctuation.definition.variable
@@ -62131,12 +62101,17 @@
 - source: args
   scopes:
     - variable.other.normal
-- source: '+1'
+- source: +
+  scopes:
+    - keyword.operator.arithmetic
+- source: '1'
+  scopes:
+    - constant.numeric.integer
 - source: )
   scopes:
-    - punctuation.section.parenthese
+    - punctuation.section.arithmetic
   scopesEnd:
-    - meta.parenthese.group
+    - meta.arithmetic
 - source: )
   scopes:
     - punctuation.definition.subshell.single
@@ -70250,22 +70225,15 @@
     - punctuation.definition.subshell.single
 - source: (
   scopesBegin:
-    - meta.parenthese.group
+    - meta.arithmetic
   scopes:
-    - punctuation.section.parenthese
+    - punctuation.section.arithmetic
 - source: COMP_POINT
-  scopesBegin:
-    - meta.statement
-    - meta.statement.command
   scopes:
-    - meta.statement.command.name
-    - entity.name.function.call
-    - entity.name.command
+    - variable.other.normal
 - source: '-'
-  scopesBegin:
-    - meta.argument
   scopes:
-    - string.unquoted.argument
+    - keyword.operator.arithmetic
 - source: $
   scopes:
     - punctuation.definition.variable
@@ -70273,15 +70241,11 @@
 - source: char_offset
   scopes:
     - variable.other.normal
-  scopesEnd:
-    - meta.statement
-    - meta.statement.command
-    - meta.argument
 - source: )
   scopes:
-    - punctuation.section.parenthese
+    - punctuation.section.arithmetic
   scopesEnd:
-    - meta.parenthese.group
+    - meta.arithmetic
 - source: )
   scopes:
     - punctuation.definition.subshell.single
@@ -70496,27 +70460,19 @@
     - punctuation.definition.subshell.single
 - source: (
   scopesBegin:
-    - meta.parenthese.group
+    - meta.arithmetic
   scopes:
-    - punctuation.section.parenthese
+    - punctuation.section.arithmetic
 - source: $
-  scopesBegin:
-    - meta.statement
-    - meta.statement.command
-    - meta.statement.command.name
   scopes:
     - punctuation.definition.variable
     - variable.other.normal
 - source: COMP_CWORD
   scopes:
     - variable.other.normal
-  scopesEnd:
-    - meta.statement.command.name
 - source: '-'
-  scopesBegin:
-    - meta.argument
   scopes:
-    - string.unquoted.argument
+    - keyword.operator.arithmetic
 - source: $
   scopes:
     - punctuation.definition.variable
@@ -70524,15 +70480,11 @@
 - source: word_offset
   scopes:
     - variable.other.normal
-  scopesEnd:
-    - meta.statement
-    - meta.statement.command
-    - meta.argument
 - source: )
   scopes:
-    - punctuation.section.parenthese
+    - punctuation.section.arithmetic
   scopesEnd:
-    - meta.parenthese.group
+    - meta.arithmetic
 - source: )
   scopes:
     - punctuation.definition.subshell.single
