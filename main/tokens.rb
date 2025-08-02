@@ -5,7 +5,6 @@ require_relative PathFor[:textmate_tools]
 # 
 # Create tokens
 #
-# (these are from C++)
 tokens = [
     { representation: '|' , areInvalidLiterals: true },
     { representation: '&' , areInvalidLiterals: true },

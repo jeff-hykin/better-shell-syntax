@@ -11,11 +11,6 @@ require_relative './tokens.rb'
 # 
     grammar = Grammar.fromTmLanguage(PathFor[:modified_original])
 
-# 
-# imports
-# 
-    grammar.import(PathFor[:pattern]["comments"])
-
 #
 #
 # Contexts
