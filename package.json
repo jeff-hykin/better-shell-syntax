@@ -47,7 +47,7 @@
   "devDependencies": {
         "chalk": "^2.4.2",
         "dictionary-en-us": "^2.1.1",
-        "lodash": "^4.17.19",
+        "lodash": "^4.17.23",
         "nspell": "^2.1.2",
         "oniguruma": "^7.2.0",
         "textmate-bailout": "^1.1.0",
