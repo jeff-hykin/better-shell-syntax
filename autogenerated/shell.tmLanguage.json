@@ -100,7 +100,7 @@
     "argument_context": {
       "patterns": [
         {
-          "match": "(?:[ \\t]*+)((?:[^ \t\n>&;<>\\(\\)\\$`\\\\\"'<\\|]+)(?!>))",
+          "match": "(?:[ \\t]*+)((?:(?<=[<>])[^ \t\n\\|&;<>\\(\\)\\$`\\\\\"'<>]+|[^ \t\n\\|&;<>\\(\\)\\$`\\\\\"'<>]*[^ \t\n0-9\\|&;<>\\(\\)\\$`\\\\\"'<>][^ \t\n\\|&;<>\\(\\)\\$`\\\\\"'<>]*|[^ \t\n\\|&;<>\\(\\)\\$`\\\\\"'<>]+(?!\\d*>)))",
           "captures": {
             "1": {
               "name": "string.unquoted.argument.shell",
@@ -301,7 +301,7 @@
       ]
     },
     "basic_command_name": {
-      "match": "(?:(?:(?!(?:!|&|\\||\\(|\\)|\\{|\\[|<|>|#|\\n|$|;|[ \\t]))(?!nocorrect |nocorrect\t|nocorrect$|readonly |readonly\t|readonly$|function |function\t|function$|foreach |foreach\t|foreach$|coproc |coproc\t|coproc$|logout |logout\t|logout$|export |export\t|export$|select |select\t|select$|repeat |repeat\t|repeat$|pushd |pushd\t|pushd$|until |until\t|until$|while |while\t|while$|local |local\t|local$|case |case\t|case$|done |done\t|done$|elif |elif\t|elif$|else |else\t|else$|esac |esac\t|esac$|popd |popd\t|popd$|then |then\t|then$|time |time\t|time$|for |for\t|for$|end |end\t|end$|fi |fi\t|fi$|do |do\t|do$|in |in\t|in$|if |if\t|if$))(?:((?<=^|;|&|[ \\t])(?:readonly|declare|typeset|export|local)(?=[ \\t]|;|&|$))|((?!\"|'|\\\\\\n?$)(?:[^!'\"<> \\t\\n\\r]+?)))(?:(?= |\\t)|(?:(?=;|\\||&|\\n|\\)|\\`|\\{|\\}|[ \\t]*#|\\])(?<!\\\\))))",
+      "match": "(?:(?:(?!(?:!|&|\\||\\(|\\)|\\{|\\[|<|>|#|\\n|$|;|[ \\t]))(?!nocorrect |nocorrect\t|nocorrect$|function |function\t|function$|readonly |readonly\t|readonly$|foreach |foreach\t|foreach$|coproc |coproc\t|coproc$|export |export\t|export$|logout |logout\t|logout$|repeat |repeat\t|repeat$|select |select\t|select$|local |local\t|local$|pushd |pushd\t|pushd$|until |until\t|until$|while |while\t|while$|case |case\t|case$|done |done\t|done$|elif |elif\t|elif$|else |else\t|else$|esac |esac\t|esac$|popd |popd\t|popd$|then |then\t|then$|time |time\t|time$|end |end\t|end$|for |for\t|for$|do |do\t|do$|fi |fi\t|fi$|if |if\t|if$|in |in\t|in$))(?:((?<=^|;|&|[ \\t])(?:readonly|declare|typeset|export|local)(?=[ \\t]|;|&|$))|((?!\"|'|\\\\\\n?$)(?:[^!'\"<> \\t\\n\\r]+?)))(?:(?= |\\t)|(?:(?=;|\\||&|\\n|\\)|\\`|\\{|\\}|[ \\t]*#|\\])(?<!\\\\))))",
       "captures": {
         "1": {
           "name": "storage.modifier.$1.shell"
@@ -314,7 +314,7 @@
               "name": "keyword.control.$0.shell"
             },
             {
-              "match": "(?<!\\w)(?:(?:unfunction|continue|autoload|unsetopt|bindkey|builtin|getopts|command|declare|unalias|history|unlimit|typeset|suspend|source|printf|unhash|disown|ulimit|return|which|alias|break|false|print|shift|times|umask|umask|unset|read|type|exec|eval|wait|echo|dirs|jobs|kill|hash|stat|exit|test|trap|true|let|set|pwd|cd|fg|bg|fc|:|\\.)(?!\\/))(?!\\w)(?!-)",
+              "match": "(?<!\\w)(?:(?:unfunction|autoload|continue|unsetopt|bindkey|builtin|command|declare|getopts|history|suspend|typeset|unalias|unlimit|disown|printf|return|source|ulimit|unhash|alias|break|false|print|shift|times|umask|umask|unset|which|dirs|echo|eval|exec|exit|hash|jobs|kill|read|stat|test|trap|true|type|wait|let|pwd|set|bg|cd|fc|fg|:|\\.)(?!\\/))(?!\\w)(?!-)",
               "name": "support.function.builtin.shell"
             },
             {
@@ -513,7 +513,7 @@
           "name": "entity.name.function.call.shell entity.name.command.shell keyword.control.$0.shell"
         },
         {
-          "match": "(?<!\\w)(?:(?:unfunction|continue|autoload|unsetopt|bindkey|builtin|getopts|command|declare|unalias|history|unlimit|typeset|suspend|source|printf|unhash|disown|ulimit|return|which|alias|break|false|print|shift|times|umask|umask|unset|read|type|exec|eval|wait|echo|dirs|jobs|kill|hash|stat|exit|test|trap|true|let|set|pwd|cd|fg|bg|fc|:|\\.)(?!\\/))(?!\\w)(?!-)",
+          "match": "(?<!\\w)(?:(?:unfunction|autoload|continue|unsetopt|bindkey|builtin|command|declare|getopts|history|suspend|typeset|unalias|unlimit|disown|printf|return|source|ulimit|unhash|alias|break|false|print|shift|times|umask|umask|unset|which|dirs|echo|eval|exec|exit|hash|jobs|kill|read|stat|test|trap|true|type|wait|let|pwd|set|bg|cd|fc|fg|:|\\.)(?!\\/))(?!\\w)(?!-)",
           "name": "entity.name.function.call.shell entity.name.command.shell support.function.builtin.shell"
         },
         {
@@ -563,7 +563,7 @@
       ]
     },
     "command_statement": {
-      "begin": "(?:(?:[ \\t]*+)(?:(?!(?:!|&|\\||\\(|\\)|\\{|\\[|<|>|#|\\n|$|;|[ \\t]))(?!nocorrect |nocorrect\t|nocorrect$|readonly |readonly\t|readonly$|function |function\t|function$|foreach |foreach\t|foreach$|coproc |coproc\t|coproc$|logout |logout\t|logout$|export |export\t|export$|select |select\t|select$|repeat |repeat\t|repeat$|pushd |pushd\t|pushd$|until |until\t|until$|while |while\t|while$|local |local\t|local$|case |case\t|case$|done |done\t|done$|elif |elif\t|elif$|else |else\t|else$|esac |esac\t|esac$|popd |popd\t|popd$|then |then\t|then$|time |time\t|time$|for |for\t|for$|end |end\t|end$|fi |fi\t|fi$|do |do\t|do$|in |in\t|in$|if |if\t|if$)(?!\\\\\\n?$)))",
+      "begin": "(?:(?:[ \\t]*+)(?:(?!(?:!|&|\\||\\(|\\)|\\{|\\[|<|>|#|\\n|$|;|[ \\t]))(?!nocorrect |nocorrect\t|nocorrect$|function |function\t|function$|readonly |readonly\t|readonly$|foreach |foreach\t|foreach$|coproc |coproc\t|coproc$|export |export\t|export$|logout |logout\t|logout$|repeat |repeat\t|repeat$|select |select\t|select$|local |local\t|local$|pushd |pushd\t|pushd$|until |until\t|until$|while |while\t|while$|case |case\t|case$|done |done\t|done$|elif |elif\t|elif$|else |else\t|else$|esac |esac\t|esac$|popd |popd\t|popd$|then |then\t|then$|time |time\t|time$|end |end\t|end$|for |for\t|for$|do |do\t|do$|fi |fi\t|fi$|if |if\t|if$|in |in\t|in$)(?!\\\\\\n?$)))",
       "end": "(?=;|\\||&|\\n|\\)|\\`|\\{|\\}|[ \\t]*#|\\])(?<!\\\\)",
       "beginCaptures": {
       },
@@ -1802,7 +1802,7 @@
       ]
     },
     "normal_statement": {
-      "begin": "(?:(?!^[ \\t]*+$)(?:(?<=^until | until |\\tuntil |^while | while |\\twhile |^elif | elif |\\telif |^else | else |\\telse |^then | then |\\tthen |^do | do |\\tdo |^if | if |\\tif )|(?<=(?:^|;|\\||&|!|\\(|\\{|\\`)))(?:[ \\t]*+)(?!nocorrect\\W|nocorrect\\$|function\\W|function\\$|foreach\\W|foreach\\$|repeat\\W|repeat\\$|logout\\W|logout\\$|coproc\\W|coproc\\$|select\\W|select\\$|while\\W|while\\$|pushd\\W|pushd\\$|until\\W|until\\$|case\\W|case\\$|done\\W|done\\$|elif\\W|elif\\$|else\\W|else\\$|esac\\W|esac\\$|popd\\W|popd\\$|then\\W|then\\$|time\\W|time\\$|for\\W|for\\$|end\\W|end\\$|fi\\W|fi\\$|do\\W|do\\$|in\\W|in\\$|if\\W|if\\$))",
+      "begin": "(?:(?!^[ \\t]*+$)(?:(?<=^until | until |\\tuntil |^while | while |\\twhile |^elif | elif |\\telif |^else | else |\\telse |^then | then |\\tthen |^do | do |\\tdo |^if | if |\\tif )|(?<=(?:^|;|\\||&|!|\\(|\\{|\\`)))(?:[ \\t]*+)(?!nocorrect\\W|nocorrect\\$|function\\W|function\\$|foreach\\W|foreach\\$|coproc\\W|coproc\\$|logout\\W|logout\\$|repeat\\W|repeat\\$|select\\W|select\\$|pushd\\W|pushd\\$|until\\W|until\\$|while\\W|while\\$|case\\W|case\\$|done\\W|done\\$|elif\\W|elif\\$|else\\W|else\\$|esac\\W|esac\\$|popd\\W|popd\\$|then\\W|then\\$|time\\W|time\\$|end\\W|end\\$|for\\W|for\\$|do\\W|do\\$|fi\\W|fi\\$|if\\W|if\\$|in\\W|in\\$))",
       "end": "(?=;|\\||&|\\n|\\)|\\`|\\{|\\}|[ \\t]*#|\\])(?<!\\\\)",
       "beginCaptures": {
       },
@@ -1981,7 +1981,7 @@
       ]
     },
     "redirect_fix": {
-      "match": "(?:(>>?)(?:[ \\t]*+)([^ \t\n>&;<>\\(\\)\\$`\\\\\"'<\\|]+))",
+      "match": "(?:(>>?)(?:[ \\t]*+)([^ \t\n\\|&;<>\\(\\)\\$`\\\\\"'<>]+))",
       "captures": {
         "1": {
           "name": "keyword.operator.redirect.shell"
@@ -2065,7 +2065,7 @@
       }
     },
     "simple_unquoted": {
-      "match": "[^ \\t\\n>&;<>\\(\\)\\$`\\\\\"'<\\|]",
+      "match": "[^ \\t\\n\\|&;<>\\(\\)\\$`\\\\\"'<>]",
       "name": "string.unquoted.shell"
     },
     "special_expansion": {
@@ -2073,7 +2073,7 @@
       "name": "keyword.operator.expansion.shell"
     },
     "start_of_command": {
-      "match": "(?:(?:[ \\t]*+)(?:(?!(?:!|&|\\||\\(|\\)|\\{|\\[|<|>|#|\\n|$|;|[ \\t]))(?!nocorrect |nocorrect\t|nocorrect$|readonly |readonly\t|readonly$|function |function\t|function$|foreach |foreach\t|foreach$|coproc |coproc\t|coproc$|logout |logout\t|logout$|export |export\t|export$|select |select\t|select$|repeat |repeat\t|repeat$|pushd |pushd\t|pushd$|until |until\t|until$|while |while\t|while$|local |local\t|local$|case |case\t|case$|done |done\t|done$|elif |elif\t|elif$|else |else\t|else$|esac |esac\t|esac$|popd |popd\t|popd$|then |then\t|then$|time |time\t|time$|for |for\t|for$|end |end\t|end$|fi |fi\t|fi$|do |do\t|do$|in |in\t|in$|if |if\t|if$)(?!\\\\\\n?$)))"
+      "match": "(?:(?:[ \\t]*+)(?:(?!(?:!|&|\\||\\(|\\)|\\{|\\[|<|>|#|\\n|$|;|[ \\t]))(?!nocorrect |nocorrect\t|nocorrect$|function |function\t|function$|readonly |readonly\t|readonly$|foreach |foreach\t|foreach$|coproc |coproc\t|coproc$|export |export\t|export$|logout |logout\t|logout$|repeat |repeat\t|repeat$|select |select\t|select$|local |local\t|local$|pushd |pushd\t|pushd$|until |until\t|until$|while |while\t|while$|case |case\t|case$|done |done\t|done$|elif |elif\t|elif$|else |else\t|else$|esac |esac\t|esac$|popd |popd\t|popd$|then |then\t|then$|time |time\t|time$|end |end\t|end$|for |for\t|for$|do |do\t|do$|fi |fi\t|fi$|if |if\t|if$|in |in\t|in$)(?!\\\\\\n?$)))"
     },
     "string": {
       "patterns": [

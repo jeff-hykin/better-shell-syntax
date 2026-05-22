@@ -400,10 +400,27 @@ require_relative './tokens.rb'
         match: /[^ \t\n#{invalid_literals}]/,
         tag_as: "string.unquoted",
     )
+    # the lookahead for `>` defers an unquoted word to the redirect rule when it
+    # is an fd prefix (ex: 1>&2). Naively `[^…]+(?!>)` backtracks one char on
+    # `ab>`, leaving the trailing letter unscoped (and `<name>` losing its `e`).
+    # Only defer when the word is all-digits at word-start; in a redirect-target
+    # position (after `<` or `>`) or whenever the word has any non-digit,
+    # consume greedily. See issue #111.
+    literal_char_class           = "[^ \t\n#{invalid_literals}]"
+    non_digit_literal_char_class = "[^ \t\n0-9#{invalid_literals}]"
+    valid_argument_match = Regexp.new(
+        "(?:" +
+            "(?<=[<>])#{literal_char_class}+" +
+            "|" +
+            "#{literal_char_class}*#{non_digit_literal_char_class}#{literal_char_class}*" +
+            "|" +
+            "#{literal_char_class}+(?!\\d*>)" +
+        ")"
+    )
     generateUnquotedArugment = ->(tag_as) do
         std_space.then(
             tag_as: tag_as,
-            match: Pattern.new(valid_literal_characters).lookAheadToAvoid(/>/), # ex: 1>&2
+            match: valid_argument_match, # ex: 1>&2 still defers to redirect rule
             includes: [
                 # wildcard
                 Pattern.new(

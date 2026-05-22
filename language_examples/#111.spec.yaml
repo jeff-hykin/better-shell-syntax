@@ -1,0 +1,431 @@
+- source: '#'
+  scopesBegin:
+    - comment.line.number-sign
+  scopes:
+    - punctuation.definition.comment
+- source: ' issue #111: unquoted argument before `>` lost its last character'
+- source: '#'
+  scopes:
+    - punctuation.definition.comment
+- source: ' placeholders with `<...>` -- last char must stay in string.unquoted.argument'
+  scopesEnd:
+    - comment.line.number-sign
+- source: mkdir
+  scopesBegin:
+    - meta.statement
+    - meta.statement.command
+  scopes:
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+- source: <
+  scopesBegin:
+    - meta.argument
+  scopes:
+    - keyword.operator.redirect
+- source: name
+  scopes:
+    - string.unquoted.argument
+- source: '>'
+  scopes:
+    - keyword.operator.redirect
+  scopesEnd:
+    - meta.argument
+- source: git
+  scopes:
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+- source: clone
+  scopesBegin:
+    - meta.argument
+  scopes:
+    - string.unquoted.argument
+- source: <
+  scopes:
+    - keyword.operator.redirect
+- source: url
+  scopes:
+    - string.unquoted.argument
+- source: '>'
+  scopes:
+    - keyword.operator.redirect
+  scopesEnd:
+    - meta.argument
+- source: cd
+  scopes:
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+    - support.function.builtin
+- source: <
+  scopesBegin:
+    - meta.argument
+  scopes:
+    - keyword.operator.redirect
+- source: repo
+  scopesBegin:
+    - string.unquoted.argument
+- source: name
+  scopesEnd:
+    - string.unquoted.argument
+- source: '>'
+  scopes:
+    - keyword.operator.redirect
+  scopesEnd:
+    - meta.argument
+- source: git
+  scopes:
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+- source: cherry-pick
+  scopes:
+    - meta.argument
+    - string.unquoted.argument
+- source: '-'
+  scopesBegin:
+    - string.unquoted.argument
+  scopes:
+    - constant.other.option.dash
+- source: x
+  scopes:
+    - constant.other.option
+  scopesEnd:
+    - string.unquoted.argument
+- source: <
+  scopesBegin:
+    - meta.argument
+  scopes:
+    - keyword.operator.redirect
+- source: squash-merge-sha
+  scopes:
+    - string.unquoted.argument
+- source: '>'
+  scopes:
+    - keyword.operator.redirect
+  scopesEnd:
+    - meta.argument
+- source: git
+  scopes:
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+- source: checkout
+  scopesBegin:
+    - meta.argument
+  scopes:
+    - string.unquoted.argument
+- source: <
+  scopes:
+    - keyword.operator.redirect
+- source: target-branch
+  scopes:
+    - string.unquoted.argument
+- source: '>'
+  scopes:
+    - keyword.operator.redirect
+  scopesEnd:
+    - meta.statement
+    - meta.statement.command
+    - meta.argument
+- source: '#'
+  scopesBegin:
+    - comment.line.number-sign
+  scopes:
+    - punctuation.definition.comment
+- source: ' digit-suffix placeholders -- whole word stays in the argument, `>` is its own token'
+  scopesEnd:
+    - comment.line.number-sign
+- source: echo
+  scopesBegin:
+    - meta.statement
+    - meta.statement.command
+  scopes:
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+    - support.function.builtin
+- source: <
+  scopesBegin:
+    - meta.argument
+  scopes:
+    - keyword.operator.redirect
+- source: sha256
+  scopes:
+    - string.unquoted.argument
+- source: '>'
+  scopes:
+    - keyword.operator.redirect
+  scopesEnd:
+    - meta.argument
+- source: echo
+  scopes:
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+    - support.function.builtin
+- source: <
+  scopesBegin:
+    - meta.argument
+  scopes:
+    - keyword.operator.redirect
+- source: h264
+  scopes:
+    - string.unquoted.argument
+- source: '>'
+  scopes:
+    - keyword.operator.redirect
+  scopesEnd:
+    - meta.argument
+- source: echo
+  scopes:
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+    - support.function.builtin
+- source: <
+  scopesBegin:
+    - meta.argument
+  scopes:
+    - keyword.operator.redirect
+- source: '8080'
+  scopes:
+    - string.unquoted.argument
+- source: '>'
+  scopes:
+    - keyword.operator.redirect
+  scopesEnd:
+    - meta.statement
+    - meta.statement.command
+    - meta.argument
+- source: '#'
+  scopesBegin:
+    - comment.line.number-sign
+  scopes:
+    - punctuation.definition.comment
+- source: ' `word>file` -- the word must not be split before `>`'
+  scopesEnd:
+    - comment.line.number-sign
+- source: echo
+  scopesBegin:
+    - meta.statement
+    - meta.statement.command
+  scopes:
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+    - support.function.builtin
+- source: ab
+  scopesBegin:
+    - meta.argument
+  scopes:
+    - string.unquoted.argument
+- source: '>'
+  scopes:
+    - keyword.operator.redirect
+- source: c
+  scopes:
+    - string.unquoted.argument
+  scopesEnd:
+    - meta.argument
+- source: echo
+  scopes:
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+    - support.function.builtin
+- source: word
+  scopesBegin:
+    - meta.argument
+  scopes:
+    - string.unquoted.argument
+- source: '>'
+  scopes:
+    - keyword.operator.redirect
+- source: file
+  scopes:
+    - string.unquoted.argument
+  scopesEnd:
+    - meta.statement
+    - meta.statement.command
+    - meta.argument
+- source: '#'
+  scopesBegin:
+    - comment.line.number-sign
+  scopes:
+    - punctuation.definition.comment
+- source: ' unchanged-behavior controls: fd redirects still fall through to the redirect rule'
+  scopesEnd:
+    - comment.line.number-sign
+- source: echo
+  scopesBegin:
+    - meta.statement
+    - meta.statement.command
+  scopes:
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+    - support.function.builtin
+- source: hello
+  scopesBegin:
+    - meta.argument
+  scopes:
+    - string.unquoted.argument
+- source: '2'
+  scopes:
+    - keyword.operator.redirect.stderr
+- source: '>&1'
+  scopes:
+    - keyword.operator.redirect
+  scopesEnd:
+    - meta.argument
+- source: echo
+  scopes:
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+    - support.function.builtin
+- source: foo
+  scopesBegin:
+    - meta.argument
+  scopes:
+    - string.unquoted.argument
+- source: '1'
+  scopes:
+    - keyword.operator.redirect.stdout
+- source: '>'
+  scopes:
+    - keyword.operator.redirect
+- source: out
+  scopes:
+    - string.unquoted.argument
+- source: '2'
+  scopes:
+    - keyword.operator.redirect.stderr
+- source: '>'
+  scopes:
+    - keyword.operator.redirect
+- source: err
+  scopes:
+    - string.unquoted.argument
+  scopesEnd:
+    - meta.argument
+- source: exec
+  scopes:
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+    - support.function.builtin
+- source: '3'
+  scopesBegin:
+    - meta.argument
+  scopes:
+    - keyword.operator.redirect.3
+- source: '>&'
+  scopes:
+    - keyword.operator.redirect
+- source: '-'
+  scopes:
+    - string.unquoted.argument
+  scopesEnd:
+    - meta.argument
+- source: exec
+  scopes:
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+    - support.function.builtin
+- source: '255'
+  scopesBegin:
+    - meta.argument
+  scopes:
+    - keyword.operator.redirect.255
+- source: '>'
+  scopes:
+    - keyword.operator.redirect
+- source: file
+  scopes:
+    - string.unquoted.argument
+  scopesEnd:
+    - meta.argument
+- source: echo
+  scopes:
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+    - support.function.builtin
+- source: foo
+  scopesBegin:
+    - meta.argument
+  scopes:
+    - string.unquoted.argument
+- source: '10'
+  scopes:
+    - keyword.operator.redirect.10
+- source: '>'
+  scopes:
+    - keyword.operator.redirect
+- source: out
+  scopes:
+    - string.unquoted.argument
+  scopesEnd:
+    - meta.statement
+    - meta.statement.command
+    - meta.argument
+- source: '#'
+  scopesBegin:
+    - comment.line.number-sign
+  scopes:
+    - punctuation.definition.comment
+- source: ' numeric argument with no redirect: unchanged'
+  scopesEnd:
+    - comment.line.number-sign
+- source: echo
+  scopesBegin:
+    - meta.statement
+    - meta.statement.command
+  scopes:
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+    - support.function.builtin
+- source: '42'
+  scopes:
+    - meta.argument
+    - string.unquoted.argument
+    - constant.numeric
+    - constant.numeric.integer
+  scopesEnd:
+    - meta.statement
+    - meta.statement.command
+- source: '#'
+  scopesBegin:
+    - comment.line.number-sign
+  scopes:
+    - punctuation.definition.comment
+- source: ' heredoc: unchanged'
+  scopesEnd:
+    - comment.line.number-sign
+- source: cat
+  scopesBegin:
+    - meta.statement
+    - meta.statement.command
+  scopes:
+    - meta.statement.command.name
+    - entity.name.function.call
+    - entity.name.command
+- source: '<<'
+  scopesBegin:
+    - meta.argument
+  scopes:
+    - keyword.operator.heredoc
+- source: EOF
+  scopes:
+    - punctuation.definition.string.heredoc.delimiter
+- source: hi
+  scopes:
+    - string.unquoted.heredoc.no-indent.EOF
+- source: EOF
+  scopes:
+    - punctuation.definition.string.heredoc.delimiter
