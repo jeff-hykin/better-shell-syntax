@@ -174,7 +174,7 @@ require_relative './tokens.rb'
     #
     grammar[:comment] = Pattern.new(
         Pattern.new(
-            Pattern.new(/^/).or(/[ \t]++/)
+            Pattern.new(/^/).or(/\G(?<=[ \t])/).or(/[ \t]++/)
         ).then(
             Pattern.new(
                 tag_as: "comment.line.number-sign meta.shebang",
@@ -539,7 +539,7 @@ require_relative './tokens.rb'
     ]
     grammar[:command_name_range] = PatternRange.new(
         tag_as: "meta.statement.command.name",
-        start_pattern: Pattern.new(/\G/,),
+        start_pattern: Pattern.new(/\G(?![ \t])/,),
         end_pattern: argument_end.or(lookAheadFor(/</)),
         includes: [
             # 
@@ -935,7 +935,7 @@ require_relative './tokens.rb'
         # blank lines screw this pattern up, which is what the first lookAheadToAvoid is fixing
         start_pattern: Pattern.new(
             lookAheadToAvoid(empty_line).then(
-                lookBehindFor(valid_after_patterns).or(lookBehindFor(possible_pre_command_characters))
+                Pattern.new(/\G(?<=[ \t])(?![ \t]*+$)/).or(lookBehindFor(valid_after_patterns)).or(lookBehindFor(possible_pre_command_characters))
             ).then(std_space).lookAheadToAvoid(keyword_patterns),
         ),
         end_pattern: command_end,
